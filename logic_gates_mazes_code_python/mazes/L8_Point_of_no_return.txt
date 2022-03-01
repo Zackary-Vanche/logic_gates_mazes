@@ -1,0 +1,14 @@
+S0 : 0; S1 : 0; S2 : 0; S3 : 0; S4 : 0; S5 : 0; S6 : 0; S7 : 0; S8 : 0; S9 : 0; 
+R0 : S0 S5 S6 S7 S8 
+R1 : S1 
+R2 : S2 
+R3 : S3 
+R4 : S4 
+R5 : S9 
+RE (EXIT): 
+D0 : S0; R0 --> R5
+D1 : S5 S7 XNOR S9 AND; R5 <-> R1
+D2 : S6 S7 XOR S9 AND; R5 <-> R2
+D3 : S5 S8 OR S9 AND; R5 <-> R3
+D4 : S6 S8 XOR S9 AND; R5 <-> R4
+D5 : S1 S2 AND S3 S4 AND AND S9 AND; R5 --> RE

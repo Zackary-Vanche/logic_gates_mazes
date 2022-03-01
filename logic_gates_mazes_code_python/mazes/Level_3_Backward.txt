@@ -1,0 +1,146 @@
+----------------------------------------------------------------------------------------------------
+|                                                                                                  |
+|   Maze Backward :                                                                                |
+|   Start room index : 0                                                                           |
+|   Current room index : 0                                                                         |
+|   Solution(s) :                                                                                  |
+|      S0 D0 S2 D0 S0 S1 D1                                                                        |
+|                                                                                                  |
+----------------------------------------------------------------------------------------------------
+|                                                                                                  |
+|   Room R0 :                                                                                      |
+|   Departure door(s) list :                                                                       |
+|      []                                                                                          |
+|   Arrival door(s) list :                                                                         |
+|      []                                                                                          |
+|   Two-way door(s) list :                                                                         |
+|      ['D0', 'D1']                                                                                |
+|   Switches list :                                                                                |
+|      ['S0', 'S1']                                                                                |
+|                                                                                                  |
+----------------------------------------------------------------------------------------------------
+|                                                                                                  |
+|   Room R1 :                                                                                      |
+|   Departure door(s) list :                                                                       |
+|      []                                                                                          |
+|   Arrival door(s) list :                                                                         |
+|      []                                                                                          |
+|   Two-way door(s) list :                                                                         |
+|      ['D0']                                                                                      |
+|   Switches list :                                                                                |
+|      ['S2']                                                                                      |
+|                                                                                                  |
+----------------------------------------------------------------------------------------------------
+|                                                                                                  |
+|   Room RE :                                                                                      |
+|   Departure door(s) list :                                                                       |
+|      []                                                                                          |
+|   Arrival door(s) list :                                                                         |
+|      []                                                                                          |
+|   Two-way door(s) list :                                                                         |
+|      ['D1']                                                                                      |
+|   Switches list :                                                                                |
+|      []                                                                                          |
+|                                                                                                  |
+----------------------------------------------------------------------------------------------------
+|                                                                                                  |
+|   Door D0 :                                                                                      |
+|   Room of departure : R0                                                                         |
+|   Room of arrival : R1                                                                           |
+|   Two-way : True                                                                                 |
+|   opened : False                                                                                 |
+|   Tree T0 :                                                                                      |
+|   Raw logical expression :                                                                       |
+|      S0 S1 ANB                                                                                   |
+|   Logical expression :                                                                           |
+|      S1 - S0 &                                                                                   |
+|   0 0 | 0                                                                                        |
+|   0 1 | 0                                                                                        |
+|   1 0 | 1                                                                                        |
+|   1 1 | 0                                                                                        |
+|   |-------> 0                                                                                    |
+|   |-------> 0                                                                                    |
+|   value : 0                                                                                      |
+|   Number of leafs : 2                                                                            |
+|   depth of the Tree : 2                                                                          |
+|   Truth table :                                                                                  |
+|    0 0 | 0 X                                                                                     |
+|    1 0 | 1 X                                                                                     |
+|    0 1 | 0 X                                                                                     |
+|    1 1 | 0 X                                                                                     |
+|   Number of 0 in truth table : 3                                                                 |
+|   Number of 1 in truth table : 1                                                                 |
+|   Number of possibles 0 in truth table : 3                                                       |
+|   Number of possibles 1 in truth table : 1                                                       |
+|   Same switches list :                                                                           |
+|      []                                                                                          |
+|   Switches list :                                                                                |
+|      []                                                                                          |
+|                                                                                                  |
+----------------------------------------------------------------------------------------------------
+|                                                                                                  |
+|   Door D1 :                                                                                      |
+|   Room of departure : R0                                                                         |
+|   Room of arrival : RE                                                                           |
+|   Two-way : False                                                                                |
+|   opened : False                                                                                 |
+|   Tree T1 :                                                                                      |
+|   Raw logical expression :                                                                       |
+|      S0 S1 S2 AND BNA                                                                            |
+|   Logical expression :                                                                           |
+|      S2 S1 & S0 - &                                                                              |
+|   0 0 | 0                                                                                        |
+|   0 1 | 1                                                                                        |
+|   1 0 | 0                                                                                        |
+|   1 1 | 0                                                                                        |
+|   |-------> 0                                                                                    |
+|   |   0 0 | 0                                                                                    |
+|   |   0 1 | 0                                                                                    |
+|   |   1 0 | 0                                                                                    |
+|   |   1 1 | 1                                                                                    |
+|   |   |-------> 0                                                                                |
+|   |   |-------> 0                                                                                |
+|   |   value : 0                                                                                  |
+|   value : 0                                                                                      |
+|   Number of leafs : 3                                                                            |
+|   depth of the Tree : 3                                                                          |
+|   Truth table :                                                                                  |
+|    0 0 0 | 0 X                                                                                   |
+|    1 0 0 | 0 X                                                                                   |
+|    0 1 0 | 0 X                                                                                   |
+|    1 1 0 | 0 X                                                                                   |
+|    0 0 1 | 0 X                                                                                   |
+|    1 0 1 | 0 X                                                                                   |
+|    0 1 1 | 1 X                                                                                   |
+|    1 1 1 | 0 X                                                                                   |
+|   Number of 0 in truth table : 7                                                                 |
+|   Number of 1 in truth table : 1                                                                 |
+|   Number of possibles 0 in truth table : 7                                                       |
+|   Number of possibles 1 in truth table : 1                                                       |
+|   Same switches list :                                                                           |
+|      []                                                                                          |
+|   Switches list :                                                                                |
+|      []                                                                                          |
+|                                                                                                  |
+----------------------------------------------------------------------------------------------------
+|                                                                                                  |
+|   Switch S0 :                                                                                    |
+|   Room : R0                                                                                      |
+|   Doors : ['D1', 'D0']                                                                           |
+|   Tree : T1                                                                                      |
+|                                                                                                  |
+----------------------------------------------------------------------------------------------------
+|                                                                                                  |
+|   Switch S1 :                                                                                    |
+|   Room : R0                                                                                      |
+|   Doors : ['D1', 'D0']                                                                           |
+|   Tree : T1                                                                                      |
+|                                                                                                  |
+----------------------------------------------------------------------------------------------------
+|                                                                                                  |
+|   Switch S2 :                                                                                    |
+|   Room : R1                                                                                      |
+|   Doors : ['D1']                                                                                 |
+|   Tree : T1                                                                                      |
+|                                                                                                  |
+----------------------------------------------------------------------------------------------------

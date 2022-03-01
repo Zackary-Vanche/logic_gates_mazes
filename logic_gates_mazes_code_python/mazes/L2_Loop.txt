@@ -1,0 +1,9 @@
+S0 : 0; S1 : 0; S2 : 0; S3 : 0; 
+R0 : S0 
+R1 : S1 
+R2 : S2 S3 
+RE (EXIT): 
+D0 : S0; R0 --> R1
+D1 : S1; R1 --> R2
+D2 : S2; R2 --> R0
+D3 : S0 S3 BNA; R0 --> RE
