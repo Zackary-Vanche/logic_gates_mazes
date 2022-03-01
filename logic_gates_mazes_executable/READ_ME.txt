@@ -1,5 +1,5 @@
 To launch the game :
-	Double-click on logic_gates_maze/logic_gates_maze.exe or on the shortcut available in the current folder.
+	Double-click on logic_gates_maze/logic_gates_maze.exe.
 	A window will open.
 	Click once on that window.
 	The game starts.

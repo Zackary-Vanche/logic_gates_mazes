@@ -57,7 +57,7 @@ class Color:
     REALLY_DARK_BLUE     = color_hls(h = 0.64, l = 0.2, s = 0.35)
     REALLY_DARK_GREY     = ( 45,  45,  45)
     RED                  = color_hls(0)
-    SALMON               = color_hls(h = 0.017, l = 0.7, s = 0.9) #(250, 128, 114)
+    SALMON               = color_hls(h = 0.017, l = 0.75, s = 0.9) #(250, 128, 114)
     SILVER               = (170, 170, 160)
     WHITE                = (255, 255, 255)
     YELLOW               = color_hls(h = 0.15, l = 0.5)
