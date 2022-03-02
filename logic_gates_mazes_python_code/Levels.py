@@ -9,8 +9,8 @@ from Switch import Switch
 from Tree import Tree
 from Door import Door
 from Room import Room
-from Color import Color
 from Maze import Maze
+from Levels_colors_list import Levels_colors_list
 
 class Levels:
     
@@ -22,19 +22,8 @@ class Levels:
         S1 = Switch(name = 'S1')
         S2 = Switch(name = 'S2')
         
-        tree_list_0 = ['ANB', 
-                           # S0
-                           [None], 
-                           # S1
-                           [None]] 
-        tree_list_1 = ['BNA', 
-                           # S0
-                           [None], 
-                           ['AND', 
-                                # S1 
-                                [None],  
-                                # S2
-                                [None]]] 
+        tree_list_0 = Tree.tree_list_anb
+        tree_list_1 = ['BNA', [None], Tree.tree_list_and_2] 
         
         T0 = Tree(tree_list = tree_list_0, empty = True, name = 'T0', switches = [S0, S1])
         T1 = Tree(tree_list = tree_list_1, empty = True, name = 'T1', switches = [S0, S1, S2], easy_logical_expression_PN = "& - S0 ( & S1 S2 ) = & ( - S0 S1 S2 )")
@@ -52,18 +41,10 @@ class Levels:
         relative_departure_coordinates_D1 = [1, 1]
         relative_arrival_coordinates_D1   = [0, 1/2]
         
-        D0 = Door(two_way = True, 
-                  tree = T0, 
-                  name = 'D0', 
-                  room_departure = R0, 
-                  room_arrival = R1,
+        D0 = Door(two_way = True, tree = T0, name = 'D0', room_departure = R0, room_arrival = R1,
                   relative_departure_coordinates = relative_departure_coordinates_D0, 
                   relative_arrival_coordinates = relative_arrival_coordinates_D0)
-        D1 = Door(two_way = True, 
-                  tree = T1, 
-                  name = 'D1', 
-                  room_departure = R0, 
-                  room_arrival = RE,
+        D1 = Door(two_way = True, tree = T1, name = 'D1', room_departure = R0, room_arrival = RE,
                   relative_departure_coordinates = relative_departure_coordinates_D1, 
                   relative_arrival_coordinates = relative_arrival_coordinates_D1)
         
@@ -91,11 +72,7 @@ class Levels:
                      rooms_list = [R0, R1, RE], 
                      doors_list = [D0, D1], 
                      fastest_solution = 'S0 D0 S2 D0 S0 S1 D1',
-                     background_color = Color.DARK_BROWN,
-                     room_color = Color.ORANGE,
-                     contour_color = Color.WHITE,
-                     letters_color = Color.WHITE,
-                     letter_contour_color = Color.BLACK,
+                     level_color = Levels_colors_list.BROWN,
                      name = 'Backward',
                      help_txt = l_help_txt,
                      door_window_size = 500,)
@@ -118,7 +95,11 @@ class Levels:
         T3  = Tree(tree_list = [None],  empty = True, name = 'T3', switches = [S0])
         T4  = Tree(tree_list = [None],  empty = True, name = 'T4', switches = [S1])
         T5  = Tree(tree_list = [None],  empty = True, name = 'T5', switches = [S2])
-        T6  = Tree(tree_list = Tree.tree_list_and_7,  empty = True, name = 'T6', switches = [S0, S1, S2, S3, S4, S5, S6], easy_logical_expression_PN = '& ( S0 S1 S2 S3 S4 S5 S6 )')
+        T6  = Tree(tree_list = Tree.tree_list_and_7,  
+                   empty = True, 
+                   name = 'T6', 
+                   switches = [S0, S1, S2, S3, S4, S5, S6], 
+                   easy_logical_expression_PN = '& ( S0 S1 S2 S3 S4 S5 S6 )')
         
         position_R0 = [ 3,2.9,  2, 2]
         position_R1 = [ 1,  0,  2, 2]
@@ -144,7 +125,8 @@ class Levels:
         D3 = Door(two_way = True, tree = T3, name = 'D3', room_departure = R0, room_arrival = R4)
         D4 = Door(two_way = True, tree = T4, name = 'D4', room_departure = R3, room_arrival = R5)
         D5 = Door(two_way = True, tree = T5, name = 'D5', room_departure = R4, room_arrival = R6)
-        D6 = Door(two_way = True, tree = T6, name = 'D6', room_departure = R0, room_arrival = RE, relative_departure_coordinates = [1/2, 0.4])
+        D6 = Door(two_way = True, tree = T6, name = 'D6', room_departure = R0, room_arrival = RE, 
+                  relative_departure_coordinates = [1/2, 0.4])
         
         l_help_txt = [
 """At every step, you have only one action possible :
@@ -158,11 +140,7 @@ class Levels:
                      rooms_list = [R0, R1, R2, R3, R4, R5, R6, RE], 
                      doors_list = [D0, D1, D2, D3, D4, D5, D6], 
                      fastest_solution = 'S0 D3 S4 D3 D2 S3 D2 D3 D1 S2 D1 D5 S6 D5 D3 D2 D0 S1 D0 D4 S5 D4 D2 D6',
-                     background_color = Color.REALLY_BRIGHT_BLUE,
-                     room_color = Color.REALLY_BRIGHT_BLUE_2,
-                     contour_color = Color.BLACK_RED,
-                     letters_color = Color.BLACK_RED,
-                     letter_contour_color = Color.BLACK_RED,
+                     level_color = Levels_colors_list.BRIGHT_BLUE,
                      name = 'Binary',
                      help_txt = l_help_txt,
                      door_window_size = 500)
@@ -220,11 +198,7 @@ class Levels:
                      rooms_list = [R0, R1, R2, R3, RE], 
                      doors_list = [D0, D1, D2, D3, D4, D5], 
                      fastest_solution = 'S0 S2 D2 S4 D4 S1 S3 D1 D0 S5 D3 D5',
-                     background_color = Color.DARK_YELLOW,
-                     room_color = Color.BRIGHT_YELLOW,
-                     contour_color = Color.BLACK,
-                     letters_color = Color.BLACK,
-                     letter_contour_color = Color.BLACK,
+                     level_color = Levels_colors_list.YELLOW,
                      name = 'Crossroad',
                      help_txt = l_help_txt,
                      border = 30,
@@ -439,12 +413,8 @@ class Levels:
                      exit_room_index = -1, 
                      rooms_list = [R0, R1, R2, R3, R4, R5, RE], 
                      doors_list = [D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12], 
-                     fastest_solution = 'S0 S6 D1 D3 S3 S9 D5 S5 D12 D10 D8 S0 S6 D2 D4 S4 D6 S11 D11 D9 S1 S7 D7 S0 S6 D0', 
-                     background_color = Color.GREY,
-                     room_color = Color.SALMON,
-                     contour_color = Color.BLACK,
-                     letters_color = Color.BLACK,
-                     letter_contour_color = Color.WHITE,
+                     fastest_solution = 'S0 S6 D1 D3 S3 S9 D5 S5 D12 D10 D8 S0 S6 D2 D4 S4 D6 S11 D11 D9 S1 S7 D7 S0 S6 D0',
+                     level_color = Levels_colors_list.SALMON_AND_GREY,
                      name = 'Crystal',
                      help_txt = l_help_txt,
                      door_window_size = 500,
@@ -664,11 +634,7 @@ class Levels:
                      rooms_list = [R0, R1, R2, R3, R4, R5, R6, R7, RE], 
                      doors_list = [D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14], 
                      fastest_solution = "S0 D1 S1 D2 D3 S4 D4 D11 S8 D12 D13 S11 S9 D14 S0 D5 S5 D6 S0 D9 S7 D10 S0 D7 S6 D8 D0", 
-                     background_color = Color.DARK_GREEN,
-                     room_color = Color.GREEN,
-                     contour_color = Color.WHITE,
-                     letters_color = Color.WHITE,
-                     letter_contour_color = Color.WHITE,
+                     level_color = Levels_colors_list.DARK_GREEN,
                      name = 'Dead_ends',
                      help_txt = l_help_txt,
                      door_window_size = 500,
@@ -912,13 +878,7 @@ class Levels:
                       rooms_list = [R0, R1, R2, R3, R4, RE], 
                       doors_list = [D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10],
                       fastest_solution = 'S0 S1 S5 S8 D0 S11 D3 S12 D5 S14 D8 S16 S17 D10',
-                      background_color = Color.SILVER,
-                      room_color = Color.YELLOW,
-                      contour_color = Color.BLACK,
-                      letters_color = Color.BLACK,
-                      letter_contour_color = Color.DARK_GREY,
-                      inside_room_color = Color.BLACK,
-                      surrounding_color = Color.BLACK,
+                      level_color = Levels_colors_list.GOLD_AND_SILVER,
                       name = 'Electricity',
                       help_txt = l_help_txt,
                       border = 70,
@@ -1019,13 +979,7 @@ Here are some examples :
                       rooms_list = [R0, R1, R2, R3, RE], 
                       doors_list = [D0, D1, D2, D3, D4, D5],
                       fastest_solution = 'S0 D0 S1 D1 S2 S6 D4 S0 S4 D4 D2 S3 S7 D5 S1 S5 D5 D3',
-                      background_color = Color.DARK_BLUE_GREEN,
-                      room_color = Color.BLUE_GREEN,
-                      contour_color = Color.DARK_GREY,
-                      letters_color = Color.BLACK_RED,
-                      letter_contour_color = Color.DARK_GREY,
-                      inside_room_color = Color.BLACK_RED,
-                      surrounding_color = Color.BLACK_RED,
+                      level_color = Levels_colors_list.BLUE_GREEN,
                       name = 'Fluid',
                       help_txt = l_help_txt)
         return level
@@ -1115,13 +1069,7 @@ The name of the exit room is RE.
                       rooms_list = [R0, R1, R2, R3, R4, RE], 
                       doors_list = [D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10],
                       fastest_solution = 'S0 D0 S1 D8 S3 D3 S4 D9 S2 D7 S5 D4 S9 D6 S6 D1 S7 D2 S8 D5 D10',
-                      background_color = Color.BLACK_BLUE,
-                      room_color = Color.PALE_YELLOW,
-                      contour_color = Color.RED,
-                      letters_color = Color.WHITE,
-                      letter_contour_color = Color.BLACK,
-                      inside_room_color = Color.BLACK,
-                      surrounding_color = Color.BRIGHT_RED,
+                      level_color = Levels_colors_list.BLACK_AND_YELLOW,
                       name = 'Infinity',
                       help_txt = l_help_txt,
                       border = 50)
@@ -1219,19 +1167,14 @@ To go to the next level, press the right arrow key.
 To leave the game, you can press [Q] or [ESCAPE].
 """]
 
+        
+
         level = Maze(start_room_index = 0, 
                      exit_room_index = -1, 
                      rooms_list = [R0, R1, R2, RE], 
                      doors_list = [D0, D1, D2], 
                      fastest_solution = "S0 D0 S1 D1 D2",
-                     # On ne change pas les couleurs pour ce niveau
-                     background_color = Color.GREY_100,
-                     room_color = Color.DARK_GREY,
-                     contour_color = Color.WHITE,
-                     letters_color = Color.WHITE,
-                     letter_contour_color = Color.BLACK,
-                     inside_room_color = Color.WHITE,
-                     surrounding_color = Color.WHITE,
+                     level_color = Levels_colors_list.GREY,
                      name = 'Initiation',
                      help_txt = l_help_txt,
                      door_window_size = 500,
@@ -1250,26 +1193,10 @@ To leave the game, you can press [Q] or [ESCAPE].
         S6 = Switch(name = 'S6')
         S7 = Switch(name = 'S7')
         
-        tree_list_0 = ['AND', 
-                           # S0
-                           [None], 
-                           # S1
-                           [None]]
-        tree_list_1 = ['ANB', 
-                           # S2
-                           [None], 
-                           # S3
-                           [None]]
-        tree_list_2 = ['BNA', 
-                           # S4
-                           [None], 
-                           # S5
-                           [None]]
-        tree_list_3 = ['NOR', 
-                           # S6
-                           [None], 
-                           # S7
-                           [None]]
+        tree_list_0 = Tree.tree_list_and_2
+        tree_list_1 = Tree.tree_list_anb
+        tree_list_2 = Tree.tree_list_bna
+        tree_list_3 = Tree.tree_list_nor
         
         T0 = Tree(tree_list = tree_list_0, empty = True, name = 'T0', switches = [S0, S1], easy_logical_expression_PN = 'AND S0 S1 = & S0 S1')
         T1 = Tree(tree_list = tree_list_1, empty = True, name = 'T1', switches = [S2, S3], easy_logical_expression_PN = 'AND S2 NOT S3 = & S2 - S3')
@@ -1353,11 +1280,7 @@ To leave the game, you can press [Q] or [ESCAPE].
                      rooms_list = [R0, R1, R2, R3, RE], 
                      doors_list = [D0, D1, D2, D3], 
                      fastest_solution = 'S0 S1 D0 S2 D1 S5 D2 D3',
-                     background_color = Color.BRIGHT_GREEN,
-                     room_color = Color.REALLY_BRIGHT_GREEN,
-                     contour_color = Color.BLACK,
-                     letters_color = Color.BLACK,
-                     letter_contour_color = Color.BLACK,
+                     level_color = Levels_colors_list.BRIGHT_GREEN,
                      name = 'Linear',
                      help_txt = l_help_txt,
                      door_window_size = 500,
@@ -1375,11 +1298,7 @@ To leave the game, you can press [Q] or [ESCAPE].
         tree_list_0 = [None] # S0
         tree_list_1 = [None] # S1
         tree_list_2 = [None] # S2
-        tree_list_3 = ['BNA', 
-                           # S0
-                           [None], 
-                           # S3
-                           [None]]
+        tree_list_3 = Tree.tree_list_bna
         
         T0 = Tree(tree_list = tree_list_0, empty = True, name = 'T0', switches = [S0])
         T1 = Tree(tree_list = tree_list_1, empty = True, name = 'T1', switches = [S1])
@@ -1418,12 +1337,7 @@ To leave the game, you can press [Q] or [ESCAPE].
                      rooms_list = [R0, R1, R2, RE], 
                      doors_list = [D0, D1, D2, D3], 
                      fastest_solution = 'S0 D0 S1 D1 S2 S3 D2 S0 D3',
-                     background_color = Color.DARK_RED,
-                     room_color = Color.RED,
-                     contour_color = Color.WHITE,
-                     surrounding_color = Color.WHITE,
-                     letters_color = Color.WHITE,
-                     letter_contour_color = Color.BLACK,
+                     level_color = Levels_colors_list.RED,
                      name = 'Loop',
                      help_txt = l_help_txt,
                      door_window_size = 500,
@@ -1441,15 +1355,9 @@ To leave the game, you can press [Q] or [ESCAPE].
         S4 = Switch(name = 'S4')
         
         tree_list_0 = Tree.tree_list_and_5
-        tree_list_5 = ['NOR',
-                           [None], # S0
-                           [None]] # S4
-        tree_list_4 = ['BNA',
-                           [None], # S0
-                           [None]] # S4
-        tree_list_6 = ['ANB',
-                           [None], # S0
-                           [None]] # S4
+        tree_list_5 = Tree.tree_list_nor
+        tree_list_4 = Tree.tree_list_bna
+        tree_list_6 = Tree.tree_list_anb
         tree_list_2 = ['ANB',
                            tree_list_4[:], # S0 S4
                            [None]] # S2
@@ -1458,10 +1366,7 @@ To leave the game, you can press [Q] or [ESCAPE].
                            [None]] # S1
         tree_list_3 = ['AND',
                            tree_list_6[:], # S0 S4
-                           ['AND',
-                                [None],  # S1
-                                [None]]] # S3
-        
+                           Tree.tree_list_and_2] # S1 S3
         
         T0 = Tree(tree_list = tree_list_0, empty = True, name = 'T0', switches = [S0, S1, S2, S3, S4], easy_logical_expression_PN = '& ( S0 S1 S2 S3 S4 )')
         T1 = Tree(tree_list = tree_list_1, empty = True, name = 'T1', switches = [S0, S4, S1], easy_logical_expression_PN = '& ( - S0 S1 - S4 )')
@@ -1555,11 +1460,7 @@ if you want to turn on S0, S1 and then use the door D0.
                      rooms_list = [R0, R1, R2, R3, RE], 
                      doors_list = [D0, D1, D2, D3, D4, D5, D6],
                      fastest_solution = 'S4 D2 D4 S1 D4 D2 S4 D1 D5 S3 D5 D1 S0 D3 D6 S2 D6 D3 S4 D0', 
-                     background_color = Color.DARK_PURPLE,
-                     room_color = Color.BRIGHT_PURPLE,
-                     contour_color = Color.WHITE,
-                     letters_color = Color.WHITE,
-                     letter_contour_color = Color.DARK_PURPLE,
+                     level_color = Levels_colors_list.PURPLE,
                      name = 'Odd',
                      help_txt = l_help_txt,
                      border = 60,
@@ -1577,10 +1478,8 @@ if you want to turn on S0, S1 and then use the door D0.
         S4  = Switch(name = 'S4')
         S5  = Switch(name = 'S5')
         
-        tree_list = ['ANB', 
-                           [None], 
-                           [None]]
-        tree_list_4 = ['AND', [None], ['BNA', [None], [None]]]
+        tree_list = Tree.tree_list_anb
+        tree_list_4 = ['AND', [None], Tree.tree_list_bna]
         
         T0  = Tree(tree_list = tree_list,    empty = True, name = 'T0',  switches = [S0, S3])
         T1  = Tree(tree_list = tree_list,    empty = True, name = 'T1',  switches = [S1, S4])
@@ -1677,11 +1576,7 @@ There are 2 notations :
                      rooms_list = [R0, R1, R2, RE], 
                      doors_list = [D0, D1, D2, D3, D4, D5, D6], 
                      fastest_solution = 'S0 D0 S1 D1 S2 D2 D0 S1 S4 D3 D5 S5 D4 S1 D3 S3 D6', 
-                     background_color = Color.PINK,
-                     room_color = Color.BRIGHT_PINK,
-                     contour_color = Color.BLACK,
-                     letters_color = Color.BLACK,
-                     letter_contour_color = Color.WHITE,
+                     level_color = Levels_colors_list.PINK,
                      name = 'Parallel',
                      help_txt = l_help_txt,
                      border = 50)
@@ -1701,39 +1596,11 @@ There are 2 notations :
         S8 = Switch(name = 'S8')
         S9 = Switch(name = 'S9')
         
-        tree_list_0 = [None] # S0
-        tree_list_1 = ['AND',
-                           ['XNOR', 
-                               # S5
-                               [None], 
-                               # S7
-                               [None]],
-                           # S9
-                           [None]]
-        tree_list_2 = ['AND',
-                           ['XOR', 
-                               # S6
-                               [None], 
-                               # S7
-                               [None]],
-                           # S9
-                           [None]]
-        tree_list_3 = ['AND',
-                           ['OR', 
-                               # S5
-                               [None], 
-                               # S8
-                               [None]],
-                           # S9
-                           [None]]
-        tree_list_4 = ['AND',
-                           ['XOR', 
-                               # S6
-                               [None], 
-                               # S8
-                               [None]],
-                           # S9
-                           [None]]
+        tree_list_0 = [None] 
+        tree_list_1 = ['AND', Tree.tree_list_xnor, [None]]
+        tree_list_2 = ['AND', Tree.tree_list_xor, [None]]
+        tree_list_3 = ['AND', Tree.tree_list_or_2, [None]]
+        tree_list_4 = ['AND', Tree.tree_list_xor, [None]]
         tree_list_5 = Tree.tree_list_and_5
         
         T0 = Tree(tree_list = tree_list_0, empty = True, name = 'T0', switches = [S0])
@@ -1743,12 +1610,12 @@ There are 2 notations :
         T4 = Tree(tree_list = tree_list_4, empty = True, name = 'T4', switches = [S6, S8, S9])
         T5 = Tree(tree_list = tree_list_5, empty = True, name = 'T5', switches = [S1, S2, S3, S4, S9], easy_logical_expression_PN = '& ( S1 S2 S3 S4 S9 )')
         
-        position_R0 = [  0,2,3,4]
-        position_R1 = [3.5,0,2,2]
-        position_R2 = [3.5,6,2,2]
-        position_R3 = [6.5,0,2,2]
-        position_R4 = [6.5,6,2,2]
-        position_R5 = [4.5,3.5,3,1]
+        position_R0 = [  0,   2,  3,  4]
+        position_R1 = [3.5,   0,  2,  2]
+        position_R2 = [3.5,   6,  2,  2]
+        position_R3 = [6.5,   0,  2,  2]
+        position_R4 = [6.5,   6,  2,  2]
+        position_R5 = [4.5, 3.5,  3,  1]
         position_RE = [  9,3.25,1.5,1.5]
         
         R0 = Room(name = 'R0', position = position_R0, switches_list = [S0, S5, S6, S7, S8])
@@ -1845,11 +1712,7 @@ There are 2 notations :
                      rooms_list = [R0, R1, R2, R3, R4, R5, RE], 
                      doors_list = [D0, D1, D2, D3, D4, D5],
                      fastest_solution = 'S0 S5 S7 S8 D0 S9 D1 S1 D1 D2 S2 D2 D3 S3 D3 D4 S4 D4 D5',
-                     background_color = Color.REALLY_DARK_BLUE,
-                     room_color = Color.DARK_BLUE,
-                     contour_color = Color.WHITE,
-                     letters_color = Color.WHITE,
-                     letter_contour_color = Color.BLACK,
+                     level_color = Levels_colors_list.DARK_BLUE,
                      name = 'Point_of_no_return',
                      help_txt = l_help_txt)
         
@@ -1865,41 +1728,11 @@ There are 2 notations :
         S5 = Switch(name = 'S5')
         S6 = Switch(name = 'S6')
         
-        tree_list_0 = ['OR', 
-                           ['OR', 
-                               # S0
-                               [None], 
-                               # S2
-                               [None]], 
-                           ['OR', 
-                               # S4
-                               [None], 
-                               # S6
-                               [None]]]
+        tree_list_0 = Tree.tree_list_or_4
         tree_list_1 = [None]
-        tree_list_2 = ['BNA',
-                           # S0
-                           [None],
-                           ['OR', 
-                                ['OR', 
-                                     # S2
-                                     [None], 
-                                     # S4
-                                     [None]], 
-                           # S6
-                           [None]]]
+        tree_list_2 = ['BNA', [None], Tree.tree_list_or_3]
         tree_list_3 = [None]
-        tree_list_4 = ['AND',
-                           ['NOR',
-                                # S0
-                                [None],
-                                # S2
-                                [None]],
-                           ['OR', 
-                                # S4
-                                [None], 
-                                # S6
-                                [None]]]
+        tree_list_4 = ['AND', Tree.tree_list_nor, Tree.tree_list_or_2]
         tree_list_5 = [None]
         tree_list_6 = ['BNA', Tree.tree_list_or_3, Tree.tree_list_and_4]
         
@@ -1996,13 +1829,7 @@ There are 2 notations :
                      rooms_list = [R0, R1, R2, R3, RE], 
                      doors_list = [D0, D1, D2, D3, D4, D5, D6], 
                      fastest_solution = 'S0 S1 D0 S2 D1 S0 D0 S3 D2 S4 D3 S2 D2 S5 D4 S6 D5 S4 D4 D6',
-                     background_color = Color.GREY_100,
-                     room_color = Color.BLACK,
-                     contour_color = Color.BRIGHT_RED,
-                     letters_color = Color.WHITE,
-                     inside_room_color = Color.WHITE,
-                     letter_contour_color = Color.BLACK,
-                     surrounding_color = Color.BRIGHT_RED,
+                     level_color = Levels_colors_list.BLACK_AND_WHITE,
                      name = 'Recurrence',
                      help_txt = l_help_txt,
                      border = 55)
@@ -2103,12 +1930,7 @@ There are 2 notations :
                      rooms_list = [R0, R1, R2, R3, R4, R5, R6, R7, R8, RE], 
                      doors_list = [D0, D1, D2, D3, D4, D5, D6, D7, D8], 
                      fastest_solution = 'S1 S3 S5 D0 S8 D1 D2 D3 D4 D5 D6 D7 D8',
-                     background_color = Color.DARK_RED,
-                     room_color = Color.ORANGE,
-                     contour_color = Color.WHITE,
-                     letters_color = Color.WHITE,
-                     inside_room_color = Color.WHITE,
-                     letter_contour_color = Color.BLACK,
+                     level_color = Levels_colors_list.RED_AND_ORANGE,
                      name = 'XOR3',
                      help_txt = l_help_txt,
                      door_window_size = 550)

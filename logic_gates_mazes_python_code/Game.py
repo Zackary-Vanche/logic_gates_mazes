@@ -196,15 +196,17 @@ class Game:
                 level_changed = False
                 maze = Levels.levels_list[index_current_level]
                 maze.reboot_solution()
-
+                
                 doors_list = maze.doors_list()
-                background_color = maze.background_color
-                room_color = maze.room_color
-                contour_color = maze.contour_color
-                letters_color = maze.letters_color
+                
+                level_colors = maze.level_color
+                background_color = level_colors.background_color
+                room_color = level_colors.room_color
+                contour_color = level_colors.contour_color
+                letters_color = level_colors.letters_color
                 # letter_contour_color = maze.letter_contour_color
-                inside_room_color = maze.inside_room_color
-                surrounding_color = maze.surrounding_color
+                inside_room_color = level_colors.inside_room_color
+                surrounding_color = level_colors.surrounding_color
 
                 y_separation = maze.y_separation
                 door_window_size = maze.door_window_size

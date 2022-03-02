@@ -9,6 +9,7 @@ from fonction_affine import fonction_affine
 from numpy import array as array
 from numpy.linalg import norm as np_linalg_norm
 from time import time as time
+from Level_color import Level_color
 
 class Maze: 
     
@@ -21,14 +22,8 @@ class Maze:
                  exit_room_index = -1, 
                  rooms_list = [], 
                  doors_list = [], 
+                 level_color = Level_color(),
                  fastest_solution = None, 
-                 background_color = (90, 90, 90),
-                 room_color = (50, 50, 50),
-                 contour_color = (255,255,255),
-                 letters_color = (255,255,255),
-                 inside_room_color = None,
-                 letter_contour_color = (255,255,255),
-                 surrounding_color = None,
                  name = 'L',
                  y_separation = 70,
                  door_window_size = 500,
@@ -123,21 +118,6 @@ class Maze:
             print(self.name, 'fastest_solution == None -> TO CHANGE')
             self.fastest_solution = None
         self.extreme_coordinates = None
-        self.background_color = background_color
-        self.room_color = room_color
-        self.contour_color = contour_color
-        self.letters_color = letters_color
-        self.inside_room_color = None
-        if inside_room_color == None:
-            self.inside_room_color = self.letters_color
-        else:
-            self.inside_room_color = inside_room_color
-        self.surrounding_color = None
-        if surrounding_color == None:
-            self.surrounding_color = self.contour_color
-        else:
-            self.surrounding_color = surrounding_color
-        self.letter_contour_color = letter_contour_color
         self.border = border
         self.y_separation = y_separation
         self.door_window_size = door_window_size
@@ -150,6 +130,7 @@ class Maze:
             assert (max_len_h <= 200), max_len_h
         self.n_help_pages = len(help_txt)
         self.keep_proportions = keep_proportions
+        self.level_color = level_color
                 
     def add_door(self, door):
         self.doors_set.add(door)

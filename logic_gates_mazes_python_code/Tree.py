@@ -45,6 +45,7 @@ class Tree:
     tree_list_anb = ['ANB', [None], [None]]
     tree_list_bna = ['BNA', [None], [None]]
     tree_list_xor = ['XOR', [None], [None]]
+    tree_list_xnor = ['XNOR', [None], [None]]
     tree_list_nand = ['NAND', [None], [None]]
     tree_list_aonb = ['AONB', [None], [None]]
     tree_list_bona = ['BONA', [None], [None]]
