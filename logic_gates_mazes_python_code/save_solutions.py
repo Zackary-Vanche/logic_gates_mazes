@@ -16,7 +16,7 @@ from moindres_carres import moindres_carres
 
 import numpy as np
 
-import random as rd
+# import random as rd
 
 if __name__ == "__main__":
     

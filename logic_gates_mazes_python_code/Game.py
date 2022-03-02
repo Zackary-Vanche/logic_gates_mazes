@@ -92,8 +92,8 @@ class Game:
     #     WINDOW.blit(img_score_left, (WINDOW_WIDTH // 2 - 30, 20))
 
     # The main function that controls the game
-    def play(WINDOW_SIZE=(1350, 768),
-             SMALLEST_WINDOW_SIZE=(1350, 768),
+    def play(WINDOW_SIZE=(1366-20, 768-100),
+             SMALLEST_WINDOW_SIZE=(1366-20, 768-100),
              XY_marge=(0, 0),  # (25, 120)
              save_image=False,
              index_current_level=0,  # Cette variable détermine le niveau joué.

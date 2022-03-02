@@ -1563,8 +1563,7 @@ if you want to turn on S0, S1 and then use the door D0.
                   relative_arrival_coordinates = relative_arrival_coordinates_D6)
         
         l_help_txt = [
-"""
-To change the doors' notation, press [N].
+"""To change the doors' notation, press [N].
 
 There are 2 notations :
     The first one is the easy one.
