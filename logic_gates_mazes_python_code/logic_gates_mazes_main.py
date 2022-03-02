@@ -23,7 +23,7 @@ if __name__ == "__main__":
     sys_exit()
     
     # À lancer dans le Anaconda powershell :
-    # pyinstaller C:\Users\utilisateur\Documents\github\logic_gates_mazes\logic_gates_mazes_code_python\logic_gates_mazes_main.py --distpath C:\Users\utilisateur\Documents\github\logic_gates_mazes\logic_gates_mazes_executable --icon=C:\Users\utilisateur\Documents\github\logic_gates_mazes\icone.ico
+    # pyinstaller C:\Users\utilisateur\Documents\github\logic_gates_mazes\logic_gates_mazes_python_code\logic_gates_mazes_main.py --distpath C:\Users\utilisateur\Documents\github\logic_gates_mazes\logic_gates_mazes_executable --icon=C:\Users\utilisateur\Documents\github\logic_gates_mazes\icone.ico
     
     # Si on ne veut qu'un seul fichier au lieu d'un dossier
     # on ajoute -F
