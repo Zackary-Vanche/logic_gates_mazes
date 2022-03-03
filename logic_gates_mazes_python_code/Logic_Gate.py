@@ -121,7 +121,10 @@ class Logic_Gate:
                        # Implication A => B
                        'BONA':  [1, 1, 0, 1],
                        'NAND':  [1, 1, 1, 0],
-                       'TRUE_2':  [1, 1, 1, 1]}
+                       'TRUE_2':  [1, 1, 1, 1],
+                       'XNOR3': [0, 0, 0, 1, 0, 1, 1, 0],
+                       'XOR3': [0, 1, 1, 0, 1, 0, 0, 0]
+                       }
     
     for n in range(3, 11):
         shortcuts_gates['AND_{}'.format(n)] = AND_list(n)

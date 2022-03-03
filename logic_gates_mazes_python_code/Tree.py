@@ -5,10 +5,11 @@ Created on Thu Feb 24 20:50:35 2022
 @author: utilisateur
 """
 
-from random import random as rd_random
-from random import randint as rd_randint
-from random import shuffle as rd_shuffle
+# from random import random as rd_random
+# from random import randint as rd_randint
+# from random import shuffle as rd_shuffle
 from numpy import array
+from numpy import cumsum
 from numpy import zeros as np_zeros
 from Logic_Gate import Logic_Gate
 
@@ -21,25 +22,27 @@ class Tree:
     et nous pouvons associer à leur racine un booléen.
     La valeur d'un arbre est ce booléen.
     """
-    tree_list_and_2  = ['AND', [None], [None]]
-    tree_list_and_3  = ['AND', tree_list_and_2, [None]]
-    tree_list_and_4  = ['AND', tree_list_and_2, tree_list_and_2]
-    tree_list_and_5  = ['AND', tree_list_and_4, [None]]
-    tree_list_and_6  = ['AND', tree_list_and_4, tree_list_and_2]
-    tree_list_and_7  = ['AND', tree_list_and_4, tree_list_and_3]
-    tree_list_and_8  = ['AND', tree_list_and_4, tree_list_and_4]
-    tree_list_and_9  = ['AND', tree_list_and_4, tree_list_and_5]
-    tree_list_and_10 = ['AND', tree_list_and_5, tree_list_and_5]
+    tree_list_not = ['NOT', [None]]
     
-    tree_list_or_2  = ['OR', [None], [None]]
-    tree_list_or_3  = ['OR', tree_list_or_2, [None]]
-    tree_list_or_4  = ['OR', tree_list_or_2, tree_list_or_2]
-    tree_list_or_5  = ['OR', tree_list_or_4, [None]]
-    tree_list_or_6  = ['OR', tree_list_or_4, tree_list_or_2]
-    tree_list_or_7  = ['OR', tree_list_or_4, tree_list_or_3]
-    tree_list_or_8  = ['OR', tree_list_or_4, tree_list_or_4]
-    tree_list_or_9  = ['OR', tree_list_or_4, tree_list_or_5]
-    tree_list_or_10 = ['OR', tree_list_or_5, tree_list_or_5]
+    tree_list_and_2  = ['AND'] + [[None]]*2
+    tree_list_and_3  = ['AND_3'] + [[None]]*3
+    tree_list_and_4  = ['AND_4'] + [[None]]*4
+    tree_list_and_5  = ['AND_5'] + [[None]]*5
+    tree_list_and_6  = ['AND_6'] + [[None]]*6
+    tree_list_and_7  = ['AND_7'] + [[None]]*7 
+    tree_list_and_8  = ['AND_8'] + [[None]]*8
+    tree_list_and_9  = ['AND_9'] + [[None]]*9
+    tree_list_and_10 = ['AND_10'] + [[None]]*10
+    
+    tree_list_or_2  = ['OR'] + [[None]]*2
+    tree_list_or_3  = ['OR_3'] + [[None]]*3
+    tree_list_or_4  = ['OR_4'] + [[None]]*4
+    tree_list_or_5  = ['OR_5'] + [[None]]*5
+    tree_list_or_6  = ['OR_6'] + [[None]]*6
+    tree_list_or_7  = ['OR_7'] + [[None]]*7 
+    tree_list_or_8  = ['OR_8'] + [[None]]*8
+    tree_list_or_9  = ['OR_9'] + [[None]]*9
+    tree_list_or_10 = ['OR_10'] + [[None]]*10
     
     tree_list_nor = ['NOR', [None], [None]]
     tree_list_anb = ['ANB', [None], [None]]
@@ -50,27 +53,30 @@ class Tree:
     tree_list_aonb = ['AONB', [None], [None]]
     tree_list_bona = ['BONA', [None], [None]]
     
-    tree_list_FFF = ['ANB', ['OR', [None], [None]], [None]]
-    tree_list_TFF = ['AND', [None], ['NOR', [None], [None]]] 
-    tree_list_FTF = ['ANB', ['BNA', [None], [None]], [None]] 
-    tree_list_FFT = ['AND', ['NOR', [None], [None]], [None]]  
-    tree_list_FTT = ['NAND', [None], ['NOR', [None], [None]]] 
-    tree_list_TFT = ['BNA', ['BNA', [None], [None]], [None]] 
-    tree_list_TTF = ['NAND', ['NOR', [None], [None]], [None]] 
+    tree_list_FFF = ['AND_3', tree_list_not, tree_list_not, tree_list_not]
+    tree_list_TFF = ['AND_3', [None], tree_list_not, tree_list_not]
+    tree_list_FTF = ['AND_3', tree_list_not, [None], tree_list_not]
+    tree_list_FFT = ['AND_3', tree_list_not, tree_list_not, [None]]
+    tree_list_FTT = ['AND_3', tree_list_not, [None], [None]]
+    tree_list_TFT = ['AND_3', [None], tree_list_not, [None]]
+    tree_list_TTF = ['AND_3', [None], [None], tree_list_not]
     tree_list_TTT = tree_list_and_3
     
-    tree_list_XOR3 = ['OR', ['OR', tree_list_TFF, tree_list_FTF], tree_list_FFT]
-    tree_list_XNOR3 = ['OR', ['OR', tree_list_FTT, tree_list_TFT], tree_list_TTF]
+    tree_list_XOR3 = ['XOR3', [None], [None], [None]]
+    tree_list_XNOR3 = ['XNOR3', [None], [None], [None]]
     
     def __init__(self, 
-                 tree_list = None, 
+                 tree_list = [None], 
                  empty = None, 
                  name = 'T', 
                  switches = [], 
                  easy_logical_expression_PN = None,
                  root_depth = 0):
+        
+        assert not (root_depth == 0 and switches == []), name
+        
         self.name = name
-        assert name == '' and root_depth != 0 or self.name[0] == 'T' 
+        assert self.name[0] == 'T' 
         self.is_leaf = None
         self.empty = empty
         # La racine sera soit un booléen si il s'agit d'une feuille, soit d'une porte logique binaire.
@@ -96,30 +102,31 @@ class Tree:
         # La deuxième est switches_list.
         
         self.switches_list = switches
+        assert not (self.root_depth == 0 and self.switches_list == []), self.name
         for switch in self.switches_list:
             switch.tree = self
             if self.door != None:
                 switch.add_door(self.door)
         self.same_switches_list = []
         
-        if tree_list != None:
-            if len(tree_list) == 1:
-                self.root = tree_list[0]
-                self.is_leaf = True
-            else:
-                try:
-                    assert len(tree_list) == 3
-                except:
-                    print(tree_list)
-                    raise
-                root = tree_list[0]
-                self.root = Logic_Gate(root)
-                sons_list = tree_list[1:]
+        assert isinstance(tree_list, list), self.name
+        
+        if len(tree_list) == 1:
+            self.root = tree_list[0]
+            self.is_leaf = True
+        else:
+            root = tree_list[0]
+            self.root = Logic_Gate(root)
+            sons_list = tree_list[1:]
                 
-                for k in range(len(sons_list)):
-                    son = sons_list[k]
-                    self.sons_list.append(Tree(son, root_depth = root_depth+1, name = self.name + str(k)))
-                self.is_leaf = False      
+            for k in range(len(sons_list)):
+                son = sons_list[k]
+                assert isinstance(son, list), """{}{} : {}""".format(self.name, str(k), str(son))
+                self.sons_list.append(Tree(son, 
+                                           root_depth = root_depth+1, 
+                                           name = self.name + '_' + str(k),
+                                           switches = self.switches_list))
+            self.is_leaf = False      
         self.leafs_switches_updates = False
         self.raw_logical_expression_RPN = None 
         self.easy_logical_expression_PN = easy_logical_expression_PN
@@ -147,12 +154,13 @@ class Tree:
             return self.switches_list[0].name
         else:
             root = self.root
-            if len(self.sons_list) == 1: # TODO
-                pass
+            root_name = root.name.split('_')[0] # We do that for roots names like AND_7, OR_4...
+            if len(self.sons_list) == 1: 
+                if root_name == 'NOT': 
+                    self.easy_logical_expression_PN = '-' + self.sons_list[0].get_easy_logical_expression_PN()
             elif len(self.sons_list) == 2:
-                A    = self.sons_list[0].get_easy_logical_expression_PN()
-                B    = self.sons_list[1].get_easy_logical_expression_PN()
-                root_name = root.name
+                A = self.sons_list[0].get_easy_logical_expression_PN()
+                B = self.sons_list[1].get_easy_logical_expression_PN()
                 if len(A) > len(B):
                     A, B = B, A
                     root_name = root.invert_A_B_gate_name()
@@ -197,8 +205,17 @@ class Tree:
                     self.easy_logical_expression_PN = B
                 if root_name == 'TRUE':
                     self.easy_logical_expression_PN = 'T'
-            elif len(self.sons_list) == 3: # TODO
-                pass
+            else: 
+                if root_name == 'OR':
+                    root_name = '|'
+                if root_name == 'AND':
+                    root_name = '&'
+                txt = root_name
+                txt = txt + ' ( '
+                for son in self.sons_list:
+                    txt = txt + son.get_easy_logical_expression_PN() + ' '
+                txt = txt + ') '
+                self.easy_logical_expression_PN = txt
         return self.easy_logical_expression_PN
         
     def get_raw_logical_expression_RPN(self):
@@ -306,12 +323,7 @@ class Tree:
     def switch_leafs(self, root_depth = 0):
         self.empty = False
         switch_list = self.switches_list
-        try:
-            assert len(switch_list) == self.number_of_leafs()
-        except:
-            print(len(switch_list), self.number_of_leafs(), root_depth)
-            print(switch_list)
-            raise
+        assert len(switch_list) == self.number_of_leafs(), """name : {}\n switch_list : {}\n number_of_leafs : {}\n root_depth : {}\n""".format(self.name, switch_list, self.number_of_leafs(), root_depth)
         if self.is_leaf:
             self.is_leaf = True
             self.root = switch_list[0].value
@@ -320,24 +332,17 @@ class Tree:
         else:
             new_switches_list = switch_list[:]
             self.is_leaf = False
-            if len(self.sons_list) == 1: # TODO
-                pass
-            elif len(self.sons_list) == 2:
-                left = self.sons_list[0]
-                right = self.sons_list[1]
-                nb_switches_left = left.number_of_leafs()
-                nb_switches_right = right.number_of_leafs()
-                try:
-                    assert self.number_of_leafs() == nb_switches_left + nb_switches_right
-                except:
-                    print(self.number_of_leafs(), nb_switches_left, nb_switches_right)
-                    raise
-                left.switches_list = new_switches_list[:nb_switches_left]
-                right.switches_list = new_switches_list[-nb_switches_right:]
-                left.switch_leafs(root_depth+1)
-                right.switch_leafs(root_depth+1)
-            elif len(self.sons_list) == 3: # TODO
-                pass
+            nb_switches_list = []
+            for son in self.sons_list:
+                nb_switches_list.append(son.number_of_leafs())
+            assert self.number_of_leafs() == sum(nb_switches_list)
+            nb_switches_list = array(nb_switches_list)
+            nb_switches_sum = cumsum(nb_switches_list)
+            for k in range(len(self.sons_list)):
+                son = self.sons_list[k]
+                a, b = nb_switches_sum[k], nb_switches_list[k]
+                son.switches_list = new_switches_list[a-b:a]
+                son.switch_leafs(root_depth+1)
         # Cette fonction change la valeur des feuilles de l'arbre afin de prendre en compte les interrupteurs
         
     def sons_list_values(self):
@@ -362,83 +367,69 @@ class Tree:
         if self.is_leaf:
             return 1
         else:
-            if len(self.sons_list) == 1: # TODO
-                pass
-            elif len(self.sons_list) == 2:
-                left = self.sons_list[0]
-                right = self.sons_list[1]
-                return 1 + max(left.get_depth(), right.get_depth())
-            elif len(self.sons_list) == 3: # TODO
-                pass
+            maxi = -float('inf')
+            for son in self.sons_list:
+                maxi = max(son.get_depth(), maxi)
+            return 1 + maxi
         
-    def random_tree(empty = False, root_depth = 0, max_depth = 3, p_feuille = 0, n_switches = 'alea'):
-        T = Tree()
-        T.empty = empty
-        if rd_random() < 1-p_feuille and root_depth+1 < max_depth:
-            results_list = [rd_randint(0,1) for i in range(4)]
-            T.root = Logic_Gate(results_list)
-            T.left = Tree.random_tree(empty, root_depth + 1)
-            T.right = Tree.random_tree(empty, root_depth + 1)
-            T.is_leaf = False
-        else:
-            if empty :
-                T.root = None
-            else:
-                T.root  = rd_randint(0,1)
-            T.left  = None
-            T.right = None
-            T.is_leaf = True  
-        # Ajout des interupteurs
-        if n_switches != 0 and root_depth == 0:
-            if n_switches == 'alea':
-                n_leafs = T.number_of_leafs()
-                n_switches = rd_randint(2, n_leafs)
-                leafs = [i for i in range(n_leafs)]
-                rd_shuffle(leafs)
-                switches_list = []
-                for i in range(n_switches):
-                    switches_list.append([leafs[i]])
-                for i in range(n_switches, n_leafs):
-                    switches_list[rd_randint(0, n_switches-1)].append(leafs[i])
-                T.same_switches_list = switches_list   
-        return T 
+    # def random_tree(empty = False, root_depth = 0, max_depth = 3, p_feuille = 0, n_switches = 'alea'):
+    #     T = Tree()
+    #     T.empty = empty
+    #     if rd_random() < 1-p_feuille and root_depth+1 < max_depth:
+    #         results_list = [rd_randint(0,1) for i in range(4)]
+    #         T.root = Logic_Gate(results_list)
+    #         T.left = Tree.random_tree(empty, root_depth + 1)
+    #         T.right = Tree.random_tree(empty, root_depth + 1)
+    #         T.is_leaf = False
+    #     else:
+    #         if empty :
+    #             T.root = None
+    #         else:
+    #             T.root  = rd_randint(0,1)
+    #         T.left  = None
+    #         T.right = None
+    #         T.is_leaf = True  
+    #     # Ajout des interupteurs
+    #     if n_switches != 0 and root_depth == 0:
+    #         if n_switches == 'alea':
+    #             n_leafs = T.number_of_leafs()
+    #             n_switches = rd_randint(2, n_leafs)
+    #             leafs = [i for i in range(n_leafs)]
+    #             rd_shuffle(leafs)
+    #             switches_list = []
+    #             for i in range(n_switches):
+    #                 switches_list.append([leafs[i]])
+    #             for i in range(n_switches, n_leafs):
+    #                 switches_list[rd_randint(0, n_switches-1)].append(leafs[i])
+    #             T.same_switches_list = switches_list   
+    #     return T 
     
     def number_of_leafs(self):
         if self.is_leaf: 
             return 1
         else: 
-            if len(self.sons_list) == 1: # TODO
-                pass
-            elif len(self.sons_list) == 2:
-                left = self.sons_list[0]
-                right = self.sons_list[1]
-                return left.number_of_leafs() + right.number_of_leafs()
-            elif len(self.sons_list) == 3: # TODO
-                pass
+            n_leafs = 0
+            for son in self.sons_list:
+                n_leafs += son.number_of_leafs()
+            return n_leafs
+                
         
     def leafs_list(self):
         if self.is_leaf: 
             return [self.get_root()]
         else: 
-            if len(self.sons_list) == 1: # TODO
-                pass
-            elif len(self.sons_list) == 2:
-                left = self.sons_list[0]
-                right = self.sons_list[1]
-                return left.leafs_list() + right.leafs_list()
-            elif len(self.sons_list) == 3: # TODO
-                pass
+            ll = []
+            for son in self.sons_list:
+                ll.extend(ll.leafs_list())
+            return ll
         
     def copy(self, new_leafs_list = None, root_depth = 0):
         # mettre à jour cette fonction si on l'utilise plus
         if type(new_leafs_list) == type(None):
             new_leafs_list = self.leafs_list()
-        try:
-            assert len(new_leafs_list) == self.number_of_leafs() or root_depth != 0
-        except:
-            print(len(new_leafs_list), self.number_of_leafs())
-            raise
-        T = Tree(name = self.name)
+        assert len(new_leafs_list) == self.number_of_leafs() or root_depth != 0, "{} {}".format(len(new_leafs_list), self.number_of_leafs())
+        assert self.switches_list != [], self.name
+        T = Tree(name = self.name + '_copy')
         if self.is_leaf:
             T.is_leaf = True
             T.root = new_leafs_list[0]
@@ -469,12 +460,7 @@ class Tree:
         for ipossibility in range(2**n_leafs):
             line = table[ipossibility][:-1]
             T_copy = self.copy(line)
-            try:
-                assert (T_copy.leafs_list() == line).all()
-            except:
-                print("T_copy.leafs_list() =", T_copy.leafs_list())
-                print("line =", line)
-                raise
+            assert (T_copy.leafs_list() == line).all(), "T_copy.leafs_list() = {}\n line = {}".format(T_copy.leafs_list(), line)
             table[ipossibility,-1] = T_copy.get_value()
         return table
     
@@ -598,17 +584,4 @@ class Tree:
         
 if __name__ == "__main__":
     
-    from Switch import Switch
-    
-    S0 = Switch(name = 'S0')
-    S1 = Switch(name = 'S1')
-    S2 = Switch(name = 'S2')
-    
-    tree_list_0 = [None] 
-    tree_list_1 = Tree.tree_list_and_2
-    
-    T0 = Tree(tree_list = tree_list_0, empty = True, name = 'T0', switches = [S0])
-    T1 = Tree(tree_list = tree_list_1, empty = True, name = 'T1', switches = [S0, S1, S2])
-    
-    print(str(T0))
-    print(str(T1))
+    pass

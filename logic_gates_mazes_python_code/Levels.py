@@ -98,8 +98,7 @@ class Levels:
         T6  = Tree(tree_list = Tree.tree_list_and_7,  
                    empty = True, 
                    name = 'T6', 
-                   switches = [S0, S1, S2, S3, S4, S5, S6], 
-                   easy_logical_expression_PN = '& ( S0 S1 S2 S3 S4 S5 S6 )')
+                   switches = [S0, S1, S2, S3, S4, S5, S6])
         
         position_R0 = [ 3,2.9,  2, 2]
         position_R1 = [ 1,  0,  2, 2]
@@ -168,7 +167,7 @@ class Levels:
         T2 = Tree(tree_list = tree_list_2, empty = True, name = 'T2', switches = [S2])
         T3 = Tree(tree_list = tree_list_3, empty = True, name = 'T3', switches = [S3])
         T4 = Tree(tree_list = tree_list_4, empty = True, name = 'T4', switches = [S4])
-        T5 = Tree(tree_list = tree_list_5, empty = True, name = 'T5', switches = [S0, S1, S2, S3, S4, S5], easy_logical_expression_PN = '& ( S0 S1 S2 S3 S4 S5 )')
+        T5 = Tree(tree_list = tree_list_5, empty = True, name = 'T5', switches = [S0, S1, S2, S3, S4, S5])
         
         position_R0 = [2.5,  5,  1.75,  1.75]
         position_R1 = [  0,2.5,  1.75,  1.75]
@@ -222,14 +221,14 @@ class Levels:
         S11 = Switch(name = 'S11')
         
         tree_list_0  = Tree.tree_list_and_9
-        tree_list_1  = ['ANB', Tree.tree_list_and_2, [None]]
-        tree_list_2  = Tree.tree_list_FFT
-        tree_list_3  = ['ANB', Tree.tree_list_and_2, [None]]
-        tree_list_4  = Tree.tree_list_FFT
-        tree_list_5  = ['ANB', Tree.tree_list_and_2, [None]]
+        tree_list_1  = Tree.tree_list_TFT
+        tree_list_2  = Tree.tree_list_FTF
+        tree_list_3  = Tree.tree_list_TFT
+        tree_list_4  = Tree.tree_list_FTF
+        tree_list_5  = Tree.tree_list_TFT
         tree_list_6  = Tree.tree_list_FFT
         tree_list_7  = Tree.tree_list_and_2
-        tree_list_8  = ['AND', Tree.tree_list_anb, Tree.tree_list_anb]
+        tree_list_8  = ['AND_4', [None], [None], Tree.tree_list_not, Tree.tree_list_not]
         tree_list_9  = Tree.tree_list_nor
         tree_list_10 = Tree.tree_list_bna
         tree_list_11 = Tree.tree_list_anb
@@ -237,39 +236,31 @@ class Levels:
         
         T0   = Tree(tree_list = tree_list_0,   
                     empty = True, name = 'T0',   
-                    switches = [S0, S1, S3, S4, S5, S6, S7, S9, S11], 
-                    easy_logical_expression_PN = '& ( S0 S1 S3 S4 S5 S6 S7 S9 S11 )')
+                    switches = [S0, S1, S3, S4, S5, S6, S7, S9, S11])
         T1   = Tree(tree_list = tree_list_1,   
                     empty = True, name = 'T1',   
-                    switches = [S0, S6, S5], 
-                    easy_logical_expression_PN = '& ( S0 - S5 S6 )')
+                    switches = [S0, S5, S6])
         T2   = Tree(tree_list = tree_list_2,   
                     empty = True, name = 'T2',   
-                    switches = [S0, S6, S5], 
-                    easy_logical_expression_PN = '& ( - S0 S5 - S6 )')
+                    switches = [S0, S5, S6])
         T3   = Tree(tree_list = tree_list_3,   
                     empty = True, name = 'T3',   
-                    switches = [S0, S6, S5], 
-                    easy_logical_expression_PN = '& ( S0 - S5 S6 )')
+                    switches = [S0, S5, S6])
         T4   = Tree(tree_list = tree_list_4,   
                     empty = True, name = 'T4',   
-                    switches = [S0, S6, S5], 
-                    easy_logical_expression_PN = '& ( - S0 S5 - S6 )')
+                    switches = [S0, S5, S6])
         T5   = Tree(tree_list = tree_list_5,   
                     empty = True, name = 'T5',   
-                    switches = [S0, S6, S5], 
-                    easy_logical_expression_PN = '& ( S0 - S5 S6 )')
+                    switches = [S0, S5, S6])
         T6   = Tree(tree_list = tree_list_6,   
                     empty = True, name = 'T6',   
-                    switches = [S0, S6, S5], 
-                    easy_logical_expression_PN = '& ( - S0 S5 - S6 )')
+                    switches = [S0, S6, S5])
         T7   = Tree(tree_list = tree_list_7,   
                     empty = True, name = 'T7',   
                     switches = [S5, S11])
         T8   = Tree(tree_list = tree_list_8,   
                     empty = True, name = 'T8',   
-                    switches = [S3, S7, S5, S11], 
-                    easy_logical_expression_PN = '& ( S3 S5 - S7 - S11 )')
+                    switches = [S3, S5, S7, S11])
         T9   = Tree(tree_list = tree_list_9,   
                     empty = True, name = 'T9',   
                     switches = [S2, S10])
@@ -436,9 +427,9 @@ class Levels:
         S9  = Switch(name = 'S9')
         S10 = Switch(name = 'S10')
         S11 = Switch(name = 'S11')
-        SN  = Switch(name = 'SN') # Switch Null
+        # SN  = Switch(name = 'SN') # Switch Null
         
-        tree_list_0  = ['ANB', Tree.tree_list_and_4, [None]]
+        tree_list_0  = ["AND_5", Tree.tree_list_not, [None], [None], [None], [None]]
         tree_list_1  = ['AND', Tree.tree_list_nor, [None]]
         tree_list_2  = Tree.tree_list_nor
         tree_list_3  = tree_list_1[:]
@@ -450,11 +441,12 @@ class Levels:
         tree_list_9  = Tree.tree_list_anb
         tree_list_10 = ['ANB', ['AND', Tree.tree_list_xor, Tree.tree_list_xor], [None]]
         tree_list_11 = Tree.tree_list_anb
-        tree_list_12 = ['NA', [None], [None]]
-        tree_list_13 = ['BNA', [None], Tree.tree_list_nor]
+        # tree_list_12 = ['NA', [None], [None]]
+        tree_list_12 = ['NOT', [None]]
+        tree_list_13 = Tree.tree_list_FFF
         tree_list_14 = tree_list_10[:]
         
-        T0  = Tree(tree_list = tree_list_0,  empty = True, name = 'T0',  switches = [S5, S6, S7, S8, S0], easy_logical_expression_PN = "& ( - S0 S5 S6 S7 S8 )")
+        T0  = Tree(tree_list = tree_list_0,  empty = True, name = 'T0',  switches = [S0, S5, S6, S7, S8])
         T1  = Tree(tree_list = tree_list_1,  empty = True, name = 'T1',  switches = [S1, S2, S0], easy_logical_expression_PN = "& ( S0 - S1 - S2 )")
         T2  = Tree(tree_list = tree_list_2,  empty = True, name = 'T2',  switches = [S3, S4])
         T3  = Tree(tree_list = tree_list_3,  empty = True, name = 'T3',  switches = [S3, S4, S0], easy_logical_expression_PN = "& ( S0 - S3 - S4 )")
@@ -464,11 +456,11 @@ class Levels:
         T7  = Tree(tree_list = tree_list_7,  empty = True, name = 'T7',  switches = [S0, S6])
         T8  = Tree(tree_list = tree_list_8,  empty = True, name = 'T8',  switches = [S9, S11, S10])
         T9  = Tree(tree_list = tree_list_9,  empty = True, name = 'T9',  switches = [S0, S7])
-        T10 = Tree(tree_list = tree_list_10, empty = True, name = 'T10', switches = [S1, S2, S3, S4, S6], easy_logical_expression_PN = "& [ - S6 ( XOR S1 S2 ) ( XOR S3 S4 ) ]")
+        T10 = Tree(tree_list = tree_list_10, empty = True, name = 'T10', switches = [S1, S2, S3, S4, S6])
         T11 = Tree(tree_list = tree_list_11, empty = True, name = 'T11', switches = [S0, S8])
-        T12 = Tree(tree_list = tree_list_12, empty = True, name = 'T12', switches = [S9, SN])
+        T12 = Tree(tree_list = tree_list_12, empty = True, name = 'T12', switches = [S9])
         T13 = Tree(tree_list = tree_list_13, empty = True, name = 'T13', switches = [S9, S10, S11])
-        T14 = Tree(tree_list = tree_list_14, empty = True, name = 'T14', switches = [S1, S3, S2, S4, S5], easy_logical_expression_PN = "& [ - S5 ( XOR S1 S3 ) ( XOR S2 S4 ) ]")
+        T14 = Tree(tree_list = tree_list_14, empty = True, name = 'T14', switches = [S1, S3, S2, S4, S5])
         
         position_R0 = [    3,   4,   4,    2]
         position_R1 = [    1, 1.5,   3,    1]
@@ -899,8 +891,15 @@ class Levels:
         
         tree_list_0 = Tree.tree_list_anb
         tree_list_1 = Tree.tree_list_anb
-        tree_list_2 = ['AND', [None], Tree.tree_list_anb]
-        tree_list_3 = ['ANB', Tree.tree_list_and_5, Tree.tree_list_or_2]
+        tree_list_2 = ['AND_3', Tree.tree_list_not, [None], [None]]
+        tree_list_3 = ['AND_7', 
+                       Tree.tree_list_not, 
+                       Tree.tree_list_not, 
+                       [None],
+                       [None],
+                       [None],
+                       [None],
+                       [None]]
         tree_list_4 = [None]
         tree_list_5 = [None]
         
@@ -915,13 +914,11 @@ class Levels:
         T2  = Tree(tree_list = tree_list_2,  
                    empty = True, 
                    name = 'T2', 
-                   switches = [S2, S4, S0], 
-                   easy_logical_expression_PN = '& ( S2 S4 - S0 )')
+                   switches = [S0, S2, S4]) 
         T3  = Tree(tree_list = tree_list_3,  
                    empty = True, 
                    name = 'T3', 
-                   switches = [S3, S4, S5, S6, S7, S0, S1], 
-                   easy_logical_expression_PN = '& ( - S0 - S1 S3 S4 S5 S6 S7 )')
+                   switches = [S0, S1, S3, S4, S5, S6, S7])
         T4  = Tree(tree_list = tree_list_4,  
                    empty = True, 
                    name = 'T4', 
@@ -1015,13 +1012,13 @@ Here are some examples :
         T9  = Tree(tree_list = tree_list_9,  empty = True, name = 'T9', switches = [S4, S9])
         T7  = Tree(tree_list = tree_list_7,  empty = True, name = 'T7', switches = [S2, S7])
         
-        T4  = Tree(tree_list = tree_list_4,  empty = True, name = 'T4', switches = [S0, S1, S2, S3, S4], easy_logical_expression_PN = '& ( S0 S1 S2 S3 S4 )')
-        T6  = Tree(tree_list = tree_list_6,  empty = True, name = 'T6', switches = [S0, S1, S2, S3, S4], easy_logical_expression_PN = '& ( S0 S1 S2 S3 S4 )')
-        T1  = Tree(tree_list = tree_list_1,  empty = True, name = 'T1', switches = [S0, S1, S2, S3, S4], easy_logical_expression_PN = '& ( S0 S1 S2 S3 S4 )')
-        T2  = Tree(tree_list = tree_list_2,  empty = True, name = 'T2', switches = [S0, S1, S2, S3, S4], easy_logical_expression_PN = '& ( S0 S1 S2 S3 S4 )')
-        T5  = Tree(tree_list = tree_list_5,  empty = True, name = 'T5', switches = [S0, S1, S2, S3, S4, S5], easy_logical_expression_PN = '& ( S0 S1 S2 S3 S4 S5 )')
+        T4  = Tree(tree_list = tree_list_4,  empty = True, name = 'T4', switches = [S0, S1, S2, S3, S4])
+        T6  = Tree(tree_list = tree_list_6,  empty = True, name = 'T6', switches = [S0, S1, S2, S3, S4])
+        T1  = Tree(tree_list = tree_list_1,  empty = True, name = 'T1', switches = [S0, S1, S2, S3, S4])
+        T2  = Tree(tree_list = tree_list_2,  empty = True, name = 'T2', switches = [S0, S1, S2, S3, S4])
+        T5  = Tree(tree_list = tree_list_5,  empty = True, name = 'T5', switches = [S0, S1, S2, S3, S4, S5])
 
-        T10 = Tree(tree_list = tree_list_10, empty = True,name = 'T10', switches = [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9], easy_logical_expression_PN = '& ( S0 S1 S2 S3 S4 S5 S6 S7 S8 S9 )')
+        T10 = Tree(tree_list = tree_list_10, empty = True,name = 'T10', switches = [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9])
         
         position_R0 = [4, 3,2,2]
         position_R1 = [8, 6,2,2]
@@ -1358,20 +1355,17 @@ To leave the game, you can press [Q] or [ESCAPE].
         tree_list_5 = Tree.tree_list_nor
         tree_list_4 = Tree.tree_list_bna
         tree_list_6 = Tree.tree_list_anb
-        tree_list_2 = ['ANB',
-                           tree_list_4[:], # S0 S4
-                           [None]] # S2
-        tree_list_1 = ['AND',
-                           tree_list_5[:], # S0 S4
-                           [None]] # S1
-        tree_list_3 = ['AND',
-                           tree_list_6[:], # S0 S4
-                           Tree.tree_list_and_2] # S1 S3
+        tree_list_1 = ['AND_3', Tree.tree_list_not, [None], Tree.tree_list_not]
+        tree_list_2 = ['AND_3', Tree.tree_list_not, Tree.tree_list_not, [None]]
+        tree_list_3 = ['AND_4', [None], [None], [None], Tree.tree_list_not]
         
-        T0 = Tree(tree_list = tree_list_0, empty = True, name = 'T0', switches = [S0, S1, S2, S3, S4], easy_logical_expression_PN = '& ( S0 S1 S2 S3 S4 )')
-        T1 = Tree(tree_list = tree_list_1, empty = True, name = 'T1', switches = [S0, S4, S1], easy_logical_expression_PN = '& ( - S0 S1 - S4 )')
-        T2 = Tree(tree_list = tree_list_2, empty = True, name = 'T2', switches = [S0, S4, S2], easy_logical_expression_PN = '& ( - S0 - S2 S4 )')
-        T3 = Tree(tree_list = tree_list_3, empty = True, name = 'T3', switches = [S0, S4, S1, S3], easy_logical_expression_PN = '& ( S0 S1 S3 - S4 )')
+        T0 = Tree(tree_list = tree_list_0, empty = True, name = 'T0', switches = [S0, S1, S2, S3, S4])
+        T1 = Tree(tree_list = tree_list_1, empty = True, name = 'T1', switches = [S0, S1, S4])
+        #, easy_logical_expression_PN = '& ( - S0 S1 - S4 )')
+        T2 = Tree(tree_list = tree_list_2, empty = True, name = 'T2', switches = [S0, S2, S4])
+        #, easy_logical_expression_PN = '& ( - S0 - S2 S4 )')
+        T3 = Tree(tree_list = tree_list_3, empty = True, name = 'T3', switches = [S0, S1, S3, S4])
+        #, easy_logical_expression_PN = '& ( S0 S1 S3 - S4 )')
         T4 = Tree(tree_list = tree_list_4, empty = True, name = 'T4', switches = [S0, S4])
         T5 = Tree(tree_list = tree_list_5, empty = True, name = 'T5', switches = [S0, S4])
         T6 = Tree(tree_list = tree_list_6, empty = True, name = 'T6', switches = [S0, S4])
@@ -1479,15 +1473,15 @@ if you want to turn on S0, S1 and then use the door D0.
         S5  = Switch(name = 'S5')
         
         tree_list = Tree.tree_list_anb
-        tree_list_4 = ['AND', [None], Tree.tree_list_bna]
+        tree_list_4 = ['AND_3', Tree.tree_list_not, [None], [None]]
         
         T0  = Tree(tree_list = tree_list,    empty = True, name = 'T0',  switches = [S0, S3])
         T1  = Tree(tree_list = tree_list,    empty = True, name = 'T1',  switches = [S1, S4])
         T2  = Tree(tree_list = tree_list,    empty = True, name = 'T2',  switches = [S2, S5])
         T3  = Tree(tree_list = tree_list,    empty = True, name = 'T3',  switches = [S0, S3])
-        T4  = Tree(tree_list = tree_list_4,  empty = True, name = 'T4',  switches = [S5, S1, S4], easy_logical_expression_PN = '& ( - S1 S4 S5 )')
+        T4  = Tree(tree_list = tree_list_4,  empty = True, name = 'T4',  switches = [S1, S4, S5])
         T5  = Tree(tree_list = tree_list,    empty = True, name = 'T5',  switches = [S2, S5])
-        T6  = Tree(tree_list = Tree.tree_list_and_6,  empty = True, name = 'T6',  switches = [S0, S1, S2, S3, S4, S5], easy_logical_expression_PN = '& ( S0 S1 S2 S3 S4 S5 )')
+        T6  = Tree(tree_list = Tree.tree_list_and_6,  empty = True, name = 'T6',  switches = [S0, S1, S2, S3, S4, S5])
         
         position_R0 = [  0,   0,   6,    1]
         position_R1 = [  3,   2,   2,    1]
@@ -1607,7 +1601,7 @@ There are 2 notations :
         T2 = Tree(tree_list = tree_list_2, empty = True, name = 'T2', switches = [S6, S7, S9])
         T3 = Tree(tree_list = tree_list_3, empty = True, name = 'T3', switches = [S5, S8, S9])
         T4 = Tree(tree_list = tree_list_4, empty = True, name = 'T4', switches = [S6, S8, S9])
-        T5 = Tree(tree_list = tree_list_5, empty = True, name = 'T5', switches = [S1, S2, S3, S4, S9], easy_logical_expression_PN = '& ( S1 S2 S3 S4 S9 )')
+        T5 = Tree(tree_list = tree_list_5, empty = True, name = 'T5', switches = [S1, S2, S3, S4, S9])
         
         position_R0 = [  0,   2,  3,  4]
         position_R1 = [3.5,   0,  2,  2]
@@ -1733,15 +1727,24 @@ There are 2 notations :
         tree_list_3 = [None]
         tree_list_4 = ['AND', Tree.tree_list_nor, Tree.tree_list_or_2]
         tree_list_5 = [None]
-        tree_list_6 = ['BNA', Tree.tree_list_or_3, Tree.tree_list_and_4]
+        # tree_list_6 = ['BNA', Tree.tree_list_or_3, Tree.tree_list_and_4]
+        tree_list_6 = ['AND_7', 
+                       Tree.tree_list_not, 
+                       [None],
+                       Tree.tree_list_not, 
+                       [None],
+                       Tree.tree_list_not, 
+                       [None],
+                       [None]]
         
-        T0 = Tree(tree_list = tree_list_0, empty = True, name = 'T0', switches = [S0, S2, S4, S6], easy_logical_expression_PN = '| ( S0 S2 S4 S6 )')
+        T0 = Tree(tree_list = tree_list_0, empty = True, name = 'T0', switches = [S0, S2, S4, S6])
         T1 = Tree(tree_list = tree_list_1, empty = True, name = 'T1', switches = [S1])
-        T2 = Tree(tree_list = tree_list_2, empty = True, name = 'T2', switches = [S0, S2, S4, S6], easy_logical_expression_PN = '& - S0 | ( S2 S4 S6 )')
+        T2 = Tree(tree_list = tree_list_2, empty = True, name = 'T2', switches = [S0, S2, S4, S6])
         T3 = Tree(tree_list = tree_list_3, empty = True, name = 'T3', switches = [S3])
-        T4 = Tree(tree_list = tree_list_4, empty = True, name = 'T4', switches = [S0, S2, S4, S6], easy_logical_expression_PN = '& [ - S0 - S2 | ( S4 S6 ) ]')
+        T4 = Tree(tree_list = tree_list_4, empty = True, name = 'T4', switches = [S0, S2, S4, S6])
         T5 = Tree(tree_list = tree_list_5, empty = True, name = 'T5', switches = [S5])
-        T6 = Tree(tree_list = tree_list_6, empty = True, name = 'T6', switches = [S0, S2, S4, S1, S3, S5, S6], easy_logical_expression_PN = '& ( - S0 S1 - S2 S3 - S4 S5 S6 )')
+        T6 = Tree(tree_list = tree_list_6, empty = True, name = 'T6', switches = [S0, S1, S2, S3, S4, S5, S6])
+        #, easy_logical_expression_PN = '& ( - S0 S1 - S2 S3 - S4 S5 S6 )')
         
         position_R0 = [0,4,2,2]
         position_R1 = [0,0,2,2]
@@ -1860,11 +1863,11 @@ There are 2 notations :
         T0  = Tree(tree_list = tree_list_0,  empty = True, name = 'T0', switches = [S6, S7], easy_logical_expression_PN = "NAND S6 S7 = -& S6 S7")
         T1  = Tree(tree_list = tree_list_1,  empty = True, name = 'T1', switches = [S6, S7, S8])
         T2  = Tree(tree_list = tree_list_2,  empty = True, name = 'T2', switches = [S6, S7, S8])
-        T3  = Tree(tree_list = tree_list_3,  empty = True, name = 'T3', switches = [S0, S1, S2]*3 + [S8], easy_logical_expression_PN = '& S8 XOR3 ( S0 S1 S2 )')
-        T4  = Tree(tree_list = tree_list_4,  empty = True, name = 'T4', switches = [S1, S2, S3]*3 + [S8], easy_logical_expression_PN = '& S8 XNOR3 ( S1 S2 S3 )')
-        T5  = Tree(tree_list = tree_list_5,  empty = True, name = 'T5', switches = [S2, S3, S4]*3 + [S8], easy_logical_expression_PN = '& S8 XOR3 ( S2 S3 S4 )')
-        T6  = Tree(tree_list = tree_list_6,  empty = True, name = 'T6', switches = [S3, S4, S5]*3 + [S8], easy_logical_expression_PN = '& S8 XNOR3 ( S3 S4 S5 )')
-        T7  = Tree(tree_list = tree_list_7,  empty = True, name = 'T7', switches = [S4, S5, S6]*3 + [S8], easy_logical_expression_PN = '& S8 XOR3 ( S4 S5 S6 )')
+        T3  = Tree(tree_list = tree_list_3,  empty = True, name = 'T3', switches = [S0, S1, S2, S8])
+        T4  = Tree(tree_list = tree_list_4,  empty = True, name = 'T4', switches = [S1, S2, S3, S8])
+        T5  = Tree(tree_list = tree_list_5,  empty = True, name = 'T5', switches = [S2, S3, S4, S8])
+        T6  = Tree(tree_list = tree_list_6,  empty = True, name = 'T6', switches = [S3, S4, S5, S8])
+        T7  = Tree(tree_list = tree_list_7,  empty = True, name = 'T7', switches = [S4, S5, S6, S8])
         T8  = Tree(tree_list = tree_list_8,  empty = True, name = 'T7', switches = [S1, S4, S1, S3, S2, S4] + [S8])
         
         position_R0 = [ 0,  0,  2,  4]

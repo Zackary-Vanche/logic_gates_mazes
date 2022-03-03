@@ -102,7 +102,7 @@ class Game:
              print_click_rects=False,
              print_room_name=True,
              easy_notation=True,
-             show_help=True,
+             show_help=False,
              index_help_page=0):
 
         pygame_init()
