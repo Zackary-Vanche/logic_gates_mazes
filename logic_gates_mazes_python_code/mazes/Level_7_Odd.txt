@@ -2,8 +2,8 @@
 |                                                                                                  |
 |   Maze Odd :                                                                                     |
 |   Start room index : 0                                                                           |
-|   Current room index : 0                                                                         |
-|   Solution(s) :                                                                                  |
+|   Current room index : 4                                                                         |
+|   Fastest solution :                                                                             |
 |      S4 D2 D4 S1 D4 D2 S4 D1 D5 S3 D5 D1 S0 D3 D6 S2 D6 D3 S4 D0                                 |
 |                                                                                                  |
 ----------------------------------------------------------------------------------------------------
@@ -72,39 +72,53 @@
 |   Room of departure : R0                                                                         |
 |   Room of arrival : RE                                                                           |
 |   Two-way : False                                                                                |
-|   opened : False                                                                                 |
+|   opened : True                                                                                  |
 |   Tree T0 :                                                                                      |
 |   Raw logical expression :                                                                       |
-|      S0 S1 AND S2 S3 AND AND S4 AND                                                              |
+|       ( S0 S1 S2 S3 S4 ) &                                                                       |
 |   Logical expression :                                                                           |
-|      S3 S2 & S1 S0 & & S4 &                                                                      |
-|   0 0 | 0                                                                                        |
-|   0 1 | 0                                                                                        |
-|   1 0 | 0                                                                                        |
-|   1 1 | 1                                                                                        |
-|   |   0 0 | 0                                                                                    |
-|   |   0 1 | 0                                                                                    |
-|   |   1 0 | 0                                                                                    |
-|   |   1 1 | 1                                                                                    |
-|   |   |   0 0 | 0                                                                                |
-|   |   |   0 1 | 0                                                                                |
-|   |   |   1 0 | 0                                                                                |
-|   |   |   1 1 | 1                                                                                |
-|   |   |   |-------> 0                                                                            |
-|   |   |   |-------> 0                                                                            |
-|   |   |   value : 0                                                                              |
-|   |   |   0 0 | 0                                                                                |
-|   |   |   0 1 | 0                                                                                |
-|   |   |   1 0 | 0                                                                                |
-|   |   |   1 1 | 1                                                                                |
-|   |   |   |-------> 0                                                                            |
-|   |   |   |-------> 0                                                                            |
-|   |   |   value : 0                                                                              |
-|   |   value : 0                                                                                  |
-|   |-------> 0                                                                                    |
-|   value : 0                                                                                      |
+|       ( S0 S1 S2 S3 S4 ) &                                                                       |
+|   0 0 0 0 0 | 0                                                                                  |
+|   0 0 0 0 1 | 0                                                                                  |
+|   0 0 0 1 0 | 0                                                                                  |
+|   0 0 0 1 1 | 0                                                                                  |
+|   0 0 1 0 0 | 0                                                                                  |
+|   0 0 1 0 1 | 0                                                                                  |
+|   0 0 1 1 0 | 0                                                                                  |
+|   0 0 1 1 1 | 0                                                                                  |
+|   0 1 0 0 0 | 0                                                                                  |
+|   0 1 0 0 1 | 0                                                                                  |
+|   0 1 0 1 0 | 0                                                                                  |
+|   0 1 0 1 1 | 0                                                                                  |
+|   0 1 1 0 0 | 0                                                                                  |
+|   0 1 1 0 1 | 0                                                                                  |
+|   0 1 1 1 0 | 0                                                                                  |
+|   0 1 1 1 1 | 0                                                                                  |
+|   1 0 0 0 0 | 0                                                                                  |
+|   1 0 0 0 1 | 0                                                                                  |
+|   1 0 0 1 0 | 0                                                                                  |
+|   1 0 0 1 1 | 0                                                                                  |
+|   1 0 1 0 0 | 0                                                                                  |
+|   1 0 1 0 1 | 0                                                                                  |
+|   1 0 1 1 0 | 0                                                                                  |
+|   1 0 1 1 1 | 0                                                                                  |
+|   1 1 0 0 0 | 0                                                                                  |
+|   1 1 0 0 1 | 0                                                                                  |
+|   1 1 0 1 0 | 0                                                                                  |
+|   1 1 0 1 1 | 0                                                                                  |
+|   1 1 1 0 0 | 0                                                                                  |
+|   1 1 1 0 1 | 0                                                                                  |
+|   1 1 1 1 0 | 0                                                                                  |
+|   1 1 1 1 1 | 1                                                                                  |
+|   |-------> 1                                                                                    |
+|   |-------> 1                                                                                    |
+|   |-------> 1                                                                                    |
+|   |-------> 1                                                                                    |
+|   |-------> 1                                                                                    |
+                                                                                                   |
+|   value : 1                                                                                      |
 |   Number of leafs : 5                                                                            |
-|   depth of the Tree : 4                                                                          |
+|   depth of the Tree : 2                                                                          |
 |   Truth table :                                                                                  |
 |    0 0 0 0 0 | 0 X                                                                               |
 |    1 0 0 0 0 | 0 X                                                                               |
@@ -156,66 +170,29 @@
 |   opened : False                                                                                 |
 |   Tree T1 :                                                                                      |
 |   Raw logical expression :                                                                       |
-|      S0 S4 NOR S1 AND                                                                            |
+|       ( S0- S1 S4- ) &                                                                           |
 |   Logical expression :                                                                           |
-|      S4 S0 | - S1 &                                                                              |
-|   0 0 | 0                                                                                        |
-|   0 1 | 0                                                                                        |
-|   1 0 | 0                                                                                        |
-|   1 1 | 1                                                                                        |
-|   |   0 0 | 1                                                                                    |
-|   |   0 1 | 0                                                                                    |
-|   |   1 0 | 0                                                                                    |
-|   |   1 1 | 0                                                                                    |
-|   |   |-------> 0                                                                                |
-|   |   |-------> 0                                                                                |
-|   |   value : 1                                                                                  |
-|   |-------> 0                                                                                    |
-|   value : 0                                                                                      |
-|   Number of leafs : 3                                                                            |
-|   depth of the Tree : 3                                                                          |
-|   Truth table :                                                                                  |
-|    0 0 0 | 0 X                                                                                   |
-|    1 0 0 | 0 X                                                                                   |
-|    0 1 0 | 0 X                                                                                   |
-|    1 1 0 | 0 X                                                                                   |
-|    0 0 1 | 1 X                                                                                   |
-|    1 0 1 | 0 X                                                                                   |
-|    0 1 1 | 0 X                                                                                   |
-|    1 1 1 | 0 X                                                                                   |
-|   Number of 0 in truth table : 7                                                                 |
-|   Number of 1 in truth table : 1                                                                 |
-|   Number of possibles 0 in truth table : 7                                                       |
-|   Number of possibles 1 in truth table : 1                                                       |
-|   Same switches list :                                                                           |
-|      []                                                                                          |
-|   Switches list :                                                                                |
-|      []                                                                                          |
-|                                                                                                  |
-----------------------------------------------------------------------------------------------------
-|                                                                                                  |
-|   Door D2 :                                                                                      |
-|   Room of departure : R0                                                                         |
-|   Room of arrival : R2                                                                           |
-|   Two-way : True                                                                                 |
-|   opened : False                                                                                 |
-|   Tree T2 :                                                                                      |
-|   Raw logical expression :                                                                       |
-|      S0 S4 BNA S2 ANB                                                                            |
-|   Logical expression :                                                                           |
-|      S4 S0 - & S2 - &                                                                            |
-|   0 0 | 0                                                                                        |
-|   0 1 | 0                                                                                        |
-|   1 0 | 1                                                                                        |
-|   1 1 | 0                                                                                        |
-|   |   0 0 | 0                                                                                    |
-|   |   0 1 | 1                                                                                    |
-|   |   1 0 | 0                                                                                    |
-|   |   1 1 | 0                                                                                    |
-|   |   |-------> 0                                                                                |
-|   |   |-------> 0                                                                                |
+|       ( S0- S1 S4- ) &                                                                           |
+|   0 0 0 | 0                                                                                      |
+|   0 0 1 | 0                                                                                      |
+|   0 1 0 | 0                                                                                      |
+|   0 1 1 | 0                                                                                      |
+|   1 0 0 | 0                                                                                      |
+|   1 0 1 | 0                                                                                      |
+|   1 1 0 | 0                                                                                      |
+|   1 1 1 | 1                                                                                      |
+|   |   0 | 1                                                                                      |
+|   |   1 | 0                                                                                      |
+|   |   |-------> 1                                                                                |
+                                                                                                   |
 |   |   value : 0                                                                                  |
-|   |-------> 0                                                                                    |
+|   |-------> 1                                                                                    |
+|   |   0 | 1                                                                                      |
+|   |   1 | 0                                                                                      |
+|   |   |-------> 1                                                                                |
+                                                                                                   |
+|   |   value : 0                                                                                  |
+                                                                                                   |
 |   value : 0                                                                                      |
 |   Number of leafs : 3                                                                            |
 |   depth of the Tree : 3                                                                          |
@@ -239,6 +216,59 @@
 |                                                                                                  |
 ----------------------------------------------------------------------------------------------------
 |                                                                                                  |
+|   Door D2 :                                                                                      |
+|   Room of departure : R0                                                                         |
+|   Room of arrival : R2                                                                           |
+|   Two-way : True                                                                                 |
+|   opened : False                                                                                 |
+|   Tree T2 :                                                                                      |
+|   Raw logical expression :                                                                       |
+|       ( S0- S2- S4 ) &                                                                           |
+|   Logical expression :                                                                           |
+|       ( S0- S2- S4 ) &                                                                           |
+|   0 0 0 | 0                                                                                      |
+|   0 0 1 | 0                                                                                      |
+|   0 1 0 | 0                                                                                      |
+|   0 1 1 | 0                                                                                      |
+|   1 0 0 | 0                                                                                      |
+|   1 0 1 | 0                                                                                      |
+|   1 1 0 | 0                                                                                      |
+|   1 1 1 | 1                                                                                      |
+|   |   0 | 1                                                                                      |
+|   |   1 | 0                                                                                      |
+|   |   |-------> 1                                                                                |
+                                                                                                   |
+|   |   value : 0                                                                                  |
+|   |   0 | 1                                                                                      |
+|   |   1 | 0                                                                                      |
+|   |   |-------> 1                                                                                |
+                                                                                                   |
+|   |   value : 0                                                                                  |
+|   |-------> 1                                                                                    |
+                                                                                                   |
+|   value : 0                                                                                      |
+|   Number of leafs : 3                                                                            |
+|   depth of the Tree : 3                                                                          |
+|   Truth table :                                                                                  |
+|    0 0 0 | 0 X                                                                                   |
+|    1 0 0 | 0 X                                                                                   |
+|    0 1 0 | 0 X                                                                                   |
+|    1 1 0 | 0 X                                                                                   |
+|    0 0 1 | 1 X                                                                                   |
+|    1 0 1 | 0 X                                                                                   |
+|    0 1 1 | 0 X                                                                                   |
+|    1 1 1 | 0 X                                                                                   |
+|   Number of 0 in truth table : 7                                                                 |
+|   Number of 1 in truth table : 1                                                                 |
+|   Number of possibles 0 in truth table : 7                                                       |
+|   Number of possibles 1 in truth table : 1                                                       |
+|   Same switches list :                                                                           |
+|      []                                                                                          |
+|   Switches list :                                                                                |
+|      []                                                                                          |
+|                                                                                                  |
+----------------------------------------------------------------------------------------------------
+|                                                                                                  |
 |   Door D3 :                                                                                      |
 |   Room of departure : R0                                                                         |
 |   Room of arrival : R3                                                                           |
@@ -246,27 +276,34 @@
 |   opened : False                                                                                 |
 |   Tree T3 :                                                                                      |
 |   Raw logical expression :                                                                       |
-|      S0 S4 ANB S1 S3 AND AND                                                                     |
+|       ( S0 S1 S3 S4- ) &                                                                         |
 |   Logical expression :                                                                           |
-|      S4 - S0 & S3 S1 & &                                                                         |
-|   0 0 | 0                                                                                        |
-|   0 1 | 0                                                                                        |
-|   1 0 | 0                                                                                        |
-|   1 1 | 1                                                                                        |
-|   |   0 0 | 0                                                                                    |
-|   |   0 1 | 0                                                                                    |
-|   |   1 0 | 1                                                                                    |
-|   |   1 1 | 0                                                                                    |
-|   |   |-------> 0                                                                                |
-|   |   |-------> 0                                                                                |
+|       ( S0 S1 S3 S4- ) &                                                                         |
+|   0 0 0 0 | 0                                                                                    |
+|   0 0 0 1 | 0                                                                                    |
+|   0 0 1 0 | 0                                                                                    |
+|   0 0 1 1 | 0                                                                                    |
+|   0 1 0 0 | 0                                                                                    |
+|   0 1 0 1 | 0                                                                                    |
+|   0 1 1 0 | 0                                                                                    |
+|   0 1 1 1 | 0                                                                                    |
+|   1 0 0 0 | 0                                                                                    |
+|   1 0 0 1 | 0                                                                                    |
+|   1 0 1 0 | 0                                                                                    |
+|   1 0 1 1 | 0                                                                                    |
+|   1 1 0 0 | 0                                                                                    |
+|   1 1 0 1 | 0                                                                                    |
+|   1 1 1 0 | 0                                                                                    |
+|   1 1 1 1 | 1                                                                                    |
+|   |-------> 1                                                                                    |
+|   |-------> 1                                                                                    |
+|   |-------> 1                                                                                    |
+|   |   0 | 1                                                                                      |
+|   |   1 | 0                                                                                      |
+|   |   |-------> 1                                                                                |
+                                                                                                   |
 |   |   value : 0                                                                                  |
-|   |   0 0 | 0                                                                                    |
-|   |   0 1 | 0                                                                                    |
-|   |   1 0 | 0                                                                                    |
-|   |   1 1 | 1                                                                                    |
-|   |   |-------> 0                                                                                |
-|   |   |-------> 0                                                                                |
-|   |   value : 0                                                                                  |
+                                                                                                   |
 |   value : 0                                                                                      |
 |   Number of leafs : 4                                                                            |
 |   depth of the Tree : 3                                                                          |
@@ -278,13 +315,13 @@
 |    0 0 1 0 | 0 X                                                                                 |
 |    1 0 1 0 | 0 X                                                                                 |
 |    0 1 1 0 | 0 X                                                                                 |
-|    1 1 1 0 | 0 X                                                                                 |
+|    1 1 1 0 | 1 X                                                                                 |
 |    0 0 0 1 | 0 X                                                                                 |
 |    1 0 0 1 | 0 X                                                                                 |
 |    0 1 0 1 | 0 X                                                                                 |
 |    1 1 0 1 | 0 X                                                                                 |
 |    0 0 1 1 | 0 X                                                                                 |
-|    1 0 1 1 | 1 X                                                                                 |
+|    1 0 1 1 | 0 X                                                                                 |
 |    0 1 1 1 | 0 X                                                                                 |
 |    1 1 1 1 | 0 X                                                                                 |
 |   Number of 0 in truth table : 15                                                                |
@@ -305,18 +342,23 @@
 |   opened : False                                                                                 |
 |   Tree T4 :                                                                                      |
 |   Raw logical expression :                                                                       |
-|      S0 S4 BNA                                                                                   |
+|      S0- S4 AND                                                                                  |
 |   Logical expression :                                                                           |
-|      S4 S0 - &                                                                                   |
+|      S0- S4 &                                                                                    |
 |   0 0 | 0                                                                                        |
-|   0 1 | 1                                                                                        |
+|   0 1 | 0                                                                                        |
 |   1 0 | 0                                                                                        |
-|   1 1 | 0                                                                                        |
-|   |-------> 0                                                                                    |
-|   |-------> 0                                                                                    |
+|   1 1 | 1                                                                                        |
+|   |   0 | 1                                                                                      |
+|   |   1 | 0                                                                                      |
+|   |   |-------> 1                                                                                |
+                                                                                                   |
+|   |   value : 0                                                                                  |
+|   |-------> 1                                                                                    |
+                                                                                                   |
 |   value : 0                                                                                      |
 |   Number of leafs : 2                                                                            |
-|   depth of the Tree : 2                                                                          |
+|   depth of the Tree : 3                                                                          |
 |   Truth table :                                                                                  |
 |    0 0 | 0 X                                                                                     |
 |    1 0 | 0 X                                                                                     |
@@ -337,7 +379,7 @@
 |   Room of departure : R1                                                                         |
 |   Room of arrival : R3                                                                           |
 |   Two-way : True                                                                                 |
-|   opened : True                                                                                  |
+|   opened : False                                                                                 |
 |   Tree T5 :                                                                                      |
 |   Raw logical expression :                                                                       |
 |      S0 S4 NOR                                                                                   |
@@ -347,9 +389,10 @@
 |   0 1 | 0                                                                                        |
 |   1 0 | 0                                                                                        |
 |   1 1 | 0                                                                                        |
-|   |-------> 0                                                                                    |
-|   |-------> 0                                                                                    |
-|   value : 1                                                                                      |
+|   |-------> 1                                                                                    |
+|   |-------> 1                                                                                    |
+                                                                                                   |
+|   value : 0                                                                                      |
 |   Number of leafs : 2                                                                            |
 |   depth of the Tree : 2                                                                          |
 |   Truth table :                                                                                  |
@@ -375,18 +418,23 @@
 |   opened : False                                                                                 |
 |   Tree T6 :                                                                                      |
 |   Raw logical expression :                                                                       |
-|      S0 S4 ANB                                                                                   |
+|      S0 S4- AND                                                                                  |
 |   Logical expression :                                                                           |
-|      S4 - S0 &                                                                                   |
+|      S4- S0 &                                                                                    |
 |   0 0 | 0                                                                                        |
 |   0 1 | 0                                                                                        |
-|   1 0 | 1                                                                                        |
-|   1 1 | 0                                                                                        |
-|   |-------> 0                                                                                    |
-|   |-------> 0                                                                                    |
+|   1 0 | 0                                                                                        |
+|   1 1 | 1                                                                                        |
+|   |-------> 1                                                                                    |
+|   |   0 | 1                                                                                      |
+|   |   1 | 0                                                                                      |
+|   |   |-------> 1                                                                                |
+                                                                                                   |
+|   |   value : 0                                                                                  |
+                                                                                                   |
 |   value : 0                                                                                      |
 |   Number of leafs : 2                                                                            |
-|   depth of the Tree : 2                                                                          |
+|   depth of the Tree : 3                                                                          |
 |   Truth table :                                                                                  |
 |    0 0 | 0 X                                                                                     |
 |    1 0 | 1 X                                                                                     |
@@ -405,35 +453,35 @@
 |                                                                                                  |
 |   Switch S0 :                                                                                    |
 |   Room : R0                                                                                      |
-|   Doors : ['D4', 'D5', 'D6', 'D0', 'D1', 'D2', 'D3']                                             |
-|   Tree : T6                                                                                      |
+|   Doors : ['D6', 'D0', 'D1', 'D2', 'D3', 'D4', 'D5']                                             |
+|   Tree : T6_1_0                                                                                  |
 |                                                                                                  |
 ----------------------------------------------------------------------------------------------------
 |                                                                                                  |
 |   Switch S1 :                                                                                    |
 |   Room : R1                                                                                      |
-|   Doors : ['D1', 'D0', 'D3']                                                                     |
-|   Tree : T3                                                                                      |
+|   Doors : ['D1', 'D3', 'D0']                                                                     |
+|   Tree : T3_3_0                                                                                  |
 |                                                                                                  |
 ----------------------------------------------------------------------------------------------------
 |                                                                                                  |
 |   Switch S2 :                                                                                    |
 |   Room : R2                                                                                      |
-|   Doors : ['D2', 'D0']                                                                           |
-|   Tree : T2                                                                                      |
+|   Doors : ['D0', 'D2']                                                                           |
+|   Tree : T2_2                                                                                    |
 |                                                                                                  |
 ----------------------------------------------------------------------------------------------------
 |                                                                                                  |
 |   Switch S3 :                                                                                    |
 |   Room : R3                                                                                      |
-|   Doors : ['D0', 'D3']                                                                           |
-|   Tree : T3                                                                                      |
+|   Doors : ['D3', 'D0']                                                                           |
+|   Tree : T3_3_0                                                                                  |
 |                                                                                                  |
 ----------------------------------------------------------------------------------------------------
 |                                                                                                  |
 |   Switch S4 :                                                                                    |
 |   Room : R0                                                                                      |
-|   Doors : ['D4', 'D5', 'D6', 'D0', 'D1', 'D2', 'D3']                                             |
-|   Tree : T6                                                                                      |
+|   Doors : ['D6', 'D0', 'D1', 'D2', 'D3', 'D4', 'D5']                                             |
+|   Tree : T6_1_0                                                                                  |
 |                                                                                                  |
 ----------------------------------------------------------------------------------------------------

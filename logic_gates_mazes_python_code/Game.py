@@ -7,7 +7,7 @@ Created on Thu Feb 24 20:59:09 2022
 
 from pygame import init as pygame_init
 from pygame.locals import QUIT, K_UP, K_DOWN, K_RIGHT, K_LEFT
-from pygame.locals import K_a, K_b, K_d, K_e, K_h, K_n, K_r, K_s, K_l, K_q
+from pygame.locals import K_a, K_b, K_d, K_e, K_h, K_r, K_s, K_l, K_q
 from pygame.locals import K_KP0, K_KP1, K_KP2, K_KP3, K_KP4
 from pygame.locals import K_KP5, K_KP6, K_KP7, K_KP8, K_KP9
 from pygame.locals import K_0, K_1, K_2, K_3, K_4
@@ -101,7 +101,7 @@ class Game:
              time_between_deletings=0.05,
              print_click_rects=False,
              print_room_name=True,
-             easy_notation=True,
+             print_tree_polygon=False,
              show_help=False,
              index_help_page=0):
 
@@ -306,7 +306,10 @@ class Game:
                                 True,
                                 letters_color),
                                 (x0, y0 + gap))
-                    gap += 20
+                    if line.replace(' ', '') == '':
+                        gap += 15
+                    else:
+                        gap += 20
 
                 pygame_display_update()
 
@@ -379,37 +382,37 @@ class Game:
                             (x_separation + 20, y_separation/2-7))
 
                 # Affichage des arbres des portes
-                gap = y_separation + 10
-                WINDOW.blit(font.render('DOORS :',
-                                        True,
-                                        inside_room_color),
-                            (x_separation + 10, gap))
-                gap = y_separation + 45
-                for k in range(len(doors_list)):
-                    door = doors_list[k]
-                    tree = door.tree
-                    if easy_notation:
+                if print_tree_polygon:
+                    pass
+                else:
+                    gap = y_separation + 10
+                    WINDOW.blit(font.render('DOORS :',
+                                            True,
+                                            inside_room_color),
+                                (x_separation + 10, gap))
+                    gap = y_separation + 45
+                    for k in range(len(doors_list)):
+                        door = doors_list[k]
+                        tree = door.tree
                         str_logical_expression = tree.get_easy_logical_expression_PN()
-                    else:
-                        str_logical_expression = tree.get_logical_expression_PN_simplified()
-                    str_logical_expression = str_logical_expression.split('=')
-                    # if k == 0:
-                    #     print('')
-                    for i in range(len(str_logical_expression)):
-                        string = str_logical_expression[i]
-                        if i == 0:
-                            logical_expression_render = font.render(door.name + ' = ' + string,
-                                                                    True,
-                                                                    inside_room_color)
-                            WINDOW.blit(logical_expression_render, (x_separation + 10, gap))
-                            gap += 32
-                        else:
-                            logical_expression_render = font.render(' '*(len(door.name)+3) + '=' + string,
-                                                                    True,
-                                                                    inside_room_color)
-                            WINDOW.blit(logical_expression_render, (x_separation + 10, gap))
-                            gap += 32
-                        # print(door.name + ' = ' + string)
+                        str_logical_expression = str_logical_expression.split('=')
+                        # if k == 0:
+                        #     print('')
+                        for i in range(len(str_logical_expression)):
+                            string = str_logical_expression[i]
+                            if i == 0:
+                                logical_expression_render = font.render(door.name + ' = ' + string,
+                                                                        True,
+                                                                        inside_room_color)
+                                WINDOW.blit(logical_expression_render, (x_separation + 10, gap))
+                                gap += 32
+                            else:
+                                logical_expression_render = font.render(' '*(len(door.name)+3) + '=' + string,
+                                                                        True,
+                                                                        inside_room_color)
+                                WINDOW.blit(logical_expression_render, (x_separation + 10, gap))
+                                gap += 32
+                            # print(door.name + ' = ' + string)
 
                 # Affichage des lignes des portes
                 for door in maze.doors_set:
@@ -535,22 +538,9 @@ class Game:
                         maze.reboot_solution()
                         last_key_pressed_time = time()
                         current_action = ''
-                    if pressed[K_n]:
-                        easy_notation = not easy_notation
-                        last_key_pressed_time = time()
-                    # if pressed[K_p]:
-                    #     keep_proportions = not keep_proportions
+                    # if pressed[K_n]:
+                    #     easy_notation = not easy_notation
                     #     last_key_pressed_time = time()
-                            # Les lignes suivantes permettent de changer de font
-                            # elif current_action == 'F':
-                            #     n_font += 1
-                            #     n_font = n_font%len(pygame.font.get_fonts())
-                            #     current_font = pygame.font.get_fonts()[n_font]
-                            #     font = pygame_font_SysFont(current_font, 25)
-                            #     print(current_font)
-                            # elif current_action == 'FF':
-                            #     n_font = -1
-                            #     font = pygame_font_SysFont(None, 25)  
                 if time() - last_key_BACKSPACE_pressed_time > time_between_deletings:
                     if pressed[K_BACKSPACE]:
                         current_action = current_action[:-1]
@@ -599,3 +589,7 @@ class Game:
                     last_key_pressed_time = time()
 
             # fpsClock.tick(FPS)
+            
+if __name__ == "__main__":
+    
+    Game.save_levels_txt(verbose = 0, calculates_solutions = False)

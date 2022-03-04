@@ -2,8 +2,8 @@
 |                                                                                                  |
 |   Maze Loop :                                                                                    |
 |   Start room index : 0                                                                           |
-|   Current room index : 0                                                                         |
-|   Solution(s) :                                                                                  |
+|   Current room index : 3                                                                         |
+|   Fastest solution :                                                                             |
 |      S0 D0 S1 D1 S2 S3 D2 S0 D3                                                                  |
 |                                                                                                  |
 ----------------------------------------------------------------------------------------------------
@@ -88,14 +88,14 @@
 |   Room of departure : R1                                                                         |
 |   Room of arrival : R2                                                                           |
 |   Two-way : False                                                                                |
-|   opened : False                                                                                 |
+|   opened : True                                                                                  |
 |   Tree T1 :                                                                                      |
 |   Raw logical expression :                                                                       |
 |      S1                                                                                          |
 |   Logical expression :                                                                           |
 |      S1                                                                                          |
-|-------> 0                                                                                        |
-|   value : 0                                                                                      |
+|-------> 1                                                                                        |
+|   value : 1                                                                                      |
 |   Number of leafs : 1                                                                            |
 |   depth of the Tree : 1                                                                          |
 |   Truth table :                                                                                  |
@@ -116,14 +116,14 @@
 |   Room of departure : R2                                                                         |
 |   Room of arrival : R0                                                                           |
 |   Two-way : False                                                                                |
-|   opened : False                                                                                 |
+|   opened : True                                                                                  |
 |   Tree T2 :                                                                                      |
 |   Raw logical expression :                                                                       |
 |      S2                                                                                          |
 |   Logical expression :                                                                           |
 |      S2                                                                                          |
-|-------> 0                                                                                        |
-|   value : 0                                                                                      |
+|-------> 1                                                                                        |
+|   value : 1                                                                                      |
 |   Number of leafs : 1                                                                            |
 |   depth of the Tree : 1                                                                          |
 |   Truth table :                                                                                  |
@@ -144,21 +144,26 @@
 |   Room of departure : R0                                                                         |
 |   Room of arrival : RE                                                                           |
 |   Two-way : False                                                                                |
-|   opened : False                                                                                 |
+|   opened : True                                                                                  |
 |   Tree T3 :                                                                                      |
 |   Raw logical expression :                                                                       |
-|      S0 S3 BNA                                                                                   |
+|      S0- S3 AND                                                                                  |
 |   Logical expression :                                                                           |
-|      S3 S0 - &                                                                                   |
+|      S0- S3 &                                                                                    |
 |   0 0 | 0                                                                                        |
-|   0 1 | 1                                                                                        |
+|   0 1 | 0                                                                                        |
 |   1 0 | 0                                                                                        |
-|   1 1 | 0                                                                                        |
-|   |-------> 0                                                                                    |
-|   |-------> 0                                                                                    |
-|   value : 0                                                                                      |
+|   1 1 | 1                                                                                        |
+|   |   0 | 1                                                                                      |
+|   |   1 | 0                                                                                      |
+|   |   |-------> 0                                                                                |
+                                                                                                   |
+|   |   value : 1                                                                                  |
+|   |-------> 1                                                                                    |
+                                                                                                   |
+|   value : 1                                                                                      |
 |   Number of leafs : 2                                                                            |
-|   depth of the Tree : 2                                                                          |
+|   depth of the Tree : 3                                                                          |
 |   Truth table :                                                                                  |
 |    0 0 | 0 X                                                                                     |
 |    1 0 | 0 X                                                                                     |
@@ -178,7 +183,7 @@
 |   Switch S0 :                                                                                    |
 |   Room : R0                                                                                      |
 |   Doors : ['D0', 'D3']                                                                           |
-|   Tree : T3                                                                                      |
+|   Tree : T3_1                                                                                    |
 |                                                                                                  |
 ----------------------------------------------------------------------------------------------------
 |                                                                                                  |
@@ -199,6 +204,6 @@
 |   Switch S3 :                                                                                    |
 |   Room : R2                                                                                      |
 |   Doors : ['D3']                                                                                 |
-|   Tree : T3                                                                                      |
+|   Tree : T3_1                                                                                    |
 |                                                                                                  |
 ----------------------------------------------------------------------------------------------------

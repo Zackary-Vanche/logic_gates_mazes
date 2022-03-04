@@ -23,7 +23,7 @@ class Levels:
         S2 = Switch(name = 'S2')
         
         tree_list_0 = Tree.tree_list_anb
-        tree_list_1 = ['BNA', [None], Tree.tree_list_and_2] 
+        tree_list_1 = ['AND', ['NOT', [None]], Tree.tree_list_and_2] 
         
         T0 = Tree(tree_list = tree_list_0, empty = True, name = 'T0', switches = [S0, S1])
         T1 = Tree(tree_list = tree_list_1, empty = True, name = 'T1', switches = [S0, S1, S2], easy_logical_expression_PN = "& - S0 ( & S1 S2 ) = & ( - S0 S1 S2 )")
@@ -75,7 +75,7 @@ class Levels:
                      level_color = Levels_colors_list.BROWN,
                      name = 'Backward',
                      help_txt = l_help_txt,
-                     door_window_size = 500,)
+                     door_window_size = 500)
         
         return level  
     
@@ -189,7 +189,7 @@ class Levels:
         D5 = Door(two_way = False, tree = T5, name = 'D5', room_departure = R3, room_arrival = RE)
         
         l_help_txt = [
-"""Reminder : To start the level again from the beginning, press [R].
+"""[Reminder] : To start the level again from the beginning, press [R].
 """]
         
         level = Maze(start_room_index = 0, 
@@ -228,7 +228,7 @@ class Levels:
         tree_list_5  = Tree.tree_list_TFT
         tree_list_6  = Tree.tree_list_FFT
         tree_list_7  = Tree.tree_list_and_2
-        tree_list_8  = ['AND_4', [None], [None], Tree.tree_list_not, Tree.tree_list_not]
+        tree_list_8  = Tree.tree_list_from_str('TTFF')
         tree_list_9  = Tree.tree_list_nor
         tree_list_10 = Tree.tree_list_bna
         tree_list_11 = Tree.tree_list_anb
@@ -430,16 +430,16 @@ class Levels:
         # SN  = Switch(name = 'SN') # Switch Null
         
         tree_list_0  = ["AND_5", Tree.tree_list_not, [None], [None], [None], [None]]
-        tree_list_1  = ['AND', Tree.tree_list_nor, [None]]
+        tree_list_1  = Tree.tree_list_TFF
         tree_list_2  = Tree.tree_list_nor
-        tree_list_3  = tree_list_1[:]
+        tree_list_3  = Tree.tree_list_TFF
         tree_list_4  = Tree.tree_list_nor
         tree_list_5  = Tree.tree_list_nor
         tree_list_6  = Tree.tree_list_nor
         tree_list_7  = Tree.tree_list_nor
         tree_list_8  = ['OR', Tree.tree_list_and_2, [None]]
         tree_list_9  = Tree.tree_list_anb
-        tree_list_10 = ['ANB', ['AND', Tree.tree_list_xor, Tree.tree_list_xor], [None]]
+        tree_list_10 = ['AND', ['AND', Tree.tree_list_xor, Tree.tree_list_xor], Tree.tree_list_not]
         tree_list_11 = Tree.tree_list_anb
         # tree_list_12 = ['NA', [None], [None]]
         tree_list_12 = ['NOT', [None]]
@@ -447,9 +447,9 @@ class Levels:
         tree_list_14 = tree_list_10[:]
         
         T0  = Tree(tree_list = tree_list_0,  empty = True, name = 'T0',  switches = [S0, S5, S6, S7, S8])
-        T1  = Tree(tree_list = tree_list_1,  empty = True, name = 'T1',  switches = [S1, S2, S0], easy_logical_expression_PN = "& ( S0 - S1 - S2 )")
+        T1  = Tree(tree_list = tree_list_1,  empty = True, name = 'T1',  switches = [S0, S1, S2])
         T2  = Tree(tree_list = tree_list_2,  empty = True, name = 'T2',  switches = [S3, S4])
-        T3  = Tree(tree_list = tree_list_3,  empty = True, name = 'T3',  switches = [S3, S4, S0], easy_logical_expression_PN = "& ( S0 - S3 - S4 )")
+        T3  = Tree(tree_list = tree_list_3,  empty = True, name = 'T3',  switches = [S0, S3, S4])
         T4  = Tree(tree_list = tree_list_4,  empty = True, name = 'T4',  switches = [S2, S8])
         T5  = Tree(tree_list = tree_list_5,  empty = True, name = 'T5',  switches = [S0, S5])
         T6  = Tree(tree_list = tree_list_6,  empty = True, name = 'T6',  switches = [S7, S10])
@@ -685,18 +685,18 @@ class Levels:
         tree_list_8b = Tree.tree_list_FTF
         tree_list_9b = Tree.tree_list_TFF
         
-        tree_list_0  = ['AND', [None], ['ANB', ['NOR', tree_list_1b, tree_list_6b], tree_list_7b]]
+        tree_list_0  = ['AND', [None], ['NOR_3', tree_list_1b, tree_list_6b, tree_list_7b]]
         tree_list_1  = ['AND', tree_list_1a, tree_list_1b]
         tree_list_2  = ['AND', tree_list_2a, tree_list_2b]
         tree_list_3  = ['AND', tree_list_3a, tree_list_3b]
-        tree_list_4  = ['AND', ['ANB', tree_list_4a, tree_list_2a], tree_list_4b]
-        tree_list_5  = ['AND', ['ANB', tree_list_5a, tree_list_1a], tree_list_5b]
-        tree_list_6  = ['AND', ['ANB', tree_list_6a, tree_list_3a], tree_list_6b]
-        tree_list_7  = ['AND', ['ANB', tree_list_7a, tree_list_5a], tree_list_7b]
-        tree_list_8  = ['AND', ['ANB', tree_list_8a, tree_list_6a], tree_list_8b]
-        tree_list_9  = ['AND', ['ANB', tree_list_9a, tree_list_4a], tree_list_9b]
-        tree_list_10 = ['AND', ['ANB', ['NOR', tree_list_2a, tree_list_4a], tree_list_9a], ['AND', [None], [None]]]
-        
+        tree_list_4  = ['AND', ['AND', tree_list_4a, ['NOT', tree_list_2a]], tree_list_4b]
+        tree_list_5  = ['AND', ['AND', tree_list_5a, ['NOT', tree_list_1a]], tree_list_5b]
+        tree_list_6  = ['AND', ['AND', tree_list_6a, ['NOT', tree_list_3a]], tree_list_6b]
+        tree_list_7  = ['AND', ['AND', tree_list_7a, ['NOT', tree_list_5a]], tree_list_7b]
+        tree_list_8  = ['AND', ['AND', tree_list_8a, ['NOT', tree_list_6a]], tree_list_8b]
+        tree_list_9  = ['AND', ['AND', tree_list_9a, ['NOT', tree_list_4a]], tree_list_9b]
+        tree_list_10 = ['AND', ['AND', ['NOR', tree_list_2a, tree_list_4a], ['NOT', tree_list_9a]], ['AND', [None], [None]]]
+
         T0   = Tree(tree_list = tree_list_0,  
                     empty = True, 
                     name = 'T0',   
@@ -862,7 +862,18 @@ class Levels:
                   relative_arrival_coordinates = relative_arrival_coordinates_D10)
         
         l_help_txt = [
-"""The final stretch !
+"""NOR can also apply to 3 parameters instead of 2:
+
+    NOR truth table [D0 = NOR ( S0 S1 S2 )]:
+        S0  S1  S2  D0
+          0    0    0     1
+          0    1    0     0
+          1    0    0     0
+          1    1    0     0
+          0    0    1     0
+          0    1    1     0
+          1    0    1     0
+          1    1    1     0  
 """]
         
         level = Maze(start_room_index = 0, 
@@ -891,15 +902,8 @@ class Levels:
         
         tree_list_0 = Tree.tree_list_anb
         tree_list_1 = Tree.tree_list_anb
-        tree_list_2 = ['AND_3', Tree.tree_list_not, [None], [None]]
-        tree_list_3 = ['AND_7', 
-                       Tree.tree_list_not, 
-                       Tree.tree_list_not, 
-                       [None],
-                       [None],
-                       [None],
-                       [None],
-                       [None]]
+        tree_list_2 = Tree.tree_list_FTT
+        tree_list_3 = Tree.tree_list_from_str('FFTTTTT')
         tree_list_4 = [None]
         tree_list_5 = [None]
         
@@ -1161,6 +1165,7 @@ On the left size window of the game are equations that tell you when a door is o
 To leave the help menu (or come back to it), press [H].
 To start the level again from the beginning, press [B].
 To go to the next level, press the right arrow key.
+To change the doors' notation, press [N].
 To leave the game, you can press [Q] or [ESCAPE].
 """]
 
@@ -1355,17 +1360,14 @@ To leave the game, you can press [Q] or [ESCAPE].
         tree_list_5 = Tree.tree_list_nor
         tree_list_4 = Tree.tree_list_bna
         tree_list_6 = Tree.tree_list_anb
-        tree_list_1 = ['AND_3', Tree.tree_list_not, [None], Tree.tree_list_not]
-        tree_list_2 = ['AND_3', Tree.tree_list_not, Tree.tree_list_not, [None]]
-        tree_list_3 = ['AND_4', [None], [None], [None], Tree.tree_list_not]
+        tree_list_1 = Tree.tree_list_FTF
+        tree_list_2 = Tree.tree_list_FFT
+        tree_list_3 = Tree.tree_list_from_str('TTTF')
         
         T0 = Tree(tree_list = tree_list_0, empty = True, name = 'T0', switches = [S0, S1, S2, S3, S4])
         T1 = Tree(tree_list = tree_list_1, empty = True, name = 'T1', switches = [S0, S1, S4])
-        #, easy_logical_expression_PN = '& ( - S0 S1 - S4 )')
         T2 = Tree(tree_list = tree_list_2, empty = True, name = 'T2', switches = [S0, S2, S4])
-        #, easy_logical_expression_PN = '& ( - S0 - S2 S4 )')
         T3 = Tree(tree_list = tree_list_3, empty = True, name = 'T3', switches = [S0, S1, S3, S4])
-        #, easy_logical_expression_PN = '& ( S0 S1 S3 - S4 )')
         T4 = Tree(tree_list = tree_list_4, empty = True, name = 'T4', switches = [S0, S4])
         T5 = Tree(tree_list = tree_list_5, empty = True, name = 'T5', switches = [S0, S4])
         T6 = Tree(tree_list = tree_list_6, empty = True, name = 'T6', switches = [S0, S4])
@@ -1473,7 +1475,7 @@ if you want to turn on S0, S1 and then use the door D0.
         S5  = Switch(name = 'S5')
         
         tree_list = Tree.tree_list_anb
-        tree_list_4 = ['AND_3', Tree.tree_list_not, [None], [None]]
+        tree_list_4 = Tree.tree_list_FTT
         
         T0  = Tree(tree_list = tree_list,    empty = True, name = 'T0',  switches = [S0, S3])
         T1  = Tree(tree_list = tree_list,    empty = True, name = 'T1',  switches = [S1, S4])
@@ -1556,8 +1558,8 @@ if you want to turn on S0, S1 and then use the door D0.
                   relative_departure_coordinates = relative_departure_coordinates_D6, 
                   relative_arrival_coordinates = relative_arrival_coordinates_D6)
         
-        l_help_txt = [
-"""To change the doors' notation, press [N].
+        l_help_txt = [ # TODO 
+"""[Reminder] : To change the doors' notation, press [N].
 
 There are 2 notations :
     The first one is the easy one.
@@ -1723,19 +1725,12 @@ There are 2 notations :
         
         tree_list_0 = Tree.tree_list_or_4
         tree_list_1 = [None]
-        tree_list_2 = ['BNA', [None], Tree.tree_list_or_3]
+        tree_list_2 = ['AND', Tree.tree_list_not, Tree.tree_list_or_3]
         tree_list_3 = [None]
         tree_list_4 = ['AND', Tree.tree_list_nor, Tree.tree_list_or_2]
         tree_list_5 = [None]
         # tree_list_6 = ['BNA', Tree.tree_list_or_3, Tree.tree_list_and_4]
-        tree_list_6 = ['AND_7', 
-                       Tree.tree_list_not, 
-                       [None],
-                       Tree.tree_list_not, 
-                       [None],
-                       Tree.tree_list_not, 
-                       [None],
-                       [None]]
+        tree_list_6 = Tree.tree_list_from_str('FTFTFTT')
         
         T0 = Tree(tree_list = tree_list_0, empty = True, name = 'T0', switches = [S0, S2, S4, S6])
         T1 = Tree(tree_list = tree_list_1, empty = True, name = 'T1', switches = [S1])
@@ -1744,7 +1739,6 @@ There are 2 notations :
         T4 = Tree(tree_list = tree_list_4, empty = True, name = 'T4', switches = [S0, S2, S4, S6])
         T5 = Tree(tree_list = tree_list_5, empty = True, name = 'T5', switches = [S5])
         T6 = Tree(tree_list = tree_list_6, empty = True, name = 'T6', switches = [S0, S1, S2, S3, S4, S5, S6])
-        #, easy_logical_expression_PN = '& ( - S0 S1 - S2 S3 - S4 S5 S6 )')
         
         position_R0 = [0,4,2,2]
         position_R1 = [0,0,2,2]
@@ -1838,7 +1832,7 @@ There are 2 notations :
         
         return level 
     
-    def level_xor3(): 
+    def level_xor(): 
         
         S0 = Switch(name = 'S0')
         S1 = Switch(name = 'S1')
@@ -1858,7 +1852,7 @@ There are 2 notations :
         tree_list_5 = ['AND',  Tree.tree_list_XOR3,  [None]]
         tree_list_6 = ['AND',  Tree.tree_list_XNOR3, [None]]
         tree_list_7 = ['AND',  Tree.tree_list_XOR3,  [None]]
-        tree_list_8 = ['AND',  ['OR', Tree.tree_list_anb, ['OR', Tree.tree_list_and_2, Tree.tree_list_and_2]],  [None]]
+        tree_list_8 = ['OR_3', Tree.tree_list_anb, Tree.tree_list_and_2, Tree.tree_list_and_2]
         
         T0  = Tree(tree_list = tree_list_0,  empty = True, name = 'T0', switches = [S6, S7], easy_logical_expression_PN = "NAND S6 S7 = -& S6 S7")
         T1  = Tree(tree_list = tree_list_1,  empty = True, name = 'T1', switches = [S6, S7, S8])
@@ -1868,7 +1862,7 @@ There are 2 notations :
         T5  = Tree(tree_list = tree_list_5,  empty = True, name = 'T5', switches = [S2, S3, S4, S8])
         T6  = Tree(tree_list = tree_list_6,  empty = True, name = 'T6', switches = [S3, S4, S5, S8])
         T7  = Tree(tree_list = tree_list_7,  empty = True, name = 'T7', switches = [S4, S5, S6, S8])
-        T8  = Tree(tree_list = tree_list_8,  empty = True, name = 'T7', switches = [S1, S4, S1, S3, S2, S4] + [S8])
+        T8  = Tree(tree_list = tree_list_8,  empty = True, name = 'T8', switches = [S1, S4, S1, S3, S2, S4])
         
         position_R0 = [ 0,  0,  2,  4]
         position_R1 = [ 1,5.5,  1,1.5]
@@ -1912,7 +1906,9 @@ There are 2 notations :
           1    0    1
           1    1    0  
           
-    XOR3 and XNOR3 truth table [D0 = XOR3 ( S0 S1 S2 ); D1 = XNOR3 ( S0 S1 S2 )]:
+    XOR and XNOR are used with 3 parameters instead of 2.
+          
+    XOR and XNOR truth table [D0 = XOR ( S0 S1 S2 ); D1 = XNOR ( S0 S1 S2 )]:
         S0  S1  S2  D0  D1
           0    0    0     0    0
           0    1    0     1    0
@@ -1933,7 +1929,7 @@ There are 2 notations :
                      doors_list = [D0, D1, D2, D3, D4, D5, D6, D7, D8], 
                      fastest_solution = 'S1 S3 S5 D0 S8 D1 D2 D3 D4 D5 D6 D7 D8',
                      level_color = Levels_colors_list.RED_AND_ORANGE,
-                     name = 'XOR3',
+                     name = 'XOR',
                      help_txt = l_help_txt,
                      door_window_size = 550)
         
@@ -1952,7 +1948,7 @@ There are 2 notations :
                    level_parallel(),           # PINK
                    level_infinity(),           # YELLOW AND BLACK
                    level_crystal(),            # SALMON AND BRIGHT_GREY
-                   level_xor3(),               # RED AND ORANGE
+                   level_xor(),               # RED AND ORANGE
                    level_dead_ends(),          # DARK GREEN
                    level_electricity()         # YELLOW AND SILVER
                    ] 
@@ -1960,3 +1956,19 @@ There are 2 notations :
     # levels_list = levels_list[:4]
 
     number_of_levels = len(levels_list)
+    
+if __name__ == "__main__":
+    
+    for level in Levels.levels_list:
+        print(level.name)
+        depth_dict = {}
+        max_depth = 0
+        max_depth_tree_name = ''
+        for door in level.doors_list():
+            tree = door.tree
+            depth = tree.get_depth()
+            depth_dict[tree.name] = depth
+            if depth >= max_depth:
+                max_depth = depth
+                max_depth_tree_name = tree.name
+            print(tree.name, depth)

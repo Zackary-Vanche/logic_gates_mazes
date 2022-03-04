@@ -1,13 +1,13 @@
-S0 : 0; S1 : 0; S2 : 0; S3 : 0; S4 : 0; S5 : 0; S6 : 0; 
+S0 : 0; S1 : 1; S2 : 0; S3 : 1; S4 : 0; S5 : 1; S6 : 1; 
 R0 : S0 S1 
 R1 : S2 S3 
 R2 : S4 S5 
 R3 : S6 
 RE (EXIT): 
-D0 : S0 S2 OR S4 S6 OR OR; R0 --> R1
+D0 :  ( S0 S2 S4 S6 ) |; R0 --> R1
 D1 : S1; R1 --> R0
-D2 : S0 S2 S4 OR S6 OR BNA; R1 --> R2
+D2 : S0-  ( S2 S4 S6 ) | AND; R1 --> R2
 D3 : S3; R2 --> R1
 D4 : S0 S2 NOR S4 S6 OR AND; R2 --> R3
 D5 : S5; R3 --> R2
-D6 : S0 S2 OR S4 OR S1 S3 AND S5 S6 AND AND BNA; R3 --> RE
+D6 :  ( S0- S1 S2- S3 S4- S5 S6 ) &; R3 --> RE

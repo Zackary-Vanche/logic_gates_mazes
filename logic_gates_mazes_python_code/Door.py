@@ -30,6 +30,7 @@ class Door:
         self.room_arrival = None
         self.two_way = two_way
         self.tree = tree
+        assert self.tree.name.replace('T', 'D') == self.name
         for switch in self.tree.switches_list:
             switch.add_door(self)
         if room_departure is not None and room_arrival is not None:
