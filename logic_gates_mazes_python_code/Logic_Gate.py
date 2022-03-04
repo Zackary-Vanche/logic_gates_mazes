@@ -131,6 +131,7 @@ class Logic_Gate:
         shortcuts_gates['NOR_{}'.format(n)] = NOR_list(n)
         shortcuts_gates['OR_{}'.format(n)] = OR_list(n)
         shortcuts_gates['NAND_{}'.format(n)] = NAND_list(n)
+        assert n > 2 # I put this assert to make sure I won't do the mistake
     
 
     reverse_shortcuts_gates = {}

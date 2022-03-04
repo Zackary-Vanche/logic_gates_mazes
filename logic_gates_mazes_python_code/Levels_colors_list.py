@@ -46,6 +46,13 @@ class Levels_colors_list:
                                letters_color = Color.BLACK,
                                letter_contour_color = Color.BLACK)
     
+    BRIGHT_RED = Level_color(background_color = Color.DARK_RED,
+                             room_color = Color.RED,
+                             contour_color = Color.WHITE,
+                             surrounding_color = Color.WHITE,
+                             letters_color = Color.WHITE,
+                             letter_contour_color = Color.BLACK)
+    
     BROWN = Level_color(Color.DARK_BROWN,
                         room_color = Color.ORANGE,
                         contour_color = Color.WHITE,
@@ -63,6 +70,13 @@ class Levels_colors_list:
                              contour_color = Color.WHITE,
                              letters_color = Color.WHITE,
                              letter_contour_color = Color.WHITE)
+    
+    DARK_RED = Level_color(background_color = Color.REALLY_DARK_RED,
+                           room_color = Color.BLACK,
+                           contour_color = Color.WHITE,
+                           surrounding_color = Color.WHITE,
+                           letters_color = Color.WHITE,
+                           letter_contour_color = Color.BLACK)
     
     GOLD_AND_SILVER = Level_color(background_color = Color.SILVER,
                                   room_color = Color.YELLOW,
@@ -91,13 +105,6 @@ class Levels_colors_list:
                          contour_color = Color.WHITE,
                          letters_color = Color.WHITE,
                          letter_contour_color = Color.DARK_PURPLE)
-    
-    RED = Level_color(background_color = Color.DARK_RED,
-                      room_color = Color.RED,
-                      contour_color = Color.WHITE,
-                      surrounding_color = Color.WHITE,
-                      letters_color = Color.WHITE,
-                      letter_contour_color = Color.BLACK)
     
     RED_AND_ORANGE = Level_color(background_color = Color.DARK_RED,
                                  room_color = Color.ORANGE,

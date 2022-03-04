@@ -116,6 +116,7 @@ class Tree:
         # La deuxième est switches_list.
         
         self.switches_list = switches
+        # assert len(list(set(self.switches_list))) == len(self.switches_list), self.name
         # assert not (self.root_depth == 0 and self.switches_list == []), self.name
         for switch in self.switches_list:
             switch.tree = self
@@ -627,4 +628,39 @@ class Tree:
         
 if __name__ == "__main__":
     
-    pass
+    from Switch import Switch
+    
+    S9  = Switch(name = 'S9')
+    tree_list_12 = ['NOT', [None]]
+    T12 = Tree(tree_list = tree_list_12, empty = True, name = 'T12', switches = [S9])
+    print(T12.get_easy_logical_expression_PN())
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
