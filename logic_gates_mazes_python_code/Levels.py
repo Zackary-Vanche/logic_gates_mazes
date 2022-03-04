@@ -49,7 +49,7 @@ class Levels:
                   relative_arrival_coordinates = relative_arrival_coordinates_D1)
         
         l_help_txt = [
-"""Several new notations are used in this level :
+"""One new notation is used in this level :
     
     To simplify notations, parentheses are used.
     
@@ -397,7 +397,7 @@ class Levels:
                   relative_arrival_coordinates = relative_arrival_coordinates_D12)
         
         l_help_txt = [
-"""From now on, it is serious.
+"""
 """]
         
         level = Maze(start_room_index = 0, 
@@ -618,7 +618,7 @@ class Levels:
                   relative_arrival_coordinates = relative_arrival_coordinates_D14)
         
         l_help_txt = [
-"""You can go in some rooms only once.
+"""
 """]
         
         level = Maze(start_room_index = 0, 
@@ -1165,10 +1165,9 @@ On the left size window of the game are equations that tell you when a door is o
 To leave the help menu (or come back to it), press [H].
 To start the level again from the beginning, press [B].
 To go to the next level, press the right arrow key.
-To change the doors' notation, press [N].
 To leave the game, you can press [Q] or [ESCAPE].
 """]
-
+# To change the doors' notation, press [N]. -> depretated but it will maybe come back
         
 
         level = Maze(start_room_index = 0, 
@@ -1559,12 +1558,15 @@ if you want to turn on S0, S1 and then use the door D0.
                   relative_arrival_coordinates = relative_arrival_coordinates_D6)
         
         l_help_txt = [ # TODO 
-"""[Reminder] : To change the doors' notation, press [N].
+""
+]
+        
+        """[Reminder] : To change the doors' notation, press [N].
 
-There are 2 notations :
-    The first one is the easy one.
-    The second one only uses the symbols &, | and -.
-"""]
+        There are 2 notations :
+            The first one is the easy one.
+            The second one only uses the symbols &, | and -.
+        """
         
         level = Maze(start_room_index = 0, 
                      exit_room_index = -1, 
@@ -1831,6 +1833,10 @@ There are 2 notations :
                      border = 55)
         
         return level 
+    
+    def level_square():
+        
+        pass
     
     def level_xor(): 
         
