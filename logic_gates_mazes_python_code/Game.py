@@ -476,7 +476,7 @@ class Game:
                                                    True,
                                                    inside_room_color)
                     WINDOW.blit(door_name_render,
-                                real_middle_coordinates - array([11/2*len(door.name), 8]))
+                                real_middle_coordinates)
 
                 # Affichage des interrupteurs
                 for room in maze.rooms_list:

@@ -124,8 +124,7 @@ class Levels:
         D3 = Door(two_way = True, tree = T3, name = 'D3', room_departure = R0, room_arrival = R4)
         D4 = Door(two_way = True, tree = T4, name = 'D4', room_departure = R3, room_arrival = R5)
         D5 = Door(two_way = True, tree = T5, name = 'D5', room_departure = R4, room_arrival = R6)
-        D6 = Door(two_way = True, tree = T6, name = 'D6', room_departure = R0, room_arrival = RE, 
-                  relative_departure_coordinates = [1/2, 0.4])
+        D6 = Door(two_way = True, tree = T6, name = 'D6', room_departure = R0, room_arrival = RE)
         
         l_help_txt = [
 """At every step, you have only one action possible :
@@ -143,6 +142,81 @@ class Levels:
                      name = 'Binary',
                      help_txt = l_help_txt,
                      door_window_size = 500)
+        
+        return level
+    
+    def level_cartesian():
+        
+        S0 = Switch(name = 'S0')
+        S1 = Switch(name = 'S1')
+        S2 = Switch(name = 'S2')
+        S3 = Switch(name = 'S3')
+        S4 = Switch(name = 'S4')
+        S5 = Switch(name = 'S5')
+        S6 = Switch(name = 'S6')
+        S7 = Switch(name = 'S7')
+        S8 = Switch(name = 'S8')
+        
+        T0  = Tree(tree_list = [None],  empty = True, name = 'T0',  switches = [S0])
+        T1  = Tree(tree_list = [None],  empty = True, name = 'T1',  switches = [S0])
+        T2  = Tree(tree_list = [None],  empty = True, name = 'T2',  switches = [S7])
+        T3  = Tree(tree_list = Tree.tree_list_anb,  empty = True, name = 'T3',  switches = [S1, S2])
+        T4  = Tree(tree_list = Tree.tree_list_bna,  empty = True, name = 'T4',  switches = [S4, S8])
+        T5  = Tree(tree_list = [None],  empty = True, name = 'T5',  switches = [S0])
+        T6  = Tree(tree_list = ["AND", Tree.tree_list_xor, [None]],  empty = True, name = 'T6',  switches = [S0, S1, S2])
+        T7  = Tree(tree_list = ["AND", Tree.tree_list_xor, [None]],  empty = True, name = 'T7',  switches = [S1, S2, S4])
+        T8  = Tree(tree_list = Tree.tree_list_xor,  empty = True, name = 'T8',  switches = [S5, S6])
+        T9  = Tree(tree_list = Tree.tree_list_xnor,  empty = True, name = 'T9',  switches = [S3, S8])
+        T10 = Tree(tree_list = Tree.tree_list_and_7,  empty = True, name = 'T10', switches = [S0, S2, S3, S4, S5, S7, S8])
+        
+        c = 1.2
+        
+        position_R0 = [ 0,  2,  c,  c]
+        position_R1 = [ 0,  0,  c,  c]
+        position_R2 = [ 2,  0,  c,  c]
+        position_R3 = [ 4,  0,  c,  c]
+        position_R4 = [ 4,  2,  c,  c]
+        position_R5 = [ 4,  4,  c,  c]
+        position_R6 = [ 2,  4,  c,  c]
+        position_R7 = [ 2,  2,  c,  c]
+        position_RE = [ 0,  4,  c,  c]
+        
+        R0 = Room(name = 'R0', position = position_R0, switches_list = [S0])
+        R1 = Room(name = 'R1', position = position_R1, switches_list = [S1])
+        R2 = Room(name = 'R2', position = position_R2, switches_list = [S2])
+        R3 = Room(name = 'R3', position = position_R3, switches_list = [S3])
+        R4 = Room(name = 'R4', position = position_R4, switches_list = [S4])
+        R5 = Room(name = 'R5', position = position_R5, switches_list = [S5])
+        R6 = Room(name = 'R6', position = position_R6, switches_list = [S6])
+        R7 = Room(name = 'R7', position = position_R7, switches_list = [S7, S8])
+        RE = Room(name = 'RE', position = position_RE, is_exit = True) # E pour exit ou end
+        
+        D0  = Door(two_way = False, tree = T0,  name = 'D0',  room_departure = R0, room_arrival = R1)
+        D1  = Door(two_way = False, tree = T1,  name = 'D1',  room_departure = R1, room_arrival = R2)
+        D2  = Door(two_way = False, tree = T2,  name = 'D2',  room_departure = R2, room_arrival = R3)
+        D3  = Door(two_way = False, tree = T3,  name = 'D3',  room_departure = R3, room_arrival = R4)
+        D4  = Door(two_way = False, tree = T4,  name = 'D4',  room_departure = R4, room_arrival = R5)
+        D5  = Door(two_way = False, tree = T5,  name = 'D5',  room_departure = R5, room_arrival = R6)
+        D6  = Door(two_way = False, tree = T6,  name = 'D6',  room_departure = R2, room_arrival = R7)
+        D7  = Door(two_way = False, tree = T7,  name = 'D7',  room_departure = R4, room_arrival = R7)
+        D8  = Door(two_way = False, tree = T8,  name = 'D8',  room_departure = R6, room_arrival = R7)
+        D9  = Door(two_way = False, tree = T9,  name = 'D9',  room_departure = R7, room_arrival = R0)
+        D10 = Door(two_way = False, tree = T10, name = 'D10', room_departure = R0, room_arrival = RE)
+        
+        l_help_txt = [
+"""
+"""]
+        
+        level = Maze(start_room_index = 0, 
+                     exit_room_index = -1, 
+                     rooms_list = [R0, R1, R2, R3, R4, R5, R6, R7, RE], 
+                     doors_list = [D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10], 
+                     fastest_solution = "S0 D0 D1 S2 D6 S7 D9 D0 S1 D1 S2 D2 S3 D3 S4 D7 S8 D9 D0 D1 D2 D3 S4 D4 S5 D5 D8 D9 D0 D1 D2 D3 S4 D7 D9 D0 S1 D1 S2 D6 D9 D10",
+                     level_color = Levels_colors_list.GREEN_GREY,
+                     name = 'Cartesian',
+                     help_txt = l_help_txt,
+                     door_window_size = 550,
+                     keep_proportions = True)
         
         return level
     
@@ -181,11 +255,13 @@ class Levels:
         R3 = Room(name = 'R3', position = position_R3, switches_list = [S1, S3])
         RE = Room(name = 'RE', position = position_RE, is_exit = True) # E pour exit ou end
         
-        D0 = Door(two_way = False, tree = T0, name = 'D0', room_departure = R0, room_arrival = R1, relative_arrival_coordinates = [0.55, 0.55])
-        D1 = Door(two_way = False, tree = T1, name = 'D1', room_departure = R3, room_arrival = R0, relative_arrival_coordinates = [0.55, 0.45])
-        D2 = Door(two_way = False, tree = T2, name = 'D2', room_departure = R0, room_arrival = R2, relative_departure_coordinates = [1/2,0.9], relative_arrival_coordinates = [1/2,0.9])
-        D3 = Door(two_way = False, tree = T3, name = 'D3', room_departure = R1, room_arrival = R3, relative_departure_coordinates = [0.1, 1/2], relative_arrival_coordinates = [0.1, 1/2])
-        D4 = Door(two_way = False, tree = T4, name = 'D4', room_departure = R2, room_arrival = R3, relative_arrival_coordinates = [0.45, 0.45])
+        D0 = Door(two_way = False, tree = T0, name = 'D0', room_departure = R0, room_arrival = R1)
+        D1 = Door(two_way = False, tree = T1, name = 'D1', room_departure = R3, room_arrival = R0)
+        D2 = Door(two_way = False, tree = T2, name = 'D2', room_departure = R0, room_arrival = R2, 
+                  relative_departure_coordinates = [1/2, 0.9], relative_arrival_coordinates = [1/2, 0.9])
+        D3 = Door(two_way = False, tree = T3, name = 'D3', room_departure = R1, room_arrival = R3, 
+                  relative_departure_coordinates = [0.1, 1/2], relative_arrival_coordinates = [0.1, 1/2])
+        D4 = Door(two_way = False, tree = T4, name = 'D4', room_departure = R2, room_arrival = R3)
         D5 = Door(two_way = False, tree = T5, name = 'D5', room_departure = R3, room_arrival = RE)
         
         l_help_txt = [
@@ -280,7 +356,7 @@ class Levels:
         position_R3 = [  0,  3, 4, 4]
         position_R4 = [ 12,  3, 4, 4]
         position_R5 = [  6,  0, 4, 4]
-        position_RE = [  4,5.4, 8,4.9]
+        position_RE = [  4,5.4, 8,4.8]
         
         R0 = Room(name = 'R0', position = position_R0, switches_list = [S0, S6])
         R1 = Room(name = 'R1', position = position_R1, switches_list = [S1, S7])
@@ -290,15 +366,15 @@ class Levels:
         R5 = Room(name = 'R5', position = position_R5, switches_list = [S5, S11])
         RE = Room(name = 'RE', position = position_RE, is_exit = True) # E pour exit ou end
         
-        relative_departure_coordinates_D0  = [1/2,0.11]
+        relative_departure_coordinates_D0  = [1/2,   0]
         relative_arrival_coordinates_D0    = [1/2,   1]
         relative_departure_coordinates_D1  = [  0,   0]
         relative_arrival_coordinates_D1    = [  1, 1/4]
         relative_departure_coordinates_D2  = [  1,   0]
         relative_arrival_coordinates_D2    = [  0, 1/4]
-        relative_departure_coordinates_D3  = [3/4, 0.1]
+        relative_departure_coordinates_D3  = [3/4,   0]
         relative_arrival_coordinates_D3    = [3/4,   1]
-        relative_departure_coordinates_D4  = [1/4, 0.1]
+        relative_departure_coordinates_D4  = [1/4,   0]
         relative_arrival_coordinates_D4    = [1/4,   1]  
         relative_departure_coordinates_D5  = [  1, 3/4]
         relative_arrival_coordinates_D5    = [  0,   1]
@@ -308,9 +384,9 @@ class Levels:
         relative_arrival_coordinates_D7    = [  0, 3/4]
         relative_departure_coordinates_D8  = [  0,   1]
         relative_arrival_coordinates_D8    = [  1, 3/4]
-        relative_departure_coordinates_D9  = [1/4, 0.9]
+        relative_departure_coordinates_D9  = [1/4,   1]
         relative_arrival_coordinates_D9    = [1/4,   0]
-        relative_departure_coordinates_D10 = [3/4, 0.9]
+        relative_departure_coordinates_D10 = [3/4,   1]
         relative_arrival_coordinates_D10   = [3/4,   0]
         relative_departure_coordinates_D11 = [  0, 1/4]
         relative_arrival_coordinates_D11   = [  1,   0]
@@ -482,6 +558,8 @@ class Levels:
         R7 = Room(name = 'R7', position = position_R7, switches_list = [S9, S10, S11])
         RE = Room(name = 'RE', position = position_RE, is_exit = True) # E pour exit ou end
         
+        e = 0.1
+        
         relative_departure_coordinates_D0  = [1/2, 1/2]
         relative_arrival_coordinates_D0    = [1/2, 1/2]
         relative_departure_coordinates_D1  = [  0,   0]
@@ -501,13 +579,13 @@ class Levels:
         relative_departure_coordinates_D8  = [  0, 3/4]
         relative_arrival_coordinates_D8    = [  1, 3/4]
         relative_departure_coordinates_D9  = [  0,   1]
-        relative_arrival_coordinates_D9    = [1/2,   0]
+        relative_arrival_coordinates_D9    = [1/2-e,   0+e]
         relative_departure_coordinates_D10 = [  1,   0]
-        relative_arrival_coordinates_D10   = [1/4,   1]
+        relative_arrival_coordinates_D10   = [1/4+e,   1-e]
         relative_departure_coordinates_D12 = [  0,   0]
-        relative_arrival_coordinates_D12   = [3/4,   1]
+        relative_arrival_coordinates_D12   = [3/4-e,   1-e]
         relative_departure_coordinates_D11 = [  1,   1]
-        relative_arrival_coordinates_D11   = [1/2,   0]
+        relative_arrival_coordinates_D11   = [1/2+e,   0+e]
         relative_departure_coordinates_D13 = [3/8,   1]
         relative_arrival_coordinates_D13   = [3/8,   0]
         relative_departure_coordinates_D14 = [5/8,   0]
@@ -1108,34 +1186,21 @@ The name of the exit room is RE.
         R2 = Room(name = 'R2', position = position_R2, switches_list = [])
         RE = Room(name = 'RE', position = position_RE, is_exit = True) # E pour exit ou end
         
-        relative_departure_coordinates_D0 = [1, 1/2]
-        relative_arrival_coordinates_D0   = [0, 1/2]
-        relative_departure_coordinates_D1 = [1/2, 1/2]
-        relative_arrival_coordinates_D1   = [1/2, 1/2]
-        relative_departure_coordinates_D2 = [0.4, 1/2]
-        relative_arrival_coordinates_D2   = [1/2, 1/2]
-        
         D0 = Door(two_way = True, 
                   tree = T0, 
                   name = 'D0', 
                   room_departure = R0, 
-                  room_arrival = R1, 
-                  relative_departure_coordinates = relative_departure_coordinates_D0, 
-                  relative_arrival_coordinates = relative_arrival_coordinates_D0)
+                  room_arrival = R1)
         D1 = Door(two_way = True, 
                   tree = T1, 
                   name = 'D1', 
                   room_departure = R1, 
-                  room_arrival = R2,
-                  relative_departure_coordinates = relative_departure_coordinates_D1, 
-                  relative_arrival_coordinates = relative_arrival_coordinates_D1)
+                  room_arrival = R2)
         D2 = Door(two_way = False, 
                   tree = T2, 
                   name = 'D2', 
                   room_departure = R2, 
-                  room_arrival = RE,
-                  relative_departure_coordinates = relative_departure_coordinates_D2, 
-                  relative_arrival_coordinates = relative_arrival_coordinates_D2)
+                  room_arrival = RE)
         
         l_help_txt = [                 
 """Your mission is getting to the exit.
@@ -1204,11 +1269,11 @@ To leave the game, you can press [Q] or [ESCAPE].
         T2 = Tree(tree_list = tree_list_2, empty = True, name = 'T2', switches = [S4, S5], easy_logical_expression_PN = 'AND NOT S4 S5 = & - S2 S3')
         T3 = Tree(tree_list = tree_list_3, empty = True, name = 'T3', switches = [S6, S7], easy_logical_expression_PN = 'NOR S6 S7 = & - S6 - S7 = -| S6 S7')
         
-        position_R0 = [ 1, 16,  12, 2]
-        position_R1 = [ 2, 12,  10, 2]
-        position_R2 = [ 3,  8,  8,  2]
-        position_R3 = [ 4,  4,  6,  2]
-        position_RE = [ 5,  0,  4,  2]
+        position_R0 = [ 1,  16,  12, 2]
+        position_R1 = [ 2,  12,  10, 2]
+        position_R2 = [ 3,   8,  8,  2]
+        position_R3 = [ 4,   4,  6,  2]
+        position_RE = [ 5,   0,  4,  2]
         
         R0 = Room(name = 'R0', position = position_R0, switches_list = [S0, S1])
         R1 = Room(name = 'R1', position = position_R1, switches_list = [S2, S3])
@@ -1216,37 +1281,26 @@ To leave the game, you can press [Q] or [ESCAPE].
         R3 = Room(name = 'R3', position = position_R3, switches_list = [S6, S7])
         RE = Room(name = 'RE', position = position_RE, is_exit = True) # E pour exit ou end
         
-        relative_departure_coordinates = [1/2, 0]
-        relative_arrival_coordinates   = [1/2, 1]
-        
         D0 = Door(two_way = True, 
                   tree = T0, 
                   name = 'D0', 
                   room_departure = R0, 
-                  room_arrival = R1,
-                  relative_departure_coordinates = relative_departure_coordinates,
-                  relative_arrival_coordinates = relative_arrival_coordinates)
+                  room_arrival = R1)
         D1 = Door(two_way = True, 
                   tree = T1, 
                   name = 'D1', 
                   room_departure = R1, 
-                  room_arrival = R2,
-                  relative_departure_coordinates = relative_departure_coordinates,
-                  relative_arrival_coordinates = relative_arrival_coordinates)
+                  room_arrival = R2)
         D2 = Door(two_way = True, 
                   tree = T2, 
                   name = 'D2', 
                   room_departure = R2, 
-                  room_arrival = R3,
-                  relative_departure_coordinates = relative_departure_coordinates,
-                  relative_arrival_coordinates = relative_arrival_coordinates)
+                  room_arrival = R3)
         D3 = Door(two_way = True, 
                   tree = T3, 
                   name = 'D3', 
                   room_departure = R3, 
-                  room_arrival = RE,
-                  relative_departure_coordinates = [1/2, 0.25],
-                  relative_arrival_coordinates = [1/2, 1])
+                  room_arrival = RE)
         
         l_help_txt = [
 """Several new notations are used in this level :
@@ -1383,10 +1437,6 @@ To leave the game, you can press [Q] or [ESCAPE].
         R3 = Room(name = 'R3', position = position_R3, switches_list = [S3])
         RE = Room(name = 'RE', position = position_RE, is_exit = True) # E pour exit ou end
         
-        relative_departure_coordinates_D0 = [1/2,0.87]
-        relative_arrival_coordinates_D0   = [1/2, 0]
-        relative_departure_coordinates_D1 = [1/2, 0]
-        relative_arrival_coordinates_D1   = [1/2, 1]
         relative_departure_coordinates_D2 = [0, 1]
         relative_arrival_coordinates_D2   = [1, 0]
         relative_departure_coordinates_D3 = [1, 1]
@@ -1402,16 +1452,12 @@ To leave the game, you can press [Q] or [ESCAPE].
                    tree = T0,  
                    name = 'D0',  
                    room_departure = R0, 
-                   room_arrival = RE,
-                   relative_departure_coordinates = relative_departure_coordinates_D0,
-                   relative_arrival_coordinates = relative_arrival_coordinates_D0)
+                   room_arrival = RE)
         D1  = Door(two_way = True,  
                    tree = T1,  
                    name = 'D1',  
                    room_departure = R0, 
-                   room_arrival = R1,
-                   relative_departure_coordinates = relative_departure_coordinates_D1,
-                   relative_arrival_coordinates = relative_arrival_coordinates_D1)
+                   room_arrival = R1)
         D2  = Door(two_way = True,  
                    tree = T2,  name = 'D2',  
                    room_departure = R0, 
@@ -2037,8 +2083,9 @@ if you want to turn on S0, S1 and then use the door D0.
                    level_recurrence(),         # BLACK AND WHITE
                    level_parallel(),           # PINK
                    level_infinity(),           # YELLOW AND BLACK
+                   level_cartesian(),          # GREEN AND GREY
                    level_crystal(),            # SALMON AND BRIGHT_GREY
-                   level_xor(),               # RED AND ORANGE
+                   level_xor(),                # RED AND ORANGE
                    level_dead_ends(),          # DARK GREEN
                    level_electricity()         # YELLOW AND SILVER
                    ] 
@@ -2049,37 +2096,21 @@ if you want to turn on S0, S1 and then use the door D0.
     
 if __name__ == "__main__":
     
-    for level in Levels.levels_list:
-        print(level.name)
-        depth_dict = {}
-        max_depth = 0
-        max_depth_tree_name = ''
-        for door in level.doors_list():
-            tree = door.tree
-            depth = tree.get_depth()
-            depth_dict[tree.name] = depth
-            if depth >= max_depth:
-                max_depth = depth
-                max_depth_tree_name = tree.name
-            print(tree.name, depth)
-            
-    Levels.level_square().find_all_solutions(stop_at_first_solution=False)
+    # for level in Levels.levels_list:
+    #     print(level.name)
+    #     depth_dict = {}
+    #     max_depth = 0
+    #     max_depth_tree_name = ''
+    #     for door in level.doors_list():
+    #         tree = door.tree
+    #         depth = tree.get_depth()
+    #         depth_dict[tree.name] = depth
+    #         if depth >= max_depth:
+    #             max_depth = depth
+    #             max_depth_tree_name = tree.name
+    #         print(tree.name, depth)
     
-    
-    Levels.level_square().try_solution("S0 D2 S3 D1 S2 D0 S1 D3 D4", 
-                                       verbose = 3, 
-                                       allow_all_doors = True, 
-                                       allow_all_switches = True)
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    Levels.level_cartesian().find_all_solutions(stop_at_first_solution=False, verbose = 3)
     
     
     

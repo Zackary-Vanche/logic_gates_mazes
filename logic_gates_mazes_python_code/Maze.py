@@ -355,37 +355,36 @@ class Maze:
                 action_type = action[0]
                 if action_type == 'S':
                     if self.legit_change_switch(action) or allow_all_switches:
-                        if verbose > 0:
+                        if 3 > verbose > 0:
                             print('{} is authorised'.format(action))
                         self.change_switch(action)
                     else:
-                        if verbose > 0:
+                        if 3 > verbose > 0:
                             print('{} is not authorised'.format(action))
                         return 0
                 if action_type == 'D':
                     if self.legit_use_door(action) or allow_all_doors:
-                        if verbose > 0:
+                        if 3 > verbose > 0:
                             print('{} is authorised'.format(action))
                         self.use_door(action)
                     else:
-                        if verbose > 0:
+                        if 3 > verbose > 0:
                             print('{} is not authorised'.format(action))
                         return 0
-                    if verbose > 0:
+                    if 3 > verbose > 0:
                         print("You are in room {}\n".format(self.current_room_name()))
                     if verbose == 3:
                         switches_values_txt = ''
                         for switch in self.switches_list():
                             if switch.value:
                                 switches_values_txt += str(switch.name) + ' '
-                        print(switches_values_txt)
                         txt_verbose_3 += action + ' : ' + switches_values_txt + '\n'
-                if verbose >= 2:
+                if verbose == 2:
                     switches_values_txt = '"Switches values :'
                     for switch in self.switches_list():
                         switches_values_txt += str(switch.value) 
                     print(switches_values_txt)
-        if verbose > 0:
+        if 3 > verbose > 0:
             if self.current_room_index == self.exit_room_index:
                 print('Success !')
             else:
@@ -557,7 +556,7 @@ class Maze:
             vect_unit = door.real_arrival_coordinates - door.real_departure_coordinates
             vect_unit = vect_unit / np_linalg_norm(vect_unit)
             [x, y] = vect_unit
-            
+
             if door.two_way:
                 l_diag = 48
                 L_diag = 62
@@ -565,9 +564,11 @@ class Maze:
                                           door.real_middle_coordinates + l_diag*array([y, -x])/2,
                                           door.real_middle_coordinates - L_diag*vect_unit/2,
                                           door.real_middle_coordinates - l_diag*array([y, -x])/2]
+                door.real_middle_coordinates = door.real_middle_coordinates - array([11/2*len(door.name), 8])
             else:
-                door.arrow_coordinates = [door.real_middle_coordinates + 40*vect_unit,
-                                          door.real_middle_coordinates + 7*vect_unit + 20*array([y, -x]),
-                                          door.real_middle_coordinates - 20*vect_unit + 30*array([y, -x]),
-                                          door.real_middle_coordinates - 20*vect_unit - 30*array([y, -x]),
-                                          door.real_middle_coordinates + 7*vect_unit - 20*array([y, -x])]
+                door.arrow_coordinates = [door.real_middle_coordinates + 30*vect_unit,
+                                          door.real_middle_coordinates - 3*vect_unit + 20*array([y, -x]),
+                                          door.real_middle_coordinates - 30*vect_unit + 30*array([y, -x]),
+                                          door.real_middle_coordinates - 30*vect_unit - 30*array([y, -x]),
+                                          door.real_middle_coordinates - 3*vect_unit - 20*array([y, -x])]
+                door.real_middle_coordinates = door.real_middle_coordinates - array([11/2*len(door.name), 8])-10*vect_unit
