@@ -49,7 +49,7 @@ class Game:
         if not os_path_exists('mazes'):
             os_mkdir('mazes')
         for k in range(len(Levels.levels_list)):
-            level = Levels.levels_list[k]
+            level = Levels.levels_list[k]()
             if level.fastest_solution is not None:
                 level.save_txt(title_header='mazes/Level_{}'.format(k))
                 level.save_txt_short(title_header='mazes/L{}'.format(k))
@@ -65,7 +65,8 @@ class Game:
         calculations_times = []
         if not os_path_exists('mazes'):
             os_mkdir('mazes')
-        for level in Levels.levels_list:
+        for k in range(len(Levels.levels_list)):
+            level = Levels.levels_list[k]()
             print('')
             name = level.name
             print(name)
@@ -102,7 +103,7 @@ class Game:
              print_click_rects=False,
              print_room_name=True,
              print_tree_polygon=False,
-             show_help=False,
+             show_help=True,
              index_help_page=0):
 
         pygame_init()
@@ -194,7 +195,7 @@ class Game:
             if level_changed:
 
                 level_changed = False
-                maze = Levels.levels_list[index_current_level]
+                maze = Levels.levels_list[index_current_level]()
                 maze.reboot_solution()
                 
                 doors_list = maze.doors_list()
@@ -281,7 +282,7 @@ class Game:
                                  (WINDOW_WIDTH, WINDOW_HEIGHT),
                                  l+2)
                 # Affichage du nom du niveau courant
-                level_name_render = font.render('HELP - Level ' + str(index_current_level) + ' : ' + Levels.levels_list[index_current_level].name.replace('_', ' '), 
+                level_name_render = font.render('HELP - Level ' + str(index_current_level) + ' : ' + maze.name.replace('_', ' '), 
                                                 True,
                                                 letters_color)
                 WINDOW.blit(level_name_render, (10, 10))
@@ -366,7 +367,7 @@ class Game:
                                  3)
 
                 # Affichage du nom du niveau courant
-                level_name_render = font.render('Level ' + str(index_current_level) + ' : ' + Levels.levels_list[index_current_level].name.replace('_', ' '),
+                level_name_render = font.render('Level ' + str(index_current_level) + ' : ' + maze.name.replace('_', ' '),
                                                 True,
                                                 letters_color)
                 WINDOW.blit(level_name_render, (10, 10))
@@ -405,13 +406,12 @@ class Game:
                                                                         True,
                                                                         inside_room_color)
                                 WINDOW.blit(logical_expression_render, (x_separation + 10, gap))
-                                gap += 32
                             else:
                                 logical_expression_render = font.render(' '*(len(door.name)+3) + '=' + string,
                                                                         True,
                                                                         inside_room_color)
                                 WINDOW.blit(logical_expression_render, (x_separation + 10, gap))
-                                gap += 32
+                            gap += 28
                             # print(door.name + ' = ' + string)
 
                 # Affichage des lignes des portes

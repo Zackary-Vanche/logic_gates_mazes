@@ -15,7 +15,7 @@ class Door:
                  tree=None,
                  relative_departure_coordinates=[1/2, 1/2],
                  relative_arrival_coordinates=[1/2, 1/2],
-                 name='D'):
+                 name=None):
         """
         La position d'une porte est donnee dans le repere de la piece qui le contient.
         Les axes du repere de la piece sont normalises par les dimensions de la piece.
@@ -24,7 +24,10 @@ class Door:
         Si position == [1,0] l'interrupteur est dans le coin haut droite de la piece.
         Si position == [1,1] l'interrupteur est dans le coin bas droite de la piece.
         """
-        self.name = name
+        if name is None:
+            self.name = tree.name.replace('T', 'D')
+        else:
+            self.name = name
         assert self.name[0] == 'D'
         self.room_departure = None
         self.room_arrival = None

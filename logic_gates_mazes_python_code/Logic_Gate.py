@@ -126,7 +126,7 @@ class Logic_Gate:
                        'XOR_3': [0, 1, 1, 0, 1, 0, 0, 0]
                        }
     
-    for n in range(3, 11):
+    for n in range(3, 20):
         shortcuts_gates['AND_{}'.format(n)] = AND_list(n)
         shortcuts_gates['NOR_{}'.format(n)] = NOR_list(n)
         shortcuts_gates['OR_{}'.format(n)] = OR_list(n)
