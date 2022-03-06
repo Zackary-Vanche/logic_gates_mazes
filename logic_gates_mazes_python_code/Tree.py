@@ -162,87 +162,82 @@ class Tree:
                 return switches
             
     def get_easy_logical_expression_PN(self):
-        if self.easy_logical_expression_PN != None and self.easy_logical_expression_PN != '':
-            return self.easy_logical_expression_PN
-        self.update_leafs_switches()
-        if self.is_leaf:
-            return self.switches_list[0].name
-        else:
-            root = self.root
-            root_name = root.name.split('_')[0] # We do that for roots names like AND_7, OR_4...
-            if len(self.sons_list) == 1: 
-                if root_name == 'NOT': 
-                    self.easy_logical_expression_PN = '-' + self.sons_list[0].get_easy_logical_expression_PN()
-                else:
-                    self.easy_logical_expression_PN = root_name + self.sons_list[0].get_easy_logical_expression_PN()
-            elif len(self.sons_list) == 2:
-                son_A = self.sons_list[0]
-                son_B = self.sons_list[1]
-                A = son_A.get_easy_logical_expression_PN()
-                B = son_B.get_easy_logical_expression_PN()
-                if len(A) > len(B):
-                    A, B = B, A
-                    root_name = root.invert_A_B_gate_name()
-                if len(A) == len(B) and B < A:
-                    A, B = B, A
-                    root_name = root.invert_A_B_gate_name()
-                if not son_A.is_leaf and len(son_A.sons_list) >= 2 and ' ' in A:
-                    if '(' in A:
-                        A = '[ ' + A + ' ]'
+        if not (self.easy_logical_expression_PN != None and self.easy_logical_expression_PN != ''):
+            self.update_leafs_switches()
+            if self.is_leaf:
+                self.easy_logical_expression_PN = self.switches_list[0].name
+            else:
+                root = self.root
+                root_name = root.name.split('_')[0] # We do that for roots names like AND_7, OR_4...
+                if len(self.sons_list) == 1: 
+                    if root_name == 'NOT': 
+                        self.easy_logical_expression_PN = '- ' + self.sons_list[0].get_easy_logical_expression_PN()
                     else:
-                        A = '( ' + A + ' )'
-                if not son_B.is_leaf and len(son_B.sons_list) >= 2 and ' ' in B:
-                    if '(' in B:
-                        B = '[ ' + B + ' ]'
-                    else:
-                        B = '( ' + B + ' )'
-                self.easy_logical_expression_PN = ' '.join([root_name, A, B])
-                
-                if root_name == 'FALSE':
-                    self.easy_logical_expression_PN = 'F'
-                if root_name == 'AND':
-                    self.easy_logical_expression_PN = '& {} {}'.format(A, B)
-                if root_name == 'OR':
-                    self.easy_logical_expression_PN = '| {} {}'.format(A, B)
-                if root_name == 'NOR':
-                    self.easy_logical_expression_PN = '-| {} {}'.format(A, B)
-                if root_name == 'ANB':
-                    self.easy_logical_expression_PN = '& {} - {}'.format(A, B)
-                if root_name == 'BNA':
-                    self.easy_logical_expression_PN = '& - {} {}'.format(A, B)
-                if root_name == 'NB':
-                    self.easy_logical_expression_PN = ' '.join(['-', B])
-                if root_name == 'NA':
-                    self.easy_logical_expression_PN = ' '.join(['-', A])
-                if root_name == 'AONB':
-                    self.easy_logical_expression_PN = '| {0} - {1}'.format(A, B)
-                if root_name == 'BONA':
-                    self.easy_logical_expression_PN = '| - {0} {1}'.format(A, B)
-                if root_name == 'A':
-                    self.easy_logical_expression_PN = A
-                if root_name == 'B':
-                    self.easy_logical_expression_PN = B
-                if root_name == 'TRUE':
-                    self.easy_logical_expression_PN = 'T'
-            else: 
-                if root_name == 'OR':
-                    root_name = '|'
-                if root_name == 'AND':
-                    root_name = '&'
-                txt = ''
-                for son in self.sons_list:
-                    son_PN = son.get_easy_logical_expression_PN()
-                    if not son.is_leaf and len(son.sons_list) >= 2 and ' ' in son_PN:
-                        if '(' in son_PN:
-                            son_PN = ' [ ' + son_PN + ' ] '
+                        self.easy_logical_expression_PN = root_name + self.sons_list[0].get_easy_logical_expression_PN()
+                elif len(self.sons_list) == 2:
+                    son_A = self.sons_list[0]
+                    son_B = self.sons_list[1]
+                    A = son_A.get_easy_logical_expression_PN()
+                    B = son_B.get_easy_logical_expression_PN()
+                    if len(A) > len(B):
+                        A, B = B, A
+                        root_name = root.invert_A_B_gate_name()
+                    if len(A) == len(B) and B < A:
+                        A, B = B, A
+                        root_name = root.invert_A_B_gate_name()
+                    if not son_A.is_leaf and len(son_A.sons_list) >= 2 and ' ' in A:
+                        if '(' in A:
+                            A = '[ ' + A + ' ]'
                         else:
-                            son_PN = ' ( ' + son_PN + ' ) '
-                    txt = txt + son_PN + ' '
-                if '(' in txt:
-                    txt = root_name + ' [ ' + txt + '] '
-                else:
-                    txt = root_name + ' ( ' + txt + ') '
-                self.easy_logical_expression_PN = txt
+                            A = '( ' + A + ' )'
+                    if not son_B.is_leaf and len(son_B.sons_list) >= 2 and ' ' in B:
+                        if '(' in B:
+                            B = '[ ' + B + ' ]'
+                        else:
+                            B = '( ' + B + ' )'
+                    self.easy_logical_expression_PN = ' '.join([root_name, A, B])
+                    if root_name == 'FALSE':
+                        self.easy_logical_expression_PN = 'F'
+                    if root_name == 'ANB':
+                        self.easy_logical_expression_PN = '& {} - {}'.format(A, B)
+                    if root_name == 'BNA':
+                        self.easy_logical_expression_PN = '& - {} {}'.format(A, B)
+                    if root_name == 'NB':
+                        self.easy_logical_expression_PN = ' '.join(['-', B])
+                    if root_name == 'NA':
+                        self.easy_logical_expression_PN = ' '.join(['-', A])
+                    if root_name == 'AONB':
+                        self.easy_logical_expression_PN = '| {0} - {1}'.format(A, B)
+                    if root_name == 'BONA':
+                        self.easy_logical_expression_PN = '| - {0} {1}'.format(A, B)
+                    if root_name == 'A':
+                        self.easy_logical_expression_PN = A
+                    if root_name == 'B':
+                        self.easy_logical_expression_PN = B
+                    if root_name == 'TRUE':
+                        self.easy_logical_expression_PN = 'T'
+                else: 
+                    txt = ''
+                    for son in self.sons_list:
+                        son_PN = son.get_easy_logical_expression_PN()
+                        if not son.is_leaf and len(son.sons_list) >= 2 and ' ' in son_PN:
+                            if '(' in son_PN:
+                                son_PN = ' [ ' + son_PN + ' ] '
+                            else:
+                                son_PN = ' ( ' + son_PN + ' ) '
+                        txt = txt + son_PN + ' '
+                    if '(' in txt:
+                        txt = root_name + ' [ ' + txt + '] '
+                    else:
+                        txt = root_name + ' ( ' + txt + ') '
+                    self.easy_logical_expression_PN = txt
+            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('NOT ', '- ')
+            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('NAND ', '-& ')
+            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('AND ', '& ')
+            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('XOR ', '^ ')
+            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('XNOR ', '-^ ')
+            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('NOR ', '-| ')
+            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('OR ', '| ')
         return self.easy_logical_expression_PN
         
     def get_raw_logical_expression_RPN(self):
@@ -270,6 +265,10 @@ class Tree:
                     root_name = '|'
                 if root_name == 'AND':
                     root_name = '&'
+                if root_name == 'NOR':
+                    root_name = '-|'
+                if root_name == 'NAND':
+                    root_name = '-&'
                 txt = ''
                 txt = txt + ' ( '
                 for son in self.sons_list:

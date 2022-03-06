@@ -738,90 +738,100 @@ class Levels:
         S17 = Switch(name = 'S17', value = w)
         
         # S10 S11
-        tree_list_1a = Tree.tree_list_and_2
-        tree_list_2a = Tree.tree_list_anb
-        tree_list_3a = Tree.tree_list_bna
+        # tree_list_1a = Tree.tree_list_and_2
+        # tree_list_2a = Tree.tree_list_anb
+        # tree_list_3a = Tree.tree_list_bna
         # S12 S13
-        tree_list_4a = Tree.tree_list_and_2
-        tree_list_5a = Tree.tree_list_anb
-        tree_list_6a = Tree.tree_list_bna
+        # tree_list_4a = Tree.tree_list_and_2
+        # tree_list_5a = Tree.tree_list_anb
+        # tree_list_6a = Tree.tree_list_bna
         # S14 S15
-        tree_list_7a = Tree.tree_list_and_2
-        tree_list_8a = Tree.tree_list_anb
-        tree_list_9a = Tree.tree_list_bna
+        # tree_list_7a = Tree.tree_list_and_2
+        # tree_list_8a = Tree.tree_list_anb
+        # tree_list_9a = Tree.tree_list_bna
         
         # S1 S2 S3
         tree_list_1b = Tree.tree_list_FFT
-        tree_list_2b = Tree.tree_list_FTF
-        tree_list_3b = Tree.tree_list_TFF
+        # tree_list_2b = Tree.tree_list_FTF
+        # tree_list_3b = Tree.tree_list_TFF
         # S4 S5 S6
-        tree_list_4b = Tree.tree_list_FFT
-        tree_list_5b = Tree.tree_list_FTF
+        # tree_list_4b = Tree.tree_list_FFT
+        # tree_list_5b = Tree.tree_list_FTF
         tree_list_6b = Tree.tree_list_TFF
         # S7 S8 S9
         tree_list_7b = Tree.tree_list_FFT
-        tree_list_8b = Tree.tree_list_FTF
-        tree_list_9b = Tree.tree_list_TFF
+        # tree_list_8b = Tree.tree_list_FTF
+        # tree_list_9b = Tree.tree_list_TFF
         
-        tree_list_0  = ['AND', [None], ['NOR_3', tree_list_1b, tree_list_6b, tree_list_7b]]
-        tree_list_1  = ['AND', tree_list_1a, tree_list_1b]
-        tree_list_2  = ['AND', tree_list_2a, tree_list_2b]
-        tree_list_3  = ['AND', tree_list_3a, tree_list_3b]
-        tree_list_4  = ['AND', ['AND', tree_list_4a, ['NOT', tree_list_2a]], tree_list_4b]
-        tree_list_5  = ['AND', ['AND', tree_list_5a, ['NOT', tree_list_1a]], tree_list_5b]
-        tree_list_6  = ['AND', ['AND', tree_list_6a, ['NOT', tree_list_3a]], tree_list_6b]
-        tree_list_7  = ['AND', ['AND', tree_list_7a, ['NOT', tree_list_5a]], tree_list_7b]
-        tree_list_8  = ['AND', ['AND', tree_list_8a, ['NOT', tree_list_6a]], tree_list_8b]
-        tree_list_9  = ['AND', ['AND', tree_list_9a, ['NOT', tree_list_4a]], tree_list_9b]
-        tree_list_10 = ['AND', ['AND', ['NOR', tree_list_2a, tree_list_4a], ['NOT', tree_list_9a]], ['AND', [None], [None]]]
-
+        tree_list_0  = ['AND', [None], ['NAND_3', tree_list_1b, tree_list_6b, tree_list_7b]]
+        # tree_list_1  = ['AND', tree_list_1a, tree_list_1b]
+        # tree_list_2  = ['AND', tree_list_2a, tree_list_2b]
+        # tree_list_3  = ['AND', tree_list_3a, tree_list_3b]
+        # tree_list_4  = ['AND', ['AND', tree_list_4a, ['NOT', tree_list_2a]], tree_list_4b]
+        # tree_list_5  = ['AND', ['AND', tree_list_5a, ['NOT', tree_list_1a]], tree_list_5b]
+        # tree_list_6  = ['AND', ['AND', tree_list_6a, ['NOT', tree_list_3a]], tree_list_6b]
+        # tree_list_7  = ['AND', ['AND', tree_list_7a, ['NOT', tree_list_5a]], tree_list_7b]
+        # tree_list_8  = ['AND', ['AND', tree_list_8a, ['NOT', tree_list_6a]], tree_list_8b]
+        # tree_list_9  = ['AND', ['AND', tree_list_9a, ['NOT', tree_list_4a]], tree_list_9b]
+        # tree_list_10 = ['AND', ['AND', ['NOR', tree_list_2a, tree_list_4a], ['NOT', tree_list_9a]], ['AND', [None], [None]]]
+        
         T0   = Tree(tree_list = tree_list_0,  
                     empty = True, 
                     name = 'T0',   
                     switches = [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9],
-                    easy_logical_expression_PN = "& S0 - & ( - S7 - S8 S9 ) [ - | & ( S4 - S5 - S6 ) & ( - S1 - S2 S3 ) ]")
-        T1   = Tree(tree_list = tree_list_1,   
+                    easy_logical_expression_PN = "& S0 -& [ & ( -S1 -S2 S3 ) & ( S4 -S5 -S6 ) & ( -S7 -S8 S9 ) ]")
+        T1   = Tree(tree_list = Tree.tree_list_from_str('FFTTT'),   
                     empty = True, 
                     name = 'T1',   
-                    switches = [S10, S11, S1, S2, S3],
-                    easy_logical_expression_PN = "& ( - S1 - S2 S3 S10 S11 )")
-        T2   = Tree(tree_list = tree_list_2,   
+                    # switches = [S10, S11, S1, S2, S3],
+                    switches = [S1, S2, S3, S10, S11])
+                    # easy_logical_expression_PN = "& ( - S1 - S2 S3 S10 S11 )")
+        T2   = Tree(tree_list = Tree.tree_list_from_str('FTFTF'),   
                     empty = True, name = 'T2',   
-                    switches = [S10, S11, S1, S2, S3],
-                    easy_logical_expression_PN = '& ( - S1 S2 - S3 S10 - S11 )')
-        T3   = Tree(tree_list = tree_list_3,   
+                    # switches = [S10, S11, S1, S2, S3],
+                    switches = [S1, S2, S3, S10, S11])
+                    # easy_logical_expression_PN = '& ( -S1 S2 -S3 S10 -S11 )')
+        T3   = Tree(tree_list = Tree.tree_list_from_str('TFFFT'),   
                     empty = True, name = 'T3',   
-                    switches = [S10, S11, S1, S2, S3],
-                    easy_logical_expression_PN = '& ( S1 - S2 - S3 - S10 S11 )')
-        T4   = Tree(tree_list = tree_list_4,   
+                    # switches = [S10, S11, S1, S2, S3],
+                    switches = [S1, S2, S3, S10, S11])
+                    # easy_logical_expression_PN = '& ( S1 - S2 - S3 - S10 S11 )')
+        T4   = Tree(tree_list = ['AND', Tree.tree_list_from_str('FFTTT'), Tree.tree_list_bona],   
                     empty = True, name = 'T4',   
-                    switches = [S12, S13, S10, S11, S4, S5, S6],
-                    easy_logical_expression_PN = "& [ S6 S12 S13 ( -| S4 S5 ) ( -& S10 - S11 ) ]")
-        T5   = Tree(tree_list = tree_list_5,   
+                    # switches = [S12, S13, S10, S11, S4, S5, S6],
+                    switches = [S4, S5, S6, S12, S13, S10, S11])
+                    # easy_logical_expression_PN = "& [ -S4 -S5 S6 S12 S13 ( -& S10 - S11 ) ]")
+        T5   = Tree(tree_list = ['AND', Tree.tree_list_from_str('FTFTF'), Tree.tree_list_nand],   
                     empty = True, name = 'T5',   
-                    switches = [S12, S13, S10, S11, S4, S5, S6],
-                    easy_logical_expression_PN = "& [ - S4 S5 - S6 ( -& S10 S11 ) ( & S12 - S13 ) ]")
-        T6   = Tree(tree_list = tree_list_6,   
+                    # switches = [S12, S13, S10, S11, S4, S5, S6],
+                    switches = [S4, S5, S6, S12, S13, S10, S11])
+                    # easy_logical_expression_PN = "& [ - S4 S5 - S6 S12 -S13 ( -& S10 S11 ) ]")
+        T6   = Tree(tree_list = ['AND', Tree.tree_list_from_str('TFFFT'), Tree.tree_list_aonb],   
                     empty = True, name = 'T6',   
-                    switches = [S12, S13, S10, S11, S4, S5, S6],
-                    easy_logical_expression_PN = "& [ S4 ( -| S5 S6 ) ( & - S12 S13 ) ( -& - S10 S11 ) ]")
-        T7   = Tree(tree_list = tree_list_7,   
+                    # switches = [S12, S13, S10, S11, S4, S5, S6],
+                    switches = [S4, S5, S6, S12, S13, S10, S11])
+                    # easy_logical_expression_PN = "& [ S4 -S5 -S6 -S12 S13 ( -& - S10 S11 ) ]")
+        T7   = Tree(tree_list = ['AND', Tree.tree_list_from_str('FFTTT'), Tree.tree_list_bona],   
                     empty = True, name = 'T7',   
-                    switches = [S14, S15, S12, S13, S7, S8, S9],
-                    easy_logical_expression_PN = "& [ - S7 - S8 S9 S14 S15 - ( & S12 - S13 ) ]")
-        T8   = Tree(tree_list = tree_list_8,   
+                    # switches = [S14, S15, S12, S13, S7, S8, S9],
+                    switches = [S7, S8, S9, S14, S15, S12, S13])
+                    # easy_logical_expression_PN = "& [ - S7 - S8 S9 S14 S15 ( -& S12 - S13 ) ]")
+        T8   = Tree(tree_list = ['AND', Tree.tree_list_from_str('FTFTF'), Tree.tree_list_aonb],   
                     empty = True, name = 'T8',   
-                    switches = [S14, S15, S12, S13, S7, S8, S9],
-                    easy_logical_expression_PN = "& [ - S7 S8 - S9 S14 - S15 ( -& - S12 S13 ) ]")
-        T9   = Tree(tree_list = tree_list_9,   
+                    # switches = [S14, S15, S12, S13, S7, S8, S9],
+                    switches = [S7, S8, S9, S14, S15, S12, S13])
+                    # easy_logical_expression_PN = "& [ -S7 S8 -S9 S14 -S15 ( -& -S12 S13 ) ]")
+        T9   = Tree(tree_list = ['AND', Tree.tree_list_from_str('TFFFT'), Tree.tree_list_nand],   
                     empty = True, name = 'T9',   
-                    switches = [S14, S15, S12, S13, S7, S8, S9],
-                    easy_logical_expression_PN = "& [ S7 - S8 - S9 - ( & S12 S13 ) ( & - S14 S15 ) ]")
-        T10  = Tree(tree_list = tree_list_10,  
+                    # switches = [S14, S15, S12, S13, S7, S8, S9],
+                    switches = [S7, S8, S9, S14, S15, S12, S13])
+                    # easy_logical_expression_PN = "& [ S7 -S8 -S9 -S14 S15 ( -& S12 S13 ) ]")
+        T10  = Tree(tree_list = ['AND_5', Tree.tree_list_bona, Tree.tree_list_nand, Tree.tree_list_aonb, [None], [None]],  
                     empty = True, name = 'T10',  
-                    switches = [S10, S11, S12, S13, S14, S15, S16, S17],
-                    easy_logical_expression_PN = "& [ S16 S17 ( -& - S14 S15 ) [ -| ( & S12 S13 ) ( & S10 - S11 ) ] ]")
-        
+                    # switches = [S10, S11, S12, S13, S14, S15, S16, S17],
+                    switches = [S10, S11, S12, S13, S14, S15, S16, S17])
+                    # easy_logical_expression_PN = "& [ S16 S17 ( -& - S14 S15 ) [ -| ( & S12 S13 ) ( & S10 - S11 ) ] ]")
+                    # easy_logical_expression_PN = "& [ S16 S17 ( -& - S14 S15 ) ( -& S12 S13 ) ( -& S10 - S11 ) ]")
         d = 0
     
         position_R0 = [ 5.25,   0-d, 6,  4+d]
@@ -940,17 +950,17 @@ class Levels:
                   relative_arrival_coordinates = relative_arrival_coordinates_D10)
         
         l_help_txt = [
-"""NOR can also apply to 3 parameters instead of 2:
+"""NAND can also apply to 3 parameters instead of 2:
 
-    NOR truth table [D0 = NOR ( S0 S1 S2 )]:
+    NAND truth table [D0 = NAND ( S0 S1 S2 )]:
         S0  S1  S2  D0
           0    0    0     1
-          0    1    0     0
-          1    0    0     0
-          1    1    0     0
-          0    0    1     0
-          0    1    1     0
-          1    0    1     0
+          0    1    0     1
+          1    0    0     1
+          1    1    0     1
+          0    0    1     1
+          0    1    1     1
+          1    0    1     1
           1    1    1     0  
 """]
         
@@ -1766,10 +1776,13 @@ To leave the game, you can press [Q] or [ESCAPE].
         tree_list_5 = Tree.tree_list_and_5
         
         T0 = Tree(tree_list = tree_list_0, empty = True, name = 'T0', switches = [S0])
-        T1 = Tree(tree_list = tree_list_1, empty = True, name = 'T1', switches = [S5, S7, S9])
-        T2 = Tree(tree_list = tree_list_2, empty = True, name = 'T2', switches = [S6, S7, S9])
+        T1 = Tree(tree_list = tree_list_1, empty = True, name = 'T1', switches = [S5, S7, S9],
+                  easy_logical_expression_PN = "& S9 XNOR S5 S7 = & S9 -^ S5 S7")
+        T2 = Tree(tree_list = tree_list_2, empty = True, name = 'T2', switches = [S6, S7, S9],
+                  easy_logical_expression_PN = "& S9 XOR S6 S7 = & S9 ^ S6 S7")
         T3 = Tree(tree_list = tree_list_3, empty = True, name = 'T3', switches = [S5, S8, S9])
-        T4 = Tree(tree_list = tree_list_4, empty = True, name = 'T4', switches = [S6, S8, S9])
+        T4 = Tree(tree_list = tree_list_4, empty = True, name = 'T4', switches = [S6, S8, S9],
+                  easy_logical_expression_PN = "& S9 XOR S6 S8 = & S9 ^ S6 S8")
         T5 = Tree(tree_list = tree_list_5, empty = True, name = 'T5', switches = [S1, S2, S3, S4, S9])
         
         position_R0 = [  0,   2,  3,  4]
@@ -1847,7 +1860,7 @@ To leave the game, you can press [Q] or [ESCAPE].
         l_help_txt = [
 """Two new operands are used in this level : XOR and XNOR
     
-    XOR truth table (D0 = XOR S0 S1):
+    XOR truth table (D0 = XOR S0 S1 = ^ S0 S1):
         S0  S1  D0
           0    0    0
           0    1    1
@@ -1855,7 +1868,7 @@ To leave the game, you can press [Q] or [ESCAPE].
           1    1    0  
     In other words, D0 is opened if S0 = S1.
           
-    XNOR truth table (D0 = XNOR S0 S1):
+    XNOR truth table (D0 = XNOR S0 S1 = -^ S0 S1):
         S0  S1  D0
           0    0    1
           0    1    0
@@ -2233,7 +2246,7 @@ if __name__ == "__main__":
     #             max_depth_tree_name = tree.name
     #         print(tree.name, depth)
     
-    solutions = Levels.level_graph().find_all_solutions(stop_at_first_solution=False, verbose = 3)
+    # solutions = Levels.level_graph().find_all_solutions(stop_at_first_solution=False, verbose = 3)
     
     # mini = float('inf')
     # sol_mini = ''
@@ -2253,6 +2266,10 @@ if __name__ == "__main__":
     # print(sol_mini)
     # Levels.level_graph().try_solution(sol_mini, verbose = 3, allow_all_doors=True, allow_all_switches=True)
     
+    # for level_function in Levels.levels_list:
+    #     level = level_function()
     
+    # solutions = Levels.level_electricity().find_all_solutions(stop_at_first_solution=False, verbose = 3)
     
+    pass
     
