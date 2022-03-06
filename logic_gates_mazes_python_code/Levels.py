@@ -220,6 +220,82 @@ class Levels:
         
         return level
     
+    def level_k4(): # TODO
+        
+        S0  = Switch(name = 'S0')
+        S1  = Switch(name = 'S1')
+        S2  = Switch(name = 'S2')
+        S3  = Switch(name = 'S3')
+        S4  = Switch(name = 'S4')
+        S5  = Switch(name = 'S5')
+        S6  = Switch(name = 'S6')
+        S7  = Switch(name = 'S7')
+        
+        
+        T0 = Tree(tree_list = [None], empty = True, name = 'T0', switches = [S0])
+        T1 = Tree(tree_list = [None], empty = True, name = 'T1', switches = [S0])
+        T2 = Tree(tree_list = [None], empty = True, name = 'T2', switches = [S0])
+        T3 = Tree(tree_list = [None], empty = True, name = 'T3', switches = [S0])
+        T4 = Tree(tree_list = [None], empty = True, name = 'T4', switches = [S0])
+        T5 = Tree(tree_list = [None], empty = True, name = 'T5', switches = [S0])
+        T6 = Tree(tree_list = [None], empty = True, name = 'T6', switches = [S0])
+        
+        d = 3
+        r = 1.4
+        
+        position_R0 = [   2,  5,  2,  2]
+        position_R1 = [   0,  2,  2,  2]
+        position_R2 = [   3,  0,  2,  2]
+        position_R3 = [   5,  3,  2,  2]
+        position_RE = [   d,  d,  r,  r]
+        
+        R0 = Room(name = 'R0', position = position_R0, switches_list = [S0, S4])
+        R1 = Room(name = 'R1', position = position_R1, switches_list = [S1, S5])
+        R2 = Room(name = 'R2', position = position_R2, switches_list = [S2, S6])
+        R3 = Room(name = 'R3', position = position_R3, switches_list = [S3, S7])
+        RE = Room(name = 'RE', position = position_RE, is_exit = True) # E pour exit ou end
+        
+        D0 = Door(two_way = True, tree = T0, room_departure = R0, room_arrival = R1, 
+                  relative_departure_coordinates = [0, 1], 
+                  relative_arrival_coordinates = [0, 1])
+        D1 = Door(two_way = True, tree = T1, room_departure = R0, room_arrival = R2, 
+                  relative_departure_coordinates = [0, 0], 
+                  relative_arrival_coordinates = [0, 1])
+        D2 = Door(two_way = True, tree = T2, room_departure = R0, room_arrival = R3, 
+                  relative_departure_coordinates = [1, 1], 
+                  relative_arrival_coordinates = [1, 1])
+        D3 = Door(two_way = True, tree = T3, room_departure = R1, room_arrival = R2, 
+                  relative_departure_coordinates = [0, 0], 
+                  relative_arrival_coordinates = [0, 0])
+        D4 = Door(two_way = True, tree = T4, room_departure = R1, room_arrival = R3, 
+                  relative_departure_coordinates = [1, 0], 
+                  relative_arrival_coordinates = [0, 0])
+        D5 = Door(two_way = True, tree = T5, room_departure = R2, room_arrival = R3, 
+                  relative_departure_coordinates = [1, 0], 
+                  relative_arrival_coordinates = [1, 0])
+        D6 = Door(two_way = True, tree = T6, room_departure = R3, room_arrival = RE,
+                  relative_departure_coordinates = [0, 1], 
+                  relative_arrival_coordinates = [0.7, 0.7])
+        
+        l_help_txt = [
+"""
+"""]
+        
+        level = Maze(start_room_index = 0, 
+                     exit_room_index = -1, 
+                     rooms_list = [R0, R1, R2, R3, RE], 
+                     doors_list = [D0, D1, D2, D3, D4, D5, D6], 
+                     fastest_solution = None,
+                     level_color = Levels_colors_list.YELLOW,
+                     name = 'K4',
+                     help_txt = l_help_txt,
+                     border = 30,
+                     door_window_size = 500,
+                     keep_proportions = True)
+        
+        return level
+    
+    
     def level_crossroad():
 
         S0 = Switch(name = 'S0')
@@ -2204,7 +2280,7 @@ if you want to turn on S0, S1 and then use the door D0.
         
         return level
         
-    levels_list = [
+    levels_list = [#level_k4,
                    level_initiation,         # GREY
                    level_linear,             # BRIGHT GREEN
                    level_loop,               # RED
