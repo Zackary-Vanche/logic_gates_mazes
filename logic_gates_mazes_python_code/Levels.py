@@ -1285,12 +1285,12 @@ Here are some examples :
         S9 = Switch(name = 'S9')
         
         tree_list_0 = Tree.tree_list_anb
-        tree_list_1 = Tree.tree_list_and_5
-        tree_list_2 = Tree.tree_list_and_5
+        tree_list_1 = Tree.tree_list_and_2
+        tree_list_2 = Tree.tree_list_and_2
         tree_list_3 = Tree.tree_list_anb
-        tree_list_4 = Tree.tree_list_and_5
-        tree_list_5 = Tree.tree_list_and_6
-        tree_list_6 = Tree.tree_list_and_5
+        tree_list_4 = Tree.tree_list_and_2
+        tree_list_5 = Tree.tree_list_and_3
+        tree_list_6 = Tree.tree_list_and_2
         tree_list_7 = Tree.tree_list_anb
         tree_list_8 = Tree.tree_list_anb
         tree_list_9 = Tree.tree_list_anb
@@ -1302,11 +1302,11 @@ Here are some examples :
         T9  = Tree(tree_list = tree_list_9,  empty = True, name = 'T9', switches = [S4, S9])
         T7  = Tree(tree_list = tree_list_7,  empty = True, name = 'T7', switches = [S2, S7])
         
-        T4  = Tree(tree_list = tree_list_4,  empty = True, name = 'T4', switches = [S0, S1, S2, S3, S4])
-        T6  = Tree(tree_list = tree_list_6,  empty = True, name = 'T6', switches = [S0, S1, S2, S3, S4])
-        T1  = Tree(tree_list = tree_list_1,  empty = True, name = 'T1', switches = [S0, S1, S2, S3, S4])
-        T2  = Tree(tree_list = tree_list_2,  empty = True, name = 'T2', switches = [S0, S1, S2, S3, S4])
-        T5  = Tree(tree_list = tree_list_5,  empty = True, name = 'T5', switches = [S0, S1, S2, S3, S4, S5])
+        T4  = Tree(tree_list = tree_list_4,  empty = True, name = 'T4', switches = [S0, S2])
+        T6  = Tree(tree_list = tree_list_6,  empty = True, name = 'T6', switches = [S0, S2])
+        T1  = Tree(tree_list = tree_list_1,  empty = True, name = 'T1', switches = [S0, S2])
+        T2  = Tree(tree_list = tree_list_2,  empty = True, name = 'T2', switches = [S0, S2])
+        T5  = Tree(tree_list = tree_list_5,  empty = True, name = 'T5', switches = [S0, S2, S5])
 
         T10 = Tree(tree_list = tree_list_10, empty = True,name = 'T10', switches = [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9])
         
@@ -1359,7 +1359,8 @@ The name of the exit room is RE.
                       level_color = Levels_colors_list.BLACK_AND_YELLOW,
                       name = 'Infinity',
                       help_txt = l_help_txt,
-                      border = 50)
+                      border = 50,
+                      keep_proportions=False)
         return level
      
     def level_initiation():
@@ -2345,7 +2346,7 @@ if __name__ == "__main__":
     # for level_function in Levels.levels_list:
     #     level = level_function()
     
-    # solutions = Levels.level_electricity().find_all_solutions(stop_at_first_solution=False, verbose = 3)
+    # solutions = Levels.level_infinity().find_all_solutions(stop_at_first_solution=False, verbose = 3)
     
     pass
     
