@@ -1936,6 +1936,9 @@ To leave the game, you can press [Q] or [ESCAPE].
         
         l_help_txt = [
 """Two new operands are used in this level : XOR and XNOR
+
+    XOR means exclusive or.
+    XNOR is its opposite.
     
     XOR truth table (D0 = XOR S0 S1 = ^ S0 S1):
         S0  S1  D0
