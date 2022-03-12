@@ -13,5 +13,5 @@ The folder logic_gates_mazes_executable contains the compiled code, and the appl
 	  A window will open.
 	  Click once on that window.
 	  The game starts.
-
+solutions.txt contains the solutions of each level.
   
