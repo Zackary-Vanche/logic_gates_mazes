@@ -1,1 +1,0 @@
-The code doesn't need the "images" folder tu run. 
