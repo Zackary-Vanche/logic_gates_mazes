@@ -589,7 +589,7 @@ class Levels:
         tree_list_5  = Tree.tree_list_nor
         tree_list_6  = Tree.tree_list_nor
         tree_list_7  = Tree.tree_list_nor
-        tree_list_8  = ['OR', Tree.tree_list_and_2, [None]]
+        tree_list_8  = Tree.tree_list_from_str('TT T')  # ['OR', Tree.tree_list_and_2, [None]]
         tree_list_9  = Tree.tree_list_anb
         tree_list_10 = ['AND', ['AND', Tree.tree_list_xor, Tree.tree_list_xor], Tree.tree_list_not]
         tree_list_11 = Tree.tree_list_anb
@@ -2201,7 +2201,7 @@ if you want to turn on S0, S1 and then use the door D0.
         tree_list_5 = ['AND',  Tree.tree_list_XOR3,  [None]]
         tree_list_6 = ['AND',  Tree.tree_list_XNOR3, [None]]
         tree_list_7 = ['AND',  Tree.tree_list_XOR3,  [None]]
-        tree_list_8 = ['OR_3', Tree.tree_list_anb, Tree.tree_list_and_2, Tree.tree_list_and_2]
+        tree_list_8 = Tree.tree_list_from_str('TF TT TT') # ['OR_3', Tree.tree_list_anb, Tree.tree_list_and_2, Tree.tree_list_and_2]
         
         T0  = Tree(tree_list = tree_list_0,  empty = True, name = 'T0', switches = [S6, S7], easy_logical_expression_PN = "NAND S6 S7 = -& S6 S7")
         T1  = Tree(tree_list = tree_list_1,  empty = True, name = 'T1', switches = [S6, S7, S8])
@@ -2284,7 +2284,7 @@ if you want to turn on S0, S1 and then use the door D0.
         
         return level
         
-    levels_list = [#level_k4,
+    levels_list = [#level_k4, # TODO
                    level_initiation,         # GREY
                    level_linear,             # BRIGHT GREEN
                    level_loop,               # RED
@@ -2353,7 +2353,7 @@ if __name__ == "__main__":
     
     sol = "S4 D1 S2 D5 S3 D2 S0 S4 D0 D4 S3 S7 D2 S0 D1 S6 D3 S1 S5 D0 S0 S4 D2 D6"
     
-    Levels.level_k4.try_solution(sol, verbose = 0, allow_all_doors=True, allow_all_switches=True)
+    Levels.level_k4().try_solution(sol, verbose = 3, allow_all_doors=True, allow_all_switches=True)
     
     pass
     

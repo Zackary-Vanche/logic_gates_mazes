@@ -56,16 +56,37 @@ class Tree:
     tree_list_bona = ['OR', tree_list_not, [None]]
     
     def tree_list_from_str(txt):
-        assert txt.replace('T', '').replace('F', '') == ''
-        n = len(txt)
-        tree_list = ['AND_{}'.format(n)]
-        for i in range(n):
-            b = txt[i]
-            if b == 'T':
-                tree_list.append([None])
-            if b == 'F':
-                tree_list.append(['NOT', [None]])
-        return tree_list
+        def tree_list_and_from_str(txt):
+            assert txt.replace('T', '').replace('F', '') == ''
+            if txt == 'T':
+                return [None]
+            if txt == 'F':
+                return ['NOT', [None]]
+            n = len(txt)
+            if n == 2:
+                tree_list = ['AND']
+            else:
+                tree_list = ['AND_{}'.format(n)]
+            for i in range(n):
+                b = txt[i]
+                if b == 'T':
+                    tree_list.append([None])
+                if b == 'F':
+                    tree_list.append(['NOT', [None]])
+            return tree_list
+        txtl = txt.split(' ')
+        assert len(txtl) > 0
+        if len(txtl) == 1:
+            return tree_list_and_from_str(txt) 
+        else:
+            n = len(txtl)
+            if n == 2:
+                tree_list = ['OR']
+            else:
+                tree_list = ['OR_{}'.format(n)]
+            for i in range(n):
+                tree_list.append(tree_list_and_from_str(txtl[i]))
+            return tree_list
     
     tree_list_FFF = tree_list_from_str('FFF')
     tree_list_TFF = tree_list_from_str('TFF')
@@ -627,17 +648,16 @@ class Tree:
         
 if __name__ == "__main__":
     
-    from Switch import Switch
+    # from Switch import Switch
     
-    S9  = Switch(name = 'S9')
-    tree_list_12 = ['NOT', [None]]
-    T12 = Tree(tree_list = tree_list_12, empty = True, name = 'T12', switches = [S9])
-    print(T12.get_easy_logical_expression_PN())
+    # S9  = Switch(name = 'S9')
+    # tree_list_12 = ['NOT', [None]]
+    # T12 = Tree(tree_list = tree_list_12, empty = True, name = 'T12', switches = [S9])
+    # print(T12.get_easy_logical_expression_PN())
     
+    print(Tree.tree_list_from_str('FTT TFT FFT'))
     
-    
-    
-    
+    pass
     
     
     
