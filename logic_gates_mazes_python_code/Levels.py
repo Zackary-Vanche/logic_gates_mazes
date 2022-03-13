@@ -162,12 +162,12 @@ class Levels:
         T2  = Tree(tree_list = [None],  empty = True, name = 'T2',  switches = [S7])
         T3  = Tree(tree_list = Tree.tree_list_anb,  empty = True, name = 'T3',  switches = [S1, S2])
         T4  = Tree(tree_list = Tree.tree_list_bna,  empty = True, name = 'T4',  switches = [S4, S8])
-        T5  = Tree(tree_list = [None],  empty = True, name = 'T5',  switches = [S0])
+        T5  = Tree(tree_list = Tree.tree_list_xnor,  empty = True, name = 'T5',  switches = [S5, S6])
         T6  = Tree(tree_list = ["AND", Tree.tree_list_xor, [None]],  empty = True, name = 'T6',  switches = [S0, S1, S2])
         T7  = Tree(tree_list = ["AND", Tree.tree_list_xor, [None]],  empty = True, name = 'T7',  switches = [S1, S2, S4])
         T8  = Tree(tree_list = Tree.tree_list_xor,  empty = True, name = 'T8',  switches = [S5, S6])
         T9  = Tree(tree_list = Tree.tree_list_xnor,  empty = True, name = 'T9',  switches = [S3, S8])
-        T10 = Tree(tree_list = Tree.tree_list_and_7,  empty = True, name = 'T10', switches = [S0, S2, S3, S4, S5, S7, S8])
+        T10 = Tree(tree_list = Tree.tree_list_from_str('FTTTTTT'),  empty = True, name = 'T10', switches = [S0, S2, S3, S4, S5, S7, S8])
         
         c = 1.2
         
@@ -211,7 +211,7 @@ class Levels:
                      exit_room_index = -1, 
                      rooms_list = [R0, R1, R2, R3, R4, R5, R6, R7, RE], 
                      doors_list = [D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10], 
-                     fastest_solution = "S0 D0 D1 S2 D6 S7 D9 D0 S1 D1 S2 D2 S3 D3 S4 D7 S8 D9 D0 D1 D2 D3 S4 D4 S5 D5 D8 D9 D0 D1 D2 D3 S4 D7 D9 D0 S1 D1 S2 D6 D9 D10",
+                     fastest_solution = "S0 D0 D1 S2 D6 S7 D9 D0 S1 D1 S2 D2 S3 D3 S4 D7 S8 D9 D0 D1 D2 D3 S4 D4 D5 S6 D8 D9 D0 D1 D2 D3 D4 S5 D5 S6 D8 D9 D0 D1 D2 D3 S4 D7 D9 D0 S1 D1 S2 D6 D9 S0 D10",
                      level_color = Levels_colors_list.GREEN_GREY,
                      name = 'Cartesian',
                      help_txt = l_help_txt,
@@ -2346,10 +2346,10 @@ if __name__ == "__main__":
     # print(sol_mini)
     # Levels.level_graph().try_solution(sol_mini, verbose = 3, allow_all_doors=True, allow_all_switches=True)
     
-    # for level_function in Levels.levels_list:
-    #     level = level_function()
+    for level_function in Levels.levels_list:
+        level = level_function()
     
-    # solutions = Levels.level_infinity().find_all_solutions(stop_at_first_solution=False, verbose = 3)
+    # solutions = Levels.level_cartesian().find_all_solutions(stop_at_first_solution=False, verbose = 3)
     
     pass
     
