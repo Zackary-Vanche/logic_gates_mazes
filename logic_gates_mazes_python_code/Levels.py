@@ -2284,7 +2284,7 @@ if you want to turn on S0, S1 and then use the door D0.
         
         return level
         
-    levels_list = [level_k4,
+    levels_list = [#level_k4,
                    level_initiation,         # GREY
                    level_linear,             # BRIGHT GREEN
                    level_loop,               # RED
@@ -2350,6 +2350,10 @@ if __name__ == "__main__":
         level = level_function()
     
     # solutions = Levels.level_cartesian().find_all_solutions(stop_at_first_solution=False, verbose = 3)
+    
+    sol = "S4 D1 S2 D5 S3 D2 S0 S4 D0 D4 S3 S7 D2 S0 D1 S6 D3 S1 S5 D0 S0 S4 D2 D6"
+    
+    Levels.level_k4.try_solution(sol, verbose = 0, allow_all_doors=True, allow_all_switches=True)
     
     pass
     
