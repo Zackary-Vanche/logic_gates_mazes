@@ -286,7 +286,7 @@ class Levels:
                      rooms_list = [R0, R1, R2, R3, RE], 
                      doors_list = [D0, D1, D2, D3, D4, D5, D6], 
                      fastest_solution = None,
-                     level_color = Levels_colors_list.YELLOW,
+                     level_color = Levels_colors_list.PURPLE_BLUE,
                      name = 'K4',
                      help_txt = l_help_txt,
                      border = 30,
@@ -2284,7 +2284,7 @@ if you want to turn on S0, S1 and then use the door D0.
         
         return level
         
-    levels_list = [#level_k4,
+    levels_list = [level_k4,
                    level_initiation,         # GREY
                    level_linear,             # BRIGHT GREEN
                    level_loop,               # RED
