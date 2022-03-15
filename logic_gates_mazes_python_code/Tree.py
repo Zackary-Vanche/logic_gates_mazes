@@ -106,7 +106,8 @@ class Tree:
                  name = 'T', 
                  switches = [], 
                  easy_logical_expression_PN = None,
-                 root_depth = 0):
+                 root_depth = 0, 
+                 cut_expression = False):
         
         # assert not (root_depth == 0 and switches == []), name
         
@@ -167,6 +168,7 @@ class Tree:
         self.raw_logical_expression_RPN = None 
         self.easy_logical_expression_PN = easy_logical_expression_PN
         self.logical_expression_RPN_simplified = None 
+        self.cut_expression = cut_expression
 
     def update_leafs_switches(self, switches = None):
         if not self.leafs_switches_updates:
@@ -206,12 +208,12 @@ class Tree:
                     if len(A) == len(B) and B < A:
                         A, B = B, A
                         root_name = root.invert_A_B_gate_name()
-                    if not son_A.is_leaf and len(son_A.sons_list) >= 2 and ' ' in A:
+                    if son_A.get_depth() > 3 and len(son_A.sons_list) >= 2 and ' ' in A:
                         if '(' in A:
                             A = '[ ' + A + ' ]'
                         else:
                             A = '( ' + A + ' )'
-                    if not son_B.is_leaf and len(son_B.sons_list) >= 2 and ' ' in B:
+                    if son_B.get_depth() > 3 and len(son_B.sons_list) >= 2 and ' ' in B:
                         if '(' in B:
                             B = '[ ' + B + ' ]'
                         else:
@@ -241,7 +243,7 @@ class Tree:
                     txt = ''
                     for son in self.sons_list:
                         son_PN = son.get_easy_logical_expression_PN()
-                        if not son.is_leaf and len(son.sons_list) >= 2 and ' ' in son_PN:
+                        if son.get_depth() > 3 and len(son.sons_list) >= 2 and ' ' in son_PN:
                             if '(' in son_PN:
                                 son_PN = ' [ ' + son_PN + ' ] '
                             else:
@@ -259,6 +261,17 @@ class Tree:
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('XNOR ', '-^ ')
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('NOR ', '-| ')
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('OR ', '| ')
+            if self.cut_expression:
+                l_elePN = self.easy_logical_expression_PN.split(')')
+                elePN = ''
+                for i in range(len(l_elePN)):
+                    if i < len(l_elePN)-2:
+                        elePN = elePN + l_elePN[i] + ')\n'
+                    elif i == len(l_elePN)-2:
+                        elePN = elePN + l_elePN[i] + ')'
+                    elif i == len(l_elePN)-1:
+                        elePN = elePN + l_elePN[i]
+                self.easy_logical_expression_PN = elePN
         return self.easy_logical_expression_PN
         
     def get_raw_logical_expression_RPN(self):

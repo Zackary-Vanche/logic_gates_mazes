@@ -26,7 +26,7 @@ class Levels:
         tree_list_1 = ['AND', ['NOT', [None]], Tree.tree_list_and_2] 
         
         T0 = Tree(tree_list = tree_list_0, empty = True, name = 'T0', switches = [S0, S1])
-        T1 = Tree(tree_list = tree_list_1, empty = True, name = 'T1', switches = [S0, S1, S2], easy_logical_expression_PN = "& - S0 ( & S1 S2 ) = & ( - S0 S1 S2 )")
+        T1 = Tree(tree_list = tree_list_1, empty = True, name = 'T1', switches = [S0, S1, S2], easy_logical_expression_PN = "& - S0 ( & S1 S2 )\n= & ( - S0 S1 S2 )")
         
         position_R0 = [3,2,2,2]
         position_R1 = [0,1,2,2]
@@ -220,7 +220,7 @@ class Levels:
         
         return level
     
-    def level_k4(): # TODO
+    def level_k4(): 
         
         S0  = Switch(name = 'S0')
         S1  = Switch(name = 'S1')
@@ -231,14 +231,23 @@ class Levels:
         S6  = Switch(name = 'S6')
         S7  = Switch(name = 'S7')
         
+        tree_list_0 = Tree.tree_list_from_str("TFTTFFFF FTTFFTTT")
+        tree_list_1 = Tree.tree_list_from_str("FFFFTFFF FFTFFFFT")
+        tree_list_2 = Tree.tree_list_from_str("FFTTTFFF TFTFFFFT TTTFTTTT")
+        tree_list_3 = Tree.tree_list_from_str("FFTFFFTT TTTFTTFT")
+        tree_list_4 = Tree.tree_list_from_str("TFTTFFFF TFTFTTFT")
+        tree_list_5 = Tree.tree_list_from_str("FFTFTFFF TTTFTTTT")
+        tree_list_6 = Tree.tree_list_from_str("TFTFTTFF")
         
-        T0 = Tree(tree_list = [None], empty = True, name = 'T0', switches = [S0])
-        T1 = Tree(tree_list = [None], empty = True, name = 'T1', switches = [S0])
-        T2 = Tree(tree_list = [None], empty = True, name = 'T2', switches = [S0])
-        T3 = Tree(tree_list = [None], empty = True, name = 'T3', switches = [S0])
-        T4 = Tree(tree_list = [None], empty = True, name = 'T4', switches = [S0])
-        T5 = Tree(tree_list = [None], empty = True, name = 'T5', switches = [S0])
-        T6 = Tree(tree_list = [None], empty = True, name = 'T6', switches = [S0])
+        ls = [S0, S1, S2, S3, S4, S5, S6, S7]
+        
+        T0 = Tree(tree_list = tree_list_0, empty = True, name = 'T0', switches = ls[:]*2, cut_expression = True)
+        T1 = Tree(tree_list = tree_list_1, empty = True, name = 'T1', switches = ls[:]*2, cut_expression = True)
+        T2 = Tree(tree_list = tree_list_2, empty = True, name = 'T2', switches = ls[:]*3, cut_expression = True)
+        T3 = Tree(tree_list = tree_list_3, empty = True, name = 'T3', switches = ls[:]*2, cut_expression = True)
+        T4 = Tree(tree_list = tree_list_4, empty = True, name = 'T4', switches = ls[:]*2, cut_expression = True)
+        T5 = Tree(tree_list = tree_list_5, empty = True, name = 'T5', switches = ls[:]*2, cut_expression = True)
+        T6 = Tree(tree_list = tree_list_6, empty = True, name = 'T6', switches = ls[:])
         
         d = 3
         r = 1.4
@@ -285,12 +294,12 @@ class Levels:
                      exit_room_index = -1, 
                      rooms_list = [R0, R1, R2, R3, RE], 
                      doors_list = [D0, D1, D2, D3, D4, D5, D6], 
-                     fastest_solution = None,
+                     fastest_solution = "S4 D1 S2 D5 S3 D2 S0 S4 D0 D4 S3 S7 D2 S0 D1 S6 D3 S1 S5 D0 S0 S4 D2 D5 S6 D3 S1 D4 S7 D6",
                      level_color = Levels_colors_list.PURPLE_BLUE,
                      name = 'K4',
                      help_txt = l_help_txt,
                      border = 30,
-                     door_window_size = 500,
+                     door_window_size = 550,
                      keep_proportions = True)
         
         return level
@@ -859,55 +868,35 @@ class Levels:
         T1   = Tree(tree_list = Tree.tree_list_from_str('FFTTT'),   
                     empty = True, 
                     name = 'T1',   
-                    # switches = [S10, S11, S1, S2, S3],
                     switches = [S1, S2, S3, S10, S11])
-                    # easy_logical_expression_PN = "& ( - S1 - S2 S3 S10 S11 )")
         T2   = Tree(tree_list = Tree.tree_list_from_str('FTFTF'),   
                     empty = True, name = 'T2',   
-                    # switches = [S10, S11, S1, S2, S3],
                     switches = [S1, S2, S3, S10, S11])
-                    # easy_logical_expression_PN = '& ( -S1 S2 -S3 S10 -S11 )')
         T3   = Tree(tree_list = Tree.tree_list_from_str('TFFFT'),   
                     empty = True, name = 'T3',   
-                    # switches = [S10, S11, S1, S2, S3],
                     switches = [S1, S2, S3, S10, S11])
-                    # easy_logical_expression_PN = '& ( S1 - S2 - S3 - S10 S11 )')
         T4   = Tree(tree_list = ['AND', Tree.tree_list_from_str('FFTTT'), Tree.tree_list_bona],   
                     empty = True, name = 'T4',   
-                    # switches = [S12, S13, S10, S11, S4, S5, S6],
                     switches = [S4, S5, S6, S12, S13, S10, S11])
-                    # easy_logical_expression_PN = "& [ -S4 -S5 S6 S12 S13 ( -& S10 - S11 ) ]")
         T5   = Tree(tree_list = ['AND', Tree.tree_list_from_str('FTFTF'), Tree.tree_list_nand],   
                     empty = True, name = 'T5',   
-                    # switches = [S12, S13, S10, S11, S4, S5, S6],
                     switches = [S4, S5, S6, S12, S13, S10, S11])
-                    # easy_logical_expression_PN = "& [ - S4 S5 - S6 S12 -S13 ( -& S10 S11 ) ]")
         T6   = Tree(tree_list = ['AND', Tree.tree_list_from_str('TFFFT'), Tree.tree_list_aonb],   
                     empty = True, name = 'T6',   
-                    # switches = [S12, S13, S10, S11, S4, S5, S6],
                     switches = [S4, S5, S6, S12, S13, S10, S11])
-                    # easy_logical_expression_PN = "& [ S4 -S5 -S6 -S12 S13 ( -& - S10 S11 ) ]")
         T7   = Tree(tree_list = ['AND', Tree.tree_list_from_str('FFTTT'), Tree.tree_list_bona],   
                     empty = True, name = 'T7',   
-                    # switches = [S14, S15, S12, S13, S7, S8, S9],
                     switches = [S7, S8, S9, S14, S15, S12, S13])
-                    # easy_logical_expression_PN = "& [ - S7 - S8 S9 S14 S15 ( -& S12 - S13 ) ]")
         T8   = Tree(tree_list = ['AND', Tree.tree_list_from_str('FTFTF'), Tree.tree_list_aonb],   
                     empty = True, name = 'T8',   
-                    # switches = [S14, S15, S12, S13, S7, S8, S9],
                     switches = [S7, S8, S9, S14, S15, S12, S13])
-                    # easy_logical_expression_PN = "& [ -S7 S8 -S9 S14 -S15 ( -& -S12 S13 ) ]")
         T9   = Tree(tree_list = ['AND', Tree.tree_list_from_str('TFFFT'), Tree.tree_list_nand],   
                     empty = True, name = 'T9',   
-                    # switches = [S14, S15, S12, S13, S7, S8, S9],
                     switches = [S7, S8, S9, S14, S15, S12, S13])
-                    # easy_logical_expression_PN = "& [ S7 -S8 -S9 -S14 S15 ( -& S12 S13 ) ]")
         T10  = Tree(tree_list = ['AND_5', Tree.tree_list_bona, Tree.tree_list_nand, Tree.tree_list_aonb, [None], [None]],  
                     empty = True, name = 'T10',  
-                    # switches = [S10, S11, S12, S13, S14, S15, S16, S17],
                     switches = [S10, S11, S12, S13, S14, S15, S16, S17])
-                    # easy_logical_expression_PN = "& [ S16 S17 ( -& - S14 S15 ) [ -| ( & S12 S13 ) ( & S10 - S11 ) ] ]")
-                    # easy_logical_expression_PN = "& [ S16 S17 ( -& - S14 S15 ) ( -& S12 S13 ) ( -& S10 - S11 ) ]")
+
         d = 0
     
         position_R0 = [ 5.25,   0-d, 6,  4+d]
@@ -1380,7 +1369,7 @@ The name of the exit room is RE.
                   empty = True, 
                   name = 'T2', 
                   switches = [S0, S1], 
-                  easy_logical_expression_PN = 'OR S0 S1 = | S0 S1')
+                  easy_logical_expression_PN = 'OR S0 S1\n= | S0 S1')
         
         c = 1
         e = 0.6
@@ -1473,10 +1462,10 @@ To leave the game, you can press [Q] or [ESCAPE].
         tree_list_2 = Tree.tree_list_bna
         tree_list_3 = Tree.tree_list_nor
         
-        T0 = Tree(tree_list = tree_list_0, empty = True, name = 'T0', switches = [S0, S1], easy_logical_expression_PN = 'AND S0 S1 = & S0 S1')
-        T1 = Tree(tree_list = tree_list_1, empty = True, name = 'T1', switches = [S2, S3], easy_logical_expression_PN = 'AND S2 NOT S3 = & S2 - S3')
-        T2 = Tree(tree_list = tree_list_2, empty = True, name = 'T2', switches = [S4, S5], easy_logical_expression_PN = 'AND NOT S4 S5 = & - S2 S3')
-        T3 = Tree(tree_list = tree_list_3, empty = True, name = 'T3', switches = [S6, S7], easy_logical_expression_PN = 'NOR S6 S7 = & - S6 - S7 = -| S6 S7')
+        T0 = Tree(tree_list = tree_list_0, empty = True, name = 'T0', switches = [S0, S1], easy_logical_expression_PN = 'AND S0 S1\n= & S0 S1')
+        T1 = Tree(tree_list = tree_list_1, empty = True, name = 'T1', switches = [S2, S3], easy_logical_expression_PN = 'AND S2 NOT S3\n= & S2 - S3')
+        T2 = Tree(tree_list = tree_list_2, empty = True, name = 'T2', switches = [S4, S5], easy_logical_expression_PN = 'AND NOT S4 S5\n= & - S2 S3')
+        T3 = Tree(tree_list = tree_list_3, empty = True, name = 'T3', switches = [S6, S7], easy_logical_expression_PN = 'NOR S6 S7\n= & - S6 - S7\n= -| S6 S7')
         
         position_R0 = [ 1,  16,  12, 2]
         position_R1 = [ 2,  12,  10, 2]
@@ -1854,12 +1843,12 @@ To leave the game, you can press [Q] or [ESCAPE].
         
         T0 = Tree(tree_list = tree_list_0, empty = True, name = 'T0', switches = [S0])
         T1 = Tree(tree_list = tree_list_1, empty = True, name = 'T1', switches = [S5, S7, S9],
-                  easy_logical_expression_PN = "& S9 XNOR S5 S7 = & S9 -^ S5 S7")
+                  easy_logical_expression_PN = "& S9 XNOR S5 S7\n= & S9 -^ S5 S7")
         T2 = Tree(tree_list = tree_list_2, empty = True, name = 'T2', switches = [S6, S7, S9],
-                  easy_logical_expression_PN = "& S9 XOR S6 S7 = & S9 ^ S6 S7")
+                  easy_logical_expression_PN = "& S9 XOR S6 S7\n= & S9 ^ S6 S7")
         T3 = Tree(tree_list = tree_list_3, empty = True, name = 'T3', switches = [S5, S8, S9])
         T4 = Tree(tree_list = tree_list_4, empty = True, name = 'T4', switches = [S6, S8, S9],
-                  easy_logical_expression_PN = "& S9 XOR S6 S8 = & S9 ^ S6 S8")
+                  easy_logical_expression_PN = "& S9 XOR S6 S8\n= & S9 ^ S6 S8")
         T5 = Tree(tree_list = tree_list_5, empty = True, name = 'T5', switches = [S1, S2, S3, S4, S9])
         
         position_R0 = [  0,   2,  3,  4]
@@ -2203,7 +2192,7 @@ if you want to turn on S0, S1 and then use the door D0.
         tree_list_7 = ['AND',  Tree.tree_list_XOR3,  [None]]
         tree_list_8 = Tree.tree_list_from_str('TF TT TT') # ['OR_3', Tree.tree_list_anb, Tree.tree_list_and_2, Tree.tree_list_and_2]
         
-        T0  = Tree(tree_list = tree_list_0,  empty = True, name = 'T0', switches = [S6, S7], easy_logical_expression_PN = "NAND S6 S7 = -& S6 S7")
+        T0  = Tree(tree_list = tree_list_0,  empty = True, name = 'T0', switches = [S6, S7], easy_logical_expression_PN = "NAND S6 S7\n= -& S6 S7")
         T1  = Tree(tree_list = tree_list_1,  empty = True, name = 'T1', switches = [S6, S7, S8])
         T2  = Tree(tree_list = tree_list_2,  empty = True, name = 'T2', switches = [S6, S7, S8])
         T3  = Tree(tree_list = tree_list_3,  empty = True, name = 'T3', switches = [S0, S1, S2, S8])
@@ -2284,7 +2273,7 @@ if you want to turn on S0, S1 and then use the door D0.
         
         return level
         
-    levels_list = [#level_k4, # TODO
+    levels_list = [
                    level_initiation,         # GREY
                    level_linear,             # BRIGHT GREEN
                    level_loop,               # RED
@@ -2299,6 +2288,7 @@ if you want to turn on S0, S1 and then use the door D0.
                    level_parallel,           # PINK
                    level_infinity,           # YELLOW AND BLACK
                    level_crystal,            # SALMON AND BRIGHT_GREY
+                   level_k4,                 # PURPLE_BLUE
                    level_cartesian,          # GREEN AND GREY
                    level_xor,                # RED AND ORANGE
                    level_graph,              # BLACK AND BLUE
@@ -2351,9 +2341,13 @@ if __name__ == "__main__":
     
     # solutions = Levels.level_cartesian().find_all_solutions(stop_at_first_solution=False, verbose = 3)
     
-    sol = "S4 D1 S2 D5 S3 D2 S0 S4 D0 D4 S3 S7 D2 S0 D1 S6 D3 S1 S5 D0 S0 S4 D2 D6"
-    
+    # These 2 lines
+    # calculates the values that k4 doors
+    # should have 
+    # in order to the solution to be sol
+    sol = "S4 D1 S2 D5 S3 D2 S0 S4 D0 D4 S3 S7 D2 S0 D1 S6 D3 S1 S5 D0 S0 S4 D2 D5 S6 D3 S1 D4 S7 D6"
     Levels.level_k4().try_solution(sol, verbose = 3, allow_all_doors=True, allow_all_switches=True)
+    
     
     pass
     

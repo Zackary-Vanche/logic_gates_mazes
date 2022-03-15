@@ -396,7 +396,7 @@ class Game:
                         door = doors_list[k]
                         tree = door.tree
                         str_logical_expression = tree.get_easy_logical_expression_PN()
-                        str_logical_expression = str_logical_expression.split('=')
+                        str_logical_expression = str_logical_expression.split('\n')
                         # if k == 0:
                         #     print('')
                         for i in range(len(str_logical_expression)):
@@ -407,7 +407,7 @@ class Game:
                                                                         inside_room_color)
                                 WINDOW.blit(logical_expression_render, (x_separation + 10, gap))
                             else:
-                                logical_expression_render = font.render(' '*(len(door.name)+3) + '=' + string,
+                                logical_expression_render = font.render(' '*(len(door.name)+3) + string,
                                                                         True,
                                                                         inside_room_color)
                                 WINDOW.blit(logical_expression_render, (x_separation + 10, gap))
