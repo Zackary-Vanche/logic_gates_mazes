@@ -243,7 +243,7 @@ class Tree:
                     txt = ''
                     for son in self.sons_list:
                         son_PN = son.get_easy_logical_expression_PN()
-                        if son.get_depth() > 3 and len(son.sons_list) >= 2 and ' ' in son_PN:
+                        if not son.is_leaf and len(son.sons_list) >= 2 and ' ' in son_PN:
                             if '(' in son_PN:
                                 son_PN = ' [ ' + son_PN + ' ] '
                             else:

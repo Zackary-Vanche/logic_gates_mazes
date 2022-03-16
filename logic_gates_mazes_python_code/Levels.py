@@ -243,7 +243,10 @@ class Levels:
         
         T0 = Tree(tree_list = tree_list_0, empty = True, name = 'T0', switches = ls[:]*2, cut_expression = True)
         T1 = Tree(tree_list = tree_list_1, empty = True, name = 'T1', switches = ls[:]*2, cut_expression = True)
-        T2 = Tree(tree_list = tree_list_2, empty = True, name = 'T2', switches = ls[:]*3, cut_expression = True)
+        T2 = Tree(tree_list = tree_list_2, empty = True, name = 'T2', switches = ls[:]*3, cut_expression = True,
+                  easy_logical_expression_PN = """| [ & ( - S0 - S1 S2 S3 S4 - S5 - S6 - S7 )
+& ( S0 - S1 S2 - S3 - S4 - S5 - S6 S7 )
+& ( S0 S1 S2 - S3 S4 S5 S6 S7 )  ]""")
         T3 = Tree(tree_list = tree_list_3, empty = True, name = 'T3', switches = ls[:]*2, cut_expression = True)
         T4 = Tree(tree_list = tree_list_4, empty = True, name = 'T4', switches = ls[:]*2, cut_expression = True)
         T5 = Tree(tree_list = tree_list_5, empty = True, name = 'T5', switches = ls[:]*2, cut_expression = True)
@@ -600,7 +603,7 @@ class Levels:
         tree_list_7  = Tree.tree_list_nor
         tree_list_8  = Tree.tree_list_from_str('TT T')  # ['OR', Tree.tree_list_and_2, [None]]
         tree_list_9  = Tree.tree_list_anb
-        tree_list_10 = ['AND', ['AND', Tree.tree_list_xor, Tree.tree_list_xor], Tree.tree_list_not]
+        tree_list_10 = ['AND_3', Tree.tree_list_xor, Tree.tree_list_xor, Tree.tree_list_not]
         tree_list_11 = Tree.tree_list_anb
         # tree_list_12 = ['NA', [None], [None]]
         tree_list_12 = ['NOT', [None]]
