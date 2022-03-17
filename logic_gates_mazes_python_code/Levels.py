@@ -1448,6 +1448,50 @@ To leave the game, you can press [Q] or [ESCAPE].
                      keep_proportions = True)
         
         return level
+    
+    def level_icone():
+        
+        # Only used to make the icone of the game
+        
+        S0 = Switch(name = 'S0')
+        
+        T0 = Tree(tree_list = [None], 
+                  empty = True, 
+                  name = 'T0', 
+                  switches = [S0])
+        
+        c = 1.5
+        
+        position_R0 = [0,0,c,c]
+        position_RE = [2,0,c,c]
+        
+        R0 = Room(name = 'R0', position = position_R0, switches_list = [S0])
+        RE = Room(name = 'RE', position = position_RE, is_exit = True) # E pour exit ou end
+        
+        D0 = Door(two_way = True, 
+                  tree = T0, 
+                  name = 'D0', 
+                  room_departure = R0, 
+                  room_arrival = RE)
+        
+        l_help_txt = [                 
+"""
+"""]
+# To change the doors' notation, press [N]. -> depretated but it will maybe come back
+        
+
+        level = Maze(start_room_index = 0, 
+                     exit_room_index = -1, 
+                     rooms_list = [R0, RE], 
+                     doors_list = [D0], 
+                     fastest_solution = "S0 D0",
+                     level_color = Levels_colors_list.BLACK_AND_WHITE_2,
+                     name = 'Icone',
+                     help_txt = l_help_txt,
+                     door_window_size = 500,
+                     keep_proportions = True)
+        
+        return level
         
     def level_linear(): 
         
@@ -2276,7 +2320,7 @@ if you want to turn on S0, S1 and then use the door D0.
         
         return level
         
-    levels_list = [
+    levels_list = [#level_icone,
                    level_initiation,         # GREY
                    level_linear,             # BRIGHT GREEN
                    level_loop,               # RED
