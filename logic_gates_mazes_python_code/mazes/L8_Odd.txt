@@ -1,0 +1,13 @@
+S0 : 0; S1 : 0; S2 : 0; S3 : 0; S4 : 0; 
+R0 : S0 S4 
+R1 : S1 
+R2 : S2 
+R3 : S3 
+RE (EXIT): 
+D0 :  ( S0 S1 S2 S3 S4 ) &; R0 --> RE
+D1 :  ( S0- S1 S4- ) &; R0 <-> R1
+D2 :  ( S0- S2- S4 ) &; R0 <-> R2
+D3 :  ( S0 S1 S3 S4- ) &; R0 <-> R3
+D4 : S0- S4 AND; R1 <-> R2
+D5 : S0 S4 NOR; R1 <-> R3
+D6 : S0 S4- AND; R2 <-> R3

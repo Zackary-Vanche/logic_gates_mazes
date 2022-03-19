@@ -1,0 +1,18 @@
+S0 : 0; S1 : 0; S10 : 0; S11 : 0; S12 : 0; S13 : 0; S14 : 0; S15 : 0; S16 : 0; S17 : 0; S2 : 0; S3 : 0; S4 : 0; S5 : 0; S6 : 0; S7 : 0; S8 : 0; S9 : 0; 
+R0 : S0 S1 S2 S3 S4 S5 S6 S7 S8 S9 
+R1 : S10 S11 
+R2 : S12 S13 
+R3 : S14 S15 
+R4 : S16 S17 
+RE (EXIT): 
+D0 : S0  (  ( S1- S2- S3 ) &  ( S4 S5- S6- ) &  ( S7- S8- S9 ) & ) -& AND; R0 --> R1
+D1 :  ( S1- S2- S3 S10 S11 ) &; R1 --> R2
+D2 :  ( S1- S2 S3- S10 S11- ) &; R1 --> R2
+D3 :  ( S1 S2- S3- S10- S11 ) &; R1 --> R2
+D4 :  ( S4- S5- S6 S12 S13 ) & S10- S11 OR AND; R2 --> R3
+D5 :  ( S4- S5 S6- S12 S13- ) & S10 S11 NAND AND; R2 --> R3
+D6 :  ( S4 S5- S6- S12- S13 ) & S10 S11- OR AND; R2 --> R3
+D7 :  ( S7- S8- S9 S14 S15 ) & S12- S13 OR AND; R3 --> R4
+D8 :  ( S7- S8 S9- S14 S15- ) & S12 S13- OR AND; R3 --> R4
+D9 :  ( S7 S8- S9- S14- S15 ) & S12 S13 NAND AND; R3 --> R4
+D10 :  ( S10- S11 OR S12 S13 NAND S14 S15- OR S16 S17 ) &; R4 --> RE

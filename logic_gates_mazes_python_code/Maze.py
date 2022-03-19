@@ -216,6 +216,7 @@ class Maze:
             f.write(str(self))
             
     def save_txt_short(self, title_header = ''):
+        self.reboot_solution()
         with open('{}_{}.txt'.format(title_header, self.name.replace(' ', '_')), 'w') as f:
             for switch in self.switches_list():
                 f.write('{} : {}; '.format(switch.name, switch.value))

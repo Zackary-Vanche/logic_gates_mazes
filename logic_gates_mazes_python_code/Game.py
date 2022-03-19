@@ -534,7 +534,7 @@ class Game:
             self.change_level()
             self.goto_or_leave_help()
             
-    def save_levels_txt(verbose=0, calculates_solutions=True):
+    def save_levels_txt(verbose=0, calculates_solutions=True, short_only=True):
         t0 = time()
         Maze.calculates_solutions = calculates_solutions
         if not os_path_exists('mazes'):
@@ -542,7 +542,8 @@ class Game:
         for k in range(len(Levels.levels_list)):
             level = Levels.levels_list[k]()
             if level.fastest_solution is not None:
-                level.save_txt(title_header='mazes/Level_{}'.format(k))
+                if not short_only:
+                    level.save_txt(title_header='mazes/Level_{}'.format(k))
                 level.save_txt_short(title_header='mazes/L{}'.format(k))
             else:
                 print(level.name, 'TODO')
