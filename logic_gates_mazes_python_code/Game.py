@@ -422,6 +422,7 @@ class Game:
                 
     def display_game_window(self):
         self.draw_right_window()
+        self.draw_exterior_lines()
         self.draw_windows_separation()
         self.print_level_name()
         self.print_trees()
