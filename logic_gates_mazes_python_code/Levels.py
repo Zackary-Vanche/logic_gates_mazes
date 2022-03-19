@@ -37,8 +37,8 @@ class Levels:
         RE = Room(name = 'RE', position = position_RE, is_exit = True) # E pour exit ou end
         
         relative_departure_coordinates_D0 = [0, 1/2]
-        relative_arrival_coordinates_D0   = [1, 1]
-        relative_departure_coordinates_D1 = [1, 1]
+        relative_arrival_coordinates_D0   = [0.98, 0.98]
+        relative_departure_coordinates_D1 = [0.98, 0.98]
         relative_arrival_coordinates_D1   = [0, 1/2]
         
         D0 = Door(two_way = True, tree = T0, name = 'D0', room_departure = R0, room_arrival = R1,
@@ -267,26 +267,29 @@ class Levels:
         R3 = Room(name = 'R3', position = position_R3, switches_list = [S3, S7])
         RE = Room(name = 'RE', position = position_RE, is_exit = True) # E pour exit ou end
         
+        d0 = 0.02
+        d1 = 1-d0
+        
         D0 = Door(two_way = True, tree = T0, room_departure = R0, room_arrival = R1, 
-                  relative_departure_coordinates = [0, 1], 
-                  relative_arrival_coordinates = [0, 1])
+                  relative_departure_coordinates = [d0, d1], 
+                  relative_arrival_coordinates = [d0, d1])
         D1 = Door(two_way = True, tree = T1, room_departure = R0, room_arrival = R2, 
-                  relative_departure_coordinates = [0, 0], 
-                  relative_arrival_coordinates = [0, 1])
+                  relative_departure_coordinates = [d0, d0], 
+                  relative_arrival_coordinates = [d0, d1])
         D2 = Door(two_way = True, tree = T2, room_departure = R0, room_arrival = R3, 
-                  relative_departure_coordinates = [1, 1], 
-                  relative_arrival_coordinates = [1, 1])
+                  relative_departure_coordinates = [d1, d1], 
+                  relative_arrival_coordinates = [d1, d1])
         D3 = Door(two_way = True, tree = T3, room_departure = R1, room_arrival = R2, 
-                  relative_departure_coordinates = [0, 0], 
-                  relative_arrival_coordinates = [0, 0])
+                  relative_departure_coordinates = [d0, d0], 
+                  relative_arrival_coordinates = [d0, d0])
         D4 = Door(two_way = True, tree = T4, room_departure = R1, room_arrival = R3, 
-                  relative_departure_coordinates = [1, 0], 
-                  relative_arrival_coordinates = [0, 0])
+                  relative_departure_coordinates = [d1, d0], 
+                  relative_arrival_coordinates = [d0, d0])
         D5 = Door(two_way = True, tree = T5, room_departure = R2, room_arrival = R3, 
-                  relative_departure_coordinates = [1, 0], 
-                  relative_arrival_coordinates = [1, 0])
+                  relative_departure_coordinates = [d1, d0], 
+                  relative_arrival_coordinates = [d1, d0])
         D6 = Door(two_way = True, tree = T6, room_departure = R3, room_arrival = RE,
-                  relative_departure_coordinates = [0, 1], 
+                  relative_departure_coordinates = [d0, d1], 
                   relative_arrival_coordinates = [0.7, 0.7])
         
         l_help_txt = [
@@ -1682,16 +1685,19 @@ To leave the game, you can press [Q] or [ESCAPE].
         R3 = Room(name = 'R3', position = position_R3, switches_list = [S3])
         RE = Room(name = 'RE', position = position_RE, is_exit = True) # E pour exit ou end
         
-        relative_departure_coordinates_D2 = [0, 1]
-        relative_arrival_coordinates_D2   = [1, 0]
-        relative_departure_coordinates_D3 = [1, 1]
-        relative_arrival_coordinates_D3   = [0, 0]
-        relative_departure_coordinates_D4 = [0, 0]
-        relative_arrival_coordinates_D4   = [0, 0]
-        relative_departure_coordinates_D5 = [1, 0]
-        relative_arrival_coordinates_D5   = [1, 0]
-        relative_departure_coordinates_D6 = [1, 1]
-        relative_arrival_coordinates_D6   = [0, 1]
+        a = 0.02
+        b = 1-a
+        
+        relative_departure_coordinates_D2 = [a, b]
+        relative_arrival_coordinates_D2   = [b, a]
+        relative_departure_coordinates_D3 = [b, b]
+        relative_arrival_coordinates_D3   = [a, a]
+        relative_departure_coordinates_D4 = [a, a]
+        relative_arrival_coordinates_D4   = [a, a]
+        relative_departure_coordinates_D5 = [b, a]
+        relative_arrival_coordinates_D5   = [b, a]
+        relative_departure_coordinates_D6 = [b, b]
+        relative_arrival_coordinates_D6   = [a, b]
         
         D0  = Door(two_way = True,  
                    tree = T0,  
@@ -2155,8 +2161,8 @@ To leave the game, you can press [Q] or [ESCAPE].
         relative_arrival_coordinates_D1    = [1/3,   1]
         relative_departure_coordinates_D2  = [2/3,   1]
         relative_arrival_coordinates_D2    = [2/3,   0]
-        relative_departure_coordinates_D3  = [  1,   0]
-        relative_arrival_coordinates_D3    = [  1,   1]
+        relative_departure_coordinates_D3  = [0.98, 0.02]
+        relative_arrival_coordinates_D3    = [0.98, 0.98]
         relative_departure_coordinates_D4  = [  0, 1/2]
         relative_arrival_coordinates_D4    = [  1, 1/2]
         

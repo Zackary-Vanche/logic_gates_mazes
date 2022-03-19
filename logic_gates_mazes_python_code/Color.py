@@ -36,7 +36,7 @@ class Color:
     BRIGHT_PURPLE_BLUE    = color_hls(hu=PURPLE_BLUE_HUE, li=0.65)
     BRIGHT_RED            = (200, 0, 0) # color_hls(0, li=0.5)
     BRIGHT_YELLOW         = color_hls(hu=0.15, li=0.6, sa=0.4)
-    DARK_BLUE             = color_hls(hu=0.64, li=0.4, sa=0.35)
+    DARK_BLUE             = color_hls(hu=0.64, li=0.45, sa=0.35)
     DARK_BLUE_GREEN       = color_hls(0.45, li=0.5, sa=0.15)
     DARK_BROWN            = color_hls(hu=0.1, sa=0.2, li=0.15)
     DARK_GREEN            = color_hls(0.4, li=0.15)

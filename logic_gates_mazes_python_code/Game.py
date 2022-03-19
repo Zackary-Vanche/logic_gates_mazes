@@ -418,11 +418,18 @@ class Game:
                 for door in maze.doors_set:
                     real_departure_coordinates = door.real_departure_coordinates
                     real_arrival_coordinates = door.real_arrival_coordinates
-                    pygame_draw_line(WINDOW,
-                                     room_color,
-                                     real_departure_coordinates,
-                                     real_arrival_coordinates,
-                                     3)
+                    if door.is_open:
+                        pygame_draw_line(WINDOW,
+                                         surrounding_color,
+                                         real_departure_coordinates,
+                                         real_arrival_coordinates,
+                                         3)
+                    else:
+                        pygame_draw_line(WINDOW,
+                                         room_color,
+                                         real_departure_coordinates,
+                                         real_arrival_coordinates,
+                                         3)
 
                 # Affichage des pieces
                 for room in maze.rooms_list:
