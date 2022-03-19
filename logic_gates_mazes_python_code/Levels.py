@@ -346,7 +346,7 @@ class Levels:
 
         return level
 
-    def level_k4(): 
+    def level_complete(): 
 
         S0 = Switch(name='S0')
         S1 = Switch(name='S1')
@@ -428,7 +428,7 @@ class Levels:
                      doors_list = [D0, D1, D2, D3, D4, D5, D6], 
                      fastest_solution="S4 D1 S2 D5 S3 D2 S0 S4 D0 D4 S3 S7 D2 S0 D1 S6 D3 S1 S5 D0 S0 S4 D2 D5 S6 D3 S1 D4 S7 D6",
                      level_color=Levels_colors_list.PURPLE_BLUE,
-                     name='K4',
+                     name='Complete',
                      help_txt = l_help_txt,
                      border = 30,
                      door_window_size = 550,
@@ -2467,7 +2467,7 @@ if you want to turn on S0, S1 and then use the door D0.
                    level_parallel,           # PINK
                    level_infinity,           # YELLOW AND BLACK
                    level_crystal,            # SALMON AND BRIGHT_GREY
-                   level_k4,                 # PURPLE_BLUE
+                   level_complete,           # PURPLE_BLUE
                    level_cartesian,          # GREEN AND GREY
                    level_xor,                # RED AND ORANGE
                    level_graph,              # BLACK AND BLUE
