@@ -2451,32 +2451,39 @@ if you want to turn on S0, S1 and then use the door D0.
         
         return level
         
-    levels_list = [#level_icone,
-                   level_initiation,         # GREY
-                   level_linear,             # BRIGHT GREEN
-                   level_loop,               # RED
-                   level_backward,           # BROWN
-                   level_binary,             # BRIGHT BLUE AND GREY
-                   level_crossroad,          # YELLOW
-                   level_square,             # BLACK AND RED
-                   level_fluid,              # GREEN_BLUE
-                   level_odd,                # PURPLE
-                   level_point_of_no_return, # BLUE
-                   level_recurrence,         # BLACK AND WHITE
-                   level_parallel,           # PINK
-                   level_infinity,           # YELLOW AND BLACK
-                   level_crystal,            # SALMON AND BRIGHT_GREY
-                   level_tetrahedron,        # PURPLE_BLUE
-                   level_cartesian,          # GREEN AND GREY
-                   level_xor,                # RED AND ORANGE
-                   level_graph,              # BLACK AND BLUE
-                   level_dead_ends,          # DARK GREEN
-                   level_electricity         # YELLOW AND SILVER
-                   ] 
+    levels_functions_list = [#level_icone,
+                             level_initiation,         # GREY
+                             level_linear,             # BRIGHT GREEN
+                             level_loop,               # RED
+                             level_backward,           # BROWN
+                             level_binary,             # BRIGHT BLUE AND GREY
+                             level_crossroad,          # YELLOW
+                             level_square,             # BLACK AND RED
+                             level_fluid,              # GREEN_BLUE
+                             level_odd,                # PURPLE
+                             level_point_of_no_return, # BLUE
+                             level_recurrence,         # BLACK AND WHITE
+                             level_parallel,           # PINK
+                             level_infinity,           # YELLOW AND BLACK
+                             level_crystal,            # SALMON AND BRIGHT_GREY
+                             level_tetrahedron,        # PURPLE_BLUE
+                             level_cartesian,          # GREEN AND GREY
+                             level_xor,                # RED AND ORANGE
+                             level_graph,              # BLACK AND BLUE
+                             level_dead_ends,          # DARK GREEN
+                             level_electricity         # YELLOW AND SILVER
+                             ] 
 
-    # levels_list = levels_list[:4]
-
-    number_of_levels = len(levels_list)
+    number_of_levels = len(levels_functions_list)
+    
+    levels_list = [None for k in range(number_of_levels)]
+    
+    def get_level(level_number):
+        if Levels.levels_list[level_number] == None:
+            Levels.levels_list[level_number] = Levels.levels_functions_list[level_number]()
+        else:
+            Levels.levels_list[level_number].reboot_solution()
+        return Levels.levels_list[level_number]
     
 if __name__ == "__main__":
     
@@ -2514,7 +2521,7 @@ if __name__ == "__main__":
     # print(sol_mini)
     # Levels.level_graph().try_solution(sol_mini, verbose = 3, allow_all_doors=True, allow_all_switches=True)
     
-    for level_function in Levels.levels_list:
+    for level_function in Levels.levels_functions_list:
         level = level_function()
     
     # solutions = Levels.level_cartesian().find_all_solutions(stop_at_first_solution=False, verbose = 3)

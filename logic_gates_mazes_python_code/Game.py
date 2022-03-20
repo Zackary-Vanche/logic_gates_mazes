@@ -140,7 +140,8 @@ class Game:
 
             self.level_changed = False
             
-            self.maze = Levels.levels_list[self.index_current_level]()
+            # self.maze = Levels.levels_functions_list[self.index_current_level]()
+            self.maze = Levels.get_level(self.index_current_level)
             self.maze.reboot_solution()
             
             self.doors_list = self.maze.doors_list()
@@ -498,7 +499,7 @@ class Game:
                 self.index_current_level -= 1
                 self.level_changed = True
             if (self.pressed[K_UP]):
-                self.index_current_level = len(Levels.levels_list)-1
+                self.index_current_level = Levels.number_of_levels-1
                 self.level_changed = True
             if (self.pressed[K_DOWN]):
                 self.index_current_level = 0
@@ -506,7 +507,7 @@ class Game:
         if self.level_changed:
             self.last_level_change_time = time()
         self.index_current_level = min(self.index_current_level,
-                                  len(Levels.levels_list)-1)
+                                       Levels.number_of_levels-1)
         self.index_current_level = max(self.index_current_level,
                                   0)
         
@@ -581,8 +582,9 @@ class Game:
         Maze.calculates_solutions = calculates_solutions
         if not os_path_exists('mazes'):
             os_mkdir('mazes')
-        for k in range(len(Levels.levels_list)):
-            level = Levels.levels_list[k]()
+        for k in range(Levels.number_of_levels):
+            # level = Levels.levels_functions_list[k]()
+            level = Levels.get_level(k)
             if level.fastest_solution is not None:
                 if not short_only:
                     level.save_txt(title_header='mazes/Level_{}'.format(k))
@@ -599,8 +601,9 @@ class Game:
         calculations_times = []
         if not os_path_exists('mazes'):
             os_mkdir('mazes')
-        for k in range(len(Levels.levels_list)):
-            level = Levels.levels_list[k]()
+        for k in range(Levels.number_of_levels):
+            # level = Levels.levels_functions_list[k]()
+            level = Levels.get_level(k)
             print('')
             name = level.name
             print(name)
