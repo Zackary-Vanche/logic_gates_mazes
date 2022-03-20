@@ -33,6 +33,7 @@ from os.path import exists as os_path_exists
 from os import mkdir as os_mkdir
 from numpy import array
 from time import time
+from time import sleep
 
 from fonction_affine import fonction_affine
 from Maze import Maze
@@ -83,7 +84,8 @@ class Game:
                  show_help=True,
                  index_help_page=0,
                  show_loop_time=False,
-                 update_display_at_every_loop=False):
+                 update_display_at_every_loop=False,
+                 sleep_time=10**(-2)):
         self.WINDOW_SIZE = WINDOW_SIZE
         self.SMALLEST_WINDOW_SIZE = SMALLEST_WINDOW_SIZE
         self.XY_marge = XY_marge
@@ -98,6 +100,7 @@ class Game:
         self.index_help_page = index_help_page
         self.show_loop_time = show_loop_time
         self.update_display_at_every_loop = update_display_at_every_loop
+        self.sleep_time = sleep_time
         self.change_in_display = False
         
     def game_setup(self):
@@ -554,6 +557,7 @@ class Game:
         self.t0 = time()
         self.n_loops = 0
         while self.looping:
+            sleep(self.sleep_time)
             self.n_loops += 1
             if self.do_you_quit_game():
                 return None
