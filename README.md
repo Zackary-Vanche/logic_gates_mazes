@@ -3,7 +3,8 @@
 The folder logic_gates_mazes_executable contains the compiled code, and the application.
   The game only needs this folder to work.
   To launch the game :
-	  Double-click on logic_gates_mazes_executable/logic_gates_maze/logic_gates_maze.exe.
+	  Double-click on logic_gates_mazes_executable/logic_gates_maze/logic_gates_maze.exe. 
+	  	(A shortcut is also available in logic_gates_mazes_executable)
 	  A window will open.
 	  Click once on that window.
 	  The game starts.
