@@ -81,7 +81,9 @@ class Game:
                  print_room_name=True,
                  print_tree_polygon=False,
                  show_help=True,
-                 index_help_page=0):
+                 index_help_page=0,
+                 show_loop_time=False,
+                 update_display_at_every_loop=False):
         self.WINDOW_SIZE = WINDOW_SIZE
         self.SMALLEST_WINDOW_SIZE = SMALLEST_WINDOW_SIZE
         self.XY_marge = XY_marge
@@ -94,6 +96,9 @@ class Game:
         self.print_tree_polygon = print_tree_polygon
         self.show_help = show_help
         self.index_help_page = index_help_page
+        self.show_loop_time = show_loop_time
+        self.update_display_at_every_loop = update_display_at_every_loop
+        self.change_in_display = False
         
     def game_setup(self):
         
@@ -127,6 +132,8 @@ class Game:
     def get_level(self):
         
         if self.level_changed:
+            
+            self.change_in_display = True
 
             self.level_changed = False
             
@@ -186,6 +193,7 @@ class Game:
                                               keep_proportions)
 
             self.WINDOW_SIZE_changed = False
+            self.change_in_display = True
             
     def draw_right_window(self):
         # Affichage de la fenêtre de droite
@@ -378,6 +386,8 @@ class Game:
         
     def display_help(self):
         
+        self.WINDOW.fill(self.background_color)
+        
         self.draw_exterior_lines()
         # Affichage du nom du niveau courant
         level_name_render = self.font.render('HELP - Level ' + str(self.index_current_level) + ' : ' + self.maze.name.replace('_', ' '), 
@@ -421,6 +431,7 @@ class Game:
                          (self.x_separation + 20, self.y_separation/2-7))
                 
     def display_game_window(self):
+        self.WINDOW.fill(self.background_color)
         self.draw_right_window()
         self.draw_exterior_lines()
         self.draw_windows_separation()
@@ -437,15 +448,18 @@ class Game:
     def handle_interractions(self):
         self.pressed = pygame_key_get_pressed()
         # Gestion des actions
-        if self.maze.current_room_index == self.maze.exit_room_index:
+        if self.maze.current_room_index == self.maze.exit_room_index and self.current_action != 'YOU WON !':
             self.current_action = 'YOU WON !'
+            self.change_in_display = True
         if time() - self.last_key_pressed_time > self.time_between_actions:
             self.pressed = pygame_key_get_pressed()
             for key in Game.keys_dict.keys():
                 if self.pressed[key]:
+                    self.change_in_display = True
                     self.current_action = self.current_action + Game.keys_dict[key]
                     self.last_key_pressed_time = time()
-            if self.pressed[K_RETURN]:
+            if self.pressed[K_RETURN] and self.current_action != '' and self.maze.current_room_index != self.maze.exit_room_index:
+                self.change_in_display = True
                 if len(self.current_action) > 0:
                     if self.current_action[0] == 'D' or self.current_action[0] == 'S':
                         self.maze.make_actions(self.current_action)
@@ -460,20 +474,19 @@ class Game:
                             self.level_changed = True
                     self.current_action = ''
             if self.pressed[K_b]:
+                self.change_in_display = True
                 self.maze.reboot_solution()
                 self.last_key_pressed_time = time()
                 self.current_action = ''
         if time() - self.last_key_BACKSPACE_pressed_time > self.time_between_deletings:
             if self.pressed[K_BACKSPACE]:
+                self.change_in_display = True
                 self.current_action = self.current_action[:-1]
                 self.last_key_BACKSPACE_pressed_time = time()
                 
     def change_level(self):
         self.pressed = pygame_key_get_pressed()
         # Changement de niveau
-        if self.pressed[K_q] or self.pressed[K_ESCAPE]:
-            pygame_quit()
-            return None
         if time() - self.last_level_change_time > self.time_between_actions:
             if (self.pressed[K_RIGHT]):
                 self.index_current_level += 1
@@ -501,6 +514,7 @@ class Game:
             if self.pressed[K_h]:
                 self.show_help = not self.show_help
                 self.last_key_pressed_time = time()
+                self.change_in_display = True
 
     def save_image_as_png(self):
         if self.save_image:
@@ -511,24 +525,48 @@ class Game:
             if not os_path_exists(fname):
                 print(fname)
                 pygame_image_save(self.WINDOW, fname)
+                
+    def quit_game(self):
+        self.t1 = time()
+        if self.show_loop_time:
+            self.t_tot = self.t1 - self.t0
+            print("number of loops :\n", self.n_loops)
+            print("time of execution :\n", round(self.t_tot, 0), 's')
+            print("mean time of execution of one loop :\n", self.t_tot/self.n_loops, 's')
+        pygame_quit()
+        return None
+    
+    def do_you_quit_game(self):
+        self.pressed = pygame_key_get_pressed()
+        for event in pygame_event_get():
+            if event.type == QUIT:
+                # print(number_of_loops)
+                self.quit_game()
+                return True
+        if self.pressed[K_q] or self.pressed[K_ESCAPE]:
+            self.quit_game()
+            return True
+        return False
 
     # The main function that controls the game
     def play(self):
         self.game_setup()
-        # The main game loop
+        self.t0 = time()
+        self.n_loops = 0
         while self.looping:
-            for event in pygame_event_get():
-                if event.type == QUIT:
-                    # print(number_of_loops)
-                    pygame_quit()
-                    return None
+            self.n_loops += 1
+            if self.do_you_quit_game():
+                return None
             self.get_level()
             self.update_window_size()
-            self.WINDOW.fill(self.background_color)
             if self.show_help:
-                self.display_help()
+                if self.change_in_display or self.update_display_at_every_loop:
+                    self.display_help()
+                    self.change_in_display = False
             else:
-                self.display_game_window()
+                if self.change_in_display or self.update_display_at_every_loop:
+                    self.display_game_window()
+                    self.change_in_display = False
                 self.handle_interractions()
                 self.save_image_as_png()
             self.change_level()

@@ -14,7 +14,7 @@ if __name__ == "__main__":
 
     TOTAL_SIZE = pyautogui_size()
 
-    Game().play() 
+    Game(show_loop_time=True).play() 
 
     # Game(save_image = True).play() 
 
