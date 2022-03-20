@@ -558,7 +558,7 @@ class Game:
         self.t0 = time()
         self.n_loops = 0
         while self.looping:
-            sleep(self.sleep_time)
+            sleep(self.sleep_time) # I did that not to use too much CPU
             self.n_loops += 1
             if self.do_you_quit_game():
                 return None
