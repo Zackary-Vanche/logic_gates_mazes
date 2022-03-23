@@ -301,17 +301,17 @@ class Game:
                         self.WINDOW.blit(logical_expression_render, (self.x_separation + 10, gap))
                     gap += 28
                     # print(door.name + ' = ' + string)
-                    
+
     def draw_rooms(self):
         # Affichage des pieces
         for room in self.maze.rooms_list:
             [x_gap, y_gap, x, y] = array(room.position)
-            room_rectangle = pygame_Rect(x_gap, y_gap, x, y)
+            room_rectangle = pygame_Rect(x_gap, y_gap, x+2, y+2)
             if room.is_exit:
                 pygame_draw_ellipse(self.WINDOW, self.room_color, room_rectangle)
                 room_name_render = self.font.render('EXIT',
-                                               True,
-                                               self.inside_room_color)
+                                                    True,
+                                                    self.inside_room_color)
                 self.WINDOW.blit(room_name_render, room.get_name_position())
                 if self.maze.current_room() == room:
                     pygame_draw_ellipse(self.WINDOW, self.surrounding_color, room_rectangle, width=3)
@@ -320,11 +320,11 @@ class Game:
                 if self.maze.current_room() == room:
                     pygame_draw_rect(self.WINDOW, self.surrounding_color, room_rectangle, width=3)
                 room_name_render = self.font.render(room.name,
-                                               True,
-                                               self.inside_room_color)
+                                                    True,
+                                                    self.inside_room_color)
                 if self.print_room_name:
                     self.WINDOW.blit(room_name_render, room.get_name_position())
-                    
+           
     def draw_doors_polygons(self):
         # Affichage des polygones des portes
         for door in self.maze.doors_set:

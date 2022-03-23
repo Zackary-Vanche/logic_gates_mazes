@@ -1720,8 +1720,8 @@ The name of the exit room is RE.
         R3 = Room(name='R3', position = position_R3, switches_list = [S3])
         RE = Room(name='RE', position = position_RE, is_exit = True) # E pour exit ou end
         
-        a = 0.02
-        b = 1-a
+        a = 0
+        b = 1
         
         relative_departure_coordinates_D2 = [a, b]
         relative_arrival_coordinates_D2   = [b, a]
@@ -2291,7 +2291,7 @@ if you want to turn on S0, S1 and then use the door D0.
         T6 = Tree(tree_list=tree_list_6, empty=True, name='T6', switches = ls[:])
         
         d = 3
-        r = 1.4
+        r = 1.25
         
         position_R0 = [   2,  5,  2,  2]
         position_R1 = [   0,  2,  2,  2]
