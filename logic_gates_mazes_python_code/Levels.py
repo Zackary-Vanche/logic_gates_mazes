@@ -1377,7 +1377,6 @@ On the left size window of the game are equations that tell you when a door is o
 To leave the help menu (or come back to it), press [H].
 To start the level again from the beginning, press [B].
 To go to the next level, press the right arrow key.
-To leave the game, you can press [Q] or [ESCAPE].
 """]
 # To change the doors' notation, press [N]. -> depretated but it will maybe come back
         
@@ -1777,6 +1776,7 @@ The name of the exit room is RE.
         
         l_help_txt = [
 """
+To leave the game, you can click an the cross but also press [Q] or [ESCAPE].
 """]
         
         level = Maze(start_room_index=0, 
