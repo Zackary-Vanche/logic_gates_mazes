@@ -11,40 +11,37 @@ from numpy.linalg import norm as np_linalg_norm
 from time import time as time
 from Level_color import Level_color
 
+
 class Maze: 
-    
+
     # Fonctions de creation et de manipulation des differents niveaux
-    
+
     calculates_solutions = False
-    
-    def __init__(self, 
-                 start_room_index = 0, 
-                 exit_room_index = -1, 
-                 rooms_list = [], 
-                 doors_list = [], 
-                 level_color = Level_color(),
-                 fastest_solution = None, 
-                 name = 'L',
-                 y_separation = 70,
-                 door_window_size = 500,
-                 border = 50,
-                 help_txt = [''],
-                 keep_proportions = False):
+
+    def __init__(self,
+                 start_room_index=0,
+                 exit_room_index=-1,
+                 rooms_list=[],
+                 doors_list=[],
+                 level_color=Level_color(),
+                 fastest_solution=None,
+                 name='L',
+                 y_separation=70,
+                 door_window_size=500,
+                 border=50,
+                 help_txt=[''],
+                 keep_proportions=False):
         assert start_room_index == 0
-        assert exit_room_index  == -1
+        assert exit_room_index == -1
         self.name = name
         self.start_room_index = start_room_index
-        self.exit_room_index  = exit_room_index
+        self.exit_room_index = exit_room_index
         if rooms_list != []:
             self.exit_room_index = self.exit_room_index % len(rooms_list)
         self.rooms_list = rooms_list
         for room in self.rooms_list:
-            assert room != None
-        try:
-            assert start_room_index < len(self.rooms_list)
-        except:
-            print(start_room_index, len(self.rooms_list))
-            raise
+            assert room is not None
+        assert start_room_index < len(self.rooms_list)
         self.start_room = self.rooms_list[self.start_room_index]
         assert self.start_room.name == 'R0'
         self.current_room_index = self.start_room_index
@@ -80,11 +77,7 @@ class Maze:
         for door in self.doors_set:
             self.possibles_actions_list.append(door.name)
         self.possibles_actions_list.sort()
-        try:
-            assert set(self.doors_list()) == set(doors_list)
-        except:
-            print([door.name for door in self.doors_list()])
-            raise
+        assert set(self.doors_list()) == set(doors_list)
         # On verifie que aucun nom ne soit donne en double
         for i in range(len(rooms_list)):
             room_i = rooms_list[i]
@@ -105,23 +98,18 @@ class Maze:
         self.all_solutions = None
         if Maze.calculates_solutions:
             self.all_solutions = self.find_all_solutions()
-        if fastest_solution != None:
+        if fastest_solution is not None:
             self.fastest_solution = fastest_solution
-            if self.all_solutions != None:
-                try:
-                    assert self.all_solutions[0] == fastest_solution
-                except:
-                    print(self.all_solutions[0])
-                    print(fastest_solution)
-                    raise
+            if self.all_solutions is not None:
+                assert self.all_solutions[0] == fastest_solution
         else:
-            print(self.name, 'fastest_solution == None -> TO CHANGE')
+            print(self.name, 'fastest_solution is None -> TO CHANGE')
             self.fastest_solution = None
         self.extreme_coordinates = None
         self.border = border
         self.y_separation = y_separation
         self.door_window_size = door_window_size
-        if self.fastest_solution != None:
+        if self.fastest_solution is not None:
             assert self.try_solution(self.fastest_solution) == 2, self.name + ' wrong solution'
         self.help_txt = help_txt
         for help_page in help_txt:
@@ -169,11 +157,11 @@ class Maze:
         txt +=  '\n|   Maze {} :'.format(self.name)
         txt +=  '\n|   Start room index : {}'.format(self.start_room_index)
         txt +=  '\n|   Current room index : {}'.format(self.current_room_index)
-        if self.all_solutions != None:
+        if self.all_solutions is not None:
             txt +=  '\n|   Solution(s) :'
             for sol in self.all_solutions:
                 txt += '\n|      {}'.format(sol)
-        elif self.fastest_solution != None:
+        elif self.fastest_solution is not None:
             txt +=  '\n|   Fastest solution :'
             txt += '\n|      {}'.format(self.fastest_solution)
         txt += '\n|'
@@ -202,19 +190,20 @@ class Maze:
                 line += '|'
             txt[i] = line
         return '\n'.join(txt)
-    
+
     def current_room(self):
         return self.rooms_list[self.current_room_index]
-    
+
     def current_room_name(self):
         return self.current_room().name
-    
-    def save_txt(self, title_header = ''):
-        if Maze.calculates_solutions and self.all_solutions == None:
+
+    def save_txt(self, title_header=''):
+        if Maze.calculates_solutions and self.all_solutions is None:
             self.all_solutions = self.find_all_solutions()
-        with open('{}_{}.txt'.format(title_header, self.name.replace(' ', '_')), 'w') as f:
+        with open('{}_{}.txt'.format(title_header,
+                                     self.name.replace(' ', '_')), 'w') as f:
             f.write(str(self))
-            
+
     def save_txt_short(self, title_header = ''):
         self.reboot_solution()
         with open('{}_{}.txt'.format(title_header, self.name.replace(' ', '_')), 'w') as f:
@@ -239,33 +228,33 @@ class Maze:
                     f.write("{} <-> {}\n".format(door.room_departure.name, door.room_arrival.name))
                 else:
                     f.write("{} --> {}\n".format(door.room_departure.name, door.room_arrival.name))
-             
+
     def change_switch(self, switch_name):
         assert switch_name[0] == 'S'
         switch = self.switches_dict[switch_name]
         new_value = int(not switch.value)
         switch.set_value(new_value)
-        
+
     def legit_change_switch(self, switch_name):
         assert switch_name[0] == 'S'
         return self.current_room() == self.switches_dict[switch_name].room
-    
+
     def change_switch_if_legit(self, switch_name, verbose = 0):
         if verbose >= 1:
             print(switch_name)
         if self.legit_change_switch(switch_name):
             self.change_switch(switch_name)
-        
+
     def change_room(self, room_name):
         assert room_name[0] == 'R'
         self.current_room_index = self.rooms_names_dict()[room_name]
-        
+
     def legit_change_room(self, room_name):
         assert room_name[0] == 'R'
         new_current_room_index = self.rooms_names_dict()[room_name]
         old_room = self.current_room()
         new_room = self.rooms_list[new_current_room_index]
-        if old_room == new_room: 
+        if old_room == new_room:
             # Cela ne sert à rien de changer de pièce pour ne pas bouger
             return False
         for door in old_room.departure_doors_list:
@@ -275,11 +264,11 @@ class Maze:
             if door in new_room.two_way_doors_list and door.is_open:
                 return True
         return False
-    
+
     def change_room_if_legit(self, room_name):
         if self.legit_change_room(room_name):
             self.change_room(room_name)
-    
+
     def use_door(self, door_name):
         door = self.doors_dict()[door_name]
         if door.two_way:
@@ -293,37 +282,41 @@ class Maze:
         else:
             new_room = door.room_arrival
             self.change_room(new_room.name)
-            
+
     def legit_use_door(self, door_name):
         door = self.doors_dict()[door_name]
         if not door.is_open:
             return False
         else:
             if door.two_way:
-                return self.current_room() == door.room_departure or self.current_room() == door.room_arrival
+                is_rd = self.current_room() == door.room_departure
+                is_ra = self.current_room() == door.room_arrival
+                return is_rd or is_ra
             else:
                 return self.current_room() == door.room_departure
-            
-    def use_door_if_legit(self, door_name, verbose = 0):
+
+    def use_door_if_legit(self, door_name, verbose=0):
         if verbose >= 1:
             print(door_name)
         if self.legit_use_door(door_name):
             self.use_door(door_name)
-    
-    def reboot_solution(self, current_room_index = None, list_switches_values = None):
-        if current_room_index == None:
+
+    def reboot_solution(self,
+                        current_room_index=None,
+                        list_switches_values=None):
+        if current_room_index is None:
             self.current_room_index = self.start_room_index
         else:
             self.current_room_index = current_room_index
         switches_list = self.switches_list()
         for i in range(len(switches_list)):
             switch = switches_list[i]
-            if list_switches_values == None:
+            if list_switches_values is None:
                 switch.set_value(self.initial_switches_values[i])
             else:
                 switch.set_value(list_switches_values[i])
-                
-    def make_actions(self, actions, separator = ' ', allow_all = False):
+
+    def make_actions(self, actions, separator=' ', allow_all=False):
         actions_list = actions.split(separator)
         for action in actions_list:
             if not (action in self.possibles_actions_list or (action in self.rooms_dict.keys() and allow_all)):
@@ -336,16 +329,16 @@ class Maze:
                 self.use_door(action)
             if action_type == 'R' and allow_all:
                 self.change_room(action)
-            
-    
+
     # Les solutions sont données sous forme de texte
-        
-    def try_solution(self, 
-                     solution, 
-                     separator = ' ', 
-                     verbose = 0, 
-                     allow_all_doors = False, 
-                     allow_all_switches = False): # results : 0 unauthorised, 1 authorised but wrong, 2 you won
+
+    def try_solution(self,
+                     solution,
+                     separator=' ',
+                     verbose=0,
+                     allow_all_doors=False,
+                     allow_all_switches=False):
+        # results : 0 unauthorised, 1 authorised but wrong, 2 you won
         self.reboot_solution()
         solution = solution.replace('\n', separator).split(separator)
         txt_verbose_3 = ''
@@ -394,7 +387,7 @@ class Maze:
                 if verbose == 2:
                     switches_values_txt = '"Switches values :'
                     for switch in self.switches_list():
-                        switches_values_txt += str(switch.value) 
+                        switches_values_txt += str(switch.value)
                     print(switches_values_txt)
         if 3 > verbose > 0:
             if self.current_room_index == self.exit_room_index:
@@ -410,12 +403,12 @@ class Maze:
             print()
         bool_solution = self.current_room_index == self.exit_room_index
         return int(bool_solution) + 1
-                
+
     def current_situation_to_vector(self):
         vector = [switch.value for switch in self.switches_list()]
         vector.append(self.current_room_index)
         return vector
-    
+
     def get_current_possibles_actions_list(self):
         current_possibles_actions_list = []
         room = self.current_room()
@@ -428,19 +421,19 @@ class Maze:
         for switch in room.switches_list:
             current_possibles_actions_list.append(switch.name)
         return sorted(current_possibles_actions_list)
-    
+
     def find_all_solutions(self, verbose = 0, stop_at_first_solution = True):
         if verbose > 1:
             t0 = time()
-        if self.all_solutions == None:
-            visited_situations  = []
-            solutions_to_visit  = ['']
+        if self.all_solutions is None:
+            visited_situations = []
+            solutions_to_visit = ['']
             solutions_that_work = []
             nb_iterations = 0
             while solutions_to_visit != []:
                 nb_iterations += 1
                 if 4 > verbose >= 3:
-                    if nb_iterations%1000 == 0:
+                    if nb_iterations % 1000 == 0:
                         print('nb_iterations : {}'.format(nb_iterations))
                         print('solutions_to_visit[-1] : {}'.format(solutions_to_visit[-1]))
                         print('len(solutions_to_visit) : {}'.format(len(solutions_to_visit)))
@@ -455,68 +448,64 @@ class Maze:
                 if result_solution == 2:
                     if verbose >= 1:
                         print(solution)
-                    solutions_that_work.append(solution[:-1]) 
+                    solutions_that_work.append(solution[:-1])
                     # Le [:-1] est là pour enlever le blanc à la fin
                     if stop_at_first_solution:
                         self.reboot_solution()
                         self.all_solutions = solutions_that_work
-                        return solutions_that_work 
+                        return solutions_that_work
                 elif result_solution == 1:
                     current_situation_vector = self.current_situation_to_vector()
-                    if not current_situation_vector in visited_situations:
+                    if current_situation_vector not in visited_situations:
                         for action in self.get_current_possibles_actions_list():
                             solutions_to_visit.append(solution+action+' ')
                     visited_situations.append(current_situation_vector)
-            try:
-                assert solutions_to_visit == []
-            except:
-                print(solutions_to_visit)
-                print(solutions_that_work)
-                raise
+            assert solutions_to_visit == []
             self.reboot_solution()
         else:
             solutions_that_work = self.all_solutions
         solutions_that_work = sorted(solutions_that_work, key=len)
-        try:
-            assert self.fastest_solution == None or solutions_that_work[0] == self.fastest_solution, solutions_that_work[0] + '\n' + self.fastest_solution
-        except:
-            print(self.name)
-            print(solutions_that_work[0])
-            print(self.fastest_solution)
-            raise
+        assert self.fastest_solution is None or solutions_that_work[0] == self.fastest_solution, solutions_that_work[0] + '\n' + self.fastest_solution
         self.all_solutions = solutions_that_work
         if verbose >= 2:
             t1 = time()
             print(t1 - t0, 's')
         return solutions_that_work
-    
+
     def get_extreme_coordinates(self):
-        if self.extreme_coordinates == None:
+        if self.extreme_coordinates is None:
             x_min = +float('inf')
             y_min = +float('inf')
             x_max = -float('inf')
             y_max = -float('inf')
             for room in self.rooms_list:
                 [x_gap, y_gap, x, y] = room.position
-                assert x_gap != None
-                assert y_gap != None
-                assert x != None
-                assert y != None
+                assert x_gap is not None
+                assert y_gap is not None
+                assert x is not None
+                assert y is not None
                 x_min = min(x_min, x_gap)
                 y_min = min(y_min, y_gap)
                 x_max = max(x_max, x_gap + x)
                 y_max = max(y_max, y_gap + y)
             self.extreme_coordinates = [x_min, x_max, y_min, y_max]
         return self.extreme_coordinates
-    
+
     def invert_x_y_coordinates(self):
         for room in self.rooms_list:
             [x_gap, y_gap, x, y] = room.position
             room.position = [y_gap, x_gap, y, x]
             self.extreme_coordinates = None
-    
-    def set_extreme_coordinates(self, new_x_min, new_x_max, new_y_min, new_y_max, border, keep_proportions):
-        # On change les coordonnees extremes mais on cherche à garder le rapport x/y des coordonnees
+
+    def set_extreme_coordinates(self,
+                                new_x_min,
+                                new_x_max,
+                                new_y_min,
+                                new_y_max,
+                                border,
+                                keep_proportions):
+        # On change les coordonnees extremes
+        # mais on cherche à garder le rapport x/y des coordonnees
         [old_x_min, old_x_max, old_y_min, old_y_max] = self.get_extreme_coordinates()
         new_x_min = new_x_min + border
         new_x_max = new_x_max - border
@@ -529,12 +518,18 @@ class Maze:
             pente_y = (new_y_max - new_y_min) / old_delta_y
             if 1/pente_x > 1/pente_y:
                 new_y_moy = (new_y_min + new_y_max)/2
-                (pente, coeff_x) = fonction_affine(old_x_min, new_x_min, old_x_max, new_x_max)
+                (pente, coeff_x) = fonction_affine(old_x_min,
+                                                   new_x_min,
+                                                   old_x_max,
+                                                   new_x_max)
                 new_y_min = new_y_moy - pente*old_delta_y/2
                 coeff_y = new_y_min - old_y_min*pente
-            else:    
+            else:
                 new_x_moy = (new_x_min + new_x_max)/2
-                (pente, coeff_y) = fonction_affine(old_y_min, new_y_min, old_y_max, new_y_max)
+                (pente, coeff_y) = fonction_affine(old_y_min,
+                                                   new_y_min,
+                                                   old_y_max,
+                                                   new_y_max)
                 new_x_min = new_x_moy - pente*old_delta_x/2
                 coeff_x = new_x_min - old_x_min*pente
             for room in self.rooms_list:
@@ -546,8 +541,14 @@ class Maze:
                 room.position = [x_gap, y_gap, x, y]
                 self.extreme_coordinates = None
         else:
-            (pente_x, coeff_x) = fonction_affine(old_x_min, new_x_min, old_x_max, new_x_max)
-            (pente_y, coeff_y) = fonction_affine(old_y_min, new_y_min, old_y_max, new_y_max)
+            (pente_x, coeff_x) = fonction_affine(old_x_min,
+                                                 new_x_min,
+                                                 old_x_max,
+                                                 new_x_max)
+            (pente_y, coeff_y) = fonction_affine(old_y_min,
+                                                 new_y_min,
+                                                 old_y_max,
+                                                 new_y_max)
             for room in self.rooms_list:
                 [x_gap, y_gap, x, y] = room.position
                 x_gap = pente_x*x_gap+coeff_x
@@ -557,7 +558,7 @@ class Maze:
                 room.position = [x_gap, y_gap, x, y]
                 self.extreme_coordinates = None
         self.calculate_doors_coordinates()
-            
+
     def calculate_doors_coordinates(self):
         for door in self.doors_set:
             Rd = door.room_departure
@@ -566,9 +567,11 @@ class Maze:
             cRa = door.relative_arrival_coordinates
             [Rd_x_gap, Rd_y_gap, Rd_x, Rd_y] = Rd.position
             [Ra_x_gap, Ra_y_gap, Ra_x, Ra_y] = Ra.position
-            door.real_departure_coordinates = array([Rd_x_gap + Rd_x*cRd[0], Rd_y_gap + Rd_y*cRd[1]])
-            door.real_arrival_coordinates   = array([Ra_x_gap + Ra_x*cRa[0], Ra_y_gap + Ra_y*cRa[1]])
-            door.real_middle_coordinates    = (door.real_departure_coordinates + door.real_arrival_coordinates)/2 
+            door.real_departure_coordinates = array([Rd_x_gap + Rd_x*cRd[0],
+                                                     Rd_y_gap + Rd_y*cRd[1]])
+            door.real_arrival_coordinates = array([Ra_x_gap + Ra_x*cRa[0],
+                                                   Ra_y_gap + Ra_y*cRa[1]])
+            door.real_middle_coordinates = (door.real_departure_coordinates + door.real_arrival_coordinates)/2 
             vect_unit = door.real_arrival_coordinates - door.real_departure_coordinates
             vect_unit = vect_unit / np_linalg_norm(vect_unit)
             [x, y] = vect_unit

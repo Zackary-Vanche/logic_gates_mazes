@@ -9,7 +9,7 @@ Created on Fri Jan 21 16:02:21 2022
 from sys import exit as sys_exit
 from Game import Game
 from pyautogui import size as pyautogui_size
-            
+
 if __name__ == "__main__":
 
     TOTAL_SIZE = pyautogui_size()
@@ -28,13 +28,3 @@ if __name__ == "__main__":
     # Si on ne veut qu'un seul fichier au lieu d'un dossier
     # on ajoute -F
     # En ne prenant qu'un seul fichier, l'application est beaucoup plus longue à se lancer
-    
-    
-
-
-
-
-
-
-
-
