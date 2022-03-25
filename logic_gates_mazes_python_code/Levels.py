@@ -391,7 +391,7 @@ class Levels:
         D5 = Door(two_way = False, tree = T5, name='D5', room_departure = R3, room_arrival = RE)
         
         l_help_txt = [
-"""[Reminder] : To start the level again from the beginning, press [R].
+"""[Reminder] : To start the level again from the beginning, press [B].
 """]
         
         level = Maze(start_room_index=0, 
