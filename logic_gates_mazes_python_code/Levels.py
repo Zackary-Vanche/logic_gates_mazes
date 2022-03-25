@@ -330,7 +330,7 @@ class Levels:
                    room_departure=R0,
                    room_arrival=RE)
 
-        l_help_txt = ["""
+        l_help_txt = ["""Sorry, there is nothing to help you here.
 """]
 
         level = Maze(start_room_index=0,
@@ -599,7 +599,7 @@ class Levels:
                   relative_arrival_coordinates = relative_arrival_coordinates_D12)
         
         l_help_txt = [
-"""
+"""If you make a mistake, you have to start all over again.
 """]
         
         level = Maze(start_room_index=0, 
@@ -822,7 +822,7 @@ class Levels:
                   relative_arrival_coordinates = relative_arrival_coordinates_D14)
         
         l_help_txt = [
-"""
+"""Even if it is the first level that actually looks like a printed circuit board, you have been in a computer all this time.
 """]
         
         level = Maze(start_room_index=0, 
@@ -1286,7 +1286,8 @@ Here are some examples :
         D18 = Door(two_way = b, tree = T18, room_departure = R14, room_arrival = R13)
         
         l_help_txt = [ 
-""
+"""This level was initially inspired by the seven bridges of Königsberg problem.
+"""
 ]
         
         level = Maze(start_room_index=0, 
@@ -1350,7 +1351,7 @@ Here are some examples :
                   room_arrival = RE)
         
         l_help_txt = [                 
-"""Your mission is getting to the exit.
+"""You are trapped in the inside of a computer and want to reach the exit.
 
 There are differents elements in this game :
         Rooms (R0, R1, R2, ..., EXIT) :  
@@ -1887,7 +1888,8 @@ To leave the game, you can click an the cross but also press [Q] or [ESCAPE].
                   relative_arrival_coordinates = relative_arrival_coordinates_D6)
         
         l_help_txt = [ 
-""
+"""The "Guess and check" method works well here.
+"""
 ]
         
         """[Reminder] : To change the doors' notation, press [N].
@@ -2331,7 +2333,8 @@ if you want to turn on S0, S1 and then use the door D0.
                   relative_arrival_coordinates = [0.7, 0.7])
         
         l_help_txt = [
-"""
+"""The logic expressions of the doors of this level have been calculated by computer.
+The program that calculated it already knew all the rest of the level.
 """]
         
         level = Maze(start_room_index=0, 
@@ -2531,7 +2534,7 @@ if __name__ == "__main__":
     # should have 
     # in order to the solution to be sol
     sol = "S4 D1 S2 D5 S3 D2 S0 S4 D0 D4 S3 S7 D2 S0 D1 S6 D3 S1 S5 D0 S0 S4 D2 D5 S6 D3 S1 D4 S7 D6"
-    Levels.level_k4().try_solution(sol, verbose = 3, allow_all_doors=True, allow_all_switches=True)
+    Levels.level_tetrahedron().try_solution(sol, verbose = 3, allow_all_doors=True, allow_all_switches=True)
     
     
     pass
