@@ -1287,6 +1287,7 @@ Here are some examples :
         
         l_help_txt = [ 
 """This level was initially inspired by the seven bridges of Königsberg problem.
+The difference is that here there is a solution.
 """
 ]
         
