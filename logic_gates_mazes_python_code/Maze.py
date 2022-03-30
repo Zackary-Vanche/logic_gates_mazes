@@ -119,6 +119,13 @@ class Maze:
         self.n_help_pages = len(help_txt)
         self.keep_proportions = keep_proportions
         self.level_color = level_color
+        self.n_lines_door_printing = 0
+        for k in range(len(self.doors_list())):
+            door = self.doors_list()[k]
+            tree = door.tree
+            logical_expression = tree.get_easy_logical_expression_PN()
+            logical_expression = logical_expression.split('\n')
+            self.n_lines_door_printing += len(logical_expression)
                 
     def add_door(self, door):
         self.doors_set.add(door)
@@ -571,7 +578,10 @@ class Maze:
                                                      Rd_y_gap + Rd_y*cRd[1]])
             door.real_arrival_coordinates = array([Ra_x_gap + Ra_x*cRa[0],
                                                    Ra_y_gap + Ra_y*cRa[1]])
-            door.real_middle_coordinates = (door.real_departure_coordinates + door.real_arrival_coordinates)/2 
+            rp = door.relative_position
+            dc = door.real_departure_coordinates
+            ac = door.real_arrival_coordinates
+            door.real_middle_coordinates = rp*ac + (1-rp)*dc
             vect_unit = door.real_arrival_coordinates - door.real_departure_coordinates
             vect_unit = vect_unit / np_linalg_norm(vect_unit)
             [x, y] = vect_unit

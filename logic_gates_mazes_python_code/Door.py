@@ -15,6 +15,7 @@ class Door:
                  tree=None,
                  relative_departure_coordinates=[1/2, 1/2],
                  relative_arrival_coordinates=[1/2, 1/2],
+                 relative_position=1/2,
                  name=None):
         """
         La position d'une porte est donnee dans le repere de la piece qui le contient.
@@ -44,6 +45,7 @@ class Door:
         # Coordonnées de la porte dans le repère de la salle de départ
         self.relative_departure_coordinates = relative_departure_coordinates
         self.relative_arrival_coordinates = relative_arrival_coordinates
+        self.relative_position = relative_position
         self.real_departure_coordinates = None
         self.real_arrival_coordinates = None
         self.real_middle_coordinates = None

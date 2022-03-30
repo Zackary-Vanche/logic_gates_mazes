@@ -265,21 +265,23 @@ class Game:
     def print_level_name(self):
         # Affichage du nom du niveau courant
         level_name_render = self.font.render('Level ' + str(self.index_current_level) + ' : ' + self.maze.name.replace('_', ' '),
-                                        True,
-                                        self.letters_color)
+                                             True,
+                                             self.letters_color)
         self.WINDOW.blit(level_name_render, (10, 10))
         
     def print_trees(self):
         # Affichage des arbres des portes
+        self.n_lines_door_printing = self.maze.n_lines_door_printing
+        self.gap_between_lines = min((self.WINDOW_HEIGHT - self.maze.y_separation - 50) / (self.n_lines_door_printing), 35)
         if self.print_tree_polygon:
-            pass
+            pass # TODO
         else:
             gap = self.y_separation + 10
             self.WINDOW.blit(self.font.render('DOORS :',
                                     True,
                                     self.inside_room_color),
                         (self.x_separation + 10, gap))
-            gap = self.y_separation + 45
+            gap = self.y_separation + 40
             for k in range(len(self.doors_list)):
                 door = self.doors_list[k]
                 tree = door.tree
@@ -299,8 +301,7 @@ class Game:
                                                                 True,
                                                                 self.inside_room_color)
                         self.WINDOW.blit(logical_expression_render, (self.x_separation + 10, gap))
-                    gap += 28
-                    # print(door.name + ' = ' + string)
+                    gap += self.gap_between_lines
 
     def draw_rooms(self):
         # Affichage des pieces
@@ -346,8 +347,8 @@ class Game:
         for door in self.maze.doors_set:
             real_middle_coordinates = door.real_middle_coordinates
             door_name_render = self.font.render(door.name,
-                                           True,
-                                           self.inside_room_color)
+                                                True,
+                                                self.inside_room_color)
             self.WINDOW.blit(door_name_render,
                 real_middle_coordinates)      
             
@@ -432,7 +433,7 @@ class Game:
                                                  True,
                                                  self.inside_room_color)
         self.WINDOW.blit(current_action_render,
-                         (self.x_separation + 20, self.y_separation/2-7))
+                         (self.x_separation + self.y_separation/3, self.y_separation/2-7))
                 
     def display_game_window(self):
         self.WINDOW.fill(self.background_color)
