@@ -32,7 +32,7 @@ class Levels:
         
     levels_functions_list = [#level_icone,
                              # level_sinusoidal,
-                             level_hello_world,         # GREY
+                             level_hello_world,        # GREY
                              level_linear,             # BRIGHT GREEN
                              level_loop,               # RED
                              level_backward,           # BROWN
@@ -51,7 +51,8 @@ class Levels:
                              level_xor,                # RED AND ORANGE
                              level_graph,              # BLACK AND BLUE
                              level_dead_ends,          # DARK GREEN
-                             level_electricity         # YELLOW AND SILVER
+                             level_electricity,        # YELLOW AND SILVER
+                             level_sinusoidal          # BEIGE
                              ] 
 
     number_of_levels = len(levels_functions_list)

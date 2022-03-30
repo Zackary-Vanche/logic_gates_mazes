@@ -11,8 +11,6 @@ from Door import Door
 from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
-from numpy import  cos, pi
-from fonction_affine import fonction_affine
 
 def level_sinusoidal():
     
@@ -138,20 +136,10 @@ def level_sinusoidal():
            empty=True,
            name='T25',
            switches = [S0])
-
-    position_R = []
-    position_R.append([-7, 0, 5, 22])
-    position_R.append([4, 4, 2.5, 1.25])
-    n = 12
-    e = 8*7/(2*n-1)
-    for i in range(n):
-        (pente, coeff) = fonction_affine(0, 0, n-1, pi)
-        x_middle = 16*(1+cos(pente*i+coeff))+12
-        (pente, coeff) = fonction_affine(0, -pi/2, n-1, pi/2)
-        y_rect = 16*(1.5-cos(pente*i+coeff))
-        position_R.append([x_middle-y_rect/2, i*e, y_rect, 0.92*e])
-    position_R.append([46, 21, 3.5, 1.25])
-    position_RE = [53, 25, 4, 3]
+    
+    position_R = [[-9, 0, 5, 22], [4, 4, 5, 2.5], [29.0, 0.0, 30.0, 2.07], [31.17, 2.43, 24.37, 2.07], [31.87, 4.87, 19.19, 2.07], [31.04, 7.3, 14.89, 2.07], [28.74, 9.74, 11.81, 2.07], [25.18, 12.17, 10.2, 2.07], [20.62, 14.61, 10.2, 2.07], [15.45, 17.04, 11.81, 2.07], [10.08, 19.48, 14.89, 2.07], [4.95, 21.91, 19.19, 2.07], [0.47, 24.35, 24.37, 2.07], [-3.0, 26.78, 30.0, 2.07], [45, 20, 4, 2]]
+    
+    position_RE = [52, 24, 5, 3]
 
     R0 = Room(name='R0',
           position = position_R[0],
@@ -207,8 +195,8 @@ def level_sinusoidal():
            name='D0',  
            room_departure = R0, 
            room_arrival = R1, 
-           relative_departure_coordinates = [1, 0],
-           relative_arrival_coordinates = [0, 0],
+           relative_departure_coordinates = [1, 0.7],
+           relative_arrival_coordinates = [0, 1],
            relative_position=2/3)
     D1  = Door(two_way = True,  
             tree = T1,  
@@ -370,7 +358,9 @@ def level_sinusoidal():
            tree = T25,  
            name='D25',  
            room_departure = R14, 
-           room_arrival = RE)
+           room_arrival = RE,
+           relative_departure_coordinates = [1, 1],
+           relative_arrival_coordinates = [0.207, 0.207])
     
     l_help_txt = [
 """
@@ -386,13 +376,34 @@ def level_sinusoidal():
                    D10, D11, D12, D13, D14, D15, D16, D17, D18, D19,
                    D20, D21, D22, D23, D24, D25], 
              fastest_solution=None,
-             level_color=Levels_colors_list.BLACK_AND_WHITE,
+             level_color=Levels_colors_list.BLACK_AND_BLUE,
              name='Sinusoidal',
              help_txt = l_help_txt,
-             door_window_size = 500,
+             door_window_size = 550,
              y_separation=50,
-             border = 60,
-             # print_tree_gap=22,
+             border = 30,
              keep_proportions = False)
     
     return level
+
+if __name__ == '__main__':
+    
+    from numpy import  cos, pi
+    from fonction_affine import fonction_affine
+    
+    position_R = []
+    position_R.append([-9, 0, 5, 22])  # R0
+    position_R.append([4, 4, 5, 2.5])  # R1
+    n = 12
+    e = 8*7/(2*n-1)
+    for i in range(n):
+        (pente, coeff) = fonction_affine(0, 0, n-1, pi)
+        x_middle = 16*(1+cos(pente*i+coeff))+12
+        (pente, coeff) = fonction_affine(0, -pi/2, n-1, pi/2)
+        y_rect = 20*(1.5-cos(pente*i+coeff))
+        position_R.append([x_middle-y_rect/2, i*e, y_rect, 0.85*e])
+    position_R.append([45, 20, 4, 2])  # R14
+    for i in range(len(position_R)):
+        for j in range(len(position_R[i])):
+            position_R[i][j] = round(position_R[i][j], 2)
+    print(position_R)

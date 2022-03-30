@@ -30,7 +30,8 @@ class Maze:
                  door_window_size=500,
                  border=50,
                  help_txt=[''],
-                 keep_proportions=False):
+                 keep_proportions=False,
+                 line_size=3):
         assert start_room_index == 0
         assert exit_room_index == -1
         self.name = name
@@ -126,6 +127,7 @@ class Maze:
             logical_expression = tree.get_easy_logical_expression_PN()
             logical_expression = logical_expression.split('\n')
             self.n_lines_door_printing += len(logical_expression)
+        self.line_size = line_size
                 
     def add_door(self, door):
         self.doors_set.add(door)

@@ -43,7 +43,7 @@ class Room:
     def get_name_position(self):
         [x_gap, y_gap, x, y] = self.position
         if self.is_exit:
-            self.name_position = [x_gap + x/2 - 19, y_gap + y/2 - 10]
+            self.name_position = [x_gap + x/2 - 19.5, y_gap + y/2 - 10]
         else:
             self.name_position = [x_gap + 5, y_gap + 5]
         return self.name_position

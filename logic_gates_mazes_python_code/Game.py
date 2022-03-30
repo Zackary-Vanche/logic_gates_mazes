@@ -209,6 +209,7 @@ class Game:
     
     def draw_door_lines(self):
         # Affichage des lignes des portes
+        self.line_size = self.maze.line_size
         for door in self.maze.doors_set:
             real_departure_coordinates = door.real_departure_coordinates
             real_arrival_coordinates = door.real_arrival_coordinates
@@ -217,13 +218,13 @@ class Game:
                                  self.surrounding_color,
                                  real_departure_coordinates,
                                  real_arrival_coordinates,
-                                 3)
+                                 self.line_size)
             else:
                 pygame_draw_line(self.WINDOW,
                                  self.room_color,
                                  real_departure_coordinates,
                                  real_arrival_coordinates,
-                                 3)
+                                 self.line_size)
     
     def draw_exterior_lines(self):
         # Bords exterieurs
