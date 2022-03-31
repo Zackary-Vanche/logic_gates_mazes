@@ -10,5 +10,9 @@ from pyautogui import size as pyautogui_size
 
 if __name__ == "__main__":
 
-    TOTAL_SIZE = pyautogui_size()
+    TOTAL_SIZE = pyautogui_size() 
+    # You need that line
+    # If you don't put it, the pixel of the game
+    # will be too big after compiling
+    
     Game().play()
