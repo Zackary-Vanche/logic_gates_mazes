@@ -31,115 +31,137 @@ def level_sinusoidal():
     S14 = Switch(name='S14')
     S15 = Switch(name='S15')
     S16 = Switch(name='S16')
+    SN = Switch(name='SN')
     
-    T0 = Tree(tree_list=[None],
-           empty=True,
-           name='T0',
-           switches = [S0])
-    T1 = Tree(tree_list=[None],
-           empty=True,
-           name='T1',
-           switches = [S0])
+    T0 = Tree(tree_list=Tree.tree_list_not,
+              empty=True,
+              name='T0',
+              switches = [SN],
+              easy_logical_expression_PN='1')
+    T1 = Tree(tree_list=Tree.tree_list_from_str('TF'),
+              empty=True,
+              name='T1',
+              switches = [S4, S5])
     T2 = Tree(tree_list=[None],
-           empty=True,
-           name='T2',
-           switches = [S0])
+              empty=True,
+               name='T2',
+               switches = [S6])
     T3 = Tree(tree_list=[None],
-           empty=True,
-           name='T3',
-           switches = [S0])
-    T4 = Tree(tree_list=[None],
-           empty=True,
-           name='T4',
-           switches = [S0])
-    T5 = Tree(tree_list=[None],
-           empty=True,
-           name='T5',
-           switches = [S0])
-    T6 = Tree(tree_list=[None],
-           empty=True,
-           name='T6',
-           switches = [S0])
-    T7 = Tree(tree_list=[None],
-           empty=True,
-           name='T7',
-           switches = [S0])
-    T8 = Tree(tree_list=[None],
-           empty=True,
-           name='T8',
-           switches = [S0])
+              empty=True,
+               name='T3',
+               switches = [S7])
+    T4 = Tree(tree_list=Tree.tree_list_from_str('TFT'),
+              empty=True,
+              name='T4',
+              switches = [S3, S8, S9])
+    T5 = Tree(tree_list=Tree.tree_list_from_str('TFT'),
+              empty=True,
+              name='T5',
+              switches = [S2, S8, S9])
+    T6 = Tree(tree_list=Tree.tree_list_from_str('TTF'),
+              empty=True,
+              name='T6',
+              switches = [S0, S10, S14])
+    T7 = Tree(tree_list=Tree.tree_list_from_str('F'),
+              empty=True,
+              name='T7',
+              switches = [S11])
+    T8 = Tree(tree_list=Tree.tree_list_from_str('F'),
+              empty=True,
+              name='T8',
+              switches = [S12])
     T9 = Tree(tree_list=[None],
-           empty=True,
-           name='T9',
-           switches = [S0])
-    T10 = Tree(tree_list=[None],
-           empty=True,
-           name='T10',
-           switches = [S0])
-    T11 = Tree(tree_list=[None],
-           empty=True,
-           name='T11',
-           switches = [S0])
-    T12 = Tree(tree_list=[None],
-           empty=True,
-           name='T12',
-           switches = [S0])
-    T13 = Tree(tree_list=[None],
-           empty=True,
-           name='T13',
-           switches = [S0])
-    T14 = Tree(tree_list=[None],
-           empty=True,
-           name='T14',
-           switches = [S0])
-    T15 = Tree(tree_list=[None],
-           empty=True,
-           name='T15',
-           switches = [S0])
+              empty=True,
+              name='T9',
+              switches = [S13])
+    T10 = Tree(tree_list=Tree.tree_list_from_str('FTF'),
+               empty=True,
+               name='T10',
+               switches = [S2, S10, S14])
+    T11 = Tree(tree_list=Tree.tree_list_from_str('TF'),
+               empty=True,
+               name='T11',
+               switches = [S0, S15])
+    T12 = Tree(tree_list=Tree.tree_list_from_str('F'),
+               empty=True,
+               name='T12',
+               switches = [S16])
+    T13 = Tree(tree_list=Tree.tree_list_from_str('TTF'),
+               empty=True,
+               name='T13',
+               switches = [S3, S5, S10])
+    T14 = Tree(tree_list=Tree.tree_list_from_str('FT'),
+               empty=True,
+               name='T14',
+               switches = [S6, S12])
+    T15 = Tree(tree_list=Tree.tree_list_from_str('FT'),
+               empty=True,
+               name='T15',
+               switches = [S7, S16])
     T16 = Tree(tree_list=[None],
-           empty=True,
-           name='T16',
-           switches = [S0])
-    T17 = Tree(tree_list=[None],
-           empty=True,
-           name='T17',
-           switches = [S0])
-    T18 = Tree(tree_list=[None],
-           empty=True,
-           name='T18',
-           switches = [S0])
-    T19 = Tree(tree_list=[None],
-           empty=True,
-           name='T19',
-           switches = [S0])
-    T20 = Tree(tree_list=[None],
-           empty=True,
-           name='T20',
-           switches = [S0])
-    T21 = Tree(tree_list=[None],
-           empty=True,
-           name='T21',
-           switches = [S0])
+               empty=True,
+               name='T16',
+               switches = [S8])
+    T17 = Tree(tree_list=Tree.tree_list_from_str('TFT'),
+               empty=True,
+               name='T17',
+               switches = [S1, S9, S15])
+    T18 = Tree(tree_list=Tree.tree_list_from_str('FTF'),
+               empty=True,
+               name='T18',
+               switches = [S1, S5, S10])
+    T19 = Tree(tree_list=Tree.tree_list_from_str('TF'),
+               empty=True,
+               name='T19',
+               switches = [S11, S13])
+    T20 = Tree(tree_list=Tree.tree_list_from_str('FT'),
+               empty=True,
+               name='T20',
+               switches = [S6, S12])
+    T21 = Tree(tree_list=Tree.tree_list_from_str('TF'),
+               empty=True,
+               name='T21',
+               switches = [S11, S13])
     T22 = Tree(tree_list=[None],
-           empty=True,
-           name='T22',
-           switches = [S0])
-    T23 = Tree(tree_list=[None],
-           empty=True,
-           name='T23',
-           switches = [S0])
-    T24 = Tree(tree_list=[None],
-           empty=True,
-           name='T24',
-           switches = [S0])
-    T25 = Tree(tree_list=[None],
-           empty=True,
-           name='T25',
-           switches = [S0])
+               empty=True,
+               name='T22',
+               switches = [S14])
+    T23 = Tree(tree_list=Tree.tree_list_from_str('FFT'),
+               empty=True,
+               name='T23',
+               switches = [S4, S9, S15])
+    T24 = Tree(tree_list=Tree.tree_list_from_str('FT'),
+               empty=True,
+               name='T24',
+               switches = [S7, S16])
+    T26 = Tree(tree_list=Tree.tree_list_XOR5,
+               empty=True,
+               name='T26',
+               switches = [S6, S7, S8, S13, S14])
+    T25 = Tree(tree_list=['AND', Tree.tree_list_XOR3, Tree.tree_list_XOR5],
+               empty=True,
+               name='T25',
+               switches = [S0, S1, S2,
+                           S5, S11, S12, S15, S16])
+
+    position_R = [[-10, 2, 4.5, 26.78],
+                  [4, 2, 5, 2.5],
+                  [29.0, 0.0, 30.0, 2],
+                  [31.17, 2.43, 24.37, 2],
+                  [31.87, 4.87, 19.19, 2],
+                  [31.04, 7.3, 14.89, 2],
+                  [28.74, 9.74, 11.81, 2],
+                  [25.18, 12.17, 10.2, 2],
+                  [20.62, 14.61, 10.2, 2],
+                  [15.45, 17.04, 11.81, 2],
+                  [10.08, 19.48, 14.89, 2],
+                  [4.95, 21.91, 19.19, 2],
+                  [0.47, 24.35, 24.37, 2],
+                  [-3.0, 26.78, 30.0, 2],
+                  [50.5, 20, 4, 2],
+                  [38, 26.78, 4, 2]]
     
-    position_R = [[-9, 0, 5, 22], [4, 4, 5, 2.5], [29.0, 0.0, 30.0, 2.07], [31.17, 2.43, 24.37, 2.07], [31.87, 4.87, 19.19, 2.07], [31.04, 7.3, 14.89, 2.07], [28.74, 9.74, 11.81, 2.07], [25.18, 12.17, 10.2, 2.07], [20.62, 14.61, 10.2, 2.07], [15.45, 17.04, 11.81, 2.07], [10.08, 19.48, 14.89, 2.07], [4.95, 21.91, 19.19, 2.07], [0.47, 24.35, 24.37, 2.07], [-3.0, 26.78, 30.0, 2.07], [45, 20, 4, 2]]
-    
-    position_RE = [52, 24, 5, 3]
+    position_RE = [50, 26.78, 7, 2]
 
     R0 = Room(name='R0',
           position = position_R[0],
@@ -186,6 +208,9 @@ def level_sinusoidal():
     R14 = Room(name='R14',
           position = position_R[14],
           switches_list = [])
+    R15 = Room(name='R15',
+          position = position_R[15],
+          switches_list = [])
     RE = Room(name='RE', position = position_RE, is_exit = True)  # E pour exit ou end
     
     p = 3/4
@@ -195,9 +220,9 @@ def level_sinusoidal():
            name='D0',  
            room_departure = R0, 
            room_arrival = R1, 
-           relative_departure_coordinates = [1, 0.7],
-           relative_arrival_coordinates = [0, 1],
-           relative_position=2/3)
+           relative_departure_coordinates = [1, 1.25/26.78],
+           relative_arrival_coordinates = [0, 1/2],
+           relative_position=1/2)
     D1  = Door(two_way = True,  
             tree = T1,  
             name='D1',  
@@ -358,28 +383,39 @@ def level_sinusoidal():
            tree = T25,  
            name='D25',  
            room_departure = R14, 
-           room_arrival = RE,
-           relative_departure_coordinates = [1, 1],
-           relative_arrival_coordinates = [0.207, 0.207])
+           room_arrival = R15)
+    D26  = Door(two_way = True,  
+                tree = T26,  
+                name='D26',  
+                room_departure = R15, 
+                room_arrival = RE)
     
     l_help_txt = [
-"""
+"""Several new notations are used in this level :
+    
+    D0 = 1 means that D0 is always open.
+    
+    XOR (and XNOR) can be used with more than 3 parameters :
+        D0 = XOR(S0, S1, ...) means :
+            D0 is open if there is exactly one switch among its parameters that is turned on.
+        D0 = XNOR(S0, S1, ...) means :
+            D0 is open if there is exactly one switch among its parameters that is turned off.
 """]
     
     level = Maze(start_room_index=0, 
              exit_room_index=-1, 
-             rooms_list=[R0, R1, R2, R3, R4,
-                 R5, R6, R7, R8, R9,
-                 R10, R11, R12, R13, R14,
-                 RE], 
-             doors_list = [D0, D1, D2, D3, D4, D5, D6, D7, D8, D9,
-                   D10, D11, D12, D13, D14, D15, D16, D17, D18, D19,
-                   D20, D21, D22, D23, D24, D25], 
-             fastest_solution=None,
-             level_color=Levels_colors_list.BLACK_AND_BLUE,
+             rooms_list=[R0, R1,
+                         R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13,
+                         R14, R15, RE], 
+             doors_list = [D0,
+                           D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12,
+                           D13, D14, D15, D16, D17, D18, D19, D20, D21, D22, D23, D24,
+                           D25, D26], 
+             fastest_solution="S0 S3 S4 D0 D1 S5 D13 D18 S10 D6 D10 S14 D22 D25 D26",
+             level_color=Levels_colors_list.PURPLE_BLUE,
              name='Sinusoidal',
              help_txt = l_help_txt,
-             door_window_size = 550,
+             door_window_size = 400,
              y_separation=50,
              border = 30,
              keep_proportions = False)
@@ -388,22 +424,25 @@ def level_sinusoidal():
 
 if __name__ == '__main__':
     
-    from numpy import  cos, pi
-    from fonction_affine import fonction_affine
+    # from numpy import  cos, pi
+    # from fonction_affine import fonction_affine
     
-    position_R = []
-    position_R.append([-9, 0, 5, 22])  # R0
-    position_R.append([4, 4, 5, 2.5])  # R1
-    n = 12
-    e = 8*7/(2*n-1)
-    for i in range(n):
-        (pente, coeff) = fonction_affine(0, 0, n-1, pi)
-        x_middle = 16*(1+cos(pente*i+coeff))+12
-        (pente, coeff) = fonction_affine(0, -pi/2, n-1, pi/2)
-        y_rect = 20*(1.5-cos(pente*i+coeff))
-        position_R.append([x_middle-y_rect/2, i*e, y_rect, 0.85*e])
-    position_R.append([45, 20, 4, 2])  # R14
-    for i in range(len(position_R)):
-        for j in range(len(position_R[i])):
-            position_R[i][j] = round(position_R[i][j], 2)
-    print(position_R)
+    # position_R = []
+    # position_R.append([-9, 0, 5, 22])  # R0
+    # position_R.append([4, 4, 5, 2.5])  # R1
+    # n = 12
+    # e = 8*7/(2*n-1)
+    # for i in range(n):
+    #     (pente, coeff) = fonction_affine(0, 0, n-1, pi)
+    #     x_middle = 16*(1+cos(pente*i+coeff))+12
+    #     (pente, coeff) = fonction_affine(0, -pi/2, n-1, pi/2)
+    #     y_rect = 20*(1.5-cos(pente*i+coeff))
+    #     position_R.append([x_middle-y_rect/2, i*e, y_rect, 0.85*e])
+    # position_R.append([45, 20, 4, 2])  # R14
+    # for i in range(len(position_R)):
+    #     for j in range(len(position_R[i])):
+    #         position_R[i][j] = round(position_R[i][j], 2)
+    # print(position_R)
+    
+    level_sinusoidal().try_solution("S0 S3 S4 D0 D1 S5 D13 D18 S10 D6 D10 S14 D22 D25 D26", verbose = 2)
+    level_sinusoidal().find_all_solutions(verbose = 2, stop_at_first_solution = False)

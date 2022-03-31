@@ -5,6 +5,9 @@ Created on Thu Mar  3 16:01:51 2022
 @author: utilisateur
 """
 
+from convert_base_2 import base_2
+
+
 class Logic_Gate:
 
 
@@ -97,6 +100,20 @@ class Logic_Gate:
         l = [1]*2**n
         l[-1] = 0
         return l
+    
+    def XOR_list(n):  # sum = 1
+        l = []
+        for i in range(2**n):
+            b = int(sum(base_2(i, 2**n)) == 1)
+            l.append(b)
+        return l
+    
+    def XNOR_list(n):
+        l = []
+        for i in range(2**n):
+            b = int(sum(base_2(i, 2**n)) == n-1)
+            l.append(b)
+        return l
 
     shortcuts_gates = {#'FALSE' : [0, 0],
                        #'BUFFER' : [0, 1],
@@ -121,16 +138,19 @@ class Logic_Gate:
                        # Implication A => B
                        # 'BONA':  [1, 1, 0, 1],
                        'NAND':  [1, 1, 1, 0],
-                       # 'TRUE_2':  [1, 1, 1, 1],
-                       'XNOR_3': [0, 0, 0, 1, 0, 1, 1, 0],
-                       'XOR_3': [0, 1, 1, 0, 1, 0, 0, 0]
+                       # 'TRUE_2':  [1, 1, 1, 1]
                        }
     
-    for n in range(3, 20):
+    for n in range(3, 11):
         shortcuts_gates['AND_{}'.format(n)] = AND_list(n)
         shortcuts_gates['NOR_{}'.format(n)] = NOR_list(n)
         shortcuts_gates['OR_{}'.format(n)] = OR_list(n)
         shortcuts_gates['NAND_{}'.format(n)] = NAND_list(n)
+        assert n > 2 # I put this assert to make sure I won't do the mistake
+        
+    for n in range(3, 6):
+        shortcuts_gates['XOR_{}'.format(n)] = XOR_list(n)
+        shortcuts_gates['XNOR_{}'.format(n)] = XNOR_list(n)
         assert n > 2 # I put this assert to make sure I won't do the mistake
     
 
@@ -153,7 +173,7 @@ if __name__ == "__main__":
     #     print(gate)
     #     print('opposite_gate_name\n', gate.opposite_gate_name())
     
-    pass
+    print(Logic_Gate.shortcuts_gates)
     
     
     

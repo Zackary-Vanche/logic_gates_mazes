@@ -46,6 +46,13 @@ class Tree:
     tree_list_or_9  = ['OR_9'] + [[None]]*9
     tree_list_or_10 = ['OR_10'] + [[None]]*10
     
+    tree_list_XOR3 = ['XOR_3'] + [[None]]*3
+    tree_list_XNOR3 = ['XNOR_3'] + [[None]]*3
+    tree_list_XOR4 = ['XOR_4'] + [[None]]*4
+    tree_list_XNOR4 = ['XNOR_4'] + [[None]]*4
+    tree_list_XOR5 = ['XOR_5'] + [[None]]*5
+    tree_list_XNOR5 = ['XNOR_5'] + [[None]]*5
+    
     tree_list_nor = ['NOR', [None], [None]]
     tree_list_anb = ['AND', [None], tree_list_not]
     tree_list_bna = ['AND', tree_list_not, [None]]
@@ -96,9 +103,6 @@ class Tree:
     tree_list_TFT = tree_list_from_str('TFT')
     tree_list_TTF = tree_list_from_str('TTF')
     tree_list_TTT = tree_list_and_3
-    
-    tree_list_XOR3 = ['XOR_3', [None], [None], [None]]
-    tree_list_XNOR3 = ['XNOR_3', [None], [None], [None]]
     
     def __init__(self, 
                  tree_list = [None], 
@@ -158,7 +162,7 @@ class Tree:
                 
             for k in range(len(sons_list)):
                 son = sons_list[k]
-                assert isinstance(son, list), """{}{} : {}""".format(self.name, str(k), str(son))
+                assert isinstance(son, list), """{},{} : {}""".format(self.name, str(k), str(son))
                 self.sons_list.append(Tree(son, 
                                            root_depth = root_depth+1, 
                                            name = self.name + '_' + str(k),
@@ -243,11 +247,11 @@ class Tree:
                     txt = ''
                     for son in self.sons_list:
                         son_PN = son.get_easy_logical_expression_PN()
-                        if not son.is_leaf and len(son.sons_list) >= 2 and ' ' in son_PN:
-                            if '(' in son_PN:
-                                son_PN = ' [ ' + son_PN + ' ] '
-                            else:
-                                son_PN = ' ( ' + son_PN + ' ) '
+                        # if not son.is_leaf and len(son.sons_list) >= 2 and ' ' in son_PN:
+                        #     if '(' in son_PN:
+                        #         son_PN = ' [ ' + son_PN + ' ] '
+                        #     else:
+                        #         son_PN = ' ( ' + son_PN + ' ) '
                         txt = txt + son_PN + ' '
                     if '(' in txt:
                         txt = root_name + ' [ ' + txt + '] '
@@ -400,7 +404,7 @@ class Tree:
     def switch_leafs(self, root_depth = 0):
         self.empty = False
         switch_list = self.switches_list
-        assert len(switch_list) == self.number_of_leafs(), """name : {}\n switch_list : {}\n number_of_leafs : {}\n root_depth : {}\n""".format(self.name, switch_list, self.number_of_leafs(), root_depth)
+        assert len(switch_list) == self.number_of_leafs(), """name : {}\n switch_list : {}\n number_of_leafs : {}\n root_depth : {}\n""".format(self.name, [s.name for s in switch_list], self.number_of_leafs(), root_depth)
         if self.is_leaf:
             self.is_leaf = True
             self.root = switch_list[0].value
@@ -660,15 +664,6 @@ class Tree:
             self.same_switches_list = list(same_switches_set)
         
 if __name__ == "__main__":
-    
-    # from Switch import Switch
-    
-    # S9  = Switch(name = 'S9')
-    # tree_list_12 = ['NOT', [None]]
-    # T12 = Tree(tree_list = tree_list_12, empty = True, name = 'T12', switches = [S9])
-    # print(T12.get_easy_logical_expression_PN())
-    
-    print(Tree.tree_list_from_str('FTT TFT FFT'))
     
     pass
     

@@ -1,7 +1,14 @@
 import os
 import cv2
+from Game import Game
+from pyautogui import size as pyautogui_size
 
 if __name__ == "__main__":
+    
+    TOTAL_SIZE = pyautogui_size()
+    Game(save_image = True).play()
+    Game(WINDOW_SIZE = TOTAL_SIZE, save_image = True).play()
+    
     racine = __file__
     racine = racine.split('\\')
     del racine[-1]

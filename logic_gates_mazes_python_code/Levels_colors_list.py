@@ -10,12 +10,12 @@ from Level_color import Level_color
 
 class Levels_colors_list:
     
-    BEIGE = Level_color(background_color = Color.DARK_KHAKI,
-                        room_color = Color.KHAKI,
+    BEIGE = Level_color(background_color = Color.KHAKI,
+                        room_color = Color.DARK_KHAKI,
                         contour_color = Color.WHITE,
-                        letters_color = Color.WHITE,
-                        inside_room_color = Color.BLACK,
-                        letter_contour_color = Color.BLACK)
+                        letters_color = Color.BLACK,
+                        inside_room_color = Color.WHITE,
+                        letter_contour_color = Color.WHITE)
     
     BLACK_AND_WHITE = Level_color(background_color = Color.GREY_100,
                                   room_color = Color.BLACK,

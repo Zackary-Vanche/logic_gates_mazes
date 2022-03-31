@@ -431,7 +431,7 @@ class Maze:
             current_possibles_actions_list.append(switch.name)
         return sorted(current_possibles_actions_list)
 
-    def find_all_solutions(self, verbose = 0, stop_at_first_solution = True):
+    def find_all_solutions(self, verbose = 0, stop_at_first_solution = False):
         if verbose > 1:
             t0 = time()
         if self.all_solutions is None:

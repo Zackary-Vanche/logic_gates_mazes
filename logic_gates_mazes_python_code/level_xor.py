@@ -99,8 +99,10 @@ def level_xor():
       1    0    1     0    1
       1    1    1     0    0    
     In other words:
-    D0 is opened if there is exactly one switch among S0, S1 and S2 that is turned on.
-    D1 is opened if there is exactly one switch among S0, S1 and S2 that is turned off.
+    D0 is open if there is exactly one switch among S0, S1 and S2 that is turned on.
+    D1 is open if there is exactly one switch among S0, S1 and S2 that is turned off.
+    
+    Clearly, you could give another definition to XOR and XNOR.
 """]
     
     level = Maze(start_room_index=0, 
@@ -114,3 +116,6 @@ def level_xor():
          door_window_size = 550)
     
     return level
+
+if __name__ == '__main__':
+    level_xor()

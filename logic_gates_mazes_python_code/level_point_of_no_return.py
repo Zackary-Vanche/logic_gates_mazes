@@ -126,7 +126,7 @@ def level_point_of_no_return():
       0    1    1
       1    0    1
       1    1    0  
-    In other words, D0 is opened if S0 = S1.
+    In other words, D0 is open if S0 = S1.
       
     XNOR truth table (D0 = XNOR S0 S1 = -^ S0 S1):
     S0  S1  D0
@@ -134,7 +134,7 @@ def level_point_of_no_return():
       0    1    0
       1    0    0
       1    1    1    
-    In other words, D0 is opened if S0 is different from S1.
+    In other words, D0 is open if S0 is different from S1.
     
     You can write :
     XOR S0 S1 = | & S0 - S1 & - S0 S1 

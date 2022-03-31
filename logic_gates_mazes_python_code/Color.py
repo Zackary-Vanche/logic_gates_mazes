@@ -58,7 +58,7 @@ class Color:
     PALE_YELLOW = [193, 185, 112]  # color_hls(hu=0.15, li=0.6, sa=0.4)
     PINK = [165, 89, 135]  # color_hls(hu=0.9, li=0.5)
     PURE_BLUE = [101, 254, 255]  # color_hls(hu=0.5, li=0.7, sa=1)
-    PURPLE_BLUE = color_hls(hu=0.72, li=0.4)
+    PURPLE_BLUE = color_hls(hu=0.72, li=0.45)
     REALLY_BRIGHT_BLUE = [50, 153, 153]  # color_hls(hu=0.5, li=0.4, sa=0.5)
     REALLY_BRIGHT_BLUE_2 = [94, 186, 186]  # color_hls(hu=0.5, li=0.55, sa=0.4)
     REALLY_BRIGHT_GREEN = [149, 192, 138]  # color_hls(hu=0.3, li=0.65)

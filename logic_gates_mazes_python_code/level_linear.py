@@ -78,17 +78,17 @@ def level_linear():
         - 0 = 1
     
     D0 = AND S0 S1 means :
-    D0 is opened if (S0, S1) = (1,1)
+    D0 is open if (S0, S1) = (1,1)
     It can also be written : 
         D2 = & S0 S1
     
     By combining these notations, you can write :
     D1 = & S2 - S3 means :
-        D1 is opened if (S2, S3) = (1,0)
+        D1 is open if (S2, S3) = (1,0)
     D2 = AND - S4 S5 means :
-        D2 is opened if (S4, S5) = (0,1)
+        D2 is open if (S4, S5) = (0,1)
     D3 = & - S6 - S7  S6 S7 means :
-        D3 is opened if (S6, S7) = (0,0)
+        D3 is open if (S6, S7) = (0,0)
         It can also be written :
         D3 = NOR S6 S7
         D3 = -| S6 S7
