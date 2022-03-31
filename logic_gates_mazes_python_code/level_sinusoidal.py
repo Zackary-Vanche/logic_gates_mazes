@@ -415,7 +415,7 @@ def level_sinusoidal():
              level_color=Levels_colors_list.PURPLE_BLUE,
              name='Sinusoidal',
              help_txt = l_help_txt,
-             door_window_size = 400,
+             door_window_size = 425,
              y_separation=50,
              border = 30,
              keep_proportions = False)
