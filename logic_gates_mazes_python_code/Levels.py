@@ -21,6 +21,7 @@ class Levels:
     from level_icone import level_icone
     from level_linear import level_linear
     from level_loop import level_loop
+    from level_manhattan_distance import level_manhattan_distance
     from level_odd import level_odd
     from level_parallel import level_parallel
     from level_point_of_no_return import level_point_of_no_return
@@ -52,7 +53,8 @@ class Levels:
                              level_graph,              # BLACK AND BLUE
                              level_dead_ends,          # DARK GREEN
                              level_electricity,        # YELLOW AND SILVER
-                             level_sinusoidal          # BEIGE
+                             level_sinusoidal,         # BEIGE
+                             level_manhattan_distance
                              ] 
 
     number_of_levels = len(levels_functions_list)

@@ -5,17 +5,17 @@ Created on Thu Feb 24 20:57:18 2022
 @author: utilisateur
 """
 
-from colorsys import hls_to_rgb
-from numpy import array
-from numpy import uint8
+# from colorsys import hls_to_rgb
+# from numpy import array
+# from numpy import uint8
 
 
 class Color:
 
-    saturation=0.3
-    lightness=0.4
-    def color_hls(hu=0, li=lightness, sa=saturation):
-        return array(255*array(hls_to_rgb(hu, li, sa)), dtype=uint8).tolist()
+    # saturation=0.3
+    # lightness=0.4
+    # def color_hls(hu=0, li=lightness, sa=saturation):
+    #     return array(255*array(hls_to_rgb(hu, li, sa)), dtype=uint8).tolist()
 
     BLACK = [0, 0, 0]
     BLACK_BLUE = [0, 20, 20]
@@ -50,6 +50,7 @@ class Color:
     GREEN = [71, 132, 95]  # color_hls(0.4)
     GREEN_GREY = [133, 151, 128]  # color_hls(hu=0.3, li=0.55, sa=0.1)
     GREY = [128, 128, 128]
+    GREY_80 = [80, 80, 80]
     GREY_100 = [100, 100, 100]
     GREY_BLUE = [97, 131, 131]  # color_hls(hu=0.5, li=0.45, sa=0.15)
     KHAKI = [152, 146, 68]
@@ -58,10 +59,11 @@ class Color:
     PALE_YELLOW = [193, 185, 112]  # color_hls(hu=0.15, li=0.6, sa=0.4)
     PINK = [165, 89, 135]  # color_hls(hu=0.9, li=0.5)
     PURE_BLUE = [101, 254, 255]  # color_hls(hu=0.5, li=0.7, sa=1)
-    PURPLE_BLUE = color_hls(hu=0.72, li=0.45)
+    PURPLE_BLUE = [102, 80, 149]  # color_hls(hu=0.72, li=0.45)
     REALLY_BRIGHT_BLUE = [50, 153, 153]  # color_hls(hu=0.5, li=0.4, sa=0.5)
     REALLY_BRIGHT_BLUE_2 = [94, 186, 186]  # color_hls(hu=0.5, li=0.55, sa=0.4)
     REALLY_BRIGHT_GREEN = [149, 192, 138]  # color_hls(hu=0.3, li=0.65)
+    REALLY_BRIGHT_ORANGE = [255, 173, 0]
     REALLY_DARK_BLUE = [33, 38, 68]  # color_hls(hu=0.64, li=0.2, sa=0.35)
     REALLY_DARK_GREY = [45,  45,  45]
     REALLY_DARK_GREY_BLUE = [21, 29, 29]  # color_hls(hu=0.5, li=0.1, sa=0.15)

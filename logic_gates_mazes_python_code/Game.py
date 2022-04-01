@@ -273,6 +273,8 @@ class Game:
     def print_trees(self):
         # Affichage des arbres des portes
         self.n_lines_door_printing = self.maze.n_lines_door_printing
+        if self.n_lines_door_printing == 0:
+            return None
         self.gap_between_lines = min((self.WINDOW_HEIGHT - self.maze.y_separation - 50) / (self.n_lines_door_printing), 35)
         if self.print_tree_polygon:
             pass # TODO
@@ -306,6 +308,7 @@ class Game:
 
     def draw_rooms(self):
         # Affichage des pieces
+        self.line_size = self.maze.line_size
         for room in self.maze.rooms_list:
             [x_gap, y_gap, x, y] = array(room.position)
             room_rectangle = pygame_Rect(x_gap, y_gap, x+2, y+2)
@@ -316,11 +319,11 @@ class Game:
                                                     self.inside_room_color)
                 self.WINDOW.blit(room_name_render, room.get_name_position())
                 if self.maze.current_room() == room:
-                    pygame_draw_ellipse(self.WINDOW, self.surrounding_color, room_rectangle, width=3)
+                    pygame_draw_ellipse(self.WINDOW, self.surrounding_color, room_rectangle, width=self.line_size)
             else:
                 pygame_draw_rect(self.WINDOW, self.room_color, room_rectangle)
                 if self.maze.current_room() == room:
-                    pygame_draw_rect(self.WINDOW, self.surrounding_color, room_rectangle, width=3)
+                    pygame_draw_rect(self.WINDOW, self.surrounding_color, room_rectangle, width=self.line_size)
                 room_name_render = self.font.render(room.name,
                                                     True,
                                                     self.inside_room_color)
