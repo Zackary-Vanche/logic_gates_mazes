@@ -42,86 +42,86 @@ def level_manhattan_distance():
     S25 = Switch(name='S25')
     S26 = Switch(name='S26')
     
-    T0 = Tree(tree_list=[None],
+    T0 = Tree(tree_list=Tree.tree_list_from_str('FFF'),
               empty=True,
               name='T0',
-              switches = [S0])
-    T1 = Tree(tree_list=[None],
+              switches = [S0, S1, S2])
+    T1 = Tree(tree_list=Tree.tree_list_from_str('FTT'),
               empty=True,
               name='T1',
-              switches = [S0])
-    T2 = Tree(tree_list=[None],
+              switches = [S3, S4, S5])
+    T2 = Tree(tree_list=Tree.tree_list_from_str('TFFFFT'),
               empty=True,
               name='T2',
-              switches = [S0])
-    T3 = Tree(tree_list=[None],
+              switches = [S0, S1, S2, S3, S4, S5])
+    T3 = Tree(tree_list=Tree.tree_list_from_str('FTFF'),
               empty=True,
               name='T3',
-              switches = [S0])
-    T4 = Tree(tree_list=[None],
+              switches = [S6, S7, S8, S9])
+    T4 = Tree(tree_list=Tree.tree_list_from_str('FTF'),
               empty=True,
               name='T4',
-              switches = [S0])
-    T5 = Tree(tree_list=[None],
+              switches = [S3, S4, S5])
+    T5 = Tree(tree_list=Tree.tree_list_from_str('FFTT'),
               empty=True,
               name='T5',
-              switches = [S0])
-    T6 = Tree(tree_list=[None],
+              switches = [S6, S7, S8, S9])
+    T6 = Tree(tree_list=Tree.tree_list_from_str('TFT'),
               empty=True,
               name='T6',
-              switches = [S0])
-    T7 = Tree(tree_list=[None],
+              switches = [S10, S11, S12])
+    T7 = Tree(tree_list=Tree.tree_list_from_str('FTTF'),
               empty=True,
               name='T7',
-              switches = [S0])
-    T8 = Tree(tree_list=[None],
+              switches = [S6, S7, S8, S9])
+    T8 = Tree(tree_list=Tree.tree_list_from_str('TTT'),
               empty=True,
               name='T8',
-              switches = [S0])
-    T9 = Tree(tree_list=[None],
+              switches = [S10, S11, S12])
+    T9 = Tree(tree_list=Tree.tree_list_XOR3,
               empty=True,
               name='T9',
-              switches = [S0])
-    T10 = Tree(tree_list=[None],
+              switches = [S13, S14, S15])
+    T10 = Tree(tree_list=Tree.tree_list_from_str('FFT'),
               empty=True,
               name='T10',
-              switches = [S0])
-    T11 = Tree(tree_list=[None],
+              switches = [S0, S1, S2])
+    T11 = Tree(tree_list=Tree.tree_list_from_str('TFF'),
               empty=True,
               name='T11',
-              switches = [S0])
-    T12 = Tree(tree_list=[None],
+              switches = [S3, S4, S5])
+    T12 = Tree(tree_list=Tree.tree_list_from_str('FTFTTF'),
               empty=True,
               name='T12',
-              switches = [S0])
-    T13 = Tree(tree_list=[None],
+              switches = [S0, S1, S2, S3, S4, S5])
+    T13 = Tree(tree_list=Tree.tree_list_from_str('TFTT'),
               empty=True,
               name='T13',
-              switches = [S0])
-    T14 = Tree(tree_list=[None],
+              switches = [S6, S7, S8, S9])
+    T14 = Tree(tree_list=Tree.tree_list_from_str('TFT'),
               empty=True,
               name='T14',
-              switches = [S0])
-    T15 = Tree(tree_list=[None],
+              switches = [S3, S4, S5])
+    T15 = Tree(tree_list=Tree.tree_list_from_str('TTFF'),
               empty=True,
               name='T15',
-              switches = [S0])
-    T16 = Tree(tree_list=[None],
+              switches = [S6, S7, S8, S9])
+    T16 = Tree(tree_list=Tree.tree_list_from_str('FTT'),
               empty=True,
               name='T16',
-              switches = [S0])
-    T17 = Tree(tree_list=[None],
+              switches = [S10, S11, S12])
+    T17 = Tree(tree_list=Tree.tree_list_from_str('TFFT'),
               empty=True,
               name='T17',
-              switches = [S0])
-    T18 = Tree(tree_list=[None],
+              switches = [S6, S7, S8, S9])
+    T18 = Tree(tree_list=Tree.tree_list_from_str('TTF'),
               empty=True,
               name='T18',
-              switches = [S0])
-    T19 = Tree(tree_list=[None],
+              switches = [S10, S11, S12])
+    T19 = Tree(tree_list=Tree.tree_list_XNOR3,
               empty=True,
               name='T19',
-              switches = [S0])
+              switches = [S13, S14, S15])
     
     c = 1
     
