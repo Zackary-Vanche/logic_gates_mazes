@@ -232,7 +232,7 @@ def level_electricity():
     l_help_txt = [
 """NAND can also apply to 3 parameters instead of 2:
 
-    NAND truth table [D0 = NAND ( S0 S1 S2 )]:
+    NAND truth table [D0 = NAND ( S0 S1 S2 ) = -& ( S0 S1 S2 )]:
     S0  S1  S2  D0
       0    0    0     1
       0    1    0     1

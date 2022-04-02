@@ -42,86 +42,86 @@ def level_manhattan_distance():
     S25 = Switch(name='S25')
     S26 = Switch(name='S26')
     
-    T0 = Tree(tree_list=Tree.tree_list_from_str('FFF'),
+    T0 = Tree(tree_list=Tree.tree_list_from_str('FTFF'),
               empty=True,
               name='T0',
-              switches = [S0, S1, S2])
-    T1 = Tree(tree_list=Tree.tree_list_from_str('FTT'),
+              switches = [S0, S1, S2, S13])
+    T1 = Tree(tree_list=Tree.tree_list_from_str('FTTT'),
               empty=True,
               name='T1',
-              switches = [S3, S4, S5])
+              switches = [S3, S4, S5, S16])
     T2 = Tree(tree_list=Tree.tree_list_from_str('TFFFFT'),
               empty=True,
               name='T2',
               switches = [S0, S1, S2, S3, S4, S5])
-    T3 = Tree(tree_list=Tree.tree_list_from_str('FTFF'),
+    T3 = Tree(tree_list=Tree.tree_list_from_str('FTFFFT'),
               empty=True,
               name='T3',
-              switches = [S6, S7, S8, S9])
-    T4 = Tree(tree_list=Tree.tree_list_from_str('FTF'),
+              switches = [S6, S7, S8, S9, S15, S18])
+    T4 = Tree(tree_list=Tree.tree_list_from_str('FTFT'),
               empty=True,
               name='T4',
-              switches = [S3, S4, S5])
-    T5 = Tree(tree_list=Tree.tree_list_from_str('FFTT'),
+              switches = [S3, S4, S5, S20])
+    T5 = Tree(tree_list=Tree.tree_list_from_str('FFTTTT'),
               empty=True,
               name='T5',
-              switches = [S6, S7, S8, S9])
-    T6 = Tree(tree_list=Tree.tree_list_from_str('TFT'),
+              switches = [S6, S7, S8, S9, S15, S21])
+    T6 = Tree(tree_list=Tree.tree_list_from_str('TFTFT'),
               empty=True,
               name='T6',
-              switches = [S10, S11, S12])
-    T7 = Tree(tree_list=Tree.tree_list_from_str('FTTF'),
+              switches = [S10, S11, S12, S21, S22])
+    T7 = Tree(tree_list=Tree.tree_list_from_str('FTTFTT'),
               empty=True,
               name='T7',
-              switches = [S6, S7, S8, S9])
-    T8 = Tree(tree_list=Tree.tree_list_from_str('TTT'),
+              switches = [S6, S7, S8, S9, S13, S24])
+    T8 = Tree(tree_list=Tree.tree_list_from_str('FTTTT'),
               empty=True,
               name='T8',
-              switches = [S10, S11, S12])
-    T9 = Tree(tree_list=Tree.tree_list_XOR3,
+              switches = [S3, S10, S11, S12, S25])
+    T9 = Tree(tree_list=['AND', Tree.tree_list_XOR3, [None]],
               empty=True,
               name='T9',
-              switches = [S13, S14, S15])
-    T10 = Tree(tree_list=Tree.tree_list_from_str('FFT'),
+              switches = [S13, S14, S15, S26])
+    T10 = Tree(tree_list=Tree.tree_list_from_str('FFTT'),
               empty=True,
               name='T10',
-              switches = [S0, S1, S2])
-    T11 = Tree(tree_list=Tree.tree_list_from_str('TFF'),
+              switches = [S0, S1, S2, S14])
+    T11 = Tree(tree_list=Tree.tree_list_from_str('TFFT'),
               empty=True,
               name='T11',
-              switches = [S3, S4, S5])
+              switches = [S3, S4, S5, S20])
     T12 = Tree(tree_list=Tree.tree_list_from_str('FTFTTF'),
               empty=True,
               name='T12',
               switches = [S0, S1, S2, S3, S4, S5])
-    T13 = Tree(tree_list=Tree.tree_list_from_str('TFTT'),
+    T13 = Tree(tree_list=Tree.tree_list_from_str('TFTTT'),
               empty=True,
               name='T13',
-              switches = [S6, S7, S8, S9])
-    T14 = Tree(tree_list=Tree.tree_list_from_str('TFT'),
+              switches = [S6, S7, S8, S9, S21])
+    T14 = Tree(tree_list=Tree.tree_list_from_str('TFTT'),
               empty=True,
               name='T14',
-              switches = [S3, S4, S5])
-    T15 = Tree(tree_list=Tree.tree_list_from_str('TTFF'),
+              switches = [S3, S4, S5, S16])
+    T15 = Tree(tree_list=Tree.tree_list_from_str('TTTFFFT'),
               empty=True,
               name='T15',
-              switches = [S6, S7, S8, S9])
-    T16 = Tree(tree_list=Tree.tree_list_from_str('FTT'),
+              switches = [S4, S6, S7, S8, S9, S14, S18])
+    T16 = Tree(tree_list=Tree.tree_list_from_str('FTTFT'),
               empty=True,
               name='T16',
-              switches = [S10, S11, S12])
-    T17 = Tree(tree_list=Tree.tree_list_from_str('TFFT'),
+              switches = [S10, S11, S12, S21, S22])
+    T17 = Tree(tree_list=Tree.tree_list_from_str('TFFTFT'),
               empty=True,
               name='T17',
-              switches = [S6, S7, S8, S9])
-    T18 = Tree(tree_list=Tree.tree_list_from_str('TTF'),
+              switches = [S6, S7, S8, S9, S15, S17])
+    T18 = Tree(tree_list=Tree.tree_list_from_str('TTFFT'),
               empty=True,
               name='T18',
-              switches = [S10, S11, S12])
-    T19 = Tree(tree_list=Tree.tree_list_XNOR3,
+              switches = [S10, S11, S12, S18, S19])
+    T19 = Tree(tree_list=['AND', Tree.tree_list_XORN3, [None]],
               empty=True,
               name='T19',
-              switches = [S13, S14, S15])
+              switches = [S13, S14, S15, S23])
     
     c = 1
     
@@ -275,32 +275,38 @@ def level_manhattan_distance():
                 room_arrival = RE)
     
     l_help_txt = [
-"""
+"""The cheat code might be very useful here.
 """]
     
     level = Maze(start_room_index=0, 
              exit_room_index=-1, 
              rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, RE], 
-             doors_list = [D0, D1, D2, D3, D4, D5, D6, D7, D8, D9,
-                           D10, D11, D12, D13, D14, D15, D16, D17, D18, D19], 
-             fastest_solution=None,
+             doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9,
+                         D10, D11, D12, D13, D14, D15, D16, D17, D18, D19], 
+             fastest_solution='S2 S4 S6 S8 S9 S10 S11 S12 S14 D10 S20 D4 S21 D13 S25 D8 S26 D9',
              level_color=Levels_colors_list.BLACK_AND_GREY_ORANGE_CONTOUR,
              name='Manhattan_distance',
-             help_txt = l_help_txt,
-             keep_proportions = True,
+             help_txt=l_help_txt,
+             door_window_size=500,
+             keep_proportions=True,
              line_size=4)
     
     return level
     
 if __name__ == "__main__":
     
-    for i in range(20):
-        print("""    T{0} = Tree(tree_list=[None],
-              empty=True,
-              name='T{0}',
-              switches = [S0])""".format(i))
+    # for i in range(20):
+    #     print("""    T{0} = Tree(tree_list=[None],
+    #           empty=True,
+    #           name='T{0}',
+    #           switches = [S0])""".format(i))
         
-    for i in range(11):
-        print("""    R{0} = Room(name='R{0}',
-              position = [0, 0, c, c],
-              switches_list = [])""".format(i))
+    # for i in range(11):
+    #     print("""    R{0} = Room(name='R{0}',
+    #           position = [0, 0, c, c],
+    #           switches_list = [])""".format(i))
+    
+    level_manhattan_distance().try_solution('S2 S4 S6 S8 S9 S10 S11 S12 S14 D10 S20 D4 S21 D13 S25 D8 S26 D9',
+                                            verbose=2)
+    
+    solutions = level_manhattan_distance().find_all_solutions(verbose=3, stop_at_first_solution=False)

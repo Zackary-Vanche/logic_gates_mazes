@@ -395,11 +395,9 @@ def level_sinusoidal():
     
     D0 = 1 means that D0 is always open.
     
-    XOR (and XNOR) can be used with more than 3 parameters :
+    XOR can be used with more than 3 parameters :
         D0 = XOR(S0, S1, ...) means :
             D0 is open if there is exactly one switch among its parameters that is turned on.
-        D0 = XNOR(S0, S1, ...) means :
-            D0 is open if there is exactly one switch among its parameters that is turned off.
 """]
     
     level = Maze(start_room_index=0, 
@@ -415,7 +413,7 @@ def level_sinusoidal():
              level_color=Levels_colors_list.PURPLE_BLUE,
              name='Sinusoidal',
              help_txt = l_help_txt,
-             door_window_size = 425,
+             door_window_size=425,
              y_separation=50,
              border = 30,
              keep_proportions = False)

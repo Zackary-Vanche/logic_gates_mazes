@@ -28,9 +28,9 @@ def level_xor():
     tree_list_1 = ['AND',  Tree.tree_list_aonb,  [None]]
     tree_list_2 = ['AND',  Tree.tree_list_bona,  [None]]
     tree_list_3 = ['AND',  Tree.tree_list_XOR3,  [None]]
-    tree_list_4 = ['AND',  Tree.tree_list_XNOR3, [None]]
+    tree_list_4 = ['AND',  Tree.tree_list_XORN3, [None]]
     tree_list_5 = ['AND',  Tree.tree_list_XOR3,  [None]]
-    tree_list_6 = ['AND',  Tree.tree_list_XNOR3, [None]]
+    tree_list_6 = ['AND',  Tree.tree_list_XORN3, [None]]
     tree_list_7 = ['AND',  Tree.tree_list_XOR3,  [None]]
     tree_list_8 = Tree.tree_list_from_str('TF TT TT') # ['OR_3', Tree.tree_list_anb, Tree.tree_list_and_2, Tree.tree_list_and_2]
     
@@ -79,30 +79,27 @@ def level_xor():
     l_help_txt = [
 """New operands are used in this level :
     
-    NAND truth table (D0 = NAND S0 S1):
+    NAND truth table (D0 = NAND S0 S1 = -& S0 S1):
     S0  S1  D0
       0    0    1
       0    1    1
       1    0    1
       1    1    0  
       
-    XOR and XNOR are used with 3 parameters instead of 2.
+    XOR is used with 3 parameters instead of 2.
       
-    XOR and XNOR truth table [D0 = XOR ( S0 S1 S2 ); D1 = XNOR ( S0 S1 S2 )]:
-    S0  S1  S2  D0  D1
-      0    0    0     0    0
-      0    1    0     1    0
-      1    0    0     1    0
-      1    1    0     0    1
-      0    0    1     1    0
-      0    1    1     0    1
-      1    0    1     0    1
-      1    1    1     0    0    
+    XOR truth table [D0 = XOR ( S0 S1 S2 )]:
+    S0  S1  S2  D0
+      0    0    0     0
+      0    1    0     1
+      1    0    0     1
+      1    1    0     0
+      0    0    1     1
+      0    1    1     0
+      1    0    1     0
+      1    1    1     0    
     In other words:
     D0 is open if there is exactly one switch among S0, S1 and S2 that is turned on.
-    D1 is open if there is exactly one switch among S0, S1 and S2 that is turned off.
-    
-    Clearly, you could give another definition to XOR and XNOR.
 """]
     
     level = Maze(start_room_index=0, 

@@ -19,6 +19,10 @@ import numpy as np
 # import random as rd
 
 if __name__ == "__main__":
+    
+    # You cannot use this script anymore
+    # because it is too long to end
+    # because of the level Manhattan distance.
 
     if not os_path_exists('images'):
         os_mkdir('images')

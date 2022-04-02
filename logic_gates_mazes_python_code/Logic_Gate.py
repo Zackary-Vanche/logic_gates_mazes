@@ -108,12 +108,12 @@ class Logic_Gate:
             l.append(b)
         return l
     
-    def XNOR_list(n):
-        l = []
-        for i in range(2**n):
-            b = int(sum(base_2(i, 2**n)) == n-1)
-            l.append(b)
-        return l
+    # def XNOR_list(n):
+    #     l = []
+    #     for i in range(2**n):
+    #         b = int(sum(base_2(i, 2**n)) == n-1)
+    #         l.append(b)
+    #     return l
 
     shortcuts_gates = {#'FALSE' : [0, 0],
                        #'BUFFER' : [0, 1],
@@ -150,7 +150,7 @@ class Logic_Gate:
         
     for n in range(3, 6):
         shortcuts_gates['XOR_{}'.format(n)] = XOR_list(n)
-        shortcuts_gates['XNOR_{}'.format(n)] = XNOR_list(n)
+        # shortcuts_gates['XNOR_{}'.format(n)] = XNOR_list(n)
         assert n > 2 # I put this assert to make sure I won't do the mistake
     
 

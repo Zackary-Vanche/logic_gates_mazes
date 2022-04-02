@@ -23,5 +23,5 @@ if __name__ == "__main__":
                 n_lines += n
     l.sort(key=lambda x : x[1])
     for x in l:
-        print(x[0], x[1])
+        print(x[0], ':', x[1])
     print('total :', n_lines)

@@ -47,11 +47,11 @@ class Tree:
     tree_list_or_10 = ['OR_10'] + [[None]]*10
     
     tree_list_XOR3 = ['XOR_3'] + [[None]]*3
-    tree_list_XNOR3 = ['XNOR_3'] + [[None]]*3
+    tree_list_XORN3 = ['XOR_3'] + [tree_list_not]*3
     tree_list_XOR4 = ['XOR_4'] + [[None]]*4
-    tree_list_XNOR4 = ['XNOR_4'] + [[None]]*4
+    tree_list_XORN4 = ['XOR_4'] + [tree_list_not]*4
     tree_list_XOR5 = ['XOR_5'] + [[None]]*5
-    tree_list_XNOR5 = ['XNOR_5'] + [[None]]*5
+    tree_list_XORN5 = ['XOR_5'] + [tree_list_not]*5
     
     tree_list_nor = ['NOR', [None], [None]]
     tree_list_anb = ['AND', [None], tree_list_not]
@@ -265,6 +265,7 @@ class Tree:
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('XNOR ', '-^ ')
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('NOR ', '-| ')
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('OR ', '| ')
+            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('SUM ', 'Σ ')
             if self.cut_expression:
                 l_elePN = self.easy_logical_expression_PN.split(')')
                 elePN = ''
