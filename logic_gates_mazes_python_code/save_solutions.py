@@ -23,6 +23,8 @@ if __name__ == "__main__":
     # You cannot use this script anymore
     # because it is too long to end
     # because of the level Manhattan distance.
+    # Finding the solution of level_manhattan_distance the way I do here
+    # takes almost a day.
 
     if not os_path_exists('images'):
         os_mkdir('images')

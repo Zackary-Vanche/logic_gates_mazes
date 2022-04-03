@@ -67,10 +67,11 @@ class Room:
         ymax = max(y_list)
         xmin = min(x_list)
         ymin = min(y_list)
-        new_xmin = max(x_gap + x/4, x_gap + 45)
-        new_ymin = max(y_gap + y/4, y_gap + 45)
-        new_xmax = min(x_gap + 3*x/4, x_gap + x - 45)
-        new_ymax = min(y_gap + 3*y/4, y_gap + y - 45)
+        
+        new_xmin = max(x_gap + 0.24*x, x_gap + 35)
+        new_ymin = max(y_gap + 0.24*y, y_gap + 35)
+        new_xmax = min(x_gap + 0.76*x, x_gap + x - 35)
+        new_ymax = min(y_gap + 0.76*y, y_gap + y - 35)
         if xmin == xmax:
             fx = lambda k : k + x_gap + x/2
         else:

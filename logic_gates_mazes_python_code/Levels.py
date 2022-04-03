@@ -32,7 +32,6 @@ class Levels:
     from level_xor import level_xor
         
     levels_functions_list = [#level_icone,
-                             # level_sinusoidal,
                              level_hello_world,        # GREY
                              level_linear,             # BRIGHT GREEN
                              level_loop,               # RED
@@ -43,7 +42,7 @@ class Levels:
                              level_fluid,              # GREEN_BLUE
                              level_odd,                # PURPLE
                              level_point_of_no_return, # BLUE
-                             level_recurrence,         # BLACK AND WHITE
+                             level_recurrence,         # BLACK AND GREY WITH RED CONTOUR
                              level_parallel,           # PINK
                              level_infinity,           # YELLOW AND BLACK
                              level_crystal,            # SALMON AND BRIGHT_GREY
@@ -54,7 +53,7 @@ class Levels:
                              level_dead_ends,          # DARK GREEN
                              level_electricity,        # YELLOW AND SILVER
                              level_sinusoidal,         # BEIGE
-                             level_manhattan_distance
+                             level_manhattan_distance  # BLACK AND GREY WITH ORANGE CONTOUR
                              ] 
 
     number_of_levels = len(levels_functions_list)

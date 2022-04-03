@@ -419,17 +419,20 @@ class Maze:
         return vector
 
     def get_current_possibles_actions_list(self):
-        current_possibles_actions_list = []
         room = self.current_room()
+        current_possible_doors = []
         for door in room.departure_doors_list:
             if door.is_open:
-                current_possibles_actions_list.append(door.name)
+                current_possible_doors.append(door.name)
         for door in room.two_way_doors_list:
             if door.is_open:
-                current_possibles_actions_list.append(door.name)
+                current_possible_doors.append(door.name)
+        current_possible_doors.sort(key=lambda l: [len(l), l])
+        current_possible_switches = []
         for switch in room.switches_list:
-            current_possibles_actions_list.append(switch.name)
-        return sorted(current_possibles_actions_list)
+            current_possible_switches.append(switch.name)
+        current_possible_switches.sort(key=lambda l: [len(l), l])
+        return current_possible_doors + current_possible_switches
 
     def find_all_solutions(self, verbose = 0, stop_at_first_solution = False):
         if verbose > 1:

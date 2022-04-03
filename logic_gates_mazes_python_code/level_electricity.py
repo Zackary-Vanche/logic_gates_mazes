@@ -256,3 +256,11 @@ def level_electricity():
               door_window_size = 575)
     
     return level
+
+if __name__ == '__main__':
+    
+    solution = level_electricity().find_all_solutions()
+    
+    print('')
+    
+    print(solution)

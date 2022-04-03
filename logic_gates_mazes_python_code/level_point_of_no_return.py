@@ -137,9 +137,9 @@ def level_point_of_no_return():
     In other words, D0 is open if S0 is different from S1.
     
     You can write :
-    XOR S0 S1 = | & S0 - S1 & - S0 S1 
-    XNOR S0 S1 = | & S0 S1 & - S0 - S1
-    XNOR S0 S1 = - XOR S0 S1
+        XOR S0 S1 = | & S0 - S1 & - S0 S1 
+        XNOR S0 S1 = | & S0 S1 & - S0 - S1
+        XNOR S0 S1 = - XOR S0 S1
 """]
     
     level = Maze(start_room_index=0, 

@@ -226,7 +226,7 @@ def level_dead_ends():
                  exit_room_index=-1, 
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, RE], 
                  doors_list = [D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14], 
-                 fastest_solution="S0 D1 S1 D2 D3 S4 D4 D11 S8 D12 D13 S11 S9 D14 S0 D5 S5 D6 S0 D9 S7 D10 S0 D7 S6 D8 D0", 
+                 fastest_solution="S0 D1 S1 D2 D3 S4 D4 D11 S8 D12 D13 S9 S11 D14 S0 D5 S5 D6 S0 D9 S7 D10 S0 D7 S6 D8 D0", 
                  level_color=Levels_colors_list.DARK_GREEN,
                  name='Dead_ends',
                  help_txt = l_help_txt,
@@ -234,3 +234,11 @@ def level_dead_ends():
                  border = 50)
     
     return level
+
+if __name__ == '__main__':
+    
+    solution = level_dead_ends().find_all_solutions()
+    
+    print('')
+    
+    print(solution)
