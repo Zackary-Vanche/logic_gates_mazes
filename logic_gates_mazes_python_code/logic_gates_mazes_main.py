@@ -15,4 +15,4 @@ if __name__ == "__main__":
     # If you don't put it, the pixel of the game
     # will be too big after compiling
     
-    Game().play()
+    Game(index_current_level=14, show_help=False).play()
