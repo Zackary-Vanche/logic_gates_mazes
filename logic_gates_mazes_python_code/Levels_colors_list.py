@@ -91,6 +91,14 @@ class Levels_colors_list:
                                letters_color = Color.BLACK,
                                letter_contour_color = Color.BLACK)
     
+    SHINY_GREEN = Level_color(background_color = Color.DARK_GREEN,
+                              room_color = Color.PSEUDO_DARK_GREEN,
+                              contour_color = Color.TOTAL_GREEN,
+                              letters_color = Color.TOTAL_GREEN,
+                              letter_contour_color = Color.BLACK,
+                              inside_room_color = Color.WHITE,
+                              surrounding_color = Color.TOTAL_GREEN)
+    
     BRIGHT_RED = Level_color(background_color = Color.DARK_RED,
                              room_color = Color.RED,
                              contour_color = Color.WHITE,

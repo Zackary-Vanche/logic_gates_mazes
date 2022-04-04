@@ -9,7 +9,6 @@ Created on Thu Feb 24 20:57:18 2022
 # from numpy import array
 # from numpy import uint8
 
-
 class Color:
 
     # saturation=0.3
@@ -19,6 +18,7 @@ class Color:
 
     BLACK = [0, 0, 0]
     BLACK_BLUE = [0, 20, 20]
+    BLACK_GREEN = [0, 50, 0]
     BLACK_RED = [51, 0, 0]  # color_hls(hu=0, li=0.1, sa=1)
     BLACK_YELLOW = [50, 50, 0]
     BLUE = [40, 163, 163]  # color_hls(hu=0.5, sa=0.6)
@@ -58,6 +58,7 @@ class Color:
     ORANGE = [116, 94, 62]  # color_hls(0.1, li=0.35)
     PALE_YELLOW = [193, 185, 112]  # color_hls(hu=0.15, li=0.6, sa=0.4)
     PINK = [165, 89, 135]  # color_hls(hu=0.9, li=0.5)
+    PSEUDO_DARK_GREEN = [49, 91, 65]  # Color.color_hls(0.4, li=0.275)
     PURE_BLUE = [101, 254, 255]  # color_hls(hu=0.5, li=0.7, sa=1)
     PURPLE_BLUE = [102, 80, 149]  # color_hls(hu=0.72, li=0.45)
     REALLY_BRIGHT_BLUE = [50, 153, 153]  # color_hls(hu=0.5, li=0.4, sa=0.5)

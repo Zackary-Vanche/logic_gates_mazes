@@ -7,6 +7,7 @@ Created on Sat Feb 26 13:12:20 2022
 
 class Levels: 
     
+    from level_alien import level_alien
     from level_backward import level_backward
     from level_binary import level_binary
     from level_bipartite import level_bipartite
@@ -35,7 +36,8 @@ class Levels:
     from level_xor import level_xor
         
     levels_functions_list = [#level_icone,
-                             level_chessboard,
+                             # level_chessboard,
+                             level_alien,
                              level_hello_world,        # GREY
                              level_linear,             # BRIGHT GREEN
                              level_loop,               # RED
