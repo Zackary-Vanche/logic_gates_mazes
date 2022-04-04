@@ -112,11 +112,11 @@ def level_bipartite():
               is_exit=True)   # E pour exit ou end
     
     D0 = Door(two_way=False,
-                tree=T0,
-                room_departure=R0,
-                room_arrival=R1,
-                relative_position=0.6,
-                surrounding_color=Color.WHITE)
+              tree=T0,
+              room_departure=R0,
+              room_arrival=R1,
+              relative_departure_coordinates=[1/2, 1/6],
+              surrounding_color=Color.WHITE)
     
     D1 = Door(two_way=True,
                 tree=T1,
@@ -132,7 +132,7 @@ def level_bipartite():
                 tree=T3,
                 room_departure=R1,
                 room_arrival=R6,
-                relative_position=1/4,
+                relative_position=1/3,
                 surrounding_color=Color.TOTAL_MAGENTA)
 
     D4 = Door(two_way=True,
@@ -156,7 +156,7 @@ def level_bipartite():
                 tree=T7,
                 room_departure=R3,
                 room_arrival=R4,
-                relative_position=1/4,
+                relative_position=1/3,
                 surrounding_color=Color.TOTAL_MAGENTA)
     D8 = Door(two_way=True,
                 tree=T8,
@@ -184,7 +184,7 @@ def level_bipartite():
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10],
                  fastest_solution="S0 S7 D0 S1 D1 S4 D7 S3 D8 D2 S1 D1 S4 D7 S3 D10",
                  level_color=Levels_colors_list.BLACK_AND_GREY_WHITE_CONTOUR,
-                 uniform_colors=False,
+                 uniform_surrounding_colors=False,
                  name='Bipartite',
                  help_txt=l_help_txt,
                  door_window_size=600,

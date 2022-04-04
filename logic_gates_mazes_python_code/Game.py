@@ -214,7 +214,7 @@ class Game:
             real_departure_coordinates = door.real_departure_coordinates
             real_arrival_coordinates = door.real_arrival_coordinates
             if door.is_open:
-                if self.uniform_colors:
+                if self.uniform_surrounding_colors:
                     pygame_draw_line(self.WINDOW,
                                      self.surrounding_color,
                                      real_departure_coordinates,
@@ -326,14 +326,14 @@ class Game:
                                                     self.inside_room_color)
                 self.WINDOW.blit(room_name_render, room.get_name_position())
                 if self.maze.current_room() == room:
-                    if self.uniform_colors:
+                    if self.uniform_surrounding_colors:
                         pygame_draw_ellipse(self.WINDOW, self.surrounding_color, room_rectangle, width=self.line_size)
                     else:
                         pygame_draw_ellipse(self.WINDOW, room.surrounding_color, room_rectangle, width=self.line_size)
             else:
                 pygame_draw_rect(self.WINDOW, self.room_color, room_rectangle)
                 if self.maze.current_room() == room:
-                    if self.uniform_colors:
+                    if self.uniform_surrounding_colors:
                         pygame_draw_rect(self.WINDOW, self.surrounding_color, room_rectangle, width=self.line_size)
                     else:
                         pygame_draw_rect(self.WINDOW, room.surrounding_color, room_rectangle, width=self.line_size)
@@ -354,7 +354,7 @@ class Game:
         for door in self.maze.doors_set:
             arrow_coordinates = door.arrow_coordinates
             if door.is_open:
-                if self.uniform_colors:
+                if self.uniform_surrounding_colors:
                     pygame_draw_polygon(self.WINDOW,
                                         self.surrounding_color,
                                         arrow_coordinates,
@@ -397,7 +397,7 @@ class Game:
                                                    position[1]-self.click_rect_size/2,
                                                    self.click_rect_size,
                                                    self.click_rect_size)
-                    if self.uniform_colors:
+                    if self.uniform_surrounding_colors:
                         pygame_draw_rect(self.WINDOW,
                                          self.surrounding_color,
                                          rectangle_switch,
@@ -466,7 +466,7 @@ class Game:
                 
     def display_game_window(self):
         self.WINDOW.fill(self.background_color)
-        self.uniform_colors = self.maze.uniform_colors
+        self.uniform_surrounding_colors = self.maze.uniform_surrounding_colors
         self.draw_right_window()
         self.draw_exterior_lines()
         self.draw_windows_separation()
