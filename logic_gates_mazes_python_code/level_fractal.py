@@ -321,13 +321,6 @@ There is only one that can be opened."""]
 
 if __name__ == "__main__":
     
-    for i in range(23):
-        print("""
-    D{0} = Door(two_way=False,
-                tree=T{0},
-                room_departure=R?,
-                room_arrival=R?)""".format(i))
-    
     solutions = level_fractal().find_all_solutions(verbose=0, stop_at_first_solution=False)
     
     assert len(solutions) == 1

@@ -296,17 +296,6 @@ It can help you to find the solution.
     
 if __name__ == "__main__":
     
-    for i in range(23):
-        print("""    T{0} = Tree(tree_list=[None],
-              empty=True,
-              name='T{0}',
-              switches = [S0])""".format(i))
-        
-    for i in range(15):
-        print("""    R{0} = Room(name='R{0}',
-              position = [0, 0, c, c],
-              switches_list = [])""".format(i))
-    
     level_manhattan_distance().try_solution('S2 S4 S6 S8 S9 S10 S11 S12 S14 D10 S20 D4 S21 D13 S25 D8 S26 D9',
                                             verbose=2)
     

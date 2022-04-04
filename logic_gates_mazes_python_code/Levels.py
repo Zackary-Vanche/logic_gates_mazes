@@ -11,6 +11,7 @@ class Levels:
     from level_binary import level_binary
     from level_bipartite import level_bipartite
     from level_cartesian import level_cartesian
+    from level_chessboard import level_chessboard
     from level_crossroad import level_crossroad
     from level_crystal import level_crystal
     from level_dead_ends import level_dead_ends
@@ -34,6 +35,7 @@ class Levels:
     from level_xor import level_xor
         
     levels_functions_list = [#level_icone,
+                             level_chessboard,
                              level_hello_world,        # GREY
                              level_linear,             # BRIGHT GREEN
                              level_loop,               # RED
