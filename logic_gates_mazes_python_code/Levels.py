@@ -34,7 +34,6 @@ class Levels:
     from level_xor import level_xor
         
     levels_functions_list = [#level_icone,
-                             level_bipartite,
                              level_hello_world,        # GREY
                              level_linear,             # BRIGHT GREEN
                              level_loop,               # RED
@@ -49,6 +48,7 @@ class Levels:
                              level_parallel,           # PINK
                              level_infinity,           # YELLOW AND BLACK
                              level_tetrahedron,        # PURPLE_BLUE
+                             level_bipartite,          # BLACK AND RVB
                              level_crystal,            # SALMON AND BRIGHT_GREY
                              level_cartesian,          # GREEN AND GREY
                              level_fractal,            # BRIGHT AND DARK BLUE

@@ -20,7 +20,8 @@ class Room:
                  # ecart en x du bord
                  # longueur en y
                  # longueur en x
-                 name = 'R'):
+                 name = 'R',
+                 surrounding_color=[255,255,255]):
         self.name = name
         try:
             assert self.name[0] == 'R'
@@ -39,6 +40,7 @@ class Room:
         self.position = position
         self.name_position = None
         self.switches_positions = None
+        self.surrounding_color = surrounding_color
         
     def get_name_position(self):
         [x_gap, y_gap, x, y] = self.position

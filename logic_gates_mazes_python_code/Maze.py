@@ -24,6 +24,7 @@ class Maze:
                  rooms_list=[],
                  doors_list=[],
                  level_color=Level_color(),
+                 uniform_colors=True,
                  fastest_solution=None,
                  name='L',
                  y_separation=70,
@@ -128,6 +129,7 @@ class Maze:
             logical_expression = logical_expression.split('\n')
             self.n_lines_door_printing += len(logical_expression)
         self.line_size = line_size
+        self.uniform_colors = uniform_colors
                 
     def add_door(self, door):
         self.doors_set.add(door)

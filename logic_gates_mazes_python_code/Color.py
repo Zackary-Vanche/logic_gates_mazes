@@ -71,6 +71,12 @@ class Color:
     RED = [132, 71, 71]  # color_hls(0)
     SALMON = [246, 112, 97]
     SILVER = [170, 180, 180]
+    TOTAL_BLUE = [0, 0, 255]
+    TOTAL_GREEN = [0, 255, 0]
+    TOTAL_MAGENTA = [255, 0, 255]
+    TOTAL_RED = [255, 0, 0]
+    TOTAL_YELLOW = [255, 255, 0]
+    TOTAL_CYAN = [0, 255, 255]
     WHITE = [255, 255, 255]
     WHITE_PINK = [181, 172, 199]  # color_hls(hu=0.72, li=0.73, sa=0.2)
     YELLOW = [165, 158, 89]  # color_hls(hu=0.15, li=0.5)

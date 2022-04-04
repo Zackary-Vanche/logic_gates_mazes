@@ -16,7 +16,8 @@ class Door:
                  relative_departure_coordinates=[1/2, 1/2],
                  relative_arrival_coordinates=[1/2, 1/2],
                  relative_position=1/2,
-                 name=None):
+                 name=None,
+                 surrounding_color=[255,255,255]):
         """
         La position d'une porte est donnee dans le repere de la piece qui le contient.
         Les axes du repere de la piece sont normalises par les dimensions de la piece.
@@ -50,6 +51,7 @@ class Door:
         self.real_arrival_coordinates = None
         self.real_middle_coordinates = None
         self.arrow_coordinates = None
+        self.surrounding_color = surrounding_color
 
     def set_rooms(self, room_departure, room_arrival):
         self.room_departure = room_departure
