@@ -148,7 +148,7 @@ class Maze:
         l = []
         for switch in self.switches_set:
             l.append(switch)
-        return sorted(l, key = lambda switch : switch.name)
+        return sorted(l, key = lambda switch : [len(switch.name), switch.name])
     
     def rooms_names_dict(self):
         rooms_names_dict = {}

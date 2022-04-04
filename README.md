@@ -17,6 +17,7 @@ I used PyInstaller to compile the game in a .exe.
 The line used to do so is (you have to change the paths) :
 pyinstaller C:\Users\utilisateur\Documents\github\logic_gates_mazes\logic_gates_mazes_python_code\logic_gates_mazes_main.py --distpath C:\Users\utilisateur\Documents\github\logic_gates_mazes\logic_gates_mazes_executable_windows --icon=C:\Users\utilisateur\Documents\github\logic_gates_mazes\icone.ico
 It should work on Linux, Windows and Mac, but I only tested it on Windows.
+(First you need to install the modules I used).
 
 In the folder logic_gates_mazes_python_code is the python code that needs to be compiled.
   The game doesn't need this folder to work.
