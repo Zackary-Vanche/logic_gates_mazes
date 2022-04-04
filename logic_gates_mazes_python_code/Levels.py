@@ -37,7 +37,7 @@ class Levels:
         
     levels_functions_list = [#level_icone,
                              # level_chessboard,
-                             level_alien,
+                             # level_alien,
                              level_hello_world,        # GREY
                              level_linear,             # BRIGHT GREEN
                              level_loop,               # RED
