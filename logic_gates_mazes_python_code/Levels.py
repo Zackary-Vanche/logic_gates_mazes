@@ -36,7 +36,6 @@ class Levels:
     from level_xor import level_xor
         
     levels_functions_list = [#level_icone,
-                             # level_chessboard,
                              # level_alien,
                              level_hello_world,        # GREY
                              level_linear,             # BRIGHT GREEN
@@ -47,6 +46,7 @@ class Levels:
                              level_square,             # BLACK AND RED
                              level_fluid,              # GREEN_BLUE
                              level_odd,                # PURPLE
+                             level_chessboard,         # BRIGHT BROWN
                              level_point_of_no_return, # BLUE
                              level_recurrence,         # BLACK AND GREY WITH RED CONTOUR
                              level_parallel,           # PINK
