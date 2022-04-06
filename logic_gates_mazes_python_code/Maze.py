@@ -119,6 +119,8 @@ class Maze:
             max_len_h = max([len(h) for h in help_page.split('\n')])
             assert (max_len_h <= 200), max_len_h
         self.n_help_pages = len(help_txt)
+        if ''.join(help_txt).replace(' ', '').replace('\n', '') == '':
+            print(self.name, 'empty help')
         self.keep_proportions = keep_proportions
         self.level_color = level_color
         self.n_lines_door_printing = 0
@@ -436,7 +438,10 @@ class Maze:
         current_possible_switches.sort(key=lambda l: [len(l), l])
         return current_possible_doors + current_possible_switches
 
-    def find_all_solutions(self, verbose = 0, stop_at_first_solution = False):
+    def find_all_solutions(self,
+                           verbose = 0,
+                           stop_at_first_solution = False,
+                           reverse_actions_order=False):
         if verbose > 1:
             t0 = time()
         if self.all_solutions is None:
@@ -471,7 +476,10 @@ class Maze:
                 elif result_solution == 1:
                     current_situation_vector = self.current_situation_to_vector()
                     if current_situation_vector not in visited_situations:
-                        for action in self.get_current_possibles_actions_list():
+                        actions_list = self.get_current_possibles_actions_list()
+                        if reverse_actions_order:
+                            actions_list.reverse()
+                        for action in actions_list:
                             solutions_to_visit.append(solution+action+' ')
                     visited_situations.append(current_situation_vector)
             assert solutions_to_visit == []
@@ -479,7 +487,7 @@ class Maze:
         else:
             solutions_that_work = self.all_solutions
         solutions_that_work = sorted(solutions_that_work, key=len)
-        assert self.fastest_solution is None or solutions_that_work[0] == self.fastest_solution, solutions_that_work[0] + '\n' + self.fastest_solution
+        assert reverse_actions_order or self.fastest_solution is None or solutions_that_work[0] == self.fastest_solution, solutions_that_work[0] + '\n' + self.fastest_solution
         self.all_solutions = solutions_that_work
         if verbose >= 2:
             t1 = time()

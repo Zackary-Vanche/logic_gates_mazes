@@ -37,8 +37,9 @@ def level_icone():
           room_departure = R0, 
           room_arrival = RE)
     
-    l_help_txt = [         
-"""
+    l_help_txt = [  # Trailing whitespace are normal for the next 2 lines.
+""" 
+ 
 """]
 # To change the doors' notation, press [N]. -> depretated but it will maybe come back
     

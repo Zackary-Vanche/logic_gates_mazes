@@ -27,74 +27,77 @@ def level_alien():
     S10 = Switch(name='S10')
     S11 = Switch(name='S11')
     
-    T0 = Tree(tree_list=[None],
+    T0 = Tree(tree_list=Tree.tree_list_from_str('FT'),
                 empty=True,
                 name='T0',
-                switches = [S0])
-    T1 = Tree(tree_list=[None],
+                switches = [S1, S2])
+    T1 = Tree(tree_list=Tree.tree_list_from_str('FT'),
                 empty=True,
                 name='T1',
-                switches = [S0])
-    T2 = Tree(tree_list=[None],
+                switches = [S2, S4])
+    T2 = Tree(tree_list=Tree.tree_list_from_str('FT'),
                 empty=True,
                 name='T2',
-                switches = [S0])
-    T3 = Tree(tree_list=[None],
+                switches = [S4, S5])
+    T3 = Tree(tree_list=Tree.tree_list_from_str('FT'),
                 empty=True,
                 name='T3',
-                switches = [S0])
-    T4 = Tree(tree_list=[None],
+                switches = [S5, S7])
+    T4 = Tree(tree_list=Tree.tree_list_from_str('FT'),
                 empty=True,
                 name='T4',
-                switches = [S0])
-    T5 = Tree(tree_list=[None],
+                switches = [S7, S8])
+    T5 = Tree(tree_list=Tree.tree_list_from_str('FT'),
                 empty=True,
                 name='T5',
-                switches = [S0])
-    T6 = Tree(tree_list=[None],
+                switches = [S8, S10])
+    T6 = Tree(tree_list=Tree.tree_list_from_str('FT'),
                 empty=True,
                 name='T6',
-                switches = [S0])
-    T7 = Tree(tree_list=[None],
+                switches = [S10, S11])
+    T7 = Tree(tree_list=Tree.tree_list_from_str('TF'),
                 empty=True,
                 name='T7',
-                switches = [S0])
-    T8 = Tree(tree_list=[None],
+                switches = [S1, S11])
+    T8 = Tree(tree_list=Tree.tree_list_from_str('TTFF'),
                 empty=True,
                 name='T8',
-                switches = [S0])
-    T9 = Tree(tree_list=[None],
+                switches = [S0, S1, S3, S4])
+    T9 = Tree(tree_list=Tree.tree_list_from_str('TTFF'),
                 empty=True,
                 name='T9',
-                switches = [S0])
-    T10 = Tree(tree_list=[None],
+                switches = [S3, S4, S6, S7])
+    T10 = Tree(tree_list=Tree.tree_list_from_str('TTFF'),
                 empty=True,
                 name='T10',
-                switches = [S0])
-    T11 = Tree(tree_list=[None],
+                switches = [S6, S7, S9, S10])
+    T11 = Tree(tree_list=Tree.tree_list_from_str('FFTT'),
                 empty=True,
                 name='T11',
-                switches = [S0])
-    T12 = Tree(tree_list=[None],
+                switches = [S0, S1, S9, S10])
+    T12 = Tree(tree_list=Tree.tree_list_from_str('TF'),
                 empty=True,
                 name='T12',
-                switches = [S0])
-    T13 = Tree(tree_list=[None],
+                switches = [S2, S5])
+    T13 = Tree(tree_list=Tree.tree_list_from_str('TF'),
                 empty=True,
                 name='T13',
-                switches = [S0])
-    T14 = Tree(tree_list=[None],
+                switches = [S5, S8])
+    T14 = Tree(tree_list=Tree.tree_list_from_str('TF'),
                 empty=True,
                 name='T14',
-                switches = [S0])
-    T15 = Tree(tree_list=[None],
+                switches = [S8, S11])
+    T15 = Tree(tree_list=Tree.tree_list_from_str('FT'),
                 empty=True,
                 name='T15',
-                switches = [S0])
-    T16 = Tree(tree_list=[None],
+                switches = [S2, S11])
+    T16 = Tree(tree_list=['AND', Tree.tree_list_from_str('TTTTTT'), Tree.tree_list_from_str('TTTTTT')],
                 empty=True,
                 name='T16',
-                switches = [S0])
+                switches = [S0, S1, S2,
+                            S3, S4, S5,
+                            S6, S7, S8,
+                            S9, S10, S11])
 
     a = 0.3
     c = 2-a
@@ -225,14 +228,14 @@ def level_alien():
                 room_departure=R1,
                 room_arrival=RE)
     
-    l_help_txt = ["""
+    l_help_txt = ["""Don't look for something too complicated.
 """]
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16],
-                 fastest_solution=None,
+                 fastest_solution="S0 S1 D7 S11 D6 S9 S10 D5 S8 D4 S6 S7 D3 S5 D2 S3 S4 D1 S2 D16",
                  level_color=Levels_colors_list.SHINY_GREEN,
                  name='Alien',
                  help_txt=l_help_txt,
@@ -240,3 +243,27 @@ def level_alien():
                  keep_proportions=False)
 
     return level
+
+if __name__ == "__main__":
+    
+    level = level_alien
+
+    solutions = level().find_all_solutions(verbose=3,
+                                                 stop_at_first_solution=False)
+    
+    level().try_solution(solutions[-1],
+                               verbose=3,
+                               allow_all_doors=True,
+                               allow_all_switches=True)
+    
+    solutions_reverse = level().find_all_solutions(verbose=3,
+                                                         stop_at_first_solution=False,
+                                                         reverse_actions_order=True)
+    
+    level().try_solution(solutions_reverse[-1],
+                               verbose=3,
+                               allow_all_doors=True,
+                               allow_all_switches=True)
+    
+    print(solutions[-1])
+    print(solutions_reverse[-1])

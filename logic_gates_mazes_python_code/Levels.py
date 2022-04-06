@@ -35,8 +35,8 @@ class Levels:
     from level_tetrahedron import level_tetrahedron
     from level_xor import level_xor
         
-    levels_functions_list = [#level_icone,
-                             # level_alien,
+    levels_functions_list = [
+                             # level_icone,
                              level_hello_world,        # GREY
                              level_linear,             # BRIGHT GREEN
                              level_loop,               # RED
@@ -52,6 +52,7 @@ class Levels:
                              level_parallel,           # PINK
                              level_infinity,           # YELLOW AND BLACK
                              level_tetrahedron,        # PURPLE_BLUE
+                             level_alien,              # SHINY GREEN
                              level_bipartite,          # BLACK AND RVB
                              level_crystal,            # SALMON AND BRIGHT_GREY
                              level_cartesian,          # GREEN AND GREY

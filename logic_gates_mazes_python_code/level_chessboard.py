@@ -222,6 +222,7 @@ def level_chessboard():
                relative_arrival_coordinates=[0, 1/2])
     
     l_help_txt = ["""If you remove the exit, the graph of this level is the graph of the possible moves of a knight in a 3*4 rectangle.
+However, sometimes here doors are one-way only.
 """]
     
     level = Maze(start_room_index=0, 

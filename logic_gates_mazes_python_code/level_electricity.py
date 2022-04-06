@@ -257,10 +257,26 @@ def level_electricity():
     
     return level
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     
-    solution = level_electricity().find_all_solutions()
+    level = level_electricity
+
+    solutions = level().find_all_solutions(verbose=3,
+                                                 stop_at_first_solution=False)
     
-    print('')
+    level().try_solution(solutions[-1],
+                               verbose=3,
+                               allow_all_doors=True,
+                               allow_all_switches=True)
     
-    print(solution)
+    solutions_reverse = level().find_all_solutions(verbose=3,
+                                                         stop_at_first_solution=False,
+                                                         reverse_actions_order=True)
+    
+    level().try_solution(solutions_reverse[-1],
+                               verbose=3,
+                               allow_all_doors=True,
+                               allow_all_switches=True)
+    
+    print(solutions[-1])
+    print(solutions_reverse[-1])
