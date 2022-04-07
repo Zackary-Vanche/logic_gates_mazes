@@ -20,7 +20,7 @@ class Levels_colors_list:
     BLACK_AND_GREY_ORANGE_CONTOUR = Level_color(background_color = Color.BLACK,
                                                 room_color = Color.GREY_80,
                                                 contour_color = Color.REALLY_BRIGHT_ORANGE,
-                                                letters_color = Color.WHITE,
+                                                letters_color = Color.REALLY_BRIGHT_ORANGE,
                                                 inside_room_color = Color.WHITE,
                                                 letter_contour_color = Color.BLACK,
                                                 surrounding_color = Color.REALLY_BRIGHT_ORANGE)

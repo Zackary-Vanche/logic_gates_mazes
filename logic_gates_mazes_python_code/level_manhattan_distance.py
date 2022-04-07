@@ -276,7 +276,6 @@ def level_manhattan_distance():
     
     l_help_txt = [
 """The cheat code might be very useful here.
-It can help you to find the solution.
 """]
     
     level = Maze(start_room_index=0, 
