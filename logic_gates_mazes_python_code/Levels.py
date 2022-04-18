@@ -39,7 +39,6 @@ class Levels:
         
     levels_functions_list = [
                              # level_icone,
-                             level_tree,
                              level_hello_world,        # GREY
                              level_linear,             # BRIGHT GREEN
                              level_loop,               # RED
@@ -57,6 +56,7 @@ class Levels:
                              level_tetrahedron,        # PURPLE_BLUE
                              level_alien,              # SHINY GREEN
                              level_bipartite,          # BLACK AND RVB
+                             level_tree,               # RED AND YELLOW
                              level_crystal,            # SALMON AND BRIGHT_GREY
                              level_cartesian,          # GREEN AND GREY
                              level_fractal,            # BRIGHT AND DARK BLUE

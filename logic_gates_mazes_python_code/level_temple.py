@@ -382,7 +382,7 @@ def level_temple():
                 room_arrival=RE,
                 relative_position=0.6)
     
-    l_help_txt = [ # TODO : check with scribens
+    l_help_txt = [ 
 """This level is the retranscription of a really known puzzle game.
 Once you find which game it is, the level is over.
 """]
@@ -394,23 +394,14 @@ Once you find which game it is, the level is over.
                  fastest_solution="""D0 S0 D12 D6 D9 S27 D21 D22 D23
 D2 D14 D17 S24 D11 S27 D21 D22 D23
 D0 D12 S10 D15 D9 S28 D21 D22 D23
-D1 D13 D16 S22 D10 S28 D21 D22 D23
-D2 D14 D17 S24 D20 S27 D21 D22 D23
-D1 D13 S12 D7 D10 S27 D21 D22 D23
+D2 D14 S15 D8 S24 S25 D11 S28 D21 D22 D23
 D0 D12 D15 S20 D18 S29 D21 D22 D23
-D2 D14 D17 S26 D11 S29 D21 D22 D23
-D1 D13 S12 D16 D10 S27 D21 D22 D23
-D0 D12 D15 S18 D9 S27 D21 D22 D23
-D1 D13 D16 S22 D19 S28 D21 D22 D23
-D2 D14 S16 D8 D11 S28 D21 D22 D23
-D0 D12 D15 S18 D18 S27 D21 D22 D23
-D2 S6 D5 D8 D11 S27 D21 D22 D23
-D24""".replace('\n', ' '),
+D2 S6 D5 S15 S16 D8 S25 S26 D11 S29 D21 D22 D23 D24""".replace('\n', ' '),
                  level_color=Levels_colors_list.BEIGE_AND_BROWN,
                  name='Temple',
                  help_txt = l_help_txt,
                  border = 30,
-                 door_window_size = 600)
+                 door_window_size = 575)
 
     return level
 

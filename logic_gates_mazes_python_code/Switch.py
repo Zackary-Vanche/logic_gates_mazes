@@ -16,7 +16,7 @@ class Switch:
         self.room  = room
         self.name  = name
         try:
-            assert self.name[0] == 'S'
+            assert self.name[0] == 'S' or self.name in ['0', '1']
         except:
             print(self.name[0])
             raise

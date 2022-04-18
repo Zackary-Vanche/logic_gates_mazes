@@ -391,9 +391,7 @@ def level_sinusoidal():
                 room_arrival = RE)
     
     l_help_txt = [
-"""Several new notations are used in this level :
-    
-    D0 = 1 means that D0 is always open.
+"""One new notation is used in this level :
     
     XOR can be used with more than 3 parameters :
         D0 = XOR(S0, S1, ...) means :
