@@ -154,6 +154,7 @@ class Game:
             # letter_contour_color = maze.letter_contour_color
             self.inside_room_color = level_colors.inside_room_color
             self.surrounding_color = level_colors.surrounding_color
+            self.inside_room_surrounding_color = level_colors.inside_room_surrounding_color
 
             self.y_separation = self.maze.y_separation
             self.door_window_size = self.maze.door_window_size
@@ -399,7 +400,7 @@ class Game:
                                                    self.click_rect_size)
                     if self.uniform_surrounding_colors:
                         pygame_draw_rect(self.WINDOW,
-                                         self.surrounding_color,
+                                         self.inside_room_surrounding_color,
                                          rectangle_switch,
                                          width = 3)
                     else:

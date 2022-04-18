@@ -16,7 +16,7 @@ def level_crossroad():
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
-    S2=Switch(name='S2')
+    S2 = Switch(name='S2')
     S3 = Switch(name='S3')
     S4 = Switch(name='S4')
     S5 = Switch(name='S5')

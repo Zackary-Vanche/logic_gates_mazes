@@ -16,7 +16,15 @@ class Levels_colors_list:
                         letters_color = Color.BLACK,
                         inside_room_color = Color.WHITE,
                         letter_contour_color = Color.WHITE)
-    
+
+    BEIGE_AND_BROWN = Level_color(background_color = Color.DARK_BROWN,
+                                  room_color = Color.BRIGHT_KHAKI,
+                                  contour_color = Color.BLACK,
+                                  letters_color = Color.WHITE,
+                                  inside_room_color = Color.BLACK,
+                                  surrounding_color = Color.WHITE,
+                                  inside_room_surrounding_color = Color.BLACK)
+
     BLACK_AND_GREY_ORANGE_CONTOUR = Level_color(background_color = Color.BLACK,
                                                 room_color = Color.GREY_80,
                                                 contour_color = Color.REALLY_BRIGHT_ORANGE,

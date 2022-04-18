@@ -52,6 +52,16 @@ class Tree:
     tree_list_XORN4 = ['XOR_4'] + [tree_list_not]*4
     tree_list_XOR5 = ['XOR_5'] + [[None]]*5
     tree_list_XORN5 = ['XOR_5'] + [tree_list_not]*5
+    tree_list_XOR6 = ['XOR_6'] + [[None]]*6
+    tree_list_XORN6 = ['XOR_6'] + [tree_list_not]*6
+    tree_list_XOR7 = ['XOR_7'] + [[None]]*7
+    tree_list_XORN7 = ['XOR_7'] + [tree_list_not]*7
+    tree_list_XOR8 = ['XOR_8'] + [[None]]*8
+    tree_list_XORN8 = ['XOR_8'] + [tree_list_not]*8
+    tree_list_XOR9 = ['XOR_9'] + [[None]]*9
+    tree_list_XORN9 = ['XOR_9'] + [tree_list_not]*9
+    tree_list_XOR10 = ['XOR_10'] + [[None]]*10
+    tree_list_XORN10 = ['XOR_10'] + [tree_list_not]*10
     
     tree_list_nor = ['NOR', [None], [None]]
     tree_list_anb = ['AND', [None], tree_list_not]
@@ -61,6 +71,11 @@ class Tree:
     tree_list_nand = ['NAND', [None], [None]]
     tree_list_aonb = ['OR', [None], tree_list_not]
     tree_list_bona = ['OR', tree_list_not, [None]]
+    
+    tree_list_nor_3 = ['NOR_3'] + [[None]]*3
+    tree_list_nor_4 = ['NOR_4'] + [[None]]*4
+    tree_list_nor_5 = ['NOR_5'] + [[None]]*5
+    tree_list_nor_6 = ['NOR_6'] + [[None]]*6
     
     def tree_list_from_str(txt):
         def tree_list_and_from_str(txt):

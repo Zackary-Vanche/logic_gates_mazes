@@ -148,7 +148,7 @@ class Logic_Gate:
         shortcuts_gates['NAND_{}'.format(n)] = NAND_list(n)
         assert n > 2 # I put this assert to make sure I won't do the mistake
         
-    for n in range(3, 6):
+    for n in range(3, 11):
         shortcuts_gates['XOR_{}'.format(n)] = XOR_list(n)
         # shortcuts_gates['XNOR_{}'.format(n)] = XNOR_list(n)
         assert n > 2 # I put this assert to make sure I won't do the mistake

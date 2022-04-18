@@ -32,6 +32,7 @@ class Levels:
     from level_recurrence import level_recurrence
     from level_sinusoidal import level_sinusoidal
     from level_square import level_square
+    from level_temple import level_temple
     from level_tetrahedron import level_tetrahedron
     from level_xor import level_xor
         
@@ -62,7 +63,8 @@ class Levels:
                              level_dead_ends,          # DARK GREEN
                              level_electricity,        # YELLOW AND SILVER
                              level_sinusoidal,         # BEIGE
-                             level_manhattan_distance  # BLACK AND GREY WITH ORANGE CONTOUR
+                             level_manhattan_distance, # BLACK AND GREY WITH ORANGE CONTOUR
+                             level_temple              # BROWN AND BEIGE
                              ] 
 
     number_of_levels = len(levels_functions_list)
