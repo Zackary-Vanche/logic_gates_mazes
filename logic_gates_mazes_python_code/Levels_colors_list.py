@@ -180,6 +180,13 @@ class Levels_colors_list:
                                  inside_room_color = Color.WHITE,
                                  letter_contour_color = Color.BLACK)
     
+    RED_AND_YELLOW = Level_color(background_color = Color.YELLOW,
+                                 room_color = Color.RED,
+                                 contour_color = Color.BLACK,
+                                 letters_color = Color.BLACK,
+                                 inside_room_color = Color.WHITE,
+                                 inside_room_surrounding_color = Color.YELLOW)
+    
     SALMON_AND_GREY = Level_color(background_color = Color.GREY,
                                   room_color = Color.SALMON,
                                   contour_color = Color.BLACK,

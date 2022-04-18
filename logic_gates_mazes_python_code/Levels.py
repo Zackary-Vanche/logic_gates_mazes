@@ -33,11 +33,13 @@ class Levels:
     from level_sinusoidal import level_sinusoidal
     from level_square import level_square
     from level_temple import level_temple
+    from level_tree import level_tree
     from level_tetrahedron import level_tetrahedron
     from level_xor import level_xor
         
     levels_functions_list = [
                              # level_icone,
+                             level_tree,
                              level_hello_world,        # GREY
                              level_linear,             # BRIGHT GREEN
                              level_loop,               # RED
