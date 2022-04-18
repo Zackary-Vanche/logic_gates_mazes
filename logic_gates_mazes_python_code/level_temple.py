@@ -143,11 +143,11 @@ def level_temple():
     T13 = Tree(tree_list=Tree.tree_list_nor_3,
                 empty=True,
                 name='T13',
-                switches = [S4, S5, S6])
+                switches = [S3, S4, S5])
     T14 = Tree(tree_list=Tree.tree_list_nor_3,
                 empty=True,
                 name='T14',
-                switches = [S7, S8, S9])
+                switches = [S6, S7, S8])
     T15 = Tree(tree_list=Tree.tree_list_nor_6,
                 empty=True,
                 name='T15',
@@ -391,7 +391,21 @@ Once you find which game it is, the level is over.
                  exit_room_index=-1, 
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, RE], 
                  doors_list = [D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19, D20, D21, D22, D23, D24], 
-                 fastest_solution=None, # TODO : calculate
+                 fastest_solution="""D0 S0 D12 D6 D9 S27 D21 D22 D23
+D2 D14 D17 S24 D11 S27 D21 D22 D23
+D0 D12 S10 D15 D9 S28 D21 D22 D23
+D1 D13 D16 S22 D10 S28 D21 D22 D23
+D2 D14 D17 S24 D20 S27 D21 D22 D23
+D1 D13 S12 D7 D10 S27 D21 D22 D23
+D0 D12 D15 S20 D18 S29 D21 D22 D23
+D2 D14 D17 S26 D11 S29 D21 D22 D23
+D1 D13 S12 D16 D10 S27 D21 D22 D23
+D0 D12 D15 S18 D9 S27 D21 D22 D23
+D1 D13 D16 S22 D19 S28 D21 D22 D23
+D2 D14 S16 D8 D11 S28 D21 D22 D23
+D0 D12 D15 S18 D18 S27 D21 D22 D23
+D2 S6 D5 D8 D11 S27 D21 D22 D23
+D24""".replace('\n', ' '),
                  level_color=Levels_colors_list.BEIGE_AND_BROWN,
                  name='Temple',
                  help_txt = l_help_txt,
@@ -403,23 +417,41 @@ Once you find which game it is, the level is over.
 if __name__ == "__main__":
     
     level = level_temple
+    
+    level().try_solution('''
+D0 S0 D12 D6 D9 S27 D21 D22 D23
+D2 D14 D17 S24 D11 S27 D21 D22 D23
+D0 D12 S10 D15 D9 S28 D21 D22 D23
+D1 D13 D16 S22 D10 S28 D21 D22 D23
+D2 D14 D17 S24 D20 S27 D21 D22 D23
+D1 D13 S12 D7 D10 S27 D21 D22 D23
+D0 D12 D15 S20 D18 S29 D21 D22 D23
+D2 D14 D17 S26 D11 S29 D21 D22 D23
+D1 D13 S12 D16 D10 S27 D21 D22 D23
+D0 D12 D15 S18 D9 S27 D21 D22 D23
+D1 D13 D16 S22 D19 S28 D21 D22 D23
+D2 D14 S16 D8 D11 S28 D21 D22 D23
+D0 D12 D15 S18 D18 S27 D21 D22 D23
+D2 S6 D5 D8 D11 S27 D21 D22 D23
+D24
+''', verbose=2)
 
     solutions = level().find_all_solutions(verbose=3,
-                                                 stop_at_first_solution=False)
+                                                  stop_at_first_solution=False)
     
     level().try_solution(solutions[-1],
-                               verbose=3,
-                               allow_all_doors=True,
-                               allow_all_switches=True)
+                                verbose=3,
+                                allow_all_doors=True,
+                                allow_all_switches=True)
     
     solutions_reverse = level().find_all_solutions(verbose=3,
-                                                         stop_at_first_solution=False,
-                                                         reverse_actions_order=True)
+                                                          stop_at_first_solution=False,
+                                                          reverse_actions_order=True)
     
     level().try_solution(solutions_reverse[-1],
-                               verbose=3,
-                               allow_all_doors=True,
-                               allow_all_switches=True)
+                                verbose=3,
+                                allow_all_doors=True,
+                                allow_all_switches=True)
     
     print(solutions[-1])
     print(solutions_reverse[-1])

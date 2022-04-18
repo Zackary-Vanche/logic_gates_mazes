@@ -406,6 +406,9 @@ class Maze:
             if self.current_room_index == self.exit_room_index:
                 print('Success !')
             else:
+                for switch in self.switches_list():
+                    if switch.value:
+                        print(switch.name)
                 print('Try again !')
         if verbose == 3:
             print('')
@@ -445,7 +448,7 @@ class Maze:
         if verbose > 1:
             t0 = time()
         if self.all_solutions is None:
-            visited_situations = []
+            visited_situations = set()
             solutions_to_visit = ['']
             solutions_that_work = []
             nb_iterations = 0
@@ -475,13 +478,16 @@ class Maze:
                         return solutions_that_work
                 elif result_solution == 1:
                     current_situation_vector = self.current_situation_to_vector()
-                    if current_situation_vector not in visited_situations:
+                    current_situation_vector_str = ''
+                    for i in range(len(current_situation_vector)):
+                        current_situation_vector_str = current_situation_vector_str + str(current_situation_vector[i])
+                    if current_situation_vector_str not in visited_situations:
                         actions_list = self.get_current_possibles_actions_list()
                         if reverse_actions_order:
                             actions_list.reverse()
                         for action in actions_list:
                             solutions_to_visit.append(solution+action+' ')
-                    visited_situations.append(current_situation_vector)
+                    visited_situations.add(current_situation_vector_str)
             assert solutions_to_visit == []
             self.reboot_solution()
         else:
