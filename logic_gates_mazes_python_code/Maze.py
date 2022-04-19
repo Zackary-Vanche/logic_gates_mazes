@@ -410,6 +410,17 @@ class Maze:
                         if action not in door_trees_dico.keys():
                             door_trees_dico[action] = ''
                         door_trees_dico[action] = door_trees_dico[action] + switches_TF + ' '
+                if action_type == 'R': # TODO : verify
+                    if self.legit_change_room(action) or allow_all_doors:
+                        if 3 > verbose > 0:
+                            print('{} is authorised'.format(action))
+                        self.change_room(action)
+                    else:
+                        if 3 > verbose > 0:
+                            print('{} is not authorised'.format(action))
+                        return 0
+                    if 3 > verbose > 0:
+                        print("You are in room {}\n".format(self.current_room_name()))
                 if verbose == 2:
                     switches_values_txt = '"Switches values :'
                     for switch in self.switches_list():
@@ -502,7 +513,7 @@ class Maze:
                     for i in range(len(current_situation_vector)):
                         current_situation_vector_str = current_situation_vector_str + str(current_situation_vector[i])
                     if current_situation_vector_str not in visited_situations:
-                        actions_list = self.get_current_possibles_actions_list()
+                        actions_list = self.get_current_possible_actions_list()
                         if reverse_actions_order:
                             actions_list.reverse()
                         for action in actions_list:
@@ -513,13 +524,41 @@ class Maze:
         else:
             solutions_that_work = self.all_solutions
         solutions_that_work = sorted(solutions_that_work, key=len)
-        # TODO : uncomment
-        # assert reverse_actions_order or self.fastest_solution is None or solutions_that_work[0] == self.fastest_solution, solutions_that_work[0] + '\n' + self.fastest_solution
+        assert reverse_actions_order or self.fastest_solution is None or solutions_that_work[0] == self.fastest_solution, solutions_that_work[0] + '\n' + self.fastest_solution
         self.all_solutions = solutions_that_work
         if verbose >= 2:
             t1 = time()
             print(t1 - t0, 's')
         return solutions_that_work
+    
+    # def simplify_solution(self, solution=None, separator=' '):
+    #     self.reboot_solution()
+    #     if solution is None:
+    #         solution = self.fastest_solution
+    #     solution_simplified = ''
+    #     solution = solution.split(separator)
+    #     for k in range(len(solution)):
+    #         action = solution[k]
+    #         action_type = action[0]
+    #         assert action_type in ['D', 'S', 'R']
+    #         if action_type == 'S':
+    #             if self.legit_change_switch(action):
+    #                 self.change_switch(action)
+    #                 solution_simplified += action
+    #                 print('*')
+    #         if action_type == 'D':
+    #             if self.legit_use_door(action):
+    #                 self.use_door(action)
+    #                 if solution[k+1][0] == 'S':
+    #                     solution_simplified += self.current_room().name
+    #                     print('*')
+    #         if action_type == 'R': 
+    #             if self.legit_change_room(action):
+    #                 self.change_room(action)
+    #                 if solution[k+1][0] == 'S':
+    #                     solution_simplified += self.current_room().name
+    #                     print('*')
+    #     return solution_simplified
 
     def get_extreme_coordinates(self):
         if self.extreme_coordinates is None:

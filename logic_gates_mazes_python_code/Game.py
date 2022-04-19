@@ -639,7 +639,8 @@ class Game:
                 name = level.name
                 print(name)
                 txt += name + '\n'
-                txt += str(level.fastest_solution) + '\n\n'
+                txt += str(level.fastest_solution) + '\n'
+                # txt += str(level.simplify_solution()) + '\n\n'
         else:
             calculations_times = []
             for k in range(Levels.number_of_levels):
@@ -656,6 +657,7 @@ class Game:
                 for sol in solutions:
                     print(sol)
                     txt += sol + '\n'
+                    # txt += str(level.simplify_solution(sol)) + '\n'
                 if verbose >= 1:
                     print(t3 - t2, 's')
                     calculations_times.append(t3 - t2)
