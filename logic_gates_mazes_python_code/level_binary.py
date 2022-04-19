@@ -92,6 +92,9 @@ def level_binary():
     In the beginning, you can only turn on S0.
     Then, a door opens, so you use it...
     And so on...
+    
+To go directly on a room, you can type its name (if it is possible for you to go there).
+The exit room is called RE.
 """]
 
     level = Maze(start_room_index=0,

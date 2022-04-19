@@ -497,7 +497,7 @@ class Game:
             if self.pressed[K_RETURN] and self.current_action != '' and self.maze.current_room_index != self.maze.exit_room_index:
                 self.change_in_display = True
                 if len(self.current_action) > 0:
-                    if self.current_action[0] == 'D' or self.current_action[0] == 'S':
+                    if self.current_action[0] in ['D', 'S', 'R']:
                         self.maze.make_actions(self.current_action)
                     if self.current_action[0:2] == 'A ':
                         self.maze.make_actions(self.current_action[2:], allow_all=True)

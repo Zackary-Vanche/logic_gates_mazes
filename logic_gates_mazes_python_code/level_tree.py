@@ -108,7 +108,7 @@ def level_tree():
                 empty=True,
                 name='T19',
                 switches = [S0, S1, S2, S3, S4, S5, S6, S7])
-    T20 = Tree(tree_list=Tree.tree_list_and_8,
+    T20 = Tree(tree_list=Tree.tree_list_from_str('TTFFTTTT'),
                 empty=True,
                 name='T20',
                 switches = [S0, S1, S2, S3, S4, S5, S6, S7])
@@ -290,7 +290,7 @@ The tree is hidden in the equations.
                  exit_room_index=-1, 
                  rooms_list=[R0, R1, R2, R3, RE], 
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19, D20], 
-                 fastest_solution="D1 S7 D3 D9 D0 S6 D2 D19 D1 S5 D3 D10 D0 S4 D2 D19 D1 S3 D3 D15 D0 S2 D2 D19 D1 S1 D3 D12 D0 S0 D2 D19 D20",
+                 fastest_solution="D1 S7 D3 D9 D0 S6 D2 D19 D1 S7 S5 D3 D7 D0 S6 S4 D2 D19 D1 S7 S5 S3 D3 D16 D0 S6 S4 S2 D2 D19 D1 S5 S3 S1 D3 D17 D0 S4 S2 S0 D2 D19 D20",
                  level_color=Levels_colors_list.RED_AND_YELLOW,
                  name='Tree',
                  help_txt = l_help_txt,
