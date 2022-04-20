@@ -21,6 +21,7 @@ class Levels:
     from level_fractal import level_fractal
     from level_graph import level_graph
     from level_hello_world import level_hello_world
+    from level_hypercube import level_hypercube
     from level_infinity import level_infinity
     from level_icone import level_icone
     from level_linear import level_linear
@@ -39,6 +40,7 @@ class Levels:
         
     levels_functions_list = [
                              # level_icone,
+                             level_hypercube,
                              level_hello_world,        # GREY
                              level_linear,             # BRIGHT GREEN
                              level_loop,               # RED
