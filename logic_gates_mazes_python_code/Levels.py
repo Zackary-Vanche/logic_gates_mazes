@@ -40,35 +40,35 @@ class Levels:
         
     levels_functions_list = [
                              # level_icone,
+                             level_hello_world,
+                             level_linear,
+                             level_loop,
+                             level_backward,
+                             level_binary,
+                             level_crossroad,
+                             level_square,
+                             level_fluid,
+                             level_odd,
+                             level_chessboard,
+                             level_point_of_no_return,
+                             level_recurrence,
+                             level_parallel,
+                             level_infinity,
+                             level_tetrahedron,
+                             level_bipartite,
+                             level_alien,
                              level_hypercube,
-                             level_hello_world,        # GREY
-                             level_linear,             # BRIGHT GREEN
-                             level_loop,               # RED
-                             level_backward,           # BROWN
-                             level_binary,             # BRIGHT BLUE AND GREY
-                             level_crossroad,          # YELLOW
-                             level_square,             # BLACK AND RED
-                             level_fluid,              # GREEN_BLUE
-                             level_odd,                # PURPLE
-                             level_chessboard,         # BRIGHT BROWN
-                             level_point_of_no_return, # BLUE
-                             level_recurrence,         # BLACK AND GREY WITH RED CONTOUR
-                             level_parallel,           # PINK
-                             level_infinity,           # YELLOW AND BLACK
-                             level_tetrahedron,        # PURPLE_BLUE
-                             level_alien,              # SHINY GREEN
-                             level_bipartite,          # BLACK AND RVB
-                             level_tree,               # RED AND YELLOW
-                             level_crystal,            # SALMON AND BRIGHT_GREY
-                             level_cartesian,          # GREEN AND GREY
-                             level_fractal,            # BRIGHT AND DARK BLUE
-                             level_xor,                # RED AND ORANGE
-                             level_graph,              # BLACK AND BLUE
-                             level_dead_ends,          # DARK GREEN
-                             level_electricity,        # YELLOW AND SILVER
-                             level_sinusoidal,         # BEIGE
-                             level_manhattan_distance, # BLACK AND GREY WITH ORANGE CONTOUR
-                             level_temple              # BROWN AND BEIGE
+                             level_tree,
+                             level_crystal,
+                             level_cartesian,
+                             level_fractal,
+                             level_xor,
+                             level_graph,
+                             level_dead_ends,
+                             level_electricity,
+                             level_sinusoidal,
+                             level_manhattan_distance,
+                             level_temple
                              ] 
 
     number_of_levels = len(levels_functions_list)

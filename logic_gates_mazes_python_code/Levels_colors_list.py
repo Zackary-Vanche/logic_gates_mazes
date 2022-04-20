@@ -49,13 +49,21 @@ class Levels_colors_list:
                                                letter_contour_color = Color.BLACK,
                                                surrounding_color = Color.WHITE)
     
-    BLACK_AND_WHITE_2 = Level_color(background_color = Color.BLACK,
-                                    room_color = Color.WHITE,
-                                    contour_color = Color.BRIGHT_RED,
-                                    letters_color = Color.WHITE,
-                                    inside_room_color = Color.BLACK,
-                                    letter_contour_color = Color.WHITE,
-                                    surrounding_color = Color.BRIGHT_RED)
+    BLACK_AND_WHITE = Level_color(background_color = Color.BLACK,
+                                  room_color = Color.GREY_170,
+                                  contour_color = Color.BLACK,
+                                  letters_color = Color.WHITE,
+                                  inside_room_color = Color.BLACK,
+                                  surrounding_color = Color.WHITE,
+                                  inside_room_surrounding_color = Color.BLACK)
+    
+    BLACK_AND_WHITE_RED_CONTOUR = Level_color(background_color = Color.BLACK,
+                                              room_color = Color.WHITE,
+                                              contour_color = Color.BRIGHT_RED,
+                                              letters_color = Color.WHITE,
+                                              inside_room_color = Color.BLACK,
+                                              letter_contour_color = Color.WHITE,
+                                              surrounding_color = Color.BRIGHT_RED)
     
     BLACK_AND_YELLOW = Level_color(background_color = Color.BLACK_BLUE,
                                   room_color = Color.PALE_YELLOW,
@@ -73,6 +81,14 @@ class Levels_colors_list:
                                  inside_room_color = Color.PURE_BLUE,
                                  surrounding_color = Color.PURE_BLUE)
     
+    BLACK_AND_RED = Level_color(background_color = Color.BLACK,
+                                room_color = Color.RED,
+                                contour_color = Color.BLACK,
+                                letters_color = Color.WHITE,
+                                inside_room_color = Color.BLACK,
+                                surrounding_color = Color.WHITE,
+                                inside_room_surrounding_color = Color.BLACK)
+
     BLUE_GREEN = Level_color(background_color = Color.DARK_BLUE_GREEN,
                              room_color = Color.BLUE_GREEN,
                              contour_color = Color.DARK_GREY,

@@ -6,8 +6,8 @@ Created on Mon Apr  4 20:01:20 2022
 """
 
 ns = 8
-nd = 9
-nr = 4
+nd = 50
+nr = 12
 
 for i in range(ns):
     print("""S{0} = Switch(name='S{0}')""".format(i))

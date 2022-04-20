@@ -279,11 +279,7 @@ def level_tree():
                relative_position=1/2)
     
     l_help_txt = [
-"""One new notation is used in this level :
-    
-    D0 = 1 means that D0 is always open.
-    
-The tree is hidden in the equations.
+"""The tree is hidden in the equations.
 """]
         
     level = Maze(start_room_index=0, 
