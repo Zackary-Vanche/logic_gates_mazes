@@ -57,7 +57,7 @@ def level_bis_repetita():
               tree=T1,
               room_departure=R1,
               room_arrival=R2,
-              relative_position=0.3)
+              relative_position=0.35)
     D2 = Door(two_way=False,
               tree=T2,
               room_departure=R2,
