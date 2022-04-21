@@ -189,6 +189,14 @@ class Levels_colors_list:
                               surrounding_color = Color.WHITE,
                               letter_contour_color = Color.DARK_PURPLE_BLUE)
     
+    REALLY_BRIGHT_RED = Level_color(background_color = Color.PALE_RED,
+                                    room_color = Color.RED,
+                                    contour_color = Color.BLACK,
+                                    surrounding_color = Color.BLACK,
+                                    letters_color = Color.BLACK,
+                                    letter_contour_color = Color.BLACK,
+                                    inside_room_color = Color.WHITE)
+    
     RED_AND_ORANGE = Level_color(background_color = Color.DARK_RED,
                                  room_color = Color.ORANGE,
                                  contour_color = Color.WHITE,

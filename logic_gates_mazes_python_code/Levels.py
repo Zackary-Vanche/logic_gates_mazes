@@ -15,6 +15,7 @@ class Levels:
     from level_backward import level_backward
     from level_binary import level_binary
     from level_bipartite import level_bipartite
+    from level_bis_repetita import level_bis_repetita
     from level_cartesian import level_cartesian
     from level_chessboard import level_chessboard
     from level_crossroad import level_crossroad
@@ -48,6 +49,7 @@ class Levels:
                              level_linear,
                              level_loop,
                              level_backward,
+                             level_bis_repetita,
                              level_binary,
                              level_crossroad,
                              level_square,
@@ -98,7 +100,7 @@ class Levels:
                 name = level.name
                 print(name)
                 txt += name + '\n'
-                txt += str(level.fastest_solution) + '\n'
+                txt += str(level.fastest_solution) + '\n\n'
                 # txt += str(level.simplify_solution()) + '\n\n'
         else:
             calculations_times = []

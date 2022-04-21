@@ -65,6 +65,7 @@ class Color:
     KHAKI = [152, 146, 68]
     LEMON = [230, 240, 45]
     ORANGE = [116, 94, 62]  # color_hls(0.1, li=0.35)
+    PALE_RED = [231, 133, 135]
     PALE_YELLOW = [193, 185, 112]  # color_hls(hu=0.15, li=0.6, sa=0.4)
     PINK = [165, 89, 135]  # color_hls(hu=0.9, li=0.5)
     PSEUDO_DARK_GREEN = [49, 91, 65]  # Color.color_hls(0.4, li=0.275)
