@@ -78,7 +78,7 @@ def level_bis_repetita():
                  rooms_list=[R0, R1, R2, RE], 
                  doors_list=[D0, D1, D2, D3], 
                  fastest_solution="S0 D0 S1 D1 S2 D2 S0 D0 S1 D1 S2 D3",
-                 level_color=Levels_colors_list.BRIGHT_AND_DARK_BLUE,
+                 level_color=Levels_colors_list.REALLY_BRIGHT_RED,
                  name='Bis repetita',
                  help_txt = l_help_txt,
                  border = 30,
