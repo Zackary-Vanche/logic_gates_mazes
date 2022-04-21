@@ -286,7 +286,7 @@ def level_tree():
                  exit_room_index=-1, 
                  rooms_list=[R0, R1, R2, R3, RE], 
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19, D20], 
-                 fastest_solution="D1 S7 D3 D9 D0 S6 D2 D19 D1 S7 S5 D3 D7 D0 S6 S4 D2 D19 D1 S7 S5 S3 D3 D16 D0 S6 S4 S2 D2 D19 D1 S5 S3 S1 D3 D17 D0 S4 S2 S0 D2 D19 D20",
+                 fastest_solution="D1 S7 D3 D9 D0 S6 D2 D19 D1 S5 S7 D3 D7 D0 S4 S6 D2 D19 D1 S3 S5 S7 D3 D16 D0 S2 S4 S6 D2 D19 D1 S1 S3 S5 D3 D17 D0 S0 S2 S4 D2 D19 D20",
                  level_color=Levels_colors_list.RED_AND_YELLOW,
                  name='Tree',
                  help_txt = l_help_txt,

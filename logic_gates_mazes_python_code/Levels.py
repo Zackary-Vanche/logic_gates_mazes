@@ -5,6 +5,10 @@ Created on Sat Feb 26 13:12:20 2022
 @author: utilisateur
 """
 
+from time import time
+from os.path import exists as os_path_exists
+from os import mkdir as os_mkdir
+
 class Levels: 
     
     from level_alien import level_alien
@@ -81,6 +85,49 @@ class Levels:
         else:
             Levels.levels_list[level_number].reboot_solution()
         return Levels.levels_list[level_number]
+    
+    def save_solutions_txt(verbose=0, do_it_fast=False):
+        t0 = time()
+        txt = ''
+        if not os_path_exists('mazes'):
+            os_mkdir('mazes')
+        if do_it_fast:
+            for k in range(Levels.number_of_levels):
+                level = Levels.get_level(k)
+                print('')
+                name = level.name
+                print(name)
+                txt += name + '\n'
+                txt += str(level.fastest_solution) + '\n'
+                # txt += str(level.simplify_solution()) + '\n\n'
+        else:
+            calculations_times = []
+            for k in range(Levels.number_of_levels):
+                # level = Levels.levels_functions_list[k]()
+                level = Levels.get_level(k)
+                print('')
+                name = level.name
+                print(name)
+                txt += name + '\n'
+                t2 = time()
+                solutions = level.find_all_solutions(stop_at_first_solution=False,
+                                                     verbose=0)
+                t3 = time()
+                for sol in solutions:
+                    print(sol)
+                    txt += sol + '\n'
+                    # txt += str(level.simplify_solution(sol)) + '\n'
+                if verbose >= 1:
+                    print(t3 - t2, 's')
+                    calculations_times.append(t3 - t2)
+                txt += '\n'
+        with open('mazes/solutions.txt', 'w') as f:
+            f.write(txt)
+        t1 = time()
+        if verbose >= 1:
+            print(t1 - t0, 's')
+        if not do_it_fast:
+            return calculations_times
     
 if __name__ == "__main__":
     
