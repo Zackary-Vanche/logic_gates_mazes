@@ -5,8 +5,8 @@ Created on Mon Apr  4 20:01:20 2022
 @author: utilisateur
 """
 
-ns = 3
-nd = 4
+ns = 6
+nd = 6
 nr = 4
 
 for i in range(ns):

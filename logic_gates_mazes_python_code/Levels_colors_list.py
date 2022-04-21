@@ -97,6 +97,13 @@ class Levels_colors_list:
                              inside_room_color = Color.BLACK_RED,
                              surrounding_color = Color.BLACK_RED)
     
+    BLUE_AND_GREEN = Level_color(background_color = Color.REALLY_DARK_BLUE,
+                                 room_color = Color.PSEUDO_DARK_GREEN,
+                                 contour_color = Color.WHITE,
+                                 letters_color = Color.WHITE,
+                                 inside_room_color = Color.WHITE,
+                                 surrounding_color = Color.WHITE)
+    
     BRIGHT_BLUE = Level_color(background_color = Color.REALLY_BRIGHT_BLUE,
                               room_color = Color.REALLY_BRIGHT_BLUE_2,
                               contour_color = Color.BLACK_RED,
