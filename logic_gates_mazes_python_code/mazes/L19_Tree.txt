@@ -1,0 +1,27 @@
+S0 : 0; S1 : 0; S2 : 0; S3 : 0; S4 : 0; S5 : 0; S6 : 0; S7 : 0; 
+R0 : 
+R1 : S0 S2 S4 S6 
+R2 : S1 S3 S5 S7 
+R3 : 
+RE (EXIT): 
+D0 : 1; R0 --> R1
+D1 : 1; R0 --> R2
+D2 : 1; R1 --> R3
+D3 : 1; R2 --> R3
+D4 :  ( S0- S1 S2 S3- S4- S5- S6- S7- ) &; R3 --> R0
+D5 :  ( S0- S1 S2 S3- S4- S5- S6- S7 ) &; R3 --> R0
+D6 :  ( S0- S1- S2- S3 S4 S5 S6 S7- ) &; R3 --> R0
+D7 :  ( S0- S1- S2- S3- S4- S5 S6 S7- ) &; R3 --> R0
+D8 :  ( S0- S1 S2 S3 S4 S5 S6 S7- ) &; R3 --> R0
+D9 :  ( S0- S1- S2- S3- S4- S5- S6- S7 ) &; R3 --> R0
+D10 :  ( S0- S1- S2- S3- S4- S5 S6 S7 ) &; R3 --> R0
+D11 :  ( S0- S1 S2 S3 S4 S5- S6- S7- ) &; R3 --> R0
+D12 :  ( S0- S1 S2 S3 S4 S5 S6 S7 ) &; R3 --> R0
+D13 :  ( S0- S1- S2- S3 S4 S5- S6- S7- ) &; R3 --> R0
+D14 :  ( S0- S1 S2 S3- S4- S5 S6 S7- ) &; R3 --> R0
+D15 :  ( S0- S1- S2- S3 S4 S5 S6 S7 ) &; R3 --> R0
+D16 :  ( S0- S1- S2- S3 S4 S5- S6- S7 ) &; R3 --> R0
+D17 :  ( S0- S1 S2 S3- S4- S5 S6 S7 ) &; R3 --> R0
+D18 :  ( S0- S1 S2 S3 S4 S5- S6- S7 ) &; R3 --> R0
+D19 :  ( S0 S1 XNOR S2 S3 XNOR S4 S5 XNOR S6 S7 XNOR ) &; R3 --> R0
+D20 :  ( S0 S1 S2- S3- S4 S5 S6 S7 ) &; R0 --> RE

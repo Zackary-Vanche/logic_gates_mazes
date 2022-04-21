@@ -232,7 +232,7 @@ However, sometimes here doors are one-way only.
              fastest_solution="S0 D1 D5 S2 D5 S7 D1 S0 D0 D11 D7 S3 D7 S10 D11 D10 D2 D3 S8 D3 S1 D2 D12 S11 D9 S4 D14",
              level_color=Levels_colors_list.YELLOW_AND_GREY,
              uniform_surrounding_colors=False,
-             name='Chessborad',
+             name='Chessboard',
              help_txt=l_help_txt,
              door_window_size=500,
              keep_proportions=False,

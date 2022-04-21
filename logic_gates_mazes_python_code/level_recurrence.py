@@ -29,7 +29,7 @@ def level_recurrence():
     tree_list_4 = ['AND', Tree.tree_list_nor, Tree.tree_list_or_2]
     tree_list_5 = [None]
     # tree_list_6 = ['BNA', Tree.tree_list_or_3, Tree.tree_list_and_4]
-    tree_list_6 = Tree.tree_list_from_str('FTFTFTT')
+    tree_list_6 = Tree.tree_list_from_str('F'*7)
     
     T0 = Tree(tree_list=tree_list_0, empty=True, name='T0', switches = [S0, S2, S4, S6])
     T1 = Tree(tree_list=tree_list_1, empty=True, name='T1', switches = [S1])
@@ -123,7 +123,7 @@ def level_recurrence():
              exit_room_index=-1, 
              rooms_list=[R0, R1, R2, R3, RE], 
              doors_list = [D0, D1, D2, D3, D4, D5, D6], 
-             fastest_solution='S0 S1 D0 S2 D1 S0 D0 S3 D2 S4 D3 S2 D2 S5 D4 S6 D5 S4 D4 D6',
+             fastest_solution='S0 S1 D0 S2 D1 S0 S1 D0 S3 D2 S4 D3 S2 S3 D2 S5 D4 S6 D5 S4 S5 D4 S6 D6',
              level_color=Levels_colors_list.BLACK_AND_GREY_RED_CONTOUR,
              name='Recurrence',
              help_txt = l_help_txt,

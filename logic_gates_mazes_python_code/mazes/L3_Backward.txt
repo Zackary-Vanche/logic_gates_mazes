@@ -1,0 +1,6 @@
+S0 : 0; S1 : 0; S2 : 0; 
+R0 : S0 S1 
+R1 : S2 
+RE (EXIT): 
+D0 : S0 S1- AND; R0 <-> R1
+D1 : S0- S1 S2 AND AND; R0 --> RE

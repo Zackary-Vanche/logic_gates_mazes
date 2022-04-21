@@ -1,0 +1,40 @@
+S0 : 0; S1 : 0; S2 : 0; S3 : 0; S4 : 0; S5 : 0; S6 : 0; S7 : 0; S8 : 0; S9 : 0; S10 : 0; S11 : 0; S12 : 0; S13 : 0; S14 : 0; 
+R0 : S0 
+R1 : S1 
+R2 : S2 
+R3 : S3 
+R4 : S4 
+R5 : S5 
+R6 : S6 
+R7 : S7 
+R8 : S8 
+R9 : S9 
+R10 : S10 
+R11 : S11 
+R12 : S12 
+R13 : S13 
+R14 : S14 
+RE (EXIT): 
+D0 : S0 S8 OR; R0 --> R1
+D1 : S14; R2 --> R0
+D2 : S0 S1 S2 XNOR AND; R1 <-> R2
+D3 :  ( S0 S1 S2- ) &; R1 --> R3
+D4 : S0 S1 AND; R4 --> R1
+D5 : S0 S3 S4 XOR AND; R3 <-> R4
+D6 : S1- S2 AND; R2 --> R5
+D7 : S10; R6 --> R2
+D8 : S0 S5 S6 NOR AND; R5 <-> R6
+D9 : S3 S4 AND; R3 --> R7
+D10 : S7; R8 --> R3
+D11 : S7; R7 <-> R8
+D12 : S3- S4- AND; R4 --> R9
+D13 : S9 S1 AND; R10 --> R4
+D14 : S9; R9 <-> R10
+D15 : S5; R5 --> R11
+D16 : S11; R12 --> R5
+D17 : S11; R11 <-> R12
+D18 : S8; R6 --> R13
+D19 : S13; R14 --> R6
+D20 : S13; R13 <-> R14
+D21 :  ( S0- S1 S2 S3 S4 S6 S10- S12 ) &; R1 --> RE
+D22 :  ( S0- S1 S2 S3 S4 S6 S8- S10 ) &; R2 --> RE

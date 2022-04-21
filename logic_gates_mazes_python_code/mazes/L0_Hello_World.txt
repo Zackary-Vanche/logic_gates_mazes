@@ -1,0 +1,8 @@
+S0 : 0; S1 : 0; 
+R0 : S0 
+R1 : S1 
+R2 : 
+RE (EXIT): 
+D0 : S0; R0 <-> R1
+D1 : S1; R1 <-> R2
+D2 : S0 S1 OR; R2 --> RE

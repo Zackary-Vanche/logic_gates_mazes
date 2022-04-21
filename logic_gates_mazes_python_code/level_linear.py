@@ -78,7 +78,7 @@ def level_linear():
         - 0 = 1
     
     D0 = AND S0 S1 means :
-    D0 is open if (S0, S1) = (1,1)
+        D0 is open if (S0, S1) = (1,1)
     It can also be written : 
         D2 = & S0 S1
     

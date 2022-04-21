@@ -1,0 +1,40 @@
+S0 : 1; S1 : 0; S2 : 0; S3 : 0; S4 : 0; S5 : 0; S6 : 0; S7 : 0; S8 : 0; S9 : 0; S10 : 1; S11 : 0; S12 : 0; S13 : 0; S14 : 0; S15 : 0; S16 : 0; S17 : 0; S18 : 0; S19 : 0; S20 : 1; S21 : 0; S22 : 0; S23 : 0; S24 : 0; S25 : 0; S26 : 0; S27 : 0; S28 : 0; S29 : 0; 
+R0 : 
+R1 : S0 S1 S2 
+R2 : S3 S4 S5 
+R3 : S6 S7 S8 
+R4 : S9 S10 S11 
+R5 : S12 S13 S14 
+R6 : S15 S16 S17 
+R7 : S18 S19 S20 
+R8 : S21 S22 S23 
+R9 : S24 S25 S26 
+R10 : S27 S28 S29 
+R11 : 
+R12 : 
+RE (EXIT): 
+D0 :  ( S27 S28 S29 ) -|  ( S27 S28 S29 ) XOR OR; R0 --> R1
+D1 :  ( S27 S28 S29 ) -|  ( S27 S28 S29 ) XOR OR; R0 --> R2
+D2 :  ( S27 S28 S29 ) -|  ( S27 S28 S29 ) XOR OR; R0 --> R3
+D3 :  ( S0 S1 S2 ) XOR; R1 --> R4
+D4 :  ( S3 S4 S5 ) XOR; R2 --> R5
+D5 :  ( S6 S7 S8 ) XOR; R3 --> R6
+D6 :  (  ( S9 S10 S11 ) XOR S1 S9 NAND S2 S9 NAND S2 S10 NAND ) &; R4 --> R7
+D7 :  (  ( S12 S13 S14 ) XOR S4 S12 NAND S5 S12 NAND S5 S13 NAND ) &; R5 --> R8
+D8 :  (  ( S15 S16 S17 ) XOR S7 S15 NAND S8 S15 NAND S8 S16 NAND ) &; R6 --> R9
+D9 :  (  ( S18 S19 S20 ) XOR S10 S18 NAND S11 S18 NAND S11 S19 NAND ) &; R7 --> R10
+D10 :  (  ( S21 S22 S23 ) XOR S13 S21 NAND S14 S21 NAND S14 S22 NAND ) &; R8 --> R10
+D11 :  (  ( S24 S25 S26 ) XOR S16 S24 NAND S17 S24 NAND S17 S25 NAND ) &; R9 --> R10
+D12 :  ( S0 S1 S2 ) -|; R1 --> R4
+D13 :  ( S3 S4 S5 ) -|; R2 --> R5
+D14 :  ( S6 S7 S8 ) -|; R3 --> R6
+D15 :  ( S0 S1 S2 S9 S10 S11 ) -|; R4 --> R7
+D16 :  ( S3 S4 S5 S12 S13 S14 ) -|; R5 --> R8
+D17 :  ( S6 S7 S8 S15 S16 S17 ) -|; R6 --> R9
+D18 :  ( S9 S10 S11 S18 S19 S20 ) -|; R7 --> R10
+D19 :  ( S12 S13 S14 S21 S22 S23 ) -|; R8 --> R10
+D20 :  ( S15 S16 S17 S24 S25 S26 ) -|; R9 --> R10
+D21 :  ( S0 S3 S6 S9 S12 S15 S18 S21 S24 S27 ) XOR; R10 --> R11
+D22 :  ( S1 S4 S7 S10 S13 S16 S19 S22 S25 S28 ) XOR; R11 --> R12
+D23 :  ( S2 S5 S8 S11 S14 S17 S20 S23 S26 S29 ) XOR; R12 --> R0
+D24 :  ( S6 S16 S26 ) &; R0 --> RE
