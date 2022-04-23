@@ -77,7 +77,7 @@ def level_xor():
     D8 = Door(two_way = False, tree = T8, name='D8', room_departure = R8, room_arrival = RE)
     
     l_help_txt = [
-"""New operands are used in this level :
+"""A new operand is used in this level :
     
     NAND truth table (D0 = NAND S0 S1 = -& S0 S1):
     S0  S1  D0
@@ -85,21 +85,6 @@ def level_xor():
       0    1    1
       1    0    1
       1    1    0  
-      
-    XOR is used with 3 parameters instead of 2.
-      
-    XOR truth table [D0 = XOR ( S0 S1 S2 )]:
-    S0  S1  S2  D0
-      0    0    0     0
-      0    1    0     1
-      1    0    0     1
-      1    1    0     0
-      0    0    1     1
-      0    1    1     0
-      1    0    1     0
-      1    1    1     0    
-    In other words:
-    D0 is open if there is exactly one switch among S0, S1 and S2 that is turned on.
 """]
     
     level = Maze(start_room_index=0, 

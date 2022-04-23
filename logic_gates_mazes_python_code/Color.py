@@ -68,6 +68,7 @@ class Color:
     PALE_RED = [231, 133, 135]
     PALE_YELLOW = [193, 185, 112]  # color_hls(hu=0.15, li=0.6, sa=0.4)
     PINK = [165, 89, 135]  # color_hls(hu=0.9, li=0.5)
+    PSEUDO_DARK_BLUE = [0, 0, 165]
     PSEUDO_DARK_GREEN = [49, 91, 65]  # Color.color_hls(0.4, li=0.275)
     PURE_BLUE = [101, 254, 255]  # color_hls(hu=0.5, li=0.7, sa=1)
     PURPLE_BLUE = [102, 80, 149]  # color_hls(hu=0.72, li=0.45)

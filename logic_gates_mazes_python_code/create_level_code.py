@@ -5,9 +5,9 @@ Created on Mon Apr  4 20:01:20 2022
 @author: utilisateur
 """
 
-ns = 6
-nd = 6
-nr = 4
+ns = 9
+nd = 7
+nr = 5
 
 for i in range(ns):
     print("""S{0} = Switch(name='S{0}')""".format(i))
@@ -20,8 +20,12 @@ for i in range(nd):
     
 for i in range(nr):
     print("""R{0} = Room(name='R{0}',
-            position = [0, 0, 1, 1],
+            position = [?, ?, ?, ?],
             switches_list = [])""".format(i))
+    
+print("""RE = Room(name='RE',
+          position=[?, ?, ?, ?],
+          is_exit=True)   # E pour exit ou end""")
     
 for i in range(nd):
     print("""D{0} = Door(two_way=False,

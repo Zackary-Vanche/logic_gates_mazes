@@ -25,114 +25,125 @@ def level_river():
     S8 = Switch(name='S8')
     SN = Switch(name='1', value=1)
     
-    T0 = Tree(tree_list=[None],
-              empty=True,
-              name='T0',
-              switches = [SN])
-    T1 = Tree(tree_list=[None],
-              empty=True,
-              name='T1',
-              switches = [SN])
+    T0 = Tree(tree_list=['AND',
+                         Tree.tree_list_nand,
+                         Tree.tree_list_nand],
+                empty=True,
+                name='T0',
+                switches = [S6, S7,
+                            S7, S8])
+    T1 = Tree(tree_list=['AND',
+                         Tree.tree_list_nand,
+                         Tree.tree_list_nand],
+                empty=True,
+                name='T1',
+                switches = [S0, S1,
+                            S1, S2])
     T2 = Tree(tree_list=[None],
-              empty=True,
-              name='T2',
-              switches = [SN])
+                empty=True,
+                name='T2',
+                switches = [SN])
     T3 = Tree(tree_list=[None],
-              empty=True,
-              name='T3',
-              switches = [SN])
-    T4 = Tree(tree_list=['NOR',
-                         Tree.tree_list_xnor,
-                         Tree.tree_list_xnor],
-              empty=True,
-              name='T4',
-              switches = [S0, S1, S1, S2])
-    T5 = Tree(tree_list=[None],
-              empty=True,
-              name='T5',
-              switches = [S0])
-    T6 = Tree(tree_list=['AND_3',
-                         Tree.tree_list_XOR3,
-                         Tree.tree_list_XOR3,
+                empty=True,
+                name='T3',
+                switches = [SN])
+    
+    T4 = Tree(tree_list=['AND_3', 
+                         Tree.tree_list_XOR3, 
+                         Tree.tree_list_XOR3, 
                          Tree.tree_list_XOR3],
-              empty=True,
-              name='T6',
-              switches = [S0, S3, S6, S1, S4, S7, S2, S5, S8])
-    T7 = Tree(tree_list=[None],
-              empty=True,
-              name='T7',
-              switches = [S0])
+                empty=True,
+                name='T4',
+                switches = [S0, S3, S6,
+                            S1, S4, S7,
+                            S2, S5, S8])
+    T5 = Tree(tree_list=['OR_3',
+                         Tree.tree_list_XOR3,
+                         Tree.tree_list_from_str('FFF')],
+                empty=True,
+                name='T5',
+                switches = [S3, S4, S5,
+                            S3, S4, S5])
+    
+    T6 = Tree(tree_list=Tree.tree_list_and_3,
+                empty=True,
+                name='T6',
+                switches = [S6, S7, S8])
     
     R0 = Room(name='R0',
-              position = [1.75, 1, 1, 2],
-              switches_list = [])
+                position = [9, 2, 1, 4],
+                switches_list = [S3, S4, S5])
     R1 = Room(name='R1',
-              position = [3.5, 0, 2.5, 1],
-              switches_list = [S0, S1, S2])
+                position = [3, 0, 5, 1],
+                switches_list = [S0, S1, S2])
     R2 = Room(name='R2',
-              position = [3.5, 3, 2.5, 1],
-              switches_list = [S3, S4, S5])
+                position = [3, 7, 5, 1],
+                switches_list = [S6, S7, S8])
     R3 = Room(name='R3',
-              position = [7, 0, 1, 4],
-              switches_list = [S6, S7, S8])
+                position = [6, 3, 1, 2],
+                switches_list = [])
     R4 = Room(name='R4',
-              position = [5.5, 1.5, 0.5, 1],
-              switches_list = [])
-    R5 = Room(name='R5',
-              position = [4, 1.5, 0.5, 1],
-              switches_list = [])
+                position = [3, 3, 1, 2],
+                switches_list = [])
     RE = Room(name='RE',
-              position = [0, 1, 1, 2],
-              is_exit = True)  # E pour exit ou end
+              position=[0, 3, 1, 2],
+              is_exit=True)   # E pour exit ou end
     
     D0 = Door(two_way=False,
-              tree=T0,
-              room_departure=R0,
-              room_arrival=R1)
+                tree=T0,
+                room_departure=R4,
+                room_arrival=R1)
     D1 = Door(two_way=False,
-              tree=T1,
-              room_departure=R1,
-              room_arrival=R3,
-              relative_departure_coordinates=[3/4, 1/2],
-              relative_arrival_coordinates=[1/2, 1/8])
-    # D2 = Door(two_way=False,
-    #           tree=T2,
-    #           room_departure=R0,
-    #           room_arrival=R2)
+                tree=T1,
+                room_departure=R4,
+                room_arrival=R2)
+    D2 = Door(two_way=False,
+                tree=T2,
+                room_departure=R1,
+                room_arrival=R0)
     D3 = Door(two_way=False,
-              tree=T3,
-              room_departure=R2,
-              room_arrival=R3,
-              relative_departure_coordinates=[3/4, 1/2],
-              relative_arrival_coordinates=[1/2, 7/8])
+                tree=T3,
+                room_departure=R2,
+                room_arrival=R0)
+    
     D4 = Door(two_way=False,
-              tree=T4,
-              room_departure=R3,
-              room_arrival=R4,
-              relative_position=0.55)
+                tree=T4,
+                room_departure=R0,
+                room_arrival=R3)
     D5 = Door(two_way=False,
-              tree=T5,
-              room_departure=R4,
-              room_arrival=R5)
+                tree=T5,
+                room_departure=R3,
+                room_arrival=R4)
     D6 = Door(two_way=False,
-              tree=T6,
-              room_departure=R5,
-              room_arrival=R0)
-    D7 = Door(two_way=False,
-              tree=T7,
-              room_departure=R0,
-              room_arrival=RE)
+                tree=T6,
+                room_departure=R4,
+                room_arrival=RE)
     
     l_help_txt = [
-"""
+"""XOR is used with 3 parameters instead of 2.
+  
+    XOR truth table [D0 = XOR ( S0 S1 S2 )]:
+    S0  S1  S2  D0
+      0    0    0     0
+      0    1    0     1
+      1    0    0     1
+      1    1    0     0
+      0    0    1     1
+      0    1    1     0
+      1    0    1     0
+      1    1    1     0    
+    In other words:
+    D0 is open if there is exactly one switch among S0, S1 and S2 that is turned on.
+    
+You want to cross the river with a wolf, a goat and a cabbage.
 """]
     
     level = Maze(start_room_index=0, 
               exit_room_index=-1, 
-              rooms_list=[R0, R1, R2, R3, R4, R5, RE], 
-              doors_list = [D0, D1, D3, D4, D5, D6, D7],
-              fastest_solution=None,
-              level_color=Levels_colors_list.BLUE_AND_GREEN,
+              rooms_list=[R0, R1, R2, R3, R4, RE], 
+              doors_list = [D0, D1, D2, D3, D4, D5, D6],
+              fastest_solution="D4 D5 D0 S1 D2 S4 D4 D5 D1 S7 D3 S4 D4 D5 D0 S0 D2 S3 D4 D5 D1 S6 S7 D3 S3 S4 D4 D5 D0 S1 S2 D2 S4 S5 D4 D5 D1 S8 D3 S5 D4 D5 D0 S1 D2 S4 D4 D5 D1 S7 D3 S4 D4 D5 D6",
+              level_color=Levels_colors_list.DARK_AND_GREY_GREEN,
               name='River',
               help_txt = l_help_txt,
               keep_proportions=False,
@@ -140,3 +151,8 @@ def level_river():
               y_separation=100)
     
     return level
+
+if __name__ == "__main__":
+    
+    solutions = level_river().find_all_solutions(verbose=2, stop_at_first_solution=False)
+    

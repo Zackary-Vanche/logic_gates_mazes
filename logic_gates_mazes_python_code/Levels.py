@@ -46,7 +46,6 @@ class Levels:
         
     levels_functions_list = [
                              # level_icone,
-                             level_river,
                              level_hello_world,
                              level_linear,
                              level_loop,
@@ -67,6 +66,7 @@ class Levels:
                              level_alien,
                              level_hypercube,
                              level_tree,
+                             level_river,
                              level_crystal,
                              level_cartesian,
                              level_fractal,
