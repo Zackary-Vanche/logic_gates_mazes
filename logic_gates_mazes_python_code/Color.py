@@ -45,7 +45,8 @@ class Color:
     DARK_PURPLE_BLUE = [56, 44, 82]  # color_hls(hu=0.72, li=0.25)
     DARK_RED = [82, 44, 44]  # color_hls(hu=0, li=0.25)
     DARK_WHITE = [180, 180, 180]
-    DARK_YELLOW = [142, 134, 61]  # color_hls(hu=0.15, li=0.4, sa=0.4)
+    DARK_YELLOW = [142, 134, 61]  # color_hls(hu=0.15, li=0.4, sa=0.4) 204,204,0
+    DIRT_WHITE = [180, 180, 170]
     ELECTRIC_BLUE = [50, 153, 153]  # color_hls(hu=0.5, li=0.4, sa=0.5)
     GREEN = [71, 132, 95]  # color_hls(0.4)
     GREEN_GREY = [133, 151, 128]  # color_hls(hu=0.3, li=0.55, sa=0.1)
@@ -62,6 +63,7 @@ class Color:
     GREY_170 = [170, 170, 170]
     GREY_180 = [180, 180, 180]
     GREY_BLUE = [97, 131, 131]  # color_hls(hu=0.5, li=0.45, sa=0.15)
+    IVORY = [230,230,210]
     KHAKI = [152, 146, 68]
     LEMON = [230, 240, 45]
     ORANGE = [116, 94, 62]  # color_hls(0.1, li=0.35)

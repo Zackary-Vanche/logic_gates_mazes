@@ -11,6 +11,7 @@ from os import mkdir as os_mkdir
 
 class Levels: 
     
+    from level_alice_and_bob import level_alice_and_bob
     from level_alien import level_alien
     from level_backward import level_backward
     from level_binary import level_binary
@@ -58,6 +59,7 @@ class Levels:
                              level_odd,
                              level_chessboard,
                              level_point_of_no_return,
+                             level_alice_and_bob,
                              level_recurrence,
                              level_parallel,
                              level_infinity,

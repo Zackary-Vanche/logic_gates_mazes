@@ -233,6 +233,12 @@ class Levels_colors_list:
                               inside_room_color = Color.TOTAL_GREEN,
                               surrounding_color = Color.TOTAL_GREEN)
     
+    WHITE = Level_color(background_color = Color.DIRT_WHITE,
+                        room_color = Color.IVORY,
+                        contour_color = Color.BLACK,
+                        letters_color = Color.BLACK,
+                        letter_contour_color = Color.BLACK)
+    
     YELLOW = Level_color(background_color = Color.DARK_YELLOW,
                          room_color = Color.BRIGHT_YELLOW,
                          contour_color = Color.BLACK,
