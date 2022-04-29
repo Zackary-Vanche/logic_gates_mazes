@@ -27,7 +27,6 @@ class Levels:
     from level_fractal import level_fractal
     from level_graph import level_graph
     from level_hello_world import level_hello_world
-    from level_hypercube import level_hypercube
     from level_infinity import level_infinity
     from level_icone import level_icone
     from level_linear import level_linear
@@ -42,6 +41,7 @@ class Levels:
     from level_square import level_square
     from level_temple import level_temple
     from level_tree import level_tree
+    from level_tesseract import level_tesseract
     from level_tetrahedron import level_tetrahedron
     from level_xor import level_xor
         
@@ -66,7 +66,7 @@ class Levels:
                              level_tetrahedron,
                              level_bipartite,
                              level_alien,
-                             level_hypercube,
+                             level_tesseract,
                              level_tree,
                              level_river,
                              level_crystal,

@@ -12,7 +12,7 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
-def level_hypercube():
+def level_tesseract():
     
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -348,7 +348,7 @@ def level_hypercube():
     
     D0 = 1 means that D0 is always open.
     
-The hypercube is hidden in the equations.
+The tesseract is hidden in the equations.
 """]
     
     level = Maze(start_room_index=0, 
@@ -357,7 +357,7 @@ The hypercube is hidden in the equations.
               doors_list = [D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19, D20, D21, D22],
               fastest_solution="D2 S2 D6 D16 D20 D10 S6 D14 D17 D18 D3 S3 D7 D16 D21 D11 S7 D15 D17 D18 D0 S0 D4 D16 D18 D8 S4 D12 D17 D18 D1 S1 D5 D16 D19 D9 S5 D13 D17 D18 D22",
               level_color=Levels_colors_list.BLACK_AND_WHITE,
-              name='Hypercube',
+              name='Tesseract',
               help_txt = l_help_txt,
               keep_proportions=False,
               door_window_size=550,
@@ -366,7 +366,7 @@ The hypercube is hidden in the equations.
 
 if __name__ == "__main__":
     
-    level = level_hypercube
+    level = level_tesseract
 
     solutions = level().find_all_solutions(verbose=3,
                                            stop_at_first_solution=False)
