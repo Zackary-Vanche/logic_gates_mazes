@@ -52,7 +52,7 @@ if __name__ == "__main__":
 
     plt.figure(figsize=(20, 15))
     plt.xlabel('Level number')
-    plt.ylabel('Time needed to solve the maze')
+    plt.ylabel('Time needed to solve the maze (s)')
     plt.scatter([i for i in range(len(calculations_times))],
                 calculations_times)
     plt.xticks(np.arange(0, n, step=1))
@@ -69,6 +69,7 @@ if __name__ == "__main__":
 
     plt.plot([0, n], [f(0), f(n)], 'r')
     plt.yscale('log')
+    plt.grid()
     plt.savefig('images/solving_time.png')
     plt.show()
 

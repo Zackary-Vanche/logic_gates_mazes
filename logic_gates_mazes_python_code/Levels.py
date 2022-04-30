@@ -102,7 +102,7 @@ class Levels:
                 level = Levels.get_level(k)
                 print('')
                 name = level.name
-                print(name)
+                print('Level', k, ':', name)
                 txt += name + '\n'
                 txt += str(level.fastest_solution) + '\n\n'
                 # txt += str(level.simplify_solution()) + '\n\n'
@@ -113,7 +113,7 @@ class Levels:
                 level = Levels.get_level(k)
                 print('')
                 name = level.name
-                print(name)
+                print('Level', k, ':', name)
                 txt += name + '\n'
                 t2 = time()
                 solutions = level.find_all_solutions(stop_at_first_solution=False,
