@@ -10,7 +10,7 @@ from numpy import array as array
 from numpy.linalg import norm as np_linalg_norm
 from time import time as time
 from Level_color import Level_color
-
+from Levels_colors_list import Levels_colors_list
 
 class Maze: 
 
@@ -32,7 +32,9 @@ class Maze:
                  border=50,
                  help_txt=[''],
                  keep_proportions=False,
-                 line_size=3):
+                 line_size=3,
+                 random_color=False):
+        self.random_color = random_color
         assert start_room_index == 0
         assert exit_room_index == -1
         self.name = name
@@ -341,6 +343,8 @@ class Maze:
                 switch.set_value(self.initial_switches_values[i])
             else:
                 switch.set_value(list_switches_values[i])
+        if self.random_color:
+            self.level_color = Levels_colors_list.RANDOM()
 
     def make_actions(self, actions, separator=' ', allow_all=False):
         actions_list = actions.split(separator)

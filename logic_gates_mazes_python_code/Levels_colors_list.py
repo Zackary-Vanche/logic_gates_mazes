@@ -251,7 +251,20 @@ class Levels_colors_list:
                                   letters_color = Color.BLACK,
                                   letter_contour_color = Color.BLACK,
                                   inside_room_color=Color.WHITE)
-    
+
+    def RANDOM():
+        from colorsys import hls_to_rgb
+        from numpy import array
+        from numpy import uint8
+        from random import random
+        def color_hls(hu, li, sa):
+             return array(255*array(hls_to_rgb(hu, li, sa)), dtype=uint8).tolist()
+        hu = random()
+        return Level_color(background_color = color_hls(hu, li=0.15, sa=0.4),
+                           room_color = color_hls(hu, li=0.35, sa=0.4),
+                           contour_color = Color.WHITE,
+                           letters_color = Color.WHITE)
+        
     
 
     

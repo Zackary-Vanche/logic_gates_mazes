@@ -35,6 +35,7 @@ class Levels:
     from level_odd import level_odd
     from level_parallel import level_parallel
     from level_point_of_no_return import level_point_of_no_return
+    from level_random import level_random
     from level_recurrence import level_recurrence
     from level_river import level_river
     from level_sinusoidal import level_sinusoidal
@@ -47,6 +48,7 @@ class Levels:
         
     levels_functions_list = [
                              # level_icone,
+                             #level_random,
                              level_hello_world,
                              level_linear,
                              level_loop,
