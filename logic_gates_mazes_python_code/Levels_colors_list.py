@@ -261,7 +261,7 @@ class Levels_colors_list:
              return array(255*array(hls_to_rgb(hu, li, sa)), dtype=uint8).tolist()
         hu = random()
         return Level_color(background_color = color_hls(hu, li=0.15, sa=0.4),
-                           room_color = color_hls(hu, li=0.35, sa=0.4),
+                           room_color = color_hls(hu, li=0.3, sa=0.5),
                            contour_color = Color.WHITE,
                            letters_color = Color.WHITE)
         

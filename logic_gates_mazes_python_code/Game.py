@@ -39,6 +39,7 @@ from fonction_affine import fonction_affine
 from Maze import Maze
 from Levels import Levels
 
+from level_random import level_random
 
 class Game:
     
@@ -104,7 +105,6 @@ class Game:
         self.change_in_display = False
         
     def game_setup(self):
-        
         # Game Setup
         pygame_init()
         self.looping = True
@@ -120,6 +120,7 @@ class Game:
 
         self.font = pygame_font_SysFont(None, 25)
         self.level_changed = True
+        print('c')
         # Cette variable vaut True quand le joueur
         # vient de choisir de changer de niveau
         # ou au début du jeu (il faut initialiser le niveau)
@@ -139,10 +140,15 @@ class Game:
             self.change_in_display = True
 
             self.level_changed = False
+            print('z')
             
             # self.maze = Levels.levels_functions_list[self.index_current_level]()
             self.maze = Levels.get_level(self.index_current_level)
-            self.maze.reboot_solution()
+            if self.maze.random:
+                self.maze = level_random()
+                print('*****')
+            else:
+                self.maze.reboot_solution()
             
             self.doors_list = self.maze.doors_list()
             
@@ -508,10 +514,40 @@ class Game:
                         if self.current_action[1:] in level_number_list:
                             self.index_current_level = int(self.current_action[1:])
                             self.level_changed = True
+                            print('a')
                     self.current_action = ''
             if self.pressed[K_b]:
                 self.change_in_display = True
-                self.maze.reboot_solution()
+                if self.maze.random:
+                    self.maze = level_random()
+                    print('#####')
+                    self.doors_list = self.maze.doors_list()
+                    level_colors = self.maze.level_color
+                    self.background_color = level_colors.background_color
+                    self.room_color = level_colors.room_color
+                    self.contour_color = level_colors.contour_color
+                    self.letters_color = level_colors.letters_color
+                    # letter_contour_color = maze.letter_contour_color
+                    self.inside_room_color = level_colors.inside_room_color
+                    self.surrounding_color = level_colors.surrounding_color
+                    self.inside_room_surrounding_color = level_colors.inside_room_surrounding_color
+                    self.y_separation = self.maze.y_separation
+                    self.door_window_size = self.maze.door_window_size
+                    self.x_separation = self.WINDOW_WIDTH - self.door_window_size
+                    self.current_action = ''
+                    self.keep_proportions = self.maze.keep_proportions
+                    # Choix de la bordure en fonction de la hauteur de la fenêtre
+                    (pente, coeff) = fonction_affine(643, 35, 1080, 75)
+                    self.maze.set_extreme_coordinates(0,
+                                                      self.x_separation,
+                                                      0,
+                                                      self.WINDOW_HEIGHT,
+                                                      pente*self.WINDOW_HEIGHT+coeff,
+                                                      self.keep_proportions)
+                    self.level_changed = False
+                    print('y')
+                else:
+                    self.maze.reboot_solution()
                 self.last_key_pressed_time = time()
                 self.current_action = ''
         if time() - self.last_key_BACKSPACE_pressed_time > self.time_between_deletings:
@@ -527,15 +563,19 @@ class Game:
             if (self.pressed[K_RIGHT]):
                 self.index_current_level += 1
                 self.level_changed = True
+                print('r')
             if (self.pressed[K_LEFT]):
                 self.index_current_level -= 1
                 self.level_changed = True
+                print('l')
             if (self.pressed[K_UP]):
                 self.index_current_level = Levels.number_of_levels-1
                 self.level_changed = True
+                print('u')
             if (self.pressed[K_DOWN]):
                 self.index_current_level = 0
                 self.level_changed = True
+                print('d')
         if self.level_changed:
             self.last_level_change_time = time()
         self.index_current_level = min(self.index_current_level,
@@ -590,7 +630,7 @@ class Game:
         self.t0 = time()
         self.n_loops = 0
         while self.looping:
-            sleep(self.sleep_time) # I did that not to use too much CPU
+            #sleep(self.sleep_time) # I did that not to use too much CPU
             self.n_loops += 1
             if self.do_you_quit_game():
                 return None

@@ -48,7 +48,6 @@ class Levels:
         
     levels_functions_list = [
                              # level_icone,
-                             #level_random,
                              level_hello_world,
                              level_linear,
                              level_loop,
@@ -80,7 +79,8 @@ class Levels:
                              level_electricity,
                              level_sinusoidal,
                              level_manhattan_distance,
-                             level_temple
+                             level_temple,
+                             level_random,
                              ] 
 
     number_of_levels = len(levels_functions_list)

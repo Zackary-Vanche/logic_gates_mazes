@@ -33,8 +33,8 @@ class Maze:
                  help_txt=[''],
                  keep_proportions=False,
                  line_size=3,
-                 random_color=False):
-        self.random_color = random_color
+                 random=False):
+        self.random = random
         assert start_room_index == 0
         assert exit_room_index == -1
         self.name = name
@@ -343,8 +343,6 @@ class Maze:
                 switch.set_value(self.initial_switches_values[i])
             else:
                 switch.set_value(list_switches_values[i])
-        if self.random_color:
-            self.level_color = Levels_colors_list.RANDOM()
 
     def make_actions(self, actions, separator=' ', allow_all=False):
         actions_list = actions.split(separator)
@@ -477,9 +475,13 @@ class Maze:
         return self.get_current_possible_doors() + self.get_current_possible_switches()
 
     def find_all_solutions(self,
-                           verbose = 0,
-                           stop_at_first_solution = False,
-                           reverse_actions_order=False):
+                           verbose=0,
+                           stop_at_first_solution=False,
+                           reverse_actions_order=False,
+                           max_iter_without_many_solutions=float('inf'),
+                           min_solutions_to_find=0,
+                           max_iter=float('inf'),
+                           min_sol_len=0):
         if verbose > 1:
             t0 = time()
         if self.all_solutions is None:
@@ -488,6 +490,13 @@ class Maze:
             solutions_that_work = []
             nb_iterations = 0
             while solutions_to_visit != []:
+                if nb_iterations > max_iter_without_many_solutions and len(solutions_that_work) < min_solutions_to_find:
+                    return solutions_that_work
+                if nb_iterations % 1000 == 0:
+                    solutions_len = [len(solutions_that_work[i].split(' ')) for i in range(len(solutions_that_work))]
+                    solutions_len.append(0)
+                    if nb_iterations >= max_iter or max(solutions_len) >= min_sol_len:
+                        return solutions_that_work
                 nb_iterations += 1
                 if 4 > verbose >= 3:
                     if nb_iterations % 1000 == 0:
