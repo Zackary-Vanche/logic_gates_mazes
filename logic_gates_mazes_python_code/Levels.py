@@ -80,7 +80,7 @@ class Levels:
                              level_sinusoidal,
                              level_manhattan_distance,
                              level_temple,
-                             level_random,
+                             #level_random,
                              ] 
 
     number_of_levels = len(levels_functions_list)

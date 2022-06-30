@@ -263,14 +263,15 @@ def aux_level_random():
                  keep_proportions=False,
                  random=True)
 
-    return level, D16
+    return level, D16, Slist
 
 def level_random(verbose=0):
+    # return aux_level_random()[0]
     print('level_random')
-    level, D16 = aux_level_random()
+    level, D16, Slist = aux_level_random()
     sol = ""
     while len(sol.split(' ')) < 10:
-        level, D16 = aux_level_random()
+        level, D16, Slist = aux_level_random()
         l = level.find_all_solutions(verbose=verbose,
                                      max_iter_without_many_solutions=500,
                                      min_solutions_to_find=5,
@@ -279,11 +280,26 @@ def level_random(verbose=0):
         l.sort(key=lambda x : len(x.split(' ')))
         sol = l[-1]
         print(sol, len(sol.split(' ')) < 20)
-    level, D16 = aux_level_random()
+    level, D16, Slist = aux_level_random()
     level.try_solution(sol, verbose=verbose)
     print('sol :', sol)
     print(len(sol.split(' ')))
-    D16.name = 'TEST'
+    print('try_solution')
+    door_trees_dico = {}
+    level.try_solution(sol,
+                       verbose=3,
+                       allow_all_doors=True,
+                       allow_all_switches=True,
+                       door_trees_dico = door_trees_dico)
+    print('try_solution')
+    print(door_trees_dico)
+    print(level.try_solution(sol, verbose=2))
+    D16.tree = Tree(tree_list=Tree.tree_list_from_str(door_trees_dico['D16'][:-1]),
+                    empty=True,
+                    name='T16',
+                    switches=Slist)
+    print(level.try_solution(sol, verbose=2))
+    print(sol)
     return level
 
 if __name__ == '__main__':

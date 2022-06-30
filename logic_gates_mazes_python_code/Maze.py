@@ -365,15 +365,14 @@ class Maze:
                      separator=' ',
                      verbose=0,
                      allow_all_doors=False,
-                     allow_all_switches=False):
+                     allow_all_switches=False,
+                     door_trees_dico={}):
         # results : 0 unauthorised, 1 authorised but wrong, 2 you won
         self.reboot_solution()
         solution = solution.replace('\n', separator).split(separator)
         txt_verbose_3 = ''
         if verbose == 2:
             print("Switches values : {}".format([switch.value for switch in self.switches_list()]))
-        if verbose == 3:
-            door_trees_dico = {}
         for action in solution:
             if action in self.possibles_actions_list:
                 action_type = action[0]
@@ -397,21 +396,20 @@ class Maze:
                         return 0
                     if 3 > verbose > 0:
                         print("You are in room {}\n".format(self.current_room_name()))
-                    if verbose == 3:
-                        switches_values_txt = ''
-                        for switch in self.switches_list():
-                            if switch.value:
-                                switches_values_txt += str(switch.name) + ' '
-                        txt_verbose_3 += action + ' : ' + switches_values_txt + '\n'
-                        switches_TF = ''
-                        for switch in self.switches_list():
-                            if switch.value:
-                                switches_TF = switches_TF + 'T'
-                            else:
-                                switches_TF = switches_TF + 'F'
-                        if action not in door_trees_dico.keys():
-                            door_trees_dico[action] = ''
-                        door_trees_dico[action] = door_trees_dico[action] + switches_TF + ' '
+                    switches_values_txt = ''
+                    for switch in self.switches_list():
+                        if switch.value:
+                            switches_values_txt += str(switch.name) + ' '
+                    txt_verbose_3 += action + ' : ' + switches_values_txt + '\n'
+                    switches_TF = ''
+                    for switch in self.switches_list():
+                        if switch.value:
+                            switches_TF = switches_TF + 'T'
+                        else:
+                            switches_TF = switches_TF + 'F'
+                    if action not in door_trees_dico.keys():
+                        door_trees_dico[action] = ''
+                    door_trees_dico[action] = door_trees_dico[action] + switches_TF + ' '
                 if action_type == 'R': # TODO : verify
                     if self.legit_change_room(action) or allow_all_doors:
                         if 3 > verbose > 0:
@@ -442,7 +440,6 @@ class Maze:
             print('')
             for door in sorted(door_trees_dico.keys()):
                 print("""tree_list_{0} = Tree.tree_list_from_str("{1}")""".format(door[1:], door_trees_dico[door][:-1]))
-            print()
         bool_solution = self.current_room_index == self.exit_room_index
         return int(bool_solution) + 1
 
