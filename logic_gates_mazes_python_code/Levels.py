@@ -11,6 +11,7 @@ from os import mkdir as os_mkdir
 
 class Levels: 
     
+    from level_4_colors_theorem import level_4_colors_theorem
     from level_alice_and_bob import level_alice_and_bob
     from level_alien import level_alien
     from level_backward import level_backward
@@ -48,6 +49,7 @@ class Levels:
         
     levels_functions_list = [
                              # level_icone,
+                             level_4_colors_theorem,
                              level_hello_world,
                              level_linear,
                              level_loop,

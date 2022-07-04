@@ -10,16 +10,11 @@ class Switch:
     def __init__(self, 
                  room = None, 
                  tree = None, 
-                 value = 0, 
+                 value = 0,
                  name = 'S'):
         self.value = value
-        self.room  = room
-        self.name  = name
-        try:
-            assert self.name[0] == 'S' or self.name in ['0', '1']
-        except:
-            print(self.name[0])
-            raise
+        self.room = room
+        self.name = name
         self.doors_set = set()
         self.tree = tree
 

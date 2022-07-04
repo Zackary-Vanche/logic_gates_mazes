@@ -10,6 +10,12 @@ from Level_color import Level_color
 
 class Levels_colors_list:
     
+    FOUR_COLORS = Level_color(background_color = Color.BLUE,
+                              room_color = Color.GREEN,
+                              contour_color = Color.RED,
+                              letters_color = Color.BLACK,
+                              inside_room_color = Color.BRIGHT_YELLOW)
+    
     BEIGE = Level_color(background_color = Color.KHAKI,
                         room_color = Color.DARK_KHAKI,
                         contour_color = Color.WHITE,

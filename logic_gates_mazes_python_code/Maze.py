@@ -83,7 +83,8 @@ class Maze:
         for room in self.rooms_list:
             self.possibles_actions_list.append(room.name)
         self.possibles_actions_list.sort()
-        assert set(self.doors_list()) == set(doors_list)
+        txterror = ', '.join([' '.join([door.name for door in self.doors_list()]), ' '.join([door.name for door in doors_list])])
+        assert set(self.doors_list()) == set(doors_list), txterror
         # On verifie que aucun nom ne soit donne en double
         for i in range(len(rooms_list)):
             room_i = rooms_list[i]
@@ -474,11 +475,11 @@ class Maze:
     def find_all_solutions(self,
                            verbose=0,
                            stop_at_first_solution=False,
-                           reverse_actions_order=False,
-                           max_iter_without_many_solutions=float('inf'),
-                           min_solutions_to_find=0,
-                           max_iter=float('inf'),
-                           min_sol_len=0):
+                           reverse_actions_order=False):
+                           # max_iter_without_many_solutions=float('inf'),
+                           # min_solutions_to_find=0,
+                           # max_iter=float('inf'),
+                           # min_sol_len=0):
         if verbose > 1:
             t0 = time()
         if self.all_solutions is None:
@@ -487,13 +488,13 @@ class Maze:
             solutions_that_work = []
             nb_iterations = 0
             while solutions_to_visit != []:
-                if nb_iterations > max_iter_without_many_solutions and len(solutions_that_work) < min_solutions_to_find:
-                    return solutions_that_work
-                if nb_iterations % 1000 == 0:
-                    solutions_len = [len(solutions_that_work[i].split(' ')) for i in range(len(solutions_that_work))]
-                    solutions_len.append(0)
-                    if nb_iterations >= max_iter or max(solutions_len) >= min_sol_len:
-                        return solutions_that_work
+                # if nb_iterations > max_iter_without_many_solutions and len(solutions_that_work) < min_solutions_to_find:
+                #     return solutions_that_work
+                # if nb_iterations % 1000 == 0:
+                #     solutions_len = [len(solutions_that_work[i].split(' ')) for i in range(len(solutions_that_work))]
+                #     solutions_len.append(0)
+                #     if nb_iterations >= max_iter or max(solutions_len) >= min_sol_len:
+                #         return solutions_that_work
                 nb_iterations += 1
                 if 4 > verbose >= 3:
                     if nb_iterations % 1000 == 0:
