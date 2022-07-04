@@ -141,4 +141,5 @@ if __name__ == "__main__":
     
     for level_function in Levels.levels_functions_list:
         level = level_function()
+        print(level.name)
     

@@ -27,41 +27,41 @@ class Tree:
     tree_list_not = ['NOT', [None]]
     
     tree_list_and_2  = ['AND'] + [[None]]*2
-    tree_list_and_3  = ['AND_3'] + [[None]]*3
-    tree_list_and_4  = ['AND_4'] + [[None]]*4
-    tree_list_and_5  = ['AND_5'] + [[None]]*5
-    tree_list_and_6  = ['AND_6'] + [[None]]*6
-    tree_list_and_7  = ['AND_7'] + [[None]]*7 
-    tree_list_and_8  = ['AND_8'] + [[None]]*8
-    tree_list_and_9  = ['AND_9'] + [[None]]*9
-    tree_list_and_10 = ['AND_10'] + [[None]]*10
+    tree_list_and_3  = ['AND'] + [[None]]*3
+    tree_list_and_4  = ['AND'] + [[None]]*4
+    tree_list_and_5  = ['AND'] + [[None]]*5
+    tree_list_and_6  = ['AND'] + [[None]]*6
+    tree_list_and_7  = ['AND'] + [[None]]*7 
+    tree_list_and_8  = ['AND'] + [[None]]*8
+    tree_list_and_9  = ['AND'] + [[None]]*9
+    tree_list_and_10 = ['AND'] + [[None]]*10
     
     tree_list_or_2  = ['OR'] + [[None]]*2
-    tree_list_or_3  = ['OR_3'] + [[None]]*3
-    tree_list_or_4  = ['OR_4'] + [[None]]*4
-    tree_list_or_5  = ['OR_5'] + [[None]]*5
-    tree_list_or_6  = ['OR_6'] + [[None]]*6
-    tree_list_or_7  = ['OR_7'] + [[None]]*7 
-    tree_list_or_8  = ['OR_8'] + [[None]]*8
-    tree_list_or_9  = ['OR_9'] + [[None]]*9
-    tree_list_or_10 = ['OR_10'] + [[None]]*10
+    tree_list_or_3  = ['OR'] + [[None]]*3
+    tree_list_or_4  = ['OR'] + [[None]]*4
+    tree_list_or_5  = ['OR'] + [[None]]*5
+    tree_list_or_6  = ['OR'] + [[None]]*6
+    tree_list_or_7  = ['OR'] + [[None]]*7 
+    tree_list_or_8  = ['OR'] + [[None]]*8
+    tree_list_or_9  = ['OR'] + [[None]]*9
+    tree_list_or_10 = ['OR'] + [[None]]*10
     
-    tree_list_XOR3 = ['XOR_3'] + [[None]]*3
-    tree_list_XORN3 = ['XOR_3'] + [tree_list_not]*3
-    tree_list_XOR4 = ['XOR_4'] + [[None]]*4
-    tree_list_XORN4 = ['XOR_4'] + [tree_list_not]*4
-    tree_list_XOR5 = ['XOR_5'] + [[None]]*5
-    tree_list_XORN5 = ['XOR_5'] + [tree_list_not]*5
-    tree_list_XOR6 = ['XOR_6'] + [[None]]*6
-    tree_list_XORN6 = ['XOR_6'] + [tree_list_not]*6
-    tree_list_XOR7 = ['XOR_7'] + [[None]]*7
-    tree_list_XORN7 = ['XOR_7'] + [tree_list_not]*7
-    tree_list_XOR8 = ['XOR_8'] + [[None]]*8
-    tree_list_XORN8 = ['XOR_8'] + [tree_list_not]*8
-    tree_list_XOR9 = ['XOR_9'] + [[None]]*9
-    tree_list_XORN9 = ['XOR_9'] + [tree_list_not]*9
-    tree_list_XOR10 = ['XOR_10'] + [[None]]*10
-    tree_list_XORN10 = ['XOR_10'] + [tree_list_not]*10
+    tree_list_XOR3 = ['XOR'] + [[None]]*3
+    tree_list_XORN3 = ['XOR'] + [tree_list_not]*3
+    tree_list_XOR4 = ['XOR'] + [[None]]*4
+    tree_list_XORN4 = ['XOR'] + [tree_list_not]*4
+    tree_list_XOR5 = ['XOR'] + [[None]]*5
+    tree_list_XORN5 = ['XOR'] + [tree_list_not]*5
+    tree_list_XOR6 = ['XOR'] + [[None]]*6
+    tree_list_XORN6 = ['XOR'] + [tree_list_not]*6
+    tree_list_XOR7 = ['XOR'] + [[None]]*7
+    tree_list_XORN7 = ['XOR'] + [tree_list_not]*7
+    tree_list_XOR8 = ['XOR'] + [[None]]*8
+    tree_list_XORN8 = ['XOR'] + [tree_list_not]*8
+    tree_list_XOR9 = ['XOR'] + [[None]]*9
+    tree_list_XORN9 = ['XOR'] + [tree_list_not]*9
+    tree_list_XOR10 = ['XOR'] + [[None]]*10
+    tree_list_XORN10 = ['XOR'] + [tree_list_not]*10
     
     tree_list_nor = ['NOR', [None], [None]]
     tree_list_anb = ['AND', [None], tree_list_not]
@@ -72,10 +72,10 @@ class Tree:
     tree_list_aonb = ['OR', [None], tree_list_not]
     tree_list_bona = ['OR', tree_list_not, [None]]
     
-    tree_list_nor_3 = ['NOR_3'] + [[None]]*3
-    tree_list_nor_4 = ['NOR_4'] + [[None]]*4
-    tree_list_nor_5 = ['NOR_5'] + [[None]]*5
-    tree_list_nor_6 = ['NOR_6'] + [[None]]*6
+    tree_list_nor_3 = ['NOR'] + [[None]]*3
+    tree_list_nor_4 = ['NOR'] + [[None]]*4
+    tree_list_nor_5 = ['NOR'] + [[None]]*5
+    tree_list_nor_6 = ['NOR'] + [[None]]*6
     
     def tree_list_from_str(txt):
         def tree_list_and_from_str(txt):
@@ -88,7 +88,7 @@ class Tree:
             if n == 2:
                 tree_list = ['AND']
             else:
-                tree_list = ['AND_{}'.format(n)]
+                tree_list = ['AND']
             for i in range(n):
                 b = txt[i]
                 if b == 'T':
@@ -105,7 +105,7 @@ class Tree:
             if n == 2:
                 tree_list = ['OR']
             else:
-                tree_list = ['OR_{}'.format(n)]
+                tree_list = ['OR']
             for i in range(n):
                 tree_list.append(tree_list_and_from_str(txtl[i]))
             return tree_list
@@ -221,12 +221,12 @@ class Tree:
                     son_B = self.sons_list[1]
                     A = son_A.get_easy_logical_expression_PN()
                     B = son_B.get_easy_logical_expression_PN()
-                    if len(A) > len(B):
-                        A, B = B, A
-                        root_name = root.invert_A_B_gate_name()
-                    if len(A) == len(B) and B < A:
-                        A, B = B, A
-                        root_name = root.invert_A_B_gate_name()
+                    # if len(A) > len(B):
+                    #     A, B = B, A
+                    #     root_name = root.invert_A_B_gate_name()
+                    # if len(A) == len(B) and B < A:
+                    #     A, B = B, A
+                    #     root_name = root.invert_A_B_gate_name()
                     if son_A.get_depth() > 3 and len(son_A.sons_list) >= 2 and ' ' in A:
                         if '(' in A:
                             A = '[ ' + A + ' ]'

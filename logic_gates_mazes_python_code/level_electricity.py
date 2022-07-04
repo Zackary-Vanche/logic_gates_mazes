@@ -63,7 +63,7 @@ def level_electricity():
     # tree_list_8b = Tree.tree_list_FTF
     # tree_list_9b = Tree.tree_list_TFF
     
-    tree_list_0  = ['AND', [None], ['NAND_3', tree_list_1b, tree_list_6b, tree_list_7b]]
+    tree_list_0  = ['AND', [None], ['NAND', tree_list_1b, tree_list_6b, tree_list_7b]]
     # tree_list_1  = ['AND', tree_list_1a, tree_list_1b]
     # tree_list_2  = ['AND', tree_list_2a, tree_list_2b]
     # tree_list_3  = ['AND', tree_list_3a, tree_list_3b]
@@ -108,7 +108,7 @@ def level_electricity():
     T9   = Tree(tree_list=['AND', Tree.tree_list_from_str('TFFFT'), Tree.tree_list_nand],   
             empty=True, name='T9',   
             switches = [S7, S8, S9, S14, S15, S12, S13])
-    T10  = Tree(tree_list=['AND_5', Tree.tree_list_bona, Tree.tree_list_nand, Tree.tree_list_aonb, [None], [None]],  
+    T10  = Tree(tree_list=['AND', Tree.tree_list_bona, Tree.tree_list_nand, Tree.tree_list_aonb, [None], [None]],  
             empty=True, name='T10',  
             switches = [S10, S11, S12, S13, S14, S15, S16, S17])
 

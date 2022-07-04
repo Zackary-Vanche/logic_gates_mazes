@@ -70,7 +70,7 @@ def level_temple():
                 empty=True,
                 name='T5',
                 switches = [S6, S7, S8])
-    T6 = Tree(tree_list=['AND_4', 
+    T6 = Tree(tree_list=['AND', 
                          Tree.tree_list_XOR3, 
                          Tree.tree_list_nand,
                          Tree.tree_list_nand,
@@ -81,7 +81,7 @@ def level_temple():
                             S1, S9,
                             S2, S9,
                             S2, S10])
-    T7 = Tree(tree_list=['AND_4', 
+    T7 = Tree(tree_list=['AND', 
                          Tree.tree_list_XOR3, 
                          Tree.tree_list_nand,
                          Tree.tree_list_nand,
@@ -92,7 +92,7 @@ def level_temple():
                             S4, S12,
                             S5, S12,
                             S5, S13])
-    T8 = Tree(tree_list=['AND_4', 
+    T8 = Tree(tree_list=['AND', 
                          Tree.tree_list_XOR3, 
                          Tree.tree_list_nand,
                          Tree.tree_list_nand,
@@ -103,7 +103,7 @@ def level_temple():
                             S7, S15,
                             S8, S15,
                             S8, S16])
-    T9 = Tree(tree_list=['AND_4', 
+    T9 = Tree(tree_list=['AND', 
                          Tree.tree_list_XOR3, 
                          Tree.tree_list_nand,
                          Tree.tree_list_nand,
@@ -114,7 +114,7 @@ def level_temple():
                             S10, S18,
                             S11, S18,
                             S11, S19])
-    T10 = Tree(tree_list=['AND_4', 
+    T10 = Tree(tree_list=['AND', 
                          Tree.tree_list_XOR3, 
                          Tree.tree_list_nand,
                          Tree.tree_list_nand,
@@ -125,7 +125,7 @@ def level_temple():
                             S13, S21,
                             S14, S21,
                             S14, S22])
-    T11 = Tree(tree_list=['AND_4', 
+    T11 = Tree(tree_list=['AND', 
                          Tree.tree_list_XOR3, 
                          Tree.tree_list_nand,
                          Tree.tree_list_nand,

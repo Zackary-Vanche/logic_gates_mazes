@@ -48,7 +48,7 @@ def level_river():
                 name='T3',
                 switches = [SN])
     
-    T4 = Tree(tree_list=['AND_3', 
+    T4 = Tree(tree_list=['AND', 
                          Tree.tree_list_XOR3, 
                          Tree.tree_list_XOR3, 
                          Tree.tree_list_XOR3],
@@ -57,7 +57,7 @@ def level_river():
                 switches = [S0, S3, S6,
                             S1, S4, S7,
                             S2, S5, S8])
-    T5 = Tree(tree_list=['OR_3',
+    T5 = Tree(tree_list=['OR',
                          Tree.tree_list_XOR3,
                          Tree.tree_list_from_str('FFF')],
                 empty=True,

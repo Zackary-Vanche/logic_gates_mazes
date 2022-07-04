@@ -100,7 +100,7 @@ def level_tree():
                 empty=True,
                 name='T18',
                 switches = [S0, S1, S2, S3, S4, S5, S6, S7])
-    T19 = Tree(tree_list=['AND_4',
+    T19 = Tree(tree_list=['AND',
                           Tree.tree_list_xnor,
                           Tree.tree_list_xnor,
                           Tree.tree_list_xnor,

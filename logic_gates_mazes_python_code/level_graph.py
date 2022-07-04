@@ -30,7 +30,7 @@ def level_graph():
     S13 = Switch(name='S13')
     S14 = Switch(name='S14')
     
-    T0   = Tree(tree_list=['AND_6', [None], [None], [None], [None], Tree.tree_list_nand, Tree.tree_list_xnor],  
+    T0   = Tree(tree_list=['AND', [None], [None], [None], [None], Tree.tree_list_nand, Tree.tree_list_xnor],  
             empty=True, name='T0',  switches = [S3, S11, S13, S14, S1, S10, S6, S12])
     T5  = Tree(tree_list=[None],  empty=True, name='T5', switches = [S2])
     T7   = Tree(tree_list=[None],  empty=True, name='T7',  switches = [S4])
@@ -39,7 +39,7 @@ def level_graph():
     T17  = Tree(tree_list=[None],  empty=True, name='T17', switches = [S13])
 
     T4   = Tree(tree_list=Tree.tree_list_not,  empty=True, name='T4',  switches = [S2])
-    T6   = Tree(tree_list=['AND_4', Tree.tree_list_not, Tree.tree_list_xor, Tree.tree_list_xor, Tree.tree_list_xor],
+    T6   = Tree(tree_list=['AND', Tree.tree_list_not, Tree.tree_list_xor, Tree.tree_list_xor, Tree.tree_list_xor],
                  empty=True, name='T6',  switches = [S3, S1, S6, S7, S10, S10, S12])
     T8   = Tree(tree_list=Tree.tree_list_not,  empty=True, name='T8',  switches = [S4])
     T9   = Tree(tree_list=Tree.tree_list_not,  empty=True, name='T9',  switches = [S9])

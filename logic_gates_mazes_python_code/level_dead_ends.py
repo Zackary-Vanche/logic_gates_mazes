@@ -28,7 +28,7 @@ def level_dead_ends():
     S11 = Switch(name='S11')
     # SN  = Switch(name='SN') # Switch Null
     
-    tree_list_0  = ["AND_5", Tree.tree_list_not, [None], [None], [None], [None]]
+    tree_list_0  = ["AND", Tree.tree_list_not, [None], [None], [None], [None]]
     tree_list_1  = Tree.tree_list_TFF
     tree_list_2  = Tree.tree_list_nor
     tree_list_3  = Tree.tree_list_TFF
@@ -38,7 +38,7 @@ def level_dead_ends():
     tree_list_7  = Tree.tree_list_nor
     tree_list_8  = Tree.tree_list_from_str('TT T')  # ['OR', Tree.tree_list_and_2, [None]]
     tree_list_9  = Tree.tree_list_anb
-    tree_list_10 = ['AND_3', Tree.tree_list_xor, Tree.tree_list_xor, Tree.tree_list_not]
+    tree_list_10 = ['AND', Tree.tree_list_xor, Tree.tree_list_xor, Tree.tree_list_not]
     tree_list_11 = Tree.tree_list_anb
     # tree_list_12 = ['NA', [None], [None]]
     tree_list_12 = ['NOT', [None]]
