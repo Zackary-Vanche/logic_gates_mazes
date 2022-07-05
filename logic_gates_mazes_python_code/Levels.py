@@ -50,8 +50,8 @@ class Levels:
         
     levels_functions_list = [
                              # level_icone,
-                             level_dominating_set,
-                             level_4_colors_theorem,
+                             # level_dominating_set,
+                             # level_4_colors_theorem,
                              level_hello_world,
                              level_linear,
                              level_loop,
