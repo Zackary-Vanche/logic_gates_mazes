@@ -38,6 +38,7 @@ class Levels:
     from level_manhattan_distance import level_manhattan_distance
     from level_odd import level_odd
     from level_parallel import level_parallel
+    from level_partition import level_partition
     from level_point_of_no_return import level_point_of_no_return
     from level_random import level_random
     from level_recurrence import level_recurrence
@@ -52,10 +53,11 @@ class Levels:
         
     levels_functions_list = [
                              # level_icone,
-                             level_knapsack,
-                             level_independent_set,
-                             level_dominating_set,
-                             level_4_colors_theorem,
+                             # level_partition,
+                             # level_knapsack,
+                             # level_independent_set,
+                             # level_dominating_set,
+                             # level_4_colors_theorem,
                              level_hello_world,
                              level_linear,
                              level_loop,
