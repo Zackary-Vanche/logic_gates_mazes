@@ -29,6 +29,7 @@ class Levels:
     from level_fractal import level_fractal
     from level_graph import level_graph
     from level_hello_world import level_hello_world
+    from level_independent_set import level_independent_set
     from level_infinity import level_infinity
     from level_icone import level_icone
     from level_linear import level_linear
@@ -50,6 +51,7 @@ class Levels:
         
     levels_functions_list = [
                              # level_icone,
+                             # level_independent_set,
                              # level_dominating_set,
                              # level_4_colors_theorem,
                              level_hello_world,

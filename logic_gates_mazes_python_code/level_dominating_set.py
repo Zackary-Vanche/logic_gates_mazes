@@ -34,16 +34,7 @@ def level_dominating_set():
     S17 = Switch(name='S17')
 
     T0 = Tree(tree_list=['INF',
-                           ['SUM',
-                            [None],
-                            [None],
-                            [None],
-                            [None],
-                            [None],
-                            [None],
-                            [None],
-                            [None],
-                            [None]],
+                           ['SUM'] + [[None]]*9,
                            [None]],
                empty=True,
                name='T0',
