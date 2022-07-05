@@ -49,6 +49,7 @@ def level_4_colors_theorem():
                    Tree.tree_list_xor]
     
     SN2 = Switch(value=2, name='2')
+    SN3 = Switch(value=3, name='3')
     
     T0 = Tree(tree_list=tree_list_0,
               empty=True,
@@ -57,7 +58,7 @@ def level_4_colors_theorem():
     T1 = Tree(tree_list=tree_list_0,
               empty=True,
               name='T1',
-              switches = [S0, SN2, S1, S8, SN2, S9, SN2])
+              switches = [S0, SN2, S1, S8, SN2, S9, SN3])
     T2 = Tree(tree_list=tree_list_1,
               empty=True,
               name='T2',
@@ -273,7 +274,7 @@ def level_4_colors_theorem():
                  exit_room_index=-1, 
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, R15, R16, R17, R18, RE], 
                  doors_list = [D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18], 
-                 fastest_solution=None,
+                 fastest_solution='S2 S3 S4 S6 S7 S8 S10 S11 S13 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18',
                  level_color=Levels_colors_list.FOUR_COLORS,
                  name='4 colors theorem',
                  help_txt = l_help_txt,
@@ -284,4 +285,14 @@ def level_4_colors_theorem():
 
 if __name__ == '__main__':
     
-    level_4_colors_theorem().find_all_solutions(verbose=3)
+    level = level_4_colors_theorem
+
+    solutions = level().find_all_solutions(verbose=3,
+                                           stop_at_first_solution=False)
+    
+    level().try_solution(solutions[-1],
+                         verbose=3,
+                         allow_all_doors=True,
+                         allow_all_switches=True)
+    
+    print(solutions[-1])

@@ -501,6 +501,7 @@ class Maze:
                         print('nb_iterations : {}'.format(nb_iterations))
                         print('solutions_to_visit[-1] : {}'.format(solutions_to_visit[-1]))
                         print('len(solutions_to_visit) : {}'.format(len(solutions_to_visit)))
+                        print('len(solutions_to_visit)/nb_iterations : {}'.format(len(solutions_to_visit)/nb_iterations))
                         print('')
                 if verbose >= 4:
                     print(solutions_to_visit)

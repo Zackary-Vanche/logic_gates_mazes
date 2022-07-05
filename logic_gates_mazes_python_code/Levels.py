@@ -23,6 +23,7 @@ class Levels:
     from level_crossroad import level_crossroad
     from level_crystal import level_crystal
     from level_dead_ends import level_dead_ends
+    from level_dominating_set import level_dominating_set
     from level_electricity import level_electricity
     from level_fluid import level_fluid
     from level_fractal import level_fractal
@@ -49,6 +50,7 @@ class Levels:
         
     levels_functions_list = [
                              # level_icone,
+                             level_dominating_set,
                              level_4_colors_theorem,
                              level_hello_world,
                              level_linear,
