@@ -32,6 +32,7 @@ class Levels:
     from level_independent_set import level_independent_set
     from level_infinity import level_infinity
     from level_icone import level_icone
+    from level_knapsack import level_knapsack
     from level_linear import level_linear
     from level_loop import level_loop
     from level_manhattan_distance import level_manhattan_distance
@@ -51,9 +52,10 @@ class Levels:
         
     levels_functions_list = [
                              # level_icone,
-                             # level_independent_set,
-                             # level_dominating_set,
-                             # level_4_colors_theorem,
+                             level_knapsack,
+                             level_independent_set,
+                             level_dominating_set,
+                             level_4_colors_theorem,
                              level_hello_world,
                              level_linear,
                              level_loop,
