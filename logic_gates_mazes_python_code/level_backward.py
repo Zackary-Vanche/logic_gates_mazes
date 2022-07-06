@@ -28,7 +28,7 @@ def level_backward():
     T1 = Tree(tree_list=tree_list_1,
               empty=True, name='T1',
               switches=[S0, S1, S2],
-              easy_logical_expression_PN="& - S0 ( & S1 S2 )\n= & ( - S0 S1 S2 )")
+              easy_logical_expression_PN="& ¬ S0 ( & S1 S2 )\n= & ( ¬ S0 S1 S2 )")
 
     position_R0 = [3, 2, 2, 2]
     position_R1 = [0, 1, 2, 2]
@@ -79,8 +79,8 @@ def level_backward():
     You can also use it with | instead of &.
 
     In this level, the notation is used with negations :
-        D0 = & - S0 ( & S1 S2 )
-           = & ( - S0 S1 S2 )
+        D0 = & ¬ S0 ( & S1 S2 )
+           = & ( ¬ S0 S1 S2 )
 """]
 
     level = Maze(start_room_index=0,

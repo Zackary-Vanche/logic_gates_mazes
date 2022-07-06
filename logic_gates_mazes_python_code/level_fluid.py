@@ -78,7 +78,7 @@ def level_fluid():
 """A truth table tells you the result of a logical expression.
 Here are some examples :
 
-    Negation truth table (D0 = -S0):
+    Negation truth table (D0 = ¬S0):
     S0  D0
       0     1
       1     0

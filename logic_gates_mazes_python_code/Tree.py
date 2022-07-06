@@ -215,7 +215,7 @@ class Tree:
                 root_name = root.name.split('_')[0]
                 if len(self.sons_list) == 1: 
                     if root_name == 'NOT': 
-                        self.easy_logical_expression_PN = '- ' + self.sons_list[0].get_easy_logical_expression_PN()
+                        self.easy_logical_expression_PN = '¬ ' + self.sons_list[0].get_easy_logical_expression_PN()
                     else:
                         self.easy_logical_expression_PN = root_name + self.sons_list[0].get_easy_logical_expression_PN()
                 elif len(self.sons_list) == 2:
@@ -237,17 +237,17 @@ class Tree:
                     if root_name == 'FALSE':
                         self.easy_logical_expression_PN = 'F'
                     if root_name == 'ANB':
-                        self.easy_logical_expression_PN = '& {} - {}'.format(A, B)
+                        self.easy_logical_expression_PN = '& {} ¬ {}'.format(A, B)
                     if root_name == 'BNA':
-                        self.easy_logical_expression_PN = '& - {} {}'.format(A, B)
+                        self.easy_logical_expression_PN = '& ¬ {} {}'.format(A, B)
                     if root_name == 'NB':
-                        self.easy_logical_expression_PN = ' '.join(['-', B])
+                        self.easy_logical_expression_PN = ' '.join(['¬', B])
                     if root_name == 'NA':
-                        self.easy_logical_expression_PN = ' '.join(['-', A])
+                        self.easy_logical_expression_PN = ' '.join(['¬', A])
                     if root_name == 'AONB':
-                        self.easy_logical_expression_PN = '| {0} - {1}'.format(A, B)
+                        self.easy_logical_expression_PN = '| {0} ¬ {1}'.format(A, B)
                     if root_name == 'BONA':
-                        self.easy_logical_expression_PN = '| - {0} {1}'.format(A, B)
+                        self.easy_logical_expression_PN = '| ¬ {0} {1}'.format(A, B)
                     if root_name == 'A':
                         self.easy_logical_expression_PN = A
                     if root_name == 'B':
@@ -264,12 +264,12 @@ class Tree:
                     else:
                         txt = root_name + ' ( ' + txt + ') '
                     self.easy_logical_expression_PN = txt
-            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('NOT ', '- ')
-            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('NAND ', '-& ')
+            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('NOT ', '¬ ')
+            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('NAND ', '¬& ')
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('AND ', '& ')
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('XOR ', '^ ')
-            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('XNOR ', '-^ ')
-            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('NOR ', '-| ')
+            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('XNOR ', '¬^ ')
+            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('NOR ', '¬| ')
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('OR ', '| ')
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('SUM ', '+ ')
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('PROD ', '* ')

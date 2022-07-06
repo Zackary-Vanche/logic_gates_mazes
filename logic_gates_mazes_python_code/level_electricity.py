@@ -79,7 +79,7 @@ def level_electricity():
             empty=True, 
             name='T0',   
             switches = [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9],
-            easy_logical_expression_PN = "& S0 -& [ & ( -S1 -S2 S3 ) & ( S4 -S5 -S6 ) & ( -S7 -S8 S9 ) ]")
+            easy_logical_expression_PN = "& S0 ¬& [ & ( ¬S1 ¬S2 S3 ) & ( S4 ¬S5 ¬S6 ) & ( ¬S7 ¬S8 S9 ) ]")
     T1   = Tree(tree_list=Tree.tree_list_from_str('FFTTT'),   
             empty=True, 
             name='T1',   
@@ -232,7 +232,7 @@ def level_electricity():
     l_help_txt = [
 """NAND can also apply to 3 parameters instead of 2:
 
-    NAND truth table [D0 = NAND ( S0 S1 S2 ) = -& ( S0 S1 S2 )]:
+    NAND truth table [D0 = NAND ( S0 S1 S2 ) = ¬& ( S0 S1 S2 )]:
     S0  S1  S2  D0
       0    0    0     1
       0    1    0     1

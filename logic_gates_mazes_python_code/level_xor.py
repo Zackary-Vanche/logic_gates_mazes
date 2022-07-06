@@ -53,7 +53,7 @@ def level_xor():
               empty=True,
               name='T0',
               switches=[S6, S7],
-              easy_logical_expression_PN="NAND S6 S7\n= -& S6 S7")
+              easy_logical_expression_PN="NAND S6 S7\n= ¬& S6 S7")
     T1 = Tree(tree_list=tree_list_1,
               empty=True, name='T1',
               switches=[S6, S7, S8])
@@ -169,7 +169,7 @@ def level_xor():
 
     l_help_txt = ["""A new operand is used in this level :
 
-    NAND truth table (D0 = NAND S0 S1 = -& S0 S1):
+    NAND truth table (D0 = NAND S0 S1 = ¬& S0 S1):
     S0  S1  D0
       0    0    1
       0    1    1

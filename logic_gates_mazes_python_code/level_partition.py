@@ -73,7 +73,7 @@ def level_partition():
                  rooms_list=[R0, R1, RE],
                  doors_list=[D0, D1],
                  fastest_solution="S0 S1 S2 S3 S4 S5 D0 D1",
-                 level_color=Levels_colors_list.BLACK_AND_ORANGE,
+                 level_color=Levels_colors_list.FROM_HUE(0.5),
                  name='Partition',
                  help_txt=l_help_txt,
                  door_window_size=950,

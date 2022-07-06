@@ -34,7 +34,7 @@ def level_point_of_no_return():
     
     T0 = Tree(tree_list=tree_list_0, empty=True, name='T0', switches = [S0])
     T1 = Tree(tree_list=tree_list_1, empty=True, name='T1', switches = [S5, S7, S9],
-          easy_logical_expression_PN = "& S9 XNOR S5 S7\n= & S9 -^ S5 S7")
+          easy_logical_expression_PN = "& S9 XNOR S5 S7\n= & S9 ¬^ S5 S7")
     T2 = Tree(tree_list=tree_list_2, empty=True, name='T2', switches = [S6, S7, S9],
           easy_logical_expression_PN = "& S9 XOR S6 S7\n= & S9 ^ S6 S7")
     T3 = Tree(tree_list=tree_list_3, empty=True, name='T3', switches = [S5, S8, S9])
@@ -128,7 +128,7 @@ def level_point_of_no_return():
       1    1    0  
     In other words, D0 is open if S0 is different from S1.
       
-    XNOR truth table (D0 = XNOR S0 S1 = -^ S0 S1):
+    XNOR truth table (D0 = XNOR S0 S1 = ¬^ S0 S1):
     S0  S1  D0
       0    0    1
       0    1    0
@@ -137,9 +137,9 @@ def level_point_of_no_return():
     In other words, D0 is open if S0 = S1.
     
     You can write :
-        XOR S0 S1 = | & S0 - S1 & - S0 S1 
-        XNOR S0 S1 = | & S0 S1 & - S0 - S1
-        XNOR S0 S1 = - XOR S0 S1
+        XOR S0 S1 = | & S0 ¬ S1 & ¬ S0 S1 
+        XNOR S0 S1 = | & S0 S1 & ¬ S0 ¬ S1
+        XNOR S0 S1 = ¬ XOR S0 S1
 """]
     
     level = Maze(start_room_index=0, 

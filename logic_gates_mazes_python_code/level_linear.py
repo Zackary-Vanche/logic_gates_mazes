@@ -29,9 +29,9 @@ def level_linear():
     tree_list_3 = Tree.tree_list_nor
     
     T0 = Tree(tree_list=tree_list_0, empty=True, name='T0', switches = [S0, S1], easy_logical_expression_PN = 'AND S0 S1\n= & S0 S1')
-    T1 = Tree(tree_list=tree_list_1, empty=True, name='T1', switches = [S2, S3], easy_logical_expression_PN = 'AND S2 NOT S3\n= & S2 - S3')
-    T2 = Tree(tree_list=tree_list_2, empty=True, name='T2', switches = [S4, S5], easy_logical_expression_PN = 'AND NOT S4 S5\n= & - S2 S3')
-    T3 = Tree(tree_list=tree_list_3, empty=True, name='T3', switches = [S6, S7], easy_logical_expression_PN = 'NOR S6 S7\n= & - S6 - S7\n= -| S6 S7')
+    T1 = Tree(tree_list=tree_list_1, empty=True, name='T1', switches = [S2, S3], easy_logical_expression_PN = 'AND S2 NOT S3\n= & S2 ¬ S3')
+    T2 = Tree(tree_list=tree_list_2, empty=True, name='T2', switches = [S4, S5], easy_logical_expression_PN = 'AND NOT S4 S5\n= & ¬ S2 S3')
+    T3 = Tree(tree_list=tree_list_3, empty=True, name='T3', switches = [S6, S7], easy_logical_expression_PN = 'NOR S6 S7\n= & ¬ S6 ¬ S7\n= ¬| S6 S7')
     
     position_R0 = [ 1,  16,  12, 2]
     position_R1 = [ 2,  12,  10, 2]
@@ -72,10 +72,10 @@ def level_linear():
     Negation :
     NOT S0 = 1 if S0 = 0
     NOT S0 = 0 if S0 = 1
-    -S0 = NOT S0
+    ¬S0 = NOT S0
     Be carefull with the negation, because you have :
-        - 1 = 0
-        - 0 = 1
+        ¬ 1 = 0
+        ¬ 0 = 1
     
     D0 = AND S0 S1 means :
         D0 is open if (S0, S1) = (1,1)
@@ -83,15 +83,15 @@ def level_linear():
         D2 = & S0 S1
     
     By combining these notations, you can write :
-    D1 = & S2 - S3 means :
+    D1 = & S2 ¬ S3 means :
         D1 is open if (S2, S3) = (1,0)
-    D2 = AND - S4 S5 means :
+    D2 = AND ¬ S4 S5 means :
         D2 is open if (S4, S5) = (0,1)
-    D3 = & - S6 - S7  S6 S7 means :
+    D3 = & ¬ S6 ¬ S7  S6 S7 means :
         D3 is open if (S6, S7) = (0,0)
         It can also be written :
         D3 = NOR S6 S7
-        D3 = -| S6 S7
+        D3 = ¬| S6 S7
 """]
     
     level = Maze(start_room_index=0, 
