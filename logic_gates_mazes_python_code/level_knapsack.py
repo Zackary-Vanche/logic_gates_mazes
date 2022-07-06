@@ -91,7 +91,7 @@ def level_knapsack():
                  rooms_list=[R0, R1, RE],
                  doors_list=[D0, D1],
                  fastest_solution='S0 S2 S3 D0 D1',
-                 level_color=Levels_colors_list.SHINY_GREEN,
+                 level_color=Levels_colors_list.FROM_HUE(0.5),
                  name='Knapsack',
                  help_txt=l_help_txt,
                  door_window_size=800,

@@ -10,12 +10,6 @@ from Level_color import Level_color
 
 class Levels_colors_list:
     
-    FOUR_COLORS = Level_color(background_color = Color.BLUE,
-                              room_color = Color.GREEN,
-                              contour_color = Color.RED,
-                              letters_color = Color.BLACK,
-                              inside_room_color = Color.BRIGHT_YELLOW)
-    
     BEIGE = Level_color(background_color = Color.KHAKI,
                         room_color = Color.DARK_KHAKI,
                         contour_color = Color.WHITE,
@@ -30,6 +24,22 @@ class Levels_colors_list:
                                   inside_room_color = Color.BLACK,
                                   surrounding_color = Color.WHITE,
                                   inside_room_surrounding_color = Color.BLACK)
+    
+    BLACK_AND_BLUE = Level_color(background_color = Color.GREY_100,
+                                 room_color = Color.BLACK,
+                                 contour_color = Color.PURE_BLUE,
+                                 letters_color = Color.WHITE,
+                                 letter_contour_color = Color.BLACK,
+                                 inside_room_color = Color.PURE_BLUE,
+                                 surrounding_color = Color.PURE_BLUE)
+    
+    BLACK_AND_GREEN = Level_color(background_color = Color.BLACK,
+                                  room_color = Color.DARK_GREY,
+                                  contour_color = Color.TOTAL_GREEN,
+                                  letters_color = Color.TOTAL_GREEN,
+                                  inside_room_color = Color.TOTAL_GREEN,
+                                  surrounding_color = Color.TOTAL_GREEN,
+                                  inside_room_surrounding_color = Color.TOTAL_GREEN)
 
     BLACK_AND_GREY_ORANGE_CONTOUR = Level_color(background_color = Color.BLACK,
                                                 room_color = Color.GREY_80,
@@ -55,6 +65,21 @@ class Levels_colors_list:
                                                letter_contour_color = Color.BLACK,
                                                surrounding_color = Color.WHITE)
     
+    BLACK_AND_ORANGE = Level_color(background_color = Color.BLACK,
+                                   room_color = Color.BRIGHT_ORANGE,
+                                   contour_color = Color.WHITE,
+                                   letters_color = Color.REALLY_BRIGHT_ORANGE,
+                                   inside_room_color = Color.BLACK,
+                                   surrounding_color = Color.WHITE)
+    
+    BLACK_AND_RED = Level_color(background_color = Color.BLACK,
+                                room_color = Color.RED,
+                                contour_color = Color.BLACK,
+                                letters_color = Color.WHITE,
+                                inside_room_color = Color.BLACK,
+                                surrounding_color = Color.WHITE,
+                                inside_room_surrounding_color = Color.BLACK)
+    
     BLACK_AND_WHITE = Level_color(background_color = Color.BLACK,
                                   room_color = Color.GREY_170,
                                   contour_color = Color.BLACK,
@@ -78,22 +103,6 @@ class Levels_colors_list:
                                   letter_contour_color = Color.BLACK,
                                   inside_room_color = Color.BLACK,
                                   surrounding_color = Color.BRIGHT_RED)
-    
-    BLACK_AND_BLUE = Level_color(background_color = Color.GREY_100,
-                                 room_color = Color.BLACK,
-                                 contour_color = Color.PURE_BLUE,
-                                 letters_color = Color.WHITE,
-                                 letter_contour_color = Color.BLACK,
-                                 inside_room_color = Color.PURE_BLUE,
-                                 surrounding_color = Color.PURE_BLUE)
-    
-    BLACK_AND_RED = Level_color(background_color = Color.BLACK,
-                                room_color = Color.RED,
-                                contour_color = Color.BLACK,
-                                letters_color = Color.WHITE,
-                                inside_room_color = Color.BLACK,
-                                surrounding_color = Color.WHITE,
-                                inside_room_surrounding_color = Color.BLACK)
 
     BLUE_GREEN = Level_color(background_color = Color.DARK_BLUE_GREEN,
                              room_color = Color.BLUE_GREEN,
@@ -160,6 +169,12 @@ class Levels_colors_list:
                            surrounding_color = Color.WHITE,
                            letters_color = Color.WHITE,
                            letter_contour_color = Color.BLACK)
+    
+    FOUR_COLORS = Level_color(background_color = Color.BLUE,
+                              room_color = Color.GREEN,
+                              contour_color = Color.RED,
+                              letters_color = Color.BLACK,
+                              inside_room_color = Color.BLACK)
     
     GOLD_AND_SILVER = Level_color(background_color = Color.SILVER,
                                   room_color = Color.YELLOW,
@@ -257,19 +272,22 @@ class Levels_colors_list:
                                   letters_color = Color.BLACK,
                                   letter_contour_color = Color.BLACK,
                                   inside_room_color=Color.WHITE)
-
-    def RANDOM():
+    
+    def FROM_HUE(hu):
         from colorsys import hls_to_rgb
         from numpy import array
         from numpy import uint8
-        from random import random
         def color_hls(hu, li, sa):
              return array(255*array(hls_to_rgb(hu, li, sa)), dtype=uint8).tolist()
-        hu = random()
         return Level_color(background_color = color_hls(hu, li=0.15, sa=0.4),
                            room_color = color_hls(hu, li=0.3, sa=0.5),
                            contour_color = Color.WHITE,
                            letters_color = Color.WHITE)
+
+    def RANDOM():
+        from random import random
+        return Color.FROM_HUE(random())
+        
         
     
 

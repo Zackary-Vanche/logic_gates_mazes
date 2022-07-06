@@ -126,7 +126,8 @@ class Tree:
                  switches = [], 
                  easy_logical_expression_PN = None,
                  root_depth = 0, 
-                 cut_expression = False):
+                 cut_expression = False,
+                 cut_expression_separator = ')'):
         
         # assert not (root_depth == 0 and switches == []), name
         
@@ -188,6 +189,7 @@ class Tree:
         self.easy_logical_expression_PN = easy_logical_expression_PN
         self.logical_expression_RPN_simplified = None 
         self.cut_expression = cut_expression
+        self.cut_expression_separator = cut_expression_separator
 
     def update_leafs_switches(self, switches = None):
         if not self.leafs_switches_updates:
@@ -277,13 +279,13 @@ class Tree:
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('INF ', '< ')
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('SUP ', '> ')
             if self.cut_expression:
-                l_elePN = self.easy_logical_expression_PN.split(')')
+                l_elePN = self.easy_logical_expression_PN.split(self.cut_expression_separator)
                 elePN = ''
                 for i in range(len(l_elePN)):
                     if i < len(l_elePN)-2:
-                        elePN = elePN + l_elePN[i] + ')\n'
+                        elePN = elePN + l_elePN[i] + self.cut_expression_separator + '\n'
                     elif i == len(l_elePN)-2:
-                        elePN = elePN + l_elePN[i] + ')'
+                        elePN = elePN + l_elePN[i] + self.cut_expression_separator
                     elif i == len(l_elePN)-1:
                         elePN = elePN + l_elePN[i]
                 self.easy_logical_expression_PN = elePN

@@ -36,6 +36,7 @@ class Levels:
     from level_linear import level_linear
     from level_loop import level_loop
     from level_manhattan_distance import level_manhattan_distance
+    from level_matrix import level_matrix
     from level_odd import level_odd
     from level_parallel import level_parallel
     from level_partition import level_partition
@@ -53,11 +54,12 @@ class Levels:
         
     levels_functions_list = [
                              # level_icone,
-                             # level_partition,
-                             # level_knapsack,
-                             # level_independent_set,
-                             # level_dominating_set,
-                             # level_4_colors_theorem,
+                             level_matrix,
+                             level_partition,
+                             level_knapsack,
+                             level_independent_set,
+                             level_dominating_set,
+                             level_4_colors_theorem,
                              level_hello_world,
                              level_linear,
                              level_loop,

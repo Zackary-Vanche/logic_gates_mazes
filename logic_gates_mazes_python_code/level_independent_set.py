@@ -67,16 +67,16 @@ def level_independent_set():
               position = [0, 0, 1, 1],
               switches_list = [])
     R2 = Room(name='R2',
-              position = [e, 0, 1, 1],
+              position = [e, -0.3, 1, 1],
               switches_list = [])
     R3 = Room(name='R3',
-              position = [2*e, 0, 1, 1],
+              position = [2*e, -0.5, 1, 1],
               switches_list = [])
     R4 = Room(name='R4',
-              position = [3*e, 0, 1, 1],
+              position = [3*e, -0.3, 1, 1],
               switches_list = [])
     RE = Room(name='RE',
-              position=[4*e, -0.2, 1.4, 1.4],
+              position=[4*e, 0, 1.4, 1.4],
               is_exit=True)   # E pour exit ou end
 
     D0 = Door(two_way=False,
@@ -109,7 +109,7 @@ def level_independent_set():
                  rooms_list=[R0, R1, R2, R3, R4, RE],
                  doors_list=[D0, D1, D2, D3, D4],
                  fastest_solution='S0 S2 S6 S8 D0 D1 D2 D3 D4',
-                 level_color=Levels_colors_list.SHINY_GREEN,
+                 level_color=Levels_colors_list.FROM_HUE(0.2),
                  name='Independent set',
                  help_txt=l_help_txt,
                  door_window_size=600,
