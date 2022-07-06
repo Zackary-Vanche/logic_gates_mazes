@@ -6,7 +6,7 @@ Created on Thu Feb 24 20:54:20 2022
 """
 
 
-def fonction_affine(xa, ya, xb, yb):
+def linear_function(xa, ya, xb, yb):
     assert xa != xb
     pente = (yb - ya)/(xb - xa)
     coeff = ya - pente*xa

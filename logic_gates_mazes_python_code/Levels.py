@@ -11,46 +11,46 @@ from os import mkdir as os_mkdir
 
 class Levels: 
     
-    from level_4_colors_theorem import level_4_colors_theorem
-    from level_alice_and_bob import level_alice_and_bob
-    from level_alien import level_alien
-    from level_backward import level_backward
-    from level_binary import level_binary
-    from level_bipartite import level_bipartite
-    from level_bis_repetita import level_bis_repetita
-    from level_cartesian import level_cartesian
-    from level_chessboard import level_chessboard
-    from level_crossroad import level_crossroad
-    from level_crystal import level_crystal
-    from level_dead_ends import level_dead_ends
-    from level_dominating_set import level_dominating_set
-    from level_electricity import level_electricity
-    from level_fluid import level_fluid
-    from level_fractal import level_fractal
-    from level_graph import level_graph
-    from level_hello_world import level_hello_world
-    from level_independent_set import level_independent_set
-    from level_infinity import level_infinity
-    from level_icone import level_icone
-    from level_knapsack import level_knapsack
-    from level_linear import level_linear
-    from level_loop import level_loop
-    from level_manhattan_distance import level_manhattan_distance
-    from level_matrix import level_matrix
-    from level_odd import level_odd
-    from level_parallel import level_parallel
-    from level_partition import level_partition
-    from level_point_of_no_return import level_point_of_no_return
-    from level_random import level_random
-    from level_recurrence import level_recurrence
-    from level_river import level_river
-    from level_sinusoidal import level_sinusoidal
-    from level_square import level_square
-    from level_temple import level_temple
-    from level_tree import level_tree
-    from level_tesseract import level_tesseract
-    from level_tetrahedron import level_tetrahedron
-    from level_xor import level_xor
+    from levels.level_4_colors_theorem import level_4_colors_theorem
+    from levels.level_alice_and_bob import level_alice_and_bob
+    from levels.level_alien import level_alien
+    from levels.level_backward import level_backward
+    from levels.level_binary import level_binary
+    from levels.level_bipartite import level_bipartite
+    from levels.level_bis_repetita import level_bis_repetita
+    from levels.level_cartesian import level_cartesian
+    from levels.level_chessboard import level_chessboard
+    from levels.level_crossroad import level_crossroad
+    from levels.level_crystal import level_crystal
+    from levels.level_dead_ends import level_dead_ends
+    from levels.level_dominating_set import level_dominating_set
+    from levels.level_electricity import level_electricity
+    from levels.level_fluid import level_fluid
+    from levels.level_fractal import level_fractal
+    from levels.level_graph import level_graph
+    from levels.level_hello_world import level_hello_world
+    from levels.level_independent_set import level_independent_set
+    from levels.level_infinity import level_infinity
+    from levels.level_icone import level_icone
+    from levels.level_knapsack import level_knapsack
+    from levels.level_linear import level_linear
+    from levels.level_loop import level_loop
+    from levels.level_manhattan_distance import level_manhattan_distance
+    from levels.level_matrix import level_matrix
+    from levels.level_odd import level_odd
+    from levels.level_parallel import level_parallel
+    from levels.level_partition import level_partition
+    from levels.level_point_of_no_return import level_point_of_no_return
+    from levels.level_random import level_random
+    from levels.level_recurrence import level_recurrence
+    from levels.level_river import level_river
+    from levels.level_sinusoidal import level_sinusoidal
+    from levels.level_square import level_square
+    from levels.level_temple import level_temple
+    from levels.level_tree import level_tree
+    from levels.level_tesseract import level_tesseract
+    from levels.level_tetrahedron import level_tetrahedron
+    from levels.level_xor import level_xor
         
     levels_functions_list = [
                              # level_icone,
@@ -151,7 +151,4 @@ class Levels:
     
 if __name__ == "__main__":
     
-    for level_function in Levels.levels_functions_list:
-        level = level_function()
-        print(level.name)
-    
+    Levels.save_solutions_txt(do_it_fast=True)

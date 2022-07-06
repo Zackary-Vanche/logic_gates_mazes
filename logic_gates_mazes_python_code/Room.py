@@ -6,7 +6,7 @@ Created on Thu Feb 24 20:53:44 2022
 """
 
 from numpy import ceil, sqrt
-from fonction_affine import fonction_affine
+from linear_function import linear_function
 
 class Room:
     
@@ -77,12 +77,12 @@ class Room:
         if xmin == xmax:
             fx = lambda k : k + x_gap + x/2
         else:
-            (px, cx) = fonction_affine(xmin, new_xmin, xmax, new_xmax)
+            (px, cx) = linear_function(xmin, new_xmin, xmax, new_xmax)
             fx = lambda x : px*x+cx
         if ymin == ymax:
             fy = lambda k : k + y_gap + y/2
         else:
-            (py, cy) = fonction_affine(ymin, new_ymin, ymax, new_ymax)
+            (py, cy) = linear_function(ymin, new_ymin, ymax, new_ymax)
             fy = lambda y : py*y+cy
         for k in range(n_switches):
             [x_switch, y_switch] = positions[k]

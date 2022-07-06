@@ -35,11 +35,11 @@ from numpy import array
 from time import time
 from time import sleep
 
-from fonction_affine import fonction_affine
+from linear_function import linear_function
 from Maze import Maze
 from Levels import Levels
 
-from level_random import level_random
+from levels.level_random import level_random
 
 class Game:
     
@@ -167,7 +167,7 @@ class Game:
             self.keep_proportions = self.maze.keep_proportions
 
             # Choix de la bordure en fonction de la hauteur de la fenêtre
-            (pente, coeff) = fonction_affine(643, 35, 1080, 75)
+            (pente, coeff) = linear_function(643, 35, 1080, 75)
             self.maze.set_extreme_coordinates(0,
                                               self.x_separation,
                                               0,
@@ -192,7 +192,7 @@ class Game:
             keep_proportions = self.maze.keep_proportions
 
             # Choix de la bordure en fonction de la hauteur de la fenêtre
-            (pente, coeff) = fonction_affine(643, 35, 1080, 75)
+            (pente, coeff) = linear_function(643, 35, 1080, 75)
             self.maze.set_extreme_coordinates(0,
                                               self.x_separation,
                                               0,
@@ -436,9 +436,9 @@ class Game:
         string_help = self.maze.help_txt[self.index_help_page]
         gap = 0
         help_list = string_help.split('\n')
-        p, c = fonction_affine(768-self.Y_marge, 50, 1080-self.Y_marge, 50)
+        p, c = linear_function(768-self.Y_marge, 50, 1080-self.Y_marge, 50)
         y0 = p*self.WINDOW_HEIGHT + c
-        p, c = fonction_affine(1366-self.X_marge, 50, 1920-self.X_marge, 50)
+        p, c = linear_function(1366-self.X_marge, 50, 1920-self.X_marge, 50)
         x0 = p*self.WINDOW_WIDTH + c
         for line in help_list:
             self.WINDOW.blit(self.font.render(line,
@@ -533,7 +533,7 @@ class Game:
                     self.current_action = ''
                     self.keep_proportions = self.maze.keep_proportions
                     # Choix de la bordure en fonction de la hauteur de la fenêtre
-                    (pente, coeff) = fonction_affine(643, 35, 1080, 75)
+                    (pente, coeff) = linear_function(643, 35, 1080, 75)
                     self.maze.set_extreme_coordinates(0,
                                                       self.x_separation,
                                                       0,
@@ -620,7 +620,7 @@ class Game:
         self.t0 = time()
         self.n_loops = 0
         while self.looping:
-            #sleep(self.sleep_time) # I did that not to use too much CPU
+            sleep(self.sleep_time) # I did that not to use too much CPU
             self.n_loops += 1
             if self.do_you_quit_game():
                 return None

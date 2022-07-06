@@ -5,7 +5,7 @@ Created on Thu Feb 24 20:55:41 2022
 @author: utilisateur
 """
 
-from fonction_affine import fonction_affine
+from linear_function import linear_function
 from numpy import array as array
 from numpy.linalg import norm as np_linalg_norm
 from time import time as time
@@ -618,7 +618,7 @@ class Maze:
             pente_y = (new_y_max - new_y_min) / old_delta_y
             if 1/pente_x > 1/pente_y:
                 new_y_moy = (new_y_min + new_y_max)/2
-                (pente, coeff_x) = fonction_affine(old_x_min,
+                (pente, coeff_x) = linear_function(old_x_min,
                                                    new_x_min,
                                                    old_x_max,
                                                    new_x_max)
@@ -626,7 +626,7 @@ class Maze:
                 coeff_y = new_y_min - old_y_min*pente
             else:
                 new_x_moy = (new_x_min + new_x_max)/2
-                (pente, coeff_y) = fonction_affine(old_y_min,
+                (pente, coeff_y) = linear_function(old_y_min,
                                                    new_y_min,
                                                    old_y_max,
                                                    new_y_max)
@@ -641,11 +641,11 @@ class Maze:
                 room.position = [x_gap, y_gap, x, y]
                 self.extreme_coordinates = None
         else:
-            (pente_x, coeff_x) = fonction_affine(old_x_min,
+            (pente_x, coeff_x) = linear_function(old_x_min,
                                                  new_x_min,
                                                  old_x_max,
                                                  new_x_max)
-            (pente_y, coeff_y) = fonction_affine(old_y_min,
+            (pente_y, coeff_y) = linear_function(old_y_min,
                                                  new_y_min,
                                                  old_y_max,
                                                  new_y_max)
