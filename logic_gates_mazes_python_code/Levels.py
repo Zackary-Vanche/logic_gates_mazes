@@ -109,8 +109,8 @@ class Levels:
     def save_solutions_txt(verbose=0, do_it_fast=False):
         t0 = time()
         txt = ''
-        if not os_path_exists('mazes'):
-            os_mkdir('mazes')
+        if not os_path_exists('solutions'):
+            os_mkdir('solutions')
         if do_it_fast:
             for k in range(Levels.number_of_levels):
                 level = Levels.get_level(k)
@@ -141,7 +141,7 @@ class Levels:
                     print(t3 - t2, 's')
                     calculations_times.append(t3 - t2)
                 txt += '\n'
-        with open('mazes/solutions.txt', 'w') as f:
+        with open('solutions/solutions.txt', 'w') as f:
             f.write(txt)
         t1 = time()
         if verbose >= 1:
