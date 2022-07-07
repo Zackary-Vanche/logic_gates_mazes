@@ -224,7 +224,7 @@ The name of the exit room is RE.
 help_menus_list["Parallel"] = """The "Guess and check" method works well here.
 """
 
-help_menus_list["Matrix"] = """To solve this level you need to do a matrix inversion.
+help_menus_list["Matrix"] = """To solve this level you need to do a 5*5 matrix inversion.
 """
 
 help_menus_list["Tetrahedron"] = """The logic expressions of the doors of this level have been calculated by computer.
