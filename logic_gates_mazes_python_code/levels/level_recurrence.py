@@ -115,10 +115,6 @@ def level_recurrence():
           relative_departure_coordinates = relative_departure_coordinates_D6,
           relative_arrival_coordinates = relative_arrival_coordinates_D6)
     
-    l_help_txt = [
-"""Sometime, square brackets can be used instead of parentheses.
-"""]
-    
     level = Maze(start_room_index=0, 
              exit_room_index=-1, 
              rooms_list=[R0, R1, R2, R3, RE], 
@@ -126,7 +122,6 @@ def level_recurrence():
              fastest_solution='S0 S1 D0 S2 D1 S0 S1 D0 S3 D2 S4 D3 S2 S3 D2 S5 D4 S6 D5 S4 S5 D4 S6 D6',
              level_color=Levels_colors_list.BLACK_AND_GREY_RED_CONTOUR,
              name='Recurrence',
-             help_txt = l_help_txt,
              border = 55)
     
     return level

@@ -102,12 +102,6 @@ def level_square():
               relative_departure_coordinates=relative_departure_coordinates_D4,
               relative_arrival_coordinates=relative_arrival_coordinates_D4)
 
-    l_help_txt = ["""Instead of writing actions one by one, one can write several at a time, separated by spaces.
-For instance, you can write :
-    S0 S1 D0
-if you want to turn on S0, S1 and then use the door D0.
-"""]
-
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, RE],
@@ -115,7 +109,6 @@ if you want to turn on S0, S1 and then use the door D0.
                  fastest_solution="S0 D2 S3 D1 S2 D0 S1 D3 D4",
                  level_color=Levels_colors_list.DARK_RED,
                  name='Square',
-                 help_txt=l_help_txt,
                  door_window_size=500,
                  border=60,
                  keep_proportions=True)

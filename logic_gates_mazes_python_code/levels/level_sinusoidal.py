@@ -390,14 +390,6 @@ def level_sinusoidal():
                 room_departure = R15, 
                 room_arrival = RE)
     
-    l_help_txt = [
-"""One new notation is used in this level :
-    
-    XOR can be used with more than 3 parameters :
-        D0 = XOR(S0, S1, ...) means :
-            D0 is open if there is exactly one switch among its parameters that is turned on.
-"""]
-    
     level = Maze(start_room_index=0, 
              exit_room_index=-1, 
              rooms_list=[R0, R1,
@@ -410,7 +402,6 @@ def level_sinusoidal():
              fastest_solution="S0 S3 S4 D0 D1 S5 D13 D18 S10 D6 D10 S14 D22 D25 D26",
              level_color=Levels_colors_list.PURPLE_BLUE,
              name='Sinusoidal',
-             help_txt = l_help_txt,
              door_window_size=425,
              y_separation=50,
              border = 30,

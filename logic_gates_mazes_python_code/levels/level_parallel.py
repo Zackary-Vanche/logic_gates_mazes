@@ -105,18 +105,6 @@ def level_parallel():
           relative_departure_coordinates = relative_departure_coordinates_D6, 
           relative_arrival_coordinates = relative_arrival_coordinates_D6)
     
-    l_help_txt = [ 
-"""The "Guess and check" method works well here.
-"""
-]
-    
-    """[Reminder] : To change the doors' notation, press [N].
-
-    There are 2 notations :
-        The first one is the easy one.
-        The second one only uses the symbols &, | and -.
-    """
-    
     level = Maze(start_room_index=0, 
              exit_room_index=-1, 
              rooms_list=[R0, R1, R2, RE], 
@@ -124,7 +112,6 @@ def level_parallel():
              fastest_solution='S0 D0 S1 D1 S2 D2 D0 S1 S4 D3 D5 S5 D4 S1 D3 S3 D6', 
              level_color=Levels_colors_list.PINK,
              name='Parallel',
-             help_txt = l_help_txt,
              border = 50)
     
     return level

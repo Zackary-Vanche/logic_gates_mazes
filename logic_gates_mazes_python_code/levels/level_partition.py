@@ -64,9 +64,6 @@ def level_partition():
                 tree=T1,
                 room_departure=R1,
                 room_arrival=RE)
-    
-    l_help_txt = ["""
-"""]
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
@@ -75,7 +72,6 @@ def level_partition():
                  fastest_solution="S0 S1 S2 S3 S4 S5 D0 D1",
                  level_color=Levels_colors_list.FROM_HUE(0.5),
                  name='Partition',
-                 help_txt=l_help_txt,
                  door_window_size=950,
                  keep_proportions=True)
 

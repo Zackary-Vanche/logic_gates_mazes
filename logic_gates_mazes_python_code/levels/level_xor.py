@@ -167,16 +167,6 @@ def level_xor():
               room_departure=R8,
               room_arrival=RE)
 
-    l_help_txt = ["""A new operand is used in this level :
-
-    NAND truth table (D0 = NAND S0 S1 = ¬& S0 S1):
-    S0  S1  D0
-      0    0    1
-      0    1    1
-      1    0    1
-      1    1    0
-"""]
-
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, RE],
@@ -184,7 +174,6 @@ def level_xor():
                  fastest_solution='S1 S3 S5 D0 S8 D1 D2 D3 D4 D5 D6 D7 D8',
                  level_color=Levels_colors_list.RED_AND_ORANGE,
                  name='XOR',
-                 help_txt=l_help_txt,
                  door_window_size=550)
 
     return level

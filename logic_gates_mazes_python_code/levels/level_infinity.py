@@ -146,19 +146,6 @@ def level_infinity():
                room_arrival=RE,
                relative_position=0.6)
 
-    l_help_txt = ["""A cheat code exists.
-If you add the letter A before a command :
-    You can turn on a switch even if you are not in its room.
-    You can use a door even if it is not open.
-    If a door is one-way, you can use it even if you are not in the good room.
-
-Writing A D10 allows you to end this level by cheating.
-
-You can also use the cheat code to go directly in a room by giving its name :
-    A R2 allows you to go in the room R2.
-The name of the exit room is RE.
-"""]
-
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, RE],
@@ -166,7 +153,6 @@ The name of the exit room is RE.
                  fastest_solution='S0 D0 S1 D8 S3 D3 S4 D9 S2 D7 S5 D4 S9 D6 S6 D1 S7 D2 S8 D5 D10',
                  level_color=Levels_colors_list.BLACK_AND_YELLOW,
                  name='Infinity',
-                 help_txt=l_help_txt,
                  border=50,
                  keep_proportions=False)
     return level

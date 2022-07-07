@@ -148,9 +148,6 @@ def level_cartesian():
                room_departure=R0,
                room_arrival=RE)
 
-    l_help_txt = ["""Sorry, there is nothing to help you here.
-"""]
-
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, RE],
@@ -158,7 +155,6 @@ def level_cartesian():
                  fastest_solution="S0 D0 D1 S2 D6 S7 D9 D0 S1 D1 S2 D2 S3 D3 S4 D7 S8 D9 D0 D1 D2 D3 S4 D4 D5 S6 D8 D9 D0 D1 D2 D3 D4 S5 D5 S6 D8 D9 D0 D1 D2 D3 S4 D7 D9 D0 S1 D1 S2 D6 D9 S0 D10",
                  level_color=Levels_colors_list.GREEN_GREY,
                  name='Cartesian',
-                 help_txt=l_help_txt,
                  door_window_size=550,
                  keep_proportions=True)
 

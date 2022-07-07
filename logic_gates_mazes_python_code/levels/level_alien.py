@@ -227,9 +227,6 @@ def level_alien():
                 tree=T16,
                 room_departure=R1,
                 room_arrival=RE)
-    
-    l_help_txt = ["""Don't look for something too complicated.
-"""]
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
@@ -238,7 +235,6 @@ def level_alien():
                  fastest_solution="S0 S1 D7 S11 D6 S9 S10 D5 S8 D4 S6 S7 D3 S5 D2 S3 S4 D1 S2 D16",
                  level_color=Levels_colors_list.SHINY_GREEN,
                  name='Alien',
-                 help_txt=l_help_txt,
                  door_window_size=600,
                  keep_proportions=False)
 

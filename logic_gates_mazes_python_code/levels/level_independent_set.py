@@ -59,6 +59,7 @@ def level_independent_set():
               switches = [S0, S1, S2, S3, S4, S5, S6, S7, S8, Switch(value=3, name='3')])
     
     e = 2.5
+    p = 2/3
 
     R0 = Room(name='R0',
               position = [0, e, 4*e+1.4, 1],
@@ -67,13 +68,13 @@ def level_independent_set():
               position = [0, 0, 1, 1],
               switches_list = [])
     R2 = Room(name='R2',
-              position = [e, -0.3, 1, 1],
+              position = [e, -3*p, 1, 1],
               switches_list = [])
     R3 = Room(name='R3',
-              position = [2*e, -0.5, 1, 1],
+              position = [2*e, -4*p, 1, 1],
               switches_list = [])
     R4 = Room(name='R4',
-              position = [3*e, -0.3, 1, 1],
+              position = [3*e, -3*p, 1, 1],
               switches_list = [])
     RE = Room(name='RE',
               position=[4*e, 0, 1.4, 1.4],
@@ -100,9 +101,6 @@ def level_independent_set():
               tree=T4,
               room_departure=R4,
               room_arrival=RE)
-    
-    l_help_txt = ["""
-"""]
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
@@ -111,7 +109,6 @@ def level_independent_set():
                  fastest_solution='S0 S2 S6 S8 D0 D1 D2 D3 D4',
                  level_color=Levels_colors_list.FROM_HUE(0.2),
                  name='Independent set',
-                 help_txt=l_help_txt,
                  door_window_size=600,
                  keep_proportions=True)
 

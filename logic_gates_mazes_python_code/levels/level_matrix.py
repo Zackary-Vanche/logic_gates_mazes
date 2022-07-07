@@ -178,9 +178,6 @@ def level_matrix():
                 tree=T4,
                 room_departure=R4,
                 room_arrival=RE)
-    
-    l_help_txt = ["""
-"""]
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
@@ -189,7 +186,6 @@ def level_matrix():
                  fastest_solution='S2 S5 S6 S8 S9 D0 D1 D2 D3 D4',
                  level_color=Levels_colors_list.BLACK_AND_GREEN,
                  name='Matrix',
-                 help_txt=l_help_txt,
                  door_window_size=950,
                  keep_proportions=True)
 

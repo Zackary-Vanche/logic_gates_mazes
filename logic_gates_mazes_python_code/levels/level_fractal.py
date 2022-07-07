@@ -293,10 +293,7 @@ def level_fractal():
                 room_arrival=RE,
                 relative_departure_coordinates = [1/2, 1/4], 
                 relative_arrival_coordinates = [1/2, 3/4])
-    
-    l_help_txt = ["""As you see, several doors lead to the exit.
-There is only one that can be opened."""]
-    
+
     level = Maze(start_room_index=0, 
              exit_room_index=-1, 
              rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, RE], 
@@ -311,7 +308,6 @@ There is only one that can be opened."""]
              fastest_solution='S0 D0 S1 D3 S3 D5 S4 D4 D3 D9 S7 D11 S8 D10 S3 D5 S4 D12 S9 D14 S10 D13 S4 D4 S1 D2 S2 D6 S5 D15 S11 D17 S12 D16 S5 D8 D18 S13 D20 S14 D19 S6 D7 S2 D2 S1 D3 D5 S4 D12 D14 S10 D13 D4 D3 S3 D5 S4 D4 S1 D2 S2 D1 S0 D0 S1 D21',
              level_color=Levels_colors_list.BEIGE,
              name='Fractal',
-             help_txt = l_help_txt,
              door_window_size=500,
              y_separation=50,
              border = 30,

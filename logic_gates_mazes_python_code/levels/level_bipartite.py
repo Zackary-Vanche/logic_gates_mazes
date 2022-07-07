@@ -194,9 +194,6 @@ def level_bipartite():
                room_departure=R7,
                room_arrival=RE,
                surrounding_color=Color.WHITE)
-    
-    l_help_txt = ["""This level has several solutions.
-"""]
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
@@ -206,7 +203,6 @@ def level_bipartite():
                  level_color=Levels_colors_list.BLACK_AND_GREY_WHITE_CONTOUR,
                  uniform_surrounding_colors=False,
                  name='Bipartite',
-                 help_txt=l_help_txt,
                  door_window_size=450,
                  border=100,
                  keep_proportions=False)

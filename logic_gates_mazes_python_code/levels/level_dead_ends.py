@@ -217,10 +217,6 @@ def level_dead_ends():
                room_arrival = R0, 
               relative_departure_coordinates = relative_departure_coordinates_D14, 
               relative_arrival_coordinates = relative_arrival_coordinates_D14)
-    
-    l_help_txt = [
-"""Even if it is the first level that actually looks like a printed circuit board, you have been in a computer all this time.
-"""]
         
     level = Maze(start_room_index=0, 
                  exit_room_index=-1, 
@@ -229,7 +225,6 @@ def level_dead_ends():
                  fastest_solution="S0 D1 S1 D2 D3 S4 D4 D11 S8 D12 D13 S9 S11 D14 S0 D5 S5 D6 S0 D9 S7 D10 S0 D7 S6 D8 D0", 
                  level_color=Levels_colors_list.DARK_GREEN,
                  name='Dead_ends',
-                 help_txt = l_help_txt,
                  door_window_size = 500,
                  border = 50)
     

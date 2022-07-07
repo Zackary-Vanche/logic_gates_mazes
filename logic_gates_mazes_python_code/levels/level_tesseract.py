@@ -343,14 +343,6 @@ def level_tesseract():
                relative_departure_coordinates=[1/2, 1],
                relative_arrival_coordinates=[1/2, 0])
     
-    l_help_txt = [
-"""One new notation is used in this level :
-    
-    D0 = 1 means that D0 is always open.
-    
-The tesseract is hidden in the equations.
-"""]
-    
     level = Maze(start_room_index=0, 
               exit_room_index=-1, 
               rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, RE], 
@@ -358,7 +350,6 @@ The tesseract is hidden in the equations.
               fastest_solution="D2 S2 D6 D16 D20 D10 S6 D14 D17 D18 D3 S3 D7 D16 D21 D11 S7 D15 D17 D18 D0 S0 D4 D16 D18 D8 S4 D12 D17 D18 D1 S1 D5 D16 D19 D9 S5 D13 D17 D18 D22",
               level_color=Levels_colors_list.BLACK_AND_WHITE,
               name='Tesseract',
-              help_txt = l_help_txt,
               keep_proportions=False,
               door_window_size=550,
               y_separation=50)

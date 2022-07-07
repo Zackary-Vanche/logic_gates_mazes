@@ -68,14 +68,6 @@ def level_bis_repetita():
               room_departure=R2,
               room_arrival=RE,
               relative_position=0.7)
-    
-    l_help_txt = [
-"""One new operand is used in this level : XOR
-
-    XOR means exclusive or.
-    D0 = XOR S0 S1 = ^ S0 S1 means :
-        D0 is open if S0 is different from S1.
-"""]
         
     level = Maze(start_room_index=0, 
                  exit_room_index=-1, 
@@ -84,7 +76,6 @@ def level_bis_repetita():
                  fastest_solution="S0 D0 S1 D1 S2 D2 S0 D0 S1 D1 S2 D3",
                  level_color=Levels_colors_list.BRIGHT_AND_DARK_BLUE,
                  name='Bis repetita',
-                 help_txt = l_help_txt,
                  border = 30,
                  door_window_size = 500,
                  keep_proportions=True)

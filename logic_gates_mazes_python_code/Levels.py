@@ -114,9 +114,9 @@ class Levels:
         if do_it_fast:
             for k in range(Levels.number_of_levels):
                 level = Levels.get_level(k)
-                print('')
                 name = level.name
-                print('Level', k, ':', name)
+                if verbose > 0:
+                    print('\nLevel', k, ':', name)
                 txt += name + '\n'
                 txt += str(level.fastest_solution) + '\n\n'
                 # txt += str(level.simplify_solution()) + '\n\n'

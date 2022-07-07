@@ -202,10 +202,6 @@ def level_crystal():
                room_arrival = R4, 
                relative_departure_coordinates = relative_departure_coordinates_D12, 
                relative_arrival_coordinates = relative_arrival_coordinates_D12)
-
-    l_help_txt = [
-"""If you make a mistake, you have to start all over again.
-"""]
         
     level = Maze(start_room_index=0, 
                  exit_room_index=-1, 
@@ -214,7 +210,6 @@ def level_crystal():
                  fastest_solution='S0 S6 D1 D3 S3 S9 D5 S5 D12 D10 D8 S0 S6 D2 D4 S4 D6 S11 D11 D9 S1 S7 D7 S0 S6 D0',
                  level_color=Levels_colors_list.SALMON_AND_GREY,
                  name='Crystal',
-                 help_txt = l_help_txt,
                  door_window_size = 500,
                  border = 25)
         

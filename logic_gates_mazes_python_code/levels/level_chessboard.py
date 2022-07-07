@@ -221,10 +221,6 @@ def level_chessboard():
                relative_departure_coordinates=[1, 1/2],
                relative_arrival_coordinates=[0, 1/2])
     
-    l_help_txt = ["""If you remove the exit, the graph of this level is the graph of the possible moves of a knight in a 3*4 rectangle.
-However, sometimes here doors are one-way only.
-"""]
-    
     level = Maze(start_room_index=0, 
              exit_room_index=-1, 
              rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, RE], 
@@ -233,7 +229,6 @@ However, sometimes here doors are one-way only.
              level_color=Levels_colors_list.YELLOW_AND_GREY,
              uniform_surrounding_colors=False,
              name='Chessboard',
-             help_txt=l_help_txt,
              door_window_size=500,
              keep_proportions=False,
              line_size=4)

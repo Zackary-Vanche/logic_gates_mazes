@@ -207,9 +207,6 @@ def level_dominating_set():
                tree=T16,
                room_departure=R7,
                room_arrival=RE)
-    
-    l_help_txt = ["""
-"""]
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
@@ -218,7 +215,6 @@ def level_dominating_set():
                  fastest_solution='S3 S4 D0 S9 D3 D4 S10 D4 D5 D6 D10 S14 D10 D11 S16 D11 D12 S17 D12 S13 D6 S11 D5 S12 D9 S15 D16',
                  level_color=Levels_colors_list.FROM_HUE(0.6),
                  name='Dominating set',
-                 help_txt=l_help_txt,
                  door_window_size=500,
                  keep_proportions=False)
 

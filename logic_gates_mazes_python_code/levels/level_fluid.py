@@ -74,36 +74,11 @@ def level_fluid():
     D4  = Door(two_way = True,  tree = T4,  name='D4',  room_departure = R0, room_arrival = R2)
     D5  = Door(two_way = True,  tree = T5,  name='D5',  room_departure = R1, room_arrival = R3)
     
-    l_help_txt = [
-"""A truth table tells you the result of a logical expression.
-Here are some examples :
-
-    Negation truth table (D0 = ¬S0):
-    S0  D0
-      0     1
-      1     0
-      
-    AND truth table (D0 = & S0 S1):
-    S0  S1  D0
-      0    0    0
-      0    1    0
-      1    0    0
-      1    1    1
-      
-    OR truth table (D0 = | S0 S1):
-    S0  S1  D0
-      0    0    0
-      0    1    1
-      1    0    1
-      1    1    1
-"""]
-    
     level = Maze(start_room_index=0, 
               exit_room_index=-1, 
               rooms_list=[R0, R1, R2, R3, RE], 
               doors_list = [D0, D1, D2, D3, D4, D5],
               fastest_solution='S0 D0 S1 D1 S2 S6 D4 S0 S4 D4 D2 S3 S7 D5 S1 S5 D5 D3',
               level_color=Levels_colors_list.BRIGHT_BLUE,
-              name='Fluid',
-              help_txt = l_help_txt)
+              name='Fluid')
     return level

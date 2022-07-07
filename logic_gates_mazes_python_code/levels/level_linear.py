@@ -66,34 +66,6 @@ def level_linear():
           room_departure = R3, 
           room_arrival = RE)
     
-    l_help_txt = [
-"""Several new notations are used in this level :
-    
-    Negation :
-    NOT S0 = 1 if S0 = 0
-    NOT S0 = 0 if S0 = 1
-    ¬S0 = NOT S0
-    Be carefull with the negation, because you have :
-        ¬ 1 = 0
-        ¬ 0 = 1
-    
-    D0 = AND S0 S1 means :
-        D0 is open if (S0, S1) = (1,1)
-    It can also be written : 
-        D2 = & S0 S1
-    
-    By combining these notations, you can write :
-    D1 = & S2 ¬ S3 means :
-        D1 is open if (S2, S3) = (1,0)
-    D2 = AND ¬ S4 S5 means :
-        D2 is open if (S4, S5) = (0,1)
-    D3 = & ¬ S6 ¬ S7  S6 S7 means :
-        D3 is open if (S6, S7) = (0,0)
-        It can also be written :
-        D3 = NOR S6 S7
-        D3 = ¬| S6 S7
-"""]
-    
     level = Maze(start_room_index=0, 
              exit_room_index=-1, 
              rooms_list=[R0, R1, R2, R3, RE], 
@@ -101,7 +73,6 @@ def level_linear():
              fastest_solution='S0 S1 D0 S2 D1 S5 D2 D3',
              level_color=Levels_colors_list.BRIGHT_GREEN,
              name='Linear',
-             help_txt = l_help_txt,
              door_window_size = 500,
              keep_proportions = True)
     

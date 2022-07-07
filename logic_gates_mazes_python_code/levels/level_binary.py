@@ -87,16 +87,6 @@ def level_binary():
               room_departure=R0,
               room_arrival=RE)
 
-    l_help_txt = [
-"""At every step, you have only one action possible :
-    In the beginning, you can only turn on S0.
-    Then, a door opens, so you use it...
-    And so on...
-    
-To go directly on a room, you can type its name (if it is possible for you to go there).
-The exit room is called RE.
-"""]
-
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, RE],
@@ -104,7 +94,6 @@ The exit room is called RE.
                  fastest_solution='S0 D3 S4 D3 D2 S3 D2 D3 D1 S2 D1 D5 S6 D5 D3 D2 D0 S1 D0 D4 S5 D4 D2 D6',
                  level_color=Levels_colors_list.BLUE_GREEN,
                  name='Binary',
-                 help_txt=l_help_txt,
                  door_window_size=500)
 
     return level

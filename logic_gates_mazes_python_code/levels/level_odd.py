@@ -103,11 +103,6 @@ def level_odd():
            relative_departure_coordinates = relative_departure_coordinates_D6,
            relative_arrival_coordinates = relative_arrival_coordinates_D6)
     
-    l_help_txt = [
-"""
-To leave the game, you can click an the cross but also press [Q] or [ESCAPE].
-"""]
-    
     level = Maze(start_room_index=0, 
              exit_room_index=-1, 
              rooms_list=[R0, R1, R2, R3, RE], 
@@ -115,7 +110,6 @@ To leave the game, you can click an the cross but also press [Q] or [ESCAPE].
              fastest_solution='S4 D2 D4 S1 D4 D2 S4 D1 D5 S3 D5 D1 S0 D3 D6 S2 D6 D3 S4 D0', 
              level_color=Levels_colors_list.PURPLE,
              name='Odd',
-             help_txt = l_help_txt,
              border = 60,
              door_window_size = 500,
              keep_proportions = True)

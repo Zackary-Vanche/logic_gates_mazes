@@ -55,10 +55,6 @@ def level_crossroad():
               relative_departure_coordinates = [0.1, 1/2], relative_arrival_coordinates = [0.1, 1/2])
     D4 = Door(two_way = False, tree = T4, name='D4', room_departure = R2, room_arrival = R3)
     D5 = Door(two_way = False, tree = T5, name='D5', room_departure = R3, room_arrival = RE)
-    
-    l_help_txt = [
-"""[Reminder] : To start the level again from the beginning, press [B].
-"""]
         
     level = Maze(start_room_index=0, 
                  exit_room_index=-1, 
@@ -67,7 +63,6 @@ def level_crossroad():
                  fastest_solution='S0 S2 D2 S4 D4 S1 S3 D1 D0 S5 D3 D5',
                  level_color=Levels_colors_list.YELLOW,
                  name='Crossroad',
-                 help_txt = l_help_txt,
                  border = 30,
                  door_window_size = 500)
 

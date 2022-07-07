@@ -114,41 +114,12 @@ def level_point_of_no_return():
           relative_departure_coordinates = relative_departure_coordinates_D5,
           relative_arrival_coordinates = relative_arrival_coordinates_D5)
     
-    l_help_txt = [
-"""One new operand is used in this level : XNOR
-
-    XOR means exclusive or.
-    XNOR is its opposite.
-    
-    XOR truth table (D0 = XOR S0 S1 = ^ S0 S1):
-    S0  S1  D0
-      0    0    0
-      0    1    1
-      1    0    1
-      1    1    0  
-    In other words, D0 is open if S0 is different from S1.
-      
-    XNOR truth table (D0 = XNOR S0 S1 = ¬^ S0 S1):
-    S0  S1  D0
-      0    0    1
-      0    1    0
-      1    0    0
-      1    1    1    
-    In other words, D0 is open if S0 = S1.
-    
-    You can write :
-        XOR S0 S1 = | & S0 ¬ S1 & ¬ S0 S1 
-        XNOR S0 S1 = | & S0 S1 & ¬ S0 ¬ S1
-        XNOR S0 S1 = ¬ XOR S0 S1
-"""]
-    
     level = Maze(start_room_index=0, 
              exit_room_index=-1, 
              rooms_list=[R0, R1, R2, R3, R4, R5, RE], 
              doors_list = [D0, D1, D2, D3, D4, D5],
              fastest_solution='S0 S5 S7 S8 D0 S9 D1 S1 D1 D2 S2 D2 D3 S3 D3 D4 S4 D4 D5',
              level_color=Levels_colors_list.DARK_BLUE,
-             name='Point_of_no_return',
-             help_txt = l_help_txt)
+             name='Point_of_no_return')
     
     return level

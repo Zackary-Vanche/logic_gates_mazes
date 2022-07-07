@@ -87,11 +87,6 @@ def level_tetrahedron():
           relative_departure_coordinates = [d0, d1], 
           relative_arrival_coordinates = [0.7, 0.7])
     
-    l_help_txt = [
-"""The logic expressions of the doors of this level have been calculated by computer.
-The program that calculated it already knew all the rest of the level.
-"""]
-    
     level = Maze(start_room_index=0, 
              exit_room_index=-1, 
              rooms_list=[R0, R1, R2, R3, RE], 
@@ -99,7 +94,6 @@ The program that calculated it already knew all the rest of the level.
              fastest_solution="S4 D1 S2 D5 S3 D2 S0 S4 D0 D4 S3 S7 D2 S0 D1 S6 D3 S1 S5 D0 S0 S4 D2 D5 S6 D3 S1 D4 S7 D6",
              level_color=Levels_colors_list.REALLY_BRIGHT_RED,
              name='Tetrahedron',
-             help_txt = l_help_txt,
              border = 30,
              door_window_size = 550,
              keep_proportions = True)

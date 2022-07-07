@@ -119,25 +119,6 @@ def level_river():
                 room_departure=R4,
                 room_arrival=RE)
     
-    l_help_txt = [
-"""XOR is used with 3 parameters instead of 2.
-  
-    XOR truth table [D0 = XOR ( S0 S1 S2 )]:
-    S0  S1  S2  D0
-      0    0    0     0
-      0    1    0     1
-      1    0    0     1
-      1    1    0     0
-      0    0    1     1
-      0    1    1     0
-      1    0    1     0
-      1    1    1     0    
-    In other words:
-    D0 is open if there is exactly one switch among S0, S1 and S2 that is turned on.
-    
-You want to cross the river with a wolf, a goat and a cabbage.
-"""]
-    
     level = Maze(start_room_index=0, 
               exit_room_index=-1, 
               rooms_list=[R0, R1, R2, R3, R4, RE], 
@@ -145,7 +126,6 @@ You want to cross the river with a wolf, a goat and a cabbage.
               fastest_solution="D4 D5 D0 S1 D2 S4 D4 D5 D1 S7 D3 S4 D4 D5 D0 S0 D2 S3 D4 D5 D1 S6 S7 D3 S3 S4 D4 D5 D0 S1 S2 D2 S4 S5 D4 D5 D1 S8 D3 S5 D4 D5 D0 S1 D2 S4 D4 D5 D1 S7 D3 S4 D4 D5 D6",
               level_color=Levels_colors_list.DARK_AND_GREY_GREEN,
               name='River',
-              help_txt = l_help_txt,
               keep_proportions=False,
               door_window_size=500,
               y_separation=100)

@@ -118,12 +118,6 @@ def level_graph():
     D17 = Door(two_way = b, tree = T17, room_departure = R13, room_arrival = R12)
     D18 = Door(two_way = b, tree = T18, room_departure = R14, room_arrival = R13)
     
-    l_help_txt = [ 
-"""This level was initially inspired by the seven bridges of Königsberg problem.
-The difference is that here there is a solution.
-"""
-]
-    
     level = Maze(start_room_index=0, 
              exit_room_index=-1, 
              rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, RE], 
@@ -131,7 +125,6 @@ The difference is that here there is a solution.
              fastest_solution="S0 D1 D3 D9 S9 D14 D18 S13 D17 S12 D16 S11 D12 D8 S4 D7 D4 S2 D5 S6 D10 D15 S14 D13 S8 D11 S7 D6 S3 D0 D2",
              level_color=Levels_colors_list.BLACK_AND_BLUE,
              name='Graph',
-             help_txt = l_help_txt,
              door_window_size = 550,
              # print_tree_gap=28
              )

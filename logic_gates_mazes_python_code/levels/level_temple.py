@@ -381,11 +381,6 @@ def level_temple():
                 room_departure=R0,
                 room_arrival=RE,
                 relative_position=0.6)
-    
-    l_help_txt = [ 
-"""This level is the retranscription of a really known puzzle game.
-Once you find which game it is, the level is over.
-"""]
         
     level = Maze(start_room_index=0, 
                  exit_room_index=-1, 
@@ -399,7 +394,6 @@ D0 D12 D15 S20 D18 S29 D21 D22 D23
 D2 S6 D5 S15 S16 D8 S25 S26 D11 S29 D21 D22 D23 D24""".replace('\n', ' '),
                  level_color=Levels_colors_list.BEIGE_AND_BROWN,
                  name='Temple',
-                 help_txt = l_help_txt,
                  border = 30,
                  door_window_size = 575)
 

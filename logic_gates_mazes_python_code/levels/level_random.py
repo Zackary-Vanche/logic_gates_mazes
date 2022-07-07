@@ -245,9 +245,6 @@ def aux_level_random():
     #             room_departure=R7,
     #             room_arrival=RE,
     #             relative_departure_coordinates = [1, 0])
-    
-    l_help_txt = ["""help
-"""]
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
@@ -257,7 +254,6 @@ def aux_level_random():
                  level_color=Levels_colors_list.RANDOM(),
                  uniform_surrounding_colors=False,
                  name='Random',
-                 help_txt=l_help_txt,
                  door_window_size=500,
                  border=100,
                  keep_proportions=False,

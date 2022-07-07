@@ -64,25 +64,6 @@ def level_backward():
               relative_departure_coordinates=relative_departure_coordinates_D1,
               relative_arrival_coordinates=relative_arrival_coordinates_D1)
 
-    l_help_txt = [
-"""One new notation is used in this level :
-
-    To simplify notations, parentheses are used.
-
-    Instead of writing :
-        D0 = & S0 & S1 S2
-    you can write :
-        D0 = & S0 ( & S1 S2 )
-    or :
-        D0 = & ( S0 S1 S2 )
-    You can use this notation with more than 3 switches.
-    You can also use it with | instead of &.
-
-    In this level, the notation is used with negations :
-        D0 = & ¬ S0 ( & S1 S2 )
-           = & ( ¬ S0 S1 S2 )
-"""]
-
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, RE],
@@ -90,7 +71,6 @@ def level_backward():
                  fastest_solution='S0 D0 S2 D0 S0 S1 D1',
                  level_color=Levels_colors_list.BROWN,
                  name='Backward',
-                 help_txt=l_help_txt,
                  door_window_size=500)
 
     return level

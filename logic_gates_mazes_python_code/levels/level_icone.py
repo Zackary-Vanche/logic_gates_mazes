@@ -36,13 +36,6 @@ def level_icone():
           name='D0', 
           room_departure = R0, 
           room_arrival = RE)
-    
-    l_help_txt = [  # Trailing whitespace are normal for the next 2 lines.
-""" 
- 
-"""]
-# To change the doors' notation, press [N]. -> depretated but it will maybe come back
-    
 
     level = Maze(start_room_index=0, 
              exit_room_index=-1, 
@@ -51,7 +44,6 @@ def level_icone():
              fastest_solution="S0 D0",
              level_color=Levels_colors_list.BLACK_AND_WHITE_2,
              name='Icone',
-             help_txt = l_help_txt,
              door_window_size = 500,
              keep_proportions = True)
     

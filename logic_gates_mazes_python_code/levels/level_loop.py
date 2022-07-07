@@ -81,17 +81,6 @@ def level_loop():
               room_departure=R0,
               room_arrival=RE)
 
-    l_help_txt = ["""To change level, you can use :
-
-    the right arrow key to go to the next level
-    the left arrow key to go to the previous level
-    the down arrow key to go to the first level
-    the up arrow key to go to the last level
-
-    L and the number of the level you want to go to.
-    For instance, L12 will make you go to the level number 12.
-"""]
-
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, RE],
@@ -99,7 +88,6 @@ def level_loop():
                  fastest_solution='S0 D0 S1 D1 S2 S3 D2 S0 D3',
                  level_color=Levels_colors_list.BRIGHT_RED,
                  name='Loop',
-                 help_txt=l_help_txt,
                  door_window_size=500,
                  border=60,
                  keep_proportions=True)

@@ -10,7 +10,7 @@ from numpy import array as array
 from numpy.linalg import norm as np_linalg_norm
 from time import time as time
 from Level_color import Level_color
-from Levels_colors_list import Levels_colors_list
+from help_menus_list import help_menus_list
 
 class Maze: 
 
@@ -30,7 +30,6 @@ class Maze:
                  y_separation=70,
                  door_window_size=500,
                  border=50,
-                 help_txt=[''],
                  keep_proportions=False,
                  line_size=3,
                  random=False):
@@ -118,14 +117,6 @@ class Maze:
         self.door_window_size = door_window_size
         if self.fastest_solution is not None:
             assert self.try_solution(self.fastest_solution) == 2, self.name + ' wrong solution'
-        self.help_txt = help_txt
-        for help_page in help_txt:
-            assert len(help_page.split('\n')) <= 40, len(help_page.split('\n'))
-            max_len_h = max([len(h) for h in help_page.split('\n')])
-            assert (max_len_h <= 200), max_len_h
-        self.n_help_pages = len(help_txt)
-        if ''.join(help_txt).replace(' ', '').replace('\n', '') == '':
-            print(self.name, 'empty help')
         self.keep_proportions = keep_proportions
         self.level_color = level_color
         self.n_lines_door_printing = 0
@@ -137,6 +128,13 @@ class Maze:
             self.n_lines_door_printing += len(logical_expression)
         self.line_size = line_size
         self.uniform_surrounding_colors = uniform_surrounding_colors
+        if self.name in help_menus_list.keys():
+            self.help_txt = [help_menus_list[self.name]]
+        else:
+            self.help_txt = ['']
+        self.n_help_pages = len(self.help_txt)
+        if ' '.join(self.help_txt).replace(' ', '') == '':
+            print(self.name, 'empty help')
                 
     def add_door(self, door):
         self.doors_set.add(door)

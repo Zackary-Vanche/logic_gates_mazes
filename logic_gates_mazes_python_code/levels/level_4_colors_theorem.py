@@ -266,10 +266,6 @@ def level_4_colors_theorem():
                 room_departure=R18,
                 room_arrival=RE)
     
-    l_help_txt = [
-"""
-"""]
-    
     level = Maze(start_room_index=0, 
                  exit_room_index=-1, 
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, R15, R16, R17, R18, RE], 
@@ -277,7 +273,6 @@ def level_4_colors_theorem():
                  fastest_solution='S2 S3 S4 S6 S7 S8 S10 S11 S13 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18',
                  level_color=Levels_colors_list.FOUR_COLORS,
                  name='4 colors theorem',
-                 help_txt = l_help_txt,
                  door_window_size = 550,
                  keep_proportions=False)
     

@@ -274,10 +274,6 @@ def level_manhattan_distance():
                 room_departure = R8, 
                 room_arrival = RE)
     
-    l_help_txt = [
-"""The cheat code might be very useful here.
-"""]
-    
     level = Maze(start_room_index=0, 
              exit_room_index=-1, 
              rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, RE], 
@@ -286,7 +282,6 @@ def level_manhattan_distance():
              fastest_solution='S2 S4 S6 S8 S9 S10 S11 S12 S14 D10 S20 D4 S21 D13 S25 D8 S26 D9',
              level_color=Levels_colors_list.BLACK_AND_GREY_ORANGE_CONTOUR,
              name='Manhattan_distance',
-             help_txt=l_help_txt,
              door_window_size=500,
              keep_proportions=True,
              line_size=4)

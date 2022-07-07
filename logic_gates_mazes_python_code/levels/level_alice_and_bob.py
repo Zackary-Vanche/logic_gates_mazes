@@ -100,10 +100,6 @@ def level_alice_and_bob():
                 room_departure=R4,
                 room_arrival=RE)
     
-    l_help_txt = [
-"""Alice wants to send a package to Bob.
-"""]
-    
     level = Maze(start_room_index=0, 
          exit_room_index=-1, 
          rooms_list=[R0, R1, R2, R3, R4, RE], 
@@ -111,7 +107,6 @@ def level_alice_and_bob():
          fastest_solution="S0 D0 S1 D2 S3 D4 S0 D1 D3 S4 D5 S0 D0 D2 S3 D4 S0 D1 S2 D3 S4 D5 S0 D0 S1 D2 S3 D4 S0 D1 S2 D3 D6",
          level_color=Levels_colors_list.WHITE,
          name='Alice and Bob',
-         help_txt = l_help_txt,
          door_window_size = 550)
     
     return level
