@@ -140,14 +140,23 @@ Here are some examples :
       1    1    1
 """
 
-help_menus_list["Independent set"] = """
+help_menus_list["Independent set"] = """New notations are used:
+    
+    + S0 S1 is the sum of S0 and S1
+    With parenthesis, the operator + can be used with more than 2 operands:
+        + (S0 S1 S2) is the sum of S0, S1 and S2
+    
+    D0 = < S0 S1 means :
+        D0 is open if S0 is inferior to S1
+    D0 = > S0 S1 means :
+        D0 is open if S0 is superior to S1
 """
 
 help_menus_list["Odd"] = """
 To leave the game, you can click an the cross but also press [Q] or [ESCAPE].
 """
 
-help_menus_list["Dominating set"] = """
+help_menus_list["Dominating set"] = """Finding dominating set is a NP-Complete problem.
 """
 
 help_menus_list["Chessboard"] = """If you remove the exit, the graph of this level is the graph of the possible moves of a knight in a 3*4 rectangle.
@@ -181,7 +190,8 @@ help_menus_list["Point_of_no_return"] = """One new operand is used in this level
         XNOR S0 S1 = ¬ XOR S0 S1
 """
 
-help_menus_list["4 colors theorem"] = """"""
+help_menus_list["4 colors theorem"] = """Each couple of switches represent a color.
+"""
 
 help_menus_list["Alice and Bob"] = """Alice wants to send a package to Bob.
 """
@@ -189,7 +199,13 @@ help_menus_list["Alice and Bob"] = """Alice wants to send a package to Bob.
 help_menus_list["Recurrence"] = """Sometime, square brackets can be used instead of parentheses.
 """
 
-help_menus_list["Partition"] = """
+help_menus_list["Partition"] = """One new notation is used in this level:
+    
+    D0 = = S0 S1 means :
+        D0 is open if S0 is equal to S1
+    It is similar to XNOR.
+
+The partition is one of the Karp's 21 NP-complete problems.
 """
 
 help_menus_list["Infinity"] = """A cheat code exists.
@@ -208,14 +224,14 @@ The name of the exit room is RE.
 help_menus_list["Parallel"] = """The "Guess and check" method works well here.
 """
 
-help_menus_list["Matrix"] = """
+help_menus_list["Matrix"] = """To solve this level you need to do a matrix inversion.
 """
 
 help_menus_list["Tetrahedron"] = """The logic expressions of the doors of this level have been calculated by computer.
 The program that calculated it already knew all the rest of the level.
 """
 
-help_menus_list["Knapsack"] = """
+help_menus_list["Knapsack"] = """The knapsack is one of the Karp's 21 NP-complete problems.
 """
 
 help_menus_list["Bipartite"] = """This level has several solutions.
