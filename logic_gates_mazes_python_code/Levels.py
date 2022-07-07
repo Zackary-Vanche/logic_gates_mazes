@@ -117,7 +117,7 @@ class Levels:
                 name = level.name
                 if verbose > 0:
                     print('\nLevel', k, ':', name)
-                txt += name + '\n'
+                txt += 'Level ' + str(k) + ' : ' + name + '\n'
                 txt += str(level.fastest_solution) + '\n\n'
                 # txt += str(level.simplify_solution()) + '\n\n'
         else:
@@ -128,7 +128,7 @@ class Levels:
                 print('')
                 name = level.name
                 print('Level', k, ':', name)
-                txt += name + '\n'
+                txt += 'Level ' + str(k) + ' : ' + name + '\n'
                 t2 = time()
                 solutions = level.find_all_solutions(stop_at_first_solution=False,
                                                      verbose=0)
@@ -152,3 +152,13 @@ class Levels:
 if __name__ == "__main__":
     
     Levels.save_solutions_txt(do_it_fast=True)
+    
+    # DO NOT REMOVE THIS CODE
+    # with open('Temp_help_menus.txt', 'w') as f:
+    #     for level_function in Levels.levels_functions_list: #sorted(Levels.levels_functions_list, key = lambda level_function : level_function().name):
+    #         level = level_function()
+    #         f.write('help_menus_list["')
+    #         f.write(level.name)
+    #         f.write('"] = """')
+    #         f.write(level.help_txt[0])
+    #         f.write('"""\n\n')
