@@ -216,6 +216,10 @@ class Tree:
                 if len(self.sons_list) == 1: 
                     if root_name == 'NOT': 
                         self.easy_logical_expression_PN = '¬ ' + self.sons_list[0].get_easy_logical_expression_PN()
+                    elif root_name == 'ABS': 
+                        self.easy_logical_expression_PN = '@ ' + self.sons_list[0].get_easy_logical_expression_PN()
+                    elif root_name == 'MINUS': 
+                        self.easy_logical_expression_PN = '- ' + self.sons_list[0].get_easy_logical_expression_PN()
                     else:
                         self.easy_logical_expression_PN = root_name + self.sons_list[0].get_easy_logical_expression_PN()
                 elif len(self.sons_list) == 2:

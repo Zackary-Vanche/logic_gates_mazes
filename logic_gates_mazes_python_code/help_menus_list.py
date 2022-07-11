@@ -142,6 +142,8 @@ Here are some examples :
 
 help_menus_list["Independent set"] = """New notations are used:
     
+    Sometimes, a switch can be replaced by a numerical value.
+    
     + S0 S1 is the sum of S0 and S1
     With parenthesis, the operator + can be used with more than 2 operands:
         + (S0 S1 S2) is the sum of S0, S1 and S2
@@ -190,7 +192,11 @@ help_menus_list["Point_of_no_return"] = """One new operand is used in this level
         XNOR S0 S1 = ¬ XOR S0 S1
 """
 
-help_menus_list["4 colors theorem"] = """Each couple of switches represent a color.
+help_menus_list["4 colors theorem"] = """One new operand is used in this level :
+    
+    * S0 S1 is equal to the product of S0 and S1.
+
+Each couple of switches represent a color.
 """
 
 help_menus_list["Alice and Bob"] = """Alice wants to send a package to Bob.

@@ -51,6 +51,12 @@ class Logic_Gate:
             for x in branches_values_list:
                 p = p * x
             return p
+        if self.name == 'ABS':
+            assert len(branches_values_list) == 1
+            return abs(branches_values_list[0])
+        if self.name == 'MINUS':
+            assert len(branches_values_list) == 1
+            return -branches_values_list[0]
         if self.name == 'INF':
             assert len(branches_values_list) == 2
             return branches_values_list[0] < branches_values_list[1]
