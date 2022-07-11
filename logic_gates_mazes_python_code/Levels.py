@@ -39,6 +39,7 @@ from levels.level_independent_set import level_independent_set
 from levels.level_infinity import level_infinity
 # from levels.level_kakuro import level_kakuro
 from levels.level_knapsack import level_knapsack
+# from levels.level_knight import level_knight
 from levels.level_linear import level_linear
 # from levels.level_longest_path import level_longest_path
 from levels.level_loop import level_loop
