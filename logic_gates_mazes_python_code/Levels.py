@@ -74,10 +74,10 @@ class Levels:
     
     levels_functions_list = [
                              # level_icone,
-                             level_absolute,
-                             level_4_queens,
-                             level_or,
-                             level_naturals,
+                             # level_absolute,
+                             # level_4_queens,
+                             # level_or,
+                             # level_naturals,
                              level_hello_world,
                              level_linear,
                              level_loop,
