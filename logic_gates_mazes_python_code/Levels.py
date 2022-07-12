@@ -190,7 +190,7 @@ if __name__ == "__main__":
     #         f.write(level.help_txt[0])
     #         f.write('"""\n\n')
 
-#    level = level_absolute
-#    solutions = level().find_all_solutions(verbose=3,
-#                                           stop_at_first_solution=False)        
-#    print(solutions[-1])
+    level = level_knight
+    solutions = level().find_all_solutions(verbose=3,
+                                           stop_at_first_solution=False)        
+    print(solutions[-1])
