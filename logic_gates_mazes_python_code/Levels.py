@@ -12,8 +12,8 @@ from os import mkdir as os_mkdir
 # from levels.level_3d_matching import level_3d_matching
 # from levels.level_3sat import level_3sat
 from levels.level_4_colors_theorem import level_4_colors_theorem
-from levels.level_4_queens import level_4_queens
-from levels.level_absolute import level_absolute # (tree)
+from levels.level_the_4_queens import level_the_4_queens
+#from levels.level_absolute import level_absolute
 from levels.level_alice_and_bob import level_alice_and_bob
 from levels.level_alien import level_alien
 from levels.level_backward import level_backward
@@ -52,6 +52,7 @@ from levels.level_or import level_or
 from levels.level_parallel import level_parallel
 from levels.level_partition import level_partition
 from levels.level_point_of_no_return import level_point_of_no_return
+from levels.level_pong import level_pong
 from levels.level_recurrence import level_recurrence
 from levels.level_river import level_river
 # from levels.level_set_cover import level_set_cover
@@ -74,10 +75,10 @@ class Levels:
     
     levels_functions_list = [
                              # level_icone,
-                             # level_absolute,
-                             # level_4_queens,
-                             # level_or,
-                             # level_naturals,
+#                             level_pong,
+#                             level_the_4_queens,
+#                             level_or,
+#                             level_naturals,
                              level_hello_world,
                              level_linear,
                              level_loop,
@@ -175,7 +176,7 @@ class Levels:
     
 if __name__ == "__main__":
     
-    Levels.save_solutions_txt(do_it_fast=True)
+    Levels.save_solutions_txt(do_it_fast=True, verbose=0)
     
     # DO NOT REMOVE THIS CODE
     # with open('Temp_help_menus.txt', 'w') as f:
@@ -187,7 +188,7 @@ if __name__ == "__main__":
     #         f.write(level.help_txt[0])
     #         f.write('"""\n\n')
 
-    level = level_absolute
-    solutions = level().find_all_solutions(verbose=3,
-                                           stop_at_first_solution=False)        
-    print(solutions[-1])
+#    level = level_absolute
+#    solutions = level().find_all_solutions(verbose=3,
+#                                           stop_at_first_solution=False)        
+#    print(solutions[-1])

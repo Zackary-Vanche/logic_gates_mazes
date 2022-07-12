@@ -13,7 +13,7 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
-def level_absolute():
+def level_pong():
     
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -65,7 +65,7 @@ def level_absolute():
                  doors_list = [D0, D1], 
                  fastest_solution=None,
                  level_color=Levels_colors_list.GREY,
-                 name='Absolute',
+                 name='Pong',
                  door_window_size = 800,
                  keep_proportions = True)
     

@@ -78,7 +78,7 @@ def level_naturals():
              rooms_list=[R0, R1, RE], 
              doors_list=[D0, D1], 
              fastest_solution='S0 D0 S3 D0 S2 D0 S3 S5 D0 S2 S4 D0 S3 D0 S2 D0 S3 S5 S7 D0 S2 S4 S6 D0 S3 D0 S2 D0 S3 S5 D0 S2 S4 D0 S3 D0 S2 D0 S1 D1',
-             level_color=Levels_colors_list.FROM_HUE(0),
+             level_color=Levels_colors_list.FROM_HUE(0.3),
              name='Naturals',
              door_window_size = 800,
              keep_proportions = True)

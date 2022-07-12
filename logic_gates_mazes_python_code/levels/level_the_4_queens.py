@@ -13,7 +13,7 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
-def level_4_queens():
+def level_the_4_queens():
     
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -145,8 +145,8 @@ def level_4_queens():
              rooms_list=[R0, R1, R2, R3, R4, R5, RE], 
              doors_list=[D0, D1, D2, D3, D4, D5], 
              fastest_solution=None,
-             level_color=Levels_colors_list.FROM_HUE(0.2),
-             name='4_Queens',
+             level_color=Levels_colors_list.FROM_HUE(0),
+             name='The_4_Queens',
              door_window_size = 800,
              keep_proportions = True)
     
