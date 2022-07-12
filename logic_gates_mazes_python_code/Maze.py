@@ -679,16 +679,19 @@ class Maze:
 
             if door.two_way:
                 l_diag = 50
-                L_diag = 64
+                L_diag = 65
                 door.arrow_coordinates = [door.real_middle_coordinates + L_diag*vect_unit/2,
                                           door.real_middle_coordinates + l_diag*array([y, -x])/2,
                                           door.real_middle_coordinates - L_diag*vect_unit/2,
                                           door.real_middle_coordinates - l_diag*array([y, -x])/2]
                 door.real_middle_coordinates = door.real_middle_coordinates - array([11/2*len(door.name), 8])
             else:
-                door.arrow_coordinates = [door.real_middle_coordinates + 30*vect_unit,
-                                          door.real_middle_coordinates - 3*vect_unit + 20*array([y, -x]),
-                                          door.real_middle_coordinates - 30*vect_unit + 30*array([y, -x]),
-                                          door.real_middle_coordinates - 30*vect_unit - 30*array([y, -x]),
-                                          door.real_middle_coordinates - 3*vect_unit - 20*array([y, -x])]
+                D = 20
+                d = 20
+                L = 30
+                door.arrow_coordinates = [door.real_middle_coordinates + L*vect_unit,
+                                          door.real_middle_coordinates + d*array([y, -x]),
+                                          door.real_middle_coordinates - L*vect_unit + D*array([y, -x]),
+                                          door.real_middle_coordinates - L*vect_unit - D*array([y, -x]),
+                                          door.real_middle_coordinates - d*array([y, -x])]
                 door.real_middle_coordinates = door.real_middle_coordinates - array([11/2*len(door.name), 8])-10*vect_unit

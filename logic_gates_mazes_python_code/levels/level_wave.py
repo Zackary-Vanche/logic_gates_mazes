@@ -12,7 +12,7 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
-def level_sinusoidal():
+def level_wave():
     
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -401,7 +401,7 @@ def level_sinusoidal():
                            D25, D26], 
              fastest_solution="S0 S3 S4 D0 D1 S5 D13 D18 S10 D6 D10 S14 D22 D25 D26",
              level_color=Levels_colors_list.PURPLE_BLUE,
-             name='Sinusoidal',
+             name='Wave',
              door_window_size=425,
              y_separation=50,
              border = 30,

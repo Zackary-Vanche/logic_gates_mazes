@@ -104,7 +104,7 @@ class Game:
         self.sleep_time = sleep_time
         self.change_in_display = False
         
-    def game_setup(self):
+    def game_setup(self, font_size=22):
         # Game Setup
         pygame_init()
         self.looping = True
@@ -118,13 +118,13 @@ class Game:
         pygame_display_set_caption('Logic gates maze')
         self.WINDOW_SIZE_changed = True
 
-        self.font = pygame_font_SysFont(None, 25)
+        self.font = pygame_font_SysFont(None, font_size)
         self.level_changed = True
         # Cette variable vaut True quand le joueur
         # vient de choisir de changer de niveau
         # ou au début du jeu (il faut initialiser le niveau)
         self.last_level_change_time = time()
-        self.click_rect_size = 40
+        self.click_rect_size = 39
         if self.save_image:
             if not os_path_exists('images'):
                 os_mkdir('images')
@@ -286,16 +286,16 @@ class Game:
         self.n_lines_door_printing = self.maze.n_lines_door_printing
         if self.n_lines_door_printing == 0:
             return None
-        self.gap_between_lines = min((self.WINDOW_HEIGHT - self.maze.y_separation - 50) / (self.n_lines_door_printing), 35)
+        self.gap_between_lines = min((self.WINDOW_HEIGHT - self.maze.y_separation - 50) / (self.n_lines_door_printing), 25)
         if self.print_tree_polygon:
             pass # TODO
         else:
             gap = self.y_separation + 10
             self.WINDOW.blit(self.font.render('DOORS :',
-                                    True,
-                                    self.inside_room_color),
-                        (self.x_separation + 10, gap))
-            gap = self.y_separation + 40
+                             True,
+                             self.inside_room_color),
+                             (self.x_separation + 10, gap))
+            gap = self.y_separation + 35
             for k in range(len(self.doors_list)):
                 door = self.doors_list[k]
                 tree = door.tree
@@ -377,7 +377,7 @@ class Game:
                                                 True,
                                                 self.inside_room_color)
             self.WINDOW.blit(door_name_render,
-                real_middle_coordinates)      
+                             real_middle_coordinates)      
             
     def draw_switches(self):
         # Affichage des interrupteurs
@@ -397,7 +397,7 @@ class Game:
                                      self.background_color,
                                      rect)
                 if switch.value:
-                    rectangle_switch = pygame_Rect(position[0]-self.click_rect_size/2,
+                    rectangle_switch = pygame_Rect(position[0]-self.click_rect_size/2 - 2,
                                                    position[1]-self.click_rect_size/2,
                                                    self.click_rect_size,
                                                    self.click_rect_size)
@@ -656,7 +656,3 @@ class Game:
         t1 = time()
         if verbose >= 1:
             print(t1 - t0, 's')
-            
-if __name__ == "__main__":
-    
-    Game.save_levels_txt(verbose = 0, calculates_solutions = False)

@@ -12,8 +12,8 @@ from os import mkdir as os_mkdir
 # from levels.level_3d_matching import level_3d_matching
 # from levels.level_3sat import level_3sat
 from levels.level_4_colors_theorem import level_4_colors_theorem
-# from levels.level_4_queens import level_4_queens
-# from levels.level_absolute import level_absolute # (tree)
+from levels.level_4_queens import level_4_queens
+from levels.level_absolute import level_absolute # (tree)
 from levels.level_alice_and_bob import level_alice_and_bob
 from levels.level_alien import level_alien
 from levels.level_backward import level_backward
@@ -48,7 +48,7 @@ from levels.level_matrix import level_matrix
 # from levels.from levels.level_magic_square import level_magic_square
 from levels.level_naturals import level_naturals
 from levels.level_odd import level_odd
-# from levels.from levels.level_or import level_or
+from levels.level_or import level_or
 from levels.level_parallel import level_parallel
 from levels.level_partition import level_partition
 from levels.level_point_of_no_return import level_point_of_no_return
@@ -56,7 +56,6 @@ from levels.level_recurrence import level_recurrence
 from levels.level_river import level_river
 # from levels.level_set_cover import level_set_cover
 # from levels.level_shortest_path import level_shortest_path
-from levels.level_sinusoidal import level_sinusoidal # -> from levels.level_wave import level_wave
 # from levels.level_sinusoidal import level_sinusoidal
 from levels.level_square import level_square
 # from levels.level_sudoku import level_sudoku
@@ -65,6 +64,7 @@ from levels.level_tesseract import level_tesseract
 from levels.level_tetrahedron import level_tetrahedron
 # from levels.level_travelling_salesman import level_travelling_salesman
 from levels.level_tree import level_tree
+from levels.level_wave import level_wave
 from levels.level_xor import level_xor
 
 # from levels.level_icone import level_icone
@@ -74,6 +74,10 @@ class Levels:
     
     levels_functions_list = [
                              # level_icone,
+                             level_absolute,
+                             level_4_queens,
+                             level_or,
+                             level_naturals,
                              level_hello_world,
                              level_linear,
                              level_loop,
@@ -109,7 +113,7 @@ class Levels:
                              level_graph,
                              level_dead_ends,
                              level_electricity,
-                             level_sinusoidal,
+                             level_wave,
                              level_manhattan_distance,
                              level_temple,
                              #level_random,
@@ -183,9 +187,7 @@ if __name__ == "__main__":
     #         f.write(level.help_txt[0])
     #         f.write('"""\n\n')
 
-    level = level_naturals
-
+    level = level_absolute
     solutions = level().find_all_solutions(verbose=3,
-                                           stop_at_first_solution=False)
-        
+                                           stop_at_first_solution=False)        
     print(solutions[-1])

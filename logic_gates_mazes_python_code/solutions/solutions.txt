@@ -1,117 +1,126 @@
-Level 0 : Naturals
+Level 0 : Absolute
 None
 
-Level 1 : Hello_World
+Level 1 : 4_Queens
+None
+
+Level 2 : OR
+S0 D0 S1 D0 S0 D0 D1 S2 D1 S1 D1 S2 D2
+
+Level 3 : Naturals
+S0 D0 S3 D0 S2 D0 S3 S5 D0 S2 S4 D0 S3 D0 S2 D0 S3 S5 S7 D0 S2 S4 S6 D0 S3 D0 S2 D0 S3 S5 D0 S2 S4 D0 S3 D0 S2 D0 S1 D1
+
+Level 4 : Hello_World
 S0 D0 S1 D1 D2
 
-Level 2 : Linear
+Level 5 : Linear
 S0 S1 D0 S2 D1 S5 D2 D3
 
-Level 3 : Loop
+Level 6 : Loop
 S0 D0 S1 D1 S2 S3 D2 S0 D3
 
-Level 4 : Backward
+Level 7 : Backward
 S0 D0 S2 D0 S0 S1 D1
 
-Level 5 : Bis repetita
+Level 8 : Bis repetita
 S0 D0 S1 D1 S2 D2 S0 D0 S1 D1 S2 D3
 
-Level 6 : Binary
+Level 9 : Binary
 S0 D3 S4 D3 D2 S3 D2 D3 D1 S2 D1 D5 S6 D5 D3 D2 D0 S1 D0 D4 S5 D4 D2 D6
 
-Level 7 : Crossroad
+Level 10 : Crossroad
 S0 S2 D2 S4 D4 S1 S3 D1 D0 S5 D3 D5
 
-Level 8 : Square
+Level 11 : Square
 S0 D2 S3 D1 S2 D0 S1 D3 D4
 
-Level 9 : Fluid
+Level 12 : Fluid
 S0 D0 S1 D1 S2 S6 D4 S0 S4 D4 D2 S3 S7 D5 S1 S5 D5 D3
 
-Level 10 : Independent set
+Level 13 : Independent set
 S0 S2 S6 S8 D0 D1 D2 D3 D4
 
-Level 11 : Odd
+Level 14 : Odd
 S4 D2 D4 S1 D4 D2 S4 D1 D5 S3 D5 D1 S0 D3 D6 S2 D6 D3 S4 D0
 
-Level 12 : Dominating set
+Level 15 : Dominating set
 S3 S4 D0 S9 D3 D4 S10 D4 D5 D6 D10 S14 D10 D11 S16 D11 D12 S17 D12 S13 D6 S11 D5 S12 D9 S15 D16
 
-Level 13 : Chessboard
+Level 16 : Chessboard
 S0 D1 D5 S2 D5 S7 D1 S0 D0 D11 D7 S3 D7 S10 D11 D10 D2 D3 S8 D3 S1 D2 D12 S11 D9 S4 D14
 
-Level 14 : Point_of_no_return
+Level 17 : Point_of_no_return
 S0 S5 S7 S8 D0 S9 D1 S1 D1 D2 S2 D2 D3 S3 D3 D4 S4 D4 D5
 
-Level 15 : 4 colors theorem
+Level 18 : 4 colors theorem
 S2 S3 S4 S6 S7 S8 S10 S11 S13 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18
 
-Level 16 : Alice and Bob
+Level 19 : Alice and Bob
 S0 D0 S1 D2 S3 D4 S0 D1 D3 S4 D5 S0 D0 D2 S3 D4 S0 D1 S2 D3 S4 D5 S0 D0 S1 D2 S3 D4 S0 D1 S2 D3 D6
 
-Level 17 : Recurrence
+Level 20 : Recurrence
 S0 S1 D0 S2 D1 S0 S1 D0 S3 D2 S4 D3 S2 S3 D2 S5 D4 S6 D5 S4 S5 D4 S6 D6
 
-Level 18 : Partition
+Level 21 : Partition
 S0 S1 S2 S3 S4 S5 D0 D1
 
-Level 19 : Infinity
+Level 22 : Infinity
 S0 D0 S1 D8 S3 D3 S4 D9 S2 D7 S5 D4 S9 D6 S6 D1 S7 D2 S8 D5 D10
 
-Level 20 : Parallel
+Level 23 : Parallel
 S0 D0 S1 D1 S2 D2 D0 S1 S4 D3 D5 S5 D4 S1 D3 S3 D6
 
-Level 21 : Matrix
+Level 24 : Matrix
 S2 S5 S6 S8 S9 D0 D1 D2 D3 D4
 
-Level 22 : Tetrahedron
+Level 25 : Tetrahedron
 S4 D1 S2 D5 S3 D2 S0 S4 D0 D4 S3 S7 D2 S0 D1 S6 D3 S1 S5 D0 S0 S4 D2 D5 S6 D3 S1 D4 S7 D6
 
-Level 23 : Knapsack
+Level 26 : Knapsack
 S0 S2 S3 D0 D1
 
-Level 24 : Bipartite
+Level 27 : Bipartite
 S0 D0 S1 D1 S4 D4 S8 D4 D7 S3 D8 S11 D2 D3 S12 D3 S1 S7 D1 S4 S10 D7 S3 S9 D10 D11
 
-Level 25 : Alien
+Level 28 : Alien
 S0 S1 D7 S11 D6 S9 S10 D5 S8 D4 S6 S7 D3 S5 D2 S3 S4 D1 S2 D16
 
-Level 26 : Tesseract
+Level 29 : Tesseract
 D2 S2 D6 D16 D20 D10 S6 D14 D17 D18 D3 S3 D7 D16 D21 D11 S7 D15 D17 D18 D0 S0 D4 D16 D18 D8 S4 D12 D17 D18 D1 S1 D5 D16 D19 D9 S5 D13 D17 D18 D22
 
-Level 27 : Tree
+Level 30 : Tree
 D1 S7 D3 D9 D0 S6 D2 D19 D1 S5 S7 D3 D7 D0 S4 S6 D2 D19 D1 S3 S5 S7 D3 D16 D0 S2 S4 S6 D2 D19 D1 S1 S3 S5 D3 D17 D0 S0 S2 S4 D2 D19 D20
 
-Level 28 : River
+Level 31 : River
 D4 D5 D0 S1 D2 S4 D4 D5 D1 S7 D3 S4 D4 D5 D0 S0 D2 S3 D4 D5 D1 S6 S7 D3 S3 S4 D4 D5 D0 S1 S2 D2 S4 S5 D4 D5 D1 S8 D3 S5 D4 D5 D0 S1 D2 S4 D4 D5 D1 S7 D3 S4 D4 D5 D6
 
-Level 29 : Crystal
+Level 32 : Crystal
 S0 S6 D1 D3 S3 S9 D5 S5 D12 D10 D8 S0 S6 D2 D4 S4 D6 S11 D11 D9 S1 S7 D7 S0 S6 D0
 
-Level 30 : Cartesian
+Level 33 : Cartesian
 S0 D0 D1 S2 D6 S7 D9 D0 S1 D1 S2 D2 S3 D3 S4 D7 S8 D9 D0 D1 D2 D3 S4 D4 D5 S6 D8 D9 D0 D1 D2 D3 D4 S5 D5 S6 D8 D9 D0 D1 D2 D3 S4 D7 D9 D0 S1 D1 S2 D6 D9 S0 D10
 
-Level 31 : Fractal
+Level 34 : Fractal
 S0 D0 S1 D3 S3 D5 S4 D4 D3 D9 S7 D11 S8 D10 S3 D5 S4 D12 S9 D14 S10 D13 S4 D4 S1 D2 S2 D6 S5 D15 S11 D17 S12 D16 S5 D8 D18 S13 D20 S14 D19 S6 D7 S2 D2 S1 D3 D5 S4 D12 D14 S10 D13 D4 D3 S3 D5 S4 D4 S1 D2 S2 D1 S0 D0 S1 D21
 
-Level 32 : XOR
+Level 35 : XOR
 S1 S3 S5 D0 S8 D1 D2 D3 D4 D5 D6 D7 D8
 
-Level 33 : Graph
+Level 36 : Graph
 S0 D1 D3 D9 S9 D14 D18 S13 D17 S12 D16 S11 D12 D8 S4 D7 D4 S2 D5 S6 D10 D15 S14 D13 S8 D11 S7 D6 S3 D0 D2
 
-Level 34 : Dead_ends
+Level 37 : Dead_ends
 S0 D1 S1 D2 D3 S4 D4 D11 S8 D12 D13 S9 S11 D14 S0 D5 S5 D6 S0 D9 S7 D10 S0 D7 S6 D8 D0
 
-Level 35 : Electricity
+Level 38 : Electricity
 S0 S1 S5 S8 D0 S11 D3 S12 D5 S14 D8 S16 S17 D10
 
-Level 36 : Sinusoidal
+Level 39 : Wave
 S0 S3 S4 D0 D1 S5 D13 D18 S10 D6 D10 S14 D22 D25 D26
 
-Level 37 : Manhattan_distance
+Level 40 : Manhattan_distance
 S2 S4 S6 S8 S9 S10 S11 S12 S14 D10 S20 D4 S21 D13 S25 D8 S26 D9
 
-Level 38 : Temple
+Level 41 : Temple
 D0 S0 D12 D6 D9 S27 D21 D22 D23 D2 D14 D17 S24 D11 S27 D21 D22 D23 D0 D12 S10 D15 D9 S28 D21 D22 D23 D2 D14 S15 D8 S24 S25 D11 S28 D21 D22 D23 D0 D12 D15 S20 D18 S29 D21 D22 D23 D2 S6 D5 S15 S16 D8 S25 S26 D11 S29 D21 D22 D23 D24
 

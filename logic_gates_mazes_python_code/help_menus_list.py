@@ -314,7 +314,7 @@ help_menus_list["Electricity"] = """NAND can also apply to 3 parameters instead 
       1    1    1     0  
 """
 
-help_menus_list["Sinusoidal"] = """One new notation is used in this level :
+help_menus_list["Wave"] = """One new notation is used in this level :
     
     XOR can be used with more than 3 parameters :
         D0 = XOR(S0, S1, ...) means :

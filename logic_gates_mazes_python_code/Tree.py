@@ -46,6 +46,8 @@ class Tree:
     tree_list_or_9  = ['OR'] + [[None]]*9
     tree_list_or_10 = ['OR'] + [[None]]*10
     
+    tree_list_XOR2 = ['XOR'] + [[None]]*2
+    tree_list_XORN2 = ['XOR'] + [tree_list_not]*2
     tree_list_XOR3 = ['XOR'] + [[None]]*3
     tree_list_XORN3 = ['XOR'] + [tree_list_not]*3
     tree_list_XOR4 = ['XOR'] + [[None]]*4
@@ -220,6 +222,8 @@ class Tree:
                         self.easy_logical_expression_PN = '@ ' + self.sons_list[0].get_easy_logical_expression_PN()
                     elif root_name == 'MINUS': 
                         self.easy_logical_expression_PN = '- ' + self.sons_list[0].get_easy_logical_expression_PN()
+                    elif root_name == 'BIN':
+                        pass # Don't need to do anything since BIN doesn't change anything here
                     else:
                         self.easy_logical_expression_PN = root_name + self.sons_list[0].get_easy_logical_expression_PN()
                 elif len(self.sons_list) == 2:
@@ -258,6 +262,8 @@ class Tree:
                         self.easy_logical_expression_PN = B
                     if root_name == 'TRUE':
                         self.easy_logical_expression_PN = 'T'
+                    elif root_name == 'BIN':
+                        self.easy_logical_expression_PN = 'b {0} {1}'.format(A, B)
                 else: 
                     txt = ''
                     for son in self.sons_list:
@@ -282,6 +288,7 @@ class Tree:
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('NEQ ', '!= ')
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('INF ', '< ')
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('SUP ', '> ')
+            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('BIN ', 'b ')
             if self.cut_expression:
                 l_elePN = self.easy_logical_expression_PN.split(self.cut_expression_separator)
                 elePN = ''

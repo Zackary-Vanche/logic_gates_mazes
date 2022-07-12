@@ -75,6 +75,11 @@ class Logic_Gate:
         if self.name == 'BONA':
             assert len(branches_values_list) == 2
             return not branches_values_list[1] or not branches_values_list[0]
+        if self.name == 'BIN':
+            s = 0
+            for i in range(len(branches_values_list)):
+                s += branches_values_list[i] * 2**i
+            return s
         return None
 
     def get_results_list(self):
