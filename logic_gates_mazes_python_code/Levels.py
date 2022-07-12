@@ -52,6 +52,7 @@ from levels.level_or import level_or
 from levels.level_parallel import level_parallel
 from levels.level_partition import level_partition
 from levels.level_point_of_no_return import level_point_of_no_return
+# from levels.level_pythagorean import level_pythagorean
 from levels.level_pong import level_pong
 from levels.level_recurrence import level_recurrence
 from levels.level_river import level_river
