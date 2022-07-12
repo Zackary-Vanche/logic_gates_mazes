@@ -173,7 +173,12 @@ class Tree:
                 self.easy_logical_expression_PN = self.switches_list[0].name
             else:
                 root = self.root
-                root_name = root.name.split('_')[0]
+                root_name = root.name
+                if root_name == 'EQUSET':
+                    n = len(self.sons_list)//2
+                    l1 = ';'.join([t.get_easy_logical_expression_PN() for t in self.sons_list[:n]])
+                    l2 = ';'.join([t.get_easy_logical_expression_PN() for t in self.sons_list[n:]])
+                    self.easy_logical_expression_PN = '~ ' + '(' + l1 + ')' + '(' + l2 + ')'
                 if len(self.sons_list) == 1: 
                     if root_name == 'NOT': 
                         self.easy_logical_expression_PN = '¬ ' + self.sons_list[0].get_easy_logical_expression_PN()

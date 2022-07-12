@@ -34,6 +34,10 @@ class Logic_Gate:
                 if branches_values_list[i] != branches_values_list[i+1]:
                     return 0
             return 1
+        if self.name == 'EQUSET':
+            assert len(branches_values_list) % 2 == 0
+            n = len(branches_values_list) // 2
+            return branches_values_list[:n] == branches_values_list[n:]
         if self.name == 'DIFF':
             assert len(branches_values_list) >= 2
             for i in range(len(branches_values_list)-1):
