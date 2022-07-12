@@ -25,7 +25,7 @@ def level_hello_world():
           empty=True, 
           name='T1', 
           switches = [S1])
-    T2 = Tree(tree_list=Tree.tree_list_or_2, 
+    T2 = Tree(tree_list=Tree.tree_list_OR(2), 
           empty=True, 
           name='T2', 
           switches = [S0, S1], 

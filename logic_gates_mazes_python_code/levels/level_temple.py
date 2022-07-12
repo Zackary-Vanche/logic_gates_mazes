@@ -46,35 +46,35 @@ def level_temple():
     S28 = Switch(name='S28')
     S29 = Switch(name='S29')
 
-    T0 = Tree(tree_list=['OR', Tree.tree_list_nor_3, Tree.tree_list_XOR3],
+    T0 = Tree(tree_list=['OR', Tree.tree_list_NOR(3), Tree.tree_list_XOR(3)],
               empty=True,
               name='T0',
               switches = [S27, S28, S29, S27, S28, S29])
-    T1 = Tree(tree_list=['OR', Tree.tree_list_nor_3, Tree.tree_list_XOR3],
+    T1 = Tree(tree_list=['OR', Tree.tree_list_NOR(3), Tree.tree_list_XOR(3)],
               empty=True,
               name='T1',
               switches = [S27, S28, S29, S27, S28, S29])
-    T2 = Tree(tree_list=['OR', Tree.tree_list_nor_3, Tree.tree_list_XOR3],
+    T2 = Tree(tree_list=['OR', Tree.tree_list_NOR(3), Tree.tree_list_XOR(3)],
               empty=True,
               name='T2',
               switches = [S27, S28, S29, S27, S28, S29])
-    T3 = Tree(tree_list=Tree.tree_list_XOR3,
+    T3 = Tree(tree_list=Tree.tree_list_XOR(3),
               empty=True,
               name='T3',
               switches = [S0, S1, S2])
-    T4 = Tree(tree_list=Tree.tree_list_XOR3,
+    T4 = Tree(tree_list=Tree.tree_list_XOR(3),
                 empty=True,
                 name='T4',
                 switches = [S3, S4, S5])
-    T5 = Tree(tree_list=Tree.tree_list_XOR3,
+    T5 = Tree(tree_list=Tree.tree_list_XOR(3),
                 empty=True,
                 name='T5',
                 switches = [S6, S7, S8])
     T6 = Tree(tree_list=['AND', 
-                         Tree.tree_list_XOR3, 
-                         Tree.tree_list_nand,
-                         Tree.tree_list_nand,
-                         Tree.tree_list_nand], # 1 9 2 9 2 10
+                         Tree.tree_list_XOR(3), 
+                         Tree.tree_list_NAND(2),
+                         Tree.tree_list_NAND(2),
+                         Tree.tree_list_NAND(2)], # 1 9 2 9 2 10
                 empty=True,
                 name='T6',
                 switches = [S9, S10, S11,
@@ -82,10 +82,10 @@ def level_temple():
                             S2, S9,
                             S2, S10])
     T7 = Tree(tree_list=['AND', 
-                         Tree.tree_list_XOR3, 
-                         Tree.tree_list_nand,
-                         Tree.tree_list_nand,
-                         Tree.tree_list_nand], # 4 12 5 12 5 13
+                         Tree.tree_list_XOR(3), 
+                         Tree.tree_list_NAND(2),
+                         Tree.tree_list_NAND(2),
+                         Tree.tree_list_NAND(2)], # 4 12 5 12 5 13
                 empty=True,
                 name='T7',
                 switches = [S12, S13, S14,
@@ -93,10 +93,10 @@ def level_temple():
                             S5, S12,
                             S5, S13])
     T8 = Tree(tree_list=['AND', 
-                         Tree.tree_list_XOR3, 
-                         Tree.tree_list_nand,
-                         Tree.tree_list_nand,
-                         Tree.tree_list_nand], # 7 15 8 15 8 16
+                         Tree.tree_list_XOR(3), 
+                         Tree.tree_list_NAND(2),
+                         Tree.tree_list_NAND(2),
+                         Tree.tree_list_NAND(2)], # 7 15 8 15 8 16
                 empty=True,
                 name='T8',
                 switches = [S15, S16, S17,
@@ -104,10 +104,10 @@ def level_temple():
                             S8, S15,
                             S8, S16])
     T9 = Tree(tree_list=['AND', 
-                         Tree.tree_list_XOR3, 
-                         Tree.tree_list_nand,
-                         Tree.tree_list_nand,
-                         Tree.tree_list_nand], # 10 18 11 18 11 19
+                         Tree.tree_list_XOR(3), 
+                         Tree.tree_list_NAND(2),
+                         Tree.tree_list_NAND(2),
+                         Tree.tree_list_NAND(2)], # 10 18 11 18 11 19
                 empty=True,
                 name='T9',
                 switches = [S18, S19, S20,
@@ -115,10 +115,10 @@ def level_temple():
                             S11, S18,
                             S11, S19])
     T10 = Tree(tree_list=['AND', 
-                         Tree.tree_list_XOR3, 
-                         Tree.tree_list_nand,
-                         Tree.tree_list_nand,
-                         Tree.tree_list_nand], # 13 21 14 21 14 22
+                         Tree.tree_list_XOR(3), 
+                         Tree.tree_list_NAND(2),
+                         Tree.tree_list_NAND(2),
+                         Tree.tree_list_NAND(2)], # 13 21 14 21 14 22
                 empty=True,
                 name='T10',
                 switches = [S21, S22, S23,
@@ -126,74 +126,74 @@ def level_temple():
                             S14, S21,
                             S14, S22])
     T11 = Tree(tree_list=['AND', 
-                         Tree.tree_list_XOR3, 
-                         Tree.tree_list_nand,
-                         Tree.tree_list_nand,
-                         Tree.tree_list_nand], # 16 24 17 24 17 25
+                         Tree.tree_list_XOR(3), 
+                         Tree.tree_list_NAND(2),
+                         Tree.tree_list_NAND(2),
+                         Tree.tree_list_NAND(2)], # 16 24 17 24 17 25
                 empty=True,
                 name='T11',
                 switches = [S24, S25, S26,
                             S16, S24,
                             S17, S24,
                             S17, S25])
-    T12 = Tree(tree_list=Tree.tree_list_nor_3,
+    T12 = Tree(tree_list=Tree.tree_list_NOR(3),
                 empty=True,
                 name='T12',
                 switches = [S0, S1, S2])
-    T13 = Tree(tree_list=Tree.tree_list_nor_3,
+    T13 = Tree(tree_list=Tree.tree_list_NOR(3),
                 empty=True,
                 name='T13',
                 switches = [S3, S4, S5])
-    T14 = Tree(tree_list=Tree.tree_list_nor_3,
+    T14 = Tree(tree_list=Tree.tree_list_NOR(3),
                 empty=True,
                 name='T14',
                 switches = [S6, S7, S8])
-    T15 = Tree(tree_list=Tree.tree_list_nor_6,
+    T15 = Tree(tree_list=Tree.tree_list_NOR(6),
                 empty=True,
                 name='T15',
                 switches = [S0, S1, S2, S9, S10, S11])
-    T16 = Tree(tree_list=Tree.tree_list_nor_6,
+    T16 = Tree(tree_list=Tree.tree_list_NOR(6),
                 empty=True,
                 name='T16',
                 switches = [S3, S4, S5, S12, S13, S14])
-    T17 = Tree(tree_list=Tree.tree_list_nor_6,
+    T17 = Tree(tree_list=Tree.tree_list_NOR(6),
                 empty=True,
                 name='T17',
                 switches = [S6, S7, S8, S15, S16, S17])
-    T18 = Tree(tree_list=Tree.tree_list_nor_6,
+    T18 = Tree(tree_list=Tree.tree_list_NOR(6),
                 empty=True,
                 name='T18',
                 switches = [S9, S10, S11, S18, S19, S20])
-    T19 = Tree(tree_list=Tree.tree_list_nor_6,
+    T19 = Tree(tree_list=Tree.tree_list_NOR(6),
                 empty=True,
                 name='T19',
                 switches = [S12, S13, S14, S21, S22, S23])
-    T20 = Tree(tree_list=Tree.tree_list_nor_6,
+    T20 = Tree(tree_list=Tree.tree_list_NOR(6),
                 empty=True,
                 name='T20',
                 switches = [S15, S16, S17, S24, S25, S26])
-    T21 = Tree(tree_list=Tree.tree_list_XOR10,
+    T21 = Tree(tree_list=Tree.tree_list_XOR(10),
                 empty=True,
                 name='T21',
                 switches = [S0, S3, S6,
                             S9, S12, S15,
                             S18, S21, S24,
                             S27])
-    T22 = Tree(tree_list=Tree.tree_list_XOR10,
+    T22 = Tree(tree_list=Tree.tree_list_XOR(10),
                 empty=True,
                 name='T22',
                 switches = [S1, S4, S7,
                             S10, S13, S16,
                             S19, S22, S25,
                             S28])
-    T23 = Tree(tree_list=Tree.tree_list_XOR10,
+    T23 = Tree(tree_list=Tree.tree_list_XOR(10),
                 empty=True,
                 name='T23',
                 switches = [S2, S5, S8,
                             S11, S14, S17,
                             S20, S23, S26,
                             S29])
-    T24 = Tree(tree_list=Tree.tree_list_and_3,
+    T24 = Tree(tree_list=Tree.tree_list_AND(3),
                 empty=True,
                 name='T24',
                 switches = [S6, S16, S26])

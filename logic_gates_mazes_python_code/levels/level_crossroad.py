@@ -26,7 +26,7 @@ def level_crossroad():
     tree_list_2 = [None] # S2
     tree_list_3 = [None] # S3
     tree_list_4 = [None] # S4
-    tree_list_5 = Tree.tree_list_and_6 
+    tree_list_5 = Tree.tree_list_AND(6)
     
     T0 = Tree(tree_list=tree_list_0, empty=True, name='T0', switches = [S0])
     T1 = Tree(tree_list=tree_list_1, empty=True, name='T1', switches = [S1])
@@ -39,7 +39,7 @@ def level_crossroad():
     position_R1 = [  0,2.5,  1.75,  1.75]
     position_R2 = [2.5,  0,  1.75,  1.75]
     position_R3 = [  5,2.5,  1.75,  1.75]
-    position_RE = [5,0,1,1.5]
+    position_RE = [  5,  0,     1,   1.5]
     
     R0 = Room(name='R0', position = position_R0, switches_list = [S0, S2])
     R1 = Room(name='R1', position = position_R1, switches_list = [S5])
@@ -50,9 +50,11 @@ def level_crossroad():
     D0 = Door(two_way = False, tree = T0, name='D0', room_departure = R0, room_arrival = R1)
     D1 = Door(two_way = False, tree = T1, name='D1', room_departure = R3, room_arrival = R0)
     D2 = Door(two_way = False, tree = T2, name='D2', room_departure = R0, room_arrival = R2, 
-              relative_departure_coordinates = [1/2, 0.9], relative_arrival_coordinates = [1/2, 0.9])
+              relative_departure_coordinates = [1/2, 0.9],
+              relative_arrival_coordinates = [1/2, 0.9])
     D3 = Door(two_way = False, tree = T3, name='D3', room_departure = R1, room_arrival = R3, 
-              relative_departure_coordinates = [0.1, 1/2], relative_arrival_coordinates = [0.1, 1/2])
+              relative_departure_coordinates = [0.1, 1/2],
+              relative_arrival_coordinates = [0.1, 1/2])
     D4 = Door(two_way = False, tree = T4, name='D4', room_departure = R2, room_arrival = R3)
     D5 = Door(two_way = False, tree = T5, name='D5', room_departure = R3, room_arrival = RE)
         

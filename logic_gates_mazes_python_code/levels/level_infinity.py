@@ -12,7 +12,6 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
-
 def level_infinity():
 
     S0 = Switch(name='S0')
@@ -26,17 +25,17 @@ def level_infinity():
     S8 = Switch(name='S8')
     S9 = Switch(name='S9')
 
-    tree_list_0 = Tree.tree_list_anb
-    tree_list_1 = Tree.tree_list_and_2
-    tree_list_2 = Tree.tree_list_and_2
-    tree_list_3 = Tree.tree_list_anb
-    tree_list_4 = Tree.tree_list_and_2
-    tree_list_5 = Tree.tree_list_and_3
-    tree_list_6 = Tree.tree_list_and_2
-    tree_list_7 = Tree.tree_list_anb
-    tree_list_8 = Tree.tree_list_anb
-    tree_list_9 = Tree.tree_list_anb
-    tree_list_10 = Tree.tree_list_and_10
+    tree_list_0 = Tree.tree_list_from_str('TF')
+    tree_list_1 = Tree.tree_list_AND(2)
+    tree_list_2 = Tree.tree_list_AND(2)
+    tree_list_3 = Tree.tree_list_from_str('TF')
+    tree_list_4 = Tree.tree_list_AND(2)
+    tree_list_5 = Tree.tree_list_AND(3)
+    tree_list_6 = Tree.tree_list_AND(2)
+    tree_list_7 = Tree.tree_list_from_str('TF')
+    tree_list_8 = Tree.tree_list_from_str('TF')
+    tree_list_9 = Tree.tree_list_from_str('TF')
+    tree_list_10 = Tree.tree_list_AND(10)
 
     T0 = Tree(tree_list=tree_list_0,
               empty=True, name='T0',

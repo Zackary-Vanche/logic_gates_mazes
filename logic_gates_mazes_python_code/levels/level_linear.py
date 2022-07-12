@@ -23,10 +23,10 @@ def level_linear():
     S6 = Switch(name='S6')
     S7 = Switch(name='S7')
     
-    tree_list_0 = Tree.tree_list_and_2
-    tree_list_1 = Tree.tree_list_anb
-    tree_list_2 = Tree.tree_list_bna
-    tree_list_3 = Tree.tree_list_nor
+    tree_list_0 = Tree.tree_list_AND(2)
+    tree_list_1 = Tree.tree_list_from_str('TF')
+    tree_list_2 = Tree.tree_list_from_str('FT')
+    tree_list_3 = Tree.tree_list_NOR(2)
     
     T0 = Tree(tree_list=tree_list_0, empty=True, name='T0', switches = [S0, S1], easy_logical_expression_PN = 'AND S0 S1\n= & S0 S1')
     T1 = Tree(tree_list=tree_list_1, empty=True, name='T1', switches = [S2, S3], easy_logical_expression_PN = 'AND S2 NOT S3\n= & S2 ¬ S3')

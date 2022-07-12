@@ -36,31 +36,31 @@ def level_cartesian():
               empty=True,
               name='T2',
               switches=[S7])
-    T3 = Tree(tree_list=Tree.tree_list_anb,
+    T3 = Tree(tree_list=Tree.tree_list_from_str('TF'),
               empty=True,
               name='T3',
               switches=[S1, S2])
-    T4 = Tree(tree_list=Tree.tree_list_bna,
+    T4 = Tree(tree_list=Tree.tree_list_from_str('FT'),
               empty=True,
               name='T4',
               switches=[S4, S8])
-    T5 = Tree(tree_list=Tree.tree_list_xnor,
+    T5 = Tree(tree_list=Tree.tree_list_XNOR(2),
               empty=True,
               name='T5',
               switches=[S5, S6])
-    T6 = Tree(tree_list=["AND", Tree.tree_list_xor, [None]],
+    T6 = Tree(tree_list=["AND", Tree.tree_list_XOR(2), [None]],
               empty=True,
               name='T6',
               switches=[S0, S1, S2])
-    T7 = Tree(tree_list=["AND", Tree.tree_list_xor, [None]],
+    T7 = Tree(tree_list=["AND", Tree.tree_list_XOR(2), [None]],
               empty=True,
               name='T7',
               switches=[S1, S2, S4])
-    T8 = Tree(tree_list=Tree.tree_list_xor,
+    T8 = Tree(tree_list=Tree.tree_list_XOR(2),
               empty=True,
               name='T8',
               switches=[S5, S6])
-    T9 = Tree(tree_list=Tree.tree_list_xnor,
+    T9 = Tree(tree_list=Tree.tree_list_XNOR(2),
               empty=True,
               name='T9',
               switches=[S3, S8])

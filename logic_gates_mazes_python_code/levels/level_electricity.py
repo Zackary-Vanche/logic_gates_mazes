@@ -37,43 +37,11 @@ def level_electricity():
     S16 = Switch(name='S16', value = w)
     S17 = Switch(name='S17', value = w)
     
-    # S10 S11
-    # tree_list_1a = Tree.tree_list_and_2
-    # tree_list_2a = Tree.tree_list_anb
-    # tree_list_3a = Tree.tree_list_bna
-    # S12 S13
-    # tree_list_4a = Tree.tree_list_and_2
-    # tree_list_5a = Tree.tree_list_anb
-    # tree_list_6a = Tree.tree_list_bna
-    # S14 S15
-    # tree_list_7a = Tree.tree_list_and_2
-    # tree_list_8a = Tree.tree_list_anb
-    # tree_list_9a = Tree.tree_list_bna
+#    tree_list_1b = Tree.tree_list_from_str('FFT')
+#    tree_list_6b = Tree.tree_list_from_str('TFF')
+#    tree_list_7b = Tree.tree_list_from_str('FFT')
     
-    # S1 S2 S3
-    tree_list_1b = Tree.tree_list_FFT
-    # tree_list_2b = Tree.tree_list_FTF
-    # tree_list_3b = Tree.tree_list_TFF
-    # S4 S5 S6
-    # tree_list_4b = Tree.tree_list_FFT
-    # tree_list_5b = Tree.tree_list_FTF
-    tree_list_6b = Tree.tree_list_TFF
-    # S7 S8 S9
-    tree_list_7b = Tree.tree_list_FFT
-    # tree_list_8b = Tree.tree_list_FTF
-    # tree_list_9b = Tree.tree_list_TFF
-    
-    tree_list_0  = ['AND', [None], ['NAND', tree_list_1b, tree_list_6b, tree_list_7b]]
-    # tree_list_1  = ['AND', tree_list_1a, tree_list_1b]
-    # tree_list_2  = ['AND', tree_list_2a, tree_list_2b]
-    # tree_list_3  = ['AND', tree_list_3a, tree_list_3b]
-    # tree_list_4  = ['AND', ['AND', tree_list_4a, ['NOT', tree_list_2a]], tree_list_4b]
-    # tree_list_5  = ['AND', ['AND', tree_list_5a, ['NOT', tree_list_1a]], tree_list_5b]
-    # tree_list_6  = ['AND', ['AND', tree_list_6a, ['NOT', tree_list_3a]], tree_list_6b]
-    # tree_list_7  = ['AND', ['AND', tree_list_7a, ['NOT', tree_list_5a]], tree_list_7b]
-    # tree_list_8  = ['AND', ['AND', tree_list_8a, ['NOT', tree_list_6a]], tree_list_8b]
-    # tree_list_9  = ['AND', ['AND', tree_list_9a, ['NOT', tree_list_4a]], tree_list_9b]
-    # tree_list_10 = ['AND', ['AND', ['NOR', tree_list_2a, tree_list_4a], ['NOT', tree_list_9a]], ['AND', [None], [None]]]
+    tree_list_0  = ['AND', [None], ['NAND', Tree.tree_list_from_str('FFT'), Tree.tree_list_from_str('TFF'), Tree.tree_list_from_str('FFT')]]
     
     T0   = Tree(tree_list=tree_list_0,  
             empty=True, 
@@ -90,25 +58,25 @@ def level_electricity():
     T3   = Tree(tree_list=Tree.tree_list_from_str('TFFFT'),   
             empty=True, name='T3',   
             switches = [S1, S2, S3, S10, S11])
-    T4   = Tree(tree_list=['AND', Tree.tree_list_from_str('FFTTT'), Tree.tree_list_bona],   
+    T4   = Tree(tree_list=['AND', Tree.tree_list_from_str('FFTTT'), Tree.tree_list_from_str('F T')],   
             empty=True, name='T4',   
             switches = [S4, S5, S6, S12, S13, S10, S11])
-    T5   = Tree(tree_list=['AND', Tree.tree_list_from_str('FTFTF'), Tree.tree_list_nand],   
+    T5   = Tree(tree_list=['AND', Tree.tree_list_from_str('FTFTF'), Tree.tree_list_NAND(2)],   
             empty=True, name='T5',   
             switches = [S4, S5, S6, S12, S13, S10, S11])
-    T6   = Tree(tree_list=['AND', Tree.tree_list_from_str('TFFFT'), Tree.tree_list_aonb],   
+    T6   = Tree(tree_list=['AND', Tree.tree_list_from_str('TFFFT'), Tree.tree_list_from_str('T F')],   
             empty=True, name='T6',   
             switches = [S4, S5, S6, S12, S13, S10, S11])
-    T7   = Tree(tree_list=['AND', Tree.tree_list_from_str('FFTTT'), Tree.tree_list_bona],   
+    T7   = Tree(tree_list=['AND', Tree.tree_list_from_str('FFTTT'), Tree.tree_list_from_str('F T')],   
             empty=True, name='T7',   
             switches = [S7, S8, S9, S14, S15, S12, S13])
-    T8   = Tree(tree_list=['AND', Tree.tree_list_from_str('FTFTF'), Tree.tree_list_aonb],   
+    T8   = Tree(tree_list=['AND', Tree.tree_list_from_str('FTFTF'), Tree.tree_list_from_str('T F')],   
             empty=True, name='T8',   
             switches = [S7, S8, S9, S14, S15, S12, S13])
-    T9   = Tree(tree_list=['AND', Tree.tree_list_from_str('TFFFT'), Tree.tree_list_nand],   
+    T9   = Tree(tree_list=['AND', Tree.tree_list_from_str('TFFFT'), Tree.tree_list_NAND(2)],   
             empty=True, name='T9',   
             switches = [S7, S8, S9, S14, S15, S12, S13])
-    T10  = Tree(tree_list=['AND', Tree.tree_list_bona, Tree.tree_list_nand, Tree.tree_list_aonb, [None], [None]],  
+    T10  = Tree(tree_list=['AND', Tree.tree_list_from_str('F T'), Tree.tree_list_NAND(2), Tree.tree_list_from_str('T F'), [None], [None]],  
             empty=True, name='T10',  
             switches = [S10, S11, S12, S13, S14, S15, S16, S17])
 

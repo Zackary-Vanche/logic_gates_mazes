@@ -35,39 +35,39 @@ def level_bipartite():
               empty=True,
               name='T0',
               switches = [S0])
-    T1 = Tree(tree_list=Tree.tree_list_xor,
+    T1 = Tree(tree_list=Tree.tree_list_XOR(2),
               empty=True,
               name='T1',
               switches = [S1, S4])
-    T2 = Tree(tree_list=Tree.tree_list_xor,
+    T2 = Tree(tree_list=Tree.tree_list_XOR(2),
               empty=True,
               name='T2',
               switches = [S1, S5])
-    T3 = Tree(tree_list=Tree.tree_list_xor,
+    T3 = Tree(tree_list=Tree.tree_list_XOR(2),
               empty=True,
               name='T3',
               switches = [S1, S6])
-    T4 = Tree(tree_list=Tree.tree_list_xor,
+    T4 = Tree(tree_list=Tree.tree_list_XOR(2),
               empty=True,
               name='T4',
               switches = [S2, S4])
-    T5 = Tree(tree_list=Tree.tree_list_xor,
+    T5 = Tree(tree_list=Tree.tree_list_XOR(2),
               empty=True,
               name='T5',
               switches = [S2, S5])
-    T6 = Tree(tree_list=Tree.tree_list_xor,
+    T6 = Tree(tree_list=Tree.tree_list_XOR(2),
               empty=True,
               name='T6',
               switches = [S2, S6])
-    T7 = Tree(tree_list=Tree.tree_list_xor,
+    T7 = Tree(tree_list=Tree.tree_list_XOR(2),
               empty=True,
               name='T7',
               switches = [S3, S4])
-    T8 = Tree(tree_list=Tree.tree_list_xor,
+    T8 = Tree(tree_list=Tree.tree_list_XOR(2),
               empty=True,
               name='T8',
               switches = [S3, S5])
-    T9 = Tree(tree_list=Tree.tree_list_xor,
+    T9 = Tree(tree_list=Tree.tree_list_XOR(2),
               empty=True,
               name='T9',
               switches = [S3, S6])

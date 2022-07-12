@@ -24,8 +24,8 @@ def level_independent_set():
     S7 = Switch(name='S7')
     S8 = Switch(name='S8')
     
-    tree_list_4 = ['AND'] + [Tree.tree_list_nand]*4
-    tree_list_6 = ['AND'] + [Tree.tree_list_nand]*6
+    tree_list_4 = ['AND'] + [Tree.tree_list_NAND(2)]*4
+    tree_list_6 = ['AND'] + [Tree.tree_list_NAND(2)]*6
     
     T0 = Tree(tree_list=tree_list_6,
               empty=True,

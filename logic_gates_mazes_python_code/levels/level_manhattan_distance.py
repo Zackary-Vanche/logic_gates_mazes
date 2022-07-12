@@ -78,7 +78,7 @@ def level_manhattan_distance():
               empty=True,
               name='T8',
               switches = [S3, S10, S11, S12, S25])
-    T9 = Tree(tree_list=['AND', Tree.tree_list_XOR3, [None]],
+    T9 = Tree(tree_list=['AND', Tree.tree_list_XOR(3), [None]],
               empty=True,
               name='T9',
               switches = [S13, S14, S15, S26])
@@ -118,7 +118,7 @@ def level_manhattan_distance():
               empty=True,
               name='T18',
               switches = [S10, S11, S12, S18, S19])
-    T19 = Tree(tree_list=['AND', Tree.tree_list_XORN3, [None]],
+    T19 = Tree(tree_list=['AND', Tree.tree_list_XORN(3), [None]],
               empty=True,
               name='T19',
               switches = [S13, S14, S15, S23])

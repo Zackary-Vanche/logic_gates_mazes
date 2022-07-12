@@ -20,12 +20,12 @@ def level_odd():
     S3 = Switch(name='S3')
     S4 = Switch(name='S4')
     
-    tree_list_0 = Tree.tree_list_and_5
-    tree_list_5 = Tree.tree_list_nor
-    tree_list_4 = Tree.tree_list_bna
-    tree_list_6 = Tree.tree_list_anb
-    tree_list_1 = Tree.tree_list_FTF
-    tree_list_2 = Tree.tree_list_FFT
+    tree_list_0 = Tree.tree_list_AND(5)
+    tree_list_5 = Tree.tree_list_NOR(2)
+    tree_list_4 = Tree.tree_list_from_str('FT')
+    tree_list_6 = Tree.tree_list_from_str('TF')
+    tree_list_1 = Tree.tree_list_from_str('FTF')
+    tree_list_2 = Tree.tree_list_from_str('FFT')
     tree_list_3 = Tree.tree_list_from_str('TTTF')
     
     T0 = Tree(tree_list=tree_list_0, empty=True, name='T0', switches = [S0, S1, S2, S3, S4])

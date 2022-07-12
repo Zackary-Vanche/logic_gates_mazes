@@ -19,11 +19,11 @@ def level_or():
     S1 = Switch(name='S1')
     S2 = Switch(name='S2')
     
-    T0 = Tree(tree_list=Tree.tree_list_or_2, 
+    T0 = Tree(tree_list=Tree.tree_list_OR(2), 
               empty=True, 
               name='T0', 
               switches = [S0, S1])
-    T1 = Tree(tree_list=Tree.tree_list_or_2, 
+    T1 = Tree(tree_list=Tree.tree_list_OR(2), 
               empty=True, 
               name='T1', 
               switches = [S1, S2])

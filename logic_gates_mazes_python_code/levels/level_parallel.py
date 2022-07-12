@@ -21,8 +21,8 @@ def level_parallel():
     S4 = Switch(name='S4')
     S5 = Switch(name='S5')
     
-    tree_list=Tree.tree_list_anb
-    tree_list_4 = Tree.tree_list_FTT
+    tree_list=Tree.tree_list_from_str('TF')
+    tree_list_4 = Tree.tree_list_from_str('FTT')
     
     T0  = Tree(tree_list=tree_list,    empty=True, name='T0',  switches = [S0, S3])
     T1  = Tree(tree_list=tree_list,    empty=True, name='T1',  switches = [S1, S4])
@@ -30,7 +30,7 @@ def level_parallel():
     T3  = Tree(tree_list=tree_list,    empty=True, name='T3',  switches = [S0, S3])
     T4  = Tree(tree_list=tree_list_4,  empty=True, name='T4',  switches = [S1, S4, S5])
     T5  = Tree(tree_list=tree_list,    empty=True, name='T5',  switches = [S2, S5])
-    T6  = Tree(tree_list=Tree.tree_list_and_6,  empty=True, name='T6',  switches = [S0, S1, S2, S3, S4, S5])
+    T6  = Tree(tree_list=Tree.tree_list_AND(6),  empty=True, name='T6',  switches = [S0, S1, S2, S3, S4, S5])
     
     position_R0 = [  0,   0,   6,    1]
     position_R1 = [  3,   2,   2,    1]

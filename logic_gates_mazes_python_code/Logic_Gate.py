@@ -34,7 +34,7 @@ class Logic_Gate:
                 if branches_values_list[i] != branches_values_list[i+1]:
                     return 0
             return 1
-        if self.name == 'DIF':
+        if self.name == 'DIFF':
             assert len(branches_values_list) >= 2
             for i in range(len(branches_values_list)-1):
                 if branches_values_list[i] != branches_values_list[i+1]:
@@ -60,9 +60,15 @@ class Logic_Gate:
         if self.name == 'INF':
             assert len(branches_values_list) == 2
             return branches_values_list[0] < branches_values_list[1]
+        if self.name == 'INFOREQU':
+            assert len(branches_values_list) == 2
+            return branches_values_list[0] <= branches_values_list[1]
         if self.name == 'SUP':
             assert len(branches_values_list) == 2
             return branches_values_list[0] > branches_values_list[1]
+        if self.name == 'SUPOREQU':
+            assert len(branches_values_list) == 2
+            return branches_values_list[0] >= branches_values_list[1]
         if self.name == 'ANB':
             assert len(branches_values_list) == 2
             return not branches_values_list[0] and not branches_values_list[1]

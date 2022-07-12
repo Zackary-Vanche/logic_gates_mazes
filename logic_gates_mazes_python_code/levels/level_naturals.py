@@ -45,7 +45,7 @@ def level_naturals():
                           Switch(value=4, name='4'), S4, S5,
                           Switch(value=8, name='8'), S6, S7,
                           Switch(value=2, name='2')])
-    T1 = Tree(tree_list=Tree.tree_list_and_8,
+    T1 = Tree(tree_list=Tree.tree_list_AND(8),
               empty=True,
               name='T1',
               switches = [S0, S1, S2, S3, S4, S5, S6, S7])

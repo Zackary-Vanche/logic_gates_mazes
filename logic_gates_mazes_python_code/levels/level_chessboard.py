@@ -32,7 +32,7 @@ def level_chessboard():
                 empty=True,
                 name='T0',
                 switches = [S2])
-    T1 = Tree(tree_list=Tree.tree_list_or_2,
+    T1 = Tree(tree_list=Tree.tree_list_OR(2),
                 empty=True,
                 name='T1',
                 switches = [S0, S2])
@@ -48,7 +48,7 @@ def level_chessboard():
                 empty=True,
                 name='T4',
                 switches = [S0])
-    T5 = Tree(tree_list=Tree.tree_list_or_2,
+    T5 = Tree(tree_list=Tree.tree_list_OR(2),
                 empty=True,
                 name='T5',
                 switches = [S0, S2])

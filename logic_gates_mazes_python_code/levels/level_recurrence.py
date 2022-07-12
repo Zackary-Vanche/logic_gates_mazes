@@ -22,11 +22,11 @@ def level_recurrence():
     S5 = Switch(name='S5')
     S6 = Switch(name='S6')
     
-    tree_list_0 = Tree.tree_list_or_4
+    tree_list_0 = Tree.tree_list_OR(4)
     tree_list_1 = [None]
-    tree_list_2 = ['AND', Tree.tree_list_not, Tree.tree_list_or_3]
+    tree_list_2 = ['AND', Tree.tree_list_not, Tree.tree_list_OR(3)]
     tree_list_3 = [None]
-    tree_list_4 = ['AND', Tree.tree_list_nor, Tree.tree_list_or_2]
+    tree_list_4 = ['AND', Tree.tree_list_NOR(2), Tree.tree_list_OR(2)]
     tree_list_5 = [None]
     # tree_list_6 = ['BNA', Tree.tree_list_or_3, Tree.tree_list_and_4]
     tree_list_6 = Tree.tree_list_from_str('F'*7)

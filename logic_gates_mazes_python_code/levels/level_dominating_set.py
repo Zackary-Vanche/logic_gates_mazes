@@ -39,67 +39,67 @@ def level_dominating_set():
                empty=True,
                name='T0',
                switches = [S0, S1, S2, S3, S4, S5, S6, S7, S8, Switch(value=3, name='3')])
-    T1 = Tree(tree_list=Tree.tree_list_or_2,
+    T1 = Tree(tree_list=Tree.tree_list_OR(2),
               empty=True,
               name='T1',
               switches = [S0, S1])
-    T2 = Tree(tree_list=Tree.tree_list_or_2,
+    T2 = Tree(tree_list=Tree.tree_list_OR(2),
               empty=True,
               name='T2',
               switches = [S0, S2])
-    T3 = Tree(tree_list=Tree.tree_list_or_2,
+    T3 = Tree(tree_list=Tree.tree_list_OR(2),
               empty=True,
               name='T3',
               switches = [S0, S3])
-    T4 = Tree(tree_list=Tree.tree_list_or_2,
+    T4 = Tree(tree_list=Tree.tree_list_OR(2),
               empty=True,
               name='T4',
               switches = [S1, S3])
-    T5 = Tree(tree_list=Tree.tree_list_or_2,
+    T5 = Tree(tree_list=Tree.tree_list_OR(2),
               empty=True,
               name='T5',
               switches = [S2, S3])
-    T6 = Tree(tree_list=Tree.tree_list_or_2,
+    T6 = Tree(tree_list=Tree.tree_list_OR(2),
               empty=True,
               name='T6',
               switches = [S2, S4])
-    T7 = Tree(tree_list=Tree.tree_list_or_2,
+    T7 = Tree(tree_list=Tree.tree_list_OR(2),
               empty=True,
               name='T7',
               switches = [S2, S5])
-    T8 = Tree(tree_list=Tree.tree_list_or_2,
+    T8 = Tree(tree_list=Tree.tree_list_OR(2),
               empty=True,
               name='T8',
               switches = [S2, S6])
-    T9 = Tree(tree_list=Tree.tree_list_or_2,
+    T9 = Tree(tree_list=Tree.tree_list_OR(2),
               empty=True,
               name='T9',
               switches = [S3, S6])
-    T10 = Tree(tree_list=Tree.tree_list_or_2,
+    T10 = Tree(tree_list=Tree.tree_list_OR(2),
                empty=True,
                name='T10',
                switches = [S4, S5])
-    T11 = Tree(tree_list=Tree.tree_list_or_2,
+    T11 = Tree(tree_list=Tree.tree_list_OR(2),
                empty=True,
                name='T11',
                switches = [S4, S7])
-    T12 = Tree(tree_list=Tree.tree_list_or_2,
+    T12 = Tree(tree_list=Tree.tree_list_OR(2),
                empty=True,
                name='T12',
                switches = [S4, S8])
-    T13 = Tree(tree_list=Tree.tree_list_or_2,
+    T13 = Tree(tree_list=Tree.tree_list_OR(2),
                empty=True,
                name='T13',
                switches = [S5, S6])
-    T14 = Tree(tree_list=Tree.tree_list_or_2,
+    T14 = Tree(tree_list=Tree.tree_list_OR(2),
                empty=True,
                name='T14',
                switches = [S5, S8])
-    T15 = Tree(tree_list=Tree.tree_list_or_2,
+    T15 = Tree(tree_list=Tree.tree_list_OR(2),
                empty=True,
                name='T15',
                switches = [S7, S8])
-    T16 = Tree(tree_list=Tree.tree_list_and_9,
+    T16 = Tree(tree_list=Tree.tree_list_AND(9),
                empty=True,
                name='T16',
                switches=[S9, S10, S11, S12, S13, S14, S15, S16, S17])

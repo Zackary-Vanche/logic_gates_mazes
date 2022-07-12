@@ -25,27 +25,27 @@ def level_xor():
     S7 = Switch(name='S7')
     S8 = Switch(name='S8')
 
-    tree_list_0 = Tree.tree_list_nand
+    tree_list_0 = Tree.tree_list_NAND(2)
     tree_list_1 = ['AND',
-                   Tree.tree_list_aonb,
+                   Tree.tree_list_from_str('T F'),
                    [None]]
     tree_list_2 = ['AND',
-                   Tree.tree_list_bona,
+                   Tree.tree_list_from_str('F T'),
                    [None]]
     tree_list_3 = ['AND',
-                   Tree.tree_list_XOR3,
+                   Tree.tree_list_XOR(3),
                    [None]]
     tree_list_4 = ['AND',
-                   Tree.tree_list_XORN3,
+                   Tree.tree_list_XORN(3),
                    [None]]
     tree_list_5 = ['AND',
-                   Tree.tree_list_XOR3,
+                   Tree.tree_list_XOR(3),
                    [None]]
     tree_list_6 = ['AND',
-                   Tree.tree_list_XORN3,
+                   Tree.tree_list_XORN(3),
                    [None]]
     tree_list_7 = ['AND',
-                   Tree.tree_list_XOR3,
+                   Tree.tree_list_XOR(3),
                    [None]]
     tree_list_8 = Tree.tree_list_from_str('TF TT TT')
 

@@ -134,11 +134,11 @@ def level_wave():
                empty=True,
                name='T24',
                switches = [S7, S16])
-    T26 = Tree(tree_list=Tree.tree_list_XOR5,
+    T26 = Tree(tree_list=Tree.tree_list_XOR(5),
                empty=True,
                name='T26',
                switches = [S6, S7, S8, S13, S14])
-    T25 = Tree(tree_list=['AND', Tree.tree_list_XOR3, Tree.tree_list_XOR5],
+    T25 = Tree(tree_list=['AND', Tree.tree_list_XOR(3), Tree.tree_list_XOR(5)],
                empty=True,
                name='T25',
                switches = [S0, S1, S2,

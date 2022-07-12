@@ -23,9 +23,9 @@ def level_fluid():
     S6 = Switch(name='S6')
     S7 = Switch(name='S7')
     
-    tree_list_0 = Tree.tree_list_anb
-    tree_list_1 = Tree.tree_list_anb
-    tree_list_2 = Tree.tree_list_FTT
+    tree_list_0 = Tree.tree_list_from_str('TF')
+    tree_list_1 = Tree.tree_list_from_str('TF')
+    tree_list_2 = Tree.tree_list_from_str('FTT')
     tree_list_3 = Tree.tree_list_from_str('FFTTTTT')
     tree_list_4 = [None]
     tree_list_5 = [None]

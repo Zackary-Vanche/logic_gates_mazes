@@ -30,7 +30,7 @@ def level_fractal():
     S13 = Switch(name='S13')
     S14 = Switch(name='S14')
     
-    T0 = Tree(tree_list=Tree.tree_list_or_2,
+    T0 = Tree(tree_list=Tree.tree_list_OR(2),
               empty=True,
               name='T0',
               switches = [S0, S8])
@@ -38,7 +38,7 @@ def level_fractal():
               empty=True,
               name='T1',
               switches = [S14])
-    T2 = Tree(tree_list=['AND', [None], Tree.tree_list_xnor],
+    T2 = Tree(tree_list=['AND', [None], Tree.tree_list_XNOR(2)],
               empty=True,
               name='T2',
               switches = [S0, S1, S2])
@@ -50,7 +50,7 @@ def level_fractal():
               empty=True,
               name='T4',
               switches = [S0, S1])
-    T5 = Tree(tree_list=['AND', [None], Tree.tree_list_xor],
+    T5 = Tree(tree_list=['AND', [None], Tree.tree_list_XOR(2)],
               empty=True,
               name='T5',
               switches = [S0, S3, S4])
@@ -62,7 +62,7 @@ def level_fractal():
               empty=True,
               name='T7',
               switches = [S10])
-    T8 = Tree(tree_list=['AND', [None], Tree.tree_list_nor],
+    T8 = Tree(tree_list=['AND', [None], Tree.tree_list_NOR(2)],
               empty=True,
               name='T8',
               switches = [S0, S5, S6])

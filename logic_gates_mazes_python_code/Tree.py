@@ -5,8 +5,6 @@ Created on Thu Feb 24 20:50:35 2022
 @author: utilisateur
 """
 
-# ⊙ ⊕
-
 # from random import random as rd_random
 # from random import randint as rd_randint
 # from random import shuffle as rd_shuffle
@@ -28,58 +26,26 @@ class Tree:
     
     tree_list_not = ['NOT', [None]]
     
-    tree_list_and_2  = ['AND'] + [[None]]*2
-    tree_list_and_3  = ['AND'] + [[None]]*3
-    tree_list_and_4  = ['AND'] + [[None]]*4
-    tree_list_and_5  = ['AND'] + [[None]]*5
-    tree_list_and_6  = ['AND'] + [[None]]*6
-    tree_list_and_7  = ['AND'] + [[None]]*7 
-    tree_list_and_8  = ['AND'] + [[None]]*8
-    tree_list_and_9  = ['AND'] + [[None]]*9
-    tree_list_and_10 = ['AND'] + [[None]]*10
+    def tree_list_AND(n):
+        return ['AND'] + [[None]]*n
     
-    tree_list_or_2  = ['OR'] + [[None]]*2
-    tree_list_or_3  = ['OR'] + [[None]]*3
-    tree_list_or_4  = ['OR'] + [[None]]*4
-    tree_list_or_5  = ['OR'] + [[None]]*5
-    tree_list_or_6  = ['OR'] + [[None]]*6
-    tree_list_or_7  = ['OR'] + [[None]]*7 
-    tree_list_or_8  = ['OR'] + [[None]]*8
-    tree_list_or_9  = ['OR'] + [[None]]*9
-    tree_list_or_10 = ['OR'] + [[None]]*10
+    def tree_list_OR(n):
+        return ['OR'] + [[None]]*n
     
-    tree_list_XOR2 = ['XOR'] + [[None]]*2
-    tree_list_XORN2 = ['XOR'] + [tree_list_not]*2
-    tree_list_XOR3 = ['XOR'] + [[None]]*3
-    tree_list_XORN3 = ['XOR'] + [tree_list_not]*3
-    tree_list_XOR4 = ['XOR'] + [[None]]*4
-    tree_list_XORN4 = ['XOR'] + [tree_list_not]*4
-    tree_list_XOR5 = ['XOR'] + [[None]]*5
-    tree_list_XORN5 = ['XOR'] + [tree_list_not]*5
-    tree_list_XOR6 = ['XOR'] + [[None]]*6
-    tree_list_XORN6 = ['XOR'] + [tree_list_not]*6
-    tree_list_XOR7 = ['XOR'] + [[None]]*7
-    tree_list_XORN7 = ['XOR'] + [tree_list_not]*7
-    tree_list_XOR8 = ['XOR'] + [[None]]*8
-    tree_list_XORN8 = ['XOR'] + [tree_list_not]*8
-    tree_list_XOR9 = ['XOR'] + [[None]]*9
-    tree_list_XORN9 = ['XOR'] + [tree_list_not]*9
-    tree_list_XOR10 = ['XOR'] + [[None]]*10
-    tree_list_XORN10 = ['XOR'] + [tree_list_not]*10
+    def tree_list_NAND(n):
+        return ['NAND'] + [[None]]*n
     
-    tree_list_nor = ['NOR', [None], [None]]
-    tree_list_anb = ['AND', [None], tree_list_not]
-    tree_list_bna = ['AND', tree_list_not, [None]]
-    tree_list_xor = ['XOR', [None], [None]]
-    tree_list_xnor = ['XNOR', [None], [None]]
-    tree_list_nand = ['NAND', [None], [None]]
-    tree_list_aonb = ['OR', [None], tree_list_not]
-    tree_list_bona = ['OR', tree_list_not, [None]]
+    def tree_list_NOR(n):
+        return ['NOR'] + [[None]]*n
     
-    tree_list_nor_3 = ['NOR'] + [[None]]*3
-    tree_list_nor_4 = ['NOR'] + [[None]]*4
-    tree_list_nor_5 = ['NOR'] + [[None]]*5
-    tree_list_nor_6 = ['NOR'] + [[None]]*6
+    def tree_list_XOR(n):
+        return ['XOR'] + [[None]]*n
+    
+    def tree_list_XNOR(n):
+        return ['XNOR'] + [[None]]*n
+    
+    def tree_list_XORN(n):
+        return ['XOR'] + [Tree.tree_list_not]*n
     
     def tree_list_from_str(txt):
         def tree_list_and_from_str(txt):
@@ -113,15 +79,6 @@ class Tree:
             for i in range(n):
                 tree_list.append(tree_list_and_from_str(txtl[i]))
             return tree_list
-    
-    tree_list_FFF = tree_list_from_str('FFF')
-    tree_list_TFF = tree_list_from_str('TFF')
-    tree_list_FTF = tree_list_from_str('FTF')
-    tree_list_FFT = tree_list_from_str('FFT')
-    tree_list_FTT = tree_list_from_str('FTT')
-    tree_list_TFT = tree_list_from_str('TFT')
-    tree_list_TTF = tree_list_from_str('TTF')
-    tree_list_TTT = tree_list_and_3
     
     def __init__(self, 
                  tree_list = [None], 
@@ -536,32 +493,3 @@ class Tree:
                         l.append(j)
                 same_switches_set.append(l)
             self.same_switches_list = list(same_switches_set)
-        
-if __name__ == "__main__":
-    
-    pass
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    

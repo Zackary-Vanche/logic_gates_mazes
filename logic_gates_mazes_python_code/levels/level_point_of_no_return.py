@@ -26,11 +26,11 @@ def level_point_of_no_return():
     S9 = Switch(name='S9')
     
     tree_list_0 = [None] 
-    tree_list_1 = ['AND', Tree.tree_list_xnor, [None]]
-    tree_list_2 = ['AND', Tree.tree_list_xor, [None]]
-    tree_list_3 = ['AND', Tree.tree_list_or_2, [None]]
-    tree_list_4 = ['AND', Tree.tree_list_xor, [None]]
-    tree_list_5 = Tree.tree_list_and_5
+    tree_list_1 = ['AND', Tree.tree_list_XNOR(2), [None]]
+    tree_list_2 = ['AND', Tree.tree_list_XOR(2), [None]]
+    tree_list_3 = ['AND', Tree.tree_list_OR(2), [None]]
+    tree_list_4 = ['AND', Tree.tree_list_XOR(2), [None]]
+    tree_list_5 = Tree.tree_list_AND(5)
     
     T0 = Tree(tree_list=tree_list_0, empty=True, name='T0', switches = [S0])
     T1 = Tree(tree_list=tree_list_1, empty=True, name='T1', switches = [S5, S7, S9],

@@ -20,44 +20,34 @@ def level_loop():
     S2 = Switch(name='S2')
     S3 = Switch(name='S3')
 
-    tree_list_0 = [None]
-    tree_list_1 = [None]
-    tree_list_2 = [None]
-    tree_list_3 = Tree.tree_list_bna
-
-    T0 = Tree(tree_list=tree_list_0,
+    T0 = Tree(tree_list=[None],
               empty=True,
               name='T0',
               switches=[S0])
-    T1 = Tree(tree_list=tree_list_1,
+    T1 = Tree(tree_list=[None],
               empty=True,
               name='T1',
               switches=[S1])
-    T2 = Tree(tree_list=tree_list_2,
+    T2 = Tree(tree_list=[None],
               empty=True,
               name='T2',
               switches=[S2])
-    T3 = Tree(tree_list=tree_list_3,
+    T3 = Tree(tree_list=Tree.tree_list_from_str('FT'),
               empty=True,
               name='T3',
               switches=[S0, S3])
 
-    position_R0 = [1, 0, 2, 2]
-    position_R1 = [4, 1, 2, 2]
-    position_R2 = [3, 4, 2, 2]
-    position_RE = [0, 3, 2, 2]
-
     R0 = Room(name='R0',
-              position=position_R0,
+              position=[1, 0, 2, 2],
               switches_list=[S0])
     R1 = Room(name='R1',
-              position=position_R1,
+              position=[4, 1, 2, 2],
               switches_list=[S1])
     R2 = Room(name='R2',
-              position=position_R2,
+              position=[3, 4, 2, 2],
               switches_list=[S2, S3])
     RE = Room(name='RE',
-              position=position_RE,
+              position=[0, 3, 2, 2],
               is_exit=True)  # E pour exit ou end
 
     D0 = Door(two_way=False,

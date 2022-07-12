@@ -29,20 +29,20 @@ def level_dead_ends():
     # SN  = Switch(name='SN') # Switch Null
     
     tree_list_0  = ["AND", Tree.tree_list_not, [None], [None], [None], [None]]
-    tree_list_1  = Tree.tree_list_TFF
-    tree_list_2  = Tree.tree_list_nor
-    tree_list_3  = Tree.tree_list_TFF
-    tree_list_4  = Tree.tree_list_nor
-    tree_list_5  = Tree.tree_list_nor
-    tree_list_6  = Tree.tree_list_nor
-    tree_list_7  = Tree.tree_list_nor
+    tree_list_1  = Tree.tree_list_from_str('TFF')
+    tree_list_2  = Tree.tree_list_NOR(2)
+    tree_list_3  = Tree.tree_list_from_str('TFF')
+    tree_list_4  = Tree.tree_list_NOR(2)
+    tree_list_5  = Tree.tree_list_NOR(2)
+    tree_list_6  = Tree.tree_list_NOR(2)
+    tree_list_7  = Tree.tree_list_NOR(2)
     tree_list_8  = Tree.tree_list_from_str('TT T')  # ['OR', Tree.tree_list_and_2, [None]]
-    tree_list_9  = Tree.tree_list_anb
-    tree_list_10 = ['AND', Tree.tree_list_xor, Tree.tree_list_xor, Tree.tree_list_not]
-    tree_list_11 = Tree.tree_list_anb
+    tree_list_9  = Tree.tree_list_from_str('TF')
+    tree_list_10 = ['AND', Tree.tree_list_XOR(2), Tree.tree_list_XOR(2), Tree.tree_list_not]
+    tree_list_11 = Tree.tree_list_from_str('TF')
     # tree_list_12 = ['NA', [None], [None]]
     tree_list_12 = ['NOT', [None]]
-    tree_list_13 = Tree.tree_list_FFF
+    tree_list_13 = Tree.tree_list_from_str('FFF')
     tree_list_14 = tree_list_10[:]
     
     T0  = Tree(tree_list=tree_list_0,  empty=True, name='T0',  switches = [S0, S5, S6, S7, S8])

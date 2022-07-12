@@ -45,8 +45,8 @@ def level_4_colors_theorem():
                      [None]]],
                    [None]]
     tree_list_1 = ['OR',
-                   Tree.tree_list_xor,
-                   Tree.tree_list_xor]
+                   Tree.tree_list_XOR(2),
+                   Tree.tree_list_XOR(2)]
     
     SN2 = Switch(value=2, name='2')
     SN3 = Switch(value=3, name='3')
