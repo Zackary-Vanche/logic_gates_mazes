@@ -5,6 +5,8 @@ Created on Thu Feb 24 20:50:35 2022
 @author: utilisateur
 """
 
+# ⊙ ⊕
+
 # from random import random as rd_random
 # from random import randint as rd_randint
 # from random import shuffle as rd_shuffle
