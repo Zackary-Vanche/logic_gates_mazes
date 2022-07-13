@@ -76,7 +76,6 @@ class Levels:
     
     levels_functions_list = [
                              # level_icone,
-                             # level_knight,
                              level_hello_world,
                              level_linear,
                              level_loop,
@@ -119,6 +118,7 @@ class Levels:
                              level_wave,
                              level_manhattan_distance,
                              level_temple,
+                             level_knight,
                              #level_random,
                              ] 
 
@@ -190,11 +190,13 @@ if __name__ == "__main__":
     #         f.write(level.help_txt[0])
     #         f.write('"""\n\n')
 
-    import cProfile
-    level = level_bipartite()
-    # solutions = level.find_all_solutions(verbose=3, stop_at_first_solution=False)
-    cProfile.run("solutions = level.find_all_solutions(verbose=3, stop_at_first_solution=False)")     
-    # print(solutions)
+#    import cProfile
+#    level = level_bipartite()
+#    cProfile.run("solutions = level.find_all_solutions(verbose=3, stop_at_first_solution=False)")     
+    
+    
+    solutions = level_knight().find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**4)
+    print(solutions)
     
     
     

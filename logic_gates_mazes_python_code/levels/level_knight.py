@@ -15,55 +15,54 @@ from Levels_colors_list import Levels_colors_list
 
 def level_knight():
     
+    v = 0
+    
     S0 = Switch(name='S0')
-    S1 = Switch(name='S1')
-    S2 = Switch(name='S2')
+    S1 = Switch(name='S1', value=v)
+    S2 = Switch(name='S2', value=v)
     S3 = Switch(name='S3')
     S4 = Switch(name='S4')
     S5 = Switch(name='S5')
     S6 = Switch(name='S6')
-    S7 = Switch(name='S7')
-    S8 = Switch(name='S8')
+    S7 = Switch(name='S7', value=v)
+    S8 = Switch(name='S8', value=v)
     S9 = Switch(name='S9')
     S10 = Switch(name='S10')
     S11 = Switch(name='S11')
-    S12 = Switch(name='S12')
-    S13 = Switch(name='S13')
-    S14 = Switch(name='S14')
+    S12 = Switch(name='S12', value=v)
+    S13 = Switch(name='S13', value=v)
+    S14 = Switch(name='S14', value=v)
     S15 = Switch(name='S15')
-    S16 = Switch(name='S16')
+    S16 = Switch(name='S16', value=v)
     S17 = Switch(name='S17')
     S18 = Switch(name='S18')
-    S19 = Switch(name='S19')
+    S19 = Switch(name='S19', value=v)
     S20 = Switch(name='S20')
-    S21 = Switch(name='S21')
+    S21 = Switch(name='S21', value=v)
     S22 = Switch(name='S22')
     S23 = Switch(name='S23')
-    S24 = Switch(name='S24')
-    S25 = Switch(name='S25')
+    S24 = Switch(name='S24', value=v)
+    S25 = Switch(name='S25', value=v)
     S26 = Switch(name='S26')
-    S27 = Switch(name='S27')
-    S28 = Switch(name='S28')
+    S27 = Switch(name='S27', value=v)
+    S28 = Switch(name='S28', value=v)
     S29 = Switch(name='S29')
-    S30 = Switch(name='S30')
+    S30 = Switch(name='S30', value=v)
     S31 = Switch(name='S31')
-    S32 = Switch(name='S32')
-    S33 = Switch(name='S33')
+    S32 = Switch(name='S32', value=v)
+    S33 = Switch(name='S33', value=v)
     S34 = Switch(name='S34')
     S35 = Switch(name='S35')
     S36 = Switch(name='S36')
-    S37 = Switch(name='S37')
+    S37 = Switch(name='S37', value=v)
     S38 = Switch(name='S38')
-    S39 = Switch(name='S39')
+    S39 = Switch(name='S39', value=v)
     S40 = Switch(name='S40')
     S41 = Switch(name='S41')
-    S42 = Switch(name='S42')
+    S42 = Switch(name='S42', value=v)
     S43 = Switch(name='S43')
-    S44 = Switch(name='S44')
-    S45 = Switch(name='S45')
-    S46 = Switch(name='S46')
-    S47 = Switch(name='S47')
-    
+
+    SN0 = Switch(value=0, name='0')
     SN1 = Switch(value=1, name='1')
     SN2 = Switch(value=2, name='2')
     SN3 = Switch(value=3, name='3')
@@ -76,10 +75,14 @@ def level_knight():
     tree_list_equ = ['EQUSET', tree_list_abs, tree_list_abs, [None], [None]] # 10
     tree_list_tot = ['AND', tree_list_inf, tree_list_equ] # 23
 
-    T0 = Tree(tree_list=tree_list_inf,
+    T0 = Tree(tree_list=tree_list_tot,
               empty=True,
               name='T0',
-              switches = [S2, S3, SN3],
+              switches = [S2, S3, SN3,
+                          SN0, SN0, S0, S1, 
+                          SN0, SN0, S2, S3,
+                          SN1,
+                          SN2],
               cut_expression=False)
     T1 = Tree(tree_list=tree_list_tot,
               empty=True,
@@ -93,87 +96,94 @@ def level_knight():
               empty=True,
               name='T2',
               switches = [S10, S11, SN3,
-                          S2, S3, S6, S7,
-                          S8, S9, S10, S11,
+                          S4, S5, S8, S9,
+                          S6, S7, S10, S11,
                           SN1,
                           SN2])
     T3 = Tree(tree_list=tree_list_tot,
               empty=True,
               name='T3',
               switches = [S14, S15, SN3,
-                          S8, S9, S10, S11,
-                          S12, S13, S14, S15,
+                          S8, S9, S12, S13,
+                          S10, S11, S14, S15,
                           SN1,
                           SN2])
     T4 = Tree(tree_list=tree_list_tot,
               empty=True,
               name='T4',
               switches = [S18, S19, SN3,
-                          S12, S13, S14, S15,
-                          S16, S17, S18, S19,
+                          S12, S13, S16, S17,
+                          S14, S15, S18, S19,
                           SN1,
                           SN2])
     T5 = Tree(tree_list=tree_list_tot,
               empty=True,
               name='T5',
               switches = [S22, S23, SN3,
-                          S16, S17, S18, S19,
-                          S20, S21, S22, S23,
+                          S16, S17, S20, S21,
+                          S18, S19, S22, S23,
                           SN1,
                           SN2])
     T6 = Tree(tree_list=tree_list_tot,
               empty=True,
               name='T6',
               switches = [S26, S27, SN3,
-                          S20, S21, S22, S23,
-                          S24, S25, S26, S27,
+                          S20, S21, S24, S25,
+                          S22, S23, S26, S27,
                           SN1,
                           SN2])
     T7 = Tree(tree_list=tree_list_tot,
               empty=True,
               name='T7',
               switches = [S30, S31, SN3,
-                          S24, S25, S26, S27,
-                          S28, S29, S30, S31,
+                          S24, S25, S28, S29,
+                          S26, S27, S30, S31,
                           SN1,
                           SN2])
     T8 = Tree(tree_list=tree_list_tot,
               empty=True,
               name='T8',
               switches = [S34, S35, SN3,
-                          S28, S29, S30, S31,
-                          S32, S33, S34, S35,
+                          S28, S29, S32, S33,
+                          S30, S31, S34, S35,
                           SN1,
                           SN2])
     T9 = Tree(tree_list=tree_list_tot,
               empty=True,
               name='T9',
               switches = [S38, S39, SN3,
-                          S32, S33, S34, S35,
-                          S36, S37, S38, S39,
+                          S32, S33, S36, S37,
+                          S34, S35, S38, S39,
                           SN1,
                           SN2])
     T10 = Tree(tree_list=tree_list_tot,
                empty=True,
                name='T10',
                switches = [S42, S43, SN3,
-                          S36, S37, S38, S39,
-                          S40, S41, S42, S43,
+                          S36, S37, S40, S41,
+                          S38, S39, S42, S43,
                           SN1,
                           SN2])
-    T11 = Tree(tree_list=tree_list_tot,
+    T11 = Tree(tree_list=['DIFF'] + [['BIN', [None], [None], [None], [None]]]*11,
                empty=True,
                name='T11',
-               switches = [S46, S47, SN3,
-                          S40, S41, S42, S43,
-                          S44, S45, S46, S47,
-                          SN1,
-                          SN2])
+               switches = [S0, S1, S2, S3,
+                           S4, S5, S6, S7,
+                           S8, S9, S10, S11,
+                           S12, S13, S14, S15,
+                           S16, S17, S18, S19,
+                           S20, S21, S22, S23,
+                           S24, S25, S26, S27,
+                           S28, S29, S30, S31,
+                           S32, S33, S34, S35,
+                           S36, S37, S38, S39,
+                           S40, S41, S42, S43],
+                cut_expression=True)
 
     l = 1
     L = 4
     a = L + 1.5
-    d = 1.5
+    d = 1.6
     e = d/2
 
     R0 = Room(name='R0',
@@ -210,10 +220,10 @@ def level_knight():
                position = [0, 5*d, L, l],
                switches_list = [S40, S41, S42, S43])
     R11 = Room(name='R11',
-               position = [a, 5*d+e, L, l],
-               switches_list = [S44, S45, S46, S47])
+               position = [a, 5*d+e, l, l],
+               switches_list = [])
     RE = Room(name='RE',
-              position=[0, 6*d, L, l],
+              position=[a+L-l, 5*d+e, l, l],
               is_exit=True)   # E pour exit ou end
     
     rp = 0.5
@@ -296,20 +306,18 @@ def level_knight():
                room_arrival=R11,
                relative_position=rp,
                relative_departure_coordinates=rc1,
-               relative_arrival_coordinates=rc2)
+               relative_arrival_coordinates=[1, 1/2])
     D11 = Door(two_way=False,
                tree=T11,
                room_departure=R11,
                room_arrival=RE,
-               relative_position=rp,
-               relative_departure_coordinates=rc2,
-               relative_arrival_coordinates=rc1)
+               relative_position=rp)
 
     level = Maze(start_room_index=0, 
                  exit_room_index=-1, 
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, RE], 
                  doors_list = [D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11], 
-                 fastest_solution=None,
+                 fastest_solution="S1 S2 D0 S7 D1 S8 D2 S12 S13 S14 D3 S16 S19 D4 S21 D5 S24 S25 S27 D6 S28 S30 D7 S32 S33 D8 S37 S39 D9 S42 D10 D11",
                  level_color=Levels_colors_list.YELLOW,
                  name='Knight',
                  border = 30,

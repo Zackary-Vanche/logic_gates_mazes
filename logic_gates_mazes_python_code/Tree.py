@@ -248,7 +248,7 @@ class Tree:
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('SUM ', '+ ')
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('PROD ', '* ')
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('EQU ', '= ')
-            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('DIF ', '!= ')
+            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('DIFF ', '!= ')
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('NEQ ', '!= ')
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('INF ', '< ')
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('SUP ', '> ')

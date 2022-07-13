@@ -44,10 +44,11 @@ class Logic_Gate:
     
     def aux_func_DIFF(branches_values_list):
         # assert len(branches_values_list) >= 2
-        for i in range(len(branches_values_list)-1):
-            if branches_values_list[i] != branches_values_list[i+1]:
-                return 1
-        return 0
+        branches_values_list_sorted = sorted(branches_values_list)
+        for i in range(len(branches_values_list_sorted)-1):
+            if branches_values_list_sorted[i] == branches_values_list_sorted[i+1]:
+                return 0
+        return 1
     
     def aux_func_NAND(branches_values_list):
         return 0 in branches_values_list

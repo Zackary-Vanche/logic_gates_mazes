@@ -499,22 +499,24 @@ class Maze:
     def find_all_solutions(self,
                            verbose=0,
                            stop_at_first_solution=False,
-                           reverse_actions_order=False):
+                           reverse_actions_order=False,
+                           initial_try=(),
+                           nb_iterations_print=10**3):
         if verbose > 1:
             t0 = time()
         if self.all_solutions is None:
             visited_situations = set()
-            solutions_to_visit = [()]
+            solutions_to_visit = [initial_try]
             solutions_that_work = []
             nb_iterations = 0
             while solutions_to_visit != []:
                 nb_iterations += 1
-                # if nb_iterations % 1000 == 0 and verbose >= 3:
-                #     print('nb_iterations : {}'.format(nb_iterations))
-                #     print('solutions_to_visit[-1] : {}'.format(solutions_to_visit[-1]))
-                #     print('len(solutions_to_visit) : {}'.format(len(solutions_to_visit)))
-                #     print('len(solutions_to_visit)/nb_iterations : {}'.format(len(solutions_to_visit)/nb_iterations))
-                #     print('')
+                if nb_iterations % nb_iterations_print == 0 and verbose >= 3:
+                     print('nb_iterations : {}'.format(nb_iterations))
+                     print('solutions_to_visit[-1] : {}'.format(solutions_to_visit[-1]))
+                     print('len(solutions_to_visit) : {}'.format(len(solutions_to_visit)))
+                     print('len(solutions_to_visit)/nb_iterations : {}'.format(len(solutions_to_visit)/nb_iterations))
+                     print('')
                 solution = solutions_to_visit[0]
                 result_solution = self.fast_try_solution(solution)
                 del solutions_to_visit[0]
