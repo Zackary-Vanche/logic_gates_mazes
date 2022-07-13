@@ -509,12 +509,12 @@ class Maze:
             nb_iterations = 0
             while solutions_to_visit != []:
                 nb_iterations += 1
-                if nb_iterations % 1000 == 0 and verbose >= 3:
-                    print('nb_iterations : {}'.format(nb_iterations))
-                    print('solutions_to_visit[-1] : {}'.format(solutions_to_visit[-1]))
-                    print('len(solutions_to_visit) : {}'.format(len(solutions_to_visit)))
-                    print('len(solutions_to_visit)/nb_iterations : {}'.format(len(solutions_to_visit)/nb_iterations))
-                    print('')
+                # if nb_iterations % 1000 == 0 and verbose >= 3:
+                #     print('nb_iterations : {}'.format(nb_iterations))
+                #     print('solutions_to_visit[-1] : {}'.format(solutions_to_visit[-1]))
+                #     print('len(solutions_to_visit) : {}'.format(len(solutions_to_visit)))
+                #     print('len(solutions_to_visit)/nb_iterations : {}'.format(len(solutions_to_visit)/nb_iterations))
+                #     print('')
                 solution = solutions_to_visit[0]
                 result_solution = self.fast_try_solution(solution)
                 del solutions_to_visit[0]
