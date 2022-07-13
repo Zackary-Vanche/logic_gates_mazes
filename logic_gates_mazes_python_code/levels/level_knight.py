@@ -183,7 +183,7 @@ def level_knight():
     l = 1
     L = 4
     a = L + 1.5
-    d = 1.6
+    d = 1.55
     e = d/2
 
     R0 = Room(name='R0',
@@ -318,7 +318,7 @@ def level_knight():
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, RE], 
                  doors_list = [D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11], 
                  fastest_solution="S1 S2 D0 S7 D1 S8 D2 S12 S13 S14 D3 S16 S19 D4 S21 D5 S24 S25 S27 D6 S28 S30 D7 S32 S33 D8 S37 S39 D9 S42 D10 D11",
-                 level_color=Levels_colors_list.YELLOW,
+                 level_color=Levels_colors_list.FROM_HUE(0.6, sa=0.12, li=0.45),
                  name='Knight',
                  border = 30,
                  door_window_size = 700,

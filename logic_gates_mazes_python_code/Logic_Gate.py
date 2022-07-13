@@ -28,7 +28,7 @@ class Logic_Gate:
         return sum(branches_values_list) == 1
     
     def aux_func_XNOR(branches_values_list):
-        return not sum(branches_values_list) == 1
+        return not Logic_Gate.aux_func_XOR(branches_values_list)
     
     def aux_func_EQU(branches_values_list):
         # assert len(branches_values_list) >= 2
@@ -51,10 +51,10 @@ class Logic_Gate:
         return 1
     
     def aux_func_NAND(branches_values_list):
-        return 0 in branches_values_list
+        return not Logic_Gate.aux_func_AND(branches_values_list)
     
     def aux_func_NOR(branches_values_list):
-        return not 1 in branches_values_list
+        return not Logic_Gate.aux_func_OR(branches_values_list)
     
     def aux_func_SUM(branches_values_list):
         return sum(branches_values_list)

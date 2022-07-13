@@ -273,15 +273,15 @@ class Levels_colors_list:
                                   letter_contour_color = Color.BLACK,
                                   inside_room_color=Color.WHITE)
     
-    def FROM_HUE(hu):
-        # print(hu)
+    def FROM_HUE(hu, sa=0.5, li=0.3):
+#        print(hu)
         from colorsys import hls_to_rgb
         from numpy import array
         from numpy import uint8
         def color_hls(hu, li, sa):
              return array(255*array(hls_to_rgb(hu, li, sa)), dtype=uint8).tolist()
-        return Level_color(background_color = color_hls(hu, li=0.1, sa=0.4),
-                           room_color = color_hls(hu, li=0.3, sa=0.5),
+        return Level_color(background_color = color_hls(hu, li/4, 0.8*sa),
+                           room_color = color_hls(hu, li, sa),
                            contour_color = Color.WHITE,
                            letters_color = Color.WHITE)
 
