@@ -27,17 +27,16 @@ from levels.level_crystal import level_crystal
 from levels.level_dead_ends import level_dead_ends
 from levels.level_dominating_set import level_dominating_set
 from levels.level_electricity import level_electricity
+from levels.level_eulerian import level_eulerian
 # from levels.level_exact_cover import level_exact_cover
 from levels.level_fluid import level_fluid
-from levels.level_fractal import level_fractal
-from levels.level_graph import level_graph # -> from levels.level_eulerian import level_eulerian
+from levels.level_fractal import level_fractal 
 # from levels.level_hamiltonian import level_hamiltonian
 from levels.level_hello_world import level_hello_world
 # from levels.level_hitting_set import level_hitting_set
 # from levels.level_ILP import level_ILP
 from levels.level_independent_set import level_independent_set
 from levels.level_infinity import level_infinity
-# from levels.level_kakuro import level_kakuro
 from levels.level_knapsack import level_knapsack
 from levels.level_knight import level_knight
 from levels.level_linear import level_linear
@@ -45,14 +44,14 @@ from levels.level_linear import level_linear
 from levels.level_loop import level_loop
 from levels.level_manhattan_distance import level_manhattan_distance
 from levels.level_matrix import level_matrix
-# from levels.from levels.level_magic_square import level_magic_square
+# from levels.from levels.level_magic_square import level_magic_square # kakuro
 from levels.level_naturals import level_naturals
 from levels.level_odd import level_odd
 from levels.level_or import level_or
 from levels.level_parallel import level_parallel
 from levels.level_partition import level_partition
 from levels.level_point_of_no_return import level_point_of_no_return
-# from levels.level_pythagorean import level_pythagorean
+from levels.level_pythagorean import level_pythagorean
 from levels.level_pong import level_pong
 from levels.level_recurrence import level_recurrence
 from levels.level_river import level_river
@@ -92,6 +91,7 @@ class Levels:
                              level_independent_set,
                              level_chessboard,
                              level_infinity,
+                             level_pythagorean,
                              level_point_of_no_return,
                              level_the_4_queens,
                              level_4_colors_theorem,
@@ -112,7 +112,7 @@ class Levels:
                              level_cartesian,
                              level_fractal,
                              level_xor,
-                             level_graph,
+                             level_eulerian,
                              level_dead_ends,
                              level_electricity,
                              level_wave,
@@ -194,8 +194,8 @@ if __name__ == "__main__":
 #    level = level_bipartite()
 #    cProfile.run("solutions = level.find_all_solutions(verbose=3, stop_at_first_solution=False)")     
     
-#    solutions = level_knight().find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**4)
-#    print(solutions)
+    solutions = level_pythagorean().find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**4)
+    print(solutions)
     
     
     

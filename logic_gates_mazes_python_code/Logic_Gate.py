@@ -15,7 +15,7 @@ class Logic_Gate:
         self.name = name
         
     def aux_func_NOT(branches_values_list):
-        # assert len(branches_values_list) == 1
+        assert len(branches_values_list) == 1
         return not branches_values_list[0]
     
     def aux_func_AND(branches_values_list):
@@ -31,19 +31,19 @@ class Logic_Gate:
         return not Logic_Gate.aux_func_XOR(branches_values_list)
     
     def aux_func_EQU(branches_values_list):
-        # assert len(branches_values_list) >= 2
+        assert len(branches_values_list) >= 2
         for i in range(len(branches_values_list)-1):
             if branches_values_list[i] != branches_values_list[i+1]:
                 return 0
         return 1
     
     def aux_func_EQUSET(branches_values_list):
-        # assert len(branches_values_list) % 2 == 0
+        assert len(branches_values_list) % 2 == 0
         n = len(branches_values_list) // 2
         return set(branches_values_list[:n]) == set(branches_values_list[n:])
     
     def aux_func_DIFF(branches_values_list):
-        # assert len(branches_values_list) >= 2
+        assert len(branches_values_list) >= 2
         branches_values_list_sorted = sorted(branches_values_list)
         for i in range(len(branches_values_list_sorted)-1):
             if branches_values_list_sorted[i] == branches_values_list_sorted[i+1]:
@@ -66,43 +66,43 @@ class Logic_Gate:
         return p
     
     def aux_func_ABS(branches_values_list):
-        # assert len(branches_values_list) == 1
+        assert len(branches_values_list) == 1
         return abs(branches_values_list[0])
     
     def aux_func_MINUS(branches_values_list):
-        # assert len(branches_values_list) == 1
+        assert len(branches_values_list) == 1
         return -branches_values_list[0]
     
     def aux_func_INF(branches_values_list):
-        # assert len(branches_values_list) == 2
+        assert len(branches_values_list) == 2
         return branches_values_list[0] < branches_values_list[1]
     
     def aux_func_INFOREQU(branches_values_list):
-        # assert len(branches_values_list) == 2
+        assert len(branches_values_list) == 2
         return branches_values_list[0] <= branches_values_list[1]
     
     def aux_func_SUP(branches_values_list):
-        # assert len(branches_values_list) == 2
+        assert len(branches_values_list) == 2
         return branches_values_list[0] > branches_values_list[1]
     
     def aux_func_SUPOREQU(branches_values_list):
-        # assert len(branches_values_list) == 2
+        assert len(branches_values_list) == 2
         return branches_values_list[0] >= branches_values_list[1]
     
     def aux_func_ANB(branches_values_list):
-        # assert len(branches_values_list) == 2
+        assert len(branches_values_list) == 2
         return not branches_values_list[0] and not branches_values_list[1]
     
     def aux_func_BNA(branches_values_list):
-        # assert len(branches_values_list) == 2
+        assert len(branches_values_list) == 2
         return not branches_values_list[1] and not branches_values_list[0]
     
     def aux_func_AONB(branches_values_list):
-        # assert len(branches_values_list) == 2
+        assert len(branches_values_list) == 2
         return not branches_values_list[0] or not branches_values_list[1]
     
     def aux_func_BONA(branches_values_list):
-        # assert len(branches_values_list) == 2
+        assert len(branches_values_list) == 2
         return not branches_values_list[1] or not branches_values_list[0]
     
     def aux_func_BIN(branches_values_list):
@@ -110,6 +110,10 @@ class Logic_Gate:
         for i in range(len(branches_values_list)):
             s += branches_values_list[i] * 2**i
         return s
+    
+    def aux_func_POW(branches_values_list):
+        assert len(branches_values_list) == 2
+        return branches_values_list[0]**branches_values_list[1]
     
     func_dict = {'NOT' : aux_func_NOT,
                  'AND' : aux_func_AND,
@@ -133,7 +137,8 @@ class Logic_Gate:
                  'BNA' : aux_func_BNA,
                  'AONB' : aux_func_AONB,
                  'BONA' : aux_func_BONA,
-                 'BIN' : aux_func_BIN}
+                 'BIN' : aux_func_BIN,
+                 'POW': aux_func_POW}
 
     def func(self, branches_values_list):
         if None in branches_values_list:

@@ -295,7 +295,7 @@ help_menus_list['levels']["XOR"] = """A new operand is used in this level :
       1    1    0
 """
 
-help_menus_list['levels']["Graph"] = """This level was initially inspired by the seven bridges of Königsberg problem.
+help_menus_list['levels']["Eulerian"] = """This level was initially inspired by the seven bridges of Königsberg problem.
 The difference is that here there is a solution.
 """
 

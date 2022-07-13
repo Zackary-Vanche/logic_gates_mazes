@@ -47,6 +47,9 @@ class Tree:
     def tree_list_XORN(n):
         return ['XOR'] + [Tree.tree_list_not]*n
     
+    def tree_list_BIN(n):
+        return ['BIN'] + [[None]]*n
+    
     def tree_list_from_str(txt):
         def tree_list_and_from_str(txt):
             assert txt.replace('T', '').replace('F', '') == ''

@@ -12,7 +12,7 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
-def level_graph():
+def level_eulerian():
     
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -124,7 +124,7 @@ def level_graph():
              doors_list = [D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18], 
              fastest_solution="S0 D1 D3 D9 S9 D14 D18 S13 D17 S12 D16 S11 D12 D8 S4 D7 D4 S2 D5 S6 D10 D15 S14 D13 S8 D11 S7 D6 S3 D0 D2",
              level_color=Levels_colors_list.BLACK_AND_BLUE,
-             name='Graph',
+             name='Eulerian',
              door_window_size = 550,
              # print_tree_gap=28
              )

@@ -23,27 +23,39 @@ def level_naturals():
     S6 = Switch(name='S6')
     S7 = Switch(name='S7')
     
-    tree_list_a_minus_b = ['SUM',
-                               [None],
-                               ['MINUS', [None]]]
+#    tree_list_a_minus_b = ['SUM',
+#                               [None],
+#                               ['MINUS', [None]]]
+#    
+#    tree_list_0 = ['PROD',
+#                       [None],
+#                       tree_list_a_minus_b]
+#    
+#    tree_list_1 = ['SUM'] + [tree_list_0]*4
+#    
+#    tree_list_2 = ['ABS', tree_list_1]
+#    
+#    tree_list_3 = ['INF', tree_list_2, [None]]
+#    
+#    T0 = Tree(tree_list=tree_list_3,
+#              empty=True,
+#              name='T0',
+#              switches = [Switch(value=1, name='1'), S0, S1,
+#                          Switch(value=2, name='2'), S2, S3,
+#                          Switch(value=4, name='4'), S4, S5,
+#                          Switch(value=8, name='8'), S6, S7,
+#                          Switch(value=2, name='2')])
     
-    tree_list_0 = ['PROD',
-                       [None],
-                       tree_list_a_minus_b]
-    
-    tree_list_1 = ['SUM'] + [tree_list_0]*4
-    
-    tree_list_2 = ['ABS', tree_list_1]
-    
-    tree_list_3 = ['INF', tree_list_2, [None]]
-    
-    T0 = Tree(tree_list=tree_list_3,
+    T0 = Tree(tree_list=['INF',
+                             ['ABS',
+                                  ['SUM',
+                                       ['MINUS',
+                                            Tree.tree_list_BIN(4)],
+                                        Tree.tree_list_BIN(4)]],
+                                   [None]],
               empty=True,
               name='T0',
-              switches = [Switch(value=1, name='1'), S0, S1,
-                          Switch(value=2, name='2'), S2, S3,
-                          Switch(value=4, name='4'), S4, S5,
-                          Switch(value=8, name='8'), S6, S7,
+              switches = [S0, S2, S4, S6, S1, S3, S5, S7,
                           Switch(value=2, name='2')])
     T1 = Tree(tree_list=Tree.tree_list_AND(8),
               empty=True,
