@@ -76,31 +76,31 @@ class Levels:
     
     levels_functions_list = [
                              # level_icone,
-#                             level_pong,
-#                             level_the_4_queens,
-#                             level_or,
-#                             level_naturals,
-                             level_knight,
+                             # level_knight,
                              level_hello_world,
                              level_linear,
                              level_loop,
                              level_backward,
                              level_bis_repetita,
                              level_binary,
+                             level_or,
                              level_crossroad,
                              level_square,
                              level_fluid,
-                             level_independent_set,
-                             level_odd,
+                             level_pong,
                              level_dominating_set,
+                             level_odd,
+                             level_independent_set,
                              level_chessboard,
+                             level_infinity,
                              level_point_of_no_return,
+                             level_the_4_queens,
                              level_4_colors_theorem,
                              level_alice_and_bob,
                              level_recurrence,
                              level_partition,
-                             level_infinity,
                              level_parallel,
+                             level_naturals,
                              level_matrix,
                              level_tetrahedron,
                              level_knapsack,
@@ -178,7 +178,7 @@ class Levels:
     
 if __name__ == "__main__":
     
-    # Levels.save_solutions_txt(do_it_fast=True, verbose=0)
+    Levels.save_solutions_txt(do_it_fast=True, verbose=0)
     
     # DO NOT REMOVE THIS CODE
     # with open('Temp_help_menus.txt', 'w') as f:
@@ -190,10 +190,10 @@ if __name__ == "__main__":
     #         f.write(level.help_txt[0])
     #         f.write('"""\n\n')
 
-    level = level_knight
-    solutions = level().find_all_solutions(verbose=3,
-                                            stop_at_first_solution=False)        
-    print(solutions[-1])
+    # level = level_knight
+    # solutions = level().find_all_solutions(verbose=3,
+    #                                        stop_at_first_solution=False)        
+    # print(solutions)
     
     
     

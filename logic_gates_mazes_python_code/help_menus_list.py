@@ -7,7 +7,9 @@ Created on Wed Jul  6 21:06:34 2022
 
 help_menus_list = {}
 
-help_menus_list["Hello_World"] = """You are trapped in the inside of a computer and want to reach the exit.
+help_menus_list['levels'] = {}
+
+help_menus_list['levels']["Hello_World"] = """You are trapped in the inside of a computer and want to reach the exit.
 
 There are differents elements in this game :
     Rooms (R0, R1, R2, ..., EXIT) :  
@@ -36,7 +38,7 @@ To start the level again from the beginning, press [B].
 To go to the next level, press the right arrow key.
 """
 
-help_menus_list["Linear"] = """Several new notations are used in this level :
+help_menus_list['levels']["Linear"] = """Several new notations are used in this level :
     
     Negation :
     NOT S0 = 1 if S0 = 0
@@ -63,7 +65,7 @@ help_menus_list["Linear"] = """Several new notations are used in this level :
         D3 = ¬| S6 S7
 """
 
-help_menus_list["Loop"] = """To change level, you can use :
+help_menus_list['levels']["Loop"] = """To change level, you can use :
 
     the right arrow key to go to the next level
     the left arrow key to go to the previous level
@@ -74,7 +76,7 @@ help_menus_list["Loop"] = """To change level, you can use :
     For instance, L12 will make you go to the level number 12.
 """
 
-help_menus_list["Backward"] = """One new notation is used in this level :
+help_menus_list['levels']["Backward"] = """One new notation is used in this level :
 
     To simplify notations, parentheses are used.
 
@@ -92,14 +94,14 @@ help_menus_list["Backward"] = """One new notation is used in this level :
            = & ( ¬ S0 S1 S2 )
 """
 
-help_menus_list["Bis repetita"] = """One new operand is used in this level : XOR
+help_menus_list['levels']["Bis repetita"] = """One new operand is used in this level : XOR
 
     XOR means exclusive or.
     D0 = XOR S0 S1 = ^ S0 S1 means :
         D0 is open if S0 is different from S1.
 """
 
-help_menus_list["Binary"] = """At every step, you have only one action possible :
+help_menus_list['levels']["Binary"] = """At every step, you have only one action possible :
     In the beginning, you can only turn on S0.
     Then, a door opens, so you use it...
     And so on...
@@ -108,16 +110,16 @@ To go directly on a room, you can type its name (if it is possible for you to go
 The exit room is called RE.
 """
 
-help_menus_list["Crossroad"] = """[Reminder] : To start the level again from the beginning, press [B].
+help_menus_list['levels']["Crossroad"] = """[Reminder] : To start the level again from the beginning, press [B].
 """
 
-help_menus_list["Square"] = """Instead of writing actions one by one, one can write several at a time, separated by spaces.
+help_menus_list['levels']["Square"] = """Instead of writing actions one by one, one can write several at a time, separated by spaces.
 For instance, you can write :
     S0 S1 D0
 if you want to turn on S0, S1 and then use the door D0.
 """
 
-help_menus_list["Fluid"] = """A truth table tells you the result of a logical expression.
+help_menus_list['levels']["Fluid"] = """A truth table tells you the result of a logical expression.
 Here are some examples :
 
     Negation truth table (D0 = ¬S0):
@@ -140,7 +142,7 @@ Here are some examples :
       1    1    1
 """
 
-help_menus_list["Independent set"] = """New notations are used:
+help_menus_list['levels']["Independent set"] = """New notations are used:
     
     Sometimes, a switch can be replaced by a numerical value.
     
@@ -154,18 +156,18 @@ help_menus_list["Independent set"] = """New notations are used:
         D0 is open if S0 is superior to S1
 """
 
-help_menus_list["Odd"] = """
+help_menus_list['levels']["Odd"] = """
 To leave the game, you can click an the cross but also press [Q] or [ESCAPE].
 """
 
-help_menus_list["Dominating set"] = """Finding dominating set is a NP-Complete problem.
+help_menus_list['levels']["Dominating set"] = """Finding dominating set is a NP-Complete problem.
 """
 
-help_menus_list["Chessboard"] = """If you remove the exit, the graph of this level is the graph of the possible moves of a knight in a 3*4 rectangle.
+help_menus_list['levels']["Chessboard"] = """If you remove the exit, the graph of this level is the graph of the possible moves of a knight in a 3*4 rectangle.
 However, sometimes here doors are one-way only.
 """
 
-help_menus_list["Point_of_no_return"] = """One new operand is used in this level : XNOR
+help_menus_list['levels']["Point_of_no_return"] = """One new operand is used in this level : XNOR
 
     XOR means exclusive or.
     XNOR is its opposite.
@@ -192,20 +194,20 @@ help_menus_list["Point_of_no_return"] = """One new operand is used in this level
         XNOR S0 S1 = ¬ XOR S0 S1
 """
 
-help_menus_list["4 colors theorem"] = """One new operand is used in this level :
+help_menus_list['levels']["4 colors theorem"] = """One new operand is used in this level :
     
     * S0 S1 is equal to the product of S0 and S1.
 
 Each couple of switches represent a color.
 """
 
-help_menus_list["Alice and Bob"] = """Alice wants to send a package to Bob.
+help_menus_list['levels']["Alice and Bob"] = """Alice wants to send a package to Bob.
 """
 
-help_menus_list["Recurrence"] = """Sometime, square brackets can be used instead of parentheses.
+help_menus_list['levels']["Recurrence"] = """Sometime, square brackets can be used instead of parentheses.
 """
 
-help_menus_list["Partition"] = """One new notation is used in this level:
+help_menus_list['levels']["Partition"] = """One new notation is used in this level:
     
     D0 = = S0 S1 means :
         D0 is open if S0 is equal to S1
@@ -214,7 +216,7 @@ help_menus_list["Partition"] = """One new notation is used in this level:
 The partition is one of the Karp's 21 NP-complete problems.
 """
 
-help_menus_list["Infinity"] = """A cheat code exists.
+help_menus_list['levels']["Infinity"] = """A cheat code exists.
 If you add the letter A before a command :
     You can turn on a switch even if you are not in its room.
     You can use a door even if it is not open.
@@ -227,36 +229,36 @@ You can also use the cheat code to go directly in a room by giving its name :
 The name of the exit room is RE.
 """
 
-help_menus_list["Parallel"] = """The "Guess and check" method works well here.
+help_menus_list['levels']["Parallel"] = """The "Guess and check" method works well here.
 """
 
-help_menus_list["Matrix"] = """To solve this level you need to do a 5*5 matrix inversion.
+help_menus_list['levels']["Matrix"] = """To solve this level you need to do a 5*5 matrix inversion.
 """
 
-help_menus_list["Tetrahedron"] = """The logic expressions of the doors of this level have been calculated by computer.
+help_menus_list['levels']["Tetrahedron"] = """The logic expressions of the doors of this level have been calculated by computer.
 The program that calculated it already knew all the rest of the level.
 """
 
-help_menus_list["Knapsack"] = """The knapsack is one of the Karp's 21 NP-complete problems.
+help_menus_list['levels']["Knapsack"] = """The knapsack is one of the Karp's 21 NP-complete problems.
 """
 
-help_menus_list["Bipartite"] = """This level has several solutions.
+help_menus_list['levels']["Bipartite"] = """This level has several solutions.
 """
 
-help_menus_list["Alien"] = """Don't look for something too complicated.
+help_menus_list['levels']["Alien"] = """Don't look for something too complicated.
 """
 
-help_menus_list["Tesseract"] = """One new notation is used in this level :
+help_menus_list['levels']["Tesseract"] = """One new notation is used in this level :
     
     D0 = 1 means that D0 is always open.
     
 The tesseract is hidden in the equations.
 """
 
-help_menus_list["Tree"] = """The tree is hidden in the equations.
+help_menus_list['levels']["Tree"] = """The tree is hidden in the equations.
 """
 
-help_menus_list["River"] = """XOR is used with 3 parameters instead of 2.
+help_menus_list['levels']["River"] = """XOR is used with 3 parameters instead of 2.
   
     XOR truth table [D0 = XOR ( S0 S1 S2 )]:
     S0  S1  S2  D0
@@ -274,16 +276,16 @@ help_menus_list["River"] = """XOR is used with 3 parameters instead of 2.
 You want to cross the river with a wolf, a goat and a cabbage.
 """
 
-help_menus_list["Crystal"] = """If you make a mistake, you have to start all over again.
+help_menus_list['levels']["Crystal"] = """If you make a mistake, you have to start all over again.
 """
 
-help_menus_list["Cartesian"] = """Sorry, there is nothing to help you here.
+help_menus_list['levels']["Cartesian"] = """Sorry, there is nothing to help you here.
 """
 
-help_menus_list["Fractal"] = """As you see, several doors lead to the exit.
+help_menus_list['levels']["Fractal"] = """As you see, several doors lead to the exit.
 There is only one that can be opened."""
 
-help_menus_list["XOR"] = """A new operand is used in this level :
+help_menus_list['levels']["XOR"] = """A new operand is used in this level :
 
     NAND truth table (D0 = NAND S0 S1 = ¬& S0 S1):
     S0  S1  D0
@@ -293,14 +295,14 @@ help_menus_list["XOR"] = """A new operand is used in this level :
       1    1    0
 """
 
-help_menus_list["Graph"] = """This level was initially inspired by the seven bridges of Königsberg problem.
+help_menus_list['levels']["Graph"] = """This level was initially inspired by the seven bridges of Königsberg problem.
 The difference is that here there is a solution.
 """
 
-help_menus_list["Dead_ends"] = """Even if it is the first level that actually looks like a printed circuit board, you have been in a computer all this time.
+help_menus_list['levels']["Dead_ends"] = """Even if it is the first level that actually looks like a printed circuit board, you have been in a computer all this time.
 """
 
-help_menus_list["Electricity"] = """NAND can also apply to 3 parameters instead of 2:
+help_menus_list['levels']["Electricity"] = """NAND can also apply to 3 parameters instead of 2:
 
     NAND truth table [D0 = NAND ( S0 S1 S2 ) = ¬& ( S0 S1 S2 )]:
     S0  S1  S2  D0
@@ -314,17 +316,17 @@ help_menus_list["Electricity"] = """NAND can also apply to 3 parameters instead 
       1    1    1     0  
 """
 
-help_menus_list["Wave"] = """One new notation is used in this level :
+help_menus_list['levels']["Wave"] = """One new notation is used in this level :
     
     XOR can be used with more than 3 parameters :
         D0 = XOR(S0, S1, ...) means :
             D0 is open if there is exactly one switch among its parameters that is turned on.
 """
 
-help_menus_list["Manhattan_distance"] = """The cheat code might be very useful here.
+help_menus_list['levels']["Manhattan_distance"] = """The cheat code might be very useful here.
 """
 
-help_menus_list["Temple"] = """This level is the retranscription of a really known puzzle game.
+help_menus_list['levels']["Temple"] = """This level is the retranscription of a really known puzzle game.
 Once you find which game it is, the level is over.
 """
 

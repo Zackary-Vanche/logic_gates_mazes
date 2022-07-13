@@ -128,8 +128,8 @@ class Maze:
             self.n_lines_door_printing += len(logical_expression)
         self.line_size = line_size
         self.uniform_surrounding_colors = uniform_surrounding_colors
-        if self.name in help_menus_list.keys():
-            self.help_txt = [help_menus_list[self.name]]
+        if self.name in help_menus_list['levels'].keys():
+            self.help_txt = [help_menus_list['levels'][self.name]]
         else:
             self.help_txt = ['']
         self.n_help_pages = len(self.help_txt)

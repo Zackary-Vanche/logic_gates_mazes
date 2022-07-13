@@ -64,7 +64,7 @@ def level_pong():
                  rooms_list=[R0, R1, RE], 
                  doors_list = [D0, D1], 
                  fastest_solution=None,
-                 level_color=Levels_colors_list.GREY,
+                 level_color=Levels_colors_list.FROM_HUE(0.7),
                  name='Pong',
                  door_window_size = 800,
                  keep_proportions = True)

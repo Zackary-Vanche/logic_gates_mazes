@@ -274,7 +274,7 @@ class Levels_colors_list:
                                   inside_room_color=Color.WHITE)
     
     def FROM_HUE(hu):
-#        print(hu)
+        # print(hu)
         from colorsys import hls_to_rgb
         from numpy import array
         from numpy import uint8
