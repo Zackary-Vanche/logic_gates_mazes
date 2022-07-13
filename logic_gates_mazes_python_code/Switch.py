@@ -25,7 +25,8 @@ class Switch:
     def set_value(self, new_value):
         self.value = new_value
         for door in self.doors_set:
-            door.update_open()
+            # door.update_open()
+            door.is_open = bool(door.tree.get_value())
 
     def __str__(self):
         txt = ''

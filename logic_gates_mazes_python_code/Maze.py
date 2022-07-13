@@ -448,7 +448,6 @@ class Maze:
                           separator=' '):
         # results : 0 unauthorised, 1 authorised but wrong, 2 you won
         self.reboot_solution()
-        solution = solution.replace('\n', separator).split(separator)
         for action in solution:
             if action in self.possibles_actions_list:
                 action_type = action[0]
@@ -505,7 +504,7 @@ class Maze:
             t0 = time()
         if self.all_solutions is None:
             visited_situations = set()
-            solutions_to_visit = ['']
+            solutions_to_visit = [()]
             solutions_that_work = []
             nb_iterations = 0
             while solutions_to_visit != []:
@@ -526,12 +525,12 @@ class Maze:
                         if reverse_actions_order:
                             actions_list.reverse()
                         for action in actions_list:
-                            solutions_to_visit.append(solution+action+' ')
+                            solutions_to_visit.append(solution+(action,))
                     visited_situations.add(current_situation_vector)
                 elif result_solution == 2:
                     if verbose >= 1:
                         print(solution)
-                    solutions_that_work.append(solution[:-1]) # Le [:-1] est là pour enlever le blanc à la fin
+                    solutions_that_work.append(solution)
                     if stop_at_first_solution:
                         self.reboot_solution()
                         self.all_solutions = solutions_that_work
@@ -541,7 +540,7 @@ class Maze:
         else:
             solutions_that_work = self.all_solutions
         solutions_that_work = sorted(solutions_that_work, key=len)
-        assert reverse_actions_order or self.fastest_solution is None or solutions_that_work[0] == self.fastest_solution, solutions_that_work[0] + '\n' + self.fastest_solution
+        assert reverse_actions_order or self.fastest_solution is None or ' '.join(solutions_that_work[0]) == self.fastest_solution, str(solutions_that_work[0]) + '\n' + str(self.fastest_solution)
         self.all_solutions = solutions_that_work
         if verbose >= 2:
             t1 = time()

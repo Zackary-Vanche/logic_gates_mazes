@@ -63,8 +63,8 @@ class Door:
             self.room_departure.departure_doors_list.append(self)
             self.room_arrival.arrival_doors_list.append(self)
 
-    def update_open(self):
-        self.is_open = bool(self.tree.get_value())
+    # def update_open(self):
+    #     self.is_open = bool(self.tree.get_value())
 
     def switches_names(self):
         return [switch.name for switch in self.tree.switches_list]

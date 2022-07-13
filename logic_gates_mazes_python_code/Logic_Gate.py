@@ -13,83 +13,131 @@ class Logic_Gate:
     def __init__(self, name):
         self.switch = None
         self.name = name
+        
+    def aux_func_NOT(branches_values_list):
+        # assert len(branches_values_list) == 1
+        return not branches_values_list[0]
+    
+    def aux_func_AND(branches_values_list):
+        return not 0 in branches_values_list
+    
+    def aux_func_OR(branches_values_list):
+        return 1 in branches_values_list
+    
+    def aux_func_XOR(branches_values_list):
+        return sum(branches_values_list) == 1
+    
+    def aux_func_XNOR(branches_values_list):
+        return not sum(branches_values_list) == 1
+    
+    def aux_func_EQU(branches_values_list):
+        # assert len(branches_values_list) >= 2
+        for i in range(len(branches_values_list)-1):
+            if branches_values_list[i] != branches_values_list[i+1]:
+                return 0
+        return 1
+    
+    def aux_func_EQUSET(branches_values_list):
+        # assert len(branches_values_list) % 2 == 0
+        n = len(branches_values_list) // 2
+        return set(branches_values_list[:n]) == set(branches_values_list[n:])
+    
+    def aux_func_DIFF(branches_values_list):
+        # assert len(branches_values_list) >= 2
+        for i in range(len(branches_values_list)-1):
+            if branches_values_list[i] != branches_values_list[i+1]:
+                return 1
+        return 0
+    
+    def aux_func_NAND(branches_values_list):
+        return 0 in branches_values_list
+    
+    def aux_func_NOR(branches_values_list):
+        return not 1 in branches_values_list
+    
+    def aux_func_SUM(branches_values_list):
+        return sum(branches_values_list)
+    
+    def aux_func_PROD(branches_values_list):
+        p = 1
+        for x in branches_values_list:
+            p = p * x
+        return p
+    
+    def aux_func_ABS(branches_values_list):
+        # assert len(branches_values_list) == 1
+        return abs(branches_values_list[0])
+    
+    def aux_func_MINUS(branches_values_list):
+        # assert len(branches_values_list) == 1
+        return -branches_values_list[0]
+    
+    def aux_func_INF(branches_values_list):
+        # assert len(branches_values_list) == 2
+        return branches_values_list[0] < branches_values_list[1]
+    
+    def aux_func_INFOREQU(branches_values_list):
+        # assert len(branches_values_list) == 2
+        return branches_values_list[0] <= branches_values_list[1]
+    
+    def aux_func_SUP(branches_values_list):
+        # assert len(branches_values_list) == 2
+        return branches_values_list[0] > branches_values_list[1]
+    
+    def aux_func_SUPOREQU(branches_values_list):
+        # assert len(branches_values_list) == 2
+        return branches_values_list[0] >= branches_values_list[1]
+    
+    def aux_func_ANB(branches_values_list):
+        # assert len(branches_values_list) == 2
+        return not branches_values_list[0] and not branches_values_list[1]
+    
+    def aux_func_BNA(branches_values_list):
+        # assert len(branches_values_list) == 2
+        return not branches_values_list[1] and not branches_values_list[0]
+    
+    def aux_func_AONB(branches_values_list):
+        # assert len(branches_values_list) == 2
+        return not branches_values_list[0] or not branches_values_list[1]
+    
+    def aux_func_BONA(branches_values_list):
+        # assert len(branches_values_list) == 2
+        return not branches_values_list[1] or not branches_values_list[0]
+    
+    def aux_func_BIN(branches_values_list):
+        s = 0
+        for i in range(len(branches_values_list)):
+            s += branches_values_list[i] * 2**i
+        return s
+    
+    func_dict = {'NOT' : aux_func_NOT,
+                 'AND' : aux_func_AND,
+                 'OR' : aux_func_OR,
+                 'XOR' : aux_func_XOR,
+                 'XNOR' : aux_func_XNOR,
+                 'EQU' : aux_func_EQU,
+                 'EQUSET' : aux_func_EQUSET,
+                 'DIFF' : aux_func_DIFF,
+                 'NAND' : aux_func_NAND,
+                 'NOR' : aux_func_NOR,
+                 'SUM' : aux_func_SUM,
+                 'PROD' : aux_func_PROD,
+                 'ABS' : aux_func_ABS,
+                 'MINUS' : aux_func_MINUS,
+                 'INF' : aux_func_INF,
+                 'INFOREQU' : aux_func_INFOREQU,
+                 'SUP' : aux_func_SUP,
+                 'SUPOREQU' : aux_func_SUPOREQU,
+                 'ANB' : aux_func_ANB,
+                 'BNA' : aux_func_BNA,
+                 'AONB' : aux_func_AONB,
+                 'BONA' : aux_func_BONA,
+                 'BIN' : aux_func_BIN}
 
     def func(self, branches_values_list):
         if None in branches_values_list:
             return None
-        if self.name == 'NOT':
-            assert len(branches_values_list) == 1
-            return not branches_values_list[0]
-        if self.name == 'AND':
-            return not 0 in branches_values_list
-        if self.name == 'OR':
-            return 1 in branches_values_list
-        if self.name == 'XOR':
-            return sum(branches_values_list) == 1
-        if self.name == 'XNOR':
-            return not sum(branches_values_list) == 1
-        if self.name == 'EQU':
-            assert len(branches_values_list) >= 2
-            for i in range(len(branches_values_list)-1):
-                if branches_values_list[i] != branches_values_list[i+1]:
-                    return 0
-            return 1
-        if self.name == 'EQUSET':
-            assert len(branches_values_list) % 2 == 0
-            n = len(branches_values_list) // 2
-            return set(branches_values_list[:n]) == set(branches_values_list[n:])
-        if self.name == 'DIFF':
-            assert len(branches_values_list) >= 2
-            for i in range(len(branches_values_list)-1):
-                if branches_values_list[i] != branches_values_list[i+1]:
-                    return 1
-            return 0
-        if self.name == 'NAND':
-            return 0 in branches_values_list
-        if self.name == 'NOR':
-            return not 1 in branches_values_list
-        if self.name == 'SUM':
-            return sum(branches_values_list)
-        if self.name == 'PROD':
-            p = 1
-            for x in branches_values_list:
-                p = p * x
-            return p
-        if self.name == 'ABS':
-            assert len(branches_values_list) == 1
-            return abs(branches_values_list[0])
-        if self.name == 'MINUS':
-            assert len(branches_values_list) == 1
-            return -branches_values_list[0]
-        if self.name == 'INF':
-            assert len(branches_values_list) == 2
-            return branches_values_list[0] < branches_values_list[1]
-        if self.name == 'INFOREQU':
-            assert len(branches_values_list) == 2
-            return branches_values_list[0] <= branches_values_list[1]
-        if self.name == 'SUP':
-            assert len(branches_values_list) == 2
-            return branches_values_list[0] > branches_values_list[1]
-        if self.name == 'SUPOREQU':
-            assert len(branches_values_list) == 2
-            return branches_values_list[0] >= branches_values_list[1]
-        if self.name == 'ANB':
-            assert len(branches_values_list) == 2
-            return not branches_values_list[0] and not branches_values_list[1]
-        if self.name == 'BNA':
-            assert len(branches_values_list) == 2
-            return not branches_values_list[1] and not branches_values_list[0]
-        if self.name == 'AONB':
-            assert len(branches_values_list) == 2
-            return not branches_values_list[0] or not branches_values_list[1]
-        if self.name == 'BONA':
-            assert len(branches_values_list) == 2
-            return not branches_values_list[1] or not branches_values_list[0]
-        if self.name == 'BIN':
-            s = 0
-            for i in range(len(branches_values_list)):
-                s += branches_values_list[i] * 2**i
-            return s
+        return Logic_Gate.func_dict[self.name](branches_values_list)
         return None
 
     def get_results_list(self):
