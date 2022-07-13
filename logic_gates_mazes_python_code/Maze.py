@@ -441,11 +441,37 @@ class Maze:
                 print("""tree_list_{0} = Tree.tree_list_from_str("{1}")""".format(door[1:], door_trees_dico[door][:-1]))
         bool_solution = self.current_room_index == self.exit_room_index
         return int(bool_solution) + 1
+    
+    def fast_try_solution(self,
+                          solution,
+                          separator=' '):
+        # results : 0 unauthorised, 1 authorised but wrong, 2 you won
+        self.reboot_solution()
+        solution = solution.replace('\n', separator).split(separator)
+        for action in solution:
+            if action in self.possibles_actions_list:
+                action_type = action[0]
+                if action_type == 'S':
+                    if self.legit_change_switch(action):
+                        self.change_switch(action)
+                    else:
+                        return 0
+                if action_type == 'D':
+                    if self.legit_use_door(action):
+                        self.use_door(action)
+                    else:
+                        return 0
+                    switches_values_txt = ''
+                    for switch in self.switches_list():
+                        if switch.value:
+                            switches_values_txt += str(switch.name) + ' '
+        bool_solution = self.current_room_index == self.exit_room_index
+        return int(bool_solution) + 1
 
     def current_situation_to_vector(self):
         vector = [switch.value for switch in self.switches_list()]
         vector.append(self.current_room_index)
-        return vector
+        return tuple(vector)
     
     def get_current_possible_doors(self):
         room = self.current_room()
@@ -469,15 +495,11 @@ class Maze:
 
     def get_current_possible_actions_list(self):
         return self.get_current_possible_doors() + self.get_current_possible_switches()
-
+    
     def find_all_solutions(self,
                            verbose=0,
                            stop_at_first_solution=False,
                            reverse_actions_order=False):
-                           # max_iter_without_many_solutions=float('inf'),
-                           # min_solutions_to_find=0,
-                           # max_iter=float('inf'),
-                           # min_sol_len=0):
         if verbose > 1:
             t0 = time()
         if self.all_solutions is None:
@@ -486,49 +508,33 @@ class Maze:
             solutions_that_work = []
             nb_iterations = 0
             while solutions_to_visit != []:
-                # if nb_iterations > max_iter_without_many_solutions and len(solutions_that_work) < min_solutions_to_find:
-                #     return solutions_that_work
-                # if nb_iterations % 1000 == 0:
-                #     solutions_len = [len(solutions_that_work[i].split(' ')) for i in range(len(solutions_that_work))]
-                #     solutions_len.append(0)
-                #     if nb_iterations >= max_iter or max(solutions_len) >= min_sol_len:
-                #         return solutions_that_work
                 nb_iterations += 1
-                if 4 > verbose >= 3:
-                    if nb_iterations % 1000 == 0:
-                        print('nb_iterations : {}'.format(nb_iterations))
-                        print('solutions_to_visit[-1] : {}'.format(solutions_to_visit[-1]))
-                        print('len(solutions_to_visit) : {}'.format(len(solutions_to_visit)))
-                        print('len(solutions_to_visit)/nb_iterations : {}'.format(len(solutions_to_visit)/nb_iterations))
-                        print('')
-                if verbose >= 4:
-                    print(solutions_to_visit)
+                if nb_iterations % 1000 == 0 and verbose >= 3:
+                    print('nb_iterations : {}'.format(nb_iterations))
+                    print('solutions_to_visit[-1] : {}'.format(solutions_to_visit[-1]))
+                    print('len(solutions_to_visit) : {}'.format(len(solutions_to_visit)))
+                    print('len(solutions_to_visit)/nb_iterations : {}'.format(len(solutions_to_visit)/nb_iterations))
+                    print('')
                 solution = solutions_to_visit[0]
-                result_solution = self.try_solution(solution)
-                if verbose >= 4:
-                    print(solution, result_solution)
+                result_solution = self.fast_try_solution(solution)
                 del solutions_to_visit[0]
-                if result_solution == 2:
-                    if verbose >= 1:
-                        print(solution)
-                    solutions_that_work.append(solution[:-1])
-                    # Le [:-1] est là pour enlever le blanc à la fin
-                    if stop_at_first_solution:
-                        self.reboot_solution()
-                        self.all_solutions = solutions_that_work
-                        return solutions_that_work
-                elif result_solution == 1:
+                if result_solution == 1:
                     current_situation_vector = self.current_situation_to_vector()
-                    current_situation_vector_str = ''
-                    for i in range(len(current_situation_vector)):
-                        current_situation_vector_str = current_situation_vector_str + str(current_situation_vector[i])
-                    if current_situation_vector_str not in visited_situations:
+                    if current_situation_vector not in visited_situations:
                         actions_list = self.get_current_possible_actions_list()
                         if reverse_actions_order:
                             actions_list.reverse()
                         for action in actions_list:
                             solutions_to_visit.append(solution+action+' ')
-                    visited_situations.add(current_situation_vector_str)
+                    visited_situations.add(current_situation_vector)
+                elif result_solution == 2:
+                    if verbose >= 1:
+                        print(solution)
+                    solutions_that_work.append(solution[:-1]) # Le [:-1] est là pour enlever le blanc à la fin
+                    if stop_at_first_solution:
+                        self.reboot_solution()
+                        self.all_solutions = solutions_that_work
+                        return solutions_that_work
             assert solutions_to_visit == []
             self.reboot_solution()
         else:
@@ -540,35 +546,6 @@ class Maze:
             t1 = time()
             print(t1 - t0, 's')
         return solutions_that_work
-    
-    # def simplify_solution(self, solution=None, separator=' '):
-    #     self.reboot_solution()
-    #     if solution is None:
-    #         solution = self.fastest_solution
-    #     solution_simplified = ''
-    #     solution = solution.split(separator)
-    #     for k in range(len(solution)):
-    #         action = solution[k]
-    #         action_type = action[0]
-    #         assert action_type in ['D', 'S', 'R']
-    #         if action_type == 'S':
-    #             if self.legit_change_switch(action):
-    #                 self.change_switch(action)
-    #                 solution_simplified += action
-    #                 print('*')
-    #         if action_type == 'D':
-    #             if self.legit_use_door(action):
-    #                 self.use_door(action)
-    #                 if solution[k+1][0] == 'S':
-    #                     solution_simplified += self.current_room().name
-    #                     print('*')
-    #         if action_type == 'R': 
-    #             if self.legit_change_room(action):
-    #                 self.change_room(action)
-    #                 if solution[k+1][0] == 'S':
-    #                     solution_simplified += self.current_room().name
-    #                     print('*')
-    #     return solution_simplified
 
     def get_extreme_coordinates(self):
         if self.extreme_coordinates is None:
