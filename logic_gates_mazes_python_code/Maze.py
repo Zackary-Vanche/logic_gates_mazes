@@ -11,6 +11,7 @@ from numpy.linalg import norm as np_linalg_norm
 from time import time as time
 from Level_color import Level_color
 from help_menus_list import help_menus_list
+# from numba import njit
 
 class Maze: 
 

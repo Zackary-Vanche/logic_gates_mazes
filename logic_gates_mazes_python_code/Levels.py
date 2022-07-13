@@ -178,7 +178,7 @@ class Levels:
     
 if __name__ == "__main__":
     
-    Levels.save_solutions_txt(do_it_fast=True, verbose=0)
+    # Levels.save_solutions_txt(do_it_fast=True, verbose=0)
     
     # DO NOT REMOVE THIS CODE
     # with open('Temp_help_menus.txt', 'w') as f:
@@ -190,7 +190,7 @@ if __name__ == "__main__":
     #         f.write(level.help_txt[0])
     #         f.write('"""\n\n')
 
-    level = level_bipartite
+    level = level_knight
     solutions = level().find_all_solutions(verbose=3,
                                             stop_at_first_solution=False)        
     print(solutions)
