@@ -192,16 +192,29 @@ if __name__ == "__main__":
 #    cProfile.run("solutions = level.find_all_solutions(verbose=3, stop_at_first_solution=False)")     
     
     for level_function in [
-                           level_the_4_queens,
+#                           level_the_4_queens,
 #                           level_4_colors_theorem,
                            ]:
         level = level_function()
         print(level.name)
         solutions = level.find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**4)
         print(solutions)
-    
-    
-    
+        
+#    4 colors theorem
+    ['S0 S3 S6 S11 S12 S13 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18',
+     'S3 S4 S8 S11 S12 S13 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18',
+     'S3 S4 S9 S10 S12 S13 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18',
+     'S0 S2 S3 S6 S10 S11 S13 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18',
+     'S0 S3 S6 S11 S12 S13 S14 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18',
+     'S0 S3 S7 S11 S12 S13 S14 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18',
+     'S2 S3 S4 S8 S10 S11 S13 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18',
+     'S3 S4 S8 S11 S12 S13 S14 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18',
+     'S3 S4 S9 S10 S12 S13 S14 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18',
+     'S0 S2 S3 S6 S7 S10 S11 S13 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18',
+     'S0 S2 S3 S6 S10 S11 S13 S14 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18',
+     'S2 S3 S4 S8 S10 S11 S13 S14 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18',
+     'S3 S4 S7 S8 S11 S12 S13 S14 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18',
+     'S2 S3 S4 S6 S7 S8 S10 S11 S13 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18'] 
     
     
     
