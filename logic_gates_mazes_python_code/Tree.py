@@ -211,26 +211,28 @@ class Tree:
                     self.easy_logical_expression_PN = ' '.join([root_name, A, B])
                     if root_name == 'FALSE':
                         self.easy_logical_expression_PN = 'F'
-                    if root_name == 'ANB':
+                    elif root_name == 'ANB':
                         self.easy_logical_expression_PN = '& {} ¬ {}'.format(A, B)
-                    if root_name == 'BNA':
+                    elif root_name == 'BNA':
                         self.easy_logical_expression_PN = '& ¬ {} {}'.format(A, B)
-                    if root_name == 'NB':
+                    elif root_name == 'NB':
                         self.easy_logical_expression_PN = ' '.join(['¬', B])
-                    if root_name == 'NA':
+                    elif root_name == 'NA':
                         self.easy_logical_expression_PN = ' '.join(['¬', A])
-                    if root_name == 'AONB':
+                    elif root_name == 'AONB':
                         self.easy_logical_expression_PN = '| {0} ¬ {1}'.format(A, B)
-                    if root_name == 'BONA':
+                    elif root_name == 'BONA':
                         self.easy_logical_expression_PN = '| ¬ {0} {1}'.format(A, B)
-                    if root_name == 'A':
+                    elif root_name == 'A':
                         self.easy_logical_expression_PN = A
-                    if root_name == 'B':
+                    elif root_name == 'B':
                         self.easy_logical_expression_PN = B
-                    if root_name == 'TRUE':
+                    elif root_name == 'TRUE':
                         self.easy_logical_expression_PN = 'T'
                     elif root_name == 'BIN':
                         self.easy_logical_expression_PN = 'b {0} {1}'.format(A, B)
+                    elif root_name == 'POW':
+                        self.easy_logical_expression_PN = '** {0} {1}'.format(A, B)
                 else: 
                     txt = ''
                     for son in self.sons_list:

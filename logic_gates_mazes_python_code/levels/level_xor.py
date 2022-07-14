@@ -52,8 +52,8 @@ def level_xor():
     T0 = Tree(tree_list=tree_list_0,
               empty=True,
               name='T0',
-              switches=[S6, S7],
-              easy_logical_expression_PN="NAND S6 S7\n= ¬& S6 S7")
+              switches=[S6, S7])
+              # easy_logical_expression_PN="NAND S6 S7\n= ¬& S6 S7")
     T1 = Tree(tree_list=tree_list_1,
               empty=True, name='T1',
               switches=[S6, S7, S8])

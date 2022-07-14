@@ -146,11 +146,9 @@ class Levels:
                     print('\nLevel', k, ':', name)
                 txt += 'Level ' + str(k) + ' : ' + name + '\n'
                 txt += str(level.fastest_solution) + '\n\n'
-                # txt += str(level.simplify_solution()) + '\n\n'
         else:
             calculations_times = []
             for k in range(Levels.number_of_levels):
-                # level = Levels.levels_functions_list[k]()
                 level = Levels.get_level(k)
                 print('')
                 name = level.name
@@ -163,7 +161,6 @@ class Levels:
                 for sol in solutions:
                     print(sol)
                     txt += sol + '\n'
-                    # txt += str(level.simplify_solution(sol)) + '\n'
                 if verbose >= 1:
                     print(t3 - t2, 's')
                     calculations_times.append(t3 - t2)
@@ -194,8 +191,8 @@ if __name__ == "__main__":
 #    level = level_bipartite()
 #    cProfile.run("solutions = level.find_all_solutions(verbose=3, stop_at_first_solution=False)")     
     
-    solutions = level_pythagorean().find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**4)
-    print(solutions)
+    # solutions = level_pythagorean().find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**4)
+    # print(solutions)
     
     
     

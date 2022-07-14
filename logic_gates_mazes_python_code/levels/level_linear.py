@@ -28,10 +28,10 @@ def level_linear():
     tree_list_2 = Tree.tree_list_from_str('FT')
     tree_list_3 = Tree.tree_list_NOR(2)
     
-    T0 = Tree(tree_list=tree_list_0, empty=True, name='T0', switches = [S0, S1], easy_logical_expression_PN = 'AND S0 S1\n= & S0 S1')
-    T1 = Tree(tree_list=tree_list_1, empty=True, name='T1', switches = [S2, S3], easy_logical_expression_PN = 'AND S2 NOT S3\n= & S2 ¬ S3')
-    T2 = Tree(tree_list=tree_list_2, empty=True, name='T2', switches = [S4, S5], easy_logical_expression_PN = 'AND NOT S4 S5\n= & ¬ S2 S3')
-    T3 = Tree(tree_list=tree_list_3, empty=True, name='T3', switches = [S6, S7], easy_logical_expression_PN = 'NOR S6 S7\n= & ¬ S6 ¬ S7\n= ¬| S6 S7')
+    T0 = Tree(tree_list=tree_list_0, empty=True, name='T0', switches = [S0, S1])#, easy_logical_expression_PN = 'AND S0 S1\n= & S0 S1')
+    T1 = Tree(tree_list=tree_list_1, empty=True, name='T1', switches = [S2, S3])#, easy_logical_expression_PN = 'AND S2 NOT S3\n= & S2 ¬ S3')
+    T2 = Tree(tree_list=tree_list_2, empty=True, name='T2', switches = [S4, S5])#, easy_logical_expression_PN = 'AND NOT S4 S5\n= & ¬ S2 S3')
+    T3 = Tree(tree_list=tree_list_3, empty=True, name='T3', switches = [S6, S7])#, easy_logical_expression_PN = 'NOR S6 S7\n= & ¬ S6 ¬ S7\n= ¬| S6 S7')
     
     position_R0 = [ 1,  16,  12, 2]
     position_R1 = [ 2,  12,  10, 2]
