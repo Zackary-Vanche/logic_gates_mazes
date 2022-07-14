@@ -87,11 +87,11 @@ class Levels:
                              level_infinity,
                              level_fluid,
                              level_bipartite,
+                             level_alien,
                              level_pong,
                              level_independent_set,
                              level_dominating_set,
                              level_odd,
-                             level_alien,
                              level_recurrence,
                              level_naturals,
                              level_parallel,
@@ -120,7 +120,7 @@ class Levels:
                              level_knight,
                              level_temple,
                              #level_random,
-                             ] 
+                             ]
 
     number_of_levels = len(levels_functions_list)
     
