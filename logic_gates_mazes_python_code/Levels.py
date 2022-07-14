@@ -164,7 +164,7 @@ class Levels:
                 if verbose >= 1:
                     print(t3 - t2, 's')
                     calculations_times.append(t3 - t2)
-                txt += '\n'
+                txt += '\n' + level_dominating_set
         with open('solutions/solutions.txt', 'w') as f:
             f.write(txt)
         t1 = time()
@@ -191,8 +191,14 @@ if __name__ == "__main__":
 #    level = level_bipartite()
 #    cProfile.run("solutions = level.find_all_solutions(verbose=3, stop_at_first_solution=False)")     
     
-    # solutions = level_pythagorean().find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**4)
-    # print(solutions)
+    for level_function in [
+                           level_the_4_queens,
+#                           level_4_colors_theorem,
+                           ]:
+        level = level_function()
+        print(level.name)
+        solutions = level.find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**4)
+        print(solutions)
     
     
     

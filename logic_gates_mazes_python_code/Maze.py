@@ -270,9 +270,7 @@ class Maze:
         visited_rooms = []
         rooms_to_visit = [self.current_room()]
         while rooms_to_visit != []:
-            room_departure = rooms_to_visit[0]
-            visited_rooms.append(room_departure)
-            del rooms_to_visit[0]
+            room_departure = rooms_to_visit.pop(0)
             for door in room_departure.departure_doors_list:
                 if door.is_open:
                     if door.room_arrival not in visited_rooms:
@@ -517,9 +515,8 @@ class Maze:
                      print('len(solutions_to_visit) : {}'.format(len(solutions_to_visit)))
                      print('len(solutions_to_visit)/nb_iterations : {}'.format(len(solutions_to_visit)/nb_iterations))
                      print('')
-                solution = solutions_to_visit[0]
+                solution = solutions_to_visit.pop(0)
                 result_solution = self.fast_try_solution(solution)
-                del solutions_to_visit[0]
                 if result_solution == 1:
                     current_situation_vector = self.current_situation_to_vector()
                     if current_situation_vector not in visited_situations:
@@ -542,7 +539,13 @@ class Maze:
         else:
             solutions_that_work = self.all_solutions
         solutions_that_work = sorted(solutions_that_work, key=len)
-        assert reverse_actions_order or self.fastest_solution is None or ' '.join(solutions_that_work[0]) == self.fastest_solution, str(solutions_that_work[0]) + '\n' + str(self.fastest_solution)
+        if not (reverse_actions_order or self.fastest_solution is None or ' '.join(solutions_that_work[0]) == self.fastest_solution):
+            print(self.name, "wrong fastest solution")
+            print("solution found")
+            print(str(' '.join(solutions_that_work[0])))
+            print("solution in memory")
+            print(str(self.fastest_solution))
+            print('')
         self.all_solutions = solutions_that_work
         if verbose >= 2:
             t1 = time()

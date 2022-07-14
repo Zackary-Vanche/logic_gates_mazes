@@ -47,6 +47,9 @@ def level_4_colors_theorem():
     tree_list_1 = ['OR',
                    Tree.tree_list_XOR(2),
                    Tree.tree_list_XOR(2)]
+#    tree_list_1 = ['NAND',
+#                   Tree.tree_list_AND(2),
+#                   Tree.tree_list_AND(2)]
     
     SN2 = Switch(value=2, name='2')
     SN3 = Switch(value=3, name='3')
@@ -270,7 +273,7 @@ def level_4_colors_theorem():
                  exit_room_index=-1, 
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, R15, R16, R17, R18, RE], 
                  doors_list = [D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18], 
-                 fastest_solution='S2 S3 S4 S6 S7 S8 S10 S11 S13 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18',
+                 fastest_solution=None, #'S2 S3 S4 S6 S7 S8 S10 S11 S13 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18',
                  level_color=Levels_colors_list.FOUR_COLORS,
                  name='4 colors theorem',
                  door_window_size = 550,

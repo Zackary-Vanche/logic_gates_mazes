@@ -38,7 +38,7 @@ Level 12 : Alien
 S0 S1 D7 S11 D6 S9 S10 D5 S8 D4 S6 S7 D3 S5 D2 S3 S4 D1 S2 D16
 
 Level 13 : Pong
-None
+S0 S1 S2 D0 S5 S8 D0 S3 S4 D0 S6 S7 S9 D1
 
 Level 14 : Independent set
 S0 S2 S6 S8 D0 D1 D2 D3 D4
