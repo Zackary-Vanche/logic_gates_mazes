@@ -44,7 +44,7 @@ from levels.level_linear import level_linear
 from levels.level_loop import level_loop
 from levels.level_manhattan_distance import level_manhattan_distance
 from levels.level_matrix import level_matrix
-# from levels.from levels.level_magic_square import level_magic_square # kakuro
+from levels.level_magic_square import level_magic_square # kakuro
 from levels.level_naturals import level_naturals
 from levels.level_odd import level_odd
 from levels.level_or import level_or
@@ -75,6 +75,7 @@ class Levels:
     
     levels_functions_list = [
                              # level_icone,
+                             level_magic_square,
                              level_hello_world,
                              level_linear,
                              level_loop,
@@ -253,6 +254,6 @@ if __name__ == "__main__":
 #        print(sol.split(' D0')[0])
 #        print(level.try_solution(sol, verbose=0))
     
-    level_exact_cover().find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**4)
+    level_magic_square().find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**4)
     
     

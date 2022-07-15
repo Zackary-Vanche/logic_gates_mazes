@@ -5,7 +5,7 @@ Created on Mon Apr  4 20:01:20 2022
 @author: utilisateur
 """
 
-ns = 8
+ns = 24
 nd = 1
 nr = 1
 
