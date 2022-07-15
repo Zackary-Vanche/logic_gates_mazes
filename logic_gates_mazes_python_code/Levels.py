@@ -33,7 +33,7 @@ from levels.level_fluid import level_fluid
 from levels.level_fractal import level_fractal 
 # from levels.level_hamiltonian import level_hamiltonian
 from levels.level_hello_world import level_hello_world
-# from levels.level_hitting_set import level_hitting_set
+from levels.level_hitting_set import level_hitting_set
 # from levels.level_ILP import level_ILP
 from levels.level_independent_set import level_independent_set
 from levels.level_infinity import level_infinity
@@ -75,6 +75,7 @@ class Levels:
     
     levels_functions_list = [
                              # level_icone,
+                             level_hitting_set,
                              level_hello_world,
                              level_linear,
                              level_loop,
@@ -213,22 +214,23 @@ if __name__ == "__main__":
 #     'S1 S2 D0 D1 S8 S11 D2 S12 S13 S14 D3 S16 D4 S21 S23 D5 S26 D6 S29 D7 S32 S33 S35 D8 S36 S38 D9 S40 S41 D10 D11',
 #     'S1 S2 D0 S7 D1 S8 D2 S12 S13 S14 D3 S16 S19 D4 S21 D5 S24 S25 S27 D6 S28 S30 D7 S32 S33 D8 S37 S39 D9 S42 D10 D11',
 #     'S1 S2 D0 S7 D1 S8 D2 S12 S13 S14 D3 S16 S19 D4 S21 D5 S26 D6 S29 S31 D7 S32 S33 D8 S36 S38 D9 S40 S41 S43 D10 D11']
-#    
+    
+    
+    
 #    l = ['S0 S3 D0 D1 S9 S10 D2 S15 D3 S16 D4 S21 S23 D5 S24 S25 D6 S28 S30 D7 S32 S33 S35 D8 S37 D9 D10 D11',
 #     'S0 S3 D0 D1 S9 S10 D2 S15 D3 S16 D4 S21 S23 D5 S26 D6 S29 D7 S32 S33 S35 D8 S36 S38 D9 S40 S41 D10 D11',
 #     'S1 S2 D0 D1 S8 S11 D2 S12 S13 S14 D3 S16 D4 S21 S23 D5 S24 S25 D6 S28 S30 D7 S32 S33 S35 D8 S37 D9 D10 D11',
 #     'S1 S2 D0 D1 S8 S11 D2 S12 S13 S14 D3 S16 D4 S21 S23 D5 S26 D6 S29 D7 S32 S33 S35 D8 S36 S38 D9 D10 D11',
 #     'S1 S2 D0 S7 D1 S8 D2 S12 S13 S14 D3 S16 S19 D4 S21 D5 S24 S25 S27 D6 S28 S30 D7 S32 S33 D8 S37 S39 D9 D10 D11',
 #     'S1 S2 D0 S7 D1 S8 D2 S12 S13 S14 D3 S16 S19 D4 S21 D5 S26 D6 S29 S31 D7 S32 S33 D8 S36 S38 D9 D10 D11']
-#    
 #    level = level_knight()
 #    for sol in l:
 #        print(sol)
 #        print(level.try_solution(sol, verbose=0))
+#    level_knight().try_solution('S1 S2 D0 S7 D1 S8 D2 S12 S13 S14 D3 S16 S19 D4 S21 D5 S26 D6 S29 S31 D7 S32 S33 D8 S36 S38 D9 D10 D11', verbose=2)
+##    level_knight().find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**4)
     
-#    level_knight().try_solution('S1 S2 D0 D1 S8 S11 D2 S12 S13 S14 D3 S16 D4 S21 S23 D5 S26 D6 S29 D7 S32 S33 S35 D8 S36 S38 D9 D10 D11', verbose=2)
     
-#    level_knight().find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**4)
     
 #    l = ['S0 S3 S6 S11 S12 S13 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18 D19',
 #     'S3 S4 S8 S11 S12 S13 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18 D19',
@@ -244,16 +246,14 @@ if __name__ == "__main__":
 #     'S2 S3 S4 S8 S10 S11 S13 S14 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18 D19',
 #     'S3 S4 S7 S8 S11 S12 S13 S14 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18 D19',
 #     'S2 S3 S4 S6 S7 S8 S10 S11 S13 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18 D19'] 
-#    
 ##    S2 S3 S4 S6 S7 S8 S10 S11 S13 S15
-#    
 #    level = level_4_colors_theorem()
 #    for sol in l:
 #        print('nS', sol.count("S"))
 #        print(sol.split(' D0')[0])
 #        print(level.try_solution(sol, verbose=0))
     
-    
+    level_hitting_set().find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**4)
     
     
     

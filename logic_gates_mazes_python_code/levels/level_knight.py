@@ -183,7 +183,7 @@ def level_knight():
     l = 1
     L = 4
     a = L + 1.5
-    d = 1.55
+    d = 1.5
     e = d/2
 
     R0 = Room(name='R0',
