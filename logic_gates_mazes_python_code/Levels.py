@@ -191,38 +191,67 @@ if __name__ == "__main__":
 #    level = level_bipartite()
 #    cProfile.run("solutions = level.find_all_solutions(verbose=3, stop_at_first_solution=False)")     
     
-    for level_function in [
-#                           level_the_4_queens,
-#                           level_4_colors_theorem,
-                           ]:
-        level = level_function()
-        print(level.name)
-        solutions = level.find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**4)
-        print(solutions)
-        
-#    4 colors theorem
-    ['S0 S3 S6 S11 S12 S13 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18',
-     'S3 S4 S8 S11 S12 S13 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18',
-     'S3 S4 S9 S10 S12 S13 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18',
-     'S0 S2 S3 S6 S10 S11 S13 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18',
-     'S0 S3 S6 S11 S12 S13 S14 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18',
-     'S0 S3 S7 S11 S12 S13 S14 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18',
-     'S2 S3 S4 S8 S10 S11 S13 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18',
-     'S3 S4 S8 S11 S12 S13 S14 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18',
-     'S3 S4 S9 S10 S12 S13 S14 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18',
-     'S0 S2 S3 S6 S7 S10 S11 S13 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18',
-     'S0 S2 S3 S6 S10 S11 S13 S14 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18',
-     'S2 S3 S4 S8 S10 S11 S13 S14 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18',
-     'S3 S4 S7 S8 S11 S12 S13 S14 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18',
-     'S2 S3 S4 S6 S7 S8 S10 S11 S13 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18'] 
+#    for level_function in [
+#                             level_hello_world,
+#                             level_linear,
+#                             level_loop,
+#                             level_backward,
+#                             level_bis_repetita,
+#                           ]:
+#        level = level_function()
+#        print(level.name)
+#        solutions = level.find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**3)
+#        print(solutions)
+#    print('')
     
     
+#    l = [('S0', 'S3', 'D0', 'D1', 'S9', 'S10', 'D2', 'S15', 'D3', 'S16', 'D4', 'S21', 'S23', 'D5', 'S24', 'S25', 'D6', 'S28', 'S30', 'D7', 'S32', 'S33', 'S35', 'D8', 'S37', 'D9', 'S42', 'D10', 'D11'), ('S0', 'S3', 'D0', 'D1', 'S9', 'S10', 'D2', 'S15', 'D3', 'S16', 'D4', 'S21', 'S23', 'D5', 'S26', 'D6', 'S29', 'D7', 'S32', 'S33', 'S35', 'D8', 'S36', 'S38', 'D9', 'S40', 'S41', 'D10', 'D11'), ('S1', 'S2', 'D0', 'D1', 'S8', 'S11', 'D2', 'S12', 'S13', 'S14', 'D3', 'S16', 'D4', 'S21', 'S23', 'D5', 'S24', 'S25', 'D6', 'S28', 'S30', 'D7', 'S32', 'S33', 'S35', 'D8', 'S37', 'D9', 'S42', 'D10', 'D11'), ('S1', 'S2', 'D0', 'D1', 'S8', 'S11', 'D2', 'S12', 'S13', 'S14', 'D3', 'S16', 'D4', 'S21', 'S23', 'D5', 'S26', 'D6', 'S29', 'D7', 'S32', 'S33', 'S35', 'D8', 'S36', 'S38', 'D9', 'S40', 'S41', 'D10', 'D11'), ('S1', 'S2', 'D0', 'S7', 'D1', 'S8', 'D2', 'S12', 'S13', 'S14', 'D3', 'S16', 'S19', 'D4', 'S21', 'D5', 'S24', 'S25', 'S27', 'D6', 'S28', 'S30', 'D7', 'S32', 'S33', 'D8', 'S37', 'S39', 'D9', 'S42', 'D10', 'D11'), ('S1', 'S2', 'D0', 'S7', 'D1', 'S8', 'D2', 'S12', 'S13', 'S14', 'D3', 'S16', 'S19', 'D4', 'S21', 'D5', 'S26', 'D6', 'S29', 'S31', 'D7', 'S32', 'S33', 'D8', 'S36', 'S38', 'D9', 'S40', 'S41', 'S43', 'D10', 'D11')]
+#    
+#    l = ['S0 S3 D0 D1 S9 S10 D2 S15 D3 S16 D4 S21 S23 D5 S24 S25 D6 S28 S30 D7 S32 S33 S35 D8 S37 D9 S42 D10 D11',
+#     'S0 S3 D0 D1 S9 S10 D2 S15 D3 S16 D4 S21 S23 D5 S26 D6 S29 D7 S32 S33 S35 D8 S36 S38 D9 S40 S41 D10 D11',
+#     'S1 S2 D0 D1 S8 S11 D2 S12 S13 S14 D3 S16 D4 S21 S23 D5 S24 S25 D6 S28 S30 D7 S32 S33 S35 D8 S37 D9 S42 D10 D11',
+#     'S1 S2 D0 D1 S8 S11 D2 S12 S13 S14 D3 S16 D4 S21 S23 D5 S26 D6 S29 D7 S32 S33 S35 D8 S36 S38 D9 S40 S41 D10 D11',
+#     'S1 S2 D0 S7 D1 S8 D2 S12 S13 S14 D3 S16 S19 D4 S21 D5 S24 S25 S27 D6 S28 S30 D7 S32 S33 D8 S37 S39 D9 S42 D10 D11',
+#     'S1 S2 D0 S7 D1 S8 D2 S12 S13 S14 D3 S16 S19 D4 S21 D5 S26 D6 S29 S31 D7 S32 S33 D8 S36 S38 D9 S40 S41 S43 D10 D11']
+#    
+#    l = ['S0 S3 D0 D1 S9 S10 D2 S15 D3 S16 D4 S21 S23 D5 S24 S25 D6 S28 S30 D7 S32 S33 S35 D8 S37 D9 D10 D11',
+#     'S0 S3 D0 D1 S9 S10 D2 S15 D3 S16 D4 S21 S23 D5 S26 D6 S29 D7 S32 S33 S35 D8 S36 S38 D9 S40 S41 D10 D11',
+#     'S1 S2 D0 D1 S8 S11 D2 S12 S13 S14 D3 S16 D4 S21 S23 D5 S24 S25 D6 S28 S30 D7 S32 S33 S35 D8 S37 D9 D10 D11',
+#     'S1 S2 D0 D1 S8 S11 D2 S12 S13 S14 D3 S16 D4 S21 S23 D5 S26 D6 S29 D7 S32 S33 S35 D8 S36 S38 D9 D10 D11',
+#     'S1 S2 D0 S7 D1 S8 D2 S12 S13 S14 D3 S16 S19 D4 S21 D5 S24 S25 S27 D6 S28 S30 D7 S32 S33 D8 S37 S39 D9 D10 D11',
+#     'S1 S2 D0 S7 D1 S8 D2 S12 S13 S14 D3 S16 S19 D4 S21 D5 S26 D6 S29 S31 D7 S32 S33 D8 S36 S38 D9 D10 D11']
+#    
+#    level = level_knight()
+#    for sol in l:
+#        print(sol)
+#        print(level.try_solution(sol, verbose=0))
     
+#    level_knight().try_solution('S1 S2 D0 D1 S8 S11 D2 S12 S13 S14 D3 S16 D4 S21 S23 D5 S26 D6 S29 D7 S32 S33 S35 D8 S36 S38 D9 D10 D11', verbose=2)
     
+#    level_knight().find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**4)
     
-    
-    
-    
+#    l = ['S0 S3 S6 S11 S12 S13 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18 D19',
+#     'S3 S4 S8 S11 S12 S13 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18 D19',
+#     'S3 S4 S9 S10 S12 S13 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18 D19',
+#     'S0 S2 S3 S6 S10 S11 S13 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18 D19',
+#     'S0 S3 S6 S11 S12 S13 S14 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18 D19',
+#     'S0 S3 S7 S11 S12 S13 S14 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18 D19',
+#     'S2 S3 S4 S8 S10 S11 S13 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18 D19',
+#     'S3 S4 S8 S11 S12 S13 S14 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18 D19',
+#     'S3 S4 S9 S10 S12 S13 S14 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18 D19',
+#     'S0 S2 S3 S6 S7 S10 S11 S13 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18 D19',
+#     'S0 S2 S3 S6 S10 S11 S13 S14 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18 D19',
+#     'S2 S3 S4 S8 S10 S11 S13 S14 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18 D19',
+#     'S3 S4 S7 S8 S11 S12 S13 S14 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18 D19',
+#     'S2 S3 S4 S6 S7 S8 S10 S11 S13 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18 D19'] 
+#    
+##    S2 S3 S4 S6 S7 S8 S10 S11 S13 S15
+#    
+#    level = level_4_colors_theorem()
+#    for sol in l:
+#        print('nS', sol.count("S"))
+#        print(sol.split(' D0')[0])
+#        print(level.try_solution(sol, verbose=0))
     
     
     

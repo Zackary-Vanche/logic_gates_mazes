@@ -57,10 +57,10 @@ def level_knight():
     S37 = Switch(name='S37', value=v)
     S38 = Switch(name='S38')
     S39 = Switch(name='S39', value=v)
-    S40 = Switch(name='S40')
-    S41 = Switch(name='S41')
-    S42 = Switch(name='S42', value=v)
-    S43 = Switch(name='S43')
+#    S40 = Switch(name='S40')
+#    S41 = Switch(name='S41')
+#    S42 = Switch(name='S42', value=v)
+#    S43 = Switch(name='S43')
 
     SN0 = Switch(value=0, name='0')
     SN1 = Switch(value=1, name='1')
@@ -156,18 +156,18 @@ def level_knight():
                           S34, S35, S38, S39,
                           SN1,
                           SN2])
-    T10 = Tree(tree_list=tree_list_tot,
+    T10 = Tree(tree_list=tree_list_equ,
                empty=True,
                name='T10',
-               switches = [S42, S43, SN3,
-                          S36, S37, S40, S41,
-                          S38, S39, S42, S43,
+               switches = [S36, S37, SN1, SN1,
+                          S38, S39, SN0, SN1,
                           SN1,
                           SN2])
-    T11 = Tree(tree_list=['DIFF'] + [['BIN', [None], [None], [None], [None]]]*11,
+    T11 = Tree(tree_list=['DIFF'] + [['BIN', [None], [None], [None], [None]]]*12,
                empty=True,
                name='T11',
-               switches = [S0, S1, S2, S3,
+               switches = [SN0, SN0, SN0, SN0,
+                           S0, S1, S2, S3,
                            S4, S5, S6, S7,
                            S8, S9, S10, S11,
                            S12, S13, S14, S15,
@@ -177,7 +177,7 @@ def level_knight():
                            S28, S29, S30, S31,
                            S32, S33, S34, S35,
                            S36, S37, S38, S39,
-                           S40, S41, S42, S43],
+                           SN1, SN1, SN0, SN1],
                 cut_expression=True)
 
     l = 1
@@ -217,18 +217,18 @@ def level_knight():
               position = [a, 4*d+e, L, l],
               switches_list = [S36, S37, S38, S39])
     R10 = Room(name='R10',
-               position = [0, 5*d, L, l],
-               switches_list = [S40, S41, S42, S43])
+               position = [L-l, 5*d, l, l],
+               switches_list = [])
     R11 = Room(name='R11',
                position = [a, 5*d+e, l, l],
                switches_list = [])
     RE = Room(name='RE',
-              position=[a+L-l, 5*d+e, l, l],
+              position=[L-l, 6*d, l, l],
               is_exit=True)   # E pour exit ou end
     
     rp = 0.5
-    rc1 = [3/4, 1/2]
-    rc2 = [1/4, 1/2]
+    rc1 = [7/8, 1/2]
+    rc2 = [1/8, 1/2]
 
     D0 = Door(two_way=False,
               tree=T0,
@@ -297,16 +297,13 @@ def level_knight():
               tree=T9,
               room_departure=R9,
               room_arrival=R10,
-              relative_position=rp,
-              relative_departure_coordinates=rc2,
-              relative_arrival_coordinates=rc1)
+              relative_departure_coordinates=[1/8, 1/2],
+              relative_position=rp)
     D10 = Door(two_way=False,
                tree=T10,
                room_departure=R10,
                room_arrival=R11,
-               relative_position=rp,
-               relative_departure_coordinates=rc1,
-               relative_arrival_coordinates=[1, 1/2])
+               relative_position=rp)
     D11 = Door(two_way=False,
                tree=T11,
                room_departure=R11,
@@ -317,7 +314,7 @@ def level_knight():
                  exit_room_index=-1, 
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, RE], 
                  doors_list = [D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11], 
-                 fastest_solution="S1 S2 D0 S7 D1 S8 D2 S12 S13 S14 D3 S16 S19 D4 S21 D5 S24 S25 S27 D6 S28 S30 D7 S32 S33 D8 S37 S39 D9 S42 D10 D11",
+                 fastest_solution=None,
                  level_color=Levels_colors_list.FROM_HUE(0.6, sa=0.12, li=0.45),
                  name='Knight',
                  border = 30,

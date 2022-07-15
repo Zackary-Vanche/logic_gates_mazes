@@ -48,11 +48,12 @@ def level_4_colors_theorem():
                    Tree.tree_list_XOR(2),
                    Tree.tree_list_XOR(2)]
 #    tree_list_1 = ['NAND',
-#                   Tree.tree_list_AND(2),
-#                   Tree.tree_list_AND(2)]
-    
+#                   Tree.tree_list_XNOR(2),
+#                   Tree.tree_list_XNOR(2)]
+
     SN2 = Switch(value=2, name='2')
     SN3 = Switch(value=3, name='3')
+    SN9 = Switch(value=10, name='10')
     
     T0 = Tree(tree_list=tree_list_0,
               empty=True,
@@ -130,65 +131,72 @@ def level_4_colors_theorem():
                empty=True,
                name='T18',
                switches = [S10, S12, S11, S13])
+    T19 = Tree(tree_list=['SUPOREQU', Tree.tree_list_SUM(16), [None]],
+               empty=True,
+               name='T19',
+               switches = [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, SN9])
     R0 = Room(name='R0',
               position = [1.5, 1.5, 5.5, 5.5],
               switches_list = [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15])
     R1 = Room(name='R1',
-                position = [8, 2, 0.6, 0.6],
-                switches_list = [])
+              position = [8, 2, 0.6, 0.6],
+              switches_list = [])
     R2 = Room(name='R2',
-                position = [8, 4, 0.6, 0.6],
-                switches_list = [])
+              position = [8, 4, 0.6, 0.6],
+              switches_list = [])
     R3 = Room(name='R3',
-                position = [8, 6, 0.6, 0.6],
-                switches_list = [])
+              position = [8, 6, 0.6, 0.6],
+              switches_list = [])
     R4 = Room(name='R4',
-                position = [8, 8, 0.6, 0.6],
-                switches_list = [])
+              position = [8, 8, 0.6, 0.6],
+              switches_list = [])
     R5 = Room(name='R5',
-                position = [6, 8, 0.6, 0.6],
-                switches_list = [])
+              position = [6, 8, 0.6, 0.6],
+              switches_list = [])
     R6 = Room(name='R6',
-                position = [4, 8, 0.6, 0.6],
-                switches_list = [])
+              position = [4, 8, 0.6, 0.6],
+              switches_list = [])
     R7 = Room(name='R7',
-                position = [2, 8, 0.6, 0.6],
-                switches_list = [])
+              position = [2, 8, 0.6, 0.6],
+              switches_list = [])
     R8 = Room(name='R8',
-                position = [0, 8, 0.6, 0.6],
-                switches_list = [])
+              position = [0, 8, 0.6, 0.6],
+              switches_list = [])
     R9 = Room(name='R9',
-                position = [0, 6, 0.6, 0.6],
-                switches_list = [])
+              position = [0, 6, 0.6, 0.6],
+              switches_list = [])
     R10 = Room(name='R10',
-                position = [0, 4, 0.6, 0.6],
-                switches_list = [])
+               position = [0, 4, 0.6, 0.6],
+               switches_list = [])
     R11 = Room(name='R11',
-                position = [0, 2, 0.6, 0.6],
-                switches_list = [])
+               position = [0, 2, 0.6, 0.6],
+               switches_list = [])
     R12 = Room(name='R12',
-                position = [0, 0, 0.6, 0.6],
-                switches_list = [])
+               position = [0, 0, 0.6, 0.6],
+               switches_list = [])
     R13 = Room(name='R13',
-                position = [2, 0, 0.6, 0.6],
-                switches_list = [])
+               position = [2, 0, 0.6, 0.6],
+               switches_list = [])
     R14 = Room(name='R14',
-                position = [4, 0, 0.6, 0.6],
-                switches_list = [])
+               position = [4, 0, 0.6, 0.6],
+               switches_list = [])
     R15 = Room(name='R15',
-                position = [6, 0, 0.6, 0.6],
-                switches_list = [])
+               position = [6, 0, 0.6, 0.6],
+               switches_list = [])
     R16 = Room(name='R16',
-                position = [8, 0, 0.6, 0.6],
-                switches_list = [])
+               position = [8, 0, 0.6, 0.6],
+               switches_list = [])
     R17 = Room(name='R17',
-                position = [10, 0, 0.6, 0.6],
-                switches_list = [])
+               position = [10, 0, 0.6, 0.6],
+               switches_list = [])
     R18 = Room(name='R18',
-                position = [10, 2, 0.6, 0.6],
-                switches_list = [])
+               position = [10, 2, 0.6, 0.6],
+               switches_list = [])
+    R19 = Room(name='R19',
+               position = [10, 4, 0.6, 0.6],
+               switches_list = [])
     RE = Room(name='RE',
-              position=[10-0.2, 4, 1, 1],
+              position=[10-0.2, 6, 1, 1],
               is_exit=True)   # E pour exit ou end
     D0 = Door(two_way=False,
                 tree=T0,
@@ -267,13 +275,17 @@ def level_4_colors_theorem():
     D18 = Door(two_way=False,
                 tree=T18,
                 room_departure=R18,
+                room_arrival=R19)
+    D19 = Door(two_way=False,
+                tree=T19,
+                room_departure=R19,
                 room_arrival=RE)
     
     level = Maze(start_room_index=0, 
                  exit_room_index=-1, 
-                 rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, R15, R16, R17, R18, RE], 
-                 doors_list = [D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18], 
-                 fastest_solution=None, #'S2 S3 S4 S6 S7 S8 S10 S11 S13 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18',
+                 rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, R15, R16, R17, R18, R19, RE], 
+                 doors_list = [D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19], 
+                 fastest_solution='S2 S3 S4 S6 S7 S8 S10 S11 S13 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18 D19',
                  level_color=Levels_colors_list.FOUR_COLORS,
                  name='4 colors theorem',
                  door_window_size = 550,

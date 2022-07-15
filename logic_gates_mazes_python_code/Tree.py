@@ -50,6 +50,9 @@ class Tree:
     def tree_list_BIN(n):
         return ['BIN'] + [[None]]*n
     
+    def tree_list_SUM(n):
+        return ['SUM'] + [[None]]*n
+    
     def tree_list_from_str(txt):
         def tree_list_and_from_str(txt):
             assert txt.replace('T', '').replace('F', '') == ''
@@ -233,6 +236,8 @@ class Tree:
                         self.easy_logical_expression_PN = 'b {0} {1}'.format(A, B)
                     elif root_name == 'POW':
                         self.easy_logical_expression_PN = '** {0} {1}'.format(A, B)
+                    else:
+                        self.easy_logical_expression_PN = '{0} {1} {2}'.format(root_name, A, B)
                 else: 
                     txt = ''
                     for son in self.sons_list:
@@ -252,8 +257,10 @@ class Tree:
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('OR ', '| ')
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('SUM ', '+ ')
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('PROD ', '* ')
-            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('EQU ', '= ')
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('DIFF ', '≠ ')
+            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('SUPOREQU ', '>= ')
+            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('INFOREQU ', '<= ')
+            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('EQU ', '= ')
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('NEQ ', '¬= ')
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('INF ', '< ')
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('SUP ', '> ')

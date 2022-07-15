@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Thu Feb 24 20:55:41 2022
-
 @author: utilisateur
 """
 
@@ -459,10 +458,6 @@ class Maze:
                         self.use_door(action)
                     else:
                         return 0
-                    switches_values_txt = ''
-                    for switch in self.switches_list():
-                        if switch.value:
-                            switches_values_txt += str(switch.name) + ' '
         bool_solution = self.current_room_index == self.exit_room_index
         return int(bool_solution) + 1
 
