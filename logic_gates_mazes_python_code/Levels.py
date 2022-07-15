@@ -75,7 +75,7 @@ class Levels:
     
     levels_functions_list = [
                              # level_icone,
-                             level_magic_square,
+                             # level_magic_square,
                              level_hello_world,
                              level_linear,
                              level_loop,
