@@ -495,6 +495,75 @@ class Maze:
                            reverse_actions_order=False,
                            initial_try=(),
                            nb_iterations_print=10**3):
+        def powerset(iterable):
+            from itertools import chain, combinations
+            s = list(iterable)
+            p = chain.from_iterable(combinations(s, r) for r in range(len(s)+1))
+            return tuple(p)
+        if verbose > 1:
+            t0 = time()
+        if self.all_solutions is None:
+            visited_situations = set()
+            solutions_to_visit = [initial_try]
+            solutions_that_work = []
+            nb_iterations = 0
+            while solutions_to_visit != []:
+                nb_iterations += 1
+                if nb_iterations % nb_iterations_print == 0 and verbose >= 3:
+                     print('nb_iterations : {}'.format(nb_iterations))
+                     print('solutions_to_visit[-1] : {}'.format(solutions_to_visit[-1]))
+                     print('len(solutions_to_visit) : {}'.format(len(solutions_to_visit)))
+                     print('len(solutions_to_visit)/nb_iterations : {}'.format(len(solutions_to_visit)/nb_iterations))
+                     print('')
+                solution = solutions_to_visit.pop(0)
+                result_solution = self.fast_try_solution(solution)
+                if result_solution == 1:
+                    current_situation_vector = self.current_situation_to_vector()
+                    if current_situation_vector not in visited_situations:
+                        # DOORS
+                        actions_doors = self.get_current_possible_doors()
+                        if reverse_actions_order:
+                            actions_doors.reverse()
+                        for action in actions_doors:
+                            solutions_to_visit.append(solution+(action,))
+                        # SWITCHES
+                        if solution == () or solution[-1][0] != 'S':
+                            actions_switches = self.get_current_possible_switches()
+                            for Slist in powerset(actions_switches):
+                                solutions_to_visit.append(solution+Slist)
+                    visited_situations.add(current_situation_vector)
+                elif result_solution == 2:
+                    if verbose >= 1:
+                        print(solution)
+                    solutions_that_work.append(solution)
+                    if stop_at_first_solution:
+                        self.reboot_solution()
+                        self.all_solutions = solutions_that_work
+                        return solutions_that_work
+            assert solutions_to_visit == []
+            self.reboot_solution()
+        else:
+            solutions_that_work = self.all_solutions
+        solutions_that_work = sorted(solutions_that_work, key=len)
+        if not (reverse_actions_order or self.fastest_solution is None or ' '.join(solutions_that_work[0]) == self.fastest_solution):
+            print(self.name, "wrong fastest solution")
+            print("solution found")
+            print(str(' '.join(solutions_that_work[0])))
+            print("solution in memory")
+            print(str(self.fastest_solution))
+            print('')
+        self.all_solutions = solutions_that_work
+        if verbose >= 2:
+            t1 = time()
+            print(t1 - t0, 's')
+        return solutions_that_work
+    
+    def old_find_all_solutions(self,
+                               verbose=0,
+                               stop_at_first_solution=False,
+                               reverse_actions_order=False,
+                               initial_try=(),
+                               nb_iterations_print=10**3):
         if verbose > 1:
             t0 = time()
         if self.all_solutions is None:
