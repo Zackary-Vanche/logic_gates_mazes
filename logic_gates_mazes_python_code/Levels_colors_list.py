@@ -198,6 +198,13 @@ class Levels_colors_list:
                        inside_room_color = Color.WHITE,
                        surrounding_color = Color.WHITE)
     
+    ORANGE = Level_color(background_color = Color.ORANGE,
+                         room_color = Color.PURE_ORANGE,
+                         contour_color = Color.BLACK,
+                         letters_color = Color.WHITE,
+                         inside_room_color = Color.BLACK,
+                         letter_contour_color = Color.BLACK)
+    
     PINK = Level_color(background_color = Color.PINK,
                        room_color = Color.BRIGHT_PINK,
                        contour_color = Color.BLACK,

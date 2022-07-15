@@ -28,7 +28,7 @@ from levels.level_dead_ends import level_dead_ends
 from levels.level_dominating_set import level_dominating_set
 from levels.level_electricity import level_electricity
 from levels.level_eulerian import level_eulerian
-# from levels.level_exact_cover import level_exact_cover
+from levels.level_exact_cover import level_exact_cover
 from levels.level_fluid import level_fluid
 from levels.level_fractal import level_fractal 
 # from levels.level_hamiltonian import level_hamiltonian
@@ -75,7 +75,6 @@ class Levels:
     
     levels_functions_list = [
                              # level_icone,
-                             level_hitting_set,
                              level_hello_world,
                              level_linear,
                              level_loop,
@@ -90,8 +89,10 @@ class Levels:
                              level_bipartite,
                              level_alien,
                              level_pong,
+                             level_hitting_set,
                              level_independent_set,
                              level_dominating_set,
+                             level_exact_cover,
                              level_odd,
                              level_recurrence,
                              level_naturals,
@@ -228,8 +229,7 @@ if __name__ == "__main__":
 #        print(sol)
 #        print(level.try_solution(sol, verbose=0))
 #    level_knight().try_solution('S1 S2 D0 S7 D1 S8 D2 S12 S13 S14 D3 S16 S19 D4 S21 D5 S26 D6 S29 S31 D7 S32 S33 D8 S36 S38 D9 D10 D11', verbose=2)
-##    level_knight().find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**4)
-    
+##    
     
     
 #    l = ['S0 S3 S6 S11 S12 S13 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18 D19',
@@ -253,11 +253,6 @@ if __name__ == "__main__":
 #        print(sol.split(' D0')[0])
 #        print(level.try_solution(sol, verbose=0))
     
-    level_hitting_set().find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**4)
-    
-    
-    
-    
-    
+    level_exact_cover().find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**4)
     
     

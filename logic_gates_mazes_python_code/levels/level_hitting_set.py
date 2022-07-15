@@ -90,7 +90,7 @@ def level_hitting_set():
                  rooms_list=[R0, R1, RE], 
                  doors_list = [D0, D1], 
                  fastest_solution='S2 S4 S5 D0 D1',
-                 level_color=Levels_colors_list.FROM_HUE(0.6, sa=0.12, li=0.45),
+                 level_color=Levels_colors_list.FROM_HUE(0, sa=0.3, li=0.5),
                  name='Hitting_set',
                  border = 30,
                  door_window_size = 700,

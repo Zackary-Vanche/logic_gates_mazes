@@ -73,6 +73,7 @@ class Color:
     PSEUDO_DARK_BLUE = [0, 0, 165]
     PSEUDO_DARK_GREEN = [49, 91, 65]  # Color.color_hls(0.4, li=0.275)
     PURE_BLUE = [101, 254, 255]  # color_hls(hu=0.5, li=0.7, sa=1)
+    PURE_ORANGE = [220, 140, 0]
     PURPLE_BLUE = [102, 80, 149]  # color_hls(hu=0.72, li=0.45)
     REALLY_BRIGHT_BLUE = [50, 153, 153]  # color_hls(hu=0.5, li=0.4, sa=0.5)
     REALLY_BRIGHT_BLUE_2 = [94, 186, 186]  # color_hls(hu=0.5, li=0.55, sa=0.4)
