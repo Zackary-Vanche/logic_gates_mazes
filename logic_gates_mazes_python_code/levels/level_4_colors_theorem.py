@@ -15,7 +15,7 @@ from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
 def level_4_colors_theorem():
-    
+
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
     S2 = Switch(name='S2')
@@ -32,7 +32,7 @@ def level_4_colors_theorem():
     S13 = Switch(name='S13')
     S14 = Switch(name='S14')
     S15 = Switch(name='S15')
-    
+
     tree_list_0 = ['INF',
                    ['SUM',
                     [None],
@@ -47,14 +47,11 @@ def level_4_colors_theorem():
     tree_list_1 = ['OR',
                    Tree.tree_list_XOR(2),
                    Tree.tree_list_XOR(2)]
-#    tree_list_1 = ['NAND',
-#                   Tree.tree_list_XNOR(2),
-#                   Tree.tree_list_XNOR(2)]
 
     SN2 = Switch(value=2, name='2')
     SN3 = Switch(value=3, name='3')
     SN9 = Switch(value=10, name='10')
-    
+
     T0 = Tree(tree_list=tree_list_0,
               empty=True,
               name='T0',
@@ -199,88 +196,88 @@ def level_4_colors_theorem():
               position=[10-0.2, 6, 1, 1],
               is_exit=True)   # E pour exit ou end
     D0 = Door(two_way=False,
-                tree=T0,
-                room_departure=R0,
-                room_arrival=R1,
-                relative_departure_coordinates=[1, 0.8/5.5],
-                relative_arrival_coordinates=[0, 1/2])
+              tree=T0,
+              room_departure=R0,
+              room_arrival=R1,
+              relative_departure_coordinates=[1, 0.8/5.5],
+              relative_arrival_coordinates=[0, 1/2])
     D1 = Door(two_way=False,
-                tree=T1,
-                room_departure=R1,
-                room_arrival=R2)
+              tree=T1,
+              room_departure=R1,
+              room_arrival=R2)
     D2 = Door(two_way=False,
-                tree=T2,
-                room_departure=R2,
-                room_arrival=R3)
+              tree=T2,
+              room_departure=R2,
+              room_arrival=R3)
     D3 = Door(two_way=False,
-                tree=T3,
-                room_departure=R3,
-                room_arrival=R4)
+              tree=T3,
+              room_departure=R3,
+              room_arrival=R4)
     D4 = Door(two_way=False,
-                tree=T4,
-                room_departure=R4,
-                room_arrival=R5)
+              tree=T4,
+              room_departure=R4,
+              room_arrival=R5)
     D5 = Door(two_way=False,
-                tree=T5,
-                room_departure=R5,
-                room_arrival=R6)
+              tree=T5,
+              room_departure=R5,
+              room_arrival=R6)
     D6 = Door(two_way=False,
-                tree=T6,
-                room_departure=R6,
-                room_arrival=R7)
+              tree=T6,
+              room_departure=R6,
+              room_arrival=R7)
     D7 = Door(two_way=False,
-                tree=T7,
-                room_departure=R7,
-                room_arrival=R8)
+              tree=T7,
+              room_departure=R7,
+              room_arrival=R8)
     D8 = Door(two_way=False,
-                tree=T8,
-                room_departure=R8,
-                room_arrival=R9)
+              tree=T8,
+              room_departure=R8,
+              room_arrival=R9)
     D9 = Door(two_way=False,
-                tree=T9,
-                room_departure=R9,
-                room_arrival=R10)
+              tree=T9,
+              room_departure=R9,
+              room_arrival=R10)
     D10 = Door(two_way=False,
-                tree=T10,
-                room_departure=R10,
-                room_arrival=R11)
+               tree=T10,
+               room_departure=R10,
+               room_arrival=R11)
     D11 = Door(two_way=False,
-                tree=T11,
-                room_departure=R11,
-                room_arrival=R12)
+               tree=T11,
+               room_departure=R11,
+               room_arrival=R12)
     D12 = Door(two_way=False,
-                tree=T12,
-                room_departure=R12,
-                room_arrival=R13)
+               tree=T12,
+               room_departure=R12,
+               room_arrival=R13)
     D13 = Door(two_way=False,
-                tree=T13,
-                room_departure=R13,
-                room_arrival=R14)
+               tree=T13,
+               room_departure=R13,
+               room_arrival=R14)
     D14 = Door(two_way=False,
-                tree=T14,
-                room_departure=R14,
-                room_arrival=R15)
+               tree=T14,
+               room_departure=R14,
+               room_arrival=R15)
     D15 = Door(two_way=False,
-                tree=T15,
-                room_departure=R15,
-                room_arrival=R16)
+               tree=T15,
+               room_departure=R15,
+               room_arrival=R16)
     D16 = Door(two_way=False,
-                tree=T16,
-                room_departure=R16,
-                room_arrival=R17)
+               tree=T16,
+               room_departure=R16,
+               room_arrival=R17)
     D17 = Door(two_way=False,
-                tree=T17,
-                room_departure=R17,
-                room_arrival=R18)
+               tree=T17,
+               room_departure=R17,
+               room_arrival=R18)
     D18 = Door(two_way=False,
-                tree=T18,
-                room_departure=R18,
-                room_arrival=R19)
+               tree=T18,
+               room_departure=R18,
+               room_arrival=R19)
     D19 = Door(two_way=False,
-                tree=T19,
-                room_departure=R19,
-                room_arrival=RE)
-    
+               tree=T19,
+               room_departure=R19,
+               room_arrival=RE)
+
     level = Maze(start_room_index=0, 
                  exit_room_index=-1, 
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, R15, R16, R17, R18, R19, RE], 
@@ -290,19 +287,5 @@ def level_4_colors_theorem():
                  name='4 colors theorem',
                  door_window_size = 550,
                  keep_proportions=False)
-    
+
     return level
-
-if __name__ == '__main__':
-    
-    level = level_4_colors_theorem
-
-    solutions = level().find_all_solutions(verbose=3,
-                                           stop_at_first_solution=False)
-    
-    level().try_solution(solutions[-1],
-                         verbose=3,
-                         allow_all_doors=True,
-                         allow_all_switches=True)
-    
-    print(solutions[-1])
