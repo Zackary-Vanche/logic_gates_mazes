@@ -199,7 +199,7 @@ def level_temple():
                 switches = [S6, S16, S26])
     
     R0 = Room(name='R0',
-              position = [13.75, -3.75, 1.5, 1.5],
+              position = [13.75, -4, 1.5, 1.5],
               switches_list = [])
     R1 = Room(name='R1',
               position = [0, 0, 4.5, 1.5],
