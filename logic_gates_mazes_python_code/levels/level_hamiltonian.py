@@ -12,7 +12,7 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
-def level_alien():
+def level_hamiltonian():
     
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -234,32 +234,8 @@ def level_alien():
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16],
                  fastest_solution="S0 S1 D7 S11 D6 S9 S10 D5 S8 D4 S6 S7 D3 S5 D2 S3 S4 D1 S2 D16",
                  level_color=Levels_colors_list.SHINY_GREEN,
-                 name='Alien',
+                 name='Hamiltonian',
                  door_window_size=600,
                  keep_proportions=False)
 
     return level
-
-if __name__ == "__main__":
-    
-    level = level_alien
-
-    solutions = level().find_all_solutions(verbose=3,
-                                                 stop_at_first_solution=False)
-    
-    level().try_solution(solutions[-1],
-                               verbose=3,
-                               allow_all_doors=True,
-                               allow_all_switches=True)
-    
-    solutions_reverse = level().find_all_solutions(verbose=3,
-                                                         stop_at_first_solution=False,
-                                                         reverse_actions_order=True)
-    
-    level().try_solution(solutions_reverse[-1],
-                               verbose=3,
-                               allow_all_doors=True,
-                               allow_all_switches=True)
-    
-    print(solutions[-1])
-    print(solutions_reverse[-1])

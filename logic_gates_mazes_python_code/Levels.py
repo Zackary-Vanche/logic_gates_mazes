@@ -15,7 +15,7 @@ from levels.level_4_colors_theorem import level_4_colors_theorem
 from levels.level_the_4_queens import level_the_4_queens
 #from levels.level_absolute import level_absolute
 from levels.level_alice_and_bob import level_alice_and_bob
-from levels.level_alien import level_alien
+# from levels.level_alien import level_alien
 from levels.level_backward import level_backward
 from levels.level_binary import level_binary
 from levels.level_bipartite import level_bipartite
@@ -31,7 +31,7 @@ from levels.level_eulerian import level_eulerian
 from levels.level_exact_cover import level_exact_cover
 from levels.level_fluid import level_fluid
 from levels.level_fractal import level_fractal 
-# from levels.level_hamiltonian import level_hamiltonian
+from levels.level_hamiltonian import level_hamiltonian
 from levels.level_hello_world import level_hello_world
 from levels.level_hitting_set import level_hitting_set
 # from levels.level_ILP import level_ILP
@@ -88,7 +88,7 @@ class Levels:
                              level_infinity,
                              level_fluid,
                              level_bipartite,
-                             level_alien,
+                             level_hamiltonian,
                              level_pong,
                              level_hitting_set,
                              level_independent_set,

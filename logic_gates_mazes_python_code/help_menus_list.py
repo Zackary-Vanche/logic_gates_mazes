@@ -245,7 +245,7 @@ help_menus_list['levels']["Knapsack"] = """The knapsack is one of the Karp's 21 
 help_menus_list['levels']["Bipartite"] = """This level has several solutions.
 """
 
-help_menus_list['levels']["Alien"] = """Don't look for something too complicated.
+help_menus_list['levels']["Hamiltonian"] = """Don't look for something too complicated.
 """
 
 help_menus_list['levels']["Tesseract"] = """One new notation is used in this level :
