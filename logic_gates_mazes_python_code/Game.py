@@ -79,6 +79,7 @@ class Game:
                  index_current_level=0,  # Cette variable détermine le niveau joué.
                  time_between_actions=0.15,
                  time_between_deletings=0.05,
+                 time_between_level_changing=0.25,
                  print_click_rects=False,
                  print_room_name=True,
                  print_tree_polygon=False,
@@ -94,6 +95,7 @@ class Game:
         self.index_current_level = index_current_level
         self.time_between_actions = time_between_actions
         self.time_between_deletings = time_between_deletings
+        self.time_between_level_changing = time_between_level_changing
         self.print_click_rects = print_click_rects
         self.print_room_name = print_room_name
         self.print_tree_polygon = print_tree_polygon
@@ -553,7 +555,7 @@ class Game:
     def change_level(self):
         self.pressed = pygame_key_get_pressed()
         # Changement de niveau
-        if time() - self.last_level_change_time > self.time_between_actions:
+        if time() - self.last_level_change_time > self.time_between_level_changing:
             if (self.pressed[K_RIGHT]):
                 self.index_current_level += 1
                 self.level_changed = True

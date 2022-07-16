@@ -312,6 +312,6 @@ def level_knight():
                  level_color=Levels_colors_list.FROM_HUE(0.6, sa=0.12, li=0.45),
                  name='Knight',
                  door_window_size = 700,
-                 keep_proportions=True)
+                 keep_proportions=False)
 
     return level
