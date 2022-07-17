@@ -75,7 +75,7 @@ class Levels:
     
     levels_functions_list = [
                              # level_icone,
-                             # level_magic_square,
+                             level_magic_square,
                              level_hello_world,
                              level_linear,
                              level_loop,
@@ -207,6 +207,6 @@ if __name__ == "__main__":
     #     print(solutions)
     # print('')
     
-    # level_knight().find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**4)
+    level_magic_square().find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**3)
     
     

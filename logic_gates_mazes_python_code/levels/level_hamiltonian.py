@@ -91,7 +91,7 @@ def level_hamiltonian():
                 empty=True,
                 name='T15',
                 switches = [S2, S11])
-    T16 = Tree(tree_list=['AND', Tree.tree_list_from_str('TTTTTT'), Tree.tree_list_from_str('TTTTTT')],
+    T16 = Tree(tree_list=Tree.tree_list_AND(12),
                 empty=True,
                 name='T16',
                 switches = [S0, S1, S2,

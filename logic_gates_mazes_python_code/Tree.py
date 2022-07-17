@@ -270,10 +270,13 @@ class Tree:
                 elePN = ''
                 for i in range(len(l_elePN)):
                     if i < len(l_elePN)-2:
-                        elePN = elePN + l_elePN[i] + self.cut_expression_separator + '\n'
+                        if len(l_elePN[i+1]) < 3:
+                            elePN = elePN + l_elePN[i] + self.cut_expression_separator
+                        else:
+                            elePN = elePN + l_elePN[i] + self.cut_expression_separator + '\n'
                     elif i == len(l_elePN)-2:
                         elePN = elePN + l_elePN[i] + self.cut_expression_separator
-                    elif i == len(l_elePN)-1:
+                    else:
                         elePN = elePN + l_elePN[i]
                 self.easy_logical_expression_PN = elePN
         return self.easy_logical_expression_PN
