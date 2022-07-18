@@ -200,6 +200,7 @@ if __name__ == "__main__":
                             level_loop,
                             level_backward,
                             level_bis_repetita,
+                            level_electricity,
                           ]:
         level = level_function()
         print(level.name)
