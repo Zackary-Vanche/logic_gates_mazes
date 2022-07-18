@@ -31,22 +31,22 @@ def level_syracuse(test_solution=False):
     S13 = Switch(name='S13')
     S14 = Switch(name='S14')
     S15 = Switch(name='S15')
-    
+
     SN1 = Switch(name='1', value=1)
     SN2 = Switch(name='2', value=2)
     SN3 = Switch(name='3', value=3)
     SN228 = Switch(name='228', value=228)
-    
+
     tree_list_0 = ['EQU',
                    Tree.tree_list_BIN(8),
                    Tree.tree_list_BIN(8)]
-    
+
     tree_list_1 = ['EQU',
                        Tree.tree_list_BIN(8),
                        ['DIV',
                             Tree.tree_list_BIN(8),
                             [None]]]
-    
+
     tree_list_prod = ['PROD', [None], Tree.tree_list_BIN(8)]
     tree_list_3plus1 = ['SUM', tree_list_prod, [None]]
     tree_list_equ_3plus1 = ['EQU', Tree.tree_list_BIN(8), tree_list_3plus1]
@@ -129,5 +129,5 @@ def level_syracuse(test_solution=False):
                  door_window_size = 800,
                  keep_proportions = True,
                  border=20)
-    
+
     return level
