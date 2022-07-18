@@ -195,24 +195,32 @@ if __name__ == "__main__":
 #    level = level_bipartite()
 #    cProfile.run("solutions = level.find_all_solutions(verbose=3, stop_at_first_solution=False)")     
     
-#    for level_function in [
-#                            level_hello_world,
-#                            level_linear,
-#                            level_loop,
-#                            level_backward,
-#                            level_bis_repetita,
-#                            level_electricity,
-#                          ]:
-#        level = level_function()
-#        print(level.name)
-#        solutions = level.find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**3)
-#        print(solutions)
-#    print('')
+    # for level_function in [
+    #                         level_hello_world,
+    #                         level_linear,
+    #                         level_loop,
+    #                         level_backward,
+    #                         level_bis_repetita,
+    #                         level_binary,
+    #                         level_or,
+    #                         level_crossroad,
+    #                         level_square,
+    #                       ]:
+    #     level = level_function()
+    #     print(level.name)
+    #     solutions = level.find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**3)
+    #     print(solutions)
+    # print('')
     
-#    sol = "S0 S2 S6 S7 S8 D0 S10 S11 S14 S16 D1 S18 S24 S25 S26 D2 D3 D4 D5"
-#    level_magic_square().try_solution(sol, verbose=2)
-
-#    level_magic_square().find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**4)
+    # solutions = level_the_4_queens().find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**4)
     
-    level_syracuse().find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**3)
-    
+    # import matplotlib.pyplot as plt
+    # l = []
+    # for level_function in Levels.levels_functions_list:
+    #     level = level_function()
+    #     sol = level.fastest_solution
+    #     if sol is None:
+    #         print(level.name)
+    #     else:
+    #         l.append(len(sol.split(' ')))
+    # plt.plot([i for i in range(len(l))], l)

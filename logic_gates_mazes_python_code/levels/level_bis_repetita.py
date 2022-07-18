@@ -77,7 +77,7 @@ def level_bis_repetita():
                  level_color=Levels_colors_list.BRIGHT_AND_DARK_BLUE,
                  name='Bis repetita',
                  border = 30,
-                 door_window_size = 500,
+                 door_window_size = 600,
                  keep_proportions=True)
 
     return level

@@ -109,7 +109,7 @@ def level_square():
                  fastest_solution="S0 D2 S3 D1 S2 D0 S1 D3 D4",
                  level_color=Levels_colors_list.DARK_RED,
                  name='Square',
-                 door_window_size=500,
+                 door_window_size=575,
                  border=60,
                  keep_proportions=True)
 

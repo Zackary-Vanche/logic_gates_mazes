@@ -32,10 +32,12 @@ def level_or():
               name='T2', 
               switches = [S0, S1, S2])
     
+    d = 4
+    
     position_R0 = [0,0,1,1]
-    position_R1 = [3,0,1,1]
-    position_R2 = [6,0,1,1]
-    position_RE = [9,0,1,1]
+    position_R1 = [d,0,1,1]
+    position_R2 = [2*d,0,1,1]
+    position_RE = [3*d,0,1,1]
     
     R0 = Room(name='R0', position = position_R0, switches_list = [S0])
     R1 = Room(name='R1', position = position_R1, switches_list = [S1])
@@ -65,7 +67,7 @@ def level_or():
              fastest_solution="S0 D0 S1 D0 S0 D0 D1 S2 D1 S1 D1 S2 D2",
              level_color=Levels_colors_list.FROM_HUE(0.9),
              name='OR',
-             door_window_size = 500,
+             door_window_size = 250,
              keep_proportions = True)
     
     return level

@@ -80,5 +80,6 @@ def level_fluid():
               doors_list = [D0, D1, D2, D3, D4, D5],
               fastest_solution='S0 D0 S1 D1 S2 S6 D4 S0 S4 D4 D2 S3 S7 D5 S1 S5 D5 D3',
               level_color=Levels_colors_list.BRIGHT_BLUE,
+              door_window_size=400,
               name='Fluid')
     return level
