@@ -22,11 +22,11 @@ class Switch:
         assert door is not None
         self.doors_set.add(door)
 
-    def set_value(self, new_value):
+    def set_value(self, new_value, update_doors=True):
         self.value = new_value
-        for door in self.doors_set:
-            # door.update_open()
-            door.is_open = bool(door.tree.get_value())
+        if update_doors:
+            for door in self.doors_set:
+                door.update_open()
 
     def __str__(self):
         txt = ''

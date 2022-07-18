@@ -245,11 +245,11 @@ class Maze:
                 else:
                     f.write("{} --> {}\n".format(door.room_departure.name, door.room_arrival.name))
 
-    def change_switch(self, switch_name):
+    def change_switch(self, switch_name, update_doors=True):
         assert switch_name[0] == 'S'
         switch = self.switches_dict[switch_name]
         new_value = int(not switch.value)
-        switch.set_value(new_value)
+        switch.set_value(new_value, update_doors)
 
     def legit_change_switch(self, switch_name):
         assert switch_name[0] == 'S'
@@ -454,10 +454,12 @@ class Maze:
                 action_type = action[0]
                 if action_type == 'S':
                     if self.legit_change_switch(action):
-                        self.change_switch(action)
+                        self.change_switch(action, update_doors=False)
                     else:
                         return 0
                 if action_type == 'D':
+                    door = self.doors_dict()[action]
+                    door.update_open()
                     if self.legit_use_door(action):
                         self.use_door(action)
                     else:
@@ -521,6 +523,8 @@ class Maze:
                      print('')
                 solution = solutions_to_visit.pop(0)
                 result_solution = self.fast_try_solution(solution)
+                for door in self.doors_list():
+                    door.update_open()
                 if result_solution == 1:
                     current_situation_vector = self.current_situation_to_vector()
                     if current_situation_vector not in visited_situations:

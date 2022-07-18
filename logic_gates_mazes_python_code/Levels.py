@@ -75,7 +75,6 @@ class Levels:
     
     levels_functions_list = [
                              # level_icone,
-                             level_magic_square,
                              level_hello_world,
                              level_linear,
                              level_loop,
@@ -108,6 +107,7 @@ class Levels:
                              level_4_colors_theorem,
                              level_partition,
                              level_knapsack,
+                             level_magic_square,
                              level_xor,
                              level_matrix,
                              level_river,
@@ -194,18 +194,18 @@ if __name__ == "__main__":
 #    level = level_bipartite()
 #    cProfile.run("solutions = level.find_all_solutions(verbose=3, stop_at_first_solution=False)")     
     
-    # for level_function in [
-    #                         level_hello_world,
-    #                         level_linear,
-    #                         level_loop,
-    #                         level_backward,
-    #                         level_bis_repetita,
-    #                       ]:
-    #     level = level_function()
-    #     print(level.name)
-    #     solutions = level.find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**3)
-    #     print(solutions)
-    # print('')
+    for level_function in [
+                            level_hello_world,
+                            level_linear,
+                            level_loop,
+                            level_backward,
+                            level_bis_repetita,
+                          ]:
+        level = level_function()
+        print(level.name)
+        solutions = level.find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**3)
+        print(solutions)
+    print('')
     
     level_magic_square(True).find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**3)
     
