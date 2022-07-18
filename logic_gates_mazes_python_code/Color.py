@@ -5,16 +5,15 @@ Created on Thu Feb 24 20:57:18 2022
 @author: utilisateur
 """
 
-# from colorsys import hls_to_rgb
-# from numpy import array
-# from numpy import uint8
+from colorsys import hls_to_rgb
+from numpy import array
+from numpy import uint8
+saturation=0.3
+lightness=0.4
+def color_hls(hu=0, li=lightness, sa=saturation):
+    return array(255*array(hls_to_rgb(hu, li, sa)), dtype=uint8).tolist()
 
 class Color:
-
-    # saturation=0.3
-    # lightness=0.4
-    # def color_hls(hu=0, li=lightness, sa=saturation):
-    #     return array(255*array(hls_to_rgb(hu, li, sa)), dtype=uint8).tolist()
 
     BLACK = [0, 0, 0]
     BLACK_BLUE = [0, 20, 20]
@@ -29,7 +28,7 @@ class Color:
     BRIGHT_GREY = [96,  96,  96]
     BRIGHT_KHAKI = [189, 183, 107]
     BRIGHT_ORANGE = [165, 135, 89]  # color_hls(hu=0.1, li=0.5)
-    BRIGHT_PINK = [192, 138, 171]  # color_hls(hu=0.9, li=0.65)
+    BRIGHT_PINK = [216, 165, 196]  # color_hls(hu=0.9, li=0.65)
     BRIGHT_PURPLE = [120, 71, 132]  # color_hls(0.8, li=0.4)
     BRIGHT_PURPLE_BLUE = [156, 138, 192]  # color_hls(hu=0.72, li=0.65)
     BRIGHT_RED = [200, 0, 0]
@@ -69,7 +68,7 @@ class Color:
     ORANGE = [116, 94, 62]  # color_hls(0.1, li=0.35)
     PALE_RED = [231, 133, 135]
     PALE_YELLOW = [193, 185, 112]  # color_hls(hu=0.15, li=0.6, sa=0.4)
-    PINK = [165, 89, 135]  # color_hls(hu=0.9, li=0.5)
+    PINK = [183, 122, 159]  # color_hls(hu=0.9, li=0.6)
     PSEUDO_DARK_BLUE = [0, 0, 165]
     PSEUDO_DARK_GREEN = [49, 91, 65]  # Color.color_hls(0.4, li=0.275)
     PURE_BLUE = [101, 254, 255]  # color_hls(hu=0.5, li=0.7, sa=1)

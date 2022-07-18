@@ -269,19 +269,23 @@ class Maze:
         visited_rooms = []
         rooms_to_visit = [self.current_room()]
         while rooms_to_visit != []:
-            room_departure = rooms_to_visit.pop(0)
+            room_departure = rooms_to_visit[0]
+            del rooms_to_visit[0]
             for door in room_departure.departure_doors_list:
                 if door.is_open:
                     if door.room_arrival not in visited_rooms:
                         rooms_to_visit.append(door.room_arrival)
+                        visited_rooms.append(door.room_arrival)
             for door in room_departure.two_way_doors_list:
                 if door.is_open:
                     if room_departure == door.room_arrival:
                         if door.room_departure not in visited_rooms:
                             rooms_to_visit.append(door.room_departure)
+                            visited_rooms.append(door.room_departure)
                     else:
                         if door.room_arrival not in visited_rooms:
                             rooms_to_visit.append(door.room_arrival)
+                            visited_rooms.append(door.room_arrival)
         return visited_rooms
 
     def legit_change_room(self, room_name):

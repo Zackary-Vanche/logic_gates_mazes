@@ -53,23 +53,39 @@ def level_magic_square():
     
     tree_list_EQU = ['EQU', tree_list_SUM, [None]]
 
-    T0 = Tree(tree_list=tree_list_EQU,
+    T0 = Tree(tree_list=['AND', 
+                         tree_list_EQU,
+                         ['DIFF'] + [Tree.tree_list_BIN(3)]*3],
               empty=True,
               name='T0',
-              switches = [S0, S1, S2, S3, S4, S5, S6, S7, S8, SN12])
-    T1 = Tree(tree_list=tree_list_EQU,
+              switches = [S0, S1, S2, S3, S4, S5, S6, S7, S8, SN12,
+                          S0, S1, S2, S3, S4, S5, S6, S7, S8])
+    T1 = Tree(tree_list=['AND', 
+                         tree_list_EQU,
+                         ['DIFF'] + [Tree.tree_list_BIN(3)]*3],
               empty=True,
               name='T1',
-              switches = [S9, S10, S11, S12, S13, S14, S15, S16, S17, SN12])
-    T2 = Tree(tree_list=['EQU',
+              switches = [S9, S10, S11, S12, S13, S14, S15, S16, S17, SN12,
+                          S9, S10, S11, S12, S13, S14, S15, S16, S17],
+              cut_expression=True,
+              cut_expression_separator=']')
+    T2 = Tree(tree_list=['AND',
+                         ['EQU',
                              ['SUM',
                                   Tree.tree_list_BIN(3),
                                   Tree.tree_list_BIN(4),
                                   Tree.tree_list_BIN(3)],
                              [None]],
+                         ['DIFF',
+                              Tree.tree_list_BIN(3),
+                              Tree.tree_list_BIN(4),
+                              Tree.tree_list_BIN(3)]],
               empty=True,
               name='T2',
-              switches = [S18, S19, S20, S21, S22, S23, S24, S25, S26, S27, SN12])
+              switches = [S18, S19, S20, S21, S22, S23, S24, S25, S26, S27, SN12,
+                          S18, S19, S20, S21, S22, S23, S24, S25, S26, S27],
+              cut_expression=True,
+              cut_expression_separator=']')
     T3 = Tree(tree_list=['EQU',
                          tree_list_SUM,
                          ['SUM',
@@ -122,59 +138,57 @@ def level_magic_square():
                           S21, S22, S23, S24,
                           S25, S26, S27, 
                           S0, S1, S2, S6, S7, S8],
-              cut_expression=True)
+              cut_expression=True,
+              cut_expression_separator=')')
 
     R0 = Room(name='R0',
-              position = [4, -0.1, 3, 3],
+              position = [8, 4, 6, 6],
               switches_list = [S0, S1, S2, S3, S4, S5, S6, S7, S8])
     R1 = Room(name='R1',
-              position = [4, 4, 4, 4],
+              position = [8, 12, 6, 6],
               switches_list = [S9, S10, S11, S12, S13, S14, S15, S16, S17])
     R2 = Room(name='R2',
-              position = [-0.2, 4.5, 3, 4],
+              position = [2, 8, 4, 10],
               switches_list = [S18, S19, S20, S21, S22, S23, S24, S25, S26, S27])
     R3 = Room(name='R3',
-              position = [-0.2, 2.7, 0.7, 0.7],
+              position = [2, 5, 1, 1],
               switches_list = [])
     R4 = Room(name='R4',
-              position = [2.2, 2.7, 1.5, 1.5],
+              position = [2, 2, 1, 1],
               switches_list = [])
     R5 = Room(name='R5',
-              position = [2.2, 0.6, 1, 1],
+              position = [5, 2, 1, 1],
               switches_list = [])
     RE = Room(name='RE',
-              position=[2.1, -1.5, 1.2, 1],
+              position=[8.25, 1.5, 2, 2],
               is_exit=True)   # E pour exit ou end
+    R_useless = Room(name='',
+                     position=[4, 4, 3, 3])
 
     D0 = Door(two_way=False,
               tree=T0,
               room_departure=R0,
-              room_arrival=R1,
-              relative_departure_coordinates=[1/3, 1],
-              relative_arrival_coordinates=[1/4, 0])
+              room_arrival=R1)
     D1 = Door(two_way=False,
               tree=T1,
               room_departure=R1,
               room_arrival=R2,
-              relative_departure_coordinates=[0, 1/4],
-              relative_arrival_coordinates=[1, 0.5/4])
+              relative_departure_coordinates=[0, 1/2],
+              relative_arrival_coordinates=[1, 7/10])
     D2 = Door(two_way=False,
               tree=T2,
               room_departure=R2,
               room_arrival=R3,
-              relative_departure_coordinates=[1/6, 0],
-              relative_arrival_coordinates=[0.5/0.7, 1])
+              relative_departure_coordinates=[1/8, 0],
+              relative_arrival_coordinates=[1/2, 1])
     D3 = Door(two_way=False,
               tree=T3,
               room_departure=R3,
-              room_arrival=R4,
-              relative_departure_coordinates=[1, 0.5/0.7],
-              relative_arrival_coordinates=[0, 1/3])
+              room_arrival=R4)
     D4 = Door(two_way=False,
               tree=T4,
               room_departure=R4,
-              room_arrival=R5,
-              relative_departure_coordinates=[1/3, 1/3])
+              room_arrival=R5)
     D5 = Door(two_way=False,
               tree=T5,
               room_departure=R5,
@@ -182,13 +196,14 @@ def level_magic_square():
 
     level = Maze(start_room_index=0, 
              exit_room_index=-1, 
-             rooms_list=[R0, R1, R2, R3, R4, R5, RE], 
+             rooms_list=[R0, R1, R2, R3, R4, R5, RE, R_useless], 
              doors_list = [D0, D1, D2, D3, D4, D5], 
              fastest_solution=None,
-             level_color=Levels_colors_list.GREY,
+             level_color=Levels_colors_list.PINK_AND_WHITE,
              name='Magic_square',
-             door_window_size = 650,
-             keep_proportions = True)
+             door_window_size = 825,
+             keep_proportions = True,
+             border=20)
     
     return level
 

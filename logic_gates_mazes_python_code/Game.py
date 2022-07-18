@@ -105,8 +105,10 @@ class Game:
         self.update_display_at_every_loop = update_display_at_every_loop
         self.sleep_time = sleep_time
         self.change_in_display = False
+        self.font_size = 22
+        self.help_font_size = 30
         
-    def game_setup(self, font_size=22):
+    def game_setup(self):
         # Game Setup
         pygame_init()
         self.looping = True
@@ -120,7 +122,7 @@ class Game:
         pygame_display_set_caption('Logic gates maze')
         self.WINDOW_SIZE_changed = True
 
-        self.font = pygame_font_SysFont(None, font_size)
+        self.font = pygame_font_SysFont(None, self.font_size)
         self.level_changed = True
         # Cette variable vaut True quand le joueur
         # vient de choisir de changer de niveau
@@ -427,6 +429,7 @@ class Game:
     def display_help(self):
         
         self.WINDOW.fill(self.background_color)
+        self.font = pygame_font_SysFont(None, self.help_font_size)
         
         self.draw_exterior_lines()
         # Affichage du nom du niveau courant
@@ -471,6 +474,7 @@ class Game:
                          (self.x_separation + self.y_separation/3, self.y_separation/2-7))
                 
     def display_game_window(self):
+        self.font = pygame_font_SysFont(None, self.font_size)
         self.WINDOW.fill(self.background_color)
         self.uniform_surrounding_colors = self.maze.uniform_surrounding_colors
         self.draw_right_window()

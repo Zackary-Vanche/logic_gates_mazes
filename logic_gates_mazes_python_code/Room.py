@@ -23,11 +23,6 @@ class Room:
                  name = 'R',
                  surrounding_color=[255,255,255]):
         self.name = name
-        try:
-            assert self.name[0] == 'R'
-        except:
-            print(self.name)
-            raise
         self.is_exit = is_exit
         if self.is_exit:
             assert self.name == 'RE'
