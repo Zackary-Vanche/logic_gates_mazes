@@ -34,8 +34,6 @@ class Maze:
                  line_size=3,
                  random=False):
         self.random = random
-        assert start_room_index == 0
-        assert exit_room_index == -1
         self.name = name
         self.start_room_index = start_room_index
         self.exit_room_index = exit_room_index
@@ -434,6 +432,7 @@ class Maze:
                 for switch in self.switches_list():
                     if switch.value:
                         print(switch.name)
+                print(self.current_room_index, self.exit_room_index)
                 print('Try again !')
         if verbose == 3:
             print('')

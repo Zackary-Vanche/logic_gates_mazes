@@ -15,7 +15,6 @@ from levels.level_4_colors_theorem import level_4_colors_theorem
 from levels.level_the_4_queens import level_the_4_queens
 #from levels.level_absolute import level_absolute
 from levels.level_alice_and_bob import level_alice_and_bob
-# from levels.level_alien import level_alien
 from levels.level_backward import level_backward
 from levels.level_binary import level_binary
 from levels.level_bipartite import level_bipartite
@@ -194,20 +193,23 @@ if __name__ == "__main__":
 #    level = level_bipartite()
 #    cProfile.run("solutions = level.find_all_solutions(verbose=3, stop_at_first_solution=False)")     
     
-    for level_function in [
-                            level_hello_world,
-                            level_linear,
-                            level_loop,
-                            level_backward,
-                            level_bis_repetita,
-                            level_electricity,
-                          ]:
-        level = level_function()
-        print(level.name)
-        solutions = level.find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**3)
-        print(solutions)
-    print('')
+#    for level_function in [
+#                            level_hello_world,
+#                            level_linear,
+#                            level_loop,
+#                            level_backward,
+#                            level_bis_repetita,
+#                            level_electricity,
+#                          ]:
+#        level = level_function()
+#        print(level.name)
+#        solutions = level.find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**3)
+#        print(solutions)
+#    print('')
     
-    level_magic_square(True).find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**3)
+#    sol = "S0 S2 S6 S7 S8 D0 S10 S11 S14 S16 D1 S18 S24 S25 S26 D2 D3 D4 D5"
+#    level_magic_square().try_solution(sol, verbose=2)
+
+#    level_magic_square().find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**4)
     
     
