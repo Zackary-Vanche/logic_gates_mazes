@@ -59,7 +59,7 @@ def level_magic_square(test_solution=False):
                              ['DIFF'] + [Tree.tree_list_BIN(3)]*3]
         tree_list_1 = ['AND', 
                              tree_list_EQU,
-                             ['DIFF'] + [Tree.tree_list_BIN(3)]*3]
+                             ['DIFF'] + [Tree.tree_list_BIN(3)]*6]
         tree_list_2 = ['AND',
                              ['EQU',
                                  ['SUM',
@@ -68,6 +68,12 @@ def level_magic_square(test_solution=False):
                                       Tree.tree_list_BIN(3)],
                                  [None]],
                              ['DIFF',
+                                  Tree.tree_list_BIN(3),
+                                  Tree.tree_list_BIN(3),
+                                  Tree.tree_list_BIN(3),
+                                  Tree.tree_list_BIN(3),
+                                  Tree.tree_list_BIN(3),
+                                  Tree.tree_list_BIN(3),
                                   Tree.tree_list_BIN(3),
                                   Tree.tree_list_BIN(4),
                                   Tree.tree_list_BIN(3)]]
@@ -88,13 +94,13 @@ def level_magic_square(test_solution=False):
     T1 = Tree(tree_list=tree_list_1,
               empty=True,
               name='T1',
-              switches = [S9, S10, S11, S12, S13, S14, S15, S16, S17, SN12] + [S9, S10, S11, S12, S13, S14, S15, S16, S17]*test_solution,
+              switches = [S9, S10, S11, S12, S13, S14, S15, S16, S17, SN12] + [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17]*test_solution,
               cut_expression=True,
               cut_expression_separator=']')
     T2 = Tree(tree_list=tree_list_2,
               empty=True,
               name='T2',
-              switches = [S18, S19, S20, S21, S22, S23, S24, S25, S26, S27, SN12] + [S18, S19, S20, S21, S22, S23, S24, S25, S26, S27]*test_solution,
+              switches = [S18, S19, S20, S21, S22, S23, S24, S25, S26, S27, SN12] + [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, S23, S24, S25, S26, S27]*test_solution,
               cut_expression=True,
               cut_expression_separator=']')
     T3 = Tree(tree_list=['EQU',
@@ -212,7 +218,7 @@ def level_magic_square(test_solution=False):
              fastest_solution=None,
              level_color=Levels_colors_list.PINK_AND_WHITE,
              name='Magic_square',
-             door_window_size = 825,
+             door_window_size = 700,
              keep_proportions = True,
              border=20)
     

@@ -207,6 +207,6 @@ if __name__ == "__main__":
     #     print(solutions)
     # print('')
     
-    level_magic_square().find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**3)
+    level_magic_square(True).find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**3)
     
     
