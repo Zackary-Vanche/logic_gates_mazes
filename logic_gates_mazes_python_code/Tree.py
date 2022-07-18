@@ -236,6 +236,10 @@ class Tree:
                         self.easy_logical_expression_PN = 'b {0} {1}'.format(A, B)
                     elif root_name == 'POW':
                         self.easy_logical_expression_PN = '** {0} {1}'.format(A, B)
+                    elif root_name == 'DIV':
+                        self.easy_logical_expression_PN = '/ {0} {1}'.format(A, B)
+                    elif root_name == 'MOD':
+                        self.easy_logical_expression_PN = '% {0} {1}'.format(A, B)
                     else:
                         self.easy_logical_expression_PN = '{0} {1} {2}'.format(root_name, A, B)
                 else: 

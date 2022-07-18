@@ -5,9 +5,9 @@ Created on Mon Apr  4 20:01:20 2022
 @author: utilisateur
 """
 
-ns = 24
-nd = 5
-nr = 5
+ns = 16
+nd = 4
+nr = 2
 
 for i in range(ns):
     print("""S{0} = Switch(name='S{0}')""".format(i))
@@ -33,14 +33,14 @@ for i in range(nd):
             room_departure=R{0},
             room_arrival=R{1})""".format(i, i+1))
     
-for i in range(nd):
-    print("""D{0} = Door(two_way=False,
-            tree=T{0},
-            room_departure=R{0},
-            room_arrival=R{1},
-            relative_position=rp,
-            relative_departure_coordinates=rdc,
-            relative_arrival_coordinates=rac)""".format(i, i+1))
+#for i in range(nd):
+#    print("""D{0} = Door(two_way=False,
+#            tree=T{0},
+#            room_departure=R{0},
+#            room_arrival=R{1},
+#            relative_position=rp,
+#            relative_departure_coordinates=rdc,
+#            relative_arrival_coordinates=rac)""".format(i, i+1))
     
 print(str(['R{}'.format(i) for i in range(nr)]).replace("'", ''))
 print(str(['D{}'.format(i) for i in range(nd)]).replace("'", ''))

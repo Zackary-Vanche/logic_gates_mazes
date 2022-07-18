@@ -59,6 +59,7 @@ from levels.level_river import level_river
 # from levels.level_sinusoidal import level_sinusoidal
 from levels.level_square import level_square
 # from levels.level_sudoku import level_sudoku
+from levels.level_syracuse import level_syracuse
 from levels.level_temple import level_temple
 from levels.level_tesseract import level_tesseract
 from levels.level_tetrahedron import level_tetrahedron
@@ -120,6 +121,7 @@ class Levels:
                              level_dead_ends,
                              level_manhattan_distance,
                              level_knight,
+                             level_syracuse,
                              level_temple,
                              #level_random,
                              ]
@@ -212,4 +214,5 @@ if __name__ == "__main__":
 
 #    level_magic_square().find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**4)
     
+    level_syracuse().find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**3)
     
