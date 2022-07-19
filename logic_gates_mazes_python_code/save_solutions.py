@@ -44,7 +44,7 @@ if __name__ == "__main__":
     # Game.save_levels_txt(verbose = 1, calculates_solutions = True)
 
     # calculations_times = [round(np.exp(10*i + 2*rd.random()),2) for i in range(16)]
-    calculations_times = Levels.save_solutions_txt(verbose = 1, multithreads=True) 
+    calculations_times = Levels.save_solutions_txt(verbose = 1) 
     # Cette fonction calcule les solutions, 
     # les enregistre dans un fichier texte
     # et renvoie le temps nécessaire pour calculer les solutions
