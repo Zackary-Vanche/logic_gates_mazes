@@ -119,7 +119,7 @@ def level_recurrence():
              exit_room_index=-1, 
              rooms_list=[R0, R1, R2, R3, RE], 
              doors_list = [D0, D1, D2, D3, D4, D5, D6], 
-             fastest_solution='S0 S1 D0 S2 D1 S0 S1 D0 S3 D2 S4 D3 S2 S3 D2 S5 D4 S6 D5 S4 S5 D4 S6 D6',
+             fastest_solution='S0 S1 D0 S2 S3 D1 S0 S1 D0 D2 S4 S5 D3 S2 S3 D2 D4 S6 D5 S4 S5 D4 S6 D6',
              level_color=Levels_colors_list.BLACK_AND_GREY_RED_CONTOUR,
              name='Recurrence',
              border = 55)
