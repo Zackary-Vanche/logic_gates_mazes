@@ -163,12 +163,12 @@ class Levels:
                                                      verbose=0)
                 t3 = time()
                 for sol in solutions:
-                    print(sol)
-                    txt += sol + '\n'
+                    print(' '.join(sol))
+                    txt += ' '.join(sol) + '\n'
                 if verbose >= 1:
                     print(t3 - t2, 's')
                     calculations_times.append(t3 - t2)
-                txt += '\n' + level_dominating_set
+                txt += '\n' + level.name
         with open('solutions/solutions.txt', 'w') as f:
             f.write(txt)
         t1 = time()
@@ -179,7 +179,7 @@ class Levels:
     
 if __name__ == "__main__":
     
-    Levels.save_solutions_txt(do_it_fast=True, verbose=0)
+    Levels.save_solutions_txt(do_it_fast=False, verbose=1)
     
     # DO NOT REMOVE THIS CODE
     # with open('Temp_help_menus.txt', 'w') as f:

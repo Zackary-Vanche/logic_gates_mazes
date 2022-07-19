@@ -7,7 +7,7 @@ Created on Wed Mar 31 11:20:13 2021
 
 import numpy as np
 
-def moindres_carres(A, B, P = None):
+def least_squares(A, B, P = None):
     """
     Effectue l'estimation des moindres carrés.
     :param A: matrice de modèle,

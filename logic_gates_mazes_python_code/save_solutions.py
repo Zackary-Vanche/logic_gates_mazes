@@ -12,7 +12,7 @@ from os import mkdir as os_mkdir
 
 from Levels import Levels
 
-from moindres_carres import moindres_carres
+from least_squares import least_squares
 
 import numpy as np
 
@@ -63,7 +63,7 @@ if __name__ == "__main__":
         A[i][0] = i
         A[i][1] = 1
         B[i][0] = np.log(calculations_times[i])
-    X, V, R, absR, varX, sigma_0_carre, PY, PX, PV = moindres_carres(A, B)
+    X, V, R, absR, varX, sigma_0_carre, PY, PX, PV = least_squares(A, B)
 
     f = lambda t : np.exp(X[0][0] * t + X[1][0])
 
