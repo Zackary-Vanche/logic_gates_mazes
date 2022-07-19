@@ -94,7 +94,7 @@ def level_exact_cover():
                  doors_list = [D0], 
                  fastest_solution='S1 S3 S5 D0',
                  level_color=Levels_colors_list.ORANGE,
-                 name='Exact_cover',
+                 name='Exact cover',
                  door_window_size = 700,
                  keep_proportions=True)
 
