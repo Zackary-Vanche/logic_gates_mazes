@@ -187,7 +187,7 @@ class Levels:
     
 if __name__ == "__main__":
     
-    Levels.save_solutions_txt(do_it_fast=False, verbose=1)
+    Levels.save_solutions_txt(do_it_fast=True, verbose=1)
     
     # DO NOT REMOVE THIS CODE
     # with open('Temp_help_menus.txt', 'w') as f:
