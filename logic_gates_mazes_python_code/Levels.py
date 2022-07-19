@@ -123,6 +123,7 @@ class Levels:
                              level_knight,
                              level_syracuse,
                              level_temple,
+                             
                              #level_random,
                              ]
 
@@ -137,38 +138,45 @@ class Levels:
             Levels.levels_list[level_number].reboot_solution()
         return Levels.levels_list[level_number]
     
-    def save_solutions_txt(verbose=0, do_it_fast=False):
+    def save_solutions_txt(verbose=0, do_it_fast=False, multithreads=False):
         t0 = time()
         txt = ''
         if not os_path_exists('solutions'):
             os_mkdir('solutions')
-        if do_it_fast:
-            for k in range(Levels.number_of_levels):
+        if not do_it_fast:
+            calculations_times = [None for i in range(Levels.number_of_levels)]
+            def find_solution(k):
                 level = Levels.get_level(k)
+                txt = '\n'
                 name = level.name
-                if verbose > 0:
-                    print('\nLevel', k, ':', name)
-                txt += 'Level ' + str(k) + ' : ' + name + '\n'
-                txt += str(level.fastest_solution) + '\n\n'
-        else:
-            calculations_times = []
-            for k in range(Levels.number_of_levels):
-                level = Levels.get_level(k)
-                print('')
-                name = level.name
-                print('Level', k, ':', name)
-                txt += 'Level ' + str(k) + ' : ' + name + '\n'
+                txt = txt + ' '.join(['Level', str(k), ':', name, '\n'])
                 t2 = time()
-                solutions = level.find_all_solutions(stop_at_first_solution=False,
-                                                     verbose=0)
+                solutions = level.find_all_solutions(stop_at_first_solution=False, verbose=0)
                 t3 = time()
                 for sol in solutions:
-                    print(' '.join(sol))
-                    txt += ' '.join(sol) + '\n'
+                    txt = txt + ' '.join(sol) + '\n'
                 if verbose >= 1:
-                    print(t3 - t2, 's')
-                    calculations_times.append(t3 - t2)
-                txt += '\n' + level.name
+                    txt = txt + str(t3 - t2) + 's'
+                    calculations_times[k] = t3 - t2
+                print(txt)
+            if multithreads:
+                import threading
+                l_threads = []
+                for k in range(Levels.number_of_levels):
+                    thread = threading.Thread(target=find_solution, args=(k,))
+                    l_threads.append(thread)
+                for thread in l_threads:
+                    thread.start()
+                for thread in l_threads:
+                    thread.join()
+            else:
+                for k in range(Levels.number_of_levels):
+                    txt = find_solution(k)
+        for k in range(Levels.number_of_levels):
+            level = Levels.get_level(k)
+            name = level.name
+            txt += 'Level ' + str(k) + ' : ' + name + '\n'
+            txt += str(level.fastest_solution) + '\n\n'
         with open('solutions/solutions.txt', 'w') as f:
             f.write(txt)
         t1 = time()

@@ -1,22 +1,24 @@
 Level 0 : Hello_World
 S0 D0 S1 D1 D2
 
-Hello_WorldLevel 1 : Linear
+Level 1 : Linear
 S0 S1 D0 S2 D1 S5 D2 D3
 
-LinearLevel 2 : Loop
+Level 2 : Loop
 S0 D0 S1 D1 S2 S3 D2 S0 D3
 
-LoopLevel 3 : Backward
+Level 3 : Backward
 S0 D0 S2 D0 S0 S1 D1
 
-BackwardLevel 4 : Bis repetita
+Level 4 : Bis repetita
 S0 D0 S1 D1 S2 D2 S0 D0 S1 D1 S2 D3
 
-Bis repetitaLevel 5 : Binary
+Level 5 : Binary
 S0 D3 S4 D3 D2 S3 D2 D3 D1 S2 D1 D5 S6 D5 D3 D2 D0 S1 D0 D4 S5 D4 D2 D6
 
-BinaryLevel 6 : OR
+Level 6 : OR
 S0 D0 S1 D0 S0 D0 D1 S2 D1 S1 D1 S2 D2
 
-OR
+Level 7 : Crossroad
+S0 S2 D2 S4 D4 S1 S3 D1 D0 S5 D3 D5
+
