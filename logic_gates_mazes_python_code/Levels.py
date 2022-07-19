@@ -162,12 +162,12 @@ class Levels:
             if multithreads:
                 import threading
                 l_threads = []
-                for k in range(Levels.number_of_levels):
+                for k in range(Levels.number_of_levels): # creating the threads
                     thread = threading.Thread(target=find_solution, args=(k,))
                     l_threads.append(thread)
-                for thread in l_threads:
+                for thread in l_threads: # starting all the threads
                     thread.start()
-                for thread in l_threads:
+                for thread in l_threads: # waiting for all threads to end
                     thread.join()
             else:
                 for k in range(Levels.number_of_levels):
