@@ -50,7 +50,7 @@ from levels.level_naturals import level_naturals
 #from levels.level_nonogram import level_nonogram
 from levels.level_odd import level_odd
 from levels.level_or import level_or
-#from levels.level_pancake_sorting import level_pancake_sorting
+from levels.level_pancake_sorting import level_pancake_sorting
 from levels.level_parallel import level_parallel
 from levels.level_partition import level_partition
 from levels.level_point_of_no_return import level_point_of_no_return
@@ -79,7 +79,7 @@ class Levels:
     
     levels_functions_list = [
                              # level_icone,
-                             
+                             level_pancake_sorting,
                              level_hello_world,
                              level_linear,
                              level_loop,
