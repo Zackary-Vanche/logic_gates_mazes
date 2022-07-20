@@ -323,7 +323,7 @@ help_menus_list['levels']["Infinity"] = help_menus_list["cheat code"]
 
 help_menus_list['levels']["Fluid"] = help_menus_list['Introduction thuth table']
 
-help_menus_list['levels']["Bipartite"] = """This level has several solutions."""
+help_menus_list['levels']["Bipartite"] = """Several paths lead to the exit."""
 
 help_menus_list['levels']["Hamiltonian"] = """Don't look for something too complicated."""
 
