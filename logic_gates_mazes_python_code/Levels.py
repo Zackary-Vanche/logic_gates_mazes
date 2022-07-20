@@ -16,6 +16,7 @@ from levels.level_the_4_queens import level_the_4_queens
 #from levels.level_absolute import level_absolute
 from levels.level_alice_and_bob import level_alice_and_bob
 from levels.level_backward import level_backward
+#from levels.level_betweenness import level_betweenness
 from levels.level_binary import level_binary
 from levels.level_bipartite import level_bipartite
 from levels.level_bis_repetita import level_bis_repetita
@@ -45,8 +46,10 @@ from levels.level_manhattan_distance import level_manhattan_distance
 from levels.level_matrix import level_matrix
 from levels.level_magic_square import level_magic_square # kakuro
 from levels.level_naturals import level_naturals
+#from levels.level_nonogram import level_nonogram
 from levels.level_odd import level_odd
 from levels.level_or import level_or
+#from levels.level_pancake_sorting import level_pancake_sorting
 from levels.level_parallel import level_parallel
 from levels.level_partition import level_partition
 from levels.level_point_of_no_return import level_point_of_no_return

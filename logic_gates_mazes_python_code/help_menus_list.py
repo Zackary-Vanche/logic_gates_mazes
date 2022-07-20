@@ -331,10 +331,11 @@ help_menus_list['levels']["Pong"] = '\n'.join([help_menus_list['numerical value'
                                                help_menus_list['SUM'],
                                                help_menus_list['EQU']])
                              
-help_menus_list['levels']["Hitting set"] = """The hitting set is one of the Karp's 21 NP-complete problems.\n""" + '\n'.join([help_menus_list['INF'],
-                                                                                                                            help_menus_list['SUP'],
-                                                                                                                            help_menus_list['INFOREQU'],
-                                                                                                                            help_menus_list['SUPOREQU']])
+help_menus_list['levels']["Hitting set"] = """The hitting set is one of the Karp's 21 NP-complete problems.
+It is equivalent to the set cover problem\n""" + '\n'.join([help_menus_list['INF'],
+                                                            help_menus_list['SUP'],
+                                                            help_menus_list['INFOREQU'],
+                                                            help_menus_list['SUPOREQU']])
 
 help_menus_list['levels']["Independent set"] = "The independent set is one of the Karp's 21 NP-complete problems."
 
