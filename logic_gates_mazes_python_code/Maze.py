@@ -130,8 +130,9 @@ class Maze:
             self.help_txt = [help_menus_list['levels'][self.name]]
         else:
             self.help_txt = ['']
-        if self.help_txt[0][0] == '\n':
-            self.help_txt[0] = self.help_txt[0][1:]
+        if len(self.help_txt[0]) > 0:
+            if self.help_txt[0][0] == '\n':
+                self.help_txt[0] = self.help_txt[0][1:]
         self.n_help_pages = len(self.help_txt)
         if ' '.join(self.help_txt).replace(' ', '') == '':
             print(self.name, 'empty help')

@@ -294,6 +294,13 @@ class Levels_colors_list:
                                   letter_contour_color = Color.BLACK,
                                   inside_room_color=Color.WHITE)
     
+    YELLOW_AND_BLACK = Level_color(background_color = Color.PALE_YELLOW,
+                                   room_color = Color.BLACK_BLUE,
+                                   contour_color = Color.RED,
+                                   letters_color = Color.BLACK,
+                                   inside_room_color = Color.WHITE,
+                                   surrounding_color = Color.REALLY_BRIGHT_ORANGE)
+    
     def FROM_HUE(hu, sa=0.5, li=0.3):
 #        print(hu)
         from colorsys import hls_to_rgb

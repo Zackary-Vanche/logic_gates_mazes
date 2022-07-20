@@ -355,6 +355,8 @@ help_menus_list['levels']["Parallel"] = """The "Guess and check" method works we
 
 help_menus_list['levels']["Pythagorean"] = help_menus_list['POW']
 
+help_menus_list['levels']["Taxicab number"] = """Taxicab numbers are also called Hardy–Ramanujan numbers."""
+
 help_menus_list['levels']["Tetrahedron"] = """The logic expressions of the doors of this level have been calculated by computer.
 The program that calculated it already knew all the rest of the level."""
 

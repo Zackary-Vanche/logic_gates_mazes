@@ -64,7 +64,7 @@ from levels.level_square import level_square
 # from levels.level_sudoku import level_sudoku
 from levels.level_syracuse import level_syracuse
 from levels.level_temple import level_temple
-#from levels.level_taxicab_number import level_taxicab_number
+from levels.level_taxicab_number import level_taxicab_number
 from levels.level_tesseract import level_tesseract
 from levels.level_tetrahedron import level_tetrahedron
 # from levels.level_travelling_salesman import level_travelling_salesman
@@ -79,6 +79,7 @@ class Levels:
     
     levels_functions_list = [
                              # level_icone,
+                             
                              level_hello_world,
                              level_linear,
                              level_loop,
@@ -102,6 +103,7 @@ class Levels:
                              level_naturals,
                              level_parallel,
                              level_pythagorean,
+                             level_taxicab_number,
                              level_tetrahedron,
                              level_point_of_no_return,
                              level_chessboard,
@@ -196,7 +198,7 @@ class Levels:
     
 if __name__ == "__main__":
     
-    Levels.save_solutions_txt(do_it_fast=False, verbose=1)
+    Levels.save_solutions_txt(do_it_fast=True, verbose=1)
     
     # DO NOT REMOVE THIS CODE
     # with open('Temp_help_menus.txt', 'w') as f:
