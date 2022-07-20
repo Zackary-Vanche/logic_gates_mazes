@@ -64,11 +64,15 @@ class Room:
         ymax = max(y_list)
         xmin = min(x_list)
         ymin = min(y_list)
+        
+        ex = 1/(xmax+2)
+        ey = 1/(ymax+2)
+        print(self.name, n_switches, ex, ey)
 
-        new_xmin = max(x_gap + 0.24*x, x_gap + 35)
-        new_ymin = max(y_gap + 0.24*y, y_gap + 35)
-        new_xmax = min(x_gap + 0.76*x, x_gap + x - 35)
-        new_ymax = min(y_gap + 0.76*y, y_gap + y - 35)
+        new_xmin = max(x_gap + ex*x, x_gap)
+        new_ymin = max(y_gap + ey*y, y_gap)
+        new_xmax = min(x_gap + (1-ex)*x, x_gap + x)
+        new_ymax = min(y_gap + (1-ey)*y, y_gap + y)
         if xmin == xmax:
             fx = lambda k : k + x_gap + x/2
         else:

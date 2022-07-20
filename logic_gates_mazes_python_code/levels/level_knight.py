@@ -311,7 +311,7 @@ def level_knight():
                  fastest_solution='S1 S2 D0 S7 D1 S8 D2 S12 S13 S14 D3 S16 S19 D4 S21 D5 S26 D6 S29 S31 D7 S32 S33 D8 S36 S38 D9 D10 D11',
                  level_color=Levels_colors_list.FROM_HUE(0.6, sa=0.12, li=0.45),
                  name='Knight',
-                 door_window_size = 700,
+                 door_window_size = 675,
                  keep_proportions=False)
 
     return level
