@@ -64,6 +64,7 @@ from levels.level_square import level_square
 # from levels.level_sudoku import level_sudoku
 from levels.level_syracuse import level_syracuse
 from levels.level_temple import level_temple
+#from levels.level_taxicab_number import level_taxicab_number
 from levels.level_tesseract import level_tesseract
 from levels.level_tetrahedron import level_tetrahedron
 # from levels.level_travelling_salesman import level_travelling_salesman
