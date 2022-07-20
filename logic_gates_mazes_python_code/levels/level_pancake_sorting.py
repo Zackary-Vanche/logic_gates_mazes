@@ -92,44 +92,56 @@ def level_pancake_sorting():
               position = [4, 1, 8*2/9, 8],
               switches_list = [S18, S19, S20, S21, S22, S23, S24, S25, S26, S27, S28, S29, S30, S31, S32, S33, S34, S35])
     R2 = Room(name='R2',
-              position = [2, 1, 1, 1],
+              position = [2, 1.5, 1, 1],
               switches_list = [])
     RE = Room(name='RE',
-              position=[0, 1, 1, 1],
+              position=[0, 1.5, 1, 1],
               is_exit=True)   # E pour exit ou end
 
     D0 = Door(two_way=False,
               tree=T0,
               room_departure=R0,
               room_arrival=R1,
-              relative_departure_coordinates=[1, 5.5/6])
+              relative_departure_coordinates=[1, 5.5/6],
+              relative_arrival_coordinates=[0, 7.5/8])
     D1 = Door(two_way=False,
               tree=T1,
               room_departure=R0,
-              room_arrival=R1)
+              room_arrival=R1,
+              relative_departure_coordinates=[1, 4.5/6],
+              relative_arrival_coordinates=[0, 6.5/8])
     D2 = Door(two_way=False,
               tree=T2,
               room_departure=R0,
-              room_arrival=R1)
+              room_arrival=R1,
+              relative_departure_coordinates=[1, 3.5/6],
+              relative_arrival_coordinates=[0, 5.5/8])
     D3 = Door(two_way=False,
               tree=T3,
               room_departure=R0,
-              room_arrival=R1)
+              room_arrival=R1,
+              relative_departure_coordinates=[1, 2.5/6],
+              relative_arrival_coordinates=[0, 4.5/8])
     D4 = Door(two_way=False,
               tree=T4,
               room_departure=R0,
-              room_arrival=R1)
+              room_arrival=R1,
+              relative_departure_coordinates=[1, 1.5/6],
+              relative_arrival_coordinates=[0, 3.5/8])
     D5 = Door(two_way=False,
               tree=T5,
               room_departure=R1,
-              room_arrival=R0)
+              room_arrival=R0,
+              relative_departure_coordinates=[0, 2.5/8],
+              relative_arrival_coordinates=[1, 0.5/6])
     D6 = Door(two_way=False,
               tree=T6,
               room_departure=R1,
-              room_arrival=RE)
+              room_arrival=R2,
+              relative_departure_coordinates=[0.5/2, 1/8])
     D7 = Door(two_way=False,
               tree=T7,
-              room_departure=R1,
+              room_departure=R2,
               room_arrival=RE)
 
     level = Maze(start_room_index=0,
@@ -139,7 +151,7 @@ def level_pancake_sorting():
                  fastest_solution=None,
                  level_color=Levels_colors_list.YELLOW_AND_BLACK,
                  name='Pancake sorting',
-                 door_window_size=600,
+                 door_window_size=850,
                  keep_proportions=True)
 
     return level
