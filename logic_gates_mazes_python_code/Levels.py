@@ -25,6 +25,7 @@ from levels.level_chessboard import level_chessboard
 from levels.level_crossroad import level_crossroad
 from levels.level_crystal import level_crystal
 from levels.level_dead_ends import level_dead_ends
+#from levels.level_diophantine import level_diophantine
 from levels.level_dominating_set import level_dominating_set
 from levels.level_electricity import level_electricity
 from levels.level_eulerian import level_eulerian
@@ -57,7 +58,6 @@ from levels.level_pythagorean import level_pythagorean
 from levels.level_pong import level_pong
 from levels.level_recurrence import level_recurrence
 from levels.level_river import level_river
-# from levels.level_set_cover import level_set_cover
 # from levels.level_shortest_path import level_shortest_path
 # from levels.level_sinusoidal import level_sinusoidal
 from levels.level_square import level_square
