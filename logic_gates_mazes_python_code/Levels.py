@@ -171,12 +171,17 @@ class Levels:
                     thread.join()
             else:
                 for k in range(Levels.number_of_levels):
-                    txt = find_solution(k)
+                    find_solution(k)
+        txt = ''
         for k in range(Levels.number_of_levels):
             level = Levels.get_level(k)
             name = level.name
-            txt += 'Level ' + str(k) + ' : ' + name + '\n'
-            txt += str(level.fastest_solution) + '\n\n'
+            try:
+                txt += ''.join(('Level ', str(k), ' : ', name, '\n'))
+                txt += str(level.fastest_solution) + '\n\n'
+            except:
+                print(txt, ('Level ', str(k), ' : ', name, '\n'))
+                raise
         with open('solutions/solutions.txt', 'w') as f:
             f.write(txt)
         t1 = time()
@@ -187,7 +192,7 @@ class Levels:
     
 if __name__ == "__main__":
     
-    Levels.save_solutions_txt(do_it_fast=True, verbose=1)
+    Levels.save_solutions_txt(do_it_fast=False, verbose=1)
     
     # DO NOT REMOVE THIS CODE
     # with open('Temp_help_menus.txt', 'w') as f:
