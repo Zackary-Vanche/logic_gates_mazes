@@ -243,3 +243,5 @@ if __name__ == "__main__":
     #     else:
     #         l.append(len(sol.split(' ')))
     # plt.plot([i for i in range(len(l))], l)
+    
+    solutions = level_pancake_sorting().find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**3)

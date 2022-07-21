@@ -184,7 +184,7 @@ class Tree:
                     n = len(self.sons_list)//2
                     l1 = ' ; '.join([t.get_easy_logical_expression_PN() for t in self.sons_list[:n]])
                     l2 = ' ; '.join([t.get_easy_logical_expression_PN() for t in self.sons_list[n:]])
-                    self.easy_logical_expression_PN = '~ ' + '(' + l1 + ') (' + l2 + ')'
+                    self.easy_logical_expression_PN = '~ ' + '[' + l1 + '] [' + l2 + ']'
                 elif len(self.sons_list) == 1: 
                     if root_name == 'NOT': 
                         self.easy_logical_expression_PN = '¬ ' + self.sons_list[0].get_easy_logical_expression_PN()

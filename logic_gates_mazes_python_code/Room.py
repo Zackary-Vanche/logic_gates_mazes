@@ -67,7 +67,6 @@ class Room:
         
         ex = 1/(xmax+2)
         ey = 1/(ymax+2)
-        print(self.name, n_switches, ex, ey)
 
         new_xmin = max(x_gap + ex*x, x_gap)
         new_ymin = max(y_gap + ey*y, y_gap)
