@@ -12,7 +12,7 @@ def flip(l, lk):
     return tuple(l_bis)
 
 if __name__ == "__main__":
-    n = 6
+    n = 4
     l = [i+1 for i in range(n)]
     lk = [i for i in range(2, n+1)]
     print('lk', lk)
