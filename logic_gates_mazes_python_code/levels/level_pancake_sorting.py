@@ -32,20 +32,20 @@ def level_pancake_sorting():
 
     # pancakes
     # 0
-    S10 = Switch(name='S10', value=v)
+    S10 = Switch(name='S10')
     S11 = Switch(name='S11')
     # 1
-    S12 = Switch(name='S12')
-    S13 = Switch(name='S13', value=v)
+    S12 = Switch(name='S12', value=v)
+    S13 = Switch(name='S13')
     # 2
-    S14 = Switch(name='S14', value=v)
+    S14 = Switch(name='S14')
     S15 = Switch(name='S15', value=v)
     # 3
-    S16 = Switch(name='S16')
-    S17 = Switch(name='S17')
+    S16 = Switch(name='S16', value=v)
+    S17 = Switch(name='S17', value=v)
     # count
-    S18 = Switch(name='S18')
-    S19 = Switch(name='S19')
+    S18 = Switch(name='S18', value=v)
+    S19 = Switch(name='S19', value=v)
     
     
     S20 = Switch(name='S20')
@@ -65,50 +65,35 @@ def level_pancake_sorting():
     S34 = Switch(name='S34')
     S35 = Switch(name='S35')
 
+    SN0 = Switch(name='0', value=0)
     SN1 = Switch(name='1', value=1)
     SN2 = Switch(name='2', value=2)
     SN3 = Switch(name='3', value=3)
-    SN4 = Switch(name='4', value=4)
-    SN5 = Switch(name='5', value=5)
-    SN6 = Switch(name='6', value=6)
 
-    def tree_list_EQUSET_BIN(nequ, nbin):
-        nequ2 = nequ*2
-        return ['EQUSET'] + [Tree.tree_list_BIN(nbin)]*nequ2
+    def tree_list_EQU_BIN(nequ, nbin):
+        return ['EQU'] + [Tree.tree_list_BIN(nbin)]*nequ
 
     nbin = 2
+    
+    Slist1 = [S0, S1, S2, S3, S4, S5, S6, S7]
+    Slist2 = [S16, S17, S14, S15, S12, S13, S10, S11]
         
-    T0 = Tree(tree_list=tree_list_EQUSET_BIN(2, nbin),
+    T0 = Tree(tree_list=tree_list_EQU_BIN(2, 4),
               empty=True,
               name='T0',
-              switches = [S0, S1,
-                          S2, S3,
-                          S12, S13,
-                          S10, S11],
+              switches = Slist1[:4] + Slist2[-4:],
               cut_expression=True,
               cut_expression_separator=']')
-    T1 = Tree(tree_list=tree_list_EQUSET_BIN(3, nbin),
+    T1 = Tree(tree_list=tree_list_EQU_BIN(2, 6),
               empty=True,
               name='T1',
-              switches = [S0, S1,
-                          S2, S3,
-                          S4, S5,
-                          S14, S15,
-                          S12, S13,
-                          S10, S11],
+              switches = Slist1[:6] + Slist2[-6:],
               cut_expression=True,
               cut_expression_separator=']')
-    T2 = Tree(tree_list=tree_list_EQUSET_BIN(4, nbin),
+    T2 = Tree(tree_list=tree_list_EQU_BIN(2, 8),
               empty=True,
               name='T2',
-              switches = [S0, S1,
-                          S2, S3,
-                          S4, S5,
-                          S6, S7,
-                          S16, S17,
-                          S14, S15,
-                          S12, S13,
-                          S10, S11],
+              switches = Slist1 + Slist2,
               cut_expression=True,
               cut_expression_separator=']')
 
@@ -129,6 +114,11 @@ def level_pancake_sorting():
               switches = [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9,
                           S10, S11, S12, S13, S14, S15, S16, S17, S18, S19])
 
+    T5 = Tree(tree_list=['DIFF'] + [Tree.tree_list_BIN(2)]*4,
+              empty=True,
+              name='T5',
+              switches = [S10, S11, S12, S13, S14, S15, S16, S17])
+    
     T5 = Tree(tree_list=[None],
               empty=True,
               name='T5',
@@ -137,10 +127,10 @@ def level_pancake_sorting():
     T6 = Tree(tree_list=['AND'] + [['EQU', [None], Tree.tree_list_BIN(nbin)]]*4,
               empty=True,
               name='T6',
-              switches = [SN3, S0, S1,
-                          SN1, S2, S3,
-                          SN4, S4, S5,
-                          SN2, S6, S7],
+              switches = [SN2, S0, S1,
+                          SN0, S2, S3,
+                          SN3, S4, S5,
+                          SN1, S6, S7],
               cut_expression=True,
               cut_expression_separator=')')
 
