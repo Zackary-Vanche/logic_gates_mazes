@@ -46,24 +46,6 @@ def level_pancake_sorting():
     # count
     S18 = Switch(name='S18', value=v)
     S19 = Switch(name='S19', value=v)
-    
-    
-    S20 = Switch(name='S20')
-    S21 = Switch(name='S21')
-    S22 = Switch(name='S22')
-    S23 = Switch(name='S23')
-    S24 = Switch(name='S24')
-    S25 = Switch(name='S25')
-    S26 = Switch(name='S26')
-    S27 = Switch(name='S27')
-    S28 = Switch(name='S28')
-    S29 = Switch(name='S29')
-    S30 = Switch(name='S30')
-    S31 = Switch(name='S31')
-    S32 = Switch(name='S32')
-    S33 = Switch(name='S33')
-    S34 = Switch(name='S34')
-    S35 = Switch(name='S35')
 
     SN0 = Switch(name='0', value=0)
     SN1 = Switch(name='1', value=1)
@@ -124,15 +106,20 @@ def level_pancake_sorting():
               name='T5',
               switches = [SN1])
 
-    T6 = Tree(tree_list=['AND'] + [['EQU', [None], Tree.tree_list_BIN(nbin)]]*4,
+    # T6 = Tree(tree_list=['AND'] + [['EQU', [None], Tree.tree_list_BIN(nbin)]]*4,
+    #           empty=True,
+    #           name='T6',
+    #           switches = [SN2, S0, S1,
+    #                       SN0, S2, S3,
+    #                       SN3, S4, S5,
+    #                       SN1, S6, S7],
+    #           cut_expression=True,
+    #           cut_expression_separator=')')
+    
+    T6 = Tree(tree_list=[None],
               empty=True,
               name='T6',
-              switches = [SN2, S0, S1,
-                          SN0, S2, S3,
-                          SN3, S4, S5,
-                          SN1, S6, S7],
-              cut_expression=True,
-              cut_expression_separator=')')
+              switches = [SN1])
 
     R0 = Room(name='R0',
               position = [-0.5, 2, 2, 5],
@@ -208,3 +195,14 @@ def level_pancake_sorting():
                  keep_proportions=False)
 
     return level
+
+""" 0 2 1 0
+S0 S5 S9 D0 D3 S10 S12 S16 S17 S18 D4 D5
+S0 S3 S5 S6 S8 S9 D2 D3 S10 S13 S15 S16 S18 S19 D4 D5
+S1 S3 S4 S5 S8 D0 D3 S11 S13 S14 S15 S18 D4 D6
+"""
+# D0 D2 D0
+
+
+
+

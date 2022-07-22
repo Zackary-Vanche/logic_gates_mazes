@@ -13,9 +13,10 @@ def flip(l, lk):
 
 if __name__ == "__main__":
     n = 4
-    l = [i+1 for i in range(n)]
+    l = [i for i in range(n)]
     lk = [i for i in range(2, n+1)]
     print('lk', lk)
+    solutions = {}
     l_visited = []
     l_to_visit = [()]
     while l_to_visit != []:
@@ -23,7 +24,9 @@ if __name__ == "__main__":
         r = flip(l, sol)
         if not r in l_visited:
             l_visited.append(r)
+            solutions[r] = sol
             for k in lk:
                 l_to_visit.append(sol + (k,))
     # print('l_visited[0]', l_visited[0])
     print('l_visited[-1]', l_visited[-1])
+    print('solutions[l_visited[-1]]', solutions[l_visited[-1]])

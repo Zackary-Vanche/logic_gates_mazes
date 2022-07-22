@@ -508,8 +508,7 @@ class Maze:
             s = list(iterable)
             p = chain.from_iterable(combinations(s, r) for r in range(len(s)+1))
             return tuple(p)
-        if verbose > 1:
-            t0 = time()
+        t0 = time()
         if self.all_solutions is None:
             visited_situations = set()
             solutions_to_visit = [initial_try]
@@ -517,11 +516,12 @@ class Maze:
             nb_iterations = 0
             while solutions_to_visit != []:
                 nb_iterations += 1
-                if nb_iterations % nb_iterations_print == 0 and verbose >= 3:
+                if nb_iterations % nb_iterations_print == 0 and verbose >= 1:
                      print('nb_iterations : {}'.format(nb_iterations))
                      print('solutions_to_visit[-1] : {}'.format(solutions_to_visit[-1]))
                      print('len(solutions_to_visit) : {}'.format(len(solutions_to_visit)))
                      print('len(solutions_to_visit)/nb_iterations : {}'.format(len(solutions_to_visit)/nb_iterations))
+                     print('len(solutions_that_work) : {}'.format(len(solutions_that_work)))
                      print('')
                 solution = solutions_to_visit.pop(0)
                 result_solution = self.fast_try_solution(solution)
@@ -543,13 +543,15 @@ class Maze:
                                 solutions_to_visit.append(solution+Slist)
                     visited_situations.add(current_situation_vector)
                 elif result_solution == 2:
-                    if verbose >= 1:
+                    if verbose >= 2:
                         print(solution)
                     solutions_that_work.append(solution)
                     if stop_at_first_solution:
                         self.reboot_solution()
                         self.all_solutions = solutions_that_work
                         return solutions_that_work
+            # if verbose >= 3:
+            #     print('Last solution tested :\n', solution)
             assert solutions_to_visit == []
             self.reboot_solution()
         else:
@@ -563,7 +565,7 @@ class Maze:
             print(str(self.fastest_solution))
             print('')
         self.all_solutions = solutions_that_work
-        if verbose >= 2:
+        if verbose >= 1:
             t1 = time()
             print(t1 - t0, 's')
         return solutions_that_work
