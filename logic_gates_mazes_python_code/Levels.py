@@ -109,7 +109,7 @@ class Levels:
                              level_the_4_queens,
                              level_alice_and_bob,
                              level_crystal,
-                             level_pancake_sorting,
+                             # level_pancake_sorting,
                              level_4_colors_theorem,
                              level_partition,
                              level_knapsack,
