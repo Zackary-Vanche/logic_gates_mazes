@@ -60,16 +60,20 @@ def level_pancake_sorting():
     Slist1 = [S0, S1, S2, S3, S4, S5, S6, S7]
     Slist2 = [S16, S17, S14, S15, S12, S13, S10, S11]
         
-    T0 = Tree(tree_list=tree_list_EQU_BIN(2, 4),
+    T0 = Tree(tree_list=tree_list_EQU_BIN(2, 8),
               empty=True,
               name='T0',
-              switches = Slist1[:4] + Slist2[-4:],
+              switches = [S0, S1, S2, S3, S4, S5, S6, S7,
+                          S12, S13, S10, S11,
+                          S14, S15, S16, S17],
               cut_expression=True,
               cut_expression_separator=']')
-    T1 = Tree(tree_list=tree_list_EQU_BIN(2, 6),
+    T1 = Tree(tree_list=tree_list_EQU_BIN(2, 8),
               empty=True,
               name='T1',
-              switches = Slist1[:6] + Slist2[-6:],
+              switches = [S0, S1, S2, S3, S4, S5, S6, S7,
+                          S14, S15, S12, S13, S10, S11,
+                          S16, S17],
               cut_expression=True,
               cut_expression_separator=']')
     T2 = Tree(tree_list=tree_list_EQU_BIN(2, 8),
@@ -106,20 +110,20 @@ def level_pancake_sorting():
               name='T5',
               switches = [SN1])
 
-    # T6 = Tree(tree_list=['AND'] + [['EQU', [None], Tree.tree_list_BIN(nbin)]]*4,
-    #           empty=True,
-    #           name='T6',
-    #           switches = [SN2, S0, S1,
-    #                       SN0, S2, S3,
-    #                       SN3, S4, S5,
-    #                       SN1, S6, S7],
-    #           cut_expression=True,
-    #           cut_expression_separator=')')
-    
-    T6 = Tree(tree_list=[None],
+    T6 = Tree(tree_list=['AND'] + [['EQU', [None], Tree.tree_list_BIN(nbin)]]*4,
               empty=True,
               name='T6',
-              switches = [SN1])
+              switches = [SN0, S0, S1,
+                          SN3, S2, S3,
+                          SN2, S4, S5,
+                          SN1, S6, S7],
+              cut_expression=True,
+              cut_expression_separator=')')
+    
+    # T6 = Tree(tree_list=[None],
+    #           empty=True,
+    #           name='T6',
+    #           switches = [SN1])
 
     R0 = Room(name='R0',
               position = [-0.5, 2, 2, 5],
@@ -188,7 +192,7 @@ def level_pancake_sorting():
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6],
-                 fastest_solution=None,
+                 fastest_solution='S0 S1 S3 S4 S9 D2 D3 S10 S11 S12 S13 S14 S15 S16 S17 S18 D4 D5 S1 S5 S8 S9 D1 D3 S11 S15 S18 S19 D4 D5 S0 S2 S4 S6 S8 D2 D3 S10 S12 S14 S16 S18 D4 D6',
                  level_color=Levels_colors_list.YELLOW_AND_BLACK,
                  name='Pancake sorting',
                  door_window_size=700,

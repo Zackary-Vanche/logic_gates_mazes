@@ -371,6 +371,8 @@ help_menus_list['levels']["Alice and Bob"] = """Alice wants to send a package to
 
 help_menus_list['levels']["Crystal"] = """If you make a mistake, you have to start all over again."""
 
+help_menus_list['levels']["Pancake sorting"] = """Pancake sorting is a real computational problem."""
+
 help_menus_list['levels']["4 colors theorem"] = """Each couple of switches represent a color.""" + help_menus_list["PROD"]
 
 help_menus_list['levels']["Partition"] = """The partition is one of the Karp's 21 NP-complete problems.""" + help_menus_list['EQU']

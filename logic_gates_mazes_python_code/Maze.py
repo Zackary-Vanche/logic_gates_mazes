@@ -441,8 +441,8 @@ class Maze:
             print('')
             print('\n'.join(sorted(txt_verbose_3.split('\n'))))
             print('')
-            for door in sorted(door_trees_dico.keys()):
-                print("""tree_list_{0} = Tree.tree_list_from_str("{1}")""".format(door[1:], door_trees_dico[door][:-1]))
+            # for door in sorted(door_trees_dico.keys()):
+            #     print("""tree_list_{0} = Tree.tree_list_from_str("{1}")""".format(door[1:], door_trees_dico[door][:-1]))
         bool_solution = self.current_room_index == self.exit_room_index
         return int(bool_solution) + 1
     

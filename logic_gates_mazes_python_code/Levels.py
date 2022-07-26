@@ -109,7 +109,7 @@ class Levels:
                              level_the_4_queens,
                              level_alice_and_bob,
                              level_crystal,
-                             # level_pancake_sorting,
+                             level_pancake_sorting,
                              level_4_colors_theorem,
                              level_partition,
                              level_knapsack,
@@ -244,6 +244,8 @@ if __name__ == "__main__":
     #         l.append(len(sol.split(' ')))
     # plt.plot([i for i in range(len(l))], l)
     
-    solutions = level_pancake_sorting().find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**5)
+    # solutions = level_pancake_sorting().find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**3)
     
-    print(solutions[-1])
+    # print(solutions)
+
+    
