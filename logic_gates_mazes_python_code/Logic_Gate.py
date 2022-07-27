@@ -7,7 +7,6 @@ Created on Thu Mar  3 16:01:51 2022
 
 # from convert_base_2 import base_2
 
-
 class Logic_Gate:
 
     def __init__(self, name):
@@ -130,6 +129,15 @@ class Logic_Gate:
         line_string = ''.join([str(i) for i in line])
         groups_of_1 = [len(x) for x in line_string.split('0') if x != '']
         return groups_of_1_needed == groups_of_1
+    
+    def aux_func_DIST(branches_values_list):
+        assert len(branches_values_list) == 4
+        [a, b, c, d] = branches_values_list
+        return ( (a-c)**2 + (b-d)**2 )**(1/2)
+    
+    def aux_func_IN(branches_values_list):
+        assert len(branches_values_list) > 1
+        return branches_values_list[0] in branches_values_list[1:]
 
     func_dict = {'NOT' : aux_func_NOT,
                  'AND' : aux_func_AND,
@@ -157,7 +165,10 @@ class Logic_Gate:
                  'POW': aux_func_POW,
                  'DIV' : aux_func_DIV,
                  'MOD': aux_func_MOD,
-                 'NONO' : aux_func_NONO}
+                 'NONO' : aux_func_NONO,
+                 'DIST' : aux_func_DIST,
+                 'IN' : aux_func_IN,
+                 }
 
     def func(self, branches_values_list):
         if None in branches_values_list:

@@ -69,7 +69,7 @@ from levels.level_taxicab_number import level_taxicab_number
 from levels.level_tesseract import level_tesseract
 from levels.level_tetrahedron import level_tetrahedron
 from levels.level_tetris import level_tetris
-# from levels.level_travelling_salesman import level_travelling_salesman
+from levels.level_travelling_salesman import level_travelling_salesman
 from levels.level_tree import level_tree
 from levels.level_wave import level_wave
 from levels.level_xor import level_xor
@@ -79,7 +79,7 @@ from levels.level_xor import level_xor
 
 class Levels: 
     
-    levels_functions_list = [
+    levels_functions_list = [#level_travelling_salesman,
                              level_hello_world,
                              level_linear,
                              level_loop,
@@ -214,9 +214,9 @@ if __name__ == "__main__":
     #         f.write(level.help_txt[0])
     #         f.write('"""\n\n')
 
-#    import cProfile
-#    level = level_bipartite()
-#    cProfile.run("solutions = level.find_all_solutions(verbose=3, stop_at_first_solution=False)")     
+    # import cProfile
+    # level = level_bipartite()
+    # cProfile.run("solutions = level.find_all_solutions(verbose=3, stop_at_first_solution=False)")     
     
     # for level_function in [
     #                         level_hello_world,
@@ -246,4 +246,4 @@ if __name__ == "__main__":
     #         l.append(len(sol.split(' ')))
     # plt.plot([i for i in range(len(l))], l)
 
-    # solutions = level_tetris().find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**4)
+    solutions = level_travelling_salesman(True).find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**2)
