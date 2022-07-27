@@ -312,12 +312,18 @@ class Levels_colors_list:
             inside_room_color = Color.WHITE
         else:
             inside_room_color = Color.BLACK
+        if li < 0.7:
+            contour_color = Color.WHITE
+            surrounding_color = Color.WHITE
+        else:
+            contour_color = Color.BLACK
+            surrounding_color = Color.BLACK
         return Level_color(background_color = color_hls(hu, li/4, 0.8*sa),
                            room_color = color_hls(hu, li, sa),
-                           contour_color = Color.WHITE,
+                           contour_color = contour_color,
                            letters_color = Color.WHITE,
                            inside_room_color = inside_room_color,
-                           surrounding_color = Color.WHITE)
+                           surrounding_color = surrounding_color)
 
     def RANDOM():
         from random import random

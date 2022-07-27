@@ -157,6 +157,17 @@ b (S0 S1 ...) is the number whose binary big endian code is S0 S1 etc.
 For example:
     b (S0 S1 S2) = + (S0 * 2 S1 * 4 S2)
 """
+
+help_menus_list['NONO'] = """
+The operator # takes two list in argument.
+The first list tells you the number of unbroken lines of 1 that should be presents in the second list in order for the result to be 1.
+For example:
+    # (1 1) [1 0 0 1 0] = 1
+    # (2 1) [1 1 0 0 1] = 1
+    # (4) [1 1 1 1] = 1
+    # (1 3) [1 0 1 1] = 0
+    # (2 1) [1 0 0 1 1] = 0
+"""
     
 help_menus_list['AND and NOT'] = """  
 By combining these notations, you can write :
@@ -373,9 +384,13 @@ help_menus_list['levels']["The 4 queens"] = """This level is inspired from the 8
 
 help_menus_list['levels']["Alice and Bob"] = """Alice wants to send a package to Bob."""
 
+help_menus_list['levels']["Nonogram"] = help_menus_list['NONO']
+
 help_menus_list['levels']["Crystal"] = """If you make a mistake, you have to start all over again."""
 
 help_menus_list['levels']["Pancake sorting"] = """Pancake sorting is a real computational problem."""
+
+help_menus_list['levels']["Tetris"] = """Each number can represent a position in the plane.""" + help_menus_list['EQUSET']
 
 help_menus_list['levels']["4 colors theorem"] = """Each couple of switches represent a color.""" + help_menus_list["PROD"]
 
@@ -411,7 +426,7 @@ help_menus_list['levels']["Dead_ends"] = """Even if it is the first level that a
 
 help_menus_list['levels']["Manhattan_distance"] = """The cheat code might be very useful here."""
 
-help_menus_list['levels']["Knight"] = help_menus_list['EQUSET']
+help_menus_list['levels']["Knight"] = """To solve this level you need to find a knight's tour."""
 
 help_menus_list['levels']["Syracuse"] = help_menus_list['DIV']
 

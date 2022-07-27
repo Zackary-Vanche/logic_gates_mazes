@@ -24,17 +24,11 @@ def level_longest_path():
     S7 = Switch(name='S7')
     S8 = Switch(name='S8')
     
-    SN0 = Switch(name='0', value=0)
     SN1 = Switch(name='1', value=1)
     SN2 = Switch(name='2', value=2)
     SN3 = Switch(name='3', value=3)
     SN4 = Switch(name='4', value=4)
     SN5 = Switch(name='5', value=5)
-    SN6 = Switch(name='6', value=6)
-    SN7 = Switch(name='7', value=7)
-    SN8 = Switch(name='8', value=8)
-    SN9 = Switch(name='9', value=9)
-    SN10 = Switch(name='10', value=10)
     
     T0 = Tree(tree_list=[None],
                 empty=True,

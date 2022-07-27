@@ -122,6 +122,14 @@ class Logic_Gate:
     def aux_func_MOD(branches_values_list):
         assert len(branches_values_list) == 2
         return branches_values_list[0] % branches_values_list[1]
+    
+    def aux_func_NONO(branches_values_list):
+        n = branches_values_list[0] # number of groups of 1
+        groups_of_1_needed = branches_values_list[1:1+n] # every possible positive integer in that list
+        line = branches_values_list[1+n:] # only 0 and 1 in here
+        line_string = ''.join([str(i) for i in line])
+        groups_of_1 = [len(x) for x in line_string.split('0') if x != '']
+        return groups_of_1_needed == groups_of_1
 
     func_dict = {'NOT' : aux_func_NOT,
                  'AND' : aux_func_AND,
@@ -148,7 +156,8 @@ class Logic_Gate:
                  'BIN' : aux_func_BIN,
                  'POW': aux_func_POW,
                  'DIV' : aux_func_DIV,
-                 'MOD': aux_func_MOD}
+                 'MOD': aux_func_MOD,
+                 'NONO' : aux_func_NONO}
 
     def func(self, branches_values_list):
         if None in branches_values_list:
@@ -185,7 +194,24 @@ class Logic_Gate:
         
 if __name__ == "__main__":
     
-    pass
+    for l in [[2,
+               1, 1,
+               1, 0, 1, 0, 0], # True
+              [2,
+               1, 1,
+               0, 1, 0, 0, 1], # True
+              [2,
+               1, 2,
+               0, 1, 0, 0, 1], # False
+              [2,
+               1, 2,
+               0, 1, 0, 1, 1], # True
+              [1,
+               5,
+               1, 1, 1, 1, 1], # True
+              ]:
+        print(l)
+        print(Logic_Gate.aux_func_NONO(l))
     
     
     

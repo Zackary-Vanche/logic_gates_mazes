@@ -52,6 +52,9 @@ class Tree:
     
     def tree_list_SUM(n):
         return ['SUM'] + [[None]]*n
+
+    def tree_list_NONO(n):
+        return ['NONO'] + [[None]]*n
     
     def tree_list_from_str(txt):
         def tree_list_and_from_str(txt):
@@ -185,6 +188,13 @@ class Tree:
                     l1 = ' ; '.join([t.get_easy_logical_expression_PN() for t in self.sons_list[:n]])
                     l2 = ' ; '.join([t.get_easy_logical_expression_PN() for t in self.sons_list[n:]])
                     self.easy_logical_expression_PN = '~ ' + '[' + l1 + '] [' + l2 + ']'
+                elif root_name == 'NONO':
+                    n = self.sons_list[0].get_value() # number of groups of 1
+                    groups_of_1_needed = self.sons_list[1:1+n]
+                    line = self.sons_list[1+n:]
+                    l1 = ' '.join([t.get_easy_logical_expression_PN() for t in groups_of_1_needed])
+                    l2 = ' '.join([t.get_easy_logical_expression_PN() for t in line])
+                    self.easy_logical_expression_PN = '# ' + '(' + l1 + ') [' + l2 + ']'
                 elif len(self.sons_list) == 1: 
                     if root_name == 'NOT': 
                         self.easy_logical_expression_PN = '¬ ' + self.sons_list[0].get_easy_logical_expression_PN()
