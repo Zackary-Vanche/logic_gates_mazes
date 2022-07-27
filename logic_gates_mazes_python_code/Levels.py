@@ -61,6 +61,7 @@ from levels.level_river import level_river
 # from levels.level_shortest_path import level_shortest_path
 # from levels.level_sinusoidal import level_sinusoidal
 from levels.level_square import level_square
+# from levels.level_subset_sum import level_subset_sum
 # from levels.level_sudoku import level_sudoku
 from levels.level_syracuse import level_syracuse
 from levels.level_temple import level_temple
