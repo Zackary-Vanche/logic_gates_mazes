@@ -309,15 +309,14 @@ class Levels_colors_list:
         def color_hls(hu, li, sa):
              return array(255*array(hls_to_rgb(hu, li, sa)), dtype=uint8).tolist()
         if li < 0.5:
-            line_color = Color.WHITE
+            inside_room_color = Color.WHITE
         else:
-            print(hu, sa, li)
-            line_color = Color.BLACK
+            inside_room_color = Color.BLACK
         return Level_color(background_color = color_hls(hu, li/4, 0.8*sa),
                            room_color = color_hls(hu, li, sa),
                            contour_color = Color.WHITE,
                            letters_color = Color.WHITE,
-                           inside_room_color = line_color,
+                           inside_room_color = inside_room_color,
                            surrounding_color = Color.WHITE)
 
     def RANDOM():
