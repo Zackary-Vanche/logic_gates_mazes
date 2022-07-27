@@ -13,7 +13,7 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
-def level_magic_square(test_solution=False):
+def level_magic_square(fast_solution_finding=False):
     
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -53,7 +53,7 @@ def level_magic_square(test_solution=False):
     
     tree_list_EQU = ['EQU', tree_list_SUM, [None]]
     
-    if test_solution:
+    if fast_solution_finding:
         tree_list_0 = ['AND', 
                              tree_list_EQU,
                              ['DIFF'] + [Tree.tree_list_BIN(3)]*3]
@@ -90,17 +90,17 @@ def level_magic_square(test_solution=False):
     T0 = Tree(tree_list=tree_list_0,
               empty=True,
               name='T0',
-              switches = [S0, S1, S2, S3, S4, S5, S6, S7, S8, SN12] + [S0, S1, S2, S3, S4, S5, S6, S7, S8]*test_solution)
+              switches = [S0, S1, S2, S3, S4, S5, S6, S7, S8, SN12] + [S0, S1, S2, S3, S4, S5, S6, S7, S8]*fast_solution_finding)
     T1 = Tree(tree_list=tree_list_1,
               empty=True,
               name='T1',
-              switches = [S9, S10, S11, S12, S13, S14, S15, S16, S17, SN12] + [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17]*test_solution,
+              switches = [S9, S10, S11, S12, S13, S14, S15, S16, S17, SN12] + [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17]*fast_solution_finding,
               cut_expression=True,
               cut_expression_separator=']')
     T2 = Tree(tree_list=tree_list_2,
               empty=True,
               name='T2',
-              switches = [S18, S19, S20, S21, S22, S23, S24, S25, S26, S27, SN12] + [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, S23, S24, S25, S26, S27]*test_solution,
+              switches = [S18, S19, S20, S21, S22, S23, S24, S25, S26, S27, SN12] + [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, S23, S24, S25, S26, S27]*fast_solution_finding,
               cut_expression=True,
               cut_expression_separator=']')
     T3 = Tree(tree_list=['EQU',

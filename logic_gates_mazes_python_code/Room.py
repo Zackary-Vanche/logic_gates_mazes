@@ -7,6 +7,12 @@ Created on Thu Feb 24 20:53:44 2022
 
 from numpy import ceil, sqrt
 from linear_function import linear_function
+from itertools import chain, combinations
+
+def powerset(iterable):
+    s = list(iterable)
+    p = chain.from_iterable(combinations(s, r) for r in range(len(s)+1))
+    return tuple(p)
 
 class Room:
     
@@ -21,7 +27,8 @@ class Room:
                  # longueur en y
                  # longueur en x
                  name = 'R',
-                 surrounding_color=[255,255,255]):
+                 surrounding_color=[255,255,255],
+                 possible_switches_values=None):
         self.name = name
         self.is_exit = is_exit
         if self.is_exit:
@@ -30,12 +37,24 @@ class Room:
         self.arrival_doors_list = []
         self.two_way_doors_list = []
         self.switches_list = switches_list
+        self.switches_list.sort(key = lambda x : x.name)
         for switch in self.switches_list:
             switch.room = self
         self.position = position
         self.name_position = None
         self.switches_positions = None
         self.surrounding_color = surrounding_color
+        self.possible_switches_values = possible_switches_values
+        if self.possible_switches_values == None:
+            self.possible_switches_actions = powerset([s.name for s in self.switches_list])
+        else:
+            self.possible_switches_actions = []
+            for switches_values in self.possible_switches_values:
+                Slist = []
+                for i in range(len(self.switches_list)):
+                    if switches_values[i]:
+                        Slist.append(self.switches_list[i].name)
+                self.possible_switches_actions.append(Slist)
         
     def get_name_position(self):
         [x_gap, y_gap, x, y] = self.position

@@ -503,11 +503,6 @@ class Maze:
                            reverse_actions_order=False,
                            initial_try=(),
                            nb_iterations_print=10**3):
-        def powerset(iterable):
-            from itertools import chain, combinations
-            s = list(iterable)
-            p = chain.from_iterable(combinations(s, r) for r in range(len(s)+1))
-            return tuple(p)
         t0 = time()
         if self.all_solutions is None:
             visited_situations = set()
@@ -538,9 +533,14 @@ class Maze:
                             solutions_to_visit.append(solution+(action,))
                         # SWITCHES
                         if solution == () or solution[-1][0] != 'S':
-                            actions_switches = self.get_current_possible_switches()
-                            for Slist in powerset(actions_switches):
-                                solutions_to_visit.append(solution+Slist)
+                            # room_departure_doors = self.current_room().two_way_doors_list + self.current_room().departure_doors_list
+                            # if len(room_departure_doors) <= 2:
+                            #     for Slist in self.current_room().possible_switches_actions:
+                            #         for door in room_departure_doors:
+                            #             solutions_to_visit.append(solution+tuple(Slist)+tuple([door.name])) 
+                            # else:
+                            for Slist in self.current_room().possible_switches_actions:
+                                solutions_to_visit.append(solution+tuple(Slist)) 
                     visited_situations.add(current_situation_vector)
                 elif result_solution == 2:
                     if verbose >= 2:

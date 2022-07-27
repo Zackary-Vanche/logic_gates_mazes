@@ -12,7 +12,7 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
-def level_travelling_salesman(test_solution=True):
+def level_travelling_salesman(fast_solution_finding=False):
     
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -71,11 +71,11 @@ def level_travelling_salesman(test_solution=True):
     
     tree_list_DIST = ['DIST'] + [Tree.tree_list_BIN(3)]*4 # 12
     
-    tree_list_SUM = ['SUM'] + [tree_list_DIST]*6 # 72
+    tree_list_SUM = ['SUM'] + [tree_list_DIST]*7 # 72
     
     tree_list_INF = ['INF', tree_list_SUM, [None]] # 73
 
-    if test_solution:
+    if fast_solution_finding:
         T0 = Tree(tree_list=tree_list_IN,
                   empty=True,
                   name='T0',
@@ -143,24 +143,9 @@ def level_travelling_salesman(test_solution=True):
                   empty=True,
                   name='T5',
                   switches = [S30, S31, S32, S33, S34, S35] + SNlist)
-    T6 = Tree(tree_list=['AND',
-                         tree_list_IN,
-                         tree_list_INF],
+    T6 = Tree(tree_list=['DIFF'] + [Tree.tree_list_BIN(6)]*7,
               empty=True,
               name='T6',
-              switches = [S36, S37, S38, S39, S40, S41] + SNlist + [
-                  S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11,
-                  S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17,
-                  S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, S23,
-                  S18, S19, S20, S21, S22, S23, S24, S25, S26, S27, S28, S29,
-                  S24, S25, S26, S27, S28, S29, S30, S31, S32, S33, S34, S35,
-                  S30, S31, S32, S33, S34, S35, S36, S37, S38, S39, S40, S41,
-                  Switch(name='50', value=50)],
-              cut_expression=True,
-              cut_expression_separator=']')
-    T7 = Tree(tree_list=['DIFF'] + [Tree.tree_list_BIN(6)]*7,
-              empty=True,
-              name='T7',
               switches = [S0, S1, S2, S3, S4, S5,
                           S6, S7, S8, S9, S10, S11,
                           S12, S13, S14, S15, S16, S17,
@@ -170,32 +155,66 @@ def level_travelling_salesman(test_solution=True):
                           S36, S37, S38, S39, S40, S41],
               cut_expression=True,
               cut_expression_separator=')')
+    T7 = Tree(tree_list=['AND',
+                         tree_list_IN,
+                         tree_list_INF],
+              empty=True,
+              name='T7',
+              switches = [S36, S37, S38, S39, S40, S41] + SNlist + [
+                   S0,  S1,  S2,  S3,  S4,  S5,  S6,  S7,  S8,  S9, S10, S11,
+                   S6,  S7,  S8,  S9, S10, S11, S12, S13, S14, S15, S16, S17,
+                  S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, S23,
+                  S18, S19, S20, S21, S22, S23, S24, S25, S26, S27, S28, S29,
+                  S24, S25, S26, S27, S28, S29, S30, S31, S32, S33, S34, S35,
+                  S30, S31, S32, S33, S34, S35, S36, S37, S38, S39, S40, S41,
+                  S36, S37, S38, S39, S40, S41,  S0,  S1,  S2,  S3,  S4,  S5,
+                  Switch(name='100', value=100)],
+              cut_expression=True,
+              cut_expression_separator=']')
 
     a = 3
     e = 1/100
     l = 0.75
+    
+    if fast_solution_finding:
+        possible_switches_values = [[0, 0, 1, 0, 0, 0],
+                                    [0, 1, 1, 0, 0, 0],
+                                    [0, 0, 1, 1, 0, 0],
+                                    [0, 1, 0, 0, 1, 0],
+                                    [0, 1, 1, 1, 1, 0],
+                                    [0, 1, 0, 1, 0, 1],
+                                    [0, 0, 1, 1, 1, 1]]
+    else:
+        possible_switches_values = None
 
     R0 = Room(name='R0',
               position=[l, 1.5*a, 6, 1],
-              switches_list = [S0, S1, S2, S3, S4, S5])
+              switches_list = [S0, S1, S2, S3, S4, S5],
+              possible_switches_values=possible_switches_values)
     R1 = Room(name='R1',
               position=[l, 0.5*a, 6, 1],
-              switches_list = [S6, S7, S8, S9, S10, S11])
+              switches_list = [S6, S7, S8, S9, S10, S11],
+              possible_switches_values=possible_switches_values)
     R2 = Room(name='R2',
               position=[0, 0, 6, 1],
-              switches_list = [S12, S13, S14, S15, S16, S17])
+              switches_list = [S12, S13, S14, S15, S16, S17],
+              possible_switches_values=possible_switches_values)
     R3 = Room(name='R3',
               position=[0, a, 6, 1],
-              switches_list = [S18, S19, S20, S21, S22, S23])
+              switches_list = [S18, S19, S20, S21, S22, S23],
+              possible_switches_values=possible_switches_values)
     R4 = Room(name='R4',
               position=[0, 2*a, 6, 1],
-              switches_list = [S24, S25, S26, S27, S28, S29])
+              switches_list = [S24, S25, S26, S27, S28, S29],
+              possible_switches_values=possible_switches_values)
     R5 = Room(name='R5',
               position=[0, 3*a, 6, 1],
-              switches_list = [S30, S31, S32, S33, S34, S35])
+              switches_list = [S30, S31, S32, S33, S34, S35],
+              possible_switches_values=possible_switches_values)
     R6 = Room(name='R6',
               position=[l, 3.5*a, 6, 1],
-              switches_list = [S36, S37, S38, S39, S40, S41])
+              switches_list = [S36, S37, S38, S39, S40, S41],
+              possible_switches_values=possible_switches_values)
     R7 = Room(name='R7',
               position=[l+4, 2.5*a, 2, 1],
               switches_list = [])

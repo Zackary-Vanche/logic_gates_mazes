@@ -8,6 +8,7 @@ Created on Sat Feb 26 13:12:20 2022
 from time import time
 from os.path import exists as os_path_exists
 from os import mkdir as os_mkdir
+from inspect import signature
 
 # from levels.level_3d_matching import level_3d_matching
 # from levels.level_3sat import level_3sat
@@ -79,7 +80,7 @@ from levels.level_xor import level_xor
 
 class Levels: 
     
-    levels_functions_list = [#level_travelling_salesman,
+    levels_functions_list = [
                              level_hello_world,
                              level_linear,
                              level_loop,
@@ -127,6 +128,7 @@ class Levels:
                              level_cartesian,
                              level_eulerian,
                              level_electricity,
+                             level_travelling_salesman,
                              level_wave,
                              level_dead_ends,
                              level_manhattan_distance,
@@ -141,14 +143,17 @@ class Levels:
     
     levels_list = [None for k in range(number_of_levels)]
     
-    def get_level(level_number):
+    def get_level(level_number, fast_solution_finding=False):
         if Levels.levels_list[level_number] == None:
-            Levels.levels_list[level_number] = Levels.levels_functions_list[level_number]()
+            if fast_solution_finding and len(signature(Levels.levels_functions_list[level_number]).parameters) > 0:
+                Levels.levels_list[level_number] = Levels.levels_functions_list[level_number](True)
+            else:
+                Levels.levels_list[level_number] = Levels.levels_functions_list[level_number]()
         else:
             Levels.levels_list[level_number].reboot_solution()
         return Levels.levels_list[level_number]
     
-    def save_solutions_txt(verbose=0, do_it_fast=False, multithreads=False):
+    def save_solutions_txt(verbose=0, do_it_fast=False, multithreads=False, fast_solution_finding=True):
         t0 = time()
         txt = ''
         if not os_path_exists('solutions'):
@@ -156,7 +161,7 @@ class Levels:
         if not do_it_fast:
             calculations_times = [None for i in range(Levels.number_of_levels)]
             def find_solution(k):
-                level = Levels.get_level(k)
+                level = Levels.get_level(k, fast_solution_finding)
                 txt = '\n'
                 name = level.name
                 txt = txt + ' '.join(['Level', str(k), ':', name, '\n'])
@@ -184,7 +189,7 @@ class Levels:
                     find_solution(k)
         txt = ''
         for k in range(Levels.number_of_levels):
-            level = Levels.get_level(k)
+            level = Levels.get_level(k, fast_solution_finding)
             name = level.name
             try:
                 txt += ''.join(('Level ', str(k), ' : ', name, '\n'))
@@ -246,4 +251,4 @@ if __name__ == "__main__":
     #         l.append(len(sol.split(' ')))
     # plt.plot([i for i in range(len(l))], l)
 
-    solutions = level_travelling_salesman(True).find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**2)
+    solutions = level_travelling_salesman(False).find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**3)
