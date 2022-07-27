@@ -5,9 +5,9 @@ Created on Mon Apr  4 20:01:20 2022
 @author: utilisateur
 """
 
-ns = 36
-nd = 8
-nr = 3
+ns = 9
+nd = 16
+nr = 9
 
 for i in range(ns):
     print("""S{0} = Switch(name='S{0}')""".format(i))

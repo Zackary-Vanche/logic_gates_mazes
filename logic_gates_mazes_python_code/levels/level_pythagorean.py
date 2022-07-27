@@ -70,7 +70,7 @@ def level_pythagorean():
              rooms_list=[R0, R1, RE], 
              doors_list=[D0, D1], 
              fastest_solution='S0 S1 S5 S6 S8 D0 D1',
-             level_color=Levels_colors_list.FROM_HUE(0.05, sa=0.12, li=0.45),
+             level_color=Levels_colors_list.FROM_HUE(0.15, sa=1, li=0.25),
              name='Pythagorean',
              door_window_size = 800,
              keep_proportions = True)

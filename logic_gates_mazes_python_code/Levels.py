@@ -41,7 +41,7 @@ from levels.level_infinity import level_infinity
 from levels.level_knapsack import level_knapsack
 from levels.level_knight import level_knight
 from levels.level_linear import level_linear
-# from levels.level_longest_path import level_longest_path
+from levels.level_longest_path import level_longest_path
 from levels.level_loop import level_loop
 from levels.level_manhattan_distance import level_manhattan_distance
 from levels.level_matrix import level_matrix
@@ -78,7 +78,8 @@ from levels.level_xor import level_xor
 class Levels: 
     
     levels_functions_list = [
-                             # level_icone,
+                             # level_longest_path,
+                             
                              level_hello_world,
                              level_linear,
                              level_loop,
@@ -231,8 +232,6 @@ if __name__ == "__main__":
     #     print(solutions)
     # print('')
     
-    # solutions = level_the_4_queens().find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**4)
-    
     # import matplotlib.pyplot as plt
     # l = []
     # for level_function in Levels.levels_functions_list:
@@ -243,9 +242,5 @@ if __name__ == "__main__":
     #     else:
     #         l.append(len(sol.split(' ')))
     # plt.plot([i for i in range(len(l))], l)
-    
-    # solutions = level_pancake_sorting().find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**3)
-    
-    # print(solutions)
 
-    
+    solutions = level_longest_path().find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**4)
