@@ -78,7 +78,6 @@ from levels.level_xor import level_xor
 class Levels: 
     
     levels_functions_list = [
-                             # level_longest_path,
                              
                              level_hello_world,
                              level_linear,
@@ -94,19 +93,20 @@ class Levels:
                              level_bipartite,
                              level_hamiltonian,
                              level_pong,
+                             level_longest_path,
                              level_hitting_set,
                              level_independent_set,
                              level_dominating_set,
                              level_exact_cover,
                              level_odd,
                              level_recurrence,
+                             level_point_of_no_return,
                              level_naturals,
                              level_parallel,
                              level_pythagorean,
-                             level_tetrahedron,
-                             level_point_of_no_return,
                              level_chessboard,
                              level_taxicab_number,
+                             level_tetrahedron,
                              level_the_4_queens,
                              level_alice_and_bob,
                              level_crystal,

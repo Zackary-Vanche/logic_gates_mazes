@@ -347,6 +347,8 @@ help_menus_list['levels']["Odd"] = help_menus_list['leave the game']
 
 help_menus_list['levels']["Recurrence"] = help_menus_list['brackets']
 
+help_menus_list['levels']["Point of no return"] = help_menus_list['XNOR']
+
 help_menus_list['levels']["Naturals"] = '\n'.join([help_menus_list['ABS'],
                                                    help_menus_list['MINUS'],
                                                    help_menus_list['BIN']])
@@ -357,13 +359,13 @@ help_menus_list['levels']["Pythagorean"] = help_menus_list['POW']
 
 help_menus_list['levels']["Taxicab number"] = """Taxicab numbers are also called Hardy–Ramanujan numbers."""
 
-help_menus_list['levels']["Tetrahedron"] = """The logic expressions of the doors of this level have been calculated by computer.
-The program that calculated it already knew all the rest of the level."""
-
-help_menus_list['levels']["Point of no return"] = help_menus_list['XNOR']
-
 help_menus_list['levels']["Chessboard"] = """If you remove the exit, the graph of this level is the graph of the possible moves of a knight in a 3*4 rectangle.
 However, sometimes here doors are one-way only."""
+
+help_menus_list['levels']["Tetrahedron"] = """The logic expressions of the doors of this level have been calculated by computer.
+The program that calculated it already knew all the rest of the level.
+
+This level looks complicated, but you do only need to let the game lead you to the exit."""
 
 help_menus_list['levels']["The 4 queens"] = """This level is inspired from the 8 queens problem."""
 
