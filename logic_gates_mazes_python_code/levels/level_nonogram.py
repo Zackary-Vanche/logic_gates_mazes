@@ -147,7 +147,7 @@ def level_nonogram():
                  rooms_list=[R0, R1, R2, R3, R4, R5, RE], 
                  doors_list=[D0, D1, D2, D3, D4, D5], 
                  fastest_solution='S0 S4 D0 S6 S8 D1 S10 S13 S14 D2 S16 D3 S22 D4 D5',
-                 level_color=Levels_colors_list.FROM_HUE(0, sa=0, li=0.6),
+                 level_color=Levels_colors_list.FROM_HUE(0.3, sa=1, li=0.22),
                  name='Nonogram',
                  door_window_size=400,
                  keep_proportions=False)

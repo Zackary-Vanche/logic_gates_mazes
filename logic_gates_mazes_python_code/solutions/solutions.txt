@@ -1,104 +1,104 @@
-Level 0 : Tetris
-S0 S8 S10 D0
-
-Level 1 : Hello_World
+Level 0 : Hello_World
 S0 D0 S1 D1 D2
 
-Level 2 : Linear
+Level 1 : Linear
 S0 S1 D0 S2 D1 S5 D2 D3
 
-Level 3 : Loop
+Level 2 : Loop
 S0 D0 S1 D1 S2 S3 D2 S0 D3
 
-Level 4 : Backward
+Level 3 : Backward
 S0 D0 S2 D0 S0 S1 D1
 
-Level 5 : Bis repetita
+Level 4 : Bis repetita
 S0 D0 S1 D1 S2 D2 S0 D0 S1 D1 S2 D3
 
-Level 6 : Binary
+Level 5 : Binary
 S0 D3 S4 D3 D2 S3 D2 D3 D1 S2 D1 D5 S6 D5 D3 D2 D0 S1 D0 D4 S5 D4 D2 D6
 
-Level 7 : OR
+Level 6 : OR
 S0 D0 S1 D0 S0 D0 D1 S2 D1 S1 D1 S2 D2
 
-Level 8 : Crossroad
+Level 7 : Crossroad
 S0 S2 D2 S4 D4 S1 S3 D1 D0 S5 D3 D5
 
-Level 9 : Square
+Level 8 : Square
 S0 D2 S3 D1 S2 D0 S1 D3 D4
 
-Level 10 : Infinity
+Level 9 : Infinity
 S0 D0 S1 D8 S3 D3 S4 D9 S2 D7 S5 D4 S9 D6 S6 D1 S7 D2 S8 D5 D10
 
-Level 11 : Fluid
+Level 10 : Fluid
 S0 D0 S1 D1 S2 S6 D4 S0 S4 D4 D2 S3 S7 D5 S1 S5 D5 D3
 
-Level 12 : Bipartite
+Level 11 : Bipartite
 S0 D0 S1 D1 S4 D4 S8 D4 D7 S3 D8 S11 D2 D3 S12 D3 S1 S7 D1 S4 S10 D7 S3 S9 D10 D11
 
-Level 13 : Hamiltonian
+Level 12 : Hamiltonian
 S0 S1 D7 S11 D6 S9 S10 D5 S8 D4 S6 S7 D3 S5 D2 S3 S4 D1 S2 D16
 
-Level 14 : Pong
+Level 13 : Pong
 S0 S1 S2 D0 S5 S8 D0 S3 S4 D0 S6 S7 S9 D1
 
-Level 15 : Longest path
+Level 14 : Longest path
 S0 D1 S2 D5 S5 D9 S7 D11 S8 D12
 
-Level 16 : Hitting set
+Level 15 : Hitting set
 S2 S4 S5 D0 D1
 
-Level 17 : Independent set
+Level 16 : Independent set
 S0 S2 S6 S8 D0 D1 D2 D3 D4
 
-Level 18 : Dominating set
+Level 17 : Dominating set
 S3 S4 D0 S9 D3 D4 S10 D4 D5 D6 D10 S14 D10 D11 S16 D11 D12 S17 D12 S13 D6 S11 D5 S12 D9 S15 D16
 
-Level 19 : Exact cover
+Level 18 : Exact cover
 S1 S3 S5 D0
 
-Level 20 : Odd
+Level 19 : Odd
 S4 D2 D4 S1 D4 D2 S4 D1 D5 S3 D5 D1 S0 D3 D6 S2 D6 D3 S4 D0
 
-Level 21 : Recurrence
+Level 20 : Recurrence
 S0 S1 D0 S2 S3 D1 S0 S1 D0 D2 S4 S5 D3 S2 S3 D2 D4 S6 D5 S4 S5 D4 S6 D6
 
-Level 22 : Point of no return
+Level 21 : Point of no return
 S0 S5 S7 S8 D0 S9 D1 S1 D1 D2 S2 D2 D3 S3 D3 D4 S4 D4 D5
 
-Level 23 : Naturals
+Level 22 : Naturals
 S0 D0 S3 D0 S2 D0 S3 S5 D0 S2 S4 D0 S3 D0 S2 D0 S3 S5 S7 D0 S2 S4 S6 D0 S3 D0 S2 D0 S3 S5 D0 S2 S4 D0 S3 D0 S2 D0 S1 D1
 
-Level 24 : Parallel
+Level 23 : Parallel
 S0 D0 S1 D1 S2 D2 D0 S1 S4 D3 D5 S5 D4 S1 D3 S3 D6
 
-Level 25 : Pythagorean
+Level 24 : Pythagorean
 S0 S1 S5 S6 S8 D0 D1
 
-Level 26 : Chessboard
+Level 25 : Chessboard
 S0 D1 D5 S2 D5 S7 D1 S0 D0 D11 D7 S3 D7 S10 D11 D10 D2 D3 S8 D3 S1 D2 D12 S11 D9 S4 D14
 
-Level 27 : Taxicab number
+Level 26 : Taxicab number
 S0 D0 S6 S7 D1 S8 S11 D2 S13 S15 D3
 
-Level 28 : Tetrahedron
+Level 27 : Tetrahedron
 S4 D1 S2 D5 S3 D2 S0 S4 D0 D4 S3 S7 D2 S0 D1 S6 D3 S1 S5 D0 S0 S4 D2 D5 S6 D3 S1 D4 S7 D6
 
-Level 29 : The 4 queens
+Level 28 : The 4 queens
 S2 S4 S11 S13 D0 D1 D2 D3 D4 D5
 
-Level 30 : Alice and Bob
+Level 29 : Alice and Bob
 S0 D0 S1 D2 S3 D4 S0 D1 D3 S4 D5 S0 D0 D2 S3 D4 S0 D1 S2 D3 S4 D5 S0 D0 S1 D2 S3 D4 S0 D1 S2 D3 D6
 
-Level 31 : Nonogram
+Level 30 : Nonogram
 S0 S4 D0 S6 S8 D1 S10 S13 S14 D2 S16 D3 S22 D4 D5
 
-Level 32 : Crystal
+Level 31 : Crystal
 S0 S6 D1 D3 S3 S9 D5 S5 D12 D10 D8 S0 S6 D2 D4 S4 D6 S11 D11 D9 S1 S7 D7 S0 S6 D0
 
-Level 33 : Pancake sorting
+Level 32 : Pancake sorting
 S0 S1 S3 S4 S9 D2 D3 S10 S11 S12 S13 S14 S15 S16 S17 S18 D4 D5 S1 S5 S8 S9 D1 D3 S11 S15 S18 S19 D4 D5 S0 S2 S4 S6 S8 D2 D3 S10 S12 S14 S16 S18 D4 D6
+
+Level 33 : Tetris
+S0 S8 S10 D0
 
 Level 34 : 4 colors theorem
 S2 S3 S4 S6 S7 S8 S10 S11 S13 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18 D19
