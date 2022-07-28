@@ -100,23 +100,50 @@ def level_sudoku(fast_solution_finding=False):
                 cut_expression=True,
                 cut_expression_separator=']')
     
-    # S0, S1, S2, S3, S4, S5, S6, S7,
-    # S8, S9, S10, S11, S12, S13, S14, S15,
-    # S16, S17, S18, S19, S20, S21, S22, S23,
-    # S24, S25, S26, S27, S28, S29, S30, S31
+    if fast_solution_finding:
+        possible_switches_values = [[ 0, 0, 1, 0, 0, 1, 1, 1],
+                                    [ 0, 0, 1, 0, 1, 1, 0, 1],
+                                    [ 0, 0, 0, 1, 1, 0, 1, 1],
+                                    [ 0, 0, 0, 1, 1, 1, 1, 0],
+                                    [ 0, 0, 1, 1, 1, 0, 0, 1],
+                                    [ 0, 0, 1, 1, 0, 1, 1, 0],
+                                    [ 1, 0, 0, 0, 0, 1, 1, 1],
+                                    [ 1, 0, 0, 0, 1, 1, 0, 1],
+                                    [ 1, 0, 0, 1, 0, 0, 1, 1],
+                                    [ 1, 0, 0, 1, 1, 1, 0, 0],
+                                    [ 1, 0, 1, 1, 0, 0, 0, 1],
+                                    [ 0, 0, 1, 1, 0, 1, 0, 0],
+                                    [ 0, 1, 0, 0, 1, 0, 1, 1],
+                                    [ 0, 1, 0, 0, 1, 1, 1, 0],
+                                    [ 0, 1, 1, 0, 0, 0, 1, 1],
+                                    [ 0, 1, 1, 0, 1, 1, 0, 0],
+                                    [ 0, 1, 1, 1, 0, 0, 1, 0],
+                                    [ 0, 1, 1, 1, 1, 0, 0, 0],
+                                    [ 1, 1, 0, 0, 1, 0, 0, 1],
+                                    [ 1, 1, 0, 0, 0, 1, 1, 0],
+                                    [ 1, 1, 1, 0, 0, 0, 0, 1],
+                                    [ 1, 1, 1, 0, 0, 1, 0, 0],
+                                    [ 1, 1, 0, 1, 0, 0, 1, 0],
+                                    [ 1, 1, 0, 1, 1, 0, 0, 0]]
+    else:
+        possible_switches_values = None
 
     R0 = Room(name='R0',
-                position = [0, 3, 2, 4],
-                switches_list = [S0, S1, S2, S3, S4, S5, S6, S7])
+              position = [0, 3, 2, 4],
+              switches_list = [S0, S1, S2, S3, S4, S5, S6, S7],
+              possible_switches_values=possible_switches_values)
     R1 = Room(name='R1',
-                position = [0, 0, 4, 2],
-                switches_list = [S8, S9, S10, S11, S12, S13, S14, S15])
+              position = [0, 0, 4, 2],
+              switches_list = [S8, S9, S10, S11, S12, S13, S14, S15],
+              possible_switches_values=possible_switches_values)
     R2 = Room(name='R2',
-                position = [5, 0, 2, 4],
-                switches_list = [S16, S17, S18, S19, S20, S21, S22, S23])
+              position = [5, 0, 2, 4],
+              switches_list = [S16, S17, S18, S19, S20, S21, S22, S23],
+              possible_switches_values=possible_switches_values)
     R3 = Room(name='R3',
-                position = [3, 5, 4, 2],
-                switches_list = [S24, S25, S26, S27, S28, S29, S30, S31])
+              position = [3, 5, 4, 2],
+              switches_list = [S24, S25, S26, S27, S28, S29, S30, S31],
+              possible_switches_values=possible_switches_values)
     RE = Room(name='RE',
               position=[3, 3, 1, 1],
               is_exit=True)   # E pour exit ou end
@@ -151,7 +178,7 @@ def level_sudoku(fast_solution_finding=False):
                  rooms_list=[R0, R1, R2, R3, RE], 
                  doors_list=[D0, D1, D2, D3], 
                  fastest_solution=None,
-                 level_color=Levels_colors_list.FROM_HUE(0.2, sa=0.5, li=0.4),
+                 level_color=Levels_colors_list.FROM_HUE(0.4, sa=1, li=0.95),
                  name='Sudoku',
                  door_window_size = 600,
                  keep_proportions = True)

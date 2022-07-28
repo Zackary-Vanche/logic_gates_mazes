@@ -80,7 +80,7 @@ from levels.level_xor import level_xor
 
 class Levels: 
     
-    levels_functions_list = [level_sudoku,
+    levels_functions_list = [#level_sudoku,
                              level_hello_world,
                              level_linear,
                              level_loop,
