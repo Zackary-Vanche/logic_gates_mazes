@@ -27,14 +27,12 @@ Be carefull with the negation, because you have :
     
 help_menus_list['MINUS'] = """
 - means 'MINUS'.
--S0 is the opposite of S0.
-"""
+-S0 is the opposite of S0."""
     
 help_menus_list['AND'] = """  
 & means 'AND'.
 D0 = & S0 S1 means :
-    D0 is open if (S0, S1) = (1,1)
-"""
+    D0 is open if (S0, S1) = (1,1)"""
 
 help_menus_list['NAND'] = """
 NAND truth table (D0 = ¬& S0 S1):
@@ -129,8 +127,7 @@ help_menus_list['EQUSET'] = '''
 D0 = ~  ( S0 ; S2 ; ...) ( S1 ; S3 ; ...) means :
     D0 is open if the two sets ( S0 ; S2 ; ...) and ( S1 ; S3 ; ...) contain the same elements, but not obligatorily in the same order.
 D0 = ~  ( S0 ; S2 ) ( S1 ; S3) means :
-    D0 = | & = S0 S1 = S2 S3 & = S0 S3 = S2 S1
-'''
+    D0 = | & = S0 S1 = S2 S3 & = S0 S3 = S2 S1'''
 
 help_menus_list['DIFF'] = '''
 D0 = ≠ (S0 S1 ...) means :
@@ -155,8 +152,7 @@ D0 = >= S0 S1 means :
 help_menus_list['BIN'] = """
 b (S0 S1 ...) is the number whose binary big endian code is S0 S1 etc.
 For example:
-    b (S0 S1 S2) = + (S0 * 2 S1 * 4 S2)
-"""
+    b (S0 S1 S2) = + (S0 * 2 S1 * 4 S2)"""
 
 help_menus_list['IN'] = """
 The operator i takes two arguments : une switch and a switch list.
@@ -176,8 +172,7 @@ For example:
     # (2 1) [1 1 0 0 1] = 1
     # (4) [1 1 1 1] = 1
     # (1 3) [1 0 1 1] = 0
-    # (2 1) [1 0 0 1 1] = 0
-"""
+    # (2 1) [1 0 0 1 1] = 0"""
 
 help_menus_list['AND and NOT'] = """  
 By combining these notations, you can write :
@@ -208,11 +203,10 @@ You can also use it with | instead of &.
 
 You can use this notation with negations :
     D0 = & ¬ S0 ( & S1 S2 )
-       = & ( ¬ S0 S1 S2 )
-"""
+       = & ( ¬ S0 S1 S2 )"""
 
-help_menus_list['brackets'] = """Sometime, square brackets can be used instead of parentheses.
-"""
+help_menus_list['brackets'] = """
+Sometime, square brackets can be used instead of parentheses."""
 
 help_menus_list['Introduction thuth table'] = """
 A truth table tells you the result of a logical expression.
@@ -235,8 +229,7 @@ Here are some examples :
       0    0    0
       0    1    1
       1    0    1
-      1    1    1
-"""
+      1    1    1"""
 
 help_menus_list["cheat code"] = """
 A cheat code exists.
@@ -249,8 +242,7 @@ Writing A D10 allows you to end this level by cheating.
 
 You can also use the cheat code to go directly in a room by giving its name :
     A R2 allows you to go in the room R2.
-The name of the exit room is RE.
-"""
+The name of the exit room is RE."""
 
     ###################
     ## MISCELLANEOUS ##
@@ -277,8 +269,7 @@ To start the level again from the beginning, press [B].
 To go to the next level, press the right arrow key.
 
 On the left size window of the game are equations that tell you when a door is open :
-These equations work with any name of door or switch.
-"""
+These equations work with any name of door or switch."""
 
 help_menus_list['change level'] = """
 To change level, you can use :
@@ -289,28 +280,23 @@ To change level, you can use :
     the up arrow key to go to the last level
 
     L and the number of the level you want to go to.
-    For instance, L12 will make you go to the level number 12.
-"""
+    For instance, L12 will make you go to the level number 12."""
 
 help_menus_list['go in a room'] = """
 To go directly in a room, you can type its name (if it is possible for you to go there).
-The exit room is called RE.
-"""
+The exit room is called RE."""
 
 help_menus_list['reminder B'] = """
-[Reminder] : To start the level again from the beginning, press [B].
-"""
+[Reminder] : To start the level again from the beginning, press [B]."""
 
 help_menus_list['write several actions'] = """
 Instead of writing actions one by one, one can write several at a time, separated by spaces.
 For instance, you can write :
     S0 S1 D0
-if you want to turn on S0, S1 and then use the door D0.
-"""
+if you want to turn on S0, S1 and then use the door D0."""
 
 help_menus_list['leave the game'] = """
-To leave the game, you can click an the cross but also press [Q] or [ESCAPE].
-"""
+To leave the game, you can click an the cross but also press [Q] or [ESCAPE]."""
 
     ############
     ## LEVELS ##
@@ -400,11 +386,11 @@ help_menus_list['levels']["Crystal"] = """If you make a mistake, you have to sta
 
 help_menus_list['levels']["Pancake sorting"] = """Pancake sorting is a real computational problem."""
 
-help_menus_list['levels']["Tetris"] = """Each number can represent a position in the plane.""" + help_menus_list['EQUSET']
+help_menus_list['levels']["Tetris"] = """Each number can represent a position in the plane.\n""" + help_menus_list['EQUSET']
 
-help_menus_list['levels']["4 colors theorem"] = """Each couple of switches represent a color.""" + help_menus_list["PROD"]
+help_menus_list['levels']["4 colors theorem"] = """Each couple of switches represent a color.\n""" + help_menus_list["PROD"]
 
-help_menus_list['levels']["Partition"] = """The partition is one of the Karp's 21 NP-complete problems.""" + help_menus_list['EQU']
+help_menus_list['levels']["Partition"] = """The partition is one of the Karp's 21 NP-complete problems.\n""" + help_menus_list['EQU']
 
 help_menus_list['levels']["Knapsack"] = """The knapsack is one of the Karp's 21 NP-complete problems."""
 
