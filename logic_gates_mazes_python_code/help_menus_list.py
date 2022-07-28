@@ -158,6 +158,16 @@ For example:
     b (S0 S1 S2) = + (S0 * 2 S1 * 4 S2)
 """
 
+help_menus_list['IN'] = """
+The operator i takes two arguments : une switch and a switch list.
+It returns the value 1 if the switch is included in the list, 0 if not.
+For example:
+    i 0 [1 2] = 0
+    i 4 [4 2] = 1"""
+
+help_menus_list['DIST'] = """
+d (S0 S1 S2 S3) is the euclidian distance between the two points of the plane (S0 S1) and (S2 S3)."""
+
 help_menus_list['NONO'] = """
 The operator # takes two list in argument.
 The first list tells you the number of unbroken lines of 1 that should be presents in the second list in order for the result to be 1.
@@ -168,7 +178,7 @@ For example:
     # (1 3) [1 0 1 1] = 0
     # (2 1) [1 0 0 1 1] = 0
 """
-    
+
 help_menus_list['AND and NOT'] = """  
 By combining these notations, you can write :
 D1 = & S2 ¬ S3 means :
@@ -419,6 +429,9 @@ help_menus_list['levels']["Eulerian"] = """This level was initially inspired by 
 The difference is that here there is a solution."""
 
 help_menus_list['levels']["Electricity"] = help_menus_list['NAND 3']
+
+help_menus_list['levels']["Travelling salesman"] = '\n'.join([help_menus_list['IN'],
+                                                              help_menus_list['DIST']])
 
 help_menus_list['levels']["Wave"] = help_menus_list['XOR 3']
 

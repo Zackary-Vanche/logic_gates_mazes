@@ -278,7 +278,7 @@ def level_travelling_salesman(fast_solution_finding=False):
                  exit_room_index=-1, 
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, RE], 
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7], 
-                 fastest_solution=None,
+                 fastest_solution='S1 S4 D0 S11 S7 S9 D1 S14 S15 S16 S17 D2 S19 S20 S21 S22 D3 S25 S26 D4 S32 D5 S38 S39 D6 D7',
                  level_color=Levels_colors_list.FROM_HUE(0.2, sa=0.5, li=0.4),
                  name='Travelling salesman',
                  door_window_size = 800,

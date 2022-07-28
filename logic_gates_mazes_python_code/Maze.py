@@ -113,8 +113,6 @@ class Maze:
         self.border = border
         self.y_separation = y_separation
         self.door_window_size = door_window_size
-        if self.fastest_solution is not None:
-            assert self.try_solution(self.fastest_solution) == 2, self.name + ' wrong solution'
         self.keep_proportions = keep_proportions
         self.level_color = level_color
         self.n_lines_door_printing = 0

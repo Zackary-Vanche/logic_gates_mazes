@@ -207,17 +207,14 @@ class Levels:
     
 if __name__ == "__main__":
     
-    Levels.save_solutions_txt(do_it_fast=True, verbose=1)
+    for level_function in Levels.levels_functions_list:
+        level = level_function()
+        if level.fastest_solution != None:
+            r = level.try_solution(level.fastest_solution)
+            if r != 2:
+                print(level.name, 'wrong solution')
     
-    # DO NOT REMOVE THIS CODE
-    # with open('Temp_help_menus.txt', 'w') as f:
-    #     for level_function in Levels.levels_functions_list: #sorted(Levels.levels_functions_list, key = lambda level_function : level_function().name):
-    #         level = level_function()
-    #         f.write('help_menus_list["')
-    #         f.write(level.name)
-    #         f.write('"] = """')
-    #         f.write(level.help_txt[0])
-    #         f.write('"""\n\n')
+    Levels.save_solutions_txt(do_it_fast=True, verbose=1)
 
     # import cProfile
     # level = level_bipartite()
@@ -253,14 +250,14 @@ if __name__ == "__main__":
 
     # solutions = level_travelling_salesman(True).find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**3)
     
-    with open('travelling_salesman_solutions.txt', 'r') as f:
-        solutions = f.readlines()
-    for i in range(len(solutions)):
-        solutions[i] = solutions[i].replace('\n', '')
+    # with open('travelling_salesman_solutions.txt', 'r') as f:
+    #     solutions = f.readlines()
+    # for i in range(len(solutions)):
+    #     solutions[i] = solutions[i].replace('\n', '')
         
-    level = level_travelling_salesman()
-    for sol in solutions:
-        r = level.try_solution(sol)
-        if r == 2:
-            print(sol)
+    # level = level_travelling_salesman()
+    # for sol in solutions:
+    #     r = level.try_solution(sol)
+    #     if r == 2:
+    #         print(sol)
     
