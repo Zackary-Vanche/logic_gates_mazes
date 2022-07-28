@@ -37,7 +37,7 @@ class Room:
         self.arrival_doors_list = []
         self.two_way_doors_list = []
         self.switches_list = switches_list
-        self.switches_list.sort(key = lambda x : x.name)
+        self.switches_list.sort(key = lambda x : [len(x.name), x.name])
         for switch in self.switches_list:
             switch.room = self
         self.position = position

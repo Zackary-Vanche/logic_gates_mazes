@@ -155,9 +155,11 @@ def level_travelling_salesman(fast_solution_finding=False):
                           S36, S37, S38, S39, S40, S41],
               cut_expression=True,
               cut_expression_separator=')')
+    
     T7 = Tree(tree_list=['AND',
                          tree_list_IN,
-                         tree_list_INF],
+                         tree_list_INF,
+                         Tree.tree_list_NAND(2)],
               empty=True,
               name='T7',
               switches = [S36, S37, S38, S39, S40, S41] + SNlist + [
@@ -168,7 +170,8 @@ def level_travelling_salesman(fast_solution_finding=False):
                   S24, S25, S26, S27, S28, S29, S30, S31, S32, S33, S34, S35,
                   S30, S31, S32, S33, S34, S35, S36, S37, S38, S39, S40, S41,
                   S36, S37, S38, S39, S40, S41,  S0,  S1,  S2,  S3,  S4,  S5,
-                  Switch(name='100', value=100)],
+                  Switch(name='19', value=19),
+                  S13, S31],
               cut_expression=True,
               cut_expression_separator=']')
 

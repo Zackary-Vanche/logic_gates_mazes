@@ -221,7 +221,7 @@ if __name__ == "__main__":
 
     # import cProfile
     # level = level_bipartite()
-    # cProfile.run("solutions = level.find_all_solutions(verbose=3, stop_at_first_solution=False)")     
+    # cProfile.run("solutions = level.find_all_solutions(verbose=3, stop_at_first_solution=False)")
     
     # for level_function in [
     #                         level_hello_world,
@@ -251,4 +251,16 @@ if __name__ == "__main__":
     #         l.append(len(sol.split(' ')))
     # plt.plot([i for i in range(len(l))], l)
 
-    solutions = level_travelling_salesman(False).find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**3)
+    # solutions = level_travelling_salesman(True).find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**3)
+    
+    with open('travelling_salesman_solutions.txt', 'r') as f:
+        solutions = f.readlines()
+    for i in range(len(solutions)):
+        solutions[i] = solutions[i].replace('\n', '')
+        
+    level = level_travelling_salesman()
+    for sol in solutions:
+        r = level.try_solution(sol)
+        if r == 2:
+            print(sol)
+    
