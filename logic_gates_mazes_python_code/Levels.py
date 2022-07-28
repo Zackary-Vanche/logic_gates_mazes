@@ -63,7 +63,7 @@ from levels.level_river import level_river
 # from levels.level_sinusoidal import level_sinusoidal
 from levels.level_square import level_square
 # from levels.level_subset_sum import level_subset_sum
-# from levels.level_sudoku import level_sudoku
+from levels.level_sudoku import level_sudoku
 from levels.level_syracuse import level_syracuse
 from levels.level_temple import level_temple
 from levels.level_taxicab_number import level_taxicab_number
@@ -80,7 +80,7 @@ from levels.level_xor import level_xor
 
 class Levels: 
     
-    levels_functions_list = [
+    levels_functions_list = [level_sudoku,
                              level_hello_world,
                              level_linear,
                              level_loop,
@@ -250,14 +250,72 @@ if __name__ == "__main__":
 
     # solutions = level_travelling_salesman(True).find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**3)
     
-    # with open('travelling_salesman_solutions.txt', 'r') as f:
-    #     solutions = f.readlines()
-    # for i in range(len(solutions)):
-    #     solutions[i] = solutions[i].replace('\n', '')
+    with open('travelling_salesman_solutions.txt', 'r') as f:
+        solutions = f.readlines()
+    for i in range(len(solutions)):
+        solutions[i] = solutions[i].replace('\n', '')
+        
+    solutions = ['S1 S2 D0 S8 D1 S14 S15 D2 S19 S22 D3 S25 S27 S29 D4 S32 S33 S34 S35 D5 S37 S38 S39 S40 D6 D7',
+                 
+                 'S1 S2 D0 S7 S8 S9 S10 D1 S14 S15 S16 S17 D2 S19 S21 S23 D3 S25 S28 D4 S32 S33 D5 S38 D6 D7',
+                 
+                 'S1 S4 D0 S8 S9 D1 S14 D2 S19 S20 D3 S25 S26 S27 S28 D4 S32 S33 S34 S35 D5 S37 S39 S41 D6 D7',
+                 'S1 S4 D0 S7 S9 S11 D1 S14 S15 S16 S17 D2 S19 S20 S21 S22 D3 S25 S26 D4 S32 D5 S38 S39 D6 D7',
+                 'S1 S2 S3 S4 D0 S7 S8 D1 S14 D2 S20 S21 D3 S25 S28 D4 S31 S33 S35 D5 S38 S39 S40 S41 D6 D7',
+                 'S1 S2 S3 S4 D0 S8 S9 S10 S11 D1 S13 S15 S17 D2 S19 S22 D3 S26 S27 D4 S32 D5 S37 S38 D6 D7',
+                 'S1 S3 S5 D0 S7 S10 D1 S14 S15 D2 S20 D3 S25 S26 D4 S31 S32 S33 S34 D5 S38 S39 S40 S41 D6 D7',
+                 'S1 S3 S5 D0 S8 S9 S10 S11 D1 S13 S14 S15 S16 D2 S19 S20 D3 S26 D4 S32 S33 D5 S37 S40 D6 D7']
+    
+    rooms_switches_bin = []
+    
+    llbin = []
+    
+    for sol in solutions:
+        lbin = []
+        for i in range(42):
+            lbin.append(int('S' + str(i) + ' ' in sol))
+        ln = []
+        for i in range(7):
+            n = 0
+            for j in range(6):
+                n += lbin[6*i+j] * 2**j
+            ln.append(n)
+        llbin.append(lbin)
+        rooms_switches_bin.append(ln)
+        
+    for i in range(len(rooms_switches_bin)):
+        print('')
+        ln = rooms_switches_bin[i]
+        sol = solutions[i]
+        print(sol)
+        print(ln)
+        print(set(ln) == set([4, 6, 12, 18, 30, 42, 60]))
         
     # level = level_travelling_salesman()
     # for sol in solutions:
     #     r = level.try_solution(sol)
     #     if r == 2:
     #         print(sol)
+    
+    [[ 6,  4, 12, 18, 42, 60, 30],
+     
+     [ 6, 30, 60, 42, 18, 12,  4],
+     
+     [18, 12,  4,  6, 30, 60, 42],
+     [18, 42, 60, 30,  6,  4, 12],
+     [30,  6,  4, 12, 18, 42, 60], 
+     [30, 60, 42, 18, 12,  4,  6],
+     [42, 18, 12,  4,  6, 30, 60],
+     [42, 60, 30,  6,  4, 12, 18]]
+    
+    [[0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0],
+     [0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0],
+     [0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1],
+     [0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0],
+     [0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1],
+     [0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0],
+     [0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1],
+     [0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 1, 0]]
+    
+    
     

@@ -416,8 +416,7 @@ The difference is that here there is a solution."""
 
 help_menus_list['levels']["Electricity"] = help_menus_list['NAND 3']
 
-help_menus_list['levels']["Travelling salesman"] = '\n'.join([help_menus_list['IN'],
-                                                              help_menus_list['DIST']])
+help_menus_list['levels']["Travelling salesman"] = help_menus_list['DIST']
 
 help_menus_list['levels']["Wave"] = help_menus_list['XOR 3']
 
