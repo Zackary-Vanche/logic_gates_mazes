@@ -12,7 +12,7 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
-def level_travelling_salesman(fast_solution_finding=True):
+def level_travelling_salesman(fast_solution_finding=False):
     
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -315,7 +315,7 @@ def level_travelling_salesman(fast_solution_finding=True):
                  exit_room_index=-1, 
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, RE], 
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7], 
-                 fastest_solution=None,
+                 fastest_solution='S2 S3 D0 S7 S10 D1 S13 S15 S17 D2 S20 S21 S22 S23 D3 S25 S26 S27 S28 D4 S31 S32 D5 S38 D6 D7',
                  level_color=Levels_colors_list.FROM_HUE(0.2, sa=0.5, li=0.4),
                  name='Travelling salesman',
                  door_window_size = 800,

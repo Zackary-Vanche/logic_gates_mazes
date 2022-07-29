@@ -416,9 +416,9 @@ The difference is that here there is a solution."""
 
 help_menus_list['levels']["Electricity"] = help_menus_list['NAND 3']
 
-help_menus_list['levels']["Travelling salesman"] = help_menus_list['DIST']
-
 help_menus_list['levels']["Wave"] = help_menus_list['XOR 3']
+
+help_menus_list['levels']["Travelling salesman"] = help_menus_list['DIST']
 
 help_menus_list['levels']["Dead_ends"] = """Even if it is the first level that actually looks like a printed circuit board, you have been in a computer all this time."""
 
