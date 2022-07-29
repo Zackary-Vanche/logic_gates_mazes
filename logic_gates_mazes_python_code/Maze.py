@@ -531,12 +531,6 @@ class Maze:
                             solutions_to_visit.append(solution+(action,))
                         # SWITCHES
                         if solution == () or solution[-1][0] != 'S':
-                            # room_departure_doors = self.current_room().two_way_doors_list + self.current_room().departure_doors_list
-                            # if len(room_departure_doors) <= 2:
-                            #     for Slist in self.current_room().possible_switches_actions:
-                            #         for door in room_departure_doors:
-                            #             solutions_to_visit.append(solution+tuple(Slist)+tuple([door.name])) 
-                            # else:
                             for Slist in self.current_room().possible_switches_actions:
                                 solutions_to_visit.append(solution+tuple(Slist)) 
                     visited_situations.add(current_situation_vector)
