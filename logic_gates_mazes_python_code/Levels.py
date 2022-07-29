@@ -132,7 +132,7 @@ class Levels:
                              level_travelling_salesman,
                              level_dead_ends,
                              level_manhattan_distance,
-                             level_sudoku,
+                             #level_sudoku,
                              level_knight,
                              level_syracuse,
                              level_temple,
