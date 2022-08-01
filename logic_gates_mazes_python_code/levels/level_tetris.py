@@ -90,7 +90,7 @@ def level_tetris():
                  rooms_list=[R0, RE], 
                  doors_list=[D0], 
                  fastest_solution='S0 S8 S10 D0',
-                 level_color=Levels_colors_list.FROM_HUE(0.2, sa=1, li=0.59),
+                 level_color=Levels_colors_list.FROM_HUE(0.2, sa=1, li=0.3),
                  name='Tetris',
                  door_window_size=800,
                  keep_proportions=True)
