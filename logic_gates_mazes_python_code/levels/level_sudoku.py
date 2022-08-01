@@ -75,7 +75,9 @@ def level_sudoku(fast_solution_finding=False):
               empty=True,
               name='T2',
               switches = [S16, S17, S18, S19, S20, S21, S22, S23] + SNlist)
-    T3 = Tree(tree_list=['AND'] + [tree_list_0]*9,
+    T3 = Tree(tree_list=['AND'] + [tree_list_0]*9 + [['XOR'] + [[None]]*4] + [Tree.tree_list_OR(2),
+                                                                              Tree.tree_list_NAND(2),
+                                                                              Tree.tree_list_XOR(2)],
                 empty=True,
                 name='T3',
                 switches = [S24, S25, S26, S27, S28, S29, S30, S31,
@@ -96,6 +98,8 @@ def level_sudoku(fast_solution_finding=False):
                             SN0, SN1, SN2, SN3,
                             S20, S21, S22, S23, S28, S29, S30, S31,
                             SN0, SN1, SN2, SN3,
+                            S0, S4, S16, S20,
+                            S30, S14, S8, S18, S3, S7
                             ],
                 cut_expression=True,
                 cut_expression_separator=']')
@@ -177,7 +181,7 @@ def level_sudoku(fast_solution_finding=False):
                  exit_room_index=-1, 
                  rooms_list=[R0, R1, R2, R3, RE], 
                  doors_list=[D0, D1, D2, D3], 
-                 fastest_solution=None,
+                 fastest_solution='S0 S1 S2 S7 D0 S9 S12 S14 S15 D1 S18 S19 S21 S22 D2 S24 S27 S28 S29 D3',
                  level_color=Levels_colors_list.FROM_HUE(0.60, sa=1, li=0.85),
                  name='Sudoku',
                  door_window_size = 600,

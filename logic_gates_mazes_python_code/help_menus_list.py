@@ -424,6 +424,8 @@ help_menus_list['levels']["Dead_ends"] = """Even if it is the first level that a
 
 help_menus_list['levels']["Manhattan_distance"] = """The cheat code might be very useful here."""
 
+help_menus_list['levels']["Sudoku"] = """To solve this level you need to solve a 4*4 sudoku grid."""
+
 help_menus_list['levels']["Knight"] = """To solve this level you need to find a knight's tour."""
 
 help_menus_list['levels']["Syracuse"] = help_menus_list['DIV']
