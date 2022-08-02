@@ -25,6 +25,7 @@ class Tree:
     max_tree_depth = 0
     
     tree_list_not = ['NOT', [None]]
+    tree_list_NOT = ['NOT', [None]]
     
     def tree_list_AND(n):
         return ['AND'] + [[None]]*n

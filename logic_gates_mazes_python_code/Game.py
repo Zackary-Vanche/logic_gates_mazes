@@ -128,7 +128,7 @@ class Game:
         # vient de choisir de changer de niveau
         # ou au début du jeu (il faut initialiser le niveau)
         self.last_level_change_time = time()
-        self.click_rect_size = 39
+        self.click_rect_size = 37
         if self.save_image:
             if not os_path_exists('images'):
                 os_mkdir('images')
@@ -401,7 +401,7 @@ class Game:
                                      self.background_color,
                                      rect)
                 if switch.value:
-                    rectangle_switch = pygame_Rect(position[0]-self.click_rect_size/2 - 2,
+                    rectangle_switch = pygame_Rect(position[0]-self.click_rect_size/2,
                                                    position[1]-self.click_rect_size/2,
                                                    self.click_rect_size,
                                                    self.click_rect_size)
@@ -424,7 +424,7 @@ class Game:
                                                      True,
                                                      self.inside_room_color)
                 self.WINDOW.blit(switch_name_render,
-                            position - array([11/2*len(switch.name), 8]))
+                            position - array([10/2*len(switch.name), 8]))
         
     def display_help(self):
         

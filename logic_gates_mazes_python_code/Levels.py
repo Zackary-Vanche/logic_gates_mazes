@@ -49,6 +49,7 @@ from levels.level_matrix import level_matrix
 from levels.level_magic_square import level_magic_square # kakuro
 from levels.level_naturals import level_naturals
 from levels.level_nonogram import level_nonogram
+# from levels.level_no_three_in_line import level_no_three_in_line
 from levels.level_odd import level_odd
 from levels.level_or import level_or
 from levels.level_pancake_sorting import level_pancake_sorting
@@ -64,6 +65,7 @@ from levels.level_river import level_river
 from levels.level_square import level_square
 # from levels.level_subset_sum import level_subset_sum
 from levels.level_sudoku import level_sudoku
+# from levels.level_sujiko import level_sujiko
 from levels.level_syracuse import level_syracuse
 from levels.level_temple import level_temple
 from levels.level_taxicab_number import level_taxicab_number
@@ -72,6 +74,7 @@ from levels.level_tetrahedron import level_tetrahedron
 from levels.level_tetris import level_tetris
 from levels.level_travelling_salesman import level_travelling_salesman
 from levels.level_tree import level_tree
+from levels.level_water_pouring import level_water_pouring
 from levels.level_wave import level_wave
 from levels.level_xor import level_xor
 
@@ -80,7 +83,7 @@ from levels.level_xor import level_xor
 
 class Levels: 
     
-    levels_functions_list = [
+    levels_functions_list = [#level_water_pouring,
                              level_hello_world,
                              level_linear,
                              level_loop,
@@ -240,7 +243,7 @@ if __name__ == "__main__":
     #     print(solutions)
     # print('')
 
-    # solutions = level_sudoku(True).find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**3)
+#    solutions = level_sudoku(True).find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**3)
     
     with open('level_sudoku_solutions.txt', 'r') as f:
         solutions_test = f.readlines()
