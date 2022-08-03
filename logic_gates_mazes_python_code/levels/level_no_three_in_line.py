@@ -13,7 +13,7 @@ from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
 def level_no_three_in_line(fast_solution_finding=False):
-    
+
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
     S2 = Switch(name='S2')
@@ -39,7 +39,7 @@ def level_no_three_in_line(fast_solution_finding=False):
     S22 = Switch(name='S22')
     S23 = Switch(name='S23')
     S24 = Switch(name='S24')
-    
+
     SN3 = Switch(name='3', value=3)
 
     tree_list_SUP_3 = ['SUP', [None], ['SUM'] + [[None]]*3]
@@ -110,15 +110,15 @@ def level_no_three_in_line(fast_solution_finding=False):
                           SN3, S0, S11, S22,
                           SN3, S1, S12, S23,
                           SN3, S2, S13, S24,
-                          Switch(name='5', value=5), S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, S23, S24,
+                          Switch(name='9', value=9), S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, S23, S24,
                           ],
               cut_expression=True)
-    
+
     lx = 1
     ly = 5
     deltax = 2.3*lx
     deltay = ly+1.1
-    
+
     if fast_solution_finding:
         possible_switches_values = [[1, 1, 0, 0, 0],
                                     [1, 0, 1, 0, 0],
