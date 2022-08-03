@@ -83,7 +83,7 @@ from levels.level_xor import level_xor
 
 class Levels: 
     
-    levels_functions_list = [level_water_pouring,
+    levels_functions_list = [
                              level_hello_world,
                              level_linear,
                              level_loop,
@@ -137,6 +137,7 @@ class Levels:
                              level_manhattan_distance,
                              level_sudoku,
                              level_knight,
+                             # level_water_pouring,
                              level_syracuse,
                              level_temple,
                              
@@ -260,3 +261,12 @@ if __name__ == "__main__":
     #         solutions.append(sol)
     #         # print(sol)
     # print(nsol)
+    
+    # [4,4,0] ↔ [1,4,3] ↔ [1,5,2] ↔ [6,0,2] ↔ [6,2,0] ↔ [3,2,3] ↔ [3,5,0] ↔ [8,0,0]
+    # [4,4,0] ↔ [4,1,3] ↔ [7,1,0] ↔ [7,0,1] ↔ [2,5,1] ↔ [2,3,3] ↔ [5,3,0] ↔ [5,0,3] ↔ [8,0,0]
+    
+    sol = '''
+S0 D1 S10 D7 D13 D14 D15 S21 D12 S17 S18 D6 S3 S5 D0
+S0 S2 
+'''
+    level_water_pouring().try_solution(sol, verbose=2)

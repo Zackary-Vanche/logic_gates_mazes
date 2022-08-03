@@ -428,6 +428,8 @@ help_menus_list['levels']["Sudoku"] = """To solve this level you need to solve a
 
 help_menus_list['levels']["Knight"] = """To solve this level you need to find a knight's tour."""
 
+help_menus_list['levels']["Water pouring"] = """You have 3 jugs of liquid, and you need to pour water from one to another."""
+
 help_menus_list['levels']["Syracuse"] = help_menus_list['DIV']
 
 help_menus_list['levels']["Temple"] = """This level is the retranscription of a really known puzzle game.
