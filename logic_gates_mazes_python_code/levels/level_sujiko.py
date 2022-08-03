@@ -208,6 +208,33 @@ def level_sujiko():
               relative_departure_coordinates=[1/2, 0],
               relative_arrival_coordinates=[1/2, 1])
     
+    def get_T_rule(n):
+        if n == 0:
+            return Tree(tree_list=[None],
+                        empty=True,
+                        name='T_rule',
+                        switches = [SN1])
+        elif n == 9:
+            tree_list=['DIFF'] + [Tree.tree_list_BIN(3)]*8 + [Tree.tree_list_BIN(4)]
+        else:
+            tree_list=['DIFF'] + [Tree.tree_list_BIN(3)]*(n+1)
+        switches = [S0, S1, S2,
+                    S3, S4, S5,
+                    S6, S7, S8,
+                    S9, S10, S11,
+                    S12, S13, S14,
+                    S15, S16, S17,
+                    S18, S19, S20,
+                    S21, S22, S23, S24][:3*(n+1)]
+        T_rule = Tree(tree_list=tree_list,
+                      empty=True,
+                      name='T_rule',
+                      switches=switches,
+                      cut_expression=True,
+                      cut_expression_separator=')')
+        return T_rule
+    rule_on_switches = lambda maze : get_T_rule(maze.current_room_index).get_value()
+    
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, RE],
@@ -216,6 +243,7 @@ def level_sujiko():
                  level_color=Levels_colors_list.FROM_HUE(0.58, sa=0.8, li=0.49),
                  name='Sujiko',
                  door_window_size=700,
-                 keep_proportions=True)
+                 keep_proportions=True,
+                 rule_on_switches=rule_on_switches)
 
     return level

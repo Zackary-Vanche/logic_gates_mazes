@@ -85,8 +85,7 @@ from levels.level_xor import level_xor
 
 class Levels: 
     
-    levels_functions_list = [level_sujiko,
-                             level_no_three_in_line,
+    levels_functions_list = [
                              level_hello_world,
                              level_linear,
                              level_loop,
@@ -133,14 +132,16 @@ class Levels:
                              level_tesseract,
                              level_cartesian,
                              level_eulerian,
+                             # level_sujiko,
                              level_electricity,
                              level_wave,
                              level_travelling_salesman,
                              level_dead_ends,
+                             # level_no_three_in_line,
                              level_manhattan_distance,
                              level_sudoku,
                              level_knight,
-                             level_water_pouring,
+                             # level_water_pouring,
                              level_syracuse,
                              level_temple,
                              
@@ -232,22 +233,22 @@ if __name__ == "__main__":
     # level = level_bipartite()
     # cProfile.run("solutions = level.find_all_solutions(verbose=3, stop_at_first_solution=False)")
     
-    # for level_function in [
-    #                         level_hello_world,
-    #                         level_linear,
-    #                         level_loop,
-    #                         level_backward,
-    #                         level_bis_repetita,
-    #                         level_binary,
-    #                         level_or,
-    #                         level_crossroad,
-    #                         level_square,
-    #                       ]:
-    #     level = level_function()
-    #     print(level.name)
-    #     solutions = level.find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**3)
-    #     print(solutions)
-    # print('')
+    for level_function in [
+                            level_hello_world,
+                            level_linear,
+                            level_loop,
+                            level_backward,
+                            level_bis_repetita,
+                            level_binary,
+                            level_or,
+                            level_crossroad,
+                            level_square,
+                          ]:
+        level = level_function()
+        print(level.name)
+        solutions = level.find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**3)
+        print(solutions)
+    print('')
 
 #    solutions = level_sudoku(True).find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**3)
     
@@ -270,4 +271,4 @@ if __name__ == "__main__":
     # [4,4,0] ↔ [1,4,3] ↔ [1,5,2] ↔ [6,0,2] ↔ [6,2,0] ↔ [3,2,3] ↔ [3,5,0] ↔ [8,0,0]
     # [4,4,0] ↔ [4,1,3] ↔ [7,1,0] ↔ [7,0,1] ↔ [2,5,1] ↔ [2,3,3] ↔ [5,3,0] ↔ [5,0,3] ↔ [8,0,0]
     
-    level_no_three_in_line(True).find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**3)
+    # level_sujiko().find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**3)
