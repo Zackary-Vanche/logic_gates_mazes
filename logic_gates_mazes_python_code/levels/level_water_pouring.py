@@ -45,38 +45,11 @@ def level_water_pouring():
     
     SN0 = Switch(name="0", value=0)
     SN1 = Switch(name="1", value=1)
-    SN2 = Switch(name="2", value=2)
-    SN3 = Switch(name="3", value=3)
     SN4 = Switch(name="4", value=4)
-    SN5 = Switch(name="5", value=5)
-    SN6 = Switch(name="6", value=6)
-    SN7 = Switch(name="7", value=7)
     SN8 = Switch(name="8", value=8)
-    SN9 = Switch(name="9", value=9)
-    SN10 = Switch(name="10", value=10)
-    SN11 = Switch(name="11", value=11)
-    SN12 = Switch(name="12", value=12)
-    SN13 = Switch(name="13", value=13)
-    SN14 = Switch(name="14", value=14)
-    SN15 = Switch(name="15", value=15)
-    SN16 = Switch(name="16", value=16)
-    SN17 = Switch(name="17", value=17)
-    SN18 = Switch(name="18", value=18)
-    SN19 = Switch(name="19", value=19)
-    
-    tree_list_0 = Tree.tree_list_from_str("TFF")
-    tree_list_1 = Tree.tree_list_from_str("FTF")
-    tree_list_2 = Tree.tree_list_from_str("FFT")
     
     tree_list_EQU_BIN3 = ['EQU', Tree.tree_list_BIN(3), Tree.tree_list_BIN(3)]
     tree_list_EQU_plus1_BIN3 = ['EQU', Tree.tree_list_BIN(3), ['SUM', Tree.tree_list_BIN(3), [None]]]
-    
-    tree_list_SUM = ['SUM', Tree.tree_list_BIN(4), Tree.tree_list_BIN(3), Tree.tree_list_BIN(2)]
-    tree_list_EQU_SUM = ['EQU', tree_list_SUM, tree_list_SUM]
-    
-    tree_list_EQU_2 = ['EQU', Tree.tree_list_BIN(2), [None]]
-    tree_list_EQU_3 = ['EQU', Tree.tree_list_BIN(3), [None]]
-    tree_list_EQU_4 = ['EQU', Tree.tree_list_BIN(4), [None]]
     
     # 17 18 3 4 5 6 S0
     # 11 12 13 3 4 5 6 S1
