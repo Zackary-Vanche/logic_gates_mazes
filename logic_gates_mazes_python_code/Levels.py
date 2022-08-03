@@ -83,7 +83,7 @@ from levels.level_xor import level_xor
 
 class Levels: 
     
-    levels_functions_list = [#level_water_pouring,
+    levels_functions_list = [level_water_pouring,
                              level_hello_world,
                              level_linear,
                              level_loop,

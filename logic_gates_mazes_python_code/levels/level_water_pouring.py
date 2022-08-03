@@ -349,7 +349,7 @@ def level_water_pouring():
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15],
                  fastest_solution=None,
-                 level_color=Levels_colors_list.GREEN_GREY,
+                 level_color=Levels_colors_list.FROM_HUE(0.58, sa=0.8, li=0.85),
                  name='Water pouring',
                  door_window_size=650,
                  keep_proportions=True)
