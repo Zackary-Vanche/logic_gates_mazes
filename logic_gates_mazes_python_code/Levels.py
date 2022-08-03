@@ -245,18 +245,18 @@ if __name__ == "__main__":
 
 #    solutions = level_sudoku(True).find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**3)
     
-    with open('level_sudoku_solutions.txt', 'r') as f:
-        solutions_test = f.readlines()
-    for i in range(len(solutions_test)):
-        solutions_test[i] = solutions_test[i].replace('\n', '')
+    # with open('level_sudoku_solutions.txt', 'r') as f:
+    #     solutions_test = f.readlines()
+    # for i in range(len(solutions_test)):
+    #     solutions_test[i] = solutions_test[i].replace('\n', '')
         
-    level = level_sudoku()
-    nsol = 0
-    solutions = []
-    for sol in solutions_test:
-        r = level.try_solution(sol)
-        if r == 2:
-            nsol += 1
-            solutions.append(sol)
-            # print(sol)
-    print(nsol)
+    # level = level_sudoku()
+    # nsol = 0
+    # solutions = []
+    # for sol in solutions_test:
+    #     r = level.try_solution(sol)
+    #     if r == 2:
+    #         nsol += 1
+    #         solutions.append(sol)
+    #         # print(sol)
+    # print(nsol)

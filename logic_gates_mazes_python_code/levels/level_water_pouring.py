@@ -45,6 +45,24 @@ def level_water_pouring():
     
     SN0 = Switch(name="0", value=0)
     SN1 = Switch(name="1", value=1)
+    SN2 = Switch(name="2", value=2)
+    SN3 = Switch(name="3", value=3)
+    SN4 = Switch(name="4", value=4)
+    SN5 = Switch(name="5", value=5)
+    SN6 = Switch(name="6", value=6)
+    SN7 = Switch(name="7", value=7)
+    SN8 = Switch(name="8", value=8)
+    SN9 = Switch(name="9", value=9)
+    SN10 = Switch(name="10", value=10)
+    SN11 = Switch(name="11", value=11)
+    SN12 = Switch(name="12", value=12)
+    SN13 = Switch(name="13", value=13)
+    SN14 = Switch(name="14", value=14)
+    SN15 = Switch(name="15", value=15)
+    SN16 = Switch(name="16", value=16)
+    SN17 = Switch(name="17", value=17)
+    SN18 = Switch(name="18", value=18)
+    SN19 = Switch(name="19", value=19)
     
     tree_list_0 = Tree.tree_list_from_str("TFF")
     tree_list_1 = Tree.tree_list_from_str("FTF")
@@ -56,136 +74,176 @@ def level_water_pouring():
     tree_list_SUM = ['SUM', Tree.tree_list_BIN(4), Tree.tree_list_BIN(3), Tree.tree_list_BIN(2)]
     tree_list_EQU_SUM = ['EQU', tree_list_SUM, tree_list_SUM]
     
-    T0 = Tree(tree_list=Tree.tree_list_OR(2),
+    tree_list_EQU_2 = ['EQU', Tree.tree_list_BIN(2), [None]]
+    tree_list_EQU_3 = ['EQU', Tree.tree_list_BIN(3), [None]]
+    tree_list_EQU_4 = ['EQU', Tree.tree_list_BIN(4), [None]]
+    
+    # 17 18 3 4 5 6 S0
+    # 11 12 13 3 4 5 6 S1
+    T0 = Tree(tree_list=['AND',
+                             ['OR',
+                              Tree.tree_list_NOT,
+                              Tree.tree_list_from_str('TT TTTT FF FFFF')],
+                             ['OR',
+                              Tree.tree_list_NOT,
+                              Tree.tree_list_from_str('TTT TTTT FFF FFFF')],
+                             Tree.tree_list_OR(2),],
                 empty=True,
                 name='T0',
-                switches = [S0, S1])
+                switches = [
+                            S0,
+                            S17, S18,
+                            S3, S4, S5, S6,
+                            S17, S18,
+                            S3, S4, S5, S6,
+                            S1,
+                            S11, S12, S13,
+                            S3, S4, S5, S6,
+                            S11, S12, S13,
+                            S3, S4, S5, S6,
+                            S0, S1,
+                            ],
+                cut_expression=True,
+                cut_expression_separator=')')
 
     T1 = Tree(tree_list=['AND', Tree.tree_list_OR(2), Tree.tree_list_NOT],
                 empty=True,
                 name='T1',
                 switches = [S0, S1, S2])
 
-    T2 = Tree(tree_list=[None],
+    T2 = Tree(tree_list=['AND',
+                             [None],
+                             Tree.tree_list_from_str('TT TTT FF FFF')],
                 empty=True,
                 name='T2',
-                switches = [S2])
+                switches = [S2,
+                            S17, S18,
+                            S11, S12, S13,
+                            S17, S18,
+                            S11, S12, S13],
+                cut_expression=True)
 
     T3 = Tree(tree_list=Tree.tree_list_from_str("FFT"),
                 empty=True,
                 name='T3',
                 switches = [S0, S1, S2])
 
-#    T4 = Tree(tree_list=[None],
-#                empty=True,
-#                name='T4',
-#                switches = [SN0])
-#
-#    T5 = Tree(tree_list=[None],
-#                empty=True,
-#                name='T5',
-#                switches = [SN0])
+    T4 = Tree(tree_list=[None],
+                empty=True,
+                name='T4',
+                switches = [S1])
+
+    T5 = Tree(tree_list=Tree.tree_list_from_str('FT'),
+                empty=True,
+                name='T5',
+                switches = [S0, S1]) 
 
     T6 = Tree(tree_list=[None],
                 empty=True,
                 name='T6',
-                switches = [S1])
-
-    T7 = Tree(tree_list=Tree.tree_list_from_str('FT'),
-                empty=True,
-                name='T7',
-                switches = [S0, S1]) 
-
-    T8 = Tree(tree_list=[None],
-                empty=True,
-                name='T8',
                 switches = [S0])
 
-    T9 = Tree(tree_list=Tree.tree_list_from_str('TF'),
+    T7 = Tree(tree_list=Tree.tree_list_from_str('TF'),
                 empty=True,
-                name='T9',
+                name='T7',
                 switches = [S0, S1])
 
-    T10 = Tree(tree_list=['AND', [None], tree_list_EQU_plus1_BIN3],
+    T8 = Tree(tree_list=['AND', [None], tree_list_EQU_plus1_BIN3],
                 empty=True,
-                name='T10',
+                name='T8',
                 switches = [S1, S21, S22, S23, S24, S25, S26, SN1])
 
-    T11 = Tree(tree_list=['AND', [None], tree_list_EQU_BIN3],
+    T9 = Tree(tree_list=['AND', [None], tree_list_EQU_BIN3],
                 empty=True,
-                name='T11',
+                name='T9',
                 switches = [S1, S21, S22, S23, S24, S25, S26])
 
-    T12 = Tree(tree_list=[None],
+    T10 = Tree(tree_list=[None],
+                empty=True,
+                name='T10',
+                switches = [S2])
+
+    T11 = Tree(tree_list=[None],
+                empty=True,
+                name='T11',
+                switches = [S2])
+
+    T12 = Tree(tree_list=['AND', Tree.tree_list_OR(2), tree_list_EQU_plus1_BIN3],
                 empty=True,
                 name='T12',
-                switches = [S2])
-
-    T13 = Tree(tree_list=[None],
-                empty=True,
-                name='T13',
-                switches = [S2])
-
-    T14 = Tree(tree_list=['AND', Tree.tree_list_OR(2), tree_list_EQU_plus1_BIN3],
-                empty=True,
-                name='T14',
                 switches = [S0, S2, S21, S22, S23, S24, S25, S26, SN1])
 
-    T15 = Tree(tree_list=['AND', Tree.tree_list_OR(2), tree_list_EQU_BIN3],
+    T13 = Tree(tree_list=['AND', Tree.tree_list_OR(2), tree_list_EQU_BIN3],
                 empty=True,
-                name='T15',
+                name='T13',
                 switches = [S0, S2, S21, S22, S23, S24, S25, S26])
 
-    T16 = Tree(tree_list=tree_list_EQU_SUM,
+    T14 = Tree(tree_list=['AND',
+                          ['EQU'] + [Tree.tree_list_BIN(9)]*2,
+                          ['EQU', ['SUM', Tree.tree_list_BIN(4), Tree.tree_list_BIN(3), Tree.tree_list_BIN(2)], [None]]],
                 empty=True,
-                name='T16',
+                name='T14',
                 switches = [S3, S4, S5, S6,
-                            S7, S8, S9, S10,
                             S11, S12, S13,
-                            S14, S15, S16,
                             S17, S18,
-                            S19, S20],
+                            S7, S8, S9, S10,
+                            S14, S15, S16,
+                            S19, S20,
+                            S3, S4, S5, S6,
+                            S11, S12, S13,
+                            S17, S18,
+                            SN8],
                 cut_expression=True,
-                cut_expression_separator=']')
+                cut_expression_separator=')')
 
-    T17 = Tree(tree_list=[None],
+    T15 = Tree(tree_list=['AND',
+                          ['EQU', Tree.tree_list_BIN(2), [None]],
+                          ['EQU', Tree.tree_list_BIN(3), [None]],
+                          ['EQU', Tree.tree_list_BIN(4), [None]]],
                 empty=True,
-                name='T17',
-                switches = [SN0])
+                name='T15',
+                switches = [S17, S18,
+                            SN4,
+                            S11, S12, S13,
+                            SN4,
+                            S3, S4, S5, S6,
+                            SN0
+                            ])
 
-    ex = 0.6
-    ey = 0.6
-    dy = 2
+    ex = 1
+    ey = 1.25
+    dy = 2.5
+    a = 0.3
 
     R0 = Room(name='R0',
-              position = [5, 2*dy, ex, 2*dy+ey],
+              position = [5+a, 2*dy, ex, 2*dy+ey],
               switches_list = [S0, S1, S2])
     R1 = Room(name='R1',
               position = [0, 4*dy, 4, ey],
               switches_list = [S3, S4, S5, S6])
     R2 = Room(name='R2',
-              position = [6+ex, 4*dy, 4, ey],
+              position = [6+ex+2*a, 4*dy, 4, ey],
               switches_list = [S7, S8, S9, S10])
     R3 = Room(name='R3',
               position = [0, 3*dy, 3, ey],
               switches_list = [S11, S12, S13])
     R4 = Room(name='R4',
-              position = [6+ex, 3*dy, 3, ey],
+              position = [6+ex+2*a, 3*dy, 3, ey],
               switches_list = [S14, S15, S16])
     R5 = Room(name='R5',
-              position = [2, 2*dy, 2, ey],
+              position = [1, 2*dy, 3, ey],
               switches_list = [S17, S18])
     R6 = Room(name='R6',
-              position = [8+ex, 2*dy, 2, ey],
+              position = [7+ex+2*a, 2*dy, 3, ey],
               switches_list = [S19, S20])
     R7 = Room(name='R7',
               position = [0, 1*dy, 3, ey],
               switches_list = [S21, S22, S23])
     R8 = Room(name='R8',
-              position = [6+ex, 1*dy, 3, ey],
+              position = [6+ex+2*a, 1*dy, 3, ey],
               switches_list = [S24, S25, S26])
     RE = Room(name='RE',
-              position=[3, 0, 3+ex, 2*ey],
+              position=[5+ex/2-3/2+a, 0.5, 3, 1.75],
               is_exit=True)   # E pour exit ou end
 
     D0 = Door(two_way=False,
@@ -213,100 +271,87 @@ def level_water_pouring():
               room_arrival=R4,
               relative_departure_coordinates=[1, (1*dy+ey/2)/(2*dy+ey)],
               relative_arrival_coordinates=[0, 1/2])
-#    D4 = Door(two_way=False,
-#              tree=T4,
-#              room_departure=R5,
-#              room_arrival=R0,
-#              relative_departure_coordinates=[1, 1/2],
-#              relative_arrival_coordinates=[0, ey/2/(2*dy+ey)])
-#    D5 = Door(two_way=False,
-#              tree=T5,
-#              room_departure=R0,
-#              room_arrival=R6,
-#              relative_departure_coordinates=[1, ey/2/(2*dy+ey)],
-#              relative_arrival_coordinates=[0, 1/2],
-#              relative_position=1/6)
-    D6 = Door(two_way=False,
-              tree=T6,
+    D4 = Door(two_way=False,
+              tree=T4,
               room_departure=R3,
               room_arrival=R1,
               relative_departure_coordinates=[1.5/3, 1/2],
               relative_arrival_coordinates=[1.5/4, 1/2])
-    D7 = Door(two_way=False,
-              tree=T7,
+    D5 = Door(two_way=False,
+              tree=T5,
               room_departure=R2,
               room_arrival=R4,
               relative_departure_coordinates=[1.5/4, 1/2],
               relative_arrival_coordinates=[1.5/3, 1/2])
-    D8 = Door(two_way=False,
-              tree=T8,
+    D6 = Door(two_way=False,
+              tree=T6,
               room_departure=R5,
               room_arrival=R1,
-              relative_departure_coordinates=[1.5/2, 1/2],
+              relative_departure_coordinates=[2.5/3, 1/2],
               relative_arrival_coordinates=[3.5/4, 1/2])
-    D9 = Door(two_way=False,
-              tree=T9,
+    D7 = Door(two_way=False,
+              tree=T7,
               room_departure=R2,
               room_arrival=R6,
               relative_departure_coordinates=[3.5/4, 1/2],
-              relative_arrival_coordinates=[1.5/2, 1/2])
-    D10 = Door(two_way=False,
-               tree=T10,
+              relative_arrival_coordinates=[2.5/3, 1/2])
+    D8 = Door(two_way=False,
+               tree=T8,
                room_departure=R7,
                room_arrival=R3,
+               relative_departure_coordinates=[0.5/3, 1/2],
+               relative_arrival_coordinates=[0.5/3, 1/2])
+    D9 = Door(two_way=False,
+               tree=T9,
+               room_departure=R4,
+               room_arrival=R8,
+               relative_departure_coordinates=[0.5/3, 1/2],
+               relative_arrival_coordinates=[0.5/3, 1/2])
+    D10 = Door(two_way=False,
+               tree=T10,
+               room_departure=R5,
+               room_arrival=R3,
                relative_departure_coordinates=[1/3, 1/2],
-               relative_arrival_coordinates=[1/3, 1/2])
+               relative_arrival_coordinates=[2/3, 1/2])
     D11 = Door(two_way=False,
                tree=T11,
                room_departure=R4,
-               room_arrival=R8,
-               relative_departure_coordinates=[1/3, 1/2],
+               room_arrival=R6,
+               relative_departure_coordinates=[2/3, 1/2],
                relative_arrival_coordinates=[1/3, 1/2])
     D12 = Door(two_way=False,
                tree=T12,
-               room_departure=R5,
-               room_arrival=R3,
-               relative_departure_coordinates=[0.5/2, 1/2],
-               relative_arrival_coordinates=[2.5/3, 1/2])
-    D13 = Door(two_way=False,
-               tree=T13,
-               room_departure=R4,
-               room_arrival=R6,
-               relative_departure_coordinates=[2.5/3, 1/2],
-               relative_arrival_coordinates=[0.5/2, 1/2])
-    D14 = Door(two_way=False,
-               tree=T14,
                room_departure=R7,
                room_arrival=R5,
                relative_departure_coordinates=[2.5/3, 1/2],
-               relative_arrival_coordinates=[0.5/2, 1/2])
-    D15 = Door(two_way=False,
-               tree=T15,
+               relative_arrival_coordinates=[1.5/3, 1/2])
+    D13 = Door(two_way=False,
+               tree=T13,
                room_departure=R6,
                room_arrival=R8,
-               relative_departure_coordinates=[0.5/2, 1/2],
+               relative_departure_coordinates=[1.5/3, 1/2],
                relative_arrival_coordinates=[2.5/3, 1/2])
-    D16 = Door(two_way=False,
-               tree=T16,
+    D14 = Door(two_way=False,
+               tree=T14,
                room_departure=R8,
                room_arrival=R7,
-               relative_position=2/3)
-    D17 = Door(two_way=False,
-               tree=T17,
+               relative_position=0.6)
+    D15 = Door(two_way=False,
+               tree=T15,
                room_departure=R0,
                room_arrival=RE,
                relative_departure_coordinates=[1/2, 0],
-               relative_arrival_coordinates=[(2+ex/2)/(3+ex), 1/2],
+               relative_arrival_coordinates=[1/2, 1/2],
                relative_position=1/4)
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, RE],
-                 doors_list=[D0, D1, D2, D3, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17],
+                 doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15],
                  fastest_solution=None,
                  level_color=Levels_colors_list.GREEN_GREY,
                  name='Water pouring',
-                 door_window_size=550,
+                 door_window_size=650,
                  keep_proportions=True)
 
     return level

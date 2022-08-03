@@ -280,7 +280,7 @@ To change level, you can use :
     the up arrow key to go to the last level
 
     L and the number of the level you want to go to.
-    For instance, L12 will make you go to the level number 12."""
+    For instance, if you write L12 and then press enter you will go to the level 12."""
 
 help_menus_list['go in a room'] = """
 To go directly in a room, you can type its name (if it is possible for you to go there).
