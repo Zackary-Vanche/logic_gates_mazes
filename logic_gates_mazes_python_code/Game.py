@@ -128,7 +128,7 @@ class Game:
         # vient de choisir de changer de niveau
         # ou au début du jeu (il faut initialiser le niveau)
         self.last_level_change_time = time()
-        self.click_rect_size = 37
+        self.click_rect_size = 40
         if self.save_image:
             if not os_path_exists('images'):
                 os_mkdir('images')

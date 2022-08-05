@@ -42,7 +42,7 @@ class Room:
         self.possible_switches_values = possible_switches_values
         if self.possible_switches_values == None:
             self.possible_switches_actions = powerset([s.name for s in self.switches_list])
-        else:
+        elif type(possible_switches_values) == type([]):
             self.possible_switches_actions = []
             for switches_values in self.possible_switches_values:
                 Slist = []
@@ -50,6 +50,8 @@ class Room:
                     if switches_values[i]:
                         Slist.append(self.switches_list[i].name)
                 self.possible_switches_actions.append(Slist)
+        else:
+            self.possible_switches_actions = None
         
     def get_name_position(self):
         [x_gap, y_gap, x, y] = self.position
@@ -101,6 +103,19 @@ class Room:
             positions[k] = [fx(x_switch), fy(y_switch)]
         self.switches_positions = positions
         return self.switches_positions
+    
+    def get_possible_switches_actions(self):
+        if self.possible_switches_actions is None:
+            possible_switches_actions = []
+            for switches_values in self.possible_switches_values():
+                Slist = []
+                for i in range(len(self.switches_list)):
+                    if switches_values[i]:
+                        Slist.append(self.switches_list[i].name)
+                        possible_switches_actions.append(Slist)
+            return possible_switches_actions
+        else:
+             return self.possible_switches_actions
             
     def __str__(self):
         txt =  '\n|   Room {} :'.format(self.name)

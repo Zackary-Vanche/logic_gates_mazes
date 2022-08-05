@@ -6,7 +6,7 @@ Created on Mon Apr  4 20:01:20 2022
 """
 
 ns = 28
-nd = 9
+nd = 14
 nr = 9
 
 for i in range(ns):

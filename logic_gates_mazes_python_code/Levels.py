@@ -80,7 +80,7 @@ from levels.level_water_pouring import level_water_pouring
 from levels.level_wave import level_wave
 from levels.level_xor import level_xor
 
-# from levels.level_icone import level_icone
+from levels.level_icone import level_icone
 # from levels.level_random import level_random
 
 class Levels: 
@@ -145,6 +145,12 @@ class Levels:
                              level_syracuse,
                              level_temple,
                              
+                             level_icone,
+                             level_icone,
+                             level_icone,
+                             level_icone,
+                             level_icone,
+                             level_icone,
                              #level_random,
                              ]
 
@@ -233,22 +239,22 @@ if __name__ == "__main__":
     # level = level_bipartite()
     # cProfile.run("solutions = level.find_all_solutions(verbose=3, stop_at_first_solution=False)")
     
-    for level_function in [
-                            level_hello_world,
-                            level_linear,
-                            level_loop,
-                            level_backward,
-                            level_bis_repetita,
-                            level_binary,
-                            level_or,
-                            level_crossroad,
-                            level_square,
-                          ]:
-        level = level_function()
-        print(level.name)
-        solutions = level.find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**3)
-        print(solutions)
-    print('')
+    # for level_function in [
+    #                         level_hello_world,
+    #                         level_linear,
+    #                         level_loop,
+    #                         level_backward,
+    #                         level_bis_repetita,
+    #                         level_binary,
+    #                         level_or,
+    #                         level_crossroad,
+    #                         level_square,
+    #                       ]:
+    #     level = level_function()
+    #     print(level.name)
+    #     solutions = level.find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**3)
+    #     print(solutions)
+    # print('')
 
 #    solutions = level_sudoku(True).find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**3)
     
@@ -268,7 +274,59 @@ if __name__ == "__main__":
     #         # print(sol)
     # print(nsol)
     
-    # [4,4,0] ↔ [1,4,3] ↔ [1,5,2] ↔ [6,0,2] ↔ [6,2,0] ↔ [3,2,3] ↔ [3,5,0] ↔ [8,0,0]
+    
+    
+    # level = level_sujiko(True)
+    # level.try_solution('S0 S2 D0 S5 D1 S6 S7 S8 D2 S9 S10 D3 S13 D4 D5 S19 S20 D6 S21 D7 S27 D8', verbose=2)
+    # solution = level.find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**3)
+    
     # [4,4,0] ↔ [4,1,3] ↔ [7,1,0] ↔ [7,0,1] ↔ [2,5,1] ↔ [2,3,3] ↔ [5,3,0] ↔ [5,0,3] ↔ [8,0,0]
     
-    # level_sujiko().find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**3)
+    # [8, 0, 0]
+    # [3, 5, 0]
+    # [3, 2, 3]
+    # [6, 2, 0]
+    # [6, 0, 2]
+    # [1, 5, 2]
+    # [1, 4, 3]
+    # [4, 4, 0]
+    
+    # 8 S7 S8 S9 S10
+    
+    # 8 S3 S4 S5 S6
+    # 
+#     level = level_water_pouring()
+#     sol = """
+# S0 D1 S10 D7 D13 D14 D15 S21 D12 D6 D0
+
+# """
+#     level = level_no_three_in_line(True)
+#     solutions = level.find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**3)
+
+    # solutions_test = ['S2 D0 S3 S4 D1 S6 S7 S8 D2 S10 S11 D3 S12 D4 S16 D5 S18 S20 D6 D7 S27 D8',
+    #   'S0 S1 D0 S3 S5 D1 S6 S7 S8 D2 S10 S11 D3 D4 S15 D5 S20 D6 S22 D7 S27 D8',
+    #   'S0 S1 D0 S3 S4 S5 D1 S6 S8 D2 S11 D3 D4 S15 D5 S19 S20 D6 S22 D7 S27 D8',
+    #   'S0 S2 D0 S5 D1 S7 S8 D2 S9 S10 D3 S13 D4 S15 D5 S18 S19 S20 D6 D7 S27 D8',
+    #   'S0 S2 D0 S5 D1 S6 S7 S8 D2 S9 S10 D3 S13 D4 D5 S19 S20 D6 S21 D7 S27 D8',
+    #   'S0 S2 D0 S3 S4 D1 S6 S7 S8 D2 S11 D3 S13 D4 S15 D5 S19 S20 D6 D7 S27 D8']
+    # level = level_sujiko(False)
+    
+    # for sol in solutions_test:
+    #     r = level.try_solution(sol, verbose=0)
+    #     print(sol)
+    #     print(r)
+        
+    # l = []
+    # for sol in solutions_test:
+    #     l.append([])
+    #     for i in range(28):
+    #         l[-1].append(int('S' + str(i) in sol.split(' ')))
+                
+     #  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
+     # [[O, 0, 1, 1, 1, 0, 1, 1, 1, 0,  1,  1,  X,  0,  0,  0,  X,  0,  1,  0,  1,  0,  0,  0,  0,  0,  0,  1],
+     #  [1, 1, 0, 1, 0, 1, 1, 1, 1, 0,  1,  1,  0,  0,  0,  1,  0,  0,  0,  0,  1,  0,  1,  0,  0,  0,  0,  1],
+     #  [1, 1, 0, 1, 1, 1, 1, O, 1, 0,  0,  1,  0,  0,  0,  1,  0,  0,  0,  1,  1,  0,  1,  0,  0,  0,  0,  1],
+     #  [1, 0, 1, 0, 0, 1, O, 1, 1, 1,  1,  0,  0,  1,  0,  1,  0,  0,  1,  1,  1,  0,  0,  0,  0,  0,  0,  1],
+     #  [1, 0, 1, 0, 0, 1, 1, 1, 1, 1,  1,  0,  0,  1,  0,  0,  0,  0,  0,  1,  1,  X,  0,  0,  0,  0,  0,  1],
+     #  [1, 0, 1, 1, 1, 0, 1, 1, 1, 0,  0,  1,  0,  1,  0,  1,  0,  0,  0,  1,  1,  0,  0,  0,  0,  0,  0,  1]]
+    

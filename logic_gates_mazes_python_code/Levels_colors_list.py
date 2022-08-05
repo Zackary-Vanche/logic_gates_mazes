@@ -281,6 +281,13 @@ class Levels_colors_list:
                         letters_color = Color.BLACK,
                         letter_contour_color = Color.BLACK)
     
+    WHITE_AND_BLACK = Level_color(background_color = Color.DIRT_WHITE,
+                                  room_color = Color.BLACK,
+                                  contour_color = Color.IVORY,
+                                  surrounding_color = Color.BRIGHT_RED,
+                                  letters_color = Color.BLACK,
+                                  inside_room_color = Color.WHITE)
+    
     YELLOW = Level_color(background_color = Color.DARK_YELLOW,
                          room_color = Color.BRIGHT_YELLOW,
                          contour_color = Color.BLACK,

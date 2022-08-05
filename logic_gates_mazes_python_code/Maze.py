@@ -32,8 +32,7 @@ class Maze:
                  border=50,
                  keep_proportions=False,
                  line_size=3,
-                 random=False,
-                 rule_on_switches=lambda maze : 1):
+                 random=False):
         self.random = random
         self.name = name
         self.start_room_index = start_room_index
@@ -135,7 +134,6 @@ class Maze:
         self.n_help_pages = len(self.help_txt)
         if ' '.join(self.help_txt).replace(' ', '') == '':
             print(self.name, 'empty help')
-        self.rule_on_switches = rule_on_switches
                 
     def add_door(self, door):
         self.doors_set.add(door)
@@ -524,7 +522,7 @@ class Maze:
                     door.update_open()
                 if result_solution == 1:
                     current_situation_vector = self.current_situation_to_vector()
-                    if current_situation_vector not in visited_situations and self.rule_on_switches(self) == 1:
+                    if current_situation_vector not in visited_situations:
                         # DOORS
                         actions_doors = self.get_current_possible_doors()
                         if reverse_actions_order:
@@ -533,7 +531,7 @@ class Maze:
                             solutions_to_visit.append(solution+(action,))
                         # SWITCHES
                         if solution == () or solution[-1][0] != 'S':
-                            for Slist in self.current_room().possible_switches_actions:
+                            for Slist in self.current_room().get_possible_switches_actions():
                                 solutions_to_visit.append(solution+tuple(Slist)) 
                     visited_situations.add(current_situation_vector)
                 elif result_solution == 2:

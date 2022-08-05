@@ -29,8 +29,8 @@ if __name__ == "__main__":
             for n in sorted(dico.keys()):
                 file_list.append(dico[n])
 
-            m = 5
-            n = 11
+            m = 8
+            n = 8
             l_img_h = []
             for i in range(m):
                 l = file_list[n*i:n*i+n]

@@ -42,7 +42,7 @@ def level_icone():
              rooms_list=[R0, RE], 
              doors_list = [D0], 
              fastest_solution="S0 D0",
-             level_color=Levels_colors_list.BLACK_AND_WHITE_2,
+             level_color=Levels_colors_list.BLACK_AND_WHITE,
              name='Icone',
              door_window_size = 500,
              keep_proportions = True)

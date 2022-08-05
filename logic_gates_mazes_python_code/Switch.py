@@ -11,10 +11,13 @@ class Switch:
                  room = None, 
                  tree = None, 
                  value = 0,
-                 name = 'S'):
+                 name = None):
         self.value = value
         self.room = room
-        self.name = name
+        if name is None:
+            self.name = str(self.value)
+        else:
+            self.name = name
         self.doors_set = set()
         self.tree = tree
 

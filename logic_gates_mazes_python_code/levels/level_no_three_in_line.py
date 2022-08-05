@@ -110,7 +110,7 @@ def level_no_three_in_line(fast_solution_finding=False):
                           SN3, S0, S11, S22,
                           SN3, S1, S12, S23,
                           SN3, S2, S13, S24,
-                          Switch(name='9', value=9), S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, S23, S24,
+                          Switch(value=9), S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, S23, S24,
                           ],
               cut_expression=True)
 
@@ -186,9 +186,9 @@ def level_no_three_in_line(fast_solution_finding=False):
                  rooms_list=[R0, R1, R2, R3, R4, RE],
                  doors_list=[D0, D1, D2, D3, D4],
                  fastest_solution=None,
-                 level_color=Levels_colors_list.FROM_HUE(0.58, sa=0.8, li=0.49),
+                 level_color=Levels_colors_list.WHITE_AND_BLACK,
                  name='No three in line',
-                 door_window_size=800,
+                 door_window_size=850,
                  keep_proportions=True)
 
     return level

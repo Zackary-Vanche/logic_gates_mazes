@@ -153,5 +153,6 @@ def level_infinity():
                  level_color=Levels_colors_list.BLACK_AND_YELLOW,
                  name='Infinity',
                  border=50,
+                 door_window_size=495,
                  keep_proportions=False)
     return level

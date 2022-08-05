@@ -12,7 +12,7 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
-def level_sujiko():
+def level_sujiko(fast_solution_finding=False):
     
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -45,78 +45,197 @@ def level_sujiko():
     
     SN1 = Switch(name='1', value=1)
     
-    tree_list_DIFF = ['DIFF'] + [Tree.tree_list_BIN(3)]*4
+    tree_list_EQU = ['EQU', ['SUM'] + [Tree.tree_list_BIN(3)]*4, [None]]
 
-    T0 = Tree(tree_list=[None],
-              empty=True,
-              name='T0',
-              switches = [SN1])
-    T1 = Tree(tree_list=[None],
-              empty=True,
-              name='T1',
-              switches = [SN1])
-    T2 = Tree(tree_list=[None],
-              empty=True,
-              name='T2',
-              switches = [SN1])
-    T3 = Tree(tree_list=[None],
-              empty=True,
-              name='T3',
-              switches = [SN1])
-    T4 = Tree(tree_list=tree_list_DIFF,
-              empty=True,
-              name='T4',
-              switches = [S0, S1, S2,
-                          S3, S4, S5,
-                          S9, S10, S11,
-                          S12, S13, S14,
-                          ],
-              cut_expression=True,
-              cut_expression_separator=']')
-    T5 = Tree(tree_list=tree_list_DIFF,
-              empty=True,
-              name='T5',
-              switches = [S3, S4, S5,
-                          S6, S7, S8,
-                          S12, S13, S14,
-                          S15, S16, S17,
-                          ],
-              cut_expression=True,
-              cut_expression_separator=']')
-    T6 = Tree(tree_list=[None],
-              empty=True,
-              name='T6',
-              switches = [SN1],
-              cut_expression=False,
-              cut_expression_separator=')')
-    T7 = Tree(tree_list=tree_list_DIFF,
-              empty=True,
-              name='T7',
-              switches = [S9, S10, S11,
-                          S12, S13, S14,
-                          S18, S19, S20,
-                          S21, S22, S23,
-                          ],
-              cut_expression=True,
-              cut_expression_separator=']')
-    T8 = Tree(tree_list=['AND', tree_list_DIFF,['DIFF'] + [Tree.tree_list_BIN(3)]*8 + [Tree.tree_list_BIN(4)]],
-              empty=True,
-              name='T8',
-              switches = [S12, S13, S14,
-                          S15, S16, S17,
-                          S21, S22, S23,
-                          S24, S25, S26,
-                          S24, S25, S26,
-                          S0, S1, S2,
-                          S3, S4, S5,
-                          S6, S7, S8,
-                          S9, S10, S11,
-                          S12, S13, S14,
-                          S15, S16, S17,
-                          S18, S19, S20,
-                          S21, S22, S23, S24],
-              cut_expression=True,
-              cut_expression_separator=')')
+    if fast_solution_finding:
+        
+        def tree_list_DIFF(k):
+            return ['DIFF'] + [Tree.tree_list_BIN(3)]*k
+        
+        T0 = Tree(tree_list=[None],
+                  empty=True,
+                  name='T0',
+                  switches = [SN1])
+        T1 = Tree(tree_list=tree_list_DIFF(2),
+                  empty=True,
+                  name='T1',
+                  switches = [S0, S1, S2,
+                              S3, S4, S5])
+        T2 = Tree(tree_list=tree_list_DIFF(3),
+                  empty=True,
+                  name='T2',
+                  switches = [S0, S1, S2,
+                              S3, S4, S5,
+                              S6, S7, S8])
+        T3 = Tree(tree_list=tree_list_DIFF(4),
+                  empty=True,
+                  name='T3',
+                  switches = [S0, S1, S2,
+                              S3, S4, S5,
+                              S6, S7, S8,
+                              S9, S10, S11])
+        T4 = Tree(tree_list=['AND', tree_list_EQU, tree_list_DIFF(5)],
+                  empty=True,
+                  name='T4',
+                  switches = [S0, S1, S2,
+                              S3, S4, S5,
+                              S9, S10, S11,
+                              S12, S13, S14,
+                              Switch(value=14),
+                              S0, S1, S2,
+                              S3, S4, S5,
+                              S6, S7, S8,
+                              S9, S10, S11,
+                              S12, S13, S14
+                              ],
+                  cut_expression=True,
+                  cut_expression_separator=']')
+        T5 = Tree(tree_list=['AND', tree_list_EQU, tree_list_DIFF(6)],
+                  empty=True,
+                  name='T5',
+                  switches = [S3, S4, S5,
+                              S6, S7, S8,
+                              S12, S13, S14,
+                              S15, S16, S17,
+                              Switch(value=13),
+                              S0, S1, S2,
+                              S3, S4, S5,
+                              S6, S7, S8,
+                              S9, S10, S11,
+                              S12, S13, S14,
+                              S15, S16, S17,
+                              ],
+                  cut_expression=True,
+                  cut_expression_separator=')')
+        T6 = Tree(tree_list=tree_list_DIFF(7),
+                  empty=True,
+                  name='T6',
+                  switches = [S0, S1, S2,
+                              S3, S4, S5,
+                              S6, S7, S8,
+                              S9, S10, S11,
+                              S12, S13, S14,
+                              S15, S16, S17,
+                              S18, S19, S20,],
+                  cut_expression=True,
+                  cut_expression_separator=')')
+        T7 = Tree(tree_list=['AND', tree_list_EQU, tree_list_DIFF(8)],
+                  empty=True,
+                  name='T7',
+                  switches = [S9, S10, S11,
+                              S12, S13, S14,
+                              S18, S19, S20,
+                              S21, S22, S23,
+                              Switch(value=12),
+                              S0, S1, S2,
+                              S3, S4, S5,
+                              S6, S7, S8,
+                              S9, S10, S11,
+                              S12, S13, S14,
+                              S15, S16, S17,
+                              S18, S19, S20,
+                              S21, S22, S23
+                              ],
+                  cut_expression=True,
+                  cut_expression_separator=')')
+        T8 = Tree(tree_list=['AND',
+                             ['EQU', ['SUM'] + [Tree.tree_list_BIN(3)]*3 + [Tree.tree_list_BIN(4)], [None]],
+                             ['DIFF'] + [Tree.tree_list_BIN(3)]*8 + [Tree.tree_list_BIN(4)]],
+                  empty=True,
+                  name='T8',
+                  switches = [S12, S13, S14,
+                              S15, S16, S17,
+                              S21, S22, S23,
+                              S24, S25, S26, S27,
+                              Switch(value=11),
+                              S0, S1, S2,
+                              S3, S4, S5,
+                              S6, S7, S8,
+                              S9, S10, S11,
+                              S12, S13, S14,
+                              S15, S16, S17,
+                              S18, S19, S20,
+                              S21, S22, S23,
+                              S24, S25, S26, S27],
+                  cut_expression=True,
+                  cut_expression_separator=')')
+    else:
+        T0 = Tree(tree_list=[None],
+                  empty=True,
+                  name='T0',
+                  switches = [SN1])
+        T1 = Tree(tree_list=[None],
+                  empty=True,
+                  name='T1',
+                  switches = [SN1])
+        T2 = Tree(tree_list=[None],
+                  empty=True,
+                  name='T2',
+                  switches = [SN1])
+        T3 = Tree(tree_list=[None],
+                  empty=True,
+                  name='T3',
+                  switches = [SN1])
+        T4 = Tree(tree_list=tree_list_EQU,
+                  empty=True,
+                  name='T4',
+                  switches = [S0, S1, S2,
+                              S3, S4, S5,
+                              S9, S10, S11,
+                              S12, S13, S14,
+                              Switch(value=14)
+                              ],
+                  cut_expression=True,
+                  cut_expression_separator=']')
+        T5 = Tree(tree_list=tree_list_EQU,
+                  empty=True,
+                  name='T5',
+                  switches = [S3, S4, S5,
+                              S6, S7, S8,
+                              S12, S13, S14,
+                              S15, S16, S17,
+                              Switch(value=13)
+                              ],
+                  cut_expression=True,
+                  cut_expression_separator=']')
+        T6 = Tree(tree_list=Tree.tree_list_OR(2),
+                  empty=True,
+                  name='T6',
+                  switches = [S12, S16],
+                  cut_expression=False,
+                  cut_expression_separator=')')
+        T7 = Tree(tree_list=tree_list_EQU,
+                  empty=True,
+                  name='T7',
+                  switches = [S9, S10, S11,
+                              S12, S13, S14,
+                              S18, S19, S20,
+                              S21, S22, S23,
+                              Switch(value=12)
+                              ],
+                  cut_expression=True,
+                  cut_expression_separator=']')
+        T8 = Tree(tree_list=['AND',
+                             ['EQU', ['SUM'] + [Tree.tree_list_BIN(3)]*3 + [Tree.tree_list_BIN(4)], [None]],
+                             ['DIFF'] + [Tree.tree_list_BIN(3)]*8 + [Tree.tree_list_BIN(4)]],
+                  empty=True,
+                  name='T8',
+                  switches = [S12, S13, S14,
+                              S15, S16, S17,
+                              S21, S22, S23,
+                              S24, S25, S26, S27,
+                              Switch(value=11),
+                              S0, S1, S2,
+                              S3, S4, S5,
+                              S6, S7, S8,
+                              S9, S10, S11,
+                              S12, S13, S14,
+                              S15, S16, S17,
+                              S18, S19, S20,
+                              S21, S22, S23,
+                              S24, S25, S26, S27],
+                  cut_expression=True,
+                  cut_expression_separator=')')
     
     lx = 1
     ly = 4
@@ -208,42 +327,14 @@ def level_sujiko():
               relative_departure_coordinates=[1/2, 0],
               relative_arrival_coordinates=[1/2, 1])
     
-    def get_T_rule(n):
-        if n == 0:
-            return Tree(tree_list=[None],
-                        empty=True,
-                        name='T_rule',
-                        switches = [SN1])
-        elif n == 9:
-            tree_list=['DIFF'] + [Tree.tree_list_BIN(3)]*8 + [Tree.tree_list_BIN(4)]
-        else:
-            tree_list=['DIFF'] + [Tree.tree_list_BIN(3)]*(n+1)
-        switches = [S0, S1, S2,
-                    S3, S4, S5,
-                    S6, S7, S8,
-                    S9, S10, S11,
-                    S12, S13, S14,
-                    S15, S16, S17,
-                    S18, S19, S20,
-                    S21, S22, S23, S24][:3*(n+1)]
-        T_rule = Tree(tree_list=tree_list,
-                      empty=True,
-                      name='T_rule',
-                      switches=switches,
-                      cut_expression=True,
-                      cut_expression_separator=')')
-        return T_rule
-    rule_on_switches = lambda maze : get_T_rule(maze.current_room_index).get_value()
-    
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8],
-                 fastest_solution=None,
-                 level_color=Levels_colors_list.FROM_HUE(0.58, sa=0.8, li=0.49),
+                 fastest_solution=None, # 'S0 S2 D0 S5 D1 S6 S7 S8 D2 S9 S10 D3 S13 D4 D5 S19 S20 D6 S21 D7 S27 D8'
+                 level_color=Levels_colors_list.FROM_HUE(0.9, sa=1, li=0.3),
                  name='Sujiko',
                  door_window_size=700,
-                 keep_proportions=True,
-                 rule_on_switches=rule_on_switches)
+                 keep_proportions=True)
 
     return level
