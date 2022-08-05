@@ -19,6 +19,7 @@ from inspect import signature
 # from levels.level_sinusoidal import level_sinusoidal
 # from levels.level_subset_sum import level_subset_sum
 
+from levels.level_3sat import level_3sat
 # from levels.level_15_puzzle import level_15_puzzle
 from levels.level_4_colors_theorem import level_4_colors_theorem
 from levels.level_the_4_queens import level_the_4_queens
@@ -108,6 +109,7 @@ class Levels:
                              level_odd,
                              level_recurrence,
                              level_point_of_no_return,
+                             level_3sat,
                              level_naturals,
                              level_parallel,
                              level_pythagorean,
@@ -141,16 +143,15 @@ class Levels:
                              level_manhattan_distance,
                              level_sudoku,
                              level_knight,
-                             # level_water_pouring,
+                             level_water_pouring,
                              level_syracuse,
                              level_temple,
                              
-                             # level_icone,
-                             # level_icone,
-                             # level_icone,
-                             # level_icone,
-                             # level_icone,
-                             # level_icone,
+                              # level_icone,
+                              # level_icone,
+                              # level_icone,
+                              # level_icone,
+                              # level_icone,
                              #level_random,
                              ]
 
@@ -334,3 +335,7 @@ if __name__ == "__main__":
     #     if r == 2:
     #         solutions.append(sol)
     #         print(sol)
+    
+    # for i in range(100):
+    #     solutions = level_3sat().find_all_solutions(verbose=0, stop_at_first_solution=False, nb_iterations_print=10**3)
+    #     print(len(solutions))

@@ -63,7 +63,7 @@ class Tree:
     def tree_list_DIFF(n):
         return ['DIFF'] + [[None]]*n
     
-    def tree_list_from_str(txt):
+    def tree_list_from_str(txt, CNF=False):
         def tree_list_and_from_str(txt):
             assert txt.replace('T', '').replace('F', '') == ''
             if txt == 'T':
@@ -72,9 +72,15 @@ class Tree:
                 return ['NOT', [None]]
             n = len(txt)
             if n == 2:
-                tree_list = ['AND']
+                if CNF:
+                    tree_list = ['OR']
+                else:
+                    tree_list = ['AND']
             else:
-                tree_list = ['AND']
+                if CNF:
+                    tree_list = ['OR']
+                else:
+                    tree_list = ['AND']
             for i in range(n):
                 b = txt[i]
                 if b == 'T':
@@ -89,9 +95,15 @@ class Tree:
         else:
             n = len(txtl)
             if n == 2:
-                tree_list = ['OR']
+                if CNF:
+                    tree_list = ['AND']
+                else:
+                    tree_list = ['OR']
             else:
-                tree_list = ['OR']
+                if CNF:
+                    tree_list = ['AND']
+                else:
+                    tree_list = ['OR']
             for i in range(n):
                 tree_list.append(tree_list_and_from_str(txtl[i]))
             return tree_list

@@ -358,6 +358,8 @@ help_menus_list['levels']["Recurrence"] = help_menus_list['brackets']
 
 help_menus_list['levels']["Point of no return"] = help_menus_list['XNOR']
 
+help_menus_list['levels']["3 SAT"] = """The 3 SAT problem is NP complete.\n\nThe door expression has been randomly chosen by computer."""
+
 help_menus_list['levels']["Naturals"] = '\n'.join([help_menus_list['ABS'],
                                                    help_menus_list['MINUS'],
                                                    help_menus_list['BIN']])

@@ -13,7 +13,7 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
-def level_water_pouring(fast_solution_finding=False):
+def level_water_pouring():
     
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -114,14 +114,22 @@ def level_water_pouring(fast_solution_finding=False):
                 name='T6',
                 switches = [S0, S2, S21, S22, S23, S24, S25, S26, SN1])
     
-    T7 = Tree(tree_list=['EQU', ['SUM', Tree.tree_list_BIN(4), Tree.tree_list_BIN(3), Tree.tree_list_BIN(2)], [None]],
+    T7 = Tree(tree_list=['AND',
+                             ['EQU', ['SUM', Tree.tree_list_BIN(4), Tree.tree_list_BIN(3), Tree.tree_list_BIN(2)], [None]],
+                             ['EQU', Tree.tree_list_BIN(9), Tree.tree_list_BIN(9)]],
               empty=True,
               name='T7',
               switches = [S7, S8, S9, S10,
                           S14, S15, S16,
                           S19, S20,
-                          SN8],
-              cut_expression=False,
+                          SN8,
+                          S17, S18,
+                          S11, S12, S13,
+                          S3, S4, S5, S6,
+                          S19, S20,
+                          S14, S15, S16,
+                          S7, S8, S9, S10],
+              cut_expression=True,
               cut_expression_separator=')')
     T8 = Tree(tree_list=['EQU', ['SUM', Tree.tree_list_BIN(4), Tree.tree_list_BIN(3), Tree.tree_list_BIN(2)], [None]],
               empty=True,
@@ -171,18 +179,18 @@ def level_water_pouring(fast_solution_finding=False):
                 empty=True,
                 name='T13',
                 switches = [S17, S18,
-                            SN4,
+                            SN0,
                             S11, S12, S13,
                             SN4,
                             S3, S4, S5, S6,
-                            SN0,
+                            SN4,
                             
                             S19, S20,
-                            SN4,
+                            SN0,
                             S14, S15, S16,
                             SN4,
                             S7, S8, S9, S10,
-                            SN0,
+                            SN4,
                             
                             S0, S1, S2,
                             SN0
@@ -360,12 +368,80 @@ def level_water_pouring(fast_solution_finding=False):
                relative_departure_coordinates=[1/2, 0],
                relative_arrival_coordinates=[1/2, 1],
                relative_position=1/2)
+    
+    solution = """
+D8 D9 D10 D11 S10 D12
+S1 D7
+S21 D4
+S11 S13 D2
+S3 S4 S6 D0
+D8
+S24 D9
+D10
+S14 S16 D11
+S7 S8 S10 D12
+S1 S2 D7
+S22 S21 D6
+S17 S18 D5
+S11 S12 S13 D1
+D8
+S24 S25 D9
+S19 S20 D10
+S14 S15 S16 D11
+D12
+S0 S2 D7
+S21 D6
+S17 S18 D3
+S3 S5 D0
+D8
+S24 D9
+S19 S20 D10
+D11
+S7 S9 D12
+S0 S2 D7
+S23 S21 S22 D6
+S18 D5
+S12 D1
+D8
+S24 S25 S26 D9
+S20 D10
+S15 D11
+D12
+S1 S2 D7
+S21 D4
+S11 S13 D2
+S3 S4 S5 D0
+D8
+S24 D9
+D10
+S14 S16 D11
+S7 S8 S9 D12
+S1 S2 D7
+S21 S22 D6
+S17 D5
+S11 D1
+D8
+S24 S25 D9
+S19 D10
+S14 D11
+D12
+S0 S2 D7
+S21 D6
+S17 S18 D3
+S3 S5 D0
+S0 D8
+S24 D9
+S19 S20 D10
+D11
+S7 S9 D12
+D13
+"""
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13],
-                 fastest_solution=None,
+                 fastest_solution=solution,
                  level_color=Levels_colors_list.FROM_HUE(0.58, sa=0.8, li=0.49),
                  name='Water pouring',
                  door_window_size=640,
