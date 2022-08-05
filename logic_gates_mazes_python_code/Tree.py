@@ -201,7 +201,7 @@ class Tree:
                     line = self.sons_list[1+n:]
                     l1 = ' '.join([t.get_easy_logical_expression_PN() for t in groups_of_1_needed])
                     l2 = ' '.join([t.get_easy_logical_expression_PN() for t in line])
-                    self.easy_logical_expression_PN = '# ' + '(' + l1 + ') [' + l2 + ']'
+                    self.easy_logical_expression_PN = '# ' + '[' + l1 + '] (' + l2 + ')'
                 elif root_name == 'IN':
                     s0 = self.sons_list[0].get_easy_logical_expression_PN()
                     lin = ' '.join([t.get_easy_logical_expression_PN() for t in self.sons_list[1:]])

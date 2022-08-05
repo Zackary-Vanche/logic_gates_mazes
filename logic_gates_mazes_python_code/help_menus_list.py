@@ -168,11 +168,11 @@ help_menus_list['NONO'] = """
 The operator # takes two list in argument.
 The first list tells you the number of unbroken lines of 1 that should be presents in the second list in order for the result to be 1.
 For example:
-    # (1 1) [1 0 0 1 0] = 1
-    # (2 1) [1 1 0 0 1] = 1
-    # (4) [1 1 1 1] = 1
-    # (1 3) [1 0 1 1] = 0
-    # (2 1) [1 0 0 1 1] = 0"""
+    # [1 1] (1 0 0 1 0) = 1
+    # [2 1] (1 1 0 0 1) = 1
+    # [4] (1 1 1 1) = 1
+    # [1 3] (1 0 1 1) = 0
+    # [2 1] (1 0 0 1 1) = 0"""
 
 help_menus_list['AND and NOT'] = """  
 By combining these notations, you can write :
@@ -414,6 +414,8 @@ help_menus_list['levels']["Cartesian"] = """Sorry, there is nothing to help you 
 help_menus_list['levels']["Eulerian"] = """This level was initially inspired by the seven bridges of Königsberg problem.
 The difference is that here there is a solution."""
 
+help_menus_list['levels']["Sujiko"] = """Sujiko is a logic-based, combinatorial number-placement puzzle."""
+
 help_menus_list['levels']["Electricity"] = help_menus_list['NAND 3']
 
 help_menus_list['levels']["Wave"] = help_menus_list['XOR 3']
@@ -421,6 +423,8 @@ help_menus_list['levels']["Wave"] = help_menus_list['XOR 3']
 help_menus_list['levels']["Travelling salesman"] = help_menus_list['DIST']
 
 help_menus_list['levels']["Dead_ends"] = """Even if it is the first level that actually looks like a printed circuit board, you have been in a computer all this time."""
+
+help_menus_list['levels']["No three in line"] = """The no three in line problem is a discrete geometry problem."""
 
 help_menus_list['levels']["Manhattan_distance"] = """The cheat code might be very useful here."""
 

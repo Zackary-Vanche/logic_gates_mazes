@@ -12,7 +12,11 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
-def level_sujiko(fast_solution_finding=False):
+def level_sujiko():
+    
+    fast_solution_finding=False
+    # TODO
+    # No solution found when fast_solution_finding==True -> solve this
     
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -331,7 +335,7 @@ def level_sujiko(fast_solution_finding=False):
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8],
-                 fastest_solution=None, # 'S0 S2 D0 S5 D1 S6 S7 S8 D2 S9 S10 D3 S13 D4 D5 S19 S20 D6 S21 D7 S27 D8'
+                 fastest_solution='S2 D0 S3 S4 D1 S6 S7 S8 D2 S10 S11 D3 S12 D4 S16 D5 S18 S20 D6 D7 S27 D8',
                  level_color=Levels_colors_list.FROM_HUE(0.9, sa=1, li=0.3),
                  name='Sujiko',
                  door_window_size=700,

@@ -132,12 +132,12 @@ class Levels:
                              level_tesseract,
                              level_cartesian,
                              level_eulerian,
-                             # level_sujiko,
+                             level_sujiko,
                              level_electricity,
                              level_wave,
                              level_travelling_salesman,
                              level_dead_ends,
-                             # level_no_three_in_line,
+                             level_no_three_in_line,
                              level_manhattan_distance,
                              level_sudoku,
                              level_knight,
@@ -145,12 +145,12 @@ class Levels:
                              level_syracuse,
                              level_temple,
                              
-                             level_icone,
-                             level_icone,
-                             level_icone,
-                             level_icone,
-                             level_icone,
-                             level_icone,
+                             # level_icone,
+                             # level_icone,
+                             # level_icone,
+                             # level_icone,
+                             # level_icone,
+                             # level_icone,
                              #level_random,
                              ]
 
@@ -321,12 +321,16 @@ if __name__ == "__main__":
     #     l.append([])
     #     for i in range(28):
     #         l[-1].append(int('S' + str(i) in sol.split(' ')))
-                
-     #  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
-     # [[O, 0, 1, 1, 1, 0, 1, 1, 1, 0,  1,  1,  X,  0,  0,  0,  X,  0,  1,  0,  1,  0,  0,  0,  0,  0,  0,  1],
-     #  [1, 1, 0, 1, 0, 1, 1, 1, 1, 0,  1,  1,  0,  0,  0,  1,  0,  0,  0,  0,  1,  0,  1,  0,  0,  0,  0,  1],
-     #  [1, 1, 0, 1, 1, 1, 1, O, 1, 0,  0,  1,  0,  0,  0,  1,  0,  0,  0,  1,  1,  0,  1,  0,  0,  0,  0,  1],
-     #  [1, 0, 1, 0, 0, 1, O, 1, 1, 1,  1,  0,  0,  1,  0,  1,  0,  0,  1,  1,  1,  0,  0,  0,  0,  0,  0,  1],
-     #  [1, 0, 1, 0, 0, 1, 1, 1, 1, 1,  1,  0,  0,  1,  0,  0,  0,  0,  0,  1,  1,  X,  0,  0,  0,  0,  0,  1],
-     #  [1, 0, 1, 1, 1, 0, 1, 1, 1, 0,  0,  1,  0,  1,  0,  1,  0,  0,  0,  1,  1,  0,  0,  0,  0,  0,  0,  1]]
-    
+     
+    # with open('level_no_three_in_line_solutions.txt', 'r') as f:
+    #     solutions_test = f.readlines()
+    # for i in range(len(solutions_test)):
+    #     solutions_test[i] = solutions_test[i].replace('\n', '')
+        
+    # level = level_no_three_in_line()
+    # solutions = []
+    # for sol in solutions_test:
+    #     r = level.try_solution(sol, verbose=0)
+    #     if r == 2:
+    #         solutions.append(sol)
+    #         print(sol)

@@ -81,7 +81,7 @@ def level_nonogram():
                           SN2, SN2, SN1, S4, S8, S12, S16, S20,
                           SN1, SN2,      S0, S6, S12, S18, S24],
               cut_expression=True,
-              cut_expression_separator=']')
+              cut_expression_separator=')')
 
     R0 = Room(name='R0',
               position = [0, 0, 5, 1],

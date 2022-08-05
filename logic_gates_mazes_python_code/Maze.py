@@ -27,7 +27,7 @@ class Maze:
                  uniform_surrounding_colors=True,
                  fastest_solution=None,
                  name='L',
-                 y_separation=70,
+                 y_separation=50,
                  door_window_size=500,
                  border=50,
                  keep_proportions=False,
