@@ -12,7 +12,9 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
-def level_no_three_in_line(fast_solution_finding=False):
+def level_no_three_in_line():
+    
+    fast_solution_finding=False
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -207,7 +209,7 @@ def level_no_three_in_line(fast_solution_finding=False):
                  rooms_list=[R0, R1, R2, R3, R4, RE],
                  doors_list=[D0, D1, D2, D3, D4],
                  fastest_solution="S1 S2 D0 S5 S7 D1 S10 S14 D2 S16 S18 D3 S23 S24 D4",
-                 level_color=Levels_colors_list.WHITE_AND_BLACK,
+                 level_color=Levels_colors_list.FROM_HUE(0.05, sa=1, li=0.6),
                  name='No three in line',
                  door_window_size=930,
                  keep_proportions=True,

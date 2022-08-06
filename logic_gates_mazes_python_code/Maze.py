@@ -352,13 +352,13 @@ class Maze:
         for action in actions_list:
             action_type = action[0]
             if action_type == 'S' and (self.legit_change_switch(action) or allow_all):
-                print(action)
+                # print(action)
                 self.change_switch(action)
             if action_type == 'D' and (self.legit_use_door(action) or allow_all):
-                print(action)
+                # print(action)
                 self.use_door(action)
             if action_type == 'R' and (self.legit_change_room(action) or allow_all):
-                print(action)
+                # print(action)
                 self.change_room(action)
 
     # Les solutions sont données sous forme de texte

@@ -11,7 +11,6 @@ from os import mkdir as os_mkdir
 from inspect import signature
 
 # from levels.level_3d_matching import level_3d_matching
-# from levels.level_3sat import level_3sat
 # from levels.level_absolute import level_absolute
 # from levels.level_diophantine import level_diophantine
 # from levels.level_ILP import level_ILP
@@ -20,7 +19,6 @@ from inspect import signature
 # from levels.level_subset_sum import level_subset_sum
 
 from levels.level_3sat import level_3sat
-# from levels.level_15_puzzle import level_15_puzzle
 from levels.level_4_colors_theorem import level_4_colors_theorem
 from levels.level_the_4_queens import level_the_4_queens
 from levels.level_alice_and_bob import level_alice_and_bob
@@ -61,6 +59,7 @@ from levels.level_or import level_or
 from levels.level_pancake_sorting import level_pancake_sorting
 from levels.level_parallel import level_parallel
 from levels.level_partition import level_partition
+from levels.level_permutation import level_permutation
 from levels.level_point_of_no_return import level_point_of_no_return
 from levels.level_pythagorean import level_pythagorean
 from levels.level_pong import level_pong
@@ -114,6 +113,7 @@ class Levels:
                              level_parallel,
                              level_pythagorean,
                              level_chessboard,
+                             # level_permutation,
                              level_taxicab_number,
                              level_tetrahedron,
                              level_the_4_queens,
@@ -147,11 +147,11 @@ class Levels:
                              level_syracuse,
                              level_temple,
                              
-                              # level_icone,
-                              # level_icone,
-                              # level_icone,
-                              # level_icone,
-                              # level_icone,
+                               # level_icone,
+                               # level_icone,
+                               # level_icone,
+                               # level_icone,
+                               # level_icone,
                              #level_random,
                              ]
 
@@ -339,3 +339,6 @@ if __name__ == "__main__":
     # for i in range(100):
     #     solutions = level_3sat().find_all_solutions(verbose=0, stop_at_first_solution=False, nb_iterations_print=10**3)
     #     print(len(solutions))
+    
+    # solutions = level_permutation().find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**3)
+    

@@ -369,8 +369,11 @@ def level_water_pouring():
                relative_arrival_coordinates=[1/2, 1],
                relative_position=1/2)
     
-    solution = """
-D8 D9 D10 D11 S10 D12
+    solution = """D8
+D9
+D10
+D11
+S10 D12
 S1 D7
 S21 D4
 S11 S13 D2
@@ -435,7 +438,7 @@ S19 S20 D10
 D11
 S7 S9 D12
 D13
-"""
+""".replace('\n', ' ')
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,

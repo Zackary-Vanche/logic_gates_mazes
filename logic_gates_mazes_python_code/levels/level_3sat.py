@@ -69,7 +69,7 @@ def level_3sat():
                  rooms_list=[R0, RE], 
                  doors_list=[D0],
                  fastest_solution='S1 S3 S4 D0',
-                 level_color=Levels_colors_list.FROM_HUE(0.05, sa=1, li=0.6),
+                 level_color=Levels_colors_list.WHITE_AND_BLACK,
                  name='3 SAT',
                  door_window_size=530,
                  keep_proportions=True)
