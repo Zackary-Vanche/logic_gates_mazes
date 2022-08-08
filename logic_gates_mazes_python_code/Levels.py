@@ -29,6 +29,7 @@ from levels.level_bipartite import level_bipartite
 from levels.level_bis_repetita import level_bis_repetita
 from levels.level_cartesian import level_cartesian
 from levels.level_chessboard import level_chessboard
+from levels.level_compact import level_compact
 from levels.level_congruence import level_congruence
 from levels.level_crossroad import level_crossroad
 from levels.level_crystal import level_crystal
@@ -87,8 +88,9 @@ from levels.level_icone import level_icone
 
 class Levels: 
     
-    levels_functions_list = [#level_wheel_graph,
-#                             level_betweenness,
+    levels_functions_list = [#level_compact,
+                             #level_wheel_graph,
+                             #level_betweenness,
                              level_hello_world,
                              level_linear,
                              level_loop,
@@ -150,10 +152,6 @@ class Levels:
                              level_temple,
                              level_syracuse,
                              level_water_pouring,
-                             
-                                level_icone,
-                                level_icone,
-                                level_icone,
                              #level_random,
                              ]
 
@@ -257,22 +255,22 @@ if __name__ == "__main__":
     # level = level_bipartite()
     # cProfile.run("solutions = level.find_all_solutions(verbose=3, stop_at_first_solution=False)")
     
-    # for level_function in [
-    #                         level_hello_world,
-    #                         level_linear,
-    #                         level_loop,
-    #                         level_backward,
-    #                         level_bis_repetita,
-    #                         level_binary,
-    #                         level_or,
-    #                         level_crossroad,
-    #                         level_square,
-    #                       ]:
-    #     level = level_function()
-    #     print(level.name)
-    #     solutions = level.find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**3)
-    #     print(solutions)
-    # print('')
+#    for level_function in [
+#                             level_hello_world,
+#                             level_linear,
+#                             level_loop,
+#                             level_backward,
+#                             level_bis_repetita,
+#                             level_binary,
+#                             level_or,
+#                             level_crossroad,
+#                             level_square,
+#                           ]:
+#         level = level_function()
+#         print(level.name)
+#         solutions = level.find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**3)
+#         print(solutions)
+#    print('')
 
 #    solutions = level_sudoku(True).find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**3)
     
@@ -359,127 +357,6 @@ if __name__ == "__main__":
     
     # solutions = level_permutation().find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**3)
     
-    solutions_test = ['D16',
-     'D0 S4 D5 D6 S7 D11 D15 D16',
-     'S0 D0 S5 D5 D7 S11 D12 D15 S0 D16',
-     'S1 D0 S4 S5 D5 D8 S13 S14 D13 D15 S1 D16',
-     'S2 D1 S7 S8 D6 D7 S10 S11 D12 D15 S2 D16',
-     'S3 D2 S11 S12 D7 D9 S17 S18 D14 D15 S3 D16',
-     'S0 S1 D0 S6 D5 D9 S18 D14 D15 S0 S1 D16',
-     'S0 S2 D1 S8 D6 D8 S14 D13 D15 S0 S2 D16',
-     'S1 S2 D1 S7 S9 D6 D9 S16 S18 D14 D15 S1 S2 D16',
-     'S0 S1 S2 D2 S10 D7 D8 S13 D13 D15 S0 S1 S2 D16',
-     'S0 S3 D3 S13 S14 S15 D8 D9 S16 S17 S18 D14 D15 S0 S3 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S1 D0 S5 D5 D8 S14 D13 D15 S1 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S2 D1 S8 D6 D7 S11 D12 D15 S2 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S0 D0 S4 S5 D5 D7 S10 S11 D12 D15 S0 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S3 D2 S11 S12 D7 D9 S17 S18 D14 D15 S3 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S1 S2 D1 S9 D6 D9 S18 D14 D15 S1 S2 D16',
-     'S0 D0 S5 D5 D7 S11 D12 D15 S2 D1 S8 D6 D8 S14 D13 D15 S0 S2 D16',
-     'S0 D0 S5 D5 D7 S11 D12 D15 S0 S1 D0 S4 D5 D8 S13 D13 D15 S1 D16',
-     'S0 D0 S5 D5 D7 S11 D12 D15 S0 S3 D2 S12 D7 D9 S18 D14 D15 S3 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S0 S1 D0 S4 S6 D5 D9 S16 S18 D14 D15 S0 S1 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S0 S2 D1 S7 S8 D6 D8 S13 S14 D13 D15 S0 S2 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S0 S1 S2 D2 S10 D7 D8 S13 D13 D15 S0 S1 S2 D16',
-     'S0 D0 S5 D5 D7 S11 D12 D15 S1 D0 S5 S6 D5 D9 S17 S18 D14 D15 S0 S1 D16',
-     'S2 D1 S7 S8 D6 D7 S10 S11 D12 D15 S0 D1 S7 D6 D8 S13 D13 D15 S0 S2 D16',
-     'S3 D2 S11 S12 D7 D9 S17 S18 D14 D15 S0 D3 S13 D8 D9 S16 D14 D15 S0 S3 D16',
-     'S0 S1 D0 S6 D5 D9 S18 D14 D15 S2 D2 S10 D7 D8 S13 D13 D15 S0 S1 S2 D16',
-     'S0 S1 D0 S6 D5 D9 S18 D14 D15 S1 S2 D1 S8 D6 D8 S14 D13 D15 S0 S2 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S0 S3 D3 S13 S14 S15 D8 D9 S16 S17 S18 D14 D15 S0 S3 D16',
-     'S0 D0 S5 D5 D7 S11 D12 D15 S3 D3 S13 S14 S15 D8 D9 S16 S17 S18 D14 D15 S0 S3 D16',
-     'S0 D0 S5 D5 D7 S11 D12 D15 S1 S2 D2 S10 S11 D7 D8 S13 S14 D13 D15 S0 S1 S2 D16',
-     'S0 D0 S5 D5 D7 S11 D12 D15 S0 S1 S2 D1 S7 S9 D6 D9 S16 S18 D14 D15 S1 S2 D16',
-     'S1 D0 S4 S5 D5 D8 S13 S14 D13 D15 S2 D1 S7 S9 D6 D9 S16 S18 D14 D15 S1 S2 D16',
-     'S1 D0 S4 S5 D5 D8 S13 S14 D13 D15 S1 S2 D1 S7 S8 D6 D7 S10 S11 D12 D15 S2 D16',
-     'S1 D0 S4 S5 D5 D8 S13 S14 D13 D15 S1 S3 D2 S11 S12 D7 D9 S17 S18 D14 D15 S3 D16',
-     'S1 D0 S4 S5 D5 D8 S13 S14 D13 D15 S0 S1 S3 D3 S15 D8 D9 S18 D14 D15 S0 S3 D16',
-     'S2 D1 S7 S8 D6 D7 S10 S11 D12 D15 S1 D1 S8 S9 D6 D9 S17 S18 D14 D15 S1 S2 D16',
-     'S2 D1 S7 S8 D6 D7 S10 S11 D12 D15 S0 S1 D2 S11 D7 D8 S14 D13 D15 S0 S1 S2 D16',
-     'S2 D1 S7 S8 D6 D7 S10 S11 D12 D15 S2 S3 D2 S10 S12 D7 D9 S16 S18 D14 D15 S3 D16',
-     'S2 D1 S7 S8 D6 D7 S10 S11 D12 D15 S0 S1 S2 D0 S6 D5 D9 S18 D14 D15 S0 S1 D16',
-     'S3 D2 S11 S12 D7 D9 S17 S18 D14 D15 S0 S2 S3 D1 S8 D6 D8 S14 D13 D15 S0 S2 D16',
-     'S0 S2 D1 S8 D6 D8 S14 D13 D15 S2 S3 D3 S13 S15 D8 D9 S16 S18 D14 D15 S0 S3 D16',
-     'S1 S2 D1 S7 S9 D6 D9 S16 S18 D14 D15 S0 D2 S10 D7 D8 S13 D13 D15 S0 S1 S2 D16',
-     'S1 D0 S4 S5 D5 D8 S13 S14 D13 D15 S0 D0 S4 S5 S6 D5 D9 S16 S17 S18 D14 D15 S0 S1 D16',
-     'S0 S2 D1 S8 D6 D8 S14 D13 D15 S0 S1 D1 S7 S8 S9 D6 D9 S16 S17 S18 D14 D15 S1 S2 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S1 D0 S5 D5 D8 S14 D13 D15 S2 D1 S9 D6 D9 S18 D14 D15 S1 S2 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S1 D0 S5 D5 D8 S14 D13 D15 S1 S2 D1 S8 D6 D7 S11 D12 D15 S2 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S2 D1 S8 D6 D7 S11 D12 D15 S0 D1 S7 D6 D8 S13 D13 D15 S0 S2 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S2 D1 S8 D6 D7 S11 D12 D15 S2 S3 D2 S12 D7 D9 S18 D14 D15 S3 D16',
-     'S2 D1 S7 S8 D6 D7 S10 S11 D12 D15 S0 S2 S3 D3 S13 S14 S15 D8 D9 S16 S17 S18 D14 D15 S0 S3 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S0 D0 S4 S5 D5 D7 S10 S11 D12 D15 S0 S1 D0 S4 D5 D8 S13 D13 D15 S1 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S1 D0 S5 D5 D8 S14 D13 D15 S1 S3 D2 S11 S12 D7 D9 S17 S18 D14 D15 S3 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S2 D1 S8 D6 D7 S11 D12 D15 S1 D1 S8 S9 D6 D9 S17 S18 D14 D15 S1 S2 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S3 D2 S11 S12 D7 D9 S17 S18 D14 D15 S0 D3 S13 D8 D9 S16 D14 D15 S0 S3 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S1 S2 D1 S9 D6 D9 S18 D14 D15 S0 D2 S10 D7 D8 S13 D13 D15 S0 S1 S2 D16',
-     'S0 D0 S5 D5 D7 S11 D12 D15 S2 D1 S8 D6 D8 S14 D13 D15 S0 S2 S3 D2 S12 D7 D9 S18 D14 D15 S3 D16',
-     'S0 D0 S5 D5 D7 S11 D12 D15 S0 S1 D0 S4 D5 D8 S13 D13 D15 S1 S3 D2 S12 D7 D9 S18 D14 D15 S3 D16',
-     'S3 D2 S11 S12 D7 D9 S17 S18 D14 D15 S0 S1 S2 S3 D2 S10 S11 S12 D7 D8 S13 S14 S15 D13 D15 S0 S1 S2 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S0 D0 S4 S5 D5 D7 S10 S11 D12 D15 S1 D0 S5 S6 D5 D9 S17 S18 D14 D15 S0 S1 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S0 D0 S4 S5 D5 D7 S10 S11 D12 D15 S2 D1 S7 S8 D6 D8 S13 S14 D13 D15 S0 S2 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S0 D0 S4 S5 D5 D7 S10 S11 D12 D15 S0 S3 D2 S10 S12 D7 D9 S16 S18 D14 D15 S3 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S0 D0 S4 S5 D5 D7 S10 S11 D12 D15 S1 S2 D2 S11 D7 D8 S14 D13 D15 S0 S1 S2 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S0 D0 S4 S5 D5 D7 S10 S11 D12 D15 S0 S1 S2 D1 S9 D6 D9 S18 D14 D15 S1 S2 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S1 D0 S5 D5 D8 S14 D13 D15 S0 D0 S4 S5 S6 D5 D9 S16 S17 S18 D14 D15 S0 S1 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S1 D0 S5 D5 D8 S14 D13 D15 S0 S1 S3 D3 S13 S15 D8 D9 S16 S18 D14 D15 S0 S3 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S2 D1 S8 D6 D7 S11 D12 D15 S0 S1 D2 S10 S11 D7 D8 S13 S14 D13 D15 S0 S1 S2 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S2 D1 S8 D6 D7 S11 D12 D15 S0 S1 S2 D0 S4 S6 D5 D9 S16 S18 D14 D15 S0 S1 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S0 S1 D0 S4 S6 D5 D9 S16 S18 D14 D15 S2 D2 S10 D7 D8 S13 D13 D15 S0 S1 S2 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S0 S2 D1 S7 S8 D6 D8 S13 S14 D13 D15 S2 S3 D3 S15 D8 D9 S18 D14 D15 S0 S3 D16',
-     'S0 D0 S5 D5 D7 S11 D12 D15 S1 D0 S5 S6 D5 D9 S17 S18 D14 D15 S1 S2 D1 S8 D6 D8 S14 D13 D15 S0 S2 D16',
-     'S0 D0 S5 D5 D7 S11 D12 D15 S1 D0 S5 S6 D5 D9 S17 S18 D14 D15 S1 S3 D3 S13 D8 D9 S16 D14 D15 S0 S3 D16',
-     'S0 D0 S5 D5 D7 S11 D12 D15 S2 D1 S8 D6 D8 S14 D13 D15 S2 S3 D3 S13 S15 D8 D9 S16 S18 D14 D15 S0 S3 D16',
-     'S0 D0 S5 D5 D7 S11 D12 D15 S0 S1 D0 S4 D5 D8 S13 D13 D15 S2 D1 S7 S9 D6 D9 S16 S18 D14 D15 S1 S2 D16',
-     'S2 D1 S7 S8 D6 D7 S10 S11 D12 D15 S0 D1 S7 D6 D8 S13 D13 D15 S1 S2 D0 S6 D5 D9 S18 D14 D15 S0 S1 D16',
-     'S2 D1 S7 S8 D6 D7 S10 S11 D12 D15 S0 S1 D2 S11 D7 D8 S14 D13 D15 S2 D0 S6 D5 D9 S18 D14 D15 S0 S1 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S0 D0 S4 S5 D5 D7 S10 S11 D12 D15 S3 D3 S13 S14 S15 D8 D9 S16 S17 S18 D14 D15 S0 S3 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S2 D1 S8 D6 D7 S11 D12 D15 S0 S2 S3 D3 S13 S14 S15 D8 D9 S16 S17 S18 D14 D15 S0 S3 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S3 D2 S11 S12 D7 D9 S17 S18 D14 D15 S0 S2 S3 D1 S7 S8 D6 D8 S13 S14 D13 D15 S0 S2 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S0 S1 D0 S4 S6 D5 D9 S16 S18 D14 D15 S1 S2 D1 S7 S8 D6 D8 S13 S14 D13 D15 S0 S2 D16',
-     'S0 D0 S5 D5 D7 S11 D12 D15 S1 D0 S5 S6 D5 D9 S17 S18 D14 D15 S0 D0 S4 S5 S6 D5 D8 S13 S14 S15 D13 D15 S1 D16',
-     'S0 D0 S5 D5 D7 S11 D12 D15 S1 D0 S5 S6 D5 D9 S17 S18 D14 D15 S2 D2 S10 S11 D7 D8 S13 S14 D13 D15 S0 S1 S2 D16',
-     'S0 D0 S5 D5 D7 S11 D12 D15 S2 D1 S8 D6 D8 S14 D13 D15 S0 S1 D1 S7 S8 S9 D6 D9 S16 S17 S18 D14 D15 S1 S2 D16',
-     'S0 D0 S5 D5 D7 S11 D12 D15 S3 D3 S13 S14 S15 D8 D9 S16 S17 S18 D14 D15 S0 D2 S10 S11 D7 D9 S16 S17 D14 D15 S3 D16',
-     'S0 D0 S5 D5 D7 S11 D12 D15 S1 S2 D2 S10 S11 D7 D8 S13 S14 D13 D15 S0 D1 S7 S9 D6 D9 S16 S18 D14 D15 S1 S2 D16',
-     'S1 D0 S4 S5 D5 D8 S13 S14 D13 D15 S2 D1 S7 S9 D6 D9 S16 S18 D14 D15 S1 D1 S8 S9 D6 D7 S11 S12 D12 D15 S2 D16',
-     'S2 D1 S7 S8 D6 D7 S10 S11 D12 D15 S0 D1 S7 D6 D8 S13 D13 D15 S2 S3 D3 S14 S15 D8 D9 S17 S18 D14 D15 S0 S3 D16',
-     'S2 D1 S7 S8 D6 D7 S10 S11 D12 D15 S0 D1 S7 D6 D8 S13 D13 D15 S0 S2 S3 D2 S10 S12 D7 D9 S16 S18 D14 D15 S3 D16',
-     'S2 D1 S7 S8 D6 D7 S10 S11 D12 D15 S1 D1 S8 S9 D6 D9 S17 S18 D14 D15 S0 D2 S11 D7 D8 S14 D13 D15 S0 S1 S2 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S0 S2 D1 S7 S8 D6 D8 S13 S14 D13 D15 S0 S1 D1 S7 S8 S9 D6 D9 S16 S17 S18 D14 D15 S1 S2 D16',
-     'S0 D0 S5 D5 D7 S11 D12 D15 S3 D3 S13 S14 S15 D8 D9 S16 S17 S18 D14 D15 S1 S2 S3 D2 S12 D7 D8 S15 D13 D15 S0 S1 S2 D16',
-     'S1 D0 S4 S5 D5 D8 S13 S14 D13 D15 S2 D1 S7 S9 D6 D9 S16 S18 D14 D15 S1 S2 S3 D2 S10 S11 D7 D9 S16 S17 D14 D15 S3 D16',
-     'S1 D0 S4 S5 D5 D8 S13 S14 D13 D15 S1 S2 D1 S7 S8 D6 D7 S10 S11 D12 D15 S0 S2 S3 D3 S15 D8 D9 S18 D14 D15 S0 S3 D16',
-     'S2 D1 S7 S8 D6 D7 S10 S11 D12 D15 S0 D1 S7 D6 D8 S13 D13 D15 S0 S1 D1 S7 S8 S9 D6 D9 S16 S17 S18 D14 D15 S1 S2 D16',
-     'S2 D1 S7 S8 D6 D7 S10 S11 D12 D15 S0 S1 D2 S11 D7 D8 S14 D13 D15 S1 S2 S3 D3 S13 S15 D8 D9 S16 S18 D14 D15 S0 S3 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S1 D0 S5 D5 D8 S14 D13 D15 S2 D1 S9 D6 D9 S18 D14 D15 S1 D1 S8 S9 D6 D7 S11 S12 D12 D15 S2 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S1 D0 S5 D5 D8 S14 D13 D15 S2 D1 S9 D6 D9 S18 D14 D15 S1 S2 S3 D2 S11 D7 D9 S17 D14 D15 S3 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S2 D1 S8 D6 D7 S11 D12 D15 S0 D1 S7 D6 D8 S13 D13 D15 S0 S2 S3 D2 S12 D7 D9 S18 D14 D15 S3 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S3 D2 S11 S12 D7 D9 S17 S18 D14 D15 S0 S1 S2 S3 D2 S10 S11 S12 D7 D8 S13 S14 S15 D13 D15 S0 S1 S2 D16',
-     'S1 D0 S4 S5 D5 D8 S13 S14 D13 D15 S0 D0 S4 S5 S6 D5 D9 S16 S17 S18 D14 D15 S0 S1 S2 D1 S7 S8 D6 D7 S10 S11 D12 D15 S2 D16',
-     'S2 D1 S7 S8 D6 D7 S10 S11 D12 D15 S0 S1 D2 S11 D7 D8 S14 D13 D15 S0 S1 S2 S3 D2 S10 S11 S12 D7 D9 S16 S17 S18 D14 D15 S3 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S0 D0 S4 S5 D5 D7 S10 S11 D12 D15 S0 S1 D0 S4 D5 D8 S13 D13 D15 S2 D1 S9 D6 D9 S18 D14 D15 S1 S2 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S0 D0 S4 S5 D5 D7 S10 S11 D12 D15 S1 S2 D2 S11 D7 D8 S14 D13 D15 S0 D1 S9 D6 D9 S18 D14 D15 S1 S2 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S2 D1 S8 D6 D7 S11 D12 D15 S0 D1 S7 D6 D8 S13 D13 D15 S1 S2 D0 S4 S6 D5 D9 S16 S18 D14 D15 S0 S1 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S2 D1 S8 D6 D7 S11 D12 D15 S0 D1 S7 D6 D8 S13 D13 D15 S2 S3 D3 S14 S15 D8 D9 S17 S18 D14 D15 S0 S3 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S0 D0 S4 S5 D5 D7 S10 S11 D12 D15 S1 D0 S5 S6 D5 D9 S17 S18 D14 D15 S2 D2 S11 D7 D8 S14 D13 D15 S0 S1 S2 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S0 D0 S4 S5 D5 D7 S10 S11 D12 D15 S1 D0 S5 S6 D5 D9 S17 S18 D14 D15 S1 S3 D3 S13 D8 D9 S16 D14 D15 S0 S3 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S0 D0 S4 S5 D5 D7 S10 S11 D12 D15 S2 D1 S7 S8 D6 D8 S13 S14 D13 D15 S2 S3 D3 S15 D8 D9 S18 D14 D15 S0 S3 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S0 D0 S4 S5 D5 D7 S10 S11 D12 D15 S3 D3 S13 S14 S15 D8 D9 S16 S17 S18 D14 D15 S0 D2 S11 D7 D9 S17 D14 D15 S3 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S0 D0 S4 S5 D5 D7 S10 S11 D12 D15 S0 S1 D0 S4 D5 D8 S13 D13 D15 S1 S3 D2 S10 S12 D7 D9 S16 S18 D14 D15 S3 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S1 D0 S5 D5 D8 S14 D13 D15 S0 D0 S4 S5 S6 D5 D9 S16 S17 S18 D14 D15 S0 S1 S2 D1 S8 D6 D7 S11 D12 D15 S2 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S1 D0 S5 D5 D8 S14 D13 D15 S1 S2 D1 S8 D6 D7 S11 D12 D15 S0 S2 S3 D3 S13 S15 D8 D9 S16 S18 D14 D15 S0 S3 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S2 D1 S8 D6 D7 S11 D12 D15 S0 D1 S7 D6 D8 S13 D13 D15 S0 S1 D1 S7 S8 S9 D6 D9 S16 S17 S18 D14 D15 S1 S2 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S2 D1 S8 D6 D7 S11 D12 D15 S1 D1 S8 S9 D6 D9 S17 S18 D14 D15 S0 D2 S10 S11 D7 D8 S13 S14 D13 D15 S0 S1 S2 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S2 D1 S8 D6 D7 S11 D12 D15 S0 S1 D2 S10 S11 D7 D8 S13 S14 D13 D15 S2 D0 S4 S6 D5 D9 S16 S18 D14 D15 S0 S1 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S2 D1 S8 D6 D7 S11 D12 D15 S0 S1 D2 S10 S11 D7 D8 S13 S14 D13 D15 S1 S2 S3 D3 S15 D8 D9 S18 D14 D15 S0 S3 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S0 D0 S4 S5 D5 D7 S10 S11 D12 D15 S1 D0 S5 S6 D5 D9 S17 S18 D14 D15 S0 D0 S4 S5 S6 D5 D8 S13 S14 S15 D13 D15 S1 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S0 D0 S4 S5 D5 D7 S10 S11 D12 D15 S1 D0 S5 S6 D5 D9 S17 S18 D14 D15 S1 S2 D1 S7 S8 D6 D8 S13 S14 D13 D15 S0 S2 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S0 D0 S4 S5 D5 D7 S10 S11 D12 D15 S2 D1 S7 S8 D6 D8 S13 S14 D13 D15 S0 S2 S3 D2 S10 S12 D7 D9 S16 S18 D14 D15 S3 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S0 D0 S4 S5 D5 D7 S10 S11 D12 D15 S2 D1 S7 S8 D6 D8 S13 S14 D13 D15 S0 S1 D1 S7 S8 S9 D6 D9 S16 S17 S18 D14 D15 S1 S2 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S2 D1 S8 D6 D7 S11 D12 D15 S0 S1 D2 S10 S11 D7 D8 S13 S14 D13 D15 S0 S1 S2 S3 D2 S10 S11 S12 D7 D9 S16 S17 S18 D14 D15 S3 D16',
-     'D0 S4 D5 D6 S7 D11 D15 S0 D0 S4 S5 D5 D7 S10 S11 D12 D15 S3 D3 S13 S14 S15 D8 D9 S16 S17 S18 D14 D15 S1 S2 S3 D2 S10 S12 D7 D8 S13 S15 D13 D15 S0 S1 S2 D16']
-    
     # level = level_permutation()
     # solutions = []
     # for sol in solutions_test:
@@ -488,3 +365,16 @@ if __name__ == "__main__":
     #         solutions.append(sol)
     #         print(sol) 
     
+#    with open('level_betweenness_solutions.txt', 'r') as f:
+#        solutions_test = f.readlines()
+#    for i in range(len(solutions_test)):
+#        solutions_test[i] = solutions_test[i].replace('\n', '')
+#    
+#    level = level_betweenness()
+#    solutions = []
+#    for sol in solutions_test:
+#        r = level.try_solution(sol, verbose=0)
+#        if r == 2:
+#            solutions.append(sol)
+##            print(sol)
+#    print(len(solutions))

@@ -40,30 +40,52 @@ def level_betweenness():
     S22 = Switch(name='S22')
     S23 = Switch(name='S23')
 
-    T0 = Tree(tree_list=[None],
+    SN2 = Switch(value=2)
+
+    SN3 = Switch(value=3)
+    SN5 = Switch(value=5)
+    SN6 = Switch(value=6)
+    SN9 = Switch(value=9)
+    SN10 = Switch(value=10)
+    SN12 = Switch(value=12)
+
+    tree_list_0 = ['EQU', [None], ['SUM'] + [[None]]*4,]
+
+    Slist = [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, S23]
+
+    T0 = Tree(tree_list=tree_list_0,
               empty=True,
               name='T0',
-              switches = [S0])
-    T1 = Tree(tree_list=[None],
+              switches = [SN2, S0, S1, S2, S3,])
+    T1 = Tree(tree_list=tree_list_0,
               empty=True,
               name='T1',
-              switches = [S0])
-    T2 = Tree(tree_list=[None],
+              switches = [SN2, S4, S5, S6, S7,])
+    T2 = Tree(tree_list=tree_list_0,
               empty=True,
               name='T2',
-              switches = [S0])
-    T3 = Tree(tree_list=[None],
+              switches = [SN2, S8, S9, S10, S11,])
+    T3 = Tree(tree_list=tree_list_0,
               empty=True,
               name='T3',
-              switches = [S0])
-    T4 = Tree(tree_list=[None],
+              switches = [SN2, S12, S13, S14, S15,])
+    T4 = Tree(tree_list=tree_list_0,
               empty=True,
               name='T4',
-              switches = [S0])
-    T5 = Tree(tree_list=[None],
+              switches = [SN2, S16, S17, S18, S19,])
+    n = 5
+    T5 = Tree(tree_list=['AND', tree_list_0, ['BETWEEN'] + [[None]]*(3*n+1) + [Tree.tree_list_BIN(4)]*6, ['INF', Tree.tree_list_BIN(4), Tree.tree_list_BIN(4)]],
               empty=True,
               name='T5',
-              switches = [S0])
+              switches = [SN2, S20, S21, S22, S23,] + [Switch(value=n),
+                         SN3, SN6, SN9,
+                         SN12, SN10, SN6,
+                         SN6, SN12, SN5,
+                         SN3, SN12, SN6,
+                         SN5, SN3, SN9,] + Slist + [S0, S1, S2, S3,
+                                                    S16, S17, S18, S19,],
+              cut_expression=True,
+              cut_expression_separator=')')
     
     ex = 0.9
     ey = 0.15

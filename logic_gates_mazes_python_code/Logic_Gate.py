@@ -140,16 +140,24 @@ class Logic_Gate:
         return branches_values_list[0] in branches_values_list[1:]
     
     def aux_func_BETWEEN(branches_values_list):
-        a = branches_values_list.pop(0)
-        b = branches_values_list.pop(0)
-        c = branches_values_list.pop(0)
-        for i in range(len(branches_values_list)):
-            if branches_values_list[i] == b:
-                l0 = branches_values_list[:i]
-                l1 = branches_values_list[i+1:]
-                if a in l0 and c in l1 or c in l0 and a in l1:
-                    return True
-        return False
+        n = branches_values_list.pop(0)
+        b_list = []
+        for i in range(n):
+            a = branches_values_list.pop(0)
+            b = branches_values_list.pop(0)
+            c = branches_values_list.pop(0)
+            b_list.append([a, b, c])
+        for i in range(n):
+            [a, b, c] = b_list[i]
+            if not b in branches_values_list:
+                return False
+            for j in range(len(branches_values_list)):
+                if branches_values_list[j] == b:
+                    l0 = branches_values_list[:j]
+                    l1 = branches_values_list[j+1:]
+                    if not (a in l0 and c in l1 or c in l0 and a in l1):
+                        return False
+        return True
         
 
     func_dict = {'NOT' : aux_func_NOT,
@@ -181,6 +189,7 @@ class Logic_Gate:
                  'NONO' : aux_func_NONO,
                  'DIST' : aux_func_DIST,
                  'IN' : aux_func_IN,
+                 'BETWEEN' : aux_func_BETWEEN,
                  }
 
     def func(self, branches_values_list):
@@ -239,17 +248,24 @@ if __name__ == "__main__":
         
     print('')
     
-    for l in [[0, 1, 2,
+    for l in [[1,
+               0, 1, 2,
                0, 4, 5, 1, 2, 6],
-              [5, 6, 4,
+              [1,
+               5, 6, 4,
                5, 2, 2, 4, 6, 6, 4],
-              [7, 6, 2],
-              [7, 5, 1,
+              [1,
+               7, 6, 2],
+              [1,
+               7, 5, 1,
                7, 1, 1, 1, 5, 2],
-              [4, 6, 2,
+              [1,
+               4, 6, 2,
                8, 5, 2, 4],
-              [8, 5, 2,
+              [1,
+               8, 5, 2,
                2, 6, 4, 5, 1, 8, 3, 9],]:
+        print('')
         print(l)
         print(Logic_Gate.aux_func_BETWEEN(l))
     

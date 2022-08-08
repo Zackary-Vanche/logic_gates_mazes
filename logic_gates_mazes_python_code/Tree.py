@@ -63,6 +63,9 @@ class Tree:
     def tree_list_DIFF(n):
         return ['DIFF'] + [[None]]*n
     
+    def tree_list_BETWEEN(n):
+        return ['BETWEEN'] + [[None]]*n
+    
     def tree_list_from_str(txt, CNF=False):
         def tree_list_and_from_str(txt):
             assert txt.replace('T', '').replace('F', '') == ''
@@ -218,6 +221,17 @@ class Tree:
                     s0 = self.sons_list[0].get_easy_logical_expression_PN()
                     lin = ' '.join([t.get_easy_logical_expression_PN() for t in self.sons_list[1:]])
                     self.easy_logical_expression_PN = 'i ' + s0 + '[' + lin + ']'
+                elif root_name == 'BETWEEN':
+                    n = self.sons_list[0].get_value()
+                    self.easy_logical_expression_PN = root_name + ' '
+                    for i in range(n):
+                        a = self.sons_list[3*i+1]
+                        b = self.sons_list[3*i+2]
+                        c = self.sons_list[3*i+3]
+                        l1 = ' '.join([t.get_easy_logical_expression_PN() for t in [a, b, c]])
+                        self.easy_logical_expression_PN = self.easy_logical_expression_PN + '(' + l1 + ')'
+                    l2 = ' '.join([t.get_easy_logical_expression_PN() for t in self.sons_list[3*n+1:]])
+                    self.easy_logical_expression_PN = self.easy_logical_expression_PN + '[' + l2 + ']'
                 elif len(self.sons_list) == 1: 
                     if root_name == 'NOT': 
                         self.easy_logical_expression_PN = '¬ ' + self.sons_list[0].get_easy_logical_expression_PN()
@@ -303,6 +317,7 @@ class Tree:
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('SUP ', '> ')
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('BIN ', 'b ')
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('DIST ', 'd ')
+            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('BETWEEN ', '<< ')
             if self.cut_expression:
                 l_elePN = self.easy_logical_expression_PN.split(self.cut_expression_separator)
                 elePN = ''
