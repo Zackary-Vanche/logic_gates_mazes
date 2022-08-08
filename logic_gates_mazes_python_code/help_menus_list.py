@@ -304,13 +304,9 @@ To leave the game, you can click an the cross but also press [Q] or [ESCAPE]."""
     
 help_menus_list['levels'] = {}
 
-help_menus_list['levels']["Hello_World"] = '\n'.join([help_menus_list['introduction'],
-                                                      help_menus_list['basis'],
-                                                      help_menus_list['OR']])
+help_menus_list['levels']["Hello_World"] = '\n'.join([help_menus_list['introduction'], help_menus_list['basis'], help_menus_list['OR']])
 
-help_menus_list['levels']["Linear"] = '\n'.join([help_menus_list['AND'],
-                                                 help_menus_list['NOT'],
-                                                 help_menus_list['AND and NOT']])
+help_menus_list['levels']["Linear"] = '\n'.join([help_menus_list['AND'], help_menus_list['NOT'], help_menus_list['AND and NOT']])
 
 help_menus_list['levels']['Loop'] = help_menus_list['change level']
 
@@ -330,21 +326,21 @@ help_menus_list['levels']["Infinity"] = help_menus_list["cheat code"]
 
 help_menus_list['levels']["Fluid"] = help_menus_list['Introduction thuth table']
 
+help_menus_list['levels']["Congruence"] = help_menus_list['MOD']
+
+help_menus_list['levels']["3 SAT"] = """The 3 SAT problem is NP complete.\n\nThe door expression has been randomly chosen by computer."""
+
+help_menus_list['levels']["Point of no return"] = help_menus_list['XNOR']
+
 help_menus_list['levels']["Bipartite"] = """Several paths lead to the exit."""
 
 help_menus_list['levels']["Hamiltonian"] = """Don't look for something too complicated."""
 
-help_menus_list['levels']["Pong"] = '\n'.join([help_menus_list['numerical value'],
-                                               help_menus_list['SUM'],
-                                               help_menus_list['EQU']])
+help_menus_list['levels']["Pong"] = '\n'.join([help_menus_list['numerical value'], help_menus_list['SUM'], help_menus_list['EQU']])
 
 help_menus_list['levels']["Longest path"] = "The longest path problem is NP-complete."
                              
-help_menus_list['levels']["Hitting set"] = """The hitting set is one of the Karp's 21 NP-complete problems.
-It is equivalent to the set cover problem\n""" + '\n'.join([help_menus_list['INF'],
-                                                            help_menus_list['SUP'],
-                                                            help_menus_list['INFOREQU'],
-                                                            help_menus_list['SUPOREQU']])
+help_menus_list['levels']["Hitting set"] = """The hitting set is one of the Karp's 21 NP-complete problems.\nIt is equivalent to the set cover problem\n""" + '\n'.join([help_menus_list['INF'], help_menus_list['SUP'], help_menus_list['INFOREQU'], help_menus_list['SUPOREQU']])
 
 help_menus_list['levels']["Independent set"] = "The independent set is one of the Karp's 21 NP-complete problems."
 
@@ -356,13 +352,7 @@ help_menus_list['levels']["Odd"] = help_menus_list['leave the game']
 
 help_menus_list['levels']["Recurrence"] = help_menus_list['brackets']
 
-help_menus_list['levels']["Point of no return"] = help_menus_list['XNOR']
-
-help_menus_list['levels']["3 SAT"] = """The 3 SAT problem is NP complete.\n\nThe door expression has been randomly chosen by computer."""
-
-help_menus_list['levels']["Naturals"] = '\n'.join([help_menus_list['ABS'],
-                                                   help_menus_list['MINUS'],
-                                                   help_menus_list['BIN']])
+help_menus_list['levels']["Naturals"] = '\n'.join([help_menus_list['ABS'], help_menus_list['MINUS'], help_menus_list['BIN']])
 
 help_menus_list['levels']["Parallel"] = """The "Guess and check" method works well here."""
 
@@ -370,13 +360,15 @@ help_menus_list['levels']["Pythagorean"] = help_menus_list['POW']
 
 help_menus_list['levels']["Taxicab number"] = """Taxicab numbers are also called Hardy–Ramanujan numbers."""
 
-help_menus_list['levels']["Chessboard"] = """If you remove the exit, the graph of this level is the graph of the possible moves of a knight in a 3*4 rectangle.
-However, sometimes here doors are one-way only."""
+help_menus_list['levels']["Chessboard"] = """If you remove the exit, the graph of this level is the graph of the possible moves of a knight in a 3*4 rectangle.\nHowever, sometimes here doors are one-way only."""
 
-help_menus_list['levels']["Tetrahedron"] = """The logic expressions of the doors of this level have been calculated by computer.
-The program that calculated it already knew all the rest of the level.
+help_menus_list['levels']["Partition"] = """The partition is one of the Karp's 21 NP-complete problems.\n""" + help_menus_list["PROD"]
 
-This level looks complicated, but you do only need to let the game lead you to the exit."""
+help_menus_list['levels']["Knapsack"] = """The knapsack is one of the Karp's 21 NP-complete problems."""
+
+help_menus_list['levels']["Permutation"] = """Every permutation can be writen as a product of 2-cycles.\n\nYou can try to find not only one solution, but the fastest one."""
+
+help_menus_list['levels']["Tetrahedron"] = """The logic expressions of the doors of this level have been calculated by computer.\nThe program that calculated it already knew all the rest of the level.\n\nThis level looks complicated, but you do only need to let the game lead you to the exit."""
 
 help_menus_list['levels']["The 4 queens"] = """This level is inspired from the 8 queens problem."""
 
@@ -386,19 +378,13 @@ help_menus_list['levels']["Nonogram"] = help_menus_list['NONO']
 
 help_menus_list['levels']["Crystal"] = """If you make a mistake, you have to start all over again."""
 
-help_menus_list['levels']["Pancake sorting"] = """Pancake sorting is a real computational problem."""
+help_menus_list['levels']["XOR"] = help_menus_list['NAND']
 
 help_menus_list['levels']["Tetris"] = """Each number can represent a position in the plane.\n""" + help_menus_list['EQUSET']
 
-help_menus_list['levels']["4 colors theorem"] = """Each couple of switches represent a color.\n""" + help_menus_list["PROD"]
-
-help_menus_list['levels']["Partition"] = """The partition is one of the Karp's 21 NP-complete problems.\n""" + help_menus_list['EQU']
-
-help_menus_list['levels']["Knapsack"] = """The knapsack is one of the Karp's 21 NP-complete problems."""
+help_menus_list['levels']["4 colors theorem"] = """Each couple of switches represent a color.\n"""
 
 help_menus_list['levels']["Magic square"] = help_menus_list['DIFF']
-
-help_menus_list['levels']["XOR"] = help_menus_list['NAND']
 
 help_menus_list['levels']["Matrix"] = """To solve this level you need to do a 5*5 matrix inversion."""
 
@@ -413,12 +399,13 @@ help_menus_list['levels']["Tesseract"] = """The tesseract is hidden in the equat
 
 help_menus_list['levels']["Cartesian"] = """Sorry, there is nothing to help you here."""
 
-help_menus_list['levels']["Eulerian"] = """This level was initially inspired by the seven bridges of Königsberg problem.
-The difference is that here there is a solution."""
+help_menus_list['levels']["Eulerian"] = """This level was initially inspired by the seven bridges of Königsberg problem.\nThe difference is that here there is a solution."""
 
 help_menus_list['levels']["Sujiko"] = """Sujiko is a logic-based, combinatorial number-placement puzzle."""
 
 help_menus_list['levels']["Electricity"] = help_menus_list['NAND 3']
+
+help_menus_list['levels']["Pancake sorting"] = """Pancake sorting is a real computational problem."""
 
 help_menus_list['levels']["Wave"] = help_menus_list['XOR 3']
 
@@ -438,5 +425,4 @@ help_menus_list['levels']["Water pouring"] = """You have 3 jugs of liquid, and y
 
 help_menus_list['levels']["Syracuse"] = help_menus_list['DIV']
 
-help_menus_list['levels']["Temple"] = """This level is the retranscription of a really known puzzle game.
-Once you find which game it is, the level is over."""
+help_menus_list['levels']["Temple"] = """This level is the retranscription of a really known puzzle game.\nOnce you find which game it is, the level is over."""

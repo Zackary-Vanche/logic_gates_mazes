@@ -25,6 +25,7 @@ class Maze:
                  doors_list=[],
                  level_color=Level_color(),
                  uniform_surrounding_colors=True,
+                 uniform_inside_room_color=True,
                  fastest_solution=None,
                  name='L',
                  y_separation=50,
@@ -124,6 +125,7 @@ class Maze:
             self.n_lines_door_printing += len(logical_expression)
         self.line_size = line_size
         self.uniform_surrounding_colors = uniform_surrounding_colors
+        self.uniform_inside_room_color = uniform_inside_room_color
         if self.name in help_menus_list['levels'].keys():
             self.help_txt = [help_menus_list['levels'][self.name]]
         else:

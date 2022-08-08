@@ -29,6 +29,7 @@ from levels.level_bipartite import level_bipartite
 from levels.level_bis_repetita import level_bis_repetita
 from levels.level_cartesian import level_cartesian
 from levels.level_chessboard import level_chessboard
+from levels.level_congruence import level_congruence
 from levels.level_crossroad import level_crossroad
 from levels.level_crystal import level_crystal
 from levels.level_dead_ends import level_dead_ends
@@ -78,6 +79,7 @@ from levels.level_travelling_salesman import level_travelling_salesman
 from levels.level_tree import level_tree
 from levels.level_water_pouring import level_water_pouring
 from levels.level_wave import level_wave
+from levels.level_wheel_graph import level_wheel_graph
 from levels.level_xor import level_xor
 
 from levels.level_icone import level_icone
@@ -85,7 +87,7 @@ from levels.level_icone import level_icone
 
 class Levels: 
     
-    levels_functions_list = [
+    levels_functions_list = [#level_wheel_graph,
                              level_hello_world,
                              level_linear,
                              level_loop,
@@ -97,6 +99,9 @@ class Levels:
                              level_square,
                              level_infinity,
                              level_fluid,
+                             level_congruence,
+                             level_3sat,
+                             level_point_of_no_return,
                              level_bipartite,
                              level_hamiltonian,
                              level_pong,
@@ -107,26 +112,23 @@ class Levels:
                              level_exact_cover,
                              level_odd,
                              level_recurrence,
-                             level_point_of_no_return,
-                             level_3sat,
                              level_naturals,
                              level_parallel,
                              level_pythagorean,
                              level_chessboard,
-                             # level_permutation,
+                             level_partition,
+                             level_knapsack,
+                             level_permutation,
                              level_taxicab_number,
                              level_tetrahedron,
                              level_the_4_queens,
                              level_alice_and_bob,
                              level_nonogram,
                              level_crystal,
-                             level_pancake_sorting,
                              level_tetris,
-                             level_4_colors_theorem,
-                             level_partition,
-                             level_knapsack,
-                             level_magic_square,
                              level_xor,
+                             level_4_colors_theorem,
+                             level_magic_square,
                              level_matrix,
                              level_river,
                              level_tree,
@@ -136,6 +138,7 @@ class Levels:
                              level_eulerian,
                              level_sujiko,
                              level_electricity,
+                             level_pancake_sorting,
                              level_wave,
                              level_travelling_salesman,
                              level_dead_ends,
@@ -143,15 +146,13 @@ class Levels:
                              level_manhattan_distance,
                              level_sudoku,
                              level_knight,
-                             level_water_pouring,
-                             level_syracuse,
                              level_temple,
+                             level_syracuse,
+                             level_water_pouring,
                              
-                               # level_icone,
-                               # level_icone,
-                               # level_icone,
-                               # level_icone,
-                               # level_icone,
+                                level_icone,
+                                level_icone,
+                                level_icone,
                              #level_random,
                              ]
 
@@ -223,6 +224,10 @@ class Levels:
     
 if __name__ == "__main__":
     
+    import matplotlib.pyplot as plt
+    
+    print('\nTrying all solutions')
+    
     for level_function in Levels.levels_functions_list:
         level = level_function()
         if not level.fastest_solution is None:
@@ -230,9 +235,20 @@ if __name__ == "__main__":
             if r != 2:
                 print(level.name, 'wrong solution')
                 
-    print('')
+    print('\nSaving solutions')
     
     Levels.save_solutions_txt(do_it_fast=True, verbose=1)
+    
+    print('\nCalculating solutions lenghts')
+    
+    solutions_lenghts = []
+    for level_function in Levels.levels_functions_list:
+        level = level_function()
+        if not level.fastest_solution is None:
+            solutions_lenghts.append(len(level.fastest_solution.split(' ')))
+    # plt.yscale('log')
+    plt.plot([i for i in range(len(solutions_lenghts))], solutions_lenghts)
+    plt.show()
     
     print('')
 
@@ -341,4 +357,133 @@ if __name__ == "__main__":
     #     print(len(solutions))
     
     # solutions = level_permutation().find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**3)
+    
+    solutions_test = ['D16',
+     'D0 S4 D5 D6 S7 D11 D15 D16',
+     'S0 D0 S5 D5 D7 S11 D12 D15 S0 D16',
+     'S1 D0 S4 S5 D5 D8 S13 S14 D13 D15 S1 D16',
+     'S2 D1 S7 S8 D6 D7 S10 S11 D12 D15 S2 D16',
+     'S3 D2 S11 S12 D7 D9 S17 S18 D14 D15 S3 D16',
+     'S0 S1 D0 S6 D5 D9 S18 D14 D15 S0 S1 D16',
+     'S0 S2 D1 S8 D6 D8 S14 D13 D15 S0 S2 D16',
+     'S1 S2 D1 S7 S9 D6 D9 S16 S18 D14 D15 S1 S2 D16',
+     'S0 S1 S2 D2 S10 D7 D8 S13 D13 D15 S0 S1 S2 D16',
+     'S0 S3 D3 S13 S14 S15 D8 D9 S16 S17 S18 D14 D15 S0 S3 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S1 D0 S5 D5 D8 S14 D13 D15 S1 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S2 D1 S8 D6 D7 S11 D12 D15 S2 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S0 D0 S4 S5 D5 D7 S10 S11 D12 D15 S0 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S3 D2 S11 S12 D7 D9 S17 S18 D14 D15 S3 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S1 S2 D1 S9 D6 D9 S18 D14 D15 S1 S2 D16',
+     'S0 D0 S5 D5 D7 S11 D12 D15 S2 D1 S8 D6 D8 S14 D13 D15 S0 S2 D16',
+     'S0 D0 S5 D5 D7 S11 D12 D15 S0 S1 D0 S4 D5 D8 S13 D13 D15 S1 D16',
+     'S0 D0 S5 D5 D7 S11 D12 D15 S0 S3 D2 S12 D7 D9 S18 D14 D15 S3 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S0 S1 D0 S4 S6 D5 D9 S16 S18 D14 D15 S0 S1 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S0 S2 D1 S7 S8 D6 D8 S13 S14 D13 D15 S0 S2 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S0 S1 S2 D2 S10 D7 D8 S13 D13 D15 S0 S1 S2 D16',
+     'S0 D0 S5 D5 D7 S11 D12 D15 S1 D0 S5 S6 D5 D9 S17 S18 D14 D15 S0 S1 D16',
+     'S2 D1 S7 S8 D6 D7 S10 S11 D12 D15 S0 D1 S7 D6 D8 S13 D13 D15 S0 S2 D16',
+     'S3 D2 S11 S12 D7 D9 S17 S18 D14 D15 S0 D3 S13 D8 D9 S16 D14 D15 S0 S3 D16',
+     'S0 S1 D0 S6 D5 D9 S18 D14 D15 S2 D2 S10 D7 D8 S13 D13 D15 S0 S1 S2 D16',
+     'S0 S1 D0 S6 D5 D9 S18 D14 D15 S1 S2 D1 S8 D6 D8 S14 D13 D15 S0 S2 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S0 S3 D3 S13 S14 S15 D8 D9 S16 S17 S18 D14 D15 S0 S3 D16',
+     'S0 D0 S5 D5 D7 S11 D12 D15 S3 D3 S13 S14 S15 D8 D9 S16 S17 S18 D14 D15 S0 S3 D16',
+     'S0 D0 S5 D5 D7 S11 D12 D15 S1 S2 D2 S10 S11 D7 D8 S13 S14 D13 D15 S0 S1 S2 D16',
+     'S0 D0 S5 D5 D7 S11 D12 D15 S0 S1 S2 D1 S7 S9 D6 D9 S16 S18 D14 D15 S1 S2 D16',
+     'S1 D0 S4 S5 D5 D8 S13 S14 D13 D15 S2 D1 S7 S9 D6 D9 S16 S18 D14 D15 S1 S2 D16',
+     'S1 D0 S4 S5 D5 D8 S13 S14 D13 D15 S1 S2 D1 S7 S8 D6 D7 S10 S11 D12 D15 S2 D16',
+     'S1 D0 S4 S5 D5 D8 S13 S14 D13 D15 S1 S3 D2 S11 S12 D7 D9 S17 S18 D14 D15 S3 D16',
+     'S1 D0 S4 S5 D5 D8 S13 S14 D13 D15 S0 S1 S3 D3 S15 D8 D9 S18 D14 D15 S0 S3 D16',
+     'S2 D1 S7 S8 D6 D7 S10 S11 D12 D15 S1 D1 S8 S9 D6 D9 S17 S18 D14 D15 S1 S2 D16',
+     'S2 D1 S7 S8 D6 D7 S10 S11 D12 D15 S0 S1 D2 S11 D7 D8 S14 D13 D15 S0 S1 S2 D16',
+     'S2 D1 S7 S8 D6 D7 S10 S11 D12 D15 S2 S3 D2 S10 S12 D7 D9 S16 S18 D14 D15 S3 D16',
+     'S2 D1 S7 S8 D6 D7 S10 S11 D12 D15 S0 S1 S2 D0 S6 D5 D9 S18 D14 D15 S0 S1 D16',
+     'S3 D2 S11 S12 D7 D9 S17 S18 D14 D15 S0 S2 S3 D1 S8 D6 D8 S14 D13 D15 S0 S2 D16',
+     'S0 S2 D1 S8 D6 D8 S14 D13 D15 S2 S3 D3 S13 S15 D8 D9 S16 S18 D14 D15 S0 S3 D16',
+     'S1 S2 D1 S7 S9 D6 D9 S16 S18 D14 D15 S0 D2 S10 D7 D8 S13 D13 D15 S0 S1 S2 D16',
+     'S1 D0 S4 S5 D5 D8 S13 S14 D13 D15 S0 D0 S4 S5 S6 D5 D9 S16 S17 S18 D14 D15 S0 S1 D16',
+     'S0 S2 D1 S8 D6 D8 S14 D13 D15 S0 S1 D1 S7 S8 S9 D6 D9 S16 S17 S18 D14 D15 S1 S2 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S1 D0 S5 D5 D8 S14 D13 D15 S2 D1 S9 D6 D9 S18 D14 D15 S1 S2 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S1 D0 S5 D5 D8 S14 D13 D15 S1 S2 D1 S8 D6 D7 S11 D12 D15 S2 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S2 D1 S8 D6 D7 S11 D12 D15 S0 D1 S7 D6 D8 S13 D13 D15 S0 S2 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S2 D1 S8 D6 D7 S11 D12 D15 S2 S3 D2 S12 D7 D9 S18 D14 D15 S3 D16',
+     'S2 D1 S7 S8 D6 D7 S10 S11 D12 D15 S0 S2 S3 D3 S13 S14 S15 D8 D9 S16 S17 S18 D14 D15 S0 S3 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S0 D0 S4 S5 D5 D7 S10 S11 D12 D15 S0 S1 D0 S4 D5 D8 S13 D13 D15 S1 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S1 D0 S5 D5 D8 S14 D13 D15 S1 S3 D2 S11 S12 D7 D9 S17 S18 D14 D15 S3 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S2 D1 S8 D6 D7 S11 D12 D15 S1 D1 S8 S9 D6 D9 S17 S18 D14 D15 S1 S2 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S3 D2 S11 S12 D7 D9 S17 S18 D14 D15 S0 D3 S13 D8 D9 S16 D14 D15 S0 S3 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S1 S2 D1 S9 D6 D9 S18 D14 D15 S0 D2 S10 D7 D8 S13 D13 D15 S0 S1 S2 D16',
+     'S0 D0 S5 D5 D7 S11 D12 D15 S2 D1 S8 D6 D8 S14 D13 D15 S0 S2 S3 D2 S12 D7 D9 S18 D14 D15 S3 D16',
+     'S0 D0 S5 D5 D7 S11 D12 D15 S0 S1 D0 S4 D5 D8 S13 D13 D15 S1 S3 D2 S12 D7 D9 S18 D14 D15 S3 D16',
+     'S3 D2 S11 S12 D7 D9 S17 S18 D14 D15 S0 S1 S2 S3 D2 S10 S11 S12 D7 D8 S13 S14 S15 D13 D15 S0 S1 S2 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S0 D0 S4 S5 D5 D7 S10 S11 D12 D15 S1 D0 S5 S6 D5 D9 S17 S18 D14 D15 S0 S1 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S0 D0 S4 S5 D5 D7 S10 S11 D12 D15 S2 D1 S7 S8 D6 D8 S13 S14 D13 D15 S0 S2 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S0 D0 S4 S5 D5 D7 S10 S11 D12 D15 S0 S3 D2 S10 S12 D7 D9 S16 S18 D14 D15 S3 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S0 D0 S4 S5 D5 D7 S10 S11 D12 D15 S1 S2 D2 S11 D7 D8 S14 D13 D15 S0 S1 S2 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S0 D0 S4 S5 D5 D7 S10 S11 D12 D15 S0 S1 S2 D1 S9 D6 D9 S18 D14 D15 S1 S2 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S1 D0 S5 D5 D8 S14 D13 D15 S0 D0 S4 S5 S6 D5 D9 S16 S17 S18 D14 D15 S0 S1 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S1 D0 S5 D5 D8 S14 D13 D15 S0 S1 S3 D3 S13 S15 D8 D9 S16 S18 D14 D15 S0 S3 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S2 D1 S8 D6 D7 S11 D12 D15 S0 S1 D2 S10 S11 D7 D8 S13 S14 D13 D15 S0 S1 S2 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S2 D1 S8 D6 D7 S11 D12 D15 S0 S1 S2 D0 S4 S6 D5 D9 S16 S18 D14 D15 S0 S1 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S0 S1 D0 S4 S6 D5 D9 S16 S18 D14 D15 S2 D2 S10 D7 D8 S13 D13 D15 S0 S1 S2 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S0 S2 D1 S7 S8 D6 D8 S13 S14 D13 D15 S2 S3 D3 S15 D8 D9 S18 D14 D15 S0 S3 D16',
+     'S0 D0 S5 D5 D7 S11 D12 D15 S1 D0 S5 S6 D5 D9 S17 S18 D14 D15 S1 S2 D1 S8 D6 D8 S14 D13 D15 S0 S2 D16',
+     'S0 D0 S5 D5 D7 S11 D12 D15 S1 D0 S5 S6 D5 D9 S17 S18 D14 D15 S1 S3 D3 S13 D8 D9 S16 D14 D15 S0 S3 D16',
+     'S0 D0 S5 D5 D7 S11 D12 D15 S2 D1 S8 D6 D8 S14 D13 D15 S2 S3 D3 S13 S15 D8 D9 S16 S18 D14 D15 S0 S3 D16',
+     'S0 D0 S5 D5 D7 S11 D12 D15 S0 S1 D0 S4 D5 D8 S13 D13 D15 S2 D1 S7 S9 D6 D9 S16 S18 D14 D15 S1 S2 D16',
+     'S2 D1 S7 S8 D6 D7 S10 S11 D12 D15 S0 D1 S7 D6 D8 S13 D13 D15 S1 S2 D0 S6 D5 D9 S18 D14 D15 S0 S1 D16',
+     'S2 D1 S7 S8 D6 D7 S10 S11 D12 D15 S0 S1 D2 S11 D7 D8 S14 D13 D15 S2 D0 S6 D5 D9 S18 D14 D15 S0 S1 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S0 D0 S4 S5 D5 D7 S10 S11 D12 D15 S3 D3 S13 S14 S15 D8 D9 S16 S17 S18 D14 D15 S0 S3 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S2 D1 S8 D6 D7 S11 D12 D15 S0 S2 S3 D3 S13 S14 S15 D8 D9 S16 S17 S18 D14 D15 S0 S3 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S3 D2 S11 S12 D7 D9 S17 S18 D14 D15 S0 S2 S3 D1 S7 S8 D6 D8 S13 S14 D13 D15 S0 S2 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S0 S1 D0 S4 S6 D5 D9 S16 S18 D14 D15 S1 S2 D1 S7 S8 D6 D8 S13 S14 D13 D15 S0 S2 D16',
+     'S0 D0 S5 D5 D7 S11 D12 D15 S1 D0 S5 S6 D5 D9 S17 S18 D14 D15 S0 D0 S4 S5 S6 D5 D8 S13 S14 S15 D13 D15 S1 D16',
+     'S0 D0 S5 D5 D7 S11 D12 D15 S1 D0 S5 S6 D5 D9 S17 S18 D14 D15 S2 D2 S10 S11 D7 D8 S13 S14 D13 D15 S0 S1 S2 D16',
+     'S0 D0 S5 D5 D7 S11 D12 D15 S2 D1 S8 D6 D8 S14 D13 D15 S0 S1 D1 S7 S8 S9 D6 D9 S16 S17 S18 D14 D15 S1 S2 D16',
+     'S0 D0 S5 D5 D7 S11 D12 D15 S3 D3 S13 S14 S15 D8 D9 S16 S17 S18 D14 D15 S0 D2 S10 S11 D7 D9 S16 S17 D14 D15 S3 D16',
+     'S0 D0 S5 D5 D7 S11 D12 D15 S1 S2 D2 S10 S11 D7 D8 S13 S14 D13 D15 S0 D1 S7 S9 D6 D9 S16 S18 D14 D15 S1 S2 D16',
+     'S1 D0 S4 S5 D5 D8 S13 S14 D13 D15 S2 D1 S7 S9 D6 D9 S16 S18 D14 D15 S1 D1 S8 S9 D6 D7 S11 S12 D12 D15 S2 D16',
+     'S2 D1 S7 S8 D6 D7 S10 S11 D12 D15 S0 D1 S7 D6 D8 S13 D13 D15 S2 S3 D3 S14 S15 D8 D9 S17 S18 D14 D15 S0 S3 D16',
+     'S2 D1 S7 S8 D6 D7 S10 S11 D12 D15 S0 D1 S7 D6 D8 S13 D13 D15 S0 S2 S3 D2 S10 S12 D7 D9 S16 S18 D14 D15 S3 D16',
+     'S2 D1 S7 S8 D6 D7 S10 S11 D12 D15 S1 D1 S8 S9 D6 D9 S17 S18 D14 D15 S0 D2 S11 D7 D8 S14 D13 D15 S0 S1 S2 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S0 S2 D1 S7 S8 D6 D8 S13 S14 D13 D15 S0 S1 D1 S7 S8 S9 D6 D9 S16 S17 S18 D14 D15 S1 S2 D16',
+     'S0 D0 S5 D5 D7 S11 D12 D15 S3 D3 S13 S14 S15 D8 D9 S16 S17 S18 D14 D15 S1 S2 S3 D2 S12 D7 D8 S15 D13 D15 S0 S1 S2 D16',
+     'S1 D0 S4 S5 D5 D8 S13 S14 D13 D15 S2 D1 S7 S9 D6 D9 S16 S18 D14 D15 S1 S2 S3 D2 S10 S11 D7 D9 S16 S17 D14 D15 S3 D16',
+     'S1 D0 S4 S5 D5 D8 S13 S14 D13 D15 S1 S2 D1 S7 S8 D6 D7 S10 S11 D12 D15 S0 S2 S3 D3 S15 D8 D9 S18 D14 D15 S0 S3 D16',
+     'S2 D1 S7 S8 D6 D7 S10 S11 D12 D15 S0 D1 S7 D6 D8 S13 D13 D15 S0 S1 D1 S7 S8 S9 D6 D9 S16 S17 S18 D14 D15 S1 S2 D16',
+     'S2 D1 S7 S8 D6 D7 S10 S11 D12 D15 S0 S1 D2 S11 D7 D8 S14 D13 D15 S1 S2 S3 D3 S13 S15 D8 D9 S16 S18 D14 D15 S0 S3 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S1 D0 S5 D5 D8 S14 D13 D15 S2 D1 S9 D6 D9 S18 D14 D15 S1 D1 S8 S9 D6 D7 S11 S12 D12 D15 S2 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S1 D0 S5 D5 D8 S14 D13 D15 S2 D1 S9 D6 D9 S18 D14 D15 S1 S2 S3 D2 S11 D7 D9 S17 D14 D15 S3 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S2 D1 S8 D6 D7 S11 D12 D15 S0 D1 S7 D6 D8 S13 D13 D15 S0 S2 S3 D2 S12 D7 D9 S18 D14 D15 S3 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S3 D2 S11 S12 D7 D9 S17 S18 D14 D15 S0 S1 S2 S3 D2 S10 S11 S12 D7 D8 S13 S14 S15 D13 D15 S0 S1 S2 D16',
+     'S1 D0 S4 S5 D5 D8 S13 S14 D13 D15 S0 D0 S4 S5 S6 D5 D9 S16 S17 S18 D14 D15 S0 S1 S2 D1 S7 S8 D6 D7 S10 S11 D12 D15 S2 D16',
+     'S2 D1 S7 S8 D6 D7 S10 S11 D12 D15 S0 S1 D2 S11 D7 D8 S14 D13 D15 S0 S1 S2 S3 D2 S10 S11 S12 D7 D9 S16 S17 S18 D14 D15 S3 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S0 D0 S4 S5 D5 D7 S10 S11 D12 D15 S0 S1 D0 S4 D5 D8 S13 D13 D15 S2 D1 S9 D6 D9 S18 D14 D15 S1 S2 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S0 D0 S4 S5 D5 D7 S10 S11 D12 D15 S1 S2 D2 S11 D7 D8 S14 D13 D15 S0 D1 S9 D6 D9 S18 D14 D15 S1 S2 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S2 D1 S8 D6 D7 S11 D12 D15 S0 D1 S7 D6 D8 S13 D13 D15 S1 S2 D0 S4 S6 D5 D9 S16 S18 D14 D15 S0 S1 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S2 D1 S8 D6 D7 S11 D12 D15 S0 D1 S7 D6 D8 S13 D13 D15 S2 S3 D3 S14 S15 D8 D9 S17 S18 D14 D15 S0 S3 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S0 D0 S4 S5 D5 D7 S10 S11 D12 D15 S1 D0 S5 S6 D5 D9 S17 S18 D14 D15 S2 D2 S11 D7 D8 S14 D13 D15 S0 S1 S2 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S0 D0 S4 S5 D5 D7 S10 S11 D12 D15 S1 D0 S5 S6 D5 D9 S17 S18 D14 D15 S1 S3 D3 S13 D8 D9 S16 D14 D15 S0 S3 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S0 D0 S4 S5 D5 D7 S10 S11 D12 D15 S2 D1 S7 S8 D6 D8 S13 S14 D13 D15 S2 S3 D3 S15 D8 D9 S18 D14 D15 S0 S3 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S0 D0 S4 S5 D5 D7 S10 S11 D12 D15 S3 D3 S13 S14 S15 D8 D9 S16 S17 S18 D14 D15 S0 D2 S11 D7 D9 S17 D14 D15 S3 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S0 D0 S4 S5 D5 D7 S10 S11 D12 D15 S0 S1 D0 S4 D5 D8 S13 D13 D15 S1 S3 D2 S10 S12 D7 D9 S16 S18 D14 D15 S3 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S1 D0 S5 D5 D8 S14 D13 D15 S0 D0 S4 S5 S6 D5 D9 S16 S17 S18 D14 D15 S0 S1 S2 D1 S8 D6 D7 S11 D12 D15 S2 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S1 D0 S5 D5 D8 S14 D13 D15 S1 S2 D1 S8 D6 D7 S11 D12 D15 S0 S2 S3 D3 S13 S15 D8 D9 S16 S18 D14 D15 S0 S3 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S2 D1 S8 D6 D7 S11 D12 D15 S0 D1 S7 D6 D8 S13 D13 D15 S0 S1 D1 S7 S8 S9 D6 D9 S16 S17 S18 D14 D15 S1 S2 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S2 D1 S8 D6 D7 S11 D12 D15 S1 D1 S8 S9 D6 D9 S17 S18 D14 D15 S0 D2 S10 S11 D7 D8 S13 S14 D13 D15 S0 S1 S2 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S2 D1 S8 D6 D7 S11 D12 D15 S0 S1 D2 S10 S11 D7 D8 S13 S14 D13 D15 S2 D0 S4 S6 D5 D9 S16 S18 D14 D15 S0 S1 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S2 D1 S8 D6 D7 S11 D12 D15 S0 S1 D2 S10 S11 D7 D8 S13 S14 D13 D15 S1 S2 S3 D3 S15 D8 D9 S18 D14 D15 S0 S3 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S0 D0 S4 S5 D5 D7 S10 S11 D12 D15 S1 D0 S5 S6 D5 D9 S17 S18 D14 D15 S0 D0 S4 S5 S6 D5 D8 S13 S14 S15 D13 D15 S1 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S0 D0 S4 S5 D5 D7 S10 S11 D12 D15 S1 D0 S5 S6 D5 D9 S17 S18 D14 D15 S1 S2 D1 S7 S8 D6 D8 S13 S14 D13 D15 S0 S2 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S0 D0 S4 S5 D5 D7 S10 S11 D12 D15 S2 D1 S7 S8 D6 D8 S13 S14 D13 D15 S0 S2 S3 D2 S10 S12 D7 D9 S16 S18 D14 D15 S3 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S0 D0 S4 S5 D5 D7 S10 S11 D12 D15 S2 D1 S7 S8 D6 D8 S13 S14 D13 D15 S0 S1 D1 S7 S8 S9 D6 D9 S16 S17 S18 D14 D15 S1 S2 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S2 D1 S8 D6 D7 S11 D12 D15 S0 S1 D2 S10 S11 D7 D8 S13 S14 D13 D15 S0 S1 S2 S3 D2 S10 S11 S12 D7 D9 S16 S17 S18 D14 D15 S3 D16',
+     'D0 S4 D5 D6 S7 D11 D15 S0 D0 S4 S5 D5 D7 S10 S11 D12 D15 S3 D3 S13 S14 S15 D8 D9 S16 S17 S18 D14 D15 S1 S2 S3 D2 S10 S12 D7 D8 S13 S15 D13 D15 S0 S1 S2 D16']
+    
+    # level = level_permutation()
+    # solutions = []
+    # for sol in solutions_test:
+    #     r = level.try_solution(sol, verbose=0)
+    #     if r == 2:
+    #         solutions.append(sol)
+    #         print(sol) 
     

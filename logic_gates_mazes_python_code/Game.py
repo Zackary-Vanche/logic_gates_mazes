@@ -477,6 +477,7 @@ class Game:
         self.font = pygame_font_SysFont(None, self.font_size)
         self.WINDOW.fill(self.background_color)
         self.uniform_surrounding_colors = self.maze.uniform_surrounding_colors
+        self.uniform_inside_room_color = self.maze.uniform_inside_room_color
         self.draw_right_window()
         self.draw_exterior_lines()
         self.draw_windows_separation()

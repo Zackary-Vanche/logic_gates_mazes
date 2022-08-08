@@ -6,7 +6,7 @@ from pyautogui import size as pyautogui_size
 if __name__ == "__main__":
 
     # TOTAL_SIZE = pyautogui_size()
-    Game(save_image=True, time_between_level_changing=0).play()
+    Game(save_image=1, time_between_level_changing=0, show_help=0).play()
     # Game(WINDOW_SIZE=TOTAL_SIZE,
     #      save_image=True).play()
 

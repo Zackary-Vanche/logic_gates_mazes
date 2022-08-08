@@ -43,10 +43,11 @@ def level_water_pouring():
     S25 = Switch(name='S25')
     S26 = Switch(name='S26')
     
-    SN0 = Switch(name="0", value=0)
-    SN1 = Switch(name="1", value=1)
-    SN4 = Switch(name="4", value=4)
-    SN8 = Switch(name="8", value=8)
+    SN0 = Switch(value=0)
+    SN1 = Switch(value=1)
+    SN4 = Switch(value=4)
+    SN7 = Switch(value=7)
+    SN8 = Switch(value=8)
     
     tree_list_EQU_plus1_BIN3 = ['EQU', Tree.tree_list_BIN(3), ['SUM', Tree.tree_list_BIN(3), [None]]]
     
@@ -175,7 +176,7 @@ def level_water_pouring():
     T13 = Tree(tree_list=['AND'] + [['AND',
                                        ['EQU', Tree.tree_list_BIN(2), [None]],
                                        ['EQU', Tree.tree_list_BIN(3), [None]],
-                                       ['EQU', Tree.tree_list_BIN(4), [None]]]]*2 + [['EQU', Tree.tree_list_BIN(3), [None]]],
+                                       ['EQU', Tree.tree_list_BIN(4), [None]]]]*2 + [['EQU', Tree.tree_list_BIN(3), [None]]]*3,
                 empty=True,
                 name='T13',
                 switches = [S17, S18,
@@ -193,7 +194,12 @@ def level_water_pouring():
                             SN4,
                             
                             S0, S1, S2,
-                            SN0
+                            SN0,
+                            
+                            S21, S22, S23,
+                            SN7,
+                            S24, S25, S26,
+                            SN7,
                             ],
                 cut_expression=True,
                 cut_expression_separator=']')
@@ -440,6 +446,75 @@ S7 S9 D12
 D13
 """.replace('\n', ' ')
 
+    solution = '''D8
+D9
+D10
+D11
+S10 D12
+S1 S2 D7
+S21 D4
+D1
+D8
+S24 D9
+D10
+D11
+D12
+D7
+S21 S22 D4
+D1
+D8
+S24 S25 D9
+D10
+D11
+D12
+D7
+S21 D4
+D1
+D8
+S24 D9
+D10
+D11
+D12
+D7
+S21 S22 S23 D4
+D1
+D8
+S24 S25 S26 D9
+D10
+D11
+D12
+D7
+S21 D6
+S18 D5
+S11 S13 D2
+S3 S6 D0
+D8
+S24 D9
+S20
+D10
+S14 S16 D11
+S7 S10 D12
+D7
+S21 S22 D6
+S17 D5
+S11 D1
+D8
+S24 S25 D9
+S19 D10
+S14 D11
+D12
+S0 S1 D7
+S21 D6
+S17 S18
+D3
+S3 S5 D0
+D8
+S24 D9
+S19 S20 D10
+D11
+S7 S9 D12
+S0 S2 D13'''.replace('\n', ' ')
+
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, RE],
@@ -451,3 +526,13 @@ D13
                  keep_proportions=True)
 
     return level
+
+# D8 D9 D10 D11 S10 D12 S1 S2 D7 S21 D6 S18 D5 S11 S13 D2 S3 S6 D0 D8 S24 D9 S20 D10 S14 S16 D11 S7 S10 D12 D7 S21 S22 D6 S17 D5 S11 D1 D8 S24 S25 D9 S19 D10 S14 D11 D12 S0 S1 D7 S21 D6 S17 S18 D3 S3 S5 D0 D8 S24 D9 S19 S20 D10 D11 S7 S9 D12 S0 S2 D13
+# D8 D9 D10 D11 S10 D12 S1 S2 D7 S21 D6 S18 D5 S11 S13 D2 S3 S6 D0 D8 S24 D9 S20 D10 S14 S16 D11 S7 S10 D12 D7 S21 S22 D6 S17 D5 S11 D1 D8 S24 S25 D9 S19 D10 S14 D11 D12 S0 S1 D7 S21 D6 S17 S18 D3 S3 S5 D0 D8 S24 D9 S19 S20 D10 D11 S7 S9 D12 D7 S21 S22 S23 D6 D3 D0 S0 S2 D13
+# D8 D9 D10 D11 S10 D12 S1 S2 D7 S21 D4 D1 D8 S24 D9 D10 D11 D12 D7 S21 S22 D6 S18 D5 S11 S13 D2 S3 S6 D0 D8 S24 S25 D9 S20 D10 S14 S16 D11 S7 S10 D12 D7 S21 D6 S17 D5 S11 D1 D8 S24 D9 S19 D10 S14 D11 D12 S0 S1 D7 S21 S22 S23 D6 S17 S18 D3 S3 S5 D0 D8 S24 S25 S26 D9 S19 S20 D10 D11 S7 S9 D12 S0 S2 D13
+# D8 D9 D10 D11 S10 D12 S1 S2 D7 S21 D4 D1 D8 S24 D9 D10 D11 D12 D7 S21 S22 D6 S18 D5 S11 S13 D2 S3 S6 D0 D8 S24 S25 D9 S20 D10 S14 S16 D11 S7 S10 D12 D7 S21 D6 S17 D5 S11 D1 D8 S24 D9 S19 D10 S14 D11 D12 S0 S1 D7 S21 S22 S23 D6 S17 S18 D3 S3 S5 D0 D8 S24 S25 S26 D9 S19 S20 D10 D11 S7 S9 D12 D7 S21 D6 D3 D0 S0 S2 D13
+# D8 D9 D10 D11 S10 D12 S1 S2 D7 S21 D4 D1 D8 S24 D9 D10 D11 D12 D7 S21 S22 D4 D1 D8 S24 S25 D9 D10 D11 D12 D7 S21 D6 S18 D5 S11 S13 D2 S3 S6 D0 D8 S24 D9 S20 D10 S14 S16 D11 S7 S10 D12 D7 S21 S22 S23 D6 S17 D5 S11 D1 D8 S24 S25 S26 D9 S19 D10 S14 D11 D12 S0 S1 D7 S21 D6 S17 S18 D3 S3 S5 D0 D8 S24 D9 S19 S20 D10 D11 S7 S9 D12 S0 S2 D13
+# D8 D9 D10 D11 S10 D12 S1 S2 D7 S21 D4 D1 D8 S24 D9 D10 D11 D12 D7 S21 S22 D4 D1 D8 S24 S25 D9 D10 D11 D12 D7 S21 D6 S18 D5 S11 S13 D2 S3 S6 D0 D8 S24 D9 S20 D10 S14 S16 D11 S7 S10 D12 D7 S21 S22 S23 D6 S17 D5 S11 D1 D8 S24 S25 S26 D9 S19 D10 S14 D11 D12 S0 S1 D7 S21 D6 S17 S18 D3 S3 S5 D0 D8 S24 D9 S19 S20 D10 D11 S7 S9 D12 D7 S21 S22 D6 D3 D0 S0 S2 D13
+# D8 D9 D10 D11 S10 D12 S1 S2 D7 S21 D4 D1 D8 S24 D9 D10 D11 D12 D7 S21 S22 D4 D1 D8 S24 S25 D9 D10 D11 D12 D7 S21 D4 D1 D8 S24 D9 D10 D11 D12 D7 S21 S22 S23 D6 S18 D5 S11 S13 D2 S3 S6 D0 D8 S24 S25 S26 D9 S20 D10 S14 S16 D11 S7 S10 D12 D7 S21 D6 S17 D5 S11 D1 D8 S24 D9 S19 D10 S14 D11 D12 S0 S1 D7 S21 S22 D6 S17 S18 D3 S3 S5 D0 D8 S24 S25 D9 S19 S20 D10 D11 S7 S9 D12 S0 S2 D13
+# D8 D9 D10 D11 S10 D12 S1 S2 D7 S21 D4 D1 D8 S24 D9 D10 D11 D12 D7 S21 S22 D4 D1 D8 S24 S25 D9 D10 D11 D12 D7 S21 D4 D1 D8 S24 D9 D10 D11 D12 D7 S21 S22 S23 D6 S18 D5 S11 S13 D2 S3 S6 D0 D8 S24 S25 S26 D9 S20 D10 S14 S16 D11 S7 S10 D12 D7 S21 D6 S17 D5 S11 D1 D8 S24 D9 S19 D10 S14 D11 D12 S0 S1 D7 S21 S22 D6 S17 S18 D3 S3 S5 D0 D8 S24 S25 D9 S19 S20 D10 D11 S7 S9 D12 D7 S21 D6 D3 D0 S0 S2 D13
+# D8 D9 D10 D11 S10 D12 S1 S2 D7 S21 D4 D1 D8 S24 D9 D10 D11 D12 D7 S21 S22 D4 D1 D8 S24 S25 D9 D10 D11 D12 D7 S21 D4 D1 D8 S24 D9 D10 D11 D12 D7 S21 S22 S23 D4 D1 D8 S24 S25 S26 D9 D10 D11 D12 D7 S21 D6 S18 D5 S11 S13 D2 S3 S6 D0 D8 S24 D9 S20 D10 S14 S16 D11 S7 S10 D12 D7 S21 S22 D6 S17 D5 S11 D1 D8 S24 S25 D9 S19 D10 S14 D11 D12 S0 S1 D7 S21 D6 S17 S18 D3 S3 S5 D0 D8 S24 D9 S19 S20 D10 D11 S7 S9 D12 S0 S2 D13

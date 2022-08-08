@@ -174,10 +174,23 @@ def level_permutation():
                            SN0, SN1, SN2, SN3, SN4],
                cut_expression=True,
                cut_expression_separator=']')
-    T16 = Tree(tree_list=Tree.tree_list_NOR(4),
+    # ['AND',
+    #                       Tree.tree_list_from_str('FFFF'),
+    #                       Tree.tree_list_from_str('FTF'),
+    #                       Tree.tree_list_from_str('FFF'),
+    #                       Tree.tree_list_from_str('FFT'),
+    #                       Tree.tree_list_from_str('TFF'),
+    #                       Tree.tree_list_from_str('TTF'),],
+    T16 = Tree(tree_list=['AND', ['EQU', [None], Tree.tree_list_BIN(4)]] + [['EQU', [None], Tree.tree_list_BIN(3)]]*5,
                empty=True,
                name='T16',
-               switches = [S0, S1, S2, S3])
+               switches = [SN0, S0, S1, S2, S3,
+                           SN2, S4, S5, S6,
+                           SN4, S7, S8, S9,
+                           SN0, S10, S11, S12,
+                           SN1, S13, S14, S15,
+                           SN3, S16, S17, S18,],
+               cut_expression=True)
 
     ex = 0.925
     dy = 4.1
@@ -332,7 +345,7 @@ def level_permutation():
                  exit_room_index=-1, 
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, RE], 
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16], 
-                 fastest_solution=None,
+                 fastest_solution='S0 D0 S5 D5 D7 S11 D12 D15 S2 D1 S8 D6 D8 S14 D13 D15 S0 S1 D1 S7 S8 S9 D6 D9 S16 S17 S18 D14 D15 S1 S2 D16',
                  level_color=Levels_colors_list.FROM_HUE(0.83, sa=1, li=0.3),
                  name='Permutation',
                  door_window_size=750,
