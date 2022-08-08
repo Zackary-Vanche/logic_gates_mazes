@@ -365,16 +365,18 @@ if __name__ == "__main__":
     #         solutions.append(sol)
     #         print(sol) 
     
-#    with open('level_betweenness_solutions.txt', 'r') as f:
-#        solutions_test = f.readlines()
-#    for i in range(len(solutions_test)):
-#        solutions_test[i] = solutions_test[i].replace('\n', '')
-#    
-#    level = level_betweenness()
-#    solutions = []
-#    for sol in solutions_test:
-#        r = level.try_solution(sol, verbose=0)
-#        if r == 2:
-#            solutions.append(sol)
-##            print(sol)
-#    print(len(solutions))
+    with open('level_betweenness_solutions.txt', 'r') as f:
+        solutions_test = f.readlines()
+    for i in range(len(solutions_test)):
+        solutions_test[i] = solutions_test[i].replace('\n', '')
+    
+    level = level_betweenness()
+    solutions = []
+    for i in range(len(solutions_test)):
+        print(i)
+        sol = solutions_test[i]
+        r = level.try_solution(sol, verbose=0)
+        if r == 2:
+            solutions.append(sol)
+            print(sol)
+    print(len(solutions))

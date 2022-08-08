@@ -157,7 +157,7 @@ def level_betweenness():
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5],
-                 fastest_solution=None,
+                 fastest_solution='S0 S2 D0 S4 S5 D1 S10 S11 D2 S13 S15 D3 S17 S18 D4 S20 S23 D5',
                  level_color=Levels_colors_list.BLUE_GREEN,
                  name='Betweenness',
                  door_window_size=875,
