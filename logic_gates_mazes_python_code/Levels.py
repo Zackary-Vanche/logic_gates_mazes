@@ -23,7 +23,7 @@ from levels.level_4_colors_theorem import level_4_colors_theorem
 from levels.level_the_4_queens import level_the_4_queens
 from levels.level_alice_and_bob import level_alice_and_bob
 from levels.level_backward import level_backward
-#from levels.level_betweenness import level_betweenness
+from levels.level_betweenness import level_betweenness
 from levels.level_binary import level_binary
 from levels.level_bipartite import level_bipartite
 from levels.level_bis_repetita import level_bis_repetita
@@ -88,6 +88,7 @@ from levels.level_icone import level_icone
 class Levels: 
     
     levels_functions_list = [#level_wheel_graph,
+#                             level_betweenness,
                              level_hello_world,
                              level_linear,
                              level_loop,

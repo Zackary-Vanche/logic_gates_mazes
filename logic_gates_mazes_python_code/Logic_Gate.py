@@ -138,6 +138,19 @@ class Logic_Gate:
     def aux_func_IN(branches_values_list):
         assert len(branches_values_list) > 1
         return branches_values_list[0] in branches_values_list[1:]
+    
+    def aux_func_BETWEEN(branches_values_list):
+        a = branches_values_list.pop(0)
+        b = branches_values_list.pop(0)
+        c = branches_values_list.pop(0)
+        for i in range(len(branches_values_list)):
+            if branches_values_list[i] == b:
+                l0 = branches_values_list[:i]
+                l1 = branches_values_list[i+1:]
+                if a in l0 and c in l1 or c in l0 and a in l1:
+                    return True
+        return False
+        
 
     func_dict = {'NOT' : aux_func_NOT,
                  'AND' : aux_func_AND,
@@ -223,6 +236,22 @@ if __name__ == "__main__":
               ]:
         print(l)
         print(Logic_Gate.aux_func_NONO(l))
+        
+    print('')
+    
+    for l in [[0, 1, 2,
+               0, 4, 5, 1, 2, 6],
+              [5, 6, 4,
+               5, 2, 2, 4, 6, 6, 4],
+              [7, 6, 2],
+              [7, 5, 1,
+               7, 1, 1, 1, 5, 2],
+              [4, 6, 2,
+               8, 5, 2, 4],
+              [8, 5, 2,
+               2, 6, 4, 5, 1, 8, 3, 9],]:
+        print(l)
+        print(Logic_Gate.aux_func_BETWEEN(l))
     
     
     
