@@ -342,9 +342,13 @@ class Maze:
         for i in range(len(switches_list)):
             switch = switches_list[i]
             if list_switches_values is None:
-                switch.set_value(self.initial_switches_values[i])
+                switch.set_value(self.initial_switches_values[i], update_doors=False)
             else:
-                switch.set_value(list_switches_values[i])
+                switch.set_value(list_switches_values[i], update_doors=False)
+        doors_list = self.doors_list()
+        for i in range(len(doors_list)):
+            door = doors_list[i]
+            door.update_open()
 
     def make_actions(self, actions, separator=' ', allow_all=False):
         actions_list = actions.split(separator)

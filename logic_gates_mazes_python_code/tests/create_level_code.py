@@ -5,9 +5,9 @@ Created on Mon Apr  4 20:01:20 2022
 @author: utilisateur
 """
 
-ns = 30
-nd = 30
-nr = 10
+ns = 21
+nd = 25
+nr = 0
 
 for i in range(ns):
     print("""S{0} = Switch(name='S{0}')""".format(i))
@@ -16,7 +16,7 @@ for i in range(nd):
     print("""T{0} = Tree(tree_list=[None],
             empty=True,
             name='T{0}',
-            switches = [S0])""".format(i))
+            switches = [SN0])""".format(i))
     
 for i in range(nr):
     print("""R{0} = Room(name='R{0}',

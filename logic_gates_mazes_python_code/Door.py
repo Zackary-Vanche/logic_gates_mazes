@@ -17,7 +17,8 @@ class Door:
                  relative_arrival_coordinates=[1/2, 1/2],
                  relative_position=1/2,
                  name=None,
-                 surrounding_color=[255,255,255]):
+                 surrounding_color=[255,255,255],
+                 is_open=None):
         """
         La position d'une porte est donnee dans le repere de la piece qui le contient.
         Les axes du repere de la piece sont normalises par les dimensions de la piece.
@@ -42,7 +43,10 @@ class Door:
             self.set_rooms(room_departure, room_arrival)
         if self.room_arrival is not None and self.room_arrival.is_exit:
             self.two_way = False
-        self.is_open = bool(self.tree.get_value())
+        if is_open is None:
+            self.is_open = bool(self.tree.get_value())
+        else:
+            self.is_open = is_open
         # Coordonnées de la porte dans le repère de la salle de départ
         self.relative_departure_coordinates = relative_departure_coordinates
         self.relative_arrival_coordinates = relative_arrival_coordinates

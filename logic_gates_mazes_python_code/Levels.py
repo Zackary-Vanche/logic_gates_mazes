@@ -63,6 +63,7 @@ from levels.level_parallel import level_parallel
 from levels.level_partition import level_partition
 from levels.level_permutation import level_permutation
 from levels.level_point_of_no_return import level_point_of_no_return
+from levels.level_puzzle import level_puzzle
 from levels.level_pythagorean import level_pythagorean
 from levels.level_pong import level_pong
 from levels.level_recurrence import level_recurrence
@@ -80,7 +81,7 @@ from levels.level_travelling_salesman import level_travelling_salesman
 from levels.level_tree import level_tree
 from levels.level_water_pouring import level_water_pouring
 from levels.level_wave import level_wave
-from levels.level_wheel_graph import level_wheel_graph
+#from levels.level_wheel_graph import level_wheel_graph
 from levels.level_xor import level_xor
 
 from levels.level_icone import level_icone
@@ -90,7 +91,6 @@ class Levels:
     
     levels_functions_list = [#level_compact,
                              #level_wheel_graph,
-                             #level_betweenness,
                              level_hello_world,
                              level_linear,
                              level_loop,
@@ -122,6 +122,7 @@ class Levels:
                              level_partition,
                              level_knapsack,
                              level_permutation,
+                             level_betweenness,
                              level_taxicab_number,
                              level_tetrahedron,
                              level_the_4_queens,
@@ -152,6 +153,9 @@ class Levels:
                              level_temple,
                              level_syracuse,
                              level_water_pouring,
+                             level_puzzle,
+                             
+                             level_icone,
                              #level_random,
                              ]
 
@@ -365,18 +369,29 @@ if __name__ == "__main__":
     #         solutions.append(sol)
     #         print(sol) 
     
-    with open('level_betweenness_solutions.txt', 'r') as f:
-        solutions_test = f.readlines()
-    for i in range(len(solutions_test)):
-        solutions_test[i] = solutions_test[i].replace('\n', '')
+    # with open('level_betweenness_solutions.txt', 'r') as f:
+    #     solutions_test = f.readlines()
+    # for i in range(len(solutions_test)):
+    #     solutions_test[i] = solutions_test[i].replace('\n', '')
+    # level = level_betweenness()
+    # solutions = []
+    # for i in range(len(solutions_test)):
+    #     sol = solutions_test[i]
+    #     r = level.try_solution(sol, verbose=0)
+    #     if r == 2:
+    #         solutions.append(sol)
+    #         print(sol)
+    # print(len(solutions))
     
-    level = level_betweenness()
-    solutions = []
-    for i in range(len(solutions_test)):
-        print(i)
-        sol = solutions_test[i]
-        r = level.try_solution(sol, verbose=0)
-        if r == 2:
-            solutions.append(sol)
-            print(sol)
-    print(len(solutions))
+    # solutions = level_wheel_graph().find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**3)
+
+    # print(solutions[-1])
+    
+    solutions = level_puzzle().find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**4)
+
+    with open('level_puzzle_solutions.txt', 'w') as f:
+        for sol in solutions:
+            f.write(' '.join(sol))
+            f.write('\n')
+        
+        

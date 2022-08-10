@@ -25,6 +25,14 @@ class Levels_colors_list:
                                   surrounding_color = Color.WHITE,
                                   inside_room_surrounding_color = Color.BLACK)
     
+    BLACK = Level_color(background_color = Color.GREY_60,
+                        room_color = Color.BLACK,
+                        contour_color = Color.WHITE,
+                        letters_color = Color.WHITE,
+                        inside_room_color = Color.WHITE,
+                        letter_contour_color = Color.BLACK,
+                        surrounding_color = Color.WHITE)
+    
     BLACK_AND_BLUE = Level_color(background_color = Color.GREY_100,
                                  room_color = Color.BLACK,
                                  contour_color = Color.PURE_BLUE,

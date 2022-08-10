@@ -173,6 +173,26 @@ For example:
     # [4] (1 1 1 1) = 1
     # [1 3] (1 0 1 1) = 0
     # [2 1] (1 0 0 1 1) = 0"""
+    
+help_menus_list['NONO'] = """
+The operator # takes two list in argument.
+The first list tells you the number of unbroken lines of 1 that should be presents in the second list in order for the result to be 1.
+For example:
+    # [1 1] (1 0 0 1 0) = 1
+    # [2 1] (1 1 0 0 1) = 1
+    # [4] (1 1 1 1) = 1
+    # [1 3] (1 0 1 1) = 0
+    # [2 1] (1 0 0 1 1) = 0"""
+    
+help_menus_list['BETWEEN'] = """
+The operator BETWEEN takes several arguments:
+    A list of triplets of switches
+    A list or switches. Let be L that ast list.
+For every triplet:
+    Let (a, b, c) be the triplet
+    If a, b or c are not in L or b is not in between a and c, then the operator result is 0.
+If, for every triplet, a, b and c are in L and b is in between a and c, the operator result is 1.
+"""
 
 help_menus_list['AND and NOT'] = """  
 By combining these notations, you can write :
@@ -367,6 +387,8 @@ help_menus_list['levels']["Partition"] = """The partition is one of the Karp's 2
 help_menus_list['levels']["Knapsack"] = """The knapsack is one of the Karp's 21 NP-complete problems."""
 
 help_menus_list['levels']["Permutation"] = """Every permutation can be writen as a product of 2-cycles.\n\nYou can try to find not only one solution, but the fastest one."""
+
+help_menus_list['levels']["Betweenness"] = help_menus_list['BETWEEN']
 
 help_menus_list['levels']["Tetrahedron"] = """The logic expressions of the doors of this level have been calculated by computer.\nThe program that calculated it already knew all the rest of the level.\n\nThis level looks complicated, but you do only need to let the game lead you to the exit."""
 

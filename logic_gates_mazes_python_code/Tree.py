@@ -220,7 +220,7 @@ class Tree:
                 elif root_name == 'IN':
                     s0 = self.sons_list[0].get_easy_logical_expression_PN()
                     lin = ' '.join([t.get_easy_logical_expression_PN() for t in self.sons_list[1:]])
-                    self.easy_logical_expression_PN = 'i ' + s0 + '[' + lin + ']'
+                    self.easy_logical_expression_PN = 'i ' + s0 + ' [' + lin + ']'
                 elif root_name == 'BETWEEN':
                     n = self.sons_list[0].get_value()
                     self.easy_logical_expression_PN = root_name + ' '
