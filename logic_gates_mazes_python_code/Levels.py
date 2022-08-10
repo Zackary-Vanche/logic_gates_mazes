@@ -45,6 +45,7 @@ from levels.level_hello_world import level_hello_world
 from levels.level_hitting_set import level_hitting_set
 from levels.level_independent_set import level_independent_set
 from levels.level_infinity import level_infinity
+from levels.level_initiation import level_initiation
 from levels.level_knapsack import level_knapsack
 from levels.level_knight import level_knight
 from levels.level_linear import level_linear
@@ -92,6 +93,7 @@ class Levels:
     levels_functions_list = [#level_compact,
                              #level_wheel_graph,
                              level_hello_world,
+                             level_initiation,
                              level_linear,
                              level_loop,
                              level_backward,
@@ -154,8 +156,6 @@ class Levels:
                              level_syracuse,
                              level_water_pouring,
                              level_puzzle,
-                             
-                             level_icone,
                              #level_random,
                              ]
 
@@ -387,11 +387,10 @@ if __name__ == "__main__":
 
     # print(solutions[-1])
     
-    solutions = level_puzzle().find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**4)
-
-    with open('level_puzzle_solutions.txt', 'w') as f:
-        for sol in solutions:
-            f.write(' '.join(sol))
-            f.write('\n')
+    # solutions = level_puzzle().find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**4)
+    # with open('level_puzzle_solutions.txt', 'w') as f:
+    #     for sol in solutions:
+    #         f.write(' '.join(sol))
+    #         f.write('\n')
         
         

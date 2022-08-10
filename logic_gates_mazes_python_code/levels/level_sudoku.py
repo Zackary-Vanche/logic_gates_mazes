@@ -182,7 +182,7 @@ def level_sudoku(fast_solution_finding=False):
                  rooms_list=[R0, R1, R2, R3, RE], 
                  doors_list=[D0, D1, D2, D3], 
                  fastest_solution='S0 S1 S2 S7 D0 S9 S12 S14 S15 D1 S18 S19 S21 S22 D2 S24 S27 S28 S29 D3',
-                 level_color=Levels_colors_list.FROM_HUE(0, sa=1, li=0.95),
+                 level_color=Levels_colors_list.FROM_HUE(0, sa=1, li=0.9),
                  name='Sudoku',
                  door_window_size = 600,
                  keep_proportions = True)

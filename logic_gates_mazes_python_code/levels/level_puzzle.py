@@ -87,7 +87,7 @@ def level_puzzle(fast_solution_finding=False):
               name='T3',
               switches = [SN0, S0, S1, S2,
                           S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20,
-                          Switch(value=2**18)],
+                          Switch(value=69987)],
               cut_expression=True)
     T4 = Tree(tree_list=tree_list_EQU_BIN3,
               empty=True,
@@ -222,7 +222,7 @@ def level_puzzle(fast_solution_finding=False):
               position = [4+3*ex, 2+4*ey, ex, ey*3],
               switches_list = [S18, S19, S20,])
     RE = Room(name='RE',
-              position=[1, 3+6*ey, 0.7, 1.5*ey],
+              position=[1, 3+6*ey, ex, 1.5*ey],
               is_exit=True)   # E pour exit ou end
 
     D0 = Door(two_way=True,
@@ -379,7 +379,7 @@ def level_puzzle(fast_solution_finding=False):
                              D15, D16, D17,
                              D18, D19, D20,
                              D21, D22, D23, D24,],
-                 fastest_solution=None,
+                 fastest_solution="S0 D4 S3 D5 S6 D22 D0 S0 S1 D0 D21 S7 D6 S10 D7 D1 D0 S0 S2 D0 D18 S9 S11 D19 S18 S20 D20 D2 D1 D0 S0 S1 D0 D1 D2 D23 S17 D10 S20 D11 D1 D0 S1 D0 D15 S7 D16 S16 D17 D2 D1 D0 S0 S1 S2 D4 S3 D5 S6 D22 D0 S2 D0 D12 S3 S4 D13 S12 S13 D14 D2 D1 D0 S1 S2 D8 S13 D9 S16 D24 D2 D1 D0 S0 S1 S2 D0 D1 D2 D23 S17 D10 S20 D11 D1 D0 S0 S1 D0 D18 S9 S11 D19 S18 S20 D20 D2 D1 D0 S0 S2 D0 D21 S6 D6 S9 D7 D1 D0 S2 D0 D15 S8 D16 S17 D17 D2 D1 D0 S0 S2 D8 S13 D9 S16 D24 D2 D1 D0 S1 S2 D0 D12 S3 S4 D13 S12 S13 D14 D2 D1 D0 S2 D4 S5 D5 S8 D22 D0 S0 S1 D0 D21 S6 D6 S9 D7 D1 D0 S0 S2 D0 D18 S9 S11 D19 S18 S20 D20 D2 D1 D0 S0 S1 D0 D1 D2 D23 S16 D10 S19 D11 D1 D0 S1 D0 D15 S6 D16 S15 D17 D2 D1 D0 S0 S1 S2 D4 S5 D5 S8 D22 D0 S2 D0 D12 S3 S4 D13 S12 S13 D14 D2 D1 D0 S0 S2 D0 D1 D2 D3",
                  level_color=Levels_colors_list.FROM_HUE(0.4, sa=1, li=0.9),
                  name='Puzzle',
                  door_window_size=666,

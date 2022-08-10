@@ -324,7 +324,9 @@ To leave the game, you can click an the cross but also press [Q] or [ESCAPE]."""
     
 help_menus_list['levels'] = {}
 
-help_menus_list['levels']["Hello_World"] = '\n'.join([help_menus_list['introduction'], help_menus_list['basis'], help_menus_list['OR']])
+help_menus_list['levels']["Hello_World"] = '\n'.join([help_menus_list['introduction'], help_menus_list['basis']])
+
+help_menus_list['levels']["Initiation"] = help_menus_list['OR']
 
 help_menus_list['levels']["Linear"] = '\n'.join([help_menus_list['AND'], help_menus_list['NOT'], help_menus_list['AND and NOT']])
 
@@ -448,3 +450,5 @@ help_menus_list['levels']["Water pouring"] = """You have 3 jugs of liquid, and y
 help_menus_list['levels']["Syracuse"] = help_menus_list['DIV']
 
 help_menus_list['levels']["Temple"] = """This level is the retranscription of a really known puzzle game.\nOnce you find which game it is, the level is over."""
+
+help_menus_list['levels']["Puzzle"] = """This level is inspired from the 15-puzzle."""
