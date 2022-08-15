@@ -45,7 +45,6 @@ class Maze:
             assert room is not None
         assert start_room_index < len(self.rooms_list)
         self.start_room = self.rooms_list[self.start_room_index]
-        assert self.start_room.name == 'R0'
         self.current_room_index = self.start_room_index
         self.doors_set = set()
         self.switches_set = set()
@@ -544,8 +543,8 @@ class Maze:
                                 solutions_to_visit.append(solution+tuple(Slist)) 
                     visited_situations.add(current_situation_vector)
                 elif result_solution == 2:
-                    if verbose >= 2:
-                        print(solution)
+                    if verbose >= 1 and len(solutions_that_work) <= 10:
+                        print(' '.join(solution))
                     solutions_that_work.append(solution)
                     if stop_at_first_solution:
                         self.reboot_solution()

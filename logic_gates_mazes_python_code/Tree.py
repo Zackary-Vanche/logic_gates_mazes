@@ -26,6 +26,7 @@ class Tree:
     
     tree_list_not = ['NOT', [None]]
     tree_list_NOT = ['NOT', [None]]
+    tree_list_MINUS = ['MINUS', [None]]
     
     def tree_list_AND(n):
         return ['AND'] + [[None]]*n
@@ -65,6 +66,9 @@ class Tree:
     
     def tree_list_BETWEEN(n):
         return ['BETWEEN'] + [[None]]*n
+    
+    def tree_list_JUMP(n):
+        return ['JUMP'] + [[None]]*n
     
     def tree_list_from_str(txt, CNF=False):
         def tree_list_and_from_str(txt):
@@ -318,6 +322,7 @@ class Tree:
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('BIN ', 'b ')
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('DIST ', 'd ')
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('BETWEEN ', '<< ')
+            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('JUMP ', 'j ')
             if self.cut_expression:
                 l_elePN = self.easy_logical_expression_PN.split(self.cut_expression_separator)
                 elePN = ''

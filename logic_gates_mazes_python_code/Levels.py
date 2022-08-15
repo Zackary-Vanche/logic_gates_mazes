@@ -29,7 +29,6 @@ from levels.level_bipartite import level_bipartite
 from levels.level_bis_repetita import level_bis_repetita
 from levels.level_cartesian import level_cartesian
 from levels.level_chessboard import level_chessboard
-from levels.level_compact import level_compact
 from levels.level_congruence import level_congruence
 from levels.level_crossroad import level_crossroad
 from levels.level_crystal import level_crystal
@@ -70,6 +69,7 @@ from levels.level_pong import level_pong
 from levels.level_recurrence import level_recurrence
 from levels.level_river import level_river
 from levels.level_square import level_square
+from levels.level_solitaire import level_solitaire
 from levels.level_sudoku import level_sudoku
 from levels.level_sujiko import level_sujiko
 from levels.level_syracuse import level_syracuse
@@ -85,14 +85,12 @@ from levels.level_wave import level_wave
 #from levels.level_wheel_graph import level_wheel_graph
 from levels.level_xor import level_xor
 
-from levels.level_icone import level_icone
+# from levels.level_icone import level_icone
 # from levels.level_random import level_random
 
 class Levels: 
     
-    levels_functions_list = [#level_compact,
-                             #level_wheel_graph,
-                             level_hello_world,
+    levels_functions_list = [level_hello_world,
                              level_initiation,
                              level_linear,
                              level_loop,
@@ -156,6 +154,7 @@ class Levels:
                              level_syracuse,
                              level_water_pouring,
                              level_puzzle,
+                             level_solitaire,
                              #level_random,
                              ]
 
@@ -393,4 +392,7 @@ if __name__ == "__main__":
     #         f.write(' '.join(sol))
     #         f.write('\n')
         
+    solutions = level_solitaire().find_all_solutions(verbose=1,
+                                                     stop_at_first_solution=False,
+                                                     nb_iterations_print=10**5)
         

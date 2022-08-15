@@ -65,7 +65,7 @@ def level_initiation():
              rooms_list=[R0, R1, R2, RE], 
              doors_list = [D0, D1, D2], 
              fastest_solution="S0 D0 S1 D1 D2",
-             level_color=Levels_colors_list.FROM_HUE(0.6, sa=1, li=0.9),
+             level_color=Levels_colors_list.FROM_HUE(0.2, sa=1, li=0.8),
              name='Initiation',
              door_window_size = 500,
              keep_proportions = True)

@@ -158,7 +158,27 @@ class Logic_Gate:
                     if not (a in l0 and c in l1 or c in l0 and a in l1):
                         return False
         return True
-        
+    
+    def aux_func_JUMP(branches_values_list): # TODO
+        n = len(branches_values_list)
+        assert n%2 == 0
+        assert n >= 6
+        for i in range(n//2-2):
+            l = branches_values_list[2*i:2*i+6]
+            if l in [[0, 1,
+                      0, 1,
+                      1, 0],
+                     [1, 0,
+                      0, 1,
+                      0, 1],
+                     [1, 0,
+                      1, 0,
+                      0, 1],
+                     [0, 1,
+                      1, 0,
+                      1, 0]]:
+                return True
+        return False 
 
     func_dict = {'NOT' : aux_func_NOT,
                  'AND' : aux_func_AND,
@@ -190,6 +210,7 @@ class Logic_Gate:
                  'DIST' : aux_func_DIST,
                  'IN' : aux_func_IN,
                  'BETWEEN' : aux_func_BETWEEN,
+                 'JUMP' : aux_func_JUMP,
                  }
 
     def func(self, branches_values_list):
@@ -268,6 +289,13 @@ if __name__ == "__main__":
         print('')
         print(l)
         print(Logic_Gate.aux_func_BETWEEN(l))
+        
+    for l in [[1, 0, 0, 1, 0, 1],
+              [1, 0, 0, 1, 0, 1, 1, 0],
+              [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]]:
+        print('')
+        print(l)
+        print(Logic_Gate.aux_func_JUMP(l))
     
     
     

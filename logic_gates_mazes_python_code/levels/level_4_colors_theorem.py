@@ -286,6 +286,6 @@ def level_4_colors_theorem():
                  level_color=Levels_colors_list.FOUR_COLORS,
                  name='4 colors theorem',
                  door_window_size = 550,
-                 keep_proportions=False)
+                 keep_proportions=True)
 
     return level

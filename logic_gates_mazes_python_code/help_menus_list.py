@@ -150,7 +150,7 @@ D0 = >= S0 S1 means :
     D0 is open if S0 is superior or equal to S1"""
     
 help_menus_list['BIN'] = """
-b (S0 S1 ...) is the number whose binary big endian code is S0 S1 etc.
+b (S0 S1 ...) is the number whose binary little endian code is S0 S1 etc.
 For example:
     b (S0 S1 S2) = + (S0 * 2 S1 * 4 S2)"""
 
