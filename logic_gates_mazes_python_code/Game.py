@@ -451,9 +451,9 @@ class Game:
                                          self.letters_color),
                              (x0, y0 + gap))
             if line.replace(' ', '') == '':
-                gap += 15
+                gap += 12
             else:
-                gap += 20
+                gap += 25
 
         pygame_display_update()
 

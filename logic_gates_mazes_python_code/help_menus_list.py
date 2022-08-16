@@ -191,8 +191,15 @@ The operator BETWEEN takes several arguments:
 For every triplet:
     Let (a, b, c) be the triplet
     If a, b or c are not in L or b is not in between a and c, then the operator result is 0.
-If, for every triplet, a, b and c are in L and b is in between a and c, the operator result is 1.
-"""
+If, for every triplet, a, b and c are in L and b is in between a and c, the operator result is 1."""
+
+help_menus_list['JUMP'] = """
+j stands for 'jump'.
+This operator takes as argument a list of switches.
+
+    j (S0 S1 S2 S3 S4 S5) = i b(S0 S1 S2 S3 S4 S5) [22 26 37 41]
+    j (S0 S1 S2 S3 S4 S5 S6 S7) = ^ j (S0 S1 S2 S3 S4 S5) j (S2 S3 S4 S5 S6 S7)
+    j (S0 S1 S2 S3 S4 S5 S6 S7 S8 S9) = ^ [ j (S0 S1 S2 S3 S4 S5) j (S2 S3 S4 S5 S6 S7) j (S4 S5 S6 S7 S8 S9) ]"""
 
 help_menus_list['AND and NOT'] = """  
 By combining these notations, you can write :
@@ -452,3 +459,5 @@ help_menus_list['levels']["Syracuse"] = help_menus_list['DIV']
 help_menus_list['levels']["Temple"] = """This level is the retranscription of a really known puzzle game.\nOnce you find which game it is, the level is over."""
 
 help_menus_list['levels']["Puzzle"] = """This level is inspired from the 15-puzzle."""
+
+help_menus_list['levels']["Solitaire"] = help_menus_list['JUMP']
