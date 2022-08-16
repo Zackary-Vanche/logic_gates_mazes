@@ -163,8 +163,12 @@ class Logic_Gate:
         n = len(branches_values_list)
         assert n%2 == 0
         assert n >= 6
+        sublists = []
         for i in range(n//2-2):
             l = branches_values_list[2*i:2*i+6]
+            sublists.append(l)
+        n_True = 0
+        for l in sublists:
             if l in [[0, 1,
                       0, 1,
                       1, 0],
@@ -177,8 +181,8 @@ class Logic_Gate:
                      [0, 1,
                       1, 0,
                       1, 0]]:
-                return True
-        return False 
+                n_True += 1
+        return n_True == 1
 
     func_dict = {'NOT' : aux_func_NOT,
                  'AND' : aux_func_AND,
