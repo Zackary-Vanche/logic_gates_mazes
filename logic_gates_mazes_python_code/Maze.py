@@ -388,7 +388,9 @@ class Maze:
                     if self.legit_change_switch(action) or allow_all_switches:
                         if 3 > verbose > 0:
                             print('{} is authorised'.format(action))
-                        self.change_switch(action)
+                        self.change_switch(action)# solutions = level_solitaire().find_all_solutions(verbose=1,
+    #                                                  stop_at_first_solution=False,
+    #     
                     else:
                         if 3 > verbose > 0:
                             print('{} is not authorised'.format(action))
@@ -519,7 +521,7 @@ class Maze:
                 nb_iterations += 1
                 if nb_iterations % nb_iterations_print == 0 and verbose >= 1:
                      print('nb_iterations : {}'.format(nb_iterations))
-                     print('solutions_to_visit[-1] : {}'.format(solutions_to_visit[-1]))
+                     print('solutions_to_visit[-1] : {}'.format(' '.join(solutions_to_visit[-1])))
                      print('len(solutions_to_visit) : {}'.format(len(solutions_to_visit)))
                      print('len(solutions_to_visit)/nb_iterations : {}'.format(len(solutions_to_visit)/nb_iterations))
                      print('len(solutions_that_work) : {}'.format(len(solutions_that_work)))
