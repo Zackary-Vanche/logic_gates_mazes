@@ -32,7 +32,7 @@ possibles_moves = [
                    '''D0 D2 S9 D4 S14 D6 S19 D8 D10''',
                    '''D0 D2 D4 S14 D6 S19 D8 S24 D10''',
                    '''D0 S3 D2 S8 D4 S13 D6 D8 D10''',
-                   '''D0 D2 S8 S13 D4 S18 D6 D8 D10''',
+                   '''D0 D2 S8 D4 S13 D6 S18 D8 D10''',
                    '''D0 S2 D2 S7 D4 S12 D6 D8 D10''',
 
                    '''D1 D3 D5 S15 S16 S17 D7 D9 D11''',
@@ -117,6 +117,17 @@ def solve_level_solitaire(verbose=0,
     return solutions_that_work
 
 if __name__ == '__main__':
+    
+    l = ''''D0 S0 S1 S2 S3 S4 D2 S6 S7 S8 S9 D4 S12 S13 S14 D6 S18 S19 D8 S24 D10
+D1 S5 D3 S10 S11 D5 S15 S16 S17 D7 S20 S21 S22 S23 D9 S25 S26 S27 S28 S29 D11'''
+    for pm in possibles_moves:
+        pm = pm.split(' ')
+        li = []
+        for a in pm:
+            assert a in l, a
+            li.append(l.index(a))
+        assert sorted(li) == li, pm
+    
     solve_level_solitaire(verbose=1, nb_iterations_print=10**3)
 
 

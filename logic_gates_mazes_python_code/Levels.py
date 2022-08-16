@@ -226,36 +226,36 @@ class Levels:
     
 if __name__ == "__main__":
     
-    # import matplotlib.pyplot as plt
+    import matplotlib.pyplot as plt
     
-    # print('\nTrying all solutions')
+    print('\nTrying all solutions')
     
-    # for level_function in Levels.levels_functions_list:
-    #     level = level_function()
-    #     if not level.fastest_solution is None:
-    #         r = level.try_solution(level.fastest_solution)
-    #         if r != 2:
-    #             print(level.name, 'wrong solution')
+    for level_function in Levels.levels_functions_list:
+        level = level_function()
+        if not level.fastest_solution is None:
+            r = level.try_solution(level.fastest_solution)
+            if r != 2:
+                print(level.name, 'wrong solution')
                 
-    # print('\nSaving solutions')
+    print('\nSaving solutions')
     
-    # Levels.save_solutions_txt(do_it_fast=True, verbose=1)
+    Levels.save_solutions_txt(do_it_fast=True, verbose=1)
     
-    # print('\nCalculating solutions lenghts')
+    print('\nCalculating solutions lenghts')
     
-    # solutions_lenghts = []
-    # for level_function in Levels.levels_functions_list:
-    #     level = level_function()
-    #     if not level.fastest_solution is None:
-    #         solutions_lenghts.append(len(level.fastest_solution.split(' ')))
-    # # plt.yscale('log')
-    # plt.plot([i for i in range(len(solutions_lenghts))], solutions_lenghts)
-    # plt.show()
+    solutions_lenghts = []
+    for level_function in Levels.levels_functions_list:
+        level = level_function()
+        if not level.fastest_solution is None:
+            solutions_lenghts.append(len(level.fastest_solution.split(' ')))
+    # plt.yscale('log')
+    plt.plot([i for i in range(len(solutions_lenghts))], solutions_lenghts)
+    plt.show()
     
-    # print('')
+    print('')
         
-    solutions = level_solitaire().find_all_solutions(verbose=1,
-                                                     stop_at_first_solution=False,
-                                                     nb_iterations_print=10**5)
+    # solutions = level_solitaire().find_all_solutions(verbose=1,
+    #                                                  stop_at_first_solution=False,
+    #                                                  nb_iterations_print=10**5)
     
 #    level_solitaire().try_solution('D0 S0 S1 S2 D2 D4 D6 D8 D10 D12', verbose=2)
