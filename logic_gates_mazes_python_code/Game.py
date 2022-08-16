@@ -80,7 +80,7 @@ class Game:
                  time_between_actions=0.15,
                  time_between_deletings=0.05,
                  time_between_level_changing=0.25,
-                 print_click_rects=False,
+                 print_click_rects=True,
                  print_room_name=True,
                  print_tree_polygon=False,
                  show_help=True,
@@ -329,10 +329,6 @@ class Game:
             room_rectangle = pygame_Rect(x_gap, y_gap, x+2, y+2)
             if room.is_exit:
                 pygame_draw_ellipse(self.WINDOW, self.room_color, room_rectangle)
-                room_name_render = self.font.render('EXIT',
-                                                    True,
-                                                    self.inside_room_color)
-                self.WINDOW.blit(room_name_render, room.get_name_position())
                 if self.maze.current_room() == room:
                     if self.uniform_surrounding_colors:
                         pygame_draw_ellipse(self.WINDOW, self.surrounding_color, room_rectangle, width=self.line_size)
@@ -345,6 +341,17 @@ class Game:
                         pygame_draw_rect(self.WINDOW, self.surrounding_color, room_rectangle, width=self.line_size)
                     else:
                         pygame_draw_rect(self.WINDOW, room.surrounding_color, room_rectangle, width=self.line_size)
+                    
+    def draw_rooms_names(self):
+        # Affichage des pieces
+        for room in self.maze.rooms_list:
+            [x_gap, y_gap, x, y] = array(room.position)
+            if room.is_exit:
+                room_name_render = self.font.render('EXIT',
+                                                    True,
+                                                    self.inside_room_color)
+                self.WINDOW.blit(room_name_render, room.get_name_position())
+            else:
                 room_name_render = self.font.render(room.name,
                                                     True,
                                                     self.inside_room_color)
@@ -396,29 +403,35 @@ class Game:
                                    position[1]-self.click_rect_size/2,
                                    self.click_rect_size,
                                    self.click_rect_size)
-                if self.print_click_rects:
-                    pygame_draw_rect(self.WINDOW,
-                                     self.background_color,
-                                     rect)
                 if switch.value:
-                    rectangle_switch = pygame_Rect(position[0]-self.click_rect_size/2,
-                                                   position[1]-self.click_rect_size/2,
-                                                   self.click_rect_size,
-                                                   self.click_rect_size)
-                    if self.uniform_surrounding_colors:
+                    if self.print_click_rects:
                         pygame_draw_rect(self.WINDOW,
-                                         self.inside_room_surrounding_color,
-                                         rectangle_switch,
-                                         width = 3)
+                                         self.background_color,
+                                         rect)
                     else:
-                        pygame_draw_rect(self.WINDOW,
-                                         room.surrounding_color,
-                                         rectangle_switch,
-                                         width = 3)
+                        rectangle_switch = pygame_Rect(position[0]-self.click_rect_size/2,
+                                                       position[1]-self.click_rect_size/2,
+                                                       self.click_rect_size,
+                                                       self.click_rect_size)
+                        if self.uniform_surrounding_colors:
+                            pygame_draw_rect(self.WINDOW,
+                                             self.inside_room_surrounding_color,
+                                             rectangle_switch,
+                                             width = 3)
+                        else:
+                            pygame_draw_rect(self.WINDOW,
+                                             room.surrounding_color,
+                                             rectangle_switch,
+                                             width = 3)
                 if self.print_click_rects:
-                    switch_name_render = self.font.render(switch.name,
-                                                     True,
-                                                     self.letters_color)
+                    if switch.value:
+                        switch_name_render = self.font.render(switch.name,
+                                                              True,
+                                                              self.letters_color)
+                    else:
+                        switch_name_render = self.font.render(switch.name,
+                                                              True,
+                                                              self.inside_room_color)
                 else:
                     switch_name_render = self.font.render(switch.name,
                                                      True,
@@ -485,10 +498,11 @@ class Game:
         self.print_trees()
         self.draw_door_lines()
         self.draw_rooms()
+        self.draw_switches()
         self.draw_doors_polygons()
         self.print_doors_names()
-        self.draw_switches()
         self.print_current_action()
+        self.draw_rooms_names()
         pygame_display_update()
         
     def handle_interractions(self):

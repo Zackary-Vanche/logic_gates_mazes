@@ -748,10 +748,11 @@ class Maze:
             else:
                 D = 20
                 d = 20
-                L = 30
+                L = 25
+                F = 30
                 door.arrow_coordinates = [door.real_middle_coordinates + L*vect_unit,
                                           door.real_middle_coordinates + d*array([y, -x]),
-                                          door.real_middle_coordinates - L*vect_unit + D*array([y, -x]),
-                                          door.real_middle_coordinates - L*vect_unit - D*array([y, -x]),
+                                          door.real_middle_coordinates - F*vect_unit + D*array([y, -x]),
+                                          door.real_middle_coordinates - F*vect_unit - D*array([y, -x]),
                                           door.real_middle_coordinates - d*array([y, -x])]
                 door.real_middle_coordinates = door.real_middle_coordinates - array([11/2*len(door.name), 8])-10*vect_unit
