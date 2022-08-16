@@ -226,173 +226,36 @@ class Levels:
     
 if __name__ == "__main__":
     
-    import matplotlib.pyplot as plt
+    # import matplotlib.pyplot as plt
     
-    print('\nTrying all solutions')
+    # print('\nTrying all solutions')
     
-    for level_function in Levels.levels_functions_list:
-        level = level_function()
-        if not level.fastest_solution is None:
-            r = level.try_solution(level.fastest_solution)
-            if r != 2:
-                print(level.name, 'wrong solution')
+    # for level_function in Levels.levels_functions_list:
+    #     level = level_function()
+    #     if not level.fastest_solution is None:
+    #         r = level.try_solution(level.fastest_solution)
+    #         if r != 2:
+    #             print(level.name, 'wrong solution')
                 
-    print('\nSaving solutions')
+    # print('\nSaving solutions')
     
-    Levels.save_solutions_txt(do_it_fast=True, verbose=1)
+    # Levels.save_solutions_txt(do_it_fast=True, verbose=1)
     
-    print('\nCalculating solutions lenghts')
+    # print('\nCalculating solutions lenghts')
     
-    solutions_lenghts = []
-    for level_function in Levels.levels_functions_list:
-        level = level_function()
-        if not level.fastest_solution is None:
-            solutions_lenghts.append(len(level.fastest_solution.split(' ')))
-    # plt.yscale('log')
-    plt.plot([i for i in range(len(solutions_lenghts))], solutions_lenghts)
-    plt.show()
+    # solutions_lenghts = []
+    # for level_function in Levels.levels_functions_list:
+    #     level = level_function()
+    #     if not level.fastest_solution is None:
+    #         solutions_lenghts.append(len(level.fastest_solution.split(' ')))
+    # # plt.yscale('log')
+    # plt.plot([i for i in range(len(solutions_lenghts))], solutions_lenghts)
+    # plt.show()
     
-    print('')
-
-    # import cProfile
-    # level = level_bipartite()
-    # cProfile.run("solutions = level.find_all_solutions(verbose=3, stop_at_first_solution=False)")
-    
-#    for level_function in [
-#                             level_hello_world,
-#                             level_linear,
-#                             level_loop,
-#                             level_backward,
-#                             level_bis_repetita,
-#                             level_binary,
-#                             level_or,
-#                             level_crossroad,
-#                             level_square,
-#                           ]:
-#         level = level_function()
-#         print(level.name)
-#         solutions = level.find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**3)
-#         print(solutions)
-#    print('')
-
-#    solutions = level_sudoku(True).find_all_solutions(verbose=3, stop_at_first_solution=False, nb_iterations_print=10**3)
-    
-    # with open('level_sudoku_solutions.txt', 'r') as f:
-    #     solutions_test = f.readlines()
-    # for i in range(len(solutions_test)):
-    #     solutions_test[i] = solutions_test[i].replace('\n', '')
+    # print('')
         
-    # level = level_sudoku()
-    # nsol = 0
-    # solutions = []
-    # for sol in solutions_test:
-    #     r = level.try_solution(sol)
-    #     if r == 2:
-    #         nsol += 1
-    #         solutions.append(sol)
-    #         # print(sol)
-    # print(nsol)
+    # solutions = level_solitaire().find_all_solutions(verbose=1,
+    #                                                  stop_at_first_solution=False,
+    #                                                  nb_iterations_print=10**5)
     
-    
-    
-    # level = level_sujiko(True)
-    # level.try_solution('S0 S2 D0 S5 D1 S6 S7 S8 D2 S9 S10 D3 S13 D4 D5 S19 S20 D6 S21 D7 S27 D8', verbose=2)
-    # solution = level.find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**3)
-    
-    # [4,4,0] ↔ [4,1,3] ↔ [7,1,0] ↔ [7,0,1] ↔ [2,5,1] ↔ [2,3,3] ↔ [5,3,0] ↔ [5,0,3] ↔ [8,0,0]
-    
-    # [8, 0, 0]
-    # [3, 5, 0]
-    # [3, 2, 3]
-    # [6, 2, 0]
-    # [6, 0, 2]
-    # [1, 5, 2]
-    # [1, 4, 3]
-    # [4, 4, 0]
-    
-    # 8 S7 S8 S9 S10
-    
-    # 8 S3 S4 S5 S6
-    # 
-#     level = level_water_pouring()
-#     sol = """
-# S0 D1 S10 D7 D13 D14 D15 S21 D12 D6 D0
-
-# """
-#     level = level_no_three_in_line(True)
-#     solutions = level.find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**3)
-
-    # solutions_test = ['S2 D0 S3 S4 D1 S6 S7 S8 D2 S10 S11 D3 S12 D4 S16 D5 S18 S20 D6 D7 S27 D8',
-    #   'S0 S1 D0 S3 S5 D1 S6 S7 S8 D2 S10 S11 D3 D4 S15 D5 S20 D6 S22 D7 S27 D8',
-    #   'S0 S1 D0 S3 S4 S5 D1 S6 S8 D2 S11 D3 D4 S15 D5 S19 S20 D6 S22 D7 S27 D8',
-    #   'S0 S2 D0 S5 D1 S7 S8 D2 S9 S10 D3 S13 D4 S15 D5 S18 S19 S20 D6 D7 S27 D8',
-    #   'S0 S2 D0 S5 D1 S6 S7 S8 D2 S9 S10 D3 S13 D4 D5 S19 S20 D6 S21 D7 S27 D8',
-    #   'S0 S2 D0 S3 S4 D1 S6 S7 S8 D2 S11 D3 S13 D4 S15 D5 S19 S20 D6 D7 S27 D8']
-    # level = level_sujiko(False)
-    
-    # for sol in solutions_test:
-    #     r = level.try_solution(sol, verbose=0)
-    #     print(sol)
-    #     print(r)
-        
-    # l = []
-    # for sol in solutions_test:
-    #     l.append([])
-    #     for i in range(28):
-    #         l[-1].append(int('S' + str(i) in sol.split(' ')))
-     
-    # with open('level_no_three_in_line_solutions.txt', 'r') as f:
-    #     solutions_test = f.readlines()
-    # for i in range(len(solutions_test)):
-    #     solutions_test[i] = solutions_test[i].replace('\n', '')
-        
-    # level = level_no_three_in_line()
-    # solutions = []
-    # for sol in solutions_test:
-    #     r = level.try_solution(sol, verbose=0)
-    #     if r == 2:
-    #         solutions.append(sol)
-    #         print(sol)
-    
-    # for i in range(100):
-    #     solutions = level_3sat().find_all_solutions(verbose=0, stop_at_first_solution=False, nb_iterations_print=10**3)
-    #     print(len(solutions))
-    
-    # solutions = level_permutation().find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**3)
-    
-    # level = level_permutation()
-    # solutions = []
-    # for sol in solutions_test:
-    #     r = level.try_solution(sol, verbose=0)
-    #     if r == 2:
-    #         solutions.append(sol)
-    #         print(sol) 
-    
-    # with open('level_betweenness_solutions.txt', 'r') as f:
-    #     solutions_test = f.readlines()
-    # for i in range(len(solutions_test)):
-    #     solutions_test[i] = solutions_test[i].replace('\n', '')
-    # level = level_betweenness()
-    # solutions = []
-    # for i in range(len(solutions_test)):
-    #     sol = solutions_test[i]
-    #     r = level.try_solution(sol, verbose=0)
-    #     if r == 2:
-    #         solutions.append(sol)
-    #         print(sol)
-    # print(len(solutions))
-    
-    # solutions = level_wheel_graph().find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**3)
-
-    # print(solutions[-1])
-    
-    # solutions = level_puzzle().find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**4)
-    # with open('level_puzzle_solutions.txt', 'w') as f:
-    #     for sol in solutions:
-    #         f.write(' '.join(sol))
-    #         f.write('\n')
-        
-    solutions = level_solitaire().find_all_solutions(verbose=1,
-                                                     stop_at_first_solution=False,
-                                                     nb_iterations_print=10**5)
-        
+    level_solitaire().try_solution('D0 S0 S1 S2 D2 D4 D6 D8 D10 D12', verbose=2)

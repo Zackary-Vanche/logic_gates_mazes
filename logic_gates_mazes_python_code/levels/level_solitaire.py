@@ -110,10 +110,10 @@ def level_solitaire():
                           S7, S21,
                           S8, S16,
                           S9, S11,])
-    T5 = Tree(tree_list=['XOR', Tree.tree_list_XOR(2), Tree.tree_list_XOR(2)],
+    T5 = Tree(tree_list=tree_list_solitaire(2),
               empty=True,
               name='T5',
-              switches = [S10, S3, S11, S9])
+              switches = [S10, S3, S11, S9, SN1])
     T6 = Tree(tree_list=['OR',
                          tree_list_solitaire(3),
                          Tree.tree_list_JUMP(3*2)],
@@ -138,10 +138,10 @@ def level_solitaire():
                           S15, S2,
                           S16, S8,
                           S17, S14,])
-    T8 = Tree(tree_list=['XOR', Tree.tree_list_XOR(2), Tree.tree_list_XOR(2)],
+    T8 = Tree(tree_list=tree_list_solitaire(2),
               empty=True,
               name='T8',
-              switches = [S18, S28, S19, S23])
+              switches = [S18, S28, S19, S23, SN1])
     T9 = Tree(tree_list=['OR',
                          tree_list_solitaire(4),
                          Tree.tree_list_JUMP(4*2)],
@@ -210,7 +210,7 @@ def level_solitaire():
 
                            S1, S20,
                            S7, S21,
-                           S3, S22,
+                           S13, S22,
                            S19, S23,
 
                            S2, S15,
