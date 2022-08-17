@@ -311,6 +311,9 @@ def level_solitaire(fast_solution_finding=False):
                                      1, 0, 0,
                                      0, 0,
                                      0],]
+        for l in possible_switches_values:
+            assert sum(l) == 3, l
+        assert len(possible_switches_values) == 18
     else:
         possible_switches_values = None
 

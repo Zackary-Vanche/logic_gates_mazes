@@ -44,7 +44,7 @@ from levels.level_hello_world import level_hello_world
 from levels.level_hitting_set import level_hitting_set
 from levels.level_independent_set import level_independent_set
 from levels.level_infinity import level_infinity
-from levels.level_initiation import level_initiation
+# from levels.level_initiation import level_initiation
 from levels.level_knapsack import level_knapsack
 from levels.level_knight import level_knight
 from levels.level_linear import level_linear
@@ -91,7 +91,6 @@ from levels.level_xor import level_xor
 class Levels: 
     
     levels_functions_list = [level_hello_world,
-                             level_initiation,
                              level_linear,
                              level_loop,
                              level_backward,

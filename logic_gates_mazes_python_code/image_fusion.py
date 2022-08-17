@@ -8,7 +8,7 @@ if __name__ == "__main__":
     # TOTAL_SIZE = pyautogui_size()
     Game(save_image=1, time_between_level_changing=0, show_help=0).play()
     TOTAL_SIZE = [1920, 1055]
-    # Game(WINDOW_SIZE=TOTAL_SIZE, save_image=True).play()
+    Game(WINDOW_SIZE=TOTAL_SIZE, save_image=True).play()
 
     racine = __file__
     racine = racine.split('\\')
@@ -44,3 +44,31 @@ if __name__ == "__main__":
                         cv2.hconcat([cv2.imread(file) for file in file_list]))
         except:
             pass
+        try:
+            print(size)
+            WIDTH, HEIGHT = size
+            string = "WIDTH_{}_HEIGHT_{}".format(WIDTH, HEIGHT)
+            dico = {}
+            for file in os.listdir(racine):
+                if string in file and "HELP" in file and not "concat" in file:
+                    n = int(file.split('_')[2])
+                    dico[n] = '/'.join([racine, file])
+            file_list = []
+            for n in sorted(dico.keys()):
+                file_list.append(dico[n])
+
+            m = 8
+            n = 8
+            l_img_h = []
+            for i in range(m):
+                l = file_list[n*i:n*i+n]
+                l = [cv2.imread(file) for file in l]
+                im_h = cv2.hconcat(l)
+                l_img_h.append(im_h)
+            img = cv2.vconcat(l_img_h)
+            cv2.imwrite('images/concat_levels_HELP_{}.jpg'.format(string), img)
+
+            cv2.imwrite('images/concat_line_levels_HELP_{}.jpg'.format(string),
+                        cv2.hconcat([cv2.imread(file) for file in file_list]))
+        except:
+            raise
