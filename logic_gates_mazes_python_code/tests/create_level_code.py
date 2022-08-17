@@ -5,7 +5,7 @@ Created on Mon Apr  4 20:01:20 2022
 @author: utilisateur
 """
 
-ns = 30
+ns = 35
 nd = 9
 nr = 4
 

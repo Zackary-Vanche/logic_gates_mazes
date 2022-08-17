@@ -259,6 +259,6 @@ if __name__ == "__main__":
         
     solutions = level_solitaire(True).find_all_solutions(verbose=1,
                                                          stop_at_first_solution=False,
-                                                         nb_iterations_print=10**4)
+                                                         nb_iterations_print=10**3)
     
 #    level_solitaire().try_solution('D0 S0 S1 S2 D2 D4 D6 D8 D10 D12', verbose=2)
