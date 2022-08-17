@@ -128,7 +128,7 @@ D1 S5 D3 S10 S11 D5 S15 S16 S17 D7 S20 S21 S22 S23 D9 S25 S26 S27 S28 S29 D11'''
             li.append(l.index(a))
         assert sorted(li) == li, pm
     
-    solve_level_solitaire(verbose=1, nb_iterations_print=10**3)
+    solutions = solve_level_solitaire(verbose=1, nb_iterations_print=10**4)
 
 
 

@@ -116,17 +116,17 @@ class Tree:
             return tree_list
     
     def __init__(self, 
-                 tree_list = [None], 
-                 empty = None, 
-                 name = 'T', 
-                 switches = [], 
-                 easy_logical_expression_PN = None,
-                 root_depth = 0, 
-                 cut_expression = False,
-                 cut_expression_separator = ')'):
-        
+                 tree_list=[None], 
+                 empty=None, 
+                 name='T', 
+                 switches=[], 
+                 easy_logical_expression_PN=None,
+                 root_depth=0, 
+                 cut_expression=False,
+                 cut_expression_separator=')'):
+
         # assert not (root_depth == 0 and switches == []), name
-        
+
         self.name = name
         assert self.name[0] == 'T' 
         self.is_leaf = None
@@ -136,24 +136,24 @@ class Tree:
         self.sons_list = []
         self.door = None
         self.root_depth = root_depth
-        
+
         # Chaque interrupteur actionne plusieurs feuilles.
         # Soit la liste des interrupteurs est vide,
         # soit c'est une liste de liste qui contient toutes les feuilles.
         # Les feuilles sont alors répertoriées par leurs numéros.
-        
+
         # Chaque feuille est actionnée par un interrupteur.
         # Deux feuilles ou plus peuvent être actionnées par le même interrupteur.
         # Si la liste des interrupteurs est vide, on ne les prend pas en compte.
-        
+
         # Deux listes sont attachées à un arbre et expliquent ses interrupteurs.
         # La première est same_switches_list.
         # C'est une liste de liste.
         # Si deux indices sont dans la même sous-liste de self.same_switches_list,
         # cela signifie que les feuilles correspondantes sont actionnées par le même interrupteur.
         # La deuxième est switches_list.
-        
-        self.switches_list = switches
+
+        self.switches_list = switches[:]
         # assert len(list(set(self.switches_list))) == len(self.switches_list), self.name
         # assert not (self.root_depth == 0 and self.switches_list == []), self.name
         for switch in self.switches_list:
@@ -161,9 +161,9 @@ class Tree:
             if self.door != None:
                 switch.add_door(self.door)
         self.same_switches_list = []
-        
+
         assert isinstance(tree_list, list), self.name
-        
+
         if len(tree_list) == 1:
             self.root = tree_list[0]
             self.is_leaf = True
@@ -193,9 +193,13 @@ class Tree:
             if switches == None:
                 switches = self.switches_list
             if self.is_leaf:
-                self.switches_list = [switches[0]]
-                del switches[0]
-                return switches
+                try:
+                    self.switches_list = [switches[0]]
+                    del switches[0]
+                    return switches
+                except:
+                    print(self.name, switches)
+                    raise
             else:
                 for son in self.sons_list:
                     switches = son.update_leafs_switches(switches)

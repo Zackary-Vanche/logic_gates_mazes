@@ -5,9 +5,9 @@ Created on Mon Apr  4 20:01:20 2022
 @author: utilisateur
 """
 
-ns = 3*6+15
-nd = 3*9+15
-nr = 15+3
+ns = 0
+nd = 12
+nr = 0
 
 for i in range(ns):
     print("""S{0} = Switch(name='S{0}')""".format(i))
@@ -45,5 +45,3 @@ for i in range(nd):
 print(str(['R{}'.format(i) for i in range(nr)]).replace("'", ''))
 print(str(['D{}'.format(i) for i in range(nd)]).replace("'", ''))
 print(str(['S{}'.format(i) for i in range(ns)]).replace("'", ''))
-
-    
