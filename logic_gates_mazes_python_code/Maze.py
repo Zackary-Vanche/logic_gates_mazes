@@ -739,7 +739,7 @@ class Maze:
             [x, y] = vect_unit
 
             if door.two_way:
-                l_diag = 50
+                l_diag = 55
                 L_diag = 65
                 door.arrow_coordinates = [door.real_middle_coordinates + L_diag*vect_unit/2,
                                           door.real_middle_coordinates + l_diag*array([y, -x])/2,

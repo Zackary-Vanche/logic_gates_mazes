@@ -128,7 +128,12 @@ class Game:
         # vient de choisir de changer de niveau
         # ou au début du jeu (il faut initialiser le niveau)
         self.last_level_change_time = time()
-        self.click_rect_size = 40
+        if self.print_click_rects:
+            self.click_rect_size_x = 35
+            self.click_rect_size_y = 20
+        else:
+            self.click_rect_size_x = 40
+            self.click_rect_size_y = 40
         if self.save_image:
             if not os_path_exists('images'):
                 os_mkdir('images')
@@ -311,8 +316,8 @@ class Game:
                     string = str_logical_expression[i]
                     if i == 0:
                         logical_expression_render = self.font.render(door.name + ' = ' + string,
-                                                                True,
-                                                                self.inside_room_color)
+                                                                     True,
+                                                                     self.inside_room_color)
                         self.WINDOW.blit(logical_expression_render, (self.x_separation + 10, gap))
                     else:
                         logical_expression_render = self.font.render(' '*(len(door.name)+3) + string,
@@ -399,20 +404,20 @@ class Game:
             for i in range(len(switches_list)):
                 switch = switches_list[i]
                 position = switches_positions[i]
-                rect = pygame_Rect(position[0]-self.click_rect_size/2,
-                                   position[1]-self.click_rect_size/2,
-                                   self.click_rect_size,
-                                   self.click_rect_size)
+                rect = pygame_Rect(position[0]-self.click_rect_size_x/2,
+                                   position[1]-self.click_rect_size_y/2,
+                                   self.click_rect_size_x,
+                                   self.click_rect_size_y)
                 if switch.value:
                     if self.print_click_rects:
                         pygame_draw_rect(self.WINDOW,
                                          self.background_color,
                                          rect)
                     else:
-                        rectangle_switch = pygame_Rect(position[0]-self.click_rect_size/2,
-                                                       position[1]-self.click_rect_size/2,
-                                                       self.click_rect_size,
-                                                       self.click_rect_size)
+                        rectangle_switch = pygame_Rect(position[0]-self.click_rect_size_x/2,
+                                                       position[1]-self.click_rect_size_y/2,
+                                                       self.click_rect_size_x,
+                                                       self.click_rect_size_y)
                         if self.uniform_surrounding_colors:
                             pygame_draw_rect(self.WINDOW,
                                              self.inside_room_surrounding_color,
@@ -437,7 +442,7 @@ class Game:
                                                      True,
                                                      self.inside_room_color)
                 self.WINDOW.blit(switch_name_render,
-                            position - array([10/2*len(switch.name), 8]))
+                            position - array([10/2*len(switch.name), 7]))
         
     def display_help(self):
         

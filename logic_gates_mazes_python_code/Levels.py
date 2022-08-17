@@ -240,7 +240,7 @@ if __name__ == "__main__":
     print('\nSaving solutions')
     
     Levels.save_solutions_txt(do_it_fast=True, verbose=1)
-    
+
     print('\nCalculating solutions lenghts')
     
     solutions_lenghts = []
@@ -248,14 +248,17 @@ if __name__ == "__main__":
         level = level_function()
         if not level.fastest_solution is None:
             solutions_lenghts.append(len(level.fastest_solution.split(' ')))
-    # plt.yscale('log')
-    plt.plot([i for i in range(len(solutions_lenghts))], solutions_lenghts)
+    plt.figure(figsize=(15, 5))
+#    plt.yscale('log')
+#    solutions_lenghts.sort()
+    plt.plot([i for i in range(len(solutions_lenghts))], solutions_lenghts, lw=0.3, color='k')
+    plt.scatter([i for i in range(len(solutions_lenghts))], solutions_lenghts, lw=0.1, color='r')
     plt.show()
     
     print('')
         
     solutions = level_solitaire(True).find_all_solutions(verbose=1,
                                                          stop_at_first_solution=False,
-                                                         nb_iterations_print=10**5)
+                                                         nb_iterations_print=10**4)
     
 #    level_solitaire().try_solution('D0 S0 S1 S2 D2 D4 D6 D8 D10 D12', verbose=2)

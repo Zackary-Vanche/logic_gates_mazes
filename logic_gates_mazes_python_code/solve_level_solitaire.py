@@ -75,6 +75,7 @@ def solve_level_solitaire(verbose=0,
             print('nb_iterations : {}'.format(nb_iterations))
             print('solutions_to_visit[-1] : {}'.format(solutions_to_visit[-1]))
             print('len(solutions_to_visit) : {}'.format(len(solutions_to_visit)))
+            print("solutions_to_visit[-1].count('D') : {}".format(' '.join(solutions_to_visit[-1]).count('D')))
             print('len(solutions_to_visit)/nb_iterations : {}'.format(len(solutions_to_visit)/nb_iterations))
             print('len(solutions_that_work) : {}'.format(len(solutions_that_work)))
             print('')
