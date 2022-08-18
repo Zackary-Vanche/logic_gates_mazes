@@ -20,7 +20,7 @@ class Logic_Gate:
         return slv
 
     def aux_func_NOT(sons_list):
-        assert len(sons_list) == 1
+        # # assert len(sons_list) == 1
         return not sons_list[0].get_value()
 
     def aux_func_AND(sons_list):
@@ -47,7 +47,7 @@ class Logic_Gate:
         return not Logic_Gate.aux_func_XOR(sons_list)
 
     def aux_func_EQU(sons_list):
-        assert len(sons_list) >= 2
+        # # assert len(sons_list) >= 2
         for i in range(len(sons_list)-1):
             if sons_list[i].get_value() != sons_list[i+1].get_value():
                 return 0
@@ -57,12 +57,12 @@ class Logic_Gate:
         branches_values_list = []
         for son in sons_list:
             branches_values_list.append(son.get_value())
-        assert len(branches_values_list) % 2 == 0
+        # # assert len(branches_values_list) % 2 == 0
         n = len(branches_values_list) // 2
         return set(branches_values_list[:n]) == set(branches_values_list[n:])
 
     def aux_func_DIFF(sons_list):
-        assert len(sons_list) >= 2
+        # # assert len(sons_list) >= 2
         branches_values_list = []
         for son in sons_list:
             branches_values_list.append(son.get_value())
@@ -94,43 +94,43 @@ class Logic_Gate:
         return p
 
     def aux_func_ABS(sons_list):
-        assert len(sons_list) == 1
+        # # assert len(sons_list) == 1
         return abs(sons_list[0].get_value())
 
     def aux_func_MINUS(sons_list):
-        assert len(sons_list) == 1
+        # # assert len(sons_list) == 1
         return -sons_list[0].get_value()
 
     def aux_func_INF(sons_list):
-        assert len(sons_list) == 2
+        # # assert len(sons_list) == 2
         return sons_list[0].get_value() < sons_list[1].get_value()
 
     def aux_func_INFOREQU(sons_list):
-        assert len(sons_list) == 2
+        # # assert len(sons_list) == 2
         return sons_list[0].get_value() <= sons_list[1].get_value()
 
     def aux_func_SUP(sons_list):
-        assert len(sons_list) == 2
+        # # assert len(sons_list) == 2
         return sons_list[0].get_value() > sons_list[1].get_value()
 
     def aux_func_SUPOREQU(sons_list):
-        assert len(sons_list) == 2
+        # # assert len(sons_list) == 2
         return sons_list[0].get_value() >= sons_list[1].get_value()
 
     def aux_func_ANB(sons_list):
-        assert len(sons_list) == 2
+        # # assert len(sons_list) == 2
         return not sons_list[0].get_value() and not sons_list[1].get_value()
 
     def aux_func_BNA(sons_list):
-        assert len(sons_list) == 2
+        # # assert len(sons_list) == 2
         return not sons_list[1].get_value() and not sons_list[0].get_value()
 
     def aux_func_AONB(sons_list):
-        assert len(sons_list) == 2
+        # # assert len(sons_list) == 2
         return not sons_list[0].get_value() or not sons_list[1].get_value()
 
     def aux_func_BONA(sons_list):
-        assert len(sons_list) == 2
+        # # assert len(sons_list) == 2
         return not sons_list[1].get_value() or not sons_list[0].get_value()
 
     def aux_func_BIN(sons_list):
@@ -143,15 +143,15 @@ class Logic_Gate:
         return s
 
     def aux_func_POW(sons_list):
-        assert len(sons_list) == 2
+        # # assert len(sons_list) == 2
         return sons_list[0].get_value()**sons_list[1].get_value()
 
     def aux_func_DIV(sons_list):
-        assert len(sons_list) == 2
+        # # assert len(sons_list) == 2
         return sons_list[0].get_value()/sons_list[1].get_value()
 
     def aux_func_MOD(sons_list):
-        assert len(sons_list) == 2
+        # # assert len(sons_list) == 2
         return sons_list[0].get_value() % sons_list[1].get_value()
     
     def aux_func_NONO(sons_list):
@@ -166,7 +166,7 @@ class Logic_Gate:
         return groups_of_1_needed == groups_of_1
     
     def aux_func_DIST(sons_list):
-        assert len(sons_list) == 4
+        # # assert len(sons_list) == 4
         branches_values_list = []
         for son in sons_list:
             branches_values_list.append(son.get_value())
@@ -174,7 +174,7 @@ class Logic_Gate:
         return ( (a-c)**2 + (b-d)**2 )**(1/2)
     
     def aux_func_IN(sons_list):
-        assert len(sons_list) > 1
+        # # assert len(sons_list) > 1
         branches_values_list = []
         for son in sons_list:
             branches_values_list.append(son.get_value())
@@ -208,8 +208,8 @@ class Logic_Gate:
         for son in sons_list:
             branches_values_list.append(son.get_value())
         n = len(branches_values_list)
-        assert n%2 == 0
-        assert n >= 6
+        # assert n%2 == 0
+        # assert n >= 6
         sublists = []
         for i in range(n//2-2):
             l = branches_values_list[2*i:2*i+6]
