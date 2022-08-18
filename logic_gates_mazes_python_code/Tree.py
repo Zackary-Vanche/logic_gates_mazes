@@ -370,12 +370,6 @@ class Tree:
                 son.switches_list = new_switches_list[a-b:a]
                 son.switch_leafs(root_depth+1)
         # Cette fonction change la valeur des feuilles de l'arbre afin de prendre en compte les interrupteurs
-        
-    def sons_list_values(self):
-        slv = []
-        for son in self.sons_list:
-            slv.append(son.get_value())
-        return slv
     
     def get_value(self):
         # Si la liste des interrupteurs n'est pas vide,
@@ -387,7 +381,7 @@ class Tree:
             return self.root
         else: 
             # Dans ce cas, on a un noeud.
-            return self.root.func(self.sons_list_values())
+            return self.root.func(self.sons_list)
 
     def get_depth(self):
         if self.is_leaf:

@@ -12,117 +12,152 @@ class Logic_Gate:
     def __init__(self, name):
         self.switch = None
         self.name = name
+        
+    def sons_list_values(tree):
+        slv = []
+        for son in tree.sons_list:
+            slv.append(son.get_value())
+        return slv
 
-    def aux_func_NOT(branches_values_list):
-        assert len(branches_values_list) == 1
-        return not branches_values_list[0]
+    def aux_func_NOT(sons_list):
+        assert len(sons_list) == 1
+        return not sons_list[0].get_value()
 
-    def aux_func_AND(branches_values_list):
-        return not 0 in branches_values_list
-
-    def aux_func_OR(branches_values_list):
-        return 1 in branches_values_list
-
-    def aux_func_XOR(branches_values_list):
-        return sum(branches_values_list) == 1
-
-    def aux_func_XNOR(branches_values_list):
-        return not Logic_Gate.aux_func_XOR(branches_values_list)
-
-    def aux_func_EQU(branches_values_list):
-        assert len(branches_values_list) >= 2
-        for i in range(len(branches_values_list)-1):
-            if branches_values_list[i] != branches_values_list[i+1]:
+    def aux_func_AND(sons_list):
+        for sons in sons_list:
+            if not sons.get_value():
                 return 0
         return 1
 
-    def aux_func_EQUSET(branches_values_list):
+    def aux_func_OR(sons_list):
+        for sons in sons_list:
+            if sons.get_value():
+                return 1
+        return 0
+
+    def aux_func_XOR(sons_list):
+        S = 0
+        for sons in sons_list:
+            S += sons.get_value()
+            if S > 1:
+                return 0
+        return S == 1
+
+    def aux_func_XNOR(sons_list):
+        return not Logic_Gate.aux_func_XOR(sons_list)
+
+    def aux_func_EQU(sons_list):
+        assert len(sons_list) >= 2
+        for i in range(len(sons_list)-1):
+            if sons_list[i].get_value() != sons_list[i+1].get_value():
+                return 0
+        return 1
+
+    def aux_func_EQUSET(sons_list):
+        branches_values_list = []
+        for son in sons_list:
+            branches_values_list.append(son.get_value())
         assert len(branches_values_list) % 2 == 0
         n = len(branches_values_list) // 2
         return set(branches_values_list[:n]) == set(branches_values_list[n:])
 
-    def aux_func_DIFF(branches_values_list):
-        assert len(branches_values_list) >= 2
+    def aux_func_DIFF(sons_list):
+        assert len(sons_list) >= 2
+        branches_values_list = []
+        for son in sons_list:
+            branches_values_list.append(son.get_value())
         branches_values_list_sorted = sorted(branches_values_list)
         for i in range(len(branches_values_list_sorted)-1):
             if branches_values_list_sorted[i] == branches_values_list_sorted[i+1]:
                 return 0
         return 1
 
-    def aux_func_NAND(branches_values_list):
-        return not Logic_Gate.aux_func_AND(branches_values_list)
+    def aux_func_NAND(sons_list):
+        return not Logic_Gate.aux_func_AND(sons_list)
 
-    def aux_func_NOR(branches_values_list):
-        return not Logic_Gate.aux_func_OR(branches_values_list)
+    def aux_func_NOR(sons_list):
+        return not Logic_Gate.aux_func_OR(sons_list)
 
-    def aux_func_SUM(branches_values_list):
+    def aux_func_SUM(sons_list):
+        branches_values_list = []
+        for son in sons_list:
+            branches_values_list.append(son.get_value())
         return sum(branches_values_list)
 
-    def aux_func_PROD(branches_values_list):
+    def aux_func_PROD(sons_list):
+        branches_values_list = []
+        for son in sons_list:
+            branches_values_list.append(son.get_value())
         p = 1
         for x in branches_values_list:
             p = p * x
         return p
 
-    def aux_func_ABS(branches_values_list):
-        assert len(branches_values_list) == 1
-        return abs(branches_values_list[0])
+    def aux_func_ABS(sons_list):
+        assert len(sons_list) == 1
+        return abs(sons_list[0].get_value())
 
-    def aux_func_MINUS(branches_values_list):
-        assert len(branches_values_list) == 1
-        return -branches_values_list[0]
+    def aux_func_MINUS(sons_list):
+        assert len(sons_list) == 1
+        return -sons_list[0].get_value()
 
-    def aux_func_INF(branches_values_list):
-        assert len(branches_values_list) == 2
-        return branches_values_list[0] < branches_values_list[1]
+    def aux_func_INF(sons_list):
+        assert len(sons_list) == 2
+        return sons_list[0].get_value() < sons_list[1].get_value()
 
-    def aux_func_INFOREQU(branches_values_list):
-        assert len(branches_values_list) == 2
-        return branches_values_list[0] <= branches_values_list[1]
+    def aux_func_INFOREQU(sons_list):
+        assert len(sons_list) == 2
+        return sons_list[0].get_value() <= sons_list[1].get_value()
 
-    def aux_func_SUP(branches_values_list):
-        assert len(branches_values_list) == 2
-        return branches_values_list[0] > branches_values_list[1]
+    def aux_func_SUP(sons_list):
+        assert len(sons_list) == 2
+        return sons_list[0].get_value() > sons_list[1].get_value()
 
-    def aux_func_SUPOREQU(branches_values_list):
-        assert len(branches_values_list) == 2
-        return branches_values_list[0] >= branches_values_list[1]
+    def aux_func_SUPOREQU(sons_list):
+        assert len(sons_list) == 2
+        return sons_list[0].get_value() >= sons_list[1].get_value()
 
-    def aux_func_ANB(branches_values_list):
-        assert len(branches_values_list) == 2
-        return not branches_values_list[0] and not branches_values_list[1]
+    def aux_func_ANB(sons_list):
+        assert len(sons_list) == 2
+        return not sons_list[0].get_value() and not sons_list[1].get_value()
 
-    def aux_func_BNA(branches_values_list):
-        assert len(branches_values_list) == 2
-        return not branches_values_list[1] and not branches_values_list[0]
+    def aux_func_BNA(sons_list):
+        assert len(sons_list) == 2
+        return not sons_list[1].get_value() and not sons_list[0].get_value()
 
-    def aux_func_AONB(branches_values_list):
-        assert len(branches_values_list) == 2
-        return not branches_values_list[0] or not branches_values_list[1]
+    def aux_func_AONB(sons_list):
+        assert len(sons_list) == 2
+        return not sons_list[0].get_value() or not sons_list[1].get_value()
 
-    def aux_func_BONA(branches_values_list):
-        assert len(branches_values_list) == 2
-        return not branches_values_list[1] or not branches_values_list[0]
+    def aux_func_BONA(sons_list):
+        assert len(sons_list) == 2
+        return not sons_list[1].get_value() or not sons_list[0].get_value()
 
-    def aux_func_BIN(branches_values_list):
+    def aux_func_BIN(sons_list):
+        branches_values_list = []
+        for son in sons_list:
+            branches_values_list.append(son.get_value())
         s = 0
         for i in range(len(branches_values_list)):
             s += branches_values_list[i] * 2**i
         return s
 
-    def aux_func_POW(branches_values_list):
-        assert len(branches_values_list) == 2
-        return branches_values_list[0]**branches_values_list[1]
+    def aux_func_POW(sons_list):
+        assert len(sons_list) == 2
+        return sons_list[0].get_value()**sons_list[1].get_value()
 
-    def aux_func_DIV(branches_values_list):
-        assert len(branches_values_list) == 2
-        return branches_values_list[0]/branches_values_list[1]
+    def aux_func_DIV(sons_list):
+        assert len(sons_list) == 2
+        return sons_list[0].get_value()/sons_list[1].get_value()
 
-    def aux_func_MOD(branches_values_list):
-        assert len(branches_values_list) == 2
-        return branches_values_list[0] % branches_values_list[1]
+    def aux_func_MOD(sons_list):
+        assert len(sons_list) == 2
+        return sons_list[0].get_value() % sons_list[1].get_value()
     
-    def aux_func_NONO(branches_values_list):
+    def aux_func_NONO(sons_list):
+        branches_values_list = []
+        for son in sons_list:
+            branches_values_list.append(son.get_value())
         n = branches_values_list[0] # number of groups of 1
         groups_of_1_needed = branches_values_list[1:1+n] # every possible positive integer in that list
         line = branches_values_list[1+n:] # only 0 and 1 in here
@@ -130,16 +165,25 @@ class Logic_Gate:
         groups_of_1 = [len(x) for x in line_string.split('0') if x != '']
         return groups_of_1_needed == groups_of_1
     
-    def aux_func_DIST(branches_values_list):
-        assert len(branches_values_list) == 4
+    def aux_func_DIST(sons_list):
+        assert len(sons_list) == 4
+        branches_values_list = []
+        for son in sons_list:
+            branches_values_list.append(son.get_value())
         [a, b, c, d] = branches_values_list
         return ( (a-c)**2 + (b-d)**2 )**(1/2)
     
-    def aux_func_IN(branches_values_list):
-        assert len(branches_values_list) > 1
+    def aux_func_IN(sons_list):
+        assert len(sons_list) > 1
+        branches_values_list = []
+        for son in sons_list:
+            branches_values_list.append(son.get_value())
         return branches_values_list[0] in branches_values_list[1:]
     
-    def aux_func_BETWEEN(branches_values_list):
+    def aux_func_BETWEEN(sons_list):
+        branches_values_list = []
+        for son in sons_list:
+            branches_values_list.append(son.get_value())
         n = branches_values_list.pop(0)
         b_list = []
         for i in range(n):
@@ -159,7 +203,10 @@ class Logic_Gate:
                         return False
         return True
     
-    def aux_func_JUMP(branches_values_list): # TODO
+    def aux_func_JUMP(sons_list):
+        branches_values_list = []
+        for son in sons_list:
+            branches_values_list.append(son.get_value())
         n = len(branches_values_list)
         assert n%2 == 0
         assert n >= 6
