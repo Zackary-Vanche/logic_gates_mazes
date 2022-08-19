@@ -39,8 +39,6 @@ from linear_function import linear_function
 from Maze import Maze
 from Levels import Levels
 
-from levels.level_random import level_random
-
 class Game:
     
     keys_dict = {K_a: 'A',
