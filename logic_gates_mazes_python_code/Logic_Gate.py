@@ -5,14 +5,13 @@ Created on Thu Mar  3 16:01:51 2022
 @author: utilisateur
 """
 
-# from convert_base_2 import base_2
 
 class Logic_Gate:
 
     def __init__(self, name):
         self.switch = None
         self.name = name
-        
+
     def sons_list_values(tree):
         slv = []
         for son in tree.sons_list:
@@ -153,33 +152,33 @@ class Logic_Gate:
     def aux_func_MOD(sons_list):
         # # assert len(sons_list) == 2
         return sons_list[0].get_value() % sons_list[1].get_value()
-    
+
     def aux_func_NONO(sons_list):
         branches_values_list = []
         for son in sons_list:
             branches_values_list.append(son.get_value())
-        n = branches_values_list[0] # number of groups of 1
-        groups_of_1_needed = branches_values_list[1:1+n] # every possible positive integer in that list
-        line = branches_values_list[1+n:] # only 0 and 1 in here
+        n = branches_values_list[0]  # number of groups of 1
+        groups_of_1_needed = branches_values_list[1:1+n]  # every possible positive integer in that list
+        line = branches_values_list[1+n:]  # only 0 and 1 in here
         line_string = ''.join([str(i) for i in line])
         groups_of_1 = [len(x) for x in line_string.split('0') if x != '']
         return groups_of_1_needed == groups_of_1
-    
+
     def aux_func_DIST(sons_list):
         # # assert len(sons_list) == 4
         branches_values_list = []
         for son in sons_list:
             branches_values_list.append(son.get_value())
         [a, b, c, d] = branches_values_list
-        return ( (a-c)**2 + (b-d)**2 )**(1/2)
-    
+        return ((a-c)**2 + (b-d)**2)**(1/2)
+
     def aux_func_IN(sons_list):
         # # assert len(sons_list) > 1
         branches_values_list = []
         for son in sons_list:
             branches_values_list.append(son.get_value())
         return branches_values_list[0] in branches_values_list[1:]
-    
+
     def aux_func_BETWEEN(sons_list):
         branches_values_list = []
         for son in sons_list:
@@ -193,7 +192,7 @@ class Logic_Gate:
             b_list.append([a, b, c])
         for i in range(n):
             [a, b, c] = b_list[i]
-            if not b in branches_values_list:
+            if b not in branches_values_list:
                 return False
             for j in range(len(branches_values_list)):
                 if branches_values_list[j] == b:
@@ -202,7 +201,7 @@ class Logic_Gate:
                     if not (a in l0 and c in l1 or c in l0 and a in l1):
                         return False
         return True
-    
+
     def aux_func_JUMP(sons_list):
         branches_values_list = []
         for son in sons_list:
@@ -212,56 +211,56 @@ class Logic_Gate:
         # assert n >= 6
         sublists = []
         for i in range(n//2-2):
-            l = branches_values_list[2*i:2*i+6]
-            sublists.append(l)
+            bl = branches_values_list[2*i:2*i+6]
+            sublists.append(bl)
         n_True = 0
-        for l in sublists:
-            if l in [[0, 1,
-                      0, 1,
-                      1, 0],
-                     [1, 0,
-                      0, 1,
-                      0, 1],
-                     [1, 0,
-                      1, 0,
-                      0, 1],
-                     [0, 1,
-                      1, 0,
-                      1, 0]]:
+        for bl in sublists:
+            if bl in [[0, 1,
+                       0, 1,
+                       1, 0],
+                      [1, 0,
+                       0, 1,
+                       0, 1],
+                      [1, 0,
+                       1, 0,
+                       0, 1],
+                      [0, 1,
+                       1, 0,
+                       1, 0]]:
                 n_True += 1
         return n_True == 1
 
-    func_dict = {'NOT' : aux_func_NOT,
-                 'AND' : aux_func_AND,
-                 'OR' : aux_func_OR,
-                 'XOR' : aux_func_XOR,
-                 'XNOR' : aux_func_XNOR,
-                 'EQU' : aux_func_EQU,
-                 'EQUSET' : aux_func_EQUSET,
-                 'DIFF' : aux_func_DIFF,
-                 'NAND' : aux_func_NAND,
-                 'NOR' : aux_func_NOR,
-                 'SUM' : aux_func_SUM,
-                 'PROD' : aux_func_PROD,
-                 'ABS' : aux_func_ABS,
-                 'MINUS' : aux_func_MINUS,
-                 'INF' : aux_func_INF,
-                 'INFOREQU' : aux_func_INFOREQU,
-                 'SUP' : aux_func_SUP,
-                 'SUPOREQU' : aux_func_SUPOREQU,
-                 'ANB' : aux_func_ANB,
-                 'BNA' : aux_func_BNA,
-                 'AONB' : aux_func_AONB,
-                 'BONA' : aux_func_BONA,
-                 'BIN' : aux_func_BIN,
+    func_dict = {'NOT': aux_func_NOT,
+                 'AND': aux_func_AND,
+                 'OR': aux_func_OR,
+                 'XOR': aux_func_XOR,
+                 'XNOR': aux_func_XNOR,
+                 'EQU': aux_func_EQU,
+                 'EQUSET': aux_func_EQUSET,
+                 'DIFF': aux_func_DIFF,
+                 'NAND': aux_func_NAND,
+                 'NOR': aux_func_NOR,
+                 'SUM': aux_func_SUM,
+                 'PROD': aux_func_PROD,
+                 'ABS': aux_func_ABS,
+                 'MINUS': aux_func_MINUS,
+                 'INF': aux_func_INF,
+                 'INFOREQU': aux_func_INFOREQU,
+                 'SUP': aux_func_SUP,
+                 'SUPOREQU': aux_func_SUPOREQU,
+                 'ANB': aux_func_ANB,
+                 'BNA': aux_func_BNA,
+                 'AONB': aux_func_AONB,
+                 'BONA': aux_func_BONA,
+                 'BIN': aux_func_BIN,
                  'POW': aux_func_POW,
-                 'DIV' : aux_func_DIV,
+                 'DIV': aux_func_DIV,
                  'MOD': aux_func_MOD,
-                 'NONO' : aux_func_NONO,
-                 'DIST' : aux_func_DIST,
-                 'IN' : aux_func_IN,
-                 'BETWEEN' : aux_func_BETWEEN,
-                 'JUMP' : aux_func_JUMP,
+                 'NONO': aux_func_NONO,
+                 'DIST': aux_func_DIST,
+                 'IN': aux_func_IN,
+                 'BETWEEN': aux_func_BETWEEN,
+                 'JUMP': aux_func_JUMP,
                  }
 
     def func(self, branches_values_list):
@@ -296,71 +295,55 @@ class Logic_Gate:
             l_txt.append(line)
             k += 1
         return '\n'.join(l_txt)
-        
+
+
 if __name__ == "__main__":
-    
-    for l in [[2,
-               1, 1,
-               1, 0, 1, 0, 0], # True
-              [2,
-               1, 1,
-               0, 1, 0, 0, 1], # True
-              [2,
-               1, 2,
-               0, 1, 0, 0, 1], # False
-              [2,
-               1, 2,
-               0, 1, 0, 1, 1], # True
-              [1,
-               5,
-               1, 1, 1, 1, 1], # True
-              ]:
-        print(l)
-        print(Logic_Gate.aux_func_NONO(l))
-        
+
+    for bl in [[2,
+                1, 1,
+                1, 0, 1, 0, 0],  # True
+               [2,
+                1, 1,
+                0, 1, 0, 0, 1],  # True
+               [2,
+                1, 2,
+                0, 1, 0, 0, 1],  # False
+               [2,
+                1, 2,
+                0, 1, 0, 1, 1],  # True
+               [1,
+                5,
+                1, 1, 1, 1, 1],  # True
+               ]:
+        print(bl)
+        print(Logic_Gate.aux_func_NONO(bl))
+
     print('')
-    
-    for l in [[1,
-               0, 1, 2,
-               0, 4, 5, 1, 2, 6],
-              [1,
-               5, 6, 4,
-               5, 2, 2, 4, 6, 6, 4],
-              [1,
-               7, 6, 2],
-              [1,
-               7, 5, 1,
-               7, 1, 1, 1, 5, 2],
-              [1,
-               4, 6, 2,
-               8, 5, 2, 4],
-              [1,
-               8, 5, 2,
-               2, 6, 4, 5, 1, 8, 3, 9],]:
+
+    for bl in [[1,
+                0, 1, 2,
+                0, 4, 5, 1, 2, 6],
+               [1,
+                5, 6, 4,
+                5, 2, 2, 4, 6, 6, 4],
+               [1,
+                7, 6, 2],
+               [1,
+                7, 5, 1,
+                7, 1, 1, 1, 5, 2],
+               [1,
+                4, 6, 2,
+                8, 5, 2, 4],
+               [1,
+                8, 5, 2,
+                2, 6, 4, 5, 1, 8, 3, 9]]:
         print('')
-        print(l)
-        print(Logic_Gate.aux_func_BETWEEN(l))
-        
-    for l in [[1, 0, 0, 1, 0, 1],
-              [1, 0, 0, 1, 0, 1, 1, 0],
-              [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]]:
+        print(bl)
+        print(Logic_Gate.aux_func_BETWEEN(bl))
+
+    for bl in [[1, 0, 0, 1, 0, 1],
+               [1, 0, 0, 1, 0, 1, 1, 0],
+               [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]]:
         print('')
-        print(l)
-        print(Logic_Gate.aux_func_JUMP(l))
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+        print(bl)
+        print(Logic_Gate.aux_func_JUMP(bl))

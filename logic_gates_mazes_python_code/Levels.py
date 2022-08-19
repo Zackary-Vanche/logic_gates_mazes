@@ -10,14 +10,6 @@ from os.path import exists as os_path_exists
 from os import mkdir as os_mkdir
 from inspect import signature
 
-# from levels.level_3d_matching import level_3d_matching
-# from levels.level_absolute import level_absolute
-# from levels.level_diophantine import level_diophantine
-# from levels.level_ILP import level_ILP
-# from levels.level_shortest_path import level_shortest_path
-# from levels.level_sinusoidal import level_sinusoidal
-# from levels.level_subset_sum import level_subset_sum
-
 from levels.level_3sat import level_3sat
 from levels.level_4_colors_theorem import level_4_colors_theorem
 from levels.level_the_4_queens import level_the_4_queens
@@ -38,13 +30,12 @@ from levels.level_electricity import level_electricity
 from levels.level_eulerian import level_eulerian
 from levels.level_exact_cover import level_exact_cover
 from levels.level_fluid import level_fluid
-from levels.level_fractal import level_fractal 
+from levels.level_fractal import level_fractal
 from levels.level_hamiltonian import level_hamiltonian
 from levels.level_hello_world import level_hello_world
 from levels.level_hitting_set import level_hitting_set
 from levels.level_independent_set import level_independent_set
 from levels.level_infinity import level_infinity
-# from levels.level_initiation import level_initiation
 from levels.level_knapsack import level_knapsack
 from levels.level_knight import level_knight
 from levels.level_linear import level_linear
@@ -52,7 +43,7 @@ from levels.level_longest_path import level_longest_path
 from levels.level_loop import level_loop
 from levels.level_manhattan_distance import level_manhattan_distance
 from levels.level_matrix import level_matrix
-from levels.level_magic_square import level_magic_square # kakuro
+from levels.level_magic_square import level_magic_square  # kakuro
 from levels.level_naturals import level_naturals
 from levels.level_nonogram import level_nonogram
 from levels.level_no_three_in_line import level_no_three_in_line
@@ -82,14 +73,11 @@ from levels.level_travelling_salesman import level_travelling_salesman
 from levels.level_tree import level_tree
 from levels.level_water_pouring import level_water_pouring
 from levels.level_wave import level_wave
-#from levels.level_wheel_graph import level_wheel_graph
 from levels.level_xor import level_xor
 
-# from levels.level_icone import level_icone
-# from levels.level_random import level_random
 
-class Levels: 
-    
+class Levels:
+
     levels_functions_list = [level_hello_world,
                              level_linear,
                              level_loop,
@@ -154,15 +142,14 @@ class Levels:
                              level_water_pouring,
                              level_puzzle,
                              level_solitaire,
-                             #level_random,
                              ]
 
     number_of_levels = len(levels_functions_list)
-    
+
     levels_list = [None for k in range(number_of_levels)]
-    
+
     def get_level(level_number, fast_solution_finding=False):
-        if Levels.levels_list[level_number] == None:
+        if Levels.levels_list[level_number] is None:
             if fast_solution_finding and len(signature(Levels.levels_functions_list[level_number]).parameters) > 0:
                 Levels.levels_list[level_number] = Levels.levels_functions_list[level_number](True)
             else:
@@ -170,21 +157,28 @@ class Levels:
         else:
             Levels.levels_list[level_number].reboot_solution()
         return Levels.levels_list[level_number]
-    
-    def save_solutions_txt(verbose=0, do_it_fast=False, multithreads=False, fast_solution_finding=True, max_calculation_time=float('inf')):
+
+    def save_solutions_txt(verbose=0,
+                           do_it_fast=False,
+                           multithreads=False,
+                           fast_solution_finding=True,
+                           max_calculation_time=float('inf')):
         t0 = time()
         txt = ''
         if not os_path_exists('solutions'):
             os_mkdir('solutions')
         if not do_it_fast:
             calculations_times = [None for i in range(Levels.number_of_levels)]
+
             def find_solution(k):
                 level = Levels.get_level(k, fast_solution_finding)
                 txt = '\n'
                 name = level.name
                 txt = txt + ' '.join(['Level', str(k), ':', name, '\n'])
                 t2 = time()
-                solutions = level.find_all_solutions(stop_at_first_solution=False, verbose=0, max_calculation_time=max_calculation_time)
+                solutions = level.find_all_solutions(stop_at_first_solution=False,
+                                                     verbose=0,
+                                                     max_calculation_time=max_calculation_time)
                 t3 = time()
                 for sol in solutions:
                     txt = txt + ' '.join(sol) + '\n'
@@ -195,12 +189,12 @@ class Levels:
             if multithreads:
                 import threading
                 l_threads = []
-                for k in range(Levels.number_of_levels): # creating the threads
+                for k in range(Levels.number_of_levels):  # creating the threads
                     thread = threading.Thread(target=find_solution, args=(k,))
                     l_threads.append(thread)
-                for thread in l_threads: # starting all the threads
+                for thread in l_threads:  # starting all the threads
                     thread.start()
-                for thread in l_threads: # waiting for all threads to end
+                for thread in l_threads:  # waiting for all threads to end
                     thread.join()
             else:
                 for k in range(Levels.number_of_levels):
@@ -222,43 +216,43 @@ class Levels:
             print(t1 - t0, 's')
         if not do_it_fast:
             return calculations_times
-    
+
+
 if __name__ == "__main__":
-    
+
     import matplotlib.pyplot as plt
-    
+
     print('\nTrying all solutions')
-    
+
     for level_function in Levels.levels_functions_list:
         level = level_function()
-        if not level.fastest_solution is None:
+        if level.fastest_solution is not None:
             r = level.try_solution(level.fastest_solution)
             if r != 2:
                 print(level.name, 'wrong solution')
-                
+
     print('\nSaving solutions')
-    
+
     Levels.save_solutions_txt(do_it_fast=True, verbose=1)
 
     print('\nCalculating solutions lenghts')
-    
+
     solutions_lenghts = []
     for level_function in Levels.levels_functions_list:
         level = level_function()
-        if not level.fastest_solution is None:
+        if level.fastest_solution is not None:
             solutions_lenghts.append(len(level.fastest_solution.split(' ')))
     plt.figure(figsize=(15, 5))
-#    plt.yscale('log')
-#    solutions_lenghts.sort()
-    plt.plot([i for i in range(len(solutions_lenghts))], solutions_lenghts, lw=0.3, color='k')
-    plt.scatter([i for i in range(len(solutions_lenghts))], solutions_lenghts, lw=0.1, color='r')
+    x_list = [i for i in range(len(solutions_lenghts))]
+    plt.plot(x_list,
+             solutions_lenghts, lw=0.3, color='k')
+    plt.scatter(x_list,
+                solutions_lenghts, lw=0.1, color='r')
     plt.show()
-    
+
     print('')
-    
+
     # import cProfile
     # cProfile.run('solutions = level_manhattan_distance().find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**3)')
-        
-    # solutions = level_solitaire(True).find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**3)
 
-#    level_solitaire().try_solution('D0 S0 S1 S2 D2 D4 D6 D8 D10 D12', verbose=2)
+    # solutions = level_solitaire(True).find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**3)
