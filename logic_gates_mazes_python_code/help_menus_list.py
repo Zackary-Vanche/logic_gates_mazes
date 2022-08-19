@@ -423,6 +423,8 @@ help_menus_list['levels']["River"] = """You want to cross the river with a wolf,
 
 help_menus_list['levels']["Tree"] = """The tree is hidden in the equations."""
 
+help_menus_list['levels']["Dead_ends"] = """Even if it is the first level that actually looks like a printed circuit board, you have been in a computer all this time."""
+
 help_menus_list['levels']["Fractal"] = """As you see, several doors lead to the exit.
 There is only one that can be opened."""
 
@@ -441,8 +443,6 @@ help_menus_list['levels']["Pancake sorting"] = """Pancake sorting is a real comp
 help_menus_list['levels']["Wave"] = help_menus_list['XOR 3']
 
 help_menus_list['levels']["Travelling salesman"] = help_menus_list['DIST']
-
-help_menus_list['levels']["Dead_ends"] = """Even if it is the first level that actually looks like a printed circuit board, you have been in a computer all this time."""
 
 help_menus_list['levels']["No three in line"] = """The no three in line problem is a discrete geometry problem."""
 
