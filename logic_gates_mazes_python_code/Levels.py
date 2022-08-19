@@ -171,7 +171,7 @@ class Levels:
             Levels.levels_list[level_number].reboot_solution()
         return Levels.levels_list[level_number]
     
-    def save_solutions_txt(verbose=0, do_it_fast=False, multithreads=False, fast_solution_finding=True):
+    def save_solutions_txt(verbose=0, do_it_fast=False, multithreads=False, fast_solution_finding=True, max_calculation_time=float('inf')):
         t0 = time()
         txt = ''
         if not os_path_exists('solutions'):
@@ -184,7 +184,7 @@ class Levels:
                 name = level.name
                 txt = txt + ' '.join(['Level', str(k), ':', name, '\n'])
                 t2 = time()
-                solutions = level.find_all_solutions(stop_at_first_solution=False, verbose=0)
+                solutions = level.find_all_solutions(stop_at_first_solution=False, verbose=0, max_calculation_time=max_calculation_time)
                 t3 = time()
                 for sol in solutions:
                     txt = txt + ' '.join(sol) + '\n'
@@ -255,7 +255,10 @@ if __name__ == "__main__":
     plt.show()
     
     print('')
-        
-    solutions = level_solitaire(True).find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**3)
     
+    # import cProfile
+    # cProfile.run('solutions = level_manhattan_distance().find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**3)')
+        
+    # solutions = level_solitaire(True).find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**3)
+
 #    level_solitaire().try_solution('D0 S0 S1 S2 D2 D4 D6 D8 D10 D12', verbose=2)

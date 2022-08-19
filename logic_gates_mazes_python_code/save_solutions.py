@@ -19,12 +19,6 @@ import numpy as np
 # import random as rd
 
 if __name__ == "__main__":
-    
-    # You cannot use this script anymore
-    # because it is too long to end
-    # because of the level Manhattan distance.
-    # Finding the solution of level_manhattan_distance the way I do here
-    # takes almost a day.
 
     if not os_path_exists('images'):
         os_mkdir('images')
@@ -44,8 +38,8 @@ if __name__ == "__main__":
     # Game.save_levels_txt(verbose = 1, calculates_solutions = True)
 
     # calculations_times = [round(np.exp(10*i + 2*rd.random()),2) for i in range(16)]
-    calculations_times = Levels.save_solutions_txt(verbose = 1) 
-    # Cette fonction calcule les solutions, 
+    calculations_times = Levels.save_solutions_txt(verbose = 1, multithreads=False, max_calculation_time=float('inf')) 
+    # Cette fonction calcule les solutions,
     # les enregistre dans un fichier texte
     # et renvoie le temps nécessaire pour calculer les solutions
     n = len(calculations_times)

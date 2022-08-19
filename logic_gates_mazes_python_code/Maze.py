@@ -510,7 +510,8 @@ class Maze:
                            stop_at_first_solution=False,
                            reverse_actions_order=False,
                            initial_try=(),
-                           nb_iterations_print=10**3):
+                           nb_iterations_print=10**3,
+                           max_calculation_time=float('inf')):
         t0 = time()
         if self.all_solutions is None:
             visited_situations = set()
@@ -518,6 +519,8 @@ class Maze:
             solutions_that_work = []
             nb_iterations = 0
             while solutions_to_visit != []:
+                if time() - t0 > max_calculation_time:
+                    return []
                 nb_iterations += 1
                 if nb_iterations % nb_iterations_print == 0 and verbose >= 1:
                      print('nb_iterations : {}'.format(nb_iterations))
