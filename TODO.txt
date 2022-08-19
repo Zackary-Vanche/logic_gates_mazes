@@ -1,2 +1,0 @@
-Remake help menus
-Make a special class and script for help
