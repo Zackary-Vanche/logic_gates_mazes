@@ -13,7 +13,7 @@ from help_menus_list import help_menus_list
 # from numba import njit
 
 
-class Maze: 
+class Maze:
 
     # Fonctions de creation et de manipulation des differents niveaux
 
