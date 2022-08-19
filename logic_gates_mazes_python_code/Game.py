@@ -130,7 +130,7 @@ class Game:
         self.last_level_change_time = time()
         if self.print_click_rects:
             self.click_rect_size_x = 35
-            self.click_rect_size_y = 20
+            self.click_rect_size_y = 35
         else:
             self.click_rect_size_x = 40
             self.click_rect_size_y = 40

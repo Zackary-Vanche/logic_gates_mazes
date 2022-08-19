@@ -287,11 +287,11 @@ def level_solitaire(fast_solution_finding=False):
               switches_list = [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14],
               possible_switches_values=possible_switches_values)
     R1 = Room(name='R1',
-              position = [4.5, 4, 3, 5],
+              position = [4.15, 4, 3, 5],
               switches_list = [S15, S16, S17, S18, S19, S20, S21, S22, S23, S24, S25, S26, S27, S28, S29],
               possible_switches_values=possible_switches_values)
     RE = Room(name='RE',
-              position=[4.5, 2, 3, 0.75],
+              position=[4.15, 2.2, 3, 0.75],
               is_exit=True)   # E pour exit ou end
 
     D0 = Door(two_way=False,
@@ -311,8 +311,7 @@ def level_solitaire(fast_solution_finding=False):
               room_departure=R1,
               room_arrival=RE,
               relative_departure_coordinates=[1/2, 0],
-              relative_arrival_coordinates=[1/2, 1],
-              relative_position=0.65)
+              relative_arrival_coordinates=[1/2, 1])
 
     level = Maze(start_room_index=0, 
                  exit_room_index=-1, 

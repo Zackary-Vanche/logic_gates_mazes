@@ -15,7 +15,10 @@ if __name__ == "__main__":
     # If you don't put it, the pixel of the game
     # will be too big after compiling
 
-    Game(show_help=1, index_current_level=0, sleep_time=10**(-2)).play()
+    Game(show_help=1,
+         index_current_level=0,
+         sleep_time=10**(-2),
+         print_click_rects=True).play()
 
     # import cProfile
     # cProfile.run("Game(show_help=1, index_current_level=0).play()")
