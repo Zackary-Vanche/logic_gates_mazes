@@ -22,17 +22,17 @@ def level_linear():
     S5 = Switch(name='S5')
     S6 = Switch(name='S6')
     S7 = Switch(name='S7')
-    
+
     tree_list_0 = Tree.tree_list_AND(2)
     tree_list_1 = Tree.tree_list_from_str('TF')
     tree_list_2 = Tree.tree_list_from_str('FT')
     tree_list_3 = Tree.tree_list_NOR(2)
-    
+
     T0 = Tree(tree_list=tree_list_0, empty=True, name='T0', switches = [S0, S1])#, easy_logical_expression_PN = 'AND S0 S1\n= & S0 S1')
     T1 = Tree(tree_list=tree_list_1, empty=True, name='T1', switches = [S2, S3])#, easy_logical_expression_PN = 'AND S2 NOT S3\n= & S2 ¬ S3')
     T2 = Tree(tree_list=tree_list_2, empty=True, name='T2', switches = [S4, S5])#, easy_logical_expression_PN = 'AND NOT S4 S5\n= & ¬ S2 S3')
     T3 = Tree(tree_list=tree_list_3, empty=True, name='T3', switches = [S6, S7])#, easy_logical_expression_PN = 'NOR S6 S7\n= & ¬ S6 ¬ S7\n= ¬| S6 S7')
-    
+
     position_R0 = [ 1,  16,  12, 2]
     position_R1 = [ 2,  12,  10, 2]
     position_R2 = [ 3,   8,  8,  2]
@@ -46,26 +46,26 @@ def level_linear():
     RE = Room(name='RE', position = position_RE, is_exit = True) # E pour exit ou end
     
     D0 = Door(two_way = True, 
-          tree = T0, 
-          name='D0', 
-          room_departure = R0, 
-          room_arrival = R1)
+              tree = T0, 
+              name='D0', 
+              room_departure = R0, 
+              room_arrival = R1)
     D1 = Door(two_way = True, 
-          tree = T1, 
-          name='D1', 
-          room_departure = R1, 
-          room_arrival = R2)
+              tree = T1, 
+              name='D1', 
+              room_departure = R1, 
+              room_arrival = R2)
     D2 = Door(two_way = True, 
-          tree = T2, 
-          name='D2', 
-          room_departure = R2, 
-          room_arrival = R3)
+              tree = T2, 
+              name='D2', 
+              room_departure = R2, 
+              room_arrival = R3)
     D3 = Door(two_way = True, 
-          tree = T3, 
-          name='D3', 
-          room_departure = R3, 
-          room_arrival = RE)
-    
+              tree = T3, 
+              name='D3', 
+              room_departure = R3, 
+              room_arrival = RE)
+
     level = Maze(start_room_index=0, 
              exit_room_index=-1, 
              rooms_list=[R0, R1, R2, R3, RE], 
