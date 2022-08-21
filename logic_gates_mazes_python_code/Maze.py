@@ -563,7 +563,6 @@ class Maze:
                         self.reboot_solution()
                         self.all_solutions = solutions_that_work
                         return solutions_that_work, nb_iterations, nb_operations
-            print('Total number of iterations :', nb_iterations)
             assert solutions_to_visit == []
             self.reboot_solution()
         else:
