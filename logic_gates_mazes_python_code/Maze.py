@@ -518,14 +518,15 @@ class Maze:
                            nb_iterations_print=10**3,
                            max_calculation_time=float('inf')):
         t0 = time()
+        nb_iterations = 0
+        nb_operations = 0
         if self.all_solutions is None:
             visited_situations = set()
             solutions_to_visit = [initial_try]
             solutions_that_work = []
-            nb_iterations = 0
             while solutions_to_visit != []:
                 if time() - t0 > max_calculation_time:
-                    return []
+                    return [], nb_iterations, nb_operations
                 nb_iterations += 1
                 if nb_iterations % nb_iterations_print == 0 and verbose >= 1:
                      print('nb_iterations : {}'.format(nb_iterations))
@@ -536,6 +537,7 @@ class Maze:
                      print('len(solutions_that_work) : {}'.format(len(solutions_that_work)))
                      print('')
                 solution = solutions_to_visit.pop(0)
+                nb_operations += len(solution)
                 result_solution = self.fast_try_solution(solution)
                 for door in self.doors_list():
                     door.update_open()
@@ -560,9 +562,8 @@ class Maze:
                     if stop_at_first_solution:
                         self.reboot_solution()
                         self.all_solutions = solutions_that_work
-                        return solutions_that_work
-            # if verbose >= 3:
-            #     print('Last solution tested :\n', solution)
+                        return solutions_that_work, nb_iterations, nb_operations
+            print('Total number of iterations :', nb_iterations)
             assert solutions_to_visit == []
             self.reboot_solution()
         else:
@@ -579,7 +580,7 @@ class Maze:
         if verbose >= 1:
             t1 = time()
             print(t1 - t0, 's')
-        return solutions_that_work
+        return solutions_that_work, nb_iterations, nb_operations
 
     def old_find_all_solutions(self,
                                verbose=0,

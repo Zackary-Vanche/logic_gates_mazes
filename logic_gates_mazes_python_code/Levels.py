@@ -165,6 +165,8 @@ class Levels:
                            max_calculation_time=float('inf')):
         t0 = time()
         txt = ''
+        nb_iterations_list = []
+        nb_operations_list = []
         if not os_path_exists('solutions'):
             os_mkdir('solutions')
         if not do_it_fast:
@@ -176,9 +178,11 @@ class Levels:
                 name = level.name
                 txt = txt + ' '.join(['Level', str(k), ':', name, '\n'])
                 t2 = time()
-                solutions = level.find_all_solutions(stop_at_first_solution=False,
-                                                     verbose=0,
-                                                     max_calculation_time=max_calculation_time)
+                solutions, nb_iterations, nb_operations = level.find_all_solutions(stop_at_first_solution=False,
+                                                                                   verbose=0,
+                                                                                   max_calculation_time=max_calculation_time)
+                nb_iterations_list.append(nb_iterations)
+                nb_operations_list.append(nb_operations)
                 t3 = time()
                 for sol in solutions:
                     txt = txt + ' '.join(sol) + '\n'
@@ -215,7 +219,7 @@ class Levels:
         if verbose >= 1:
             print(t1 - t0, 's')
         if not do_it_fast:
-            return calculations_times
+            return calculations_times, nb_iterations_list, nb_operations_list
 
 
 if __name__ == "__main__":

@@ -38,33 +38,56 @@ if __name__ == "__main__":
     # Game.save_levels_txt(verbose = 1, calculates_solutions = True)
 
     # calculations_times = [round(np.exp(10*i + 2*rd.random()),2) for i in range(16)]
-    calculations_times = Levels.save_solutions_txt(verbose = 1, multithreads=False, max_calculation_time=float('inf')) 
+    calculations_times, nb_iterations_list, nb_operations_list = Levels.save_solutions_txt(verbose = 1, multithreads=False, max_calculation_time=0.1) 
     # Cette fonction calcule les solutions,
     # les enregistre dans un fichier texte
     # et renvoie le temps nécessaire pour calculer les solutions
-    n = len(calculations_times)
 
-    plt.figure(figsize=(20, 15))
-    plt.xlabel('Level number')
-    plt.ylabel('Time needed to solve the maze (s)')
-    plt.scatter([i for i in range(len(calculations_times))],
-                calculations_times)
-    plt.xticks(np.arange(0, n, step=1))
+    l_ylabel = ['Time needed to solve the maze (s)',
+                'Number of iterations',
+                'Number of elementary operations']
+    for ylabel in l_ylabel:
+    
+        if ylabel == l_ylabel[0]:
+            x_list = calculations_times
+        if ylabel == l_ylabel[1]:
+            x_list = nb_iterations_list
+        if ylabel == l_ylabel[2]:
+            x_list = nb_operations_list
 
-    A = np.zeros((n, 2))
-    B = np.zeros((n, 1))
-    for i in range(n):
-        A[i][0] = i
-        A[i][1] = 1
-        B[i][0] = np.log(calculations_times[i])
-    X, V, R, absR, varX, sigma_0_carre, PY, PX, PV = least_squares(A, B)
+        n = len(x_list)
+        plt.figure(figsize=(20, 15))
+        plt.xlabel('Level number')
+        plt.ylabel(ylabel)
+        plt.scatter([i for i in range(len(x_list))],
+                    x_list)
+        plt.xticks(np.arange(0, n, step=1))
+        A = np.zeros((n, 2))
+        B = np.zeros((n, 1))
+        for i in range(n):
+            A[i][0] = i
+            A[i][1] = 1
+            B[i][0] = np.log(x_list[i])
+        X, V, R, absR, varX, sigma_0_carre, PY, PX, PV = least_squares(A, B)
+        f = lambda t : np.exp(X[0][0] * t + X[1][0])
+        plt.plot([0, n], [f(0), f(n)], 'r')
+        plt.yscale('log')
+        plt.grid()
 
-    f = lambda t : np.exp(X[0][0] * t + X[1][0])
-
-    plt.plot([0, n], [f(0), f(n)], 'r')
-    plt.yscale('log')
-    plt.grid()
-    plt.savefig('images/solving_time.png')
-    plt.show()
+        if ylabel == l_ylabel[0]:
+            plt.savefig('images/solving_time.jpg')
+        if ylabel == l_ylabel[1]:
+            plt.savefig('images/nb_iterations.jpg')
+        if ylabel == l_ylabel[2]:
+            plt.savefig('images/nb_operations.jpg')
+        plt.show()
+    
+    with open('solutions/nb_iterations.txt', 'w') as f:
+        for i in range(len(nb_iterations_list)):
+            f.write(Levels.get_level(i).name + '\n' + str(nb_iterations_list[i]) + '\n\n')
+    
+    with open('solutions/nb_operations.txt', 'w') as f:
+        for i in range(len(nb_operations_list)):
+            f.write(Levels.get_level(i).name + '\n' + str(nb_operations_list[i]) + '\n\n')
 
     # Game.save_levels_txt()
