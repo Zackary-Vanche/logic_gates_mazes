@@ -14,7 +14,7 @@ Bis repetita
 240
 
 Binary
-9519
+22692
 
 OR
 343
@@ -26,10 +26,10 @@ Square
 129
 
 Infinity
-3219
+69376
 
 Fluid
-6129
+6571
 
 Congruence
 198
@@ -38,28 +38,28 @@ Congruence
 196
 
 Point of no return
-2711
+10368
 
 Bipartite
-2719
+399357
 
 Hamiltonian
-1635
+4500
 
 Pong
-1073
+60994
 
 Longest path
 341
 
 Hitting set
-1741
+1891
 
 Independent set
-434
+4711
 
 Dominating set
-1238
+994888
 
 Exact cover
 1028
@@ -68,125 +68,125 @@ Odd
 1766
 
 Recurrence
-3712
+12038
 
 Naturals
-602
+12880
 
 Parallel
 3011
 
 Pythagorean
-458
+2461
 
 Chessboard
-5823
+25728
 
 Partition
-117
+2532
 
 Knapsack
-273
+1191
 
 Permutation
-34
+11660320
 
 Betweenness
-1102
+2582900
 
 Taxicab number
-945
+247871
 
 Tetrahedron
-215
+1281
 
 The 4 queens
-598
+524293
 
 Alice and Bob
 2663
 
 Nonogram
-1518
+388097
 
 Crystal
-2290
+75489
 
 Tetris
-136
+24580
 
 XOR
-409
+7065
 
 4 colors theorem
-232
+524299
 
 Magic square
-49
+2714115
 
 Matrix
-56
+5202
 
 River
-1210
+31499
 
 Tree
-396
+39647
 
 Dead_ends
-1204
+46783
 
 Fractal
-2618
+594119
 
 Tesseract
-190
+27556
 
 Cartesian
-4786
+27507
 
 Eulerian
-2636
+43788
 
 Sujiko
-173
+5949054
 
 Electricity
-154
+35794
 
 Pancake sorting
-223
+2218826
 
 Wave
-678
+113670
 
 Travelling salesman
-46
+6578492
 
 No three in line
-64
+25341246
 
 Manhattan_distance
-204
+870619
 
 Sudoku
-524
+5906170
 
 Knight
-10
+1959614
 
 Temple
-300
+1837965
 
 Syracuse
-187
+8304670
 
 Water pouring
-83
+59701913
 
 Puzzle
-119
+93859001
 
 Solitaire
-125
+110730776
 

@@ -27,10 +27,6 @@ if __name__ == "__main__":
     # for level in Game.levels_list:
     #     print(level.name)
     #     l_solutions.append(level.find_all_solutions(stop_at_first_solution = False, verbose = 2))  
-    # Ces lignes permettent de calculer l'ensemble des solutions des niveaux
-    # Comme la résolution est faite par force brute, elle est tres longue pour le niveau electricity
-    # Elle ne prend que quelques secondes pour les niveaux plus faciles
-    # On ne lance pas ces lignes car le calcul des solutions est déjà fait par la suite.
 
     # Calcul des solutions et enregistrement des resumes des niveaux (avec les solutions) sous forme de texte
     # Cette fonction est un peu longue, et sert uniquement de verification (d'où le sys.exit())
@@ -38,7 +34,9 @@ if __name__ == "__main__":
     # Game.save_levels_txt(verbose = 1, calculates_solutions = True)
 
     # calculations_times = [round(np.exp(10*i + 2*rd.random()),2) for i in range(16)]
-    calculations_times, nb_iterations_list, nb_operations_list = Levels.save_solutions_txt(verbose = 1, multithreads=False, max_calculation_time=float('inf')) 
+    calculations_times, nb_iterations_list, nb_operations_list = Levels.save_solutions_txt(verbose = 1,
+                                                                                           multithreads=False,
+                                                                                           max_calculation_time=float('inf')) 
     # Cette fonction calcule les solutions,
     # les enregistre dans un fichier texte
     # et renvoie le temps nécessaire pour calculer les solutions
