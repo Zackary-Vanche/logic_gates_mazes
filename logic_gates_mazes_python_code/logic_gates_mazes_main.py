@@ -18,7 +18,8 @@ if __name__ == "__main__":
     Game(show_help=1,
          index_current_level=0,
          sleep_time=10**(-2),
-         print_click_rects=True).play()
+         print_click_rects=True,
+         is_fullscreen=False).play()
 
     # import cProfile
     # cProfile.run("Game(show_help=1, index_current_level=0).play()")

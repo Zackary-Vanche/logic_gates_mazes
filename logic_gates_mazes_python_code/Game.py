@@ -28,6 +28,7 @@ from pygame.image import save as pygame_image_save
 from pygame import quit as pygame_quit
 from pygame import RESIZABLE as pygame_RESIZABLE
 from pygame import SCALED as pygame_SCALED
+from pygame import FULLSCREEN as pygame_FULLSCREEN
 
 from os.path import exists as os_path_exists
 from os import mkdir as os_mkdir
@@ -70,9 +71,10 @@ class Game:
                  K_SPACE: ' '}
     
     def __init__(self,
-                 WINDOW_SIZE=(1366-20, 768-100),
-                 SMALLEST_WINDOW_SIZE=(1366-20, 768-100),
+                 WINDOW_SIZE=None,
+                 SMALLEST_WINDOW_SIZE=None,
                  XY_marge=(0, 0),  # (25, 120)
+                 is_fullscreen=True,
                  save_image=False,
                  index_current_level=0,  # Cette variable détermine le niveau joué.
                  time_between_actions=0.15,
@@ -86,8 +88,15 @@ class Game:
                  show_loop_time=False,
                  update_display_at_every_loop=False,
                  sleep_time=10**(-2)):
-        self.WINDOW_SIZE = WINDOW_SIZE
-        self.SMALLEST_WINDOW_SIZE = SMALLEST_WINDOW_SIZE
+        if WINDOW_SIZE is None or SMALLEST_WINDOW_SIZE is None:
+            from pyautogui import size as pyautogui_size
+            TOTAL_SIZE = pyautogui_size()
+            WINDOW_SIZE = (0.95*TOTAL_SIZE.width, 0.85*TOTAL_SIZE.height)
+            self.WINDOW_SIZE = WINDOW_SIZE
+            self.SMALLEST_WINDOW_SIZE = WINDOW_SIZE
+        else:
+            self.WINDOW_SIZE = WINDOW_SIZE
+            self.SMALLEST_WINDOW_SIZE = SMALLEST_WINDOW_SIZE
         self.XY_marge = XY_marge
         self.save_image = save_image
         self.index_current_level = index_current_level
@@ -105,6 +114,7 @@ class Game:
         self.change_in_display = False
         self.font_size = 22
         self.help_font_size = 30
+        self.is_fullscreen = is_fullscreen
         
     def game_setup(self):
         # Game Setup
@@ -114,9 +124,13 @@ class Game:
         self.X_marge, self.Y_marge = self.XY_marge
         self.WINDOW_WIDTH = self.TOTAL_WIDTH - self.X_marge
         self.WINDOW_HEIGHT = self.TOTAL_HEIGHT - self.Y_marge
-        self.WINDOW = pygame_display_set_mode((self.WINDOW_WIDTH, self.WINDOW_HEIGHT),
-                                               pygame_RESIZABLE,
-                                               pygame_SCALED)
+        if self.is_fullscreen:
+            self.WINDOW = pygame_display_set_mode((0, 0),
+                                                  pygame_FULLSCREEN)
+        else:
+            self.WINDOW = pygame_display_set_mode((self.WINDOW_WIDTH, self.WINDOW_HEIGHT),
+                                                  pygame_RESIZABLE,
+                                                  pygame_SCALED)
         pygame_display_set_caption('Logic gates maze')
         self.WINDOW_SIZE_changed = True
 
@@ -149,10 +163,10 @@ class Game:
             
             # self.maze = Levels.levels_functions_list[self.index_current_level]()
             self.maze = Levels.get_level(self.index_current_level)
-            if self.maze.random:
-                self.maze = level_random()
-            else:
-                self.maze.reboot_solution()
+            # if self.maze.random:
+            #     self.maze = level_random()
+            # else:
+            self.maze.reboot_solution()
             
             self.doors_list = self.maze.doors_list()
             
@@ -538,34 +552,34 @@ class Game:
                     self.current_action = ''
             if self.pressed[K_b]:
                 self.change_in_display = True
-                if self.maze.random:
-                    self.level_changed = False
-                    self.maze = level_random()
-                    self.doors_list = self.maze.doors_list()
-                    level_colors = self.maze.level_color
-                    self.background_color = level_colors.background_color
-                    self.room_color = level_colors.room_color
-                    self.contour_color = level_colors.contour_color
-                    self.letters_color = level_colors.letters_color
-                    # letter_contour_color = maze.letter_contour_color
-                    self.inside_room_color = level_colors.inside_room_color
-                    self.surrounding_color = level_colors.surrounding_color
-                    self.inside_room_surrounding_color = level_colors.inside_room_surrounding_color
-                    self.y_separation = self.maze.y_separation
-                    self.door_window_size = self.maze.door_window_size
-                    self.x_separation = self.WINDOW_WIDTH - self.door_window_size
-                    self.current_action = ''
-                    self.keep_proportions = self.maze.keep_proportions
-                    # Choix de la bordure en fonction de la hauteur de la fenêtre
-                    (pente, coeff) = linear_function(643, 35, 1080, 75)
-                    self.maze.set_extreme_coordinates(0,
-                                                      self.x_separation,
-                                                      0,
-                                                      self.WINDOW_HEIGHT,
-                                                      pente*self.WINDOW_HEIGHT+coeff,
-                                                      self.keep_proportions)
-                else:
-                    self.maze.reboot_solution()
+                # if self.maze.random:
+                #     self.level_changed = False
+                #     self.maze = level_random()
+                #     self.doors_list = self.maze.doors_list()
+                #     level_colors = self.maze.level_color
+                #     self.background_color = level_colors.background_color
+                #     self.room_color = level_colors.room_color
+                #     self.contour_color = level_colors.contour_color
+                #     self.letters_color = level_colors.letters_color
+                #     # letter_contour_color = maze.letter_contour_color
+                #     self.inside_room_color = level_colors.inside_room_color
+                #     self.surrounding_color = level_colors.surrounding_color
+                #     self.inside_room_surrounding_color = level_colors.inside_room_surrounding_color
+                #     self.y_separation = self.maze.y_separation
+                #     self.door_window_size = self.maze.door_window_size
+                #     self.x_separation = self.WINDOW_WIDTH - self.door_window_size
+                #     self.current_action = ''
+                #     self.keep_proportions = self.maze.keep_proportions
+                #     # Choix de la bordure en fonction de la hauteur de la fenêtre
+                #     (pente, coeff) = linear_function(643, 35, 1080, 75)
+                #     self.maze.set_extreme_coordinates(0,
+                #                                       self.x_separation,
+                #                                       0,
+                #                                       self.WINDOW_HEIGHT,
+                #                                       pente*self.WINDOW_HEIGHT+coeff,
+                #                                       self.keep_proportions)
+                # else:
+                self.maze.reboot_solution()
                 self.last_key_pressed_time = time()
                 self.current_action = ''
         if time() - self.last_key_BACKSPACE_pressed_time > self.time_between_deletings:

@@ -50,6 +50,7 @@ from levels.level_no_three_in_line import level_no_three_in_line
 from levels.level_odd import level_odd
 from levels.level_or import level_or
 from levels.level_pancake_sorting import level_pancake_sorting
+from levels.level_panex import level_panex
 from levels.level_parallel import level_parallel
 from levels.level_partition import level_partition
 from levels.level_permutation import level_permutation
@@ -75,10 +76,22 @@ from levels.level_water_pouring import level_water_pouring
 from levels.level_wave import level_wave
 from levels.level_xor import level_xor
 
+# Triangulate
+# Full
+# egyptian fractions
+# panex
+# filled car park
+# jeep problem ???
+# Conway puzzle ???
+# baguenaudier
+# Century
+# Takuzu
+# Four
 
 class Levels:
 
-    levels_functions_list = [level_hello_world,
+    levels_functions_list = [#level_panex,
+                             level_hello_world,
                              level_linear,
                              level_loop,
                              level_backward,
@@ -259,4 +272,28 @@ if __name__ == "__main__":
     # import cProfile
     # cProfile.run('solutions = level_manhattan_distance().find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**3)')
 
-    # solutions = level_solitaire(True).find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**3)
+    solutions = level_panex().find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**4)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

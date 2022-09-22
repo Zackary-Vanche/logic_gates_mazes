@@ -56,9 +56,9 @@ class Room:
     def get_name_position(self):
         [x_gap, y_gap, x, y] = self.position
         if self.is_exit:
-            self.name_position = [x_gap + x/2 - 18, y_gap + y/2 - 9]
+            self.name_position = [x_gap + x/2 - 18, y_gap + y/2 - 6]
         else:
-            self.name_position = [x_gap + 5, y_gap + 5]
+            self.name_position = [x_gap + 4, y_gap + 4]
         return self.name_position
             
     def get_switches_positions(self): 

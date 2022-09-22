@@ -101,20 +101,35 @@ class Logic_Gate:
         return -sons_list[0].get_value()
 
     def aux_func_INF(sons_list):
-        # # assert len(sons_list) == 2
-        return sons_list[0].get_value() < sons_list[1].get_value()
+        for i in range(len(sons_list)-1):
+            if sons_list[i].get_value() >= sons_list[i+1].get_value():
+                return False
+        return True
+    
+    def aux_func_INF0(sons_list):
+        for i in range(len(sons_list)-1):
+            A, B = sons_list[i].get_value(), sons_list[i+1].get_value()
+            if A != 0 and B != 0 and A >= B:
+                return False
+        return True
 
     def aux_func_INFOREQU(sons_list):
-        # # assert len(sons_list) == 2
-        return sons_list[0].get_value() <= sons_list[1].get_value()
+        for i in range(len(sons_list)-1):
+            if sons_list[i].get_value() > sons_list[i+1].get_value():
+                return False
+        return True
 
     def aux_func_SUP(sons_list):
-        # # assert len(sons_list) == 2
-        return sons_list[0].get_value() > sons_list[1].get_value()
+        for i in range(len(sons_list)-1):
+            if sons_list[i].get_value() <= sons_list[i+1].get_value():
+                return False
+        return True
 
     def aux_func_SUPOREQU(sons_list):
-        # # assert len(sons_list) == 2
-        return sons_list[0].get_value() >= sons_list[1].get_value()
+        for i in range(len(sons_list)-1):
+            if sons_list[i].get_value() < sons_list[i+1].get_value():
+                return False
+        return True
 
     def aux_func_ANB(sons_list):
         # # assert len(sons_list) == 2
@@ -245,6 +260,7 @@ class Logic_Gate:
                  'ABS': aux_func_ABS,
                  'MINUS': aux_func_MINUS,
                  'INF': aux_func_INF,
+                 'INF0': aux_func_INF0,
                  'INFOREQU': aux_func_INFOREQU,
                  'SUP': aux_func_SUP,
                  'SUPOREQU': aux_func_SUPOREQU,

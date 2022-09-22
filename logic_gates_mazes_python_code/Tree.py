@@ -321,6 +321,7 @@ class Tree:
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('INFOREQU ', '<= ')
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('EQU ', '= ')
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('NEQ ', '¬= ')
+            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('INF0 ', '<0 ')
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('INF ', '< ')
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('SUP ', '> ')
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('BIN ', 'b ')
