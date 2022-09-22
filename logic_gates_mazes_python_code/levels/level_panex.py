@@ -566,36 +566,41 @@ def level_panex():
                           S61, S65,
                           S62, S66,
                           S63, S67,])
-    T35 = Tree(tree_list=['AND'] + [['INF0'] + [Tree.tree_list_BIN(4)]*5]*3,
+    T35 = Tree(tree_list=['AND',
+                           ['DIFF', Tree.tree_list_BIN(3), [None]],
+                           ['NOT', ['IN', Tree.tree_list_BIN(3), [None], [None]]],
+                           ['NOT', ['IN', Tree.tree_list_BIN(3), [None], [None], [None]]]],
               empty=True,
               name='T35',
-              switches = [S8, S9, S10, S11,
-                          S12, S13, S14, S15,
-                          S16, S17, S18, S19,
-                          S20, S21, S22, S23,
-                          S24, S25, S26, S27,
-                          S28, S29, S30, S31,
-                          S32, S33, S34, S35,
-                          S36, S37, S38, S39,
-                          S40, S41, S42, S43,
-                          S44, S45, S46, S47,
-                          S48, S49, S50, S51,
-                          S52, S53, S54, S55,
-                          S56, S57, S58, S59,
-                          S60, S61, S62, S63,
-                          S64, S65, S66, S67,],
-              cut_expression=True,
+              switches = [
+                          S16, S17, S18, Switch(value=1),
+                          S20, S21, S22, Switch(value=1), Switch(value=2),
+                          S24, S25, S26, Switch(value=1), Switch(value=2), Switch(value=3),
+                          ],
+              cut_expression=False,
               cut_expression_separator=']')
-    T36 = Tree(tree_list=['AND'] + [['EQU', [None], Tree.tree_list_BIN(16)]]*2,
+    T36 = Tree(tree_list=['AND',
+                           ['DIFF', Tree.tree_list_BIN(3), [None]],
+                           ['NOT', ['IN', Tree.tree_list_BIN(3), [None], [None]]],
+                           ['NOT', ['IN', Tree.tree_list_BIN(3), [None], [None], [None]]]],
               empty=True,
               name='T36',
+              switches = [
+                          S56, S57, S58, Switch(value=1),
+                          S60, S61, S62, Switch(value=1), Switch(value=2),
+                          S64, S65, S66, Switch(value=1), Switch(value=2), Switch(value=3),],
+              cut_expression=False,
+              cut_expression_separator=']')
+    T37 = Tree(tree_list=['AND'] + [['EQU', [None], Tree.tree_list_BIN(16)]]*2,
+              empty=True,
+              name='T37',
               switches = [Switch(value=52137), S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, S23, S24, S25, S26, S27,
                           Switch(value=17185), S52, S53, S54, S55, S56, S57, S58, S59, S60, S61, S62, S63, S64, S65, S66, S67,],
               cut_expression=True)
     
     ay = 0.9
     dx = 1.9
-    ey = 0.6*ay
+    ey = 0.85*ay
     lx = 3
     ly = 10*ay
 
@@ -858,15 +863,24 @@ def level_panex():
                room_departure=R16,
                room_arrival=R17)
 
-    D35 = Door(two_way=True,
+    D35 = Door(two_way=False,
                tree=T35,
                room_departure=R0,
                room_arrival=R1,
                relative_departure_coordinates=[1, 1],
-               relative_arrival_coordinates=[0, 1])
-
-    D36 = Door(two_way=True,
+               relative_arrival_coordinates=[0, 1],
+               relative_position=0.75)
+    
+    D36 = Door(two_way=False,
                tree=T36,
+               room_departure=R1,
+               room_arrival=R0,
+               relative_departure_coordinates=[0, 1],
+               relative_arrival_coordinates=[1, 1],
+               relative_position=0.75)
+
+    D37 = Door(two_way=False,
+               tree=T37,
                room_departure=R0,
                room_arrival=RE,
                relative_departure_coordinates=[1/2, 0],
@@ -882,11 +896,11 @@ def level_panex():
                              D20, D21, D22, D23, D24,
                              D25, D26, D27, D28, D29,
                              D30, D31, D32, D33, D34,
-                             D35, D36],
+                             D35, D36, D37],
                  fastest_solution=None,
                  level_color=Levels_colors_list.BROWN,
                  name='Panex',
-                 door_window_size=915,
+                 door_window_size=815,
                  keep_proportions=False,
                  y_separation=30)
 

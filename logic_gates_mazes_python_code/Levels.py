@@ -90,7 +90,7 @@ from levels.level_xor import level_xor
 
 class Levels:
 
-    levels_functions_list = [#level_panex,
+    levels_functions_list = [level_panex,
                              level_hello_world,
                              level_linear,
                              level_loop,
