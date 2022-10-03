@@ -591,11 +591,14 @@ def level_panex():
                           S64, S65, S66, Switch(value=1), Switch(value=2), Switch(value=3),],
               cut_expression=False,
               cut_expression_separator=']')
-    T37 = Tree(tree_list=['AND'] + [['EQU', [None], Tree.tree_list_BIN(16)]]*2,
+    T37 = Tree(tree_list=Tree.tree_list_from_str('FFFFFFFFTTTT'),
               empty=True,
               name='T37',
-              switches = [Switch(value=52137), S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, S23, S24, S25, S26, S27,
-                          Switch(value=17185), S52, S53, S54, S55, S56, S57, S58, S59, S60, S61, S62, S63, S64, S65, S66, S67,],
+              switches = [S0, S1, S2, S3, S4, S5, S6, S7,
+                          S15,
+                          S19,
+                          S23,
+                          S27,],
               cut_expression=True)
     
     ay = 0.9
@@ -824,7 +827,7 @@ def level_panex():
                tree=T25,
                room_departure=R2,
                room_arrival=R8,
-               relative_position=0.3)
+               relative_position=0.5)
     D26 = Door(two_way=True,
                tree=T26,
                room_departure=R8,
@@ -898,7 +901,7 @@ def level_panex():
                              D30, D31, D32, D33, D34,
                              D35, D36, D37],
                  fastest_solution=None,
-                 level_color=Levels_colors_list.BROWN,
+                 level_color=Levels_colors_list.FROM_HUE(hu=0.6, sa=0.6, li=0.9),
                  name='Panex',
                  door_window_size=815,
                  keep_proportions=False,

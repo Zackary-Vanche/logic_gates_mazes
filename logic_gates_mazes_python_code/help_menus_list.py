@@ -395,7 +395,7 @@ help_menus_list['levels']["Partition"] = """The partition is one of the Karp's 2
 
 help_menus_list['levels']["Knapsack"] = """The knapsack is one of the Karp's 21 NP-complete problems."""
 
-help_menus_list['levels']["Permutation"] = """Every permutation can be writen as a product of 2-cycles.\n\nYou can try to find not only one solution, but the fastest one."""
+help_menus_list['levels']["Permutations"] = """Every permutation can be writen as a product of 2-cycles.\n\nYou can try to find not only one solution, but the fastest one."""
 
 help_menus_list['levels']["Betweenness"] = help_menus_list['BETWEEN']
 

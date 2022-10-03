@@ -56,6 +56,7 @@ class Door:
         self.real_middle_coordinates = None
         self.arrow_coordinates = None
         self.surrounding_color = surrounding_color
+        self.pages_list = []
 
     def set_rooms(self, room_departure, room_arrival):
         self.room_departure = room_departure
@@ -66,6 +67,9 @@ class Door:
         else:
             self.room_departure.departure_doors_list.append(self)
             self.room_arrival.arrival_doors_list.append(self)
+
+    def set_tree(self, tree):
+        self.tree = tree
 
     def update_open(self):
         self.is_open = bool(self.tree.get_value())

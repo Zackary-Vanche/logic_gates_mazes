@@ -7,7 +7,7 @@ Created on Thu Feb 24 20:59:09 2022
 
 from pygame import init as pygame_init
 from pygame.locals import QUIT, K_UP, K_DOWN, K_RIGHT, K_LEFT
-from pygame.locals import K_a, K_b, K_d, K_e, K_h, K_r, K_s, K_l, K_q
+from pygame.locals import K_a, K_b, K_d, K_e, K_h, K_p, K_r, K_s, K_l, K_q
 from pygame.locals import K_KP0, K_KP1, K_KP2, K_KP3, K_KP4
 from pygame.locals import K_KP5, K_KP6, K_KP7, K_KP8, K_KP9
 from pygame.locals import K_0, K_1, K_2, K_3, K_4
@@ -132,7 +132,7 @@ class Game:
                                                   pygame_RESIZABLE,
                                                   pygame_SCALED)
         pygame_display_set_caption('Logic gates maze')
-        self.WINDOW_SIZE_changed = True
+        self.WINDOW_SIZE_changed = False
 
         self.font = pygame_font_SysFont(None, self.font_size)
         self.level_changed = True
@@ -236,27 +236,28 @@ class Game:
         # Affichage des lignes des portes
         self.line_size = self.maze.line_size
         for door in self.maze.doors_set:
-            real_departure_coordinates = door.real_departure_coordinates
-            real_arrival_coordinates = door.real_arrival_coordinates
-            if door.is_open:
-                if self.uniform_surrounding_colors:
-                    pygame_draw_line(self.WINDOW,
-                                     self.surrounding_color,
-                                     real_departure_coordinates,
-                                     real_arrival_coordinates,
-                                     self.line_size)
+            if self.maze.current_page in door.pages_list:
+                real_departure_coordinates = door.real_departure_coordinates
+                real_arrival_coordinates = door.real_arrival_coordinates
+                if door.is_open:
+                    if self.uniform_surrounding_colors:
+                        pygame_draw_line(self.WINDOW,
+                                         self.surrounding_color,
+                                         real_departure_coordinates,
+                                         real_arrival_coordinates,
+                                         self.line_size)
+                    else:
+                        pygame_draw_line(self.WINDOW,
+                                         door.surrounding_color,
+                                         real_departure_coordinates,
+                                         real_arrival_coordinates,
+                                         self.line_size)
                 else:
                     pygame_draw_line(self.WINDOW,
-                                     door.surrounding_color,
+                                     self.room_color,
                                      real_departure_coordinates,
                                      real_arrival_coordinates,
                                      self.line_size)
-            else:
-                pygame_draw_line(self.WINDOW,
-                                 self.room_color,
-                                 real_departure_coordinates,
-                                 real_arrival_coordinates,
-                                 self.line_size)
     
     def draw_exterior_lines(self):
         # Bords exterieurs
@@ -319,142 +320,149 @@ class Game:
             gap = self.y_separation + 35
             for k in range(len(self.doors_list)):
                 door = self.doors_list[k]
-                tree = door.tree
-                str_logical_expression = tree.get_easy_logical_expression_PN()
-                str_logical_expression = str_logical_expression.split('\n')
-                # if k == 0:
-                #     print('')
-                for i in range(len(str_logical_expression)):
-                    string = str_logical_expression[i]
-                    if i == 0:
-                        logical_expression_render = self.font.render(door.name + ' = ' + string,
-                                                                     True,
-                                                                     self.inside_room_color)
-                        self.WINDOW.blit(logical_expression_render, (self.x_separation + 10, gap))
-                    else:
-                        logical_expression_render = self.font.render(' '*(len(door.name)+3) + string,
-                                                                True,
-                                                                self.inside_room_color)
-                        self.WINDOW.blit(logical_expression_render, (self.x_separation + 10, gap))
-                    gap += self.gap_between_lines
+                if self.maze.current_page in door.pages_list:
+                    tree = door.tree
+                    str_logical_expression = tree.get_easy_logical_expression_PN()
+                    str_logical_expression = str_logical_expression.split('\n')
+                    # if k == 0:
+                    #     print('')
+                    for i in range(len(str_logical_expression)):
+                        string = str_logical_expression[i]
+                        if i == 0:
+                            logical_expression_render = self.font.render(door.name + ' = ' + string,
+                                                                         True,
+                                                                         self.inside_room_color)
+                            self.WINDOW.blit(logical_expression_render, (self.x_separation + 10, gap))
+                        else:
+                            logical_expression_render = self.font.render(' '*(len(door.name)+3) + string,
+                                                                    True,
+                                                                    self.inside_room_color)
+                            self.WINDOW.blit(logical_expression_render, (self.x_separation + 10, gap))
+                        gap += self.gap_between_lines
 
     def draw_rooms(self):
         # Affichage des pieces
         self.line_size = self.maze.line_size
         for room in self.maze.rooms_list:
-            [x_gap, y_gap, x, y] = array(room.position)
-            room_rectangle = pygame_Rect(x_gap, y_gap, x+2, y+2)
-            if room.is_exit:
-                pygame_draw_ellipse(self.WINDOW, self.room_color, room_rectangle)
-                if self.maze.current_room() == room:
-                    if self.uniform_surrounding_colors:
-                        pygame_draw_ellipse(self.WINDOW, self.surrounding_color, room_rectangle, width=self.line_size)
-                    else:
-                        pygame_draw_ellipse(self.WINDOW, room.surrounding_color, room_rectangle, width=self.line_size)
-            else:
-                pygame_draw_rect(self.WINDOW, self.room_color, room_rectangle)
-                if self.maze.current_room() == room:
-                    if self.uniform_surrounding_colors:
-                        pygame_draw_rect(self.WINDOW, self.surrounding_color, room_rectangle, width=self.line_size)
-                    else:
-                        pygame_draw_rect(self.WINDOW, room.surrounding_color, room_rectangle, width=self.line_size)
+            if self.maze.current_page in room.pages_list:
+                [x_gap, y_gap, x, y] = array(room.position[self.maze.current_page])
+                room_rectangle = pygame_Rect(x_gap, y_gap, x+2, y+2)
+                if room.is_exit:
+                    pygame_draw_ellipse(self.WINDOW, self.room_color, room_rectangle)
+                    if self.maze.current_room() == room:
+                        if self.uniform_surrounding_colors:
+                            pygame_draw_ellipse(self.WINDOW, self.surrounding_color, room_rectangle, width=self.line_size)
+                        else:
+                            pygame_draw_ellipse(self.WINDOW, room.surrounding_color, room_rectangle, width=self.line_size)
+                else:
+                    pygame_draw_rect(self.WINDOW, self.room_color, room_rectangle)
+                    if self.maze.current_room() == room:
+                        if self.uniform_surrounding_colors:
+                            pygame_draw_rect(self.WINDOW, self.surrounding_color, room_rectangle, width=self.line_size)
+                        else:
+                            pygame_draw_rect(self.WINDOW, room.surrounding_color, room_rectangle, width=self.line_size)
                     
     def draw_rooms_names(self):
         # Affichage des pieces
         for room in self.maze.rooms_list:
-            [x_gap, y_gap, x, y] = array(room.position)
-            if room.is_exit:
-                room_name_render = self.font.render('EXIT',
-                                                    True,
-                                                    self.inside_room_color)
-                self.WINDOW.blit(room_name_render, room.get_name_position())
-            else:
-                room_name_render = self.font.render(room.name,
-                                                    True,
-                                                    self.inside_room_color)
-                if self.print_room_name:
+            if self.maze.current_page in room.pages_list:
+                [x_gap, y_gap, x, y] = array(room.position[self.maze.current_page])
+                if room.is_exit:
+                    room_name_render = self.font.render('EXIT',
+                                                        True,
+                                                        self.inside_room_color)
                     self.WINDOW.blit(room_name_render, room.get_name_position())
+                else:
+                    room_name_render = self.font.render(room.name,
+                                                        True,
+                                                        self.inside_room_color)
+                    if self.print_room_name:
+                        self.WINDOW.blit(room_name_render, room.get_name_position())
            
     def draw_doors_polygons(self):
         # Affichage des polygones des portes
         for door in self.maze.doors_set:
-            # real_middle_coordinates = door.real_middle_coordinates
-            arrow_coordinates = door.arrow_coordinates
-            pygame_draw_polygon(self.WINDOW,
-                                self.room_color,
-                                arrow_coordinates)
+            if self.maze.current_page in door.pages_list:
+                # real_middle_coordinates = door.real_middle_coordinates
+                arrow_coordinates = door.arrow_coordinates
+                pygame_draw_polygon(self.WINDOW,
+                                    self.room_color,
+                                    arrow_coordinates)
         for door in self.maze.doors_set:
-            arrow_coordinates = door.arrow_coordinates
-            if door.is_open:
-                if self.uniform_surrounding_colors:
-                    pygame_draw_polygon(self.WINDOW,
-                                        self.surrounding_color,
-                                        arrow_coordinates,
-                                        width=3)
-                else:
-                    pygame_draw_polygon(self.WINDOW,
-                                        door.surrounding_color,
-                                        arrow_coordinates,
-                                        width=3)
+            if self.maze.current_page in door.pages_list:
+                arrow_coordinates = door.arrow_coordinates
+                if door.is_open:
+                    if self.uniform_surrounding_colors:
+                        pygame_draw_polygon(self.WINDOW,
+                                            self.surrounding_color,
+                                            arrow_coordinates,
+                                            width=3)
+                    else:
+                        pygame_draw_polygon(self.WINDOW,
+                                            door.surrounding_color,
+                                            arrow_coordinates,
+                                            width=3)
                 
     def print_doors_names(self):
         # Affichage des portes
         for door in self.maze.doors_set:
-            real_middle_coordinates = door.real_middle_coordinates
-            door_name_render = self.font.render(door.name,
-                                                True,
-                                                self.inside_room_color)
-            self.WINDOW.blit(door_name_render,
-                             real_middle_coordinates)      
+            if self.maze.current_page in door.pages_list:
+                real_middle_coordinates = door.real_middle_coordinates
+                door_name_render = self.font.render(door.name,
+                                                    True,
+                                                    self.inside_room_color)
+                self.WINDOW.blit(door_name_render,
+                                 real_middle_coordinates)      
             
     def draw_switches(self):
         # Affichage des interrupteurs
         for room in self.maze.rooms_list:
-            switches_positions = room.get_switches_positions()
-            switches_list = room.switches_list
-            assert len(switches_positions) == len(switches_list)
-            for i in range(len(switches_list)):
-                switch = switches_list[i]
-                position = switches_positions[i]
-                rect = pygame_Rect(position[0]-self.click_rect_size_x/2,
-                                   position[1]-self.click_rect_size_y/2,
-                                   self.click_rect_size_x,
-                                   self.click_rect_size_y)
-                if switch.value:
-                    if self.print_click_rects:
-                        pygame_draw_rect(self.WINDOW,
-                                         self.background_color,
-                                         rect)
-                    else:
-                        rectangle_switch = pygame_Rect(position[0]-self.click_rect_size_x/2,
-                                                       position[1]-self.click_rect_size_y/2,
-                                                       self.click_rect_size_x,
-                                                       self.click_rect_size_y)
-                        if self.uniform_surrounding_colors:
-                            pygame_draw_rect(self.WINDOW,
-                                             self.inside_room_surrounding_color,
-                                             rectangle_switch,
-                                             width = 3)
-                        else:
-                            pygame_draw_rect(self.WINDOW,
-                                             room.surrounding_color,
-                                             rectangle_switch,
-                                             width = 3)
-                if self.print_click_rects:
+            if self.maze.current_page in room.pages_list:
+                switches_positions = room.get_switches_positions()
+                switches_list = room.switches_list
+                assert len(switches_positions) == len(switches_list)
+                for i in range(len(switches_list)):
+                    switch = switches_list[i]
+                    position = switches_positions[i]
+                    rect = pygame_Rect(position[0]-self.click_rect_size_x/2,
+                                       position[1]-self.click_rect_size_y/2,
+                                       self.click_rect_size_x,
+                                       self.click_rect_size_y)
                     if switch.value:
-                        switch_name_render = self.font.render(switch.name,
-                                                              True,
-                                                              self.letters_color)
+                        if self.print_click_rects:
+                            pygame_draw_rect(self.WINDOW,
+                                             self.background_color,
+                                             rect)
+                        else:
+                            rectangle_switch = pygame_Rect(position[0]-self.click_rect_size_x/2,
+                                                           position[1]-self.click_rect_size_y/2,
+                                                           self.click_rect_size_x,
+                                                           self.click_rect_size_y)
+                            if self.uniform_surrounding_colors:
+                                pygame_draw_rect(self.WINDOW,
+                                                 self.inside_room_surrounding_color,
+                                                 rectangle_switch,
+                                                 width = 3)
+                            else:
+                                pygame_draw_rect(self.WINDOW,
+                                                 room.surrounding_color,
+                                                 rectangle_switch,
+                                                 width = 3)
+                    if self.print_click_rects:
+                        if switch.value:
+                            switch_name_render = self.font.render(switch.name,
+                                                                  True,
+                                                                  self.letters_color)
+                        else:
+                            switch_name_render = self.font.render(switch.name,
+                                                                  True,
+                                                                  self.inside_room_color)
                     else:
                         switch_name_render = self.font.render(switch.name,
-                                                              True,
-                                                              self.inside_room_color)
-                else:
-                    switch_name_render = self.font.render(switch.name,
-                                                     True,
-                                                     self.inside_room_color)
-                self.WINDOW.blit(switch_name_render,
-                            position - array([10/2*len(switch.name), 7]))
+                                                         True,
+                                                         self.inside_room_color)
+                    self.WINDOW.blit(switch_name_render,
+                                position - array([10/2*len(switch.name), 7]))
         
     def display_help(self):
         
@@ -620,6 +628,16 @@ class Game:
                 self.last_key_pressed_time = time()
                 self.change_in_display = True
 
+    def change_page(self):
+        self.pressed = pygame_key_get_pressed()
+        # Changement de page du jeu
+        if time() - self.last_key_pressed_time > self.time_between_actions:
+            if self.pressed[K_p]:
+                self.last_key_pressed_time = time()
+                self.maze.current_page += 1
+                self.maze.current_page = self.maze.current_page%self.maze.number_of_pages
+                self.change_in_display = True
+
     def save_image_as_png(self):
         if self.save_image:
             fname = "images/level_{}_{}_WIDTH_{}_HEIGHT_{}.png".format(self.index_current_level,
@@ -676,6 +694,7 @@ class Game:
                 self.save_image_as_png()
             self.change_level()
             self.goto_or_leave_help()
+            self.change_page()
             
     def save_levels_txt(verbose=0, calculates_solutions=True, short_only=True):
         t0 = time()

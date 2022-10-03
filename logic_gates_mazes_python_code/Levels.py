@@ -21,6 +21,7 @@ from levels.level_bipartite import level_bipartite
 from levels.level_bis_repetita import level_bis_repetita
 from levels.level_cartesian import level_cartesian
 from levels.level_chessboard import level_chessboard
+from levels.level_compact import level_compact
 from levels.level_congruence import level_congruence
 from levels.level_crossroad import level_crossroad
 from levels.level_crystal import level_crystal
@@ -53,7 +54,7 @@ from levels.level_pancake_sorting import level_pancake_sorting
 from levels.level_panex import level_panex
 from levels.level_parallel import level_parallel
 from levels.level_partition import level_partition
-from levels.level_permutation import level_permutation
+from levels.level_permutations import level_permutations
 from levels.level_point_of_no_return import level_point_of_no_return
 from levels.level_puzzle import level_puzzle
 from levels.level_pythagorean import level_pythagorean
@@ -64,6 +65,7 @@ from levels.level_square import level_square
 from levels.level_solitaire import level_solitaire
 from levels.level_sudoku import level_sudoku
 from levels.level_sujiko import level_sujiko
+from levels.level_superflip import level_superflip
 from levels.level_syracuse import level_syracuse
 from levels.level_temple import level_temple
 from levels.level_taxicab_number import level_taxicab_number
@@ -79,7 +81,6 @@ from levels.level_xor import level_xor
 # Triangulate
 # Full
 # egyptian fractions
-# panex
 # filled car park
 # jeep problem ???
 # Conway puzzle ???
@@ -87,10 +88,11 @@ from levels.level_xor import level_xor
 # Century
 # Takuzu
 # Four
+# Superflip
 
 class Levels:
 
-    levels_functions_list = [level_panex,
+    levels_functions_list = [
                              level_hello_world,
                              level_linear,
                              level_loop,
@@ -121,7 +123,7 @@ class Levels:
                              level_chessboard,
                              level_partition,
                              level_knapsack,
-                             level_permutation,
+                             level_permutations,
                              level_betweenness,
                              level_taxicab_number,
                              level_tetrahedron,
@@ -155,6 +157,8 @@ class Levels:
                              level_water_pouring,
                              level_puzzle,
                              level_solitaire,
+                             level_panex,
+                             # level_superflip,
                              ]
 
     number_of_levels = len(levels_functions_list)
@@ -237,48 +241,40 @@ class Levels:
 
 if __name__ == "__main__":
 
-    import matplotlib.pyplot as plt
-
-    print('\nTrying all solutions')
-
-    for level_function in Levels.levels_functions_list:
-        level = level_function()
-        if level.fastest_solution is not None:
-            r = level.try_solution(level.fastest_solution)
-            if r != 2:
-                print(level.name, 'wrong solution')
-
-    print('\nSaving solutions')
-
-    Levels.save_solutions_txt(do_it_fast=True, verbose=1)
-
-    print('\nCalculating solutions lenghts')
-
-    solutions_lenghts = []
-    for level_function in Levels.levels_functions_list:
-        level = level_function()
-        if level.fastest_solution is not None:
-            solutions_lenghts.append(len(level.fastest_solution.split(' ')))
-    plt.figure(figsize=(15, 5))
-    x_list = [i for i in range(len(solutions_lenghts))]
-    plt.plot(x_list,
-             solutions_lenghts, lw=0.3, color='k')
-    plt.scatter(x_list,
-                solutions_lenghts, lw=0.1, color='r')
-    plt.show()
-
-    print('')
-
+    # import matplotlib.pyplot as plt
+    # print('\nTrying all solutions')
+    # for level_function in Levels.levels_functions_list:
+    #     level = level_function()
+    #     if level.fastest_solution is not None:
+    #         r = level.try_solution(level.fastest_solution)
+    #         if r != 2:
+    #             print(level.name, 'wrong solution')
+    # print('\nSaving solutions')
+    # Levels.save_solutions_txt(do_it_fast=True, verbose=1)
+    # print('\nCalculating solutions lenghts')
+    # solutions_lenghts = []
+    # for level_function in Levels.levels_functions_list:
+    #     level = level_function()
+    #     if level.fastest_solution is not None:
+    #         solutions_lenghts.append(len(level.fastest_solution.split(' ')))
+    # plt.figure(figsize=(15, 5))
+    # x_list = [i for i in range(len(solutions_lenghts))]
+    # plt.plot(x_list,
+    #           solutions_lenghts, lw=0.3, color='k')
+    # plt.scatter(x_list,
+    #             solutions_lenghts, lw=0.1, color='r')
+    # plt.show()
+    # print('')
     # import cProfile
     # cProfile.run('solutions = level_manhattan_distance().find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**3)')
 
-    solutions = level_panex().find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**4)
+    # solutions = level_panex().find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**4)
 
+    level = level_compact()
 
-
-
-
-
+    solutions = level.find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**4)
+    solutions = list(solutions)
+    solutions[0] = [' '.join(list(sol)) for sol in solutions[0]]
 
 
 

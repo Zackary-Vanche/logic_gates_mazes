@@ -35,12 +35,18 @@ class Room:
         self.switches_list.sort(key = lambda x : [len(x.name), x.name])
         for switch in self.switches_list:
             switch.room = self
-        self.position = position
+        if isinstance(position, list):
+            self.position = {0 : position}
+        else:
+            self.position = position
+        self.pages_list=[]
+        for ipage in self.position.keys():
+            self.pages_list.append(ipage)
         self.name_position = None
         self.switches_positions = None
         self.surrounding_color = surrounding_color
         self.possible_switches_values = possible_switches_values
-        if self.possible_switches_values == None:
+        if self.possible_switches_values == None and len(switches_list) <= 20:
             self.possible_switches_actions = powerset([s.name for s in self.switches_list])
         elif type(possible_switches_values) == type([]):
             self.possible_switches_actions = []
@@ -54,15 +60,15 @@ class Room:
             self.possible_switches_actions = None
         
     def get_name_position(self):
-        [x_gap, y_gap, x, y] = self.position
+        [x_gap, y_gap, x, y] = self.position[self.maze.current_page]
         if self.is_exit:
             self.name_position = [x_gap + x/2 - 18, y_gap + y/2 - 6]
         else:
             self.name_position = [x_gap + 4, y_gap + 4]
         return self.name_position
             
-    def get_switches_positions(self): 
-        [x_gap, y_gap, x, y] = self.position
+    def get_switches_positions(self):
+        [x_gap, y_gap, x, y] = self.position[self.maze.current_page]
         n_switches = len(self.switches_list)
         if n_switches == 0:
             return []
@@ -84,10 +90,12 @@ class Room:
         ex = 1/(xmax+2)
         ey = 1/(ymax+2)
 
-        new_xmin = max(x_gap + ex*x, x_gap)
-        new_ymin = max(y_gap + ey*y, y_gap)
-        new_xmax = min(x_gap + (1-ex)*x, x_gap + x)
-        new_ymax = min(y_gap + (1-ey)*y, y_gap + y)
+        new_xmin = x_gap + max(ex*x, 0)
+        new_ymin = y_gap + max(ey*y, 0)
+        new_xmax = x_gap + min((1-ex)*x, x)
+        new_ymax = y_gap + min((1-ey)*y, y)
+        
+        new_xmin = new_xmin + 7
         if xmin == xmax:
             fx = lambda k : k + x_gap + x/2
         else:
@@ -124,3 +132,25 @@ class Room:
         txt += '\n|   Two-way door(s) list :\n|      {}'.format([door.name for door in self.two_way_doors_list])
         txt += '\n|   Switches list :\n|      {}'.format([switch.name for switch in self.switches_list])
         return txt
+    
+class Virtual_Room(Room):
+    
+    def __init__(self, 
+                 is_exit = False, 
+                 switches_list = [],
+                 position = [None, None, None, None], 
+                 name = 'R',
+                 surrounding_color=[255,255,255],
+                 possible_switches_values=None):
+    
+        super().__init__(is_exit, 
+                         switches_list,
+                         position, 
+                         name,
+                         surrounding_color,
+                         possible_switches_values)
+
+if __name__ == "__main__":
+    
+    V1 = Virtual_Room()
+        

@@ -34,7 +34,8 @@ class Maze:
                  border=50,
                  keep_proportions=False,
                  line_size=3,
-                 random=False):
+                 random=False,
+                 current_page=0):
         self.random = random
         self.name = name
         self.start_room_index = start_room_index
@@ -44,6 +45,7 @@ class Maze:
         self.rooms_list = rooms_list
         for room in self.rooms_list:
             assert room is not None
+            room.maze = self
         assert start_room_index < len(self.rooms_list)
         self.start_room = self.rooms_list[self.start_room_index]
         self.current_room_index = self.start_room_index
@@ -85,22 +87,22 @@ class Maze:
                               ' '.join([door.name for door in doors_list])])
         assert set(self.doors_list()) == set(doors_list), txterror
         # On verifie que aucun nom ne soit donne en double
-        for i in range(len(rooms_list)):
-            room_i = rooms_list[i]
-            for j in range(i):
-                room_j = rooms_list[j]
-                assert room_i.name != room_j.name
-        for i in range(len(doors_list)):
-            door_i = doors_list[i]
-            for j in range(i):
-                door_j = doors_list[j]
-                assert door_i.name != door_j.name
-        switches_list = self.switches_list()
-        for i in range(len(switches_list)):
-            switch_i = switches_list[i]
-            for j in range(i):
-                switch_j = switches_list[j]
-                assert switch_i.name != switch_j.name
+        # for i in range(len(rooms_list)):
+        #     room_i = rooms_list[i]
+        #     for j in range(i):
+        #         room_j = rooms_list[j]
+        #         assert room_i.name != room_j.name
+        # for i in range(len(doors_list)):
+        #     door_i = doors_list[i]
+        #     for j in range(i):
+        #         door_j = doors_list[j]
+        #         assert door_i.name != door_j.name
+        # switches_list = self.switches_list()
+        # for i in range(len(switches_list)):
+        #     switch_i = switches_list[i]
+        #     for j in range(i):
+        #         switch_j = switches_list[j]
+        #         assert switch_i.name != switch_j.name
         self.all_solutions = None
         if Maze.calculates_solutions:
             self.all_solutions = self.find_all_solutions()
@@ -109,7 +111,7 @@ class Maze:
             if self.all_solutions is not None:
                 assert self.all_solutions[0] == fastest_solution
         else:
-            print(self.name, 'fastest_solution is None -> TO CHANGE')
+            # print(self.name, 'fastest_solution is None -> TO CHANGE')
             self.fastest_solution = None
         self.extreme_coordinates = None
         self.border = border
@@ -137,6 +139,17 @@ class Maze:
         self.n_help_pages = len(self.help_txt)
         if ' '.join(self.help_txt).replace(' ', '') == '':
             print(self.name, 'empty help')
+        self.current_page = current_page
+        self.number_of_pages = 0
+        for room in self.rooms_list:
+            self.number_of_pages = max(self.number_of_pages, max(room.pages_list)+1)
+        for door in self.doors_set:
+            door.maze = self
+            Rd = door.room_departure
+            Ra = door.room_arrival
+            for ipage in range(self.number_of_pages):
+                if ipage in Rd.pages_list and ipage in Ra.pages_list:
+                    door.pages_list.append(ipage)
 
     def add_door(self, door):
         self.doors_set.add(door)
@@ -461,24 +474,31 @@ class Maze:
 
     def fast_try_solution(self,
                           solution,
-                          separator=' '):
+                          separator=' ',
+                          really_fast=False):
         # results : 0 unauthorised, 1 authorised but wrong, 2 you won
         self.reboot_solution()
-        for action in solution:
-            if action in self.possibles_actions_list:
-                action_type = action[0]
-                if action_type == 'S':
-                    if self.legit_change_switch(action):
-                        self.change_switch(action, update_doors=False)
-                    else:
-                        return 0
-                if action_type == 'D':
-                    door = self.doors_dict()[action]
-                    door.update_open()
-                    if self.legit_use_door(action):
-                        self.use_door(action)
-                    else:
-                        return 0
+        for action in solution[:-1]:
+            action_type = action[0]
+            if action_type == 'S':
+                self.change_switch(action, update_doors=False)
+            if action_type == 'D':
+                self.use_door(action)
+        if len(solution) > 0:
+            action = solution[-1]
+            action_type = action[0]
+            if action_type == 'S':
+                if self.legit_change_switch(action):
+                    self.change_switch(action, update_doors=False)
+                else:
+                    return 0
+            if action_type == 'D':
+                door = self.doors_dict()[action]
+                door.update_open()
+                if self.legit_use_door(action):
+                    self.use_door(action)
+                else:
+                    return 0
         bool_solution = self.current_room_index == self.exit_room_index
         return int(bool_solution) + 1
 
@@ -537,6 +557,9 @@ class Maze:
                      print('len(solutions_that_work) : {}'.format(len(solutions_that_work)))
                      print('')
                 solution = solutions_to_visit.pop(0)
+                if nb_iterations < 100:
+                    print('')
+                    print('*', solution)
                 nb_operations += len(solution)
                 result_solution = self.fast_try_solution(solution)
                 for door in self.doors_list():
@@ -550,14 +573,18 @@ class Maze:
                             actions_doors.reverse()
                         for action in actions_doors:
                             solutions_to_visit.append(solution+(action,))
+                            if nb_iterations < 100:
+                                print(solution+(action,))
                         # SWITCHES
                         if solution == () or solution[-1][0] != 'S':
                             for Slist in self.current_room().get_possible_switches_actions():
-                                solutions_to_visit.append(solution+tuple(Slist)) 
+                                solutions_to_visit.append(solution+tuple(Slist))
+                                if nb_iterations < 100:
+                                    print(solution+tuple(Slist))
                     visited_situations.add(current_situation_vector)
                 elif result_solution == 2:
                     if verbose >= 1 and len(solutions_that_work) <= 10:
-                        print(' '.join(solution))
+                        print('solution :', ' '.join(solution))
                     solutions_that_work.append(solution)
                     if stop_at_first_solution:
                         self.reboot_solution()
@@ -581,45 +608,48 @@ class Maze:
             print(t1 - t0, 's')
         return solutions_that_work, nb_iterations, nb_operations
 
-    def get_extreme_coordinates(self):
+    def get_extreme_coordinates(self, ipagein):
         if self.extreme_coordinates is None:
-            x_min = +float('inf')
-            y_min = +float('inf')
-            x_max = -float('inf')
-            y_max = -float('inf')
-            for room in self.rooms_list:
-                [x_gap, y_gap, x, y] = room.position
-                assert x_gap is not None
-                assert y_gap is not None
-                assert x is not None
-                assert y is not None
-                x_min = min(x_min, x_gap)
-                y_min = min(y_min, y_gap)
-                x_max = max(x_max, x_gap + x)
-                y_max = max(y_max, y_gap + y)
-            self.extreme_coordinates = [x_min, x_max, y_min, y_max]
-        return self.extreme_coordinates
+            self.extreme_coordinates = []
+            for ipage in range(self.number_of_pages):
+                x_min = +float('inf')
+                y_min = +float('inf')
+                x_max = -float('inf')
+                y_max = -float('inf')
+                for room in self.rooms_list:
+                    if ipage in room.pages_list:
+                        assert ipage in room.position.keys(), room.name
+                        [x_gap, y_gap, x, y] = room.position[ipage]
+                        assert x_gap is not None
+                        assert y_gap is not None
+                        assert x is not None
+                        assert y is not None
+                        x_min = min(x_min, x_gap)
+                        y_min = min(y_min, y_gap)
+                        x_max = max(x_max, x_gap + x)
+                        y_max = max(y_max, y_gap + y)
+                self.extreme_coordinates.append([x_min, x_max, y_min, y_max])
+        return self.extreme_coordinates[ipagein]
 
-    def invert_x_y_coordinates(self):
-        for room in self.rooms_list:
-            [x_gap, y_gap, x, y] = room.position
-            room.position = [y_gap, x_gap, y, x]
-            self.extreme_coordinates = None
-
-    def set_extreme_coordinates(self,
-                                new_x_min,
-                                new_x_max,
-                                new_y_min,
-                                new_y_max,
-                                border,
-                                keep_proportions):
-        # On change les coordonnees extremes
-        # mais on cherche à garder le rapport x/y des coordonnees
-        [old_x_min, old_x_max, old_y_min, old_y_max] = self.get_extreme_coordinates()
+    # def invert_x_y_coordinates(self):
+    #     for room in self.rooms_list:
+    #         [x_gap, y_gap, x, y] = room.position[self.current_page]
+    #         room.position[self.current_page] = [y_gap, x_gap, y, x]
+    #         self.extreme_coordinates = None
+    
+    def set_ipage_extreme_coordinates(self,
+                                      new_x_min,
+                                      new_x_max,
+                                      new_y_min,
+                                      new_y_max,
+                                      border,
+                                      keep_proportions,
+                                      ipage):
         new_x_min = new_x_min + border
         new_x_max = new_x_max - border
         new_y_min = new_y_min + border
         new_y_max = new_y_max - border
+        [old_x_min, old_x_max, old_y_min, old_y_max] = self.get_extreme_coordinates(ipage)
         if keep_proportions:
             old_delta_x = old_x_max - old_x_min
             old_delta_y = old_y_max - old_y_min
@@ -642,13 +672,14 @@ class Maze:
                 new_x_min = new_x_moy - pente*old_delta_x/2
                 coeff_x = new_x_min - old_x_min*pente
             for room in self.rooms_list:
-                [x_gap, y_gap, x, y] = room.position
-                x_gap = pente*x_gap+coeff_x
-                y_gap = pente*y_gap+coeff_y
-                x = pente*x
-                y = pente*y
-                room.position = [x_gap, y_gap, x, y]
-                self.extreme_coordinates = None
+                if ipage in room.position.keys():
+                    [x_gap, y_gap, x, y] = room.position[ipage]
+                    x_gap = pente*x_gap+coeff_x
+                    y_gap = pente*y_gap+coeff_y
+                    x = pente*x
+                    y = pente*y
+                    room.position[ipage] = [x_gap, y_gap, x, y]
+                    self.extreme_coordinates = None
         else:
             (pente_x, coeff_x) = linear_function(old_x_min,
                                                  new_x_min,
@@ -659,23 +690,43 @@ class Maze:
                                                  old_y_max,
                                                  new_y_max)
             for room in self.rooms_list:
-                [x_gap, y_gap, x, y] = room.position
-                x_gap = pente_x*x_gap+coeff_x
-                y_gap = pente_y*y_gap+coeff_y
-                x = pente_x*x
-                y = pente_y*y
-                room.position = [x_gap, y_gap, x, y]
-                self.extreme_coordinates = None
+                if ipage in room.position.keys():
+                    [x_gap, y_gap, x, y] = room.position[ipage]
+                    x_gap = pente_x*x_gap+coeff_x
+                    y_gap = pente_y*y_gap+coeff_y
+                    x = pente_x*x
+                    y = pente_y*y
+                    room.position[ipage] = [x_gap, y_gap, x, y]
+                    self.extreme_coordinates = None
+
+    def set_extreme_coordinates(self,
+                                new_x_min,
+                                new_x_max,
+                                new_y_min,
+                                new_y_max,
+                                border,
+                                keep_proportions):
+        # On change les coordonnees extremes
+        # mais on cherche à garder le rapport x/y des coordonnees
+        for ipage in range(self.number_of_pages):
+            self.set_ipage_extreme_coordinates(new_x_min,
+                                               new_x_max,
+                                               new_y_min,
+                                               new_y_max,
+                                               border,
+                                               keep_proportions,
+                                               ipage)
         self.calculate_doors_coordinates()
 
     def calculate_doors_coordinates(self):
         for door in self.doors_set:
+            # for ipage in range(self.number_of_pages): # TODO
             Rd = door.room_departure
             Ra = door.room_arrival
             cRd = door.relative_departure_coordinates
             cRa = door.relative_arrival_coordinates
-            [Rd_x_gap, Rd_y_gap, Rd_x, Rd_y] = Rd.position
-            [Ra_x_gap, Ra_y_gap, Ra_x, Ra_y] = Ra.position
+            [Rd_x_gap, Rd_y_gap, Rd_x, Rd_y] = Rd.position[self.current_page]
+            [Ra_x_gap, Ra_y_gap, Ra_x, Ra_y] = Ra.position[self.current_page]
             door.real_departure_coordinates = array([Rd_x_gap + Rd_x*cRd[0],
                                                      Rd_y_gap + Rd_y*cRd[1]])
             door.real_arrival_coordinates = array([Ra_x_gap + Ra_x*cRa[0],

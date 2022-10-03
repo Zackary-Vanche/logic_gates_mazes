@@ -91,7 +91,7 @@ S0 S1 S2 S3 S4 S5 D0 D1
 Level 30 : Knapsack
 S0 S2 S3 D0 D1
 
-Level 31 : Permutation
+Level 31 : Permutations
 S0 D0 S5 D5 D7 S11 D12 D15 S2 D1 S8 D6 D8 S14 D13 D15 S0 S1 D1 S7 S8 S9 D6 D9 S16 S17 S18 D14 D15 S1 S2 D16
 
 Level 32 : Betweenness
