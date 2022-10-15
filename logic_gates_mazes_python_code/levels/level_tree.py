@@ -285,7 +285,7 @@ def level_tree():
                  fastest_solution="D1 S7 D3 D9 D0 S6 D2 D19 D1 S5 S7 D3 D7 D0 S4 S6 D2 D19 D1 S3 S5 S7 D3 D16 D0 S2 S4 S6 D2 D19 D1 S1 S3 S5 D3 D17 D0 S0 S2 S4 D2 D19 D20",
                  level_color=Levels_colors_list.RED_AND_YELLOW,
                  name='Tree',
-                 border = 30,
+                 border = 40,
                  door_window_size = 500)
 
     return level

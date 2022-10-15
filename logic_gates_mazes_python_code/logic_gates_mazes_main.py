@@ -19,7 +19,7 @@ if __name__ == "__main__":
          index_current_level=0,
          sleep_time=10**(-2),
          print_click_rects=True,
-         is_fullscreen=False).play()
+         is_fullscreen=True).play()
 
     # import cProfile
     # cProfile.run("Game(show_help=1, index_current_level=0).play()")

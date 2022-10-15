@@ -210,6 +210,7 @@ class Tree:
             self.update_leafs_switches()
             if self.is_leaf:
                 self.easy_logical_expression_PN = self.switches_list[0].name
+                assert isinstance(self.easy_logical_expression_PN, str), self.switches_list[0].name
             else:
                 root = self.root
                 root_name = root.name
@@ -283,8 +284,10 @@ class Tree:
                         self.easy_logical_expression_PN = '| ¬ {0} {1}'.format(A, B)
                     elif root_name == 'A':
                         self.easy_logical_expression_PN = A
+                        assert isinstance(self.easy_logical_expression_PN, str)
                     elif root_name == 'B':
                         self.easy_logical_expression_PN = B
+                        assert isinstance(self.easy_logical_expression_PN, str)
                     elif root_name == 'TRUE':
                         self.easy_logical_expression_PN = 'T'
                     elif root_name == 'BIN':
@@ -342,6 +345,7 @@ class Tree:
                     else:
                         elePN = elePN + l_elePN[i]
                 self.easy_logical_expression_PN = elePN
+                assert isinstance(self.easy_logical_expression_PN, str)
         return self.easy_logical_expression_PN
         
     def get_root(self):

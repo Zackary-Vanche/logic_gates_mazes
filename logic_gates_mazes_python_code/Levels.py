@@ -158,7 +158,7 @@ class Levels:
                              level_puzzle,
                              level_solitaire,
                              level_panex,
-                             # level_superflip,
+                             level_superflip,
                              ]
 
     number_of_levels = len(levels_functions_list)

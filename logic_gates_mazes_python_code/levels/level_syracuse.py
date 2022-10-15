@@ -128,6 +128,6 @@ def level_syracuse(test_solution=False):
                  name='Syracuse',
                  door_window_size = 800,
                  keep_proportions = True,
-                 border=20)
+                 border=50)
 
     return level

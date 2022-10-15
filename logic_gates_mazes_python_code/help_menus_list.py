@@ -325,6 +325,9 @@ if you want to turn on S0, S1 and then use the door D0."""
 help_menus_list['leave the game'] = """
 To leave the game, you can click an the cross but also press [Q] or [ESCAPE]."""
 
+help_menus_list['see other doors'] = """
+By pressing [P] or [M], you can see the values of the other doors."""
+
     ############
     ## LEVELS ##
     ############
@@ -461,3 +464,9 @@ help_menus_list['levels']["Temple"] = """This level is the retranscription of a 
 help_menus_list['levels']["Puzzle"] = """This level is inspired from the 15-puzzle."""
 
 help_menus_list['levels']["Solitaire"] = help_menus_list['JUMP']
+
+help_menus_list['levels']["Panex"] = """You are on your own."""
+
+help_menus_list['levels']["Superflip"] = help_menus_list['see other doors']
+
+

@@ -905,6 +905,7 @@ def level_panex():
                  name='Panex',
                  door_window_size=815,
                  keep_proportions=False,
-                 y_separation=30)
+                 y_separation=30,
+                 border=30)
 
     return level

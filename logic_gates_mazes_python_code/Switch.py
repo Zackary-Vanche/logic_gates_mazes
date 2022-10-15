@@ -18,6 +18,7 @@ class Switch:
             self.name = str(self.value)
         else:
             self.name = name
+        assert isinstance(self.name, str), self.name
         self.doors_set = set()
         self.tree = tree
 

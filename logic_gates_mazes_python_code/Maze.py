@@ -35,7 +35,9 @@ class Maze:
                  keep_proportions=False,
                  line_size=3,
                  random=False,
-                 current_page=0):
+                 current_page=0,
+                 door_multipages=False,
+                 current_door_page=0):
         self.random = random
         self.name = name
         self.start_room_index = start_room_index
@@ -150,6 +152,8 @@ class Maze:
             for ipage in range(self.number_of_pages):
                 if ipage in Rd.pages_list and ipage in Ra.pages_list:
                     door.pages_list.append(ipage)
+        self.door_multipages=door_multipages
+        self.current_door_page=current_door_page
 
     def add_door(self, door):
         self.doors_set.add(door)

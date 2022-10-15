@@ -50,7 +50,6 @@ def level_puzzle(fast_solution_finding=False):
     SN5 = Switch(value=5)
     SN6 = Switch(value=6)
     SN7 = Switch(value=7)
-    SN8 = Switch(value=8)
 
     for S in [S6,
               S10,
@@ -384,7 +383,7 @@ def level_puzzle(fast_solution_finding=False):
                  name='Puzzle',
                  door_window_size=666,
                  keep_proportions=True,
-                 border=0)
+                 border=20)
 
     return level
     
