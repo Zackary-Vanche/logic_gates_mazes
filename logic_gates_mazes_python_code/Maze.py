@@ -561,9 +561,9 @@ class Maze:
                      print('len(solutions_that_work) : {}'.format(len(solutions_that_work)))
                      print('')
                 solution = solutions_to_visit.pop(0)
-                if nb_iterations < 100:
-                    print('')
-                    print('*', solution)
+                # if nb_iterations < 100:
+                #     print('')
+                #     print('*', solution)
                 nb_operations += len(solution)
                 result_solution = self.fast_try_solution(solution)
                 for door in self.doors_list():
@@ -577,14 +577,14 @@ class Maze:
                             actions_doors.reverse()
                         for action in actions_doors:
                             solutions_to_visit.append(solution+(action,))
-                            if nb_iterations < 100:
-                                print(solution+(action,))
+                            # if nb_iterations < 100:
+                            #     print(solution+(action,))
                         # SWITCHES
                         if solution == () or solution[-1][0] != 'S':
                             for Slist in self.current_room().get_possible_switches_actions():
                                 solutions_to_visit.append(solution+tuple(Slist))
-                                if nb_iterations < 100:
-                                    print(solution+tuple(Slist))
+                                # if nb_iterations < 100:
+                                #     print(solution+tuple(Slist))
                     visited_situations.add(current_situation_vector)
                 elif result_solution == 2:
                     if verbose >= 1 and len(solutions_that_work) <= 10:

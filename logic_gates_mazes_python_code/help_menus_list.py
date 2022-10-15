@@ -414,6 +414,8 @@ help_menus_list['levels']["Crystal"] = """If you make a mistake, you have to sta
 
 help_menus_list['levels']["XOR"] = help_menus_list['NAND']
 
+help_menus_list['levels']["Baguenaudier"] = '''The baguenaudier is an old puzzle game.'''
+
 help_menus_list['levels']["Tetris"] = """Each number can represent a position in the plane.\n""" + help_menus_list['EQUSET']
 
 help_menus_list['levels']["4 colors theorem"] = """Each couple of switches represent a color.\n"""

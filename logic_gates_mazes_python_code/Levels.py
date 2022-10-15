@@ -15,6 +15,7 @@ from levels.level_4_colors_theorem import level_4_colors_theorem
 from levels.level_the_4_queens import level_the_4_queens
 from levels.level_alice_and_bob import level_alice_and_bob
 from levels.level_backward import level_backward
+from levels.level_baguenaudier import level_baguenaudier
 from levels.level_betweenness import level_betweenness
 from levels.level_binary import level_binary
 from levels.level_bipartite import level_bipartite
@@ -133,6 +134,7 @@ class Levels:
                              level_crystal,
                              level_tetris,
                              level_xor,
+                             level_baguenaudier,
                              level_4_colors_theorem,
                              level_magic_square,
                              level_matrix,
@@ -270,13 +272,11 @@ if __name__ == "__main__":
 
     # solutions = level_panex().find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**4)
 
-    level = level_compact()
+    level = level_baguenaudier()
 
     solutions = level.find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**4)
     solutions = list(solutions)
     solutions[0] = [' '.join(list(sol)) for sol in solutions[0]]
-
-
 
 
 
