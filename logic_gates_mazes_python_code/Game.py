@@ -141,8 +141,8 @@ class Game:
         # ou au début du jeu (il faut initialiser le niveau)
         self.last_level_change_time = time()
         if self.print_click_rects:
-            self.click_rect_size_x = 39
-            self.click_rect_size_y = 39
+            self.click_rect_size_x = 40
+            self.click_rect_size_y = 40
         else:
             self.click_rect_size_x = 40
             self.click_rect_size_y = 40
