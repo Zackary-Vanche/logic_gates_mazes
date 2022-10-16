@@ -271,10 +271,10 @@ if __name__ == "__main__":
 
     # solutions = level_panex().find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**4)
 
-    level = level_egyptian_fractions()
-    solutions = level.find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**4)
-    solutions = list(solutions)
-    solutions[0] = [' '.join(list(sol)) for sol in solutions[0]]
+    # level = level_egyptian_fractions()
+    # solutions = level.find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**4)
+    # solutions = list(solutions)
+    # solutions[0] = [' '.join(list(sol)) for sol in solutions[0]]
 
 
 
