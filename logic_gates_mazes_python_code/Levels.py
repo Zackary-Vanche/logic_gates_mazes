@@ -68,8 +68,9 @@ from levels.level_sudoku import level_sudoku
 from levels.level_sujiko import level_sujiko
 from levels.level_superflip import level_superflip
 from levels.level_syracuse import level_syracuse
-from levels.level_temple import level_temple
+from levels.level_takuzu import level_takuzu
 from levels.level_taxicab_number import level_taxicab_number
+from levels.level_temple import level_temple
 from levels.level_tesseract import level_tesseract
 from levels.level_tetrahedron import level_tetrahedron
 from levels.level_tetris import level_tetris
@@ -85,7 +86,6 @@ from levels.level_xor import level_xor
 # jeep problem ???
 # Conway puzzle ???
 # Century
-# Takuzu
 # Four
 
 class Levels:
@@ -148,6 +148,7 @@ class Levels:
                              level_electricity,
                              level_pancake_sorting,
                              level_wave,
+                             level_takuzu,
                              level_travelling_salesman,
                              level_no_three_in_line,
                              level_manhattan_distance,
@@ -271,11 +272,11 @@ if __name__ == "__main__":
 
     # solutions = level_panex().find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**4)
 
-    # level = level_egyptian_fractions()
-    # solutions = level.find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**4)
-    # solutions = list(solutions)
-    # solutions[0] = [' '.join(list(sol)) for sol in solutions[0]]
-
+    level = level_takuzu()
+    solutions = level.find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**4)
+    solutions = list(solutions)
+    solutions[0] = [' '.join(list(sol)) for sol in solutions[0]]
+    print(len(solutions[0]))
 
 
 

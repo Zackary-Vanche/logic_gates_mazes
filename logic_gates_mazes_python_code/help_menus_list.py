@@ -378,7 +378,7 @@ help_menus_list['levels']["Independent set"] = "The independent set is one of th
 
 help_menus_list['levels']["Dominating set"] = """Finding dominating set is a NP-Complete problem."""
 
-help_menus_list['levels']["Exact cover"] = """The exact cover is one of the Karp's 21 NP-complete problems."""
+help_menus_list['levels']["Exact cover"] = """The exact cover is one of the Karp's 21 NP-complete problems.\n""" + help_menus_list['XOR 3']
 
 help_menus_list['levels']["Odd"] = help_menus_list['leave the game']
 
@@ -449,7 +449,9 @@ help_menus_list['levels']["Electricity"] = help_menus_list['NAND 3']
 
 help_menus_list['levels']["Pancake sorting"] = """Pancake sorting is a real computational problem."""
 
-help_menus_list['levels']["Wave"] = help_menus_list['XOR 3']
+help_menus_list['levels']["Wave"] = """The path to the exit is not so long."""
+
+help_menus_list['levels']["Takuzu"] = """Takuzu is a logic puzzle involving placement of two symbols, often 1s and 0s, on a rectangular grid."""
 
 help_menus_list['levels']["Travelling salesman"] = "The travelling salesman is a NP-complete problem."
 
