@@ -86,7 +86,14 @@ from levels.level_xor import level_xor
 # jeep problem ???
 # Conway puzzle ???
 # Century
+# Star battle
+# Skyscraper puzzle
+# Tents
 # Four
+# Hashi ???
+# Hitori ???
+# Nurikabe ???
+# Masyu
 
 class Levels:
 

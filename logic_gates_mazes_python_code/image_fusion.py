@@ -28,8 +28,8 @@ if __name__ == "__main__":
             for n in sorted(dico.keys()):
                 file_list.append(dico[n])
 
-            m = 3
-            n = 23
+            m = 7
+            n = 10
             assert m <= n 
             assert m*n==len(file_list), """{0}, {1}, {2}""".format(m, n, len(file_list))
             l_img_h = []
@@ -58,8 +58,8 @@ if __name__ == "__main__":
             for n in sorted(dico.keys()):
                 file_list.append(dico[n])
 
-            m = 3
-            n = 23
+            m = 7
+            n = 10
             assert m <= n
             assert m*n==len(file_list)
             l_img_h = []
