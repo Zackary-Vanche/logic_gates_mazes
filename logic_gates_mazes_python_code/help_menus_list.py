@@ -382,6 +382,8 @@ help_menus_list['levels']["Exact cover"] = """The exact cover is one of the Karp
 
 help_menus_list['levels']["Odd"] = help_menus_list['leave the game']
 
+help_menus_list['levels']["Triangulate"] = help_menus_list['DIST']
+
 help_menus_list['levels']["Recurrence"] = help_menus_list['brackets']
 
 help_menus_list['levels']["Naturals"] = '\n'.join([help_menus_list['ABS'], help_menus_list['MINUS'], help_menus_list['BIN']])
@@ -399,6 +401,8 @@ help_menus_list['levels']["Partition"] = """The partition is one of the Karp's 2
 help_menus_list['levels']["Knapsack"] = """The knapsack is one of the Karp's 21 NP-complete problems."""
 
 help_menus_list['levels']["Permutations"] = """Every permutation can be writen as a product of 2-cycles.\n\nYou can try to find not only one solution, but the fastest one."""
+
+help_menus_list['levels']["Egyptian fractions"] = help_menus_list['DIV']
 
 help_menus_list['levels']["Betweenness"] = help_menus_list['BETWEEN']
 
@@ -447,7 +451,7 @@ help_menus_list['levels']["Pancake sorting"] = """Pancake sorting is a real comp
 
 help_menus_list['levels']["Wave"] = help_menus_list['XOR 3']
 
-help_menus_list['levels']["Travelling salesman"] = help_menus_list['DIST']
+help_menus_list['levels']["Travelling salesman"] = "The travelling salesman is a NP-complete problem."
 
 help_menus_list['levels']["No three in line"] = """The no three in line problem is a discrete geometry problem."""
 
@@ -459,7 +463,7 @@ help_menus_list['levels']["Knight"] = """To solve this level you need to find a 
 
 help_menus_list['levels']["Water pouring"] = """You have 3 jugs of liquid, and you need to pour water from one to another."""
 
-help_menus_list['levels']["Syracuse"] = help_menus_list['DIV']
+help_menus_list['levels']["Syracuse"] = """The solution is pretty long."""
 
 help_menus_list['levels']["Temple"] = """This level is the retranscription of a really known puzzle game.\nOnce you find which game it is, the level is over."""
 

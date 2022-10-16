@@ -22,12 +22,12 @@ from levels.level_bipartite import level_bipartite
 from levels.level_bis_repetita import level_bis_repetita
 from levels.level_cartesian import level_cartesian
 from levels.level_chessboard import level_chessboard
-from levels.level_compact import level_compact
 from levels.level_congruence import level_congruence
 from levels.level_crossroad import level_crossroad
 from levels.level_crystal import level_crystal
 from levels.level_dead_ends import level_dead_ends
 from levels.level_dominating_set import level_dominating_set
+from levels.level_egyptian_fractions import level_egyptian_fractions
 from levels.level_electricity import level_electricity
 from levels.level_eulerian import level_eulerian
 from levels.level_exact_cover import level_exact_cover
@@ -75,21 +75,18 @@ from levels.level_tetrahedron import level_tetrahedron
 from levels.level_tetris import level_tetris
 from levels.level_travelling_salesman import level_travelling_salesman
 from levels.level_tree import level_tree
+from levels.level_triangulate import level_triangulate
 from levels.level_water_pouring import level_water_pouring
 from levels.level_wave import level_wave
 from levels.level_xor import level_xor
 
-# Triangulate
 # Full
-# egyptian fractions
 # filled car park
 # jeep problem ???
 # Conway puzzle ???
-# baguenaudier
 # Century
 # Takuzu
 # Four
-# Superflip
 
 class Levels:
 
@@ -117,6 +114,7 @@ class Levels:
                              level_dominating_set,
                              level_exact_cover,
                              level_odd,
+                             level_triangulate,
                              level_recurrence,
                              level_naturals,
                              level_parallel,
@@ -125,6 +123,7 @@ class Levels:
                              level_partition,
                              level_knapsack,
                              level_permutations,
+                             level_egyptian_fractions,
                              level_betweenness,
                              level_taxicab_number,
                              level_tetrahedron,
@@ -243,37 +242,36 @@ class Levels:
 
 if __name__ == "__main__":
 
-    # import matplotlib.pyplot as plt
-    # print('\nTrying all solutions')
-    # for level_function in Levels.levels_functions_list:
-    #     level = level_function()
-    #     if level.fastest_solution is not None:
-    #         r = level.try_solution(level.fastest_solution)
-    #         if r != 2:
-    #             print(level.name, 'wrong solution')
-    # print('\nSaving solutions')
-    # Levels.save_solutions_txt(do_it_fast=True, verbose=1)
-    # print('\nCalculating solutions lenghts')
-    # solutions_lenghts = []
-    # for level_function in Levels.levels_functions_list:
-    #     level = level_function()
-    #     if level.fastest_solution is not None:
-    #         solutions_lenghts.append(len(level.fastest_solution.split(' ')))
-    # plt.figure(figsize=(15, 5))
-    # x_list = [i for i in range(len(solutions_lenghts))]
-    # plt.plot(x_list,
-    #           solutions_lenghts, lw=0.3, color='k')
-    # plt.scatter(x_list,
-    #             solutions_lenghts, lw=0.1, color='r')
-    # plt.show()
-    # print('')
+    import matplotlib.pyplot as plt
+    print('\nTrying all solutions')
+    for level_function in Levels.levels_functions_list:
+        level = level_function()
+        if level.fastest_solution is not None:
+            r = level.try_solution(level.fastest_solution)
+            if r != 2:
+                print(level.name, 'wrong solution')
+    print('\nSaving solutions')
+    Levels.save_solutions_txt(do_it_fast=True, verbose=1)
+    print('\nCalculating solutions lenghts')
+    solutions_lenghts = []
+    for level_function in Levels.levels_functions_list:
+        level = level_function()
+        if level.fastest_solution is not None:
+            solutions_lenghts.append(len(level.fastest_solution.split(' ')))
+    plt.figure(figsize=(15, 5))
+    x_list = [i for i in range(len(solutions_lenghts))]
+    plt.plot(x_list,
+              solutions_lenghts, lw=0.3, color='k')
+    plt.scatter(x_list,
+                solutions_lenghts, lw=0.1, color='r')
+    plt.show()
+    print('')
     # import cProfile
     # cProfile.run('solutions = level_manhattan_distance().find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**3)')
 
     # solutions = level_panex().find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**4)
 
-    level = level_baguenaudier()
-
+    level = level_egyptian_fractions()
     solutions = level.find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**4)
     solutions = list(solutions)
     solutions[0] = [' '.join(list(sol)) for sol in solutions[0]]
