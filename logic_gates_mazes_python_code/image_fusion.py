@@ -15,6 +15,8 @@ if __name__ == "__main__":
     del racine[-1]
     racine.append('images')
     racine = '/'.join(racine)
+    m = 8
+    n = 9
     for size in [[1920, 1080]]: # [1346, 668], [1920, 1001], [1920, 1055], 
         try:
             WIDTH, HEIGHT = size
@@ -25,11 +27,9 @@ if __name__ == "__main__":
                     n = int(file.split('_')[1])
                     dico[n] = '/'.join([racine, file])
             file_list = []
-            for n in sorted(dico.keys()):
-                file_list.append(dico[n])
+            for k in sorted(dico.keys()):
+                file_list.append(dico[k])
 
-            m = 7
-            n = 10
             assert m <= n 
             assert m*n==len(file_list), """{0}, {1}, {2}""".format(m, n, len(file_list))
             l_img_h = []
@@ -55,11 +55,9 @@ if __name__ == "__main__":
                     n = int(file.split('_')[2])
                     dico[n] = '/'.join([racine, file])
             file_list = []
-            for n in sorted(dico.keys()):
-                file_list.append(dico[n])
+            for k in sorted(dico.keys()):
+                file_list.append(dico[k])
 
-            m = 7
-            n = 10
             assert m <= n
             assert m*n==len(file_list)
             l_img_h = []

@@ -334,7 +334,7 @@ By pressing [P] or [M], you can see the values of the other doors."""
     
 help_menus_list['levels'] = {}
 
-help_menus_list['levels']["Hello_World"] = '\n'.join([help_menus_list['introduction'], help_menus_list['basis']])
+help_menus_list['levels']["Hello world"] = '\n'.join([help_menus_list['introduction'], help_menus_list['basis']])
 
 help_menus_list['levels']["Initiation"] = help_menus_list['OR']
 
@@ -417,6 +417,8 @@ help_menus_list['levels']["Nonogram"] = help_menus_list['NONO']
 help_menus_list['levels']["Crystal"] = """If you make a mistake, you have to start all over again."""
 
 help_menus_list['levels']["XOR"] = help_menus_list['NAND']
+
+help_menus_list['levels']["Weights"] = '''You must find the good weights in order to reach the exit.'''
 
 help_menus_list['levels']["Baguenaudier"] = '''The baguenaudier is an old puzzle game.'''
 
