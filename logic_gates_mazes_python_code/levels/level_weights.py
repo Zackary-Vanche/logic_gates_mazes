@@ -406,7 +406,8 @@ def level_weights(fast_solution_finding=False):
                room_arrival=RE,
                relative_position=rp,
                relative_departure_coordinates=[1/2, 0],
-               relative_arrival_coordinates=[1/2, 1])
+               relative_arrival_coordinates=[1/2, 1],
+               is_open=False)
     
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
