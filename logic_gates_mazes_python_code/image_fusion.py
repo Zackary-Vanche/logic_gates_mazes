@@ -15,8 +15,8 @@ if __name__ == "__main__":
     del racine[-1]
     racine.append('images')
     racine = '/'.join(racine)
-    m = 8
-    n = 9
+    m = 2
+    n = 37
     for size in [[1920, 1080]]: # [1346, 668], [1920, 1001], [1920, 1055], 
         try:
             WIDTH, HEIGHT = size
@@ -24,8 +24,8 @@ if __name__ == "__main__":
             dico = {}
             for file in os.listdir(racine):
                 if string in file and not "HELP" in file and not "concat" in file:
-                    n = int(file.split('_')[1])
-                    dico[n] = '/'.join([racine, file])
+                    k = int(file.split('_')[1])
+                    dico[k] = '/'.join([racine, file])
             file_list = []
             for k in sorted(dico.keys()):
                 file_list.append(dico[k])
@@ -39,8 +39,9 @@ if __name__ == "__main__":
                 im_h = cv2.hconcat(l)
                 l_img_h.append(im_h)
             img = cv2.vconcat(l_img_h)
-            cv2.imwrite(r'images/concat_levels_{}.jpg'.format(string), img)
-
+            filename = r'images/concat_levels_{}.jpg'.format(string)
+            cv2.imwrite(filename, img)
+            print(filename)
             # cv2.imwrite(r'images/concat_line_levels_{}.jpg'.format(string),
             #             cv2.hconcat([cv2.imread(file) for file in file_list]))
         except:
@@ -52,8 +53,8 @@ if __name__ == "__main__":
             dico = {}
             for file in os.listdir(racine):
                 if string in file and "HELP" in file and not "concat" in file:
-                    n = int(file.split('_')[2])
-                    dico[n] = '/'.join([racine, file])
+                    k = int(file.split('_')[2])
+                    dico[k] = '/'.join([racine, file])
             file_list = []
             for k in sorted(dico.keys()):
                 file_list.append(dico[k])
@@ -67,8 +68,9 @@ if __name__ == "__main__":
                 im_h = cv2.hconcat(l)
                 l_img_h.append(im_h)
             img = cv2.vconcat(l_img_h)
-            cv2.imwrite(r'images/concat_levels_HELP_{}.jpg'.format(string), img)
-
+            filename = r'images/concat_levels_HELP_{}.jpg'.format(string)
+            cv2.imwrite(filename, img)
+            print(filename)
             # cv2.imwrite(r'images/concat_line_levels_HELP_{}.jpg'.format(string),
             #             cv2.hconcat([cv2.imread(file) for file in file_list]))
         except:

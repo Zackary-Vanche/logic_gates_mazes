@@ -71,6 +71,7 @@ class Tree:
         return ['JUMP'] + [[None]]*n
     
     def tree_list_from_str(txt, CNF=False):
+        txt = txt.replace('0', 'F').replace('1', 'T')
         def tree_list_and_from_str(txt):
             assert txt.replace('T', '').replace('F', '') == ''
             if txt == 'T':
@@ -296,6 +297,8 @@ class Tree:
                         self.easy_logical_expression_PN = '** {0} {1}'.format(A, B)
                     elif root_name == 'DIV':
                         self.easy_logical_expression_PN = '/ {0} {1}'.format(A, B)
+                    elif root_name == 'DIVINT':
+                        self.easy_logical_expression_PN = '// {0} {1}'.format(A, B)
                     elif root_name == 'MOD':
                         self.easy_logical_expression_PN = '% {0} {1}'.format(A, B)
                     else:

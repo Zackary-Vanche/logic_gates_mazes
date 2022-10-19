@@ -163,6 +163,10 @@ class Logic_Gate:
     def aux_func_DIV(sons_list):
         # # assert len(sons_list) == 2
         return sons_list[0].get_value()/sons_list[1].get_value()
+    
+    def aux_func_DIVINT(sons_list):
+        # # assert len(sons_list) == 2
+        return sons_list[0].get_value()//sons_list[1].get_value()
 
     def aux_func_MOD(sons_list):
         # # assert len(sons_list) == 2
@@ -271,6 +275,7 @@ class Logic_Gate:
                  'BIN': aux_func_BIN,
                  'POW': aux_func_POW,
                  'DIV': aux_func_DIV,
+                 'DIVINT' : aux_func_DIVINT,
                  'MOD': aux_func_MOD,
                  'NONO': aux_func_NONO,
                  'DIST': aux_func_DIST,

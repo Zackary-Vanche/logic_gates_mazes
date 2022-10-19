@@ -288,7 +288,7 @@ There are differents elements in this game :
         If a door is open, it is surrounded, and you say it is equal to 1.
         If it is closed, it is equal to 0.
         To use a door, write its name and press enter.
-        Diamond-shape doors are two-way while triangle-shaped doors are one-way only.      
+        Diamond-shape doors are two-way while triangle-shaped doors are one-way only (in this level, all doors are one-way only).      
 If you made a mistake when taping the name of a door or a switch, you can always erase it by taping on the backspace key.
 
 To leave the help menu (or come back to it), press [H].
@@ -404,6 +404,8 @@ help_menus_list['levels']["Permutations"] = """Every permutation can be writen a
 
 help_menus_list['levels']["Egyptian fractions"] = help_menus_list['DIV']
 
+help_menus_list['levels']["Code"] = "You may want to learn what the Gray code is."
+
 help_menus_list['levels']["Betweenness"] = help_menus_list['BETWEEN']
 
 help_menus_list['levels']["Tetrahedron"] = """The logic expressions of the doors of this level have been calculated by computer.\nThe program that calculated it already knew all the rest of the level.\n\nThis level looks complicated, but you do only need to let the game lead you to the exit."""
@@ -432,12 +434,13 @@ help_menus_list['levels']["Matrix"] = """To solve this level you need to do a 5*
 
 help_menus_list['levels']["River"] = """You want to cross the river with a wolf, a goat and a cabbage."""
 
+help_menus_list['levels']["Vortex"] = """You might feel dizzy."""
+
 help_menus_list['levels']["Tree"] = """The tree is hidden in the equations."""
 
 help_menus_list['levels']["Dead_ends"] = """Even if it is the first level that actually looks like a printed circuit board, you have been in a computer all this time."""
 
-help_menus_list['levels']["Fractal"] = """As you see, several doors lead to the exit.
-There is only one that can be opened."""
+help_menus_list['levels']["Fractal"] = """As you see, several doors lead to the exit.\nThere is only one that can be opened."""
 
 help_menus_list['levels']["Tesseract"] = """The tesseract is hidden in the equations."""
 
