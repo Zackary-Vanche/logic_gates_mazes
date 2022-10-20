@@ -87,7 +87,8 @@ class Game:
                  index_help_page=0,
                  show_loop_time=False,
                  update_display_at_every_loop=False,
-                 sleep_time=10**(-2)):
+                 sleep_time=10**(-2),
+                 save_all_images=False):
         if WINDOW_SIZE is None or SMALLEST_WINDOW_SIZE is None:
             from pyautogui import size as pyautogui_size
             TOTAL_SIZE = pyautogui_size()
@@ -115,6 +116,8 @@ class Game:
         self.font_size = 22
         self.help_font_size = 30
         self.is_fullscreen = is_fullscreen
+        if self.save_image:
+            self.show_help = False
         
     def game_setup(self):
         # Game Setup
@@ -626,7 +629,7 @@ class Game:
                 self.change_in_display = True
                 self.current_action = self.current_action[:-1]
                 self.last_key_BACKSPACE_pressed_time = time()
-                
+                         
     def change_level(self):
         self.pressed = pygame_key_get_pressed()
         # Changement de niveau
@@ -684,15 +687,15 @@ class Game:
     #             self.maze.current_page = self.maze.current_page%self.maze.number_of_pages
     #             self.change_in_display = True
 
-    def save_image_as_png(self):
+    def save_image_as_file(self):
         if self.save_image:
-            fname = "images/level_{}_{}_WIDTH_{}_HEIGHT_{}.png".format(self.index_current_level,
+            fname = "images/level_{}_{}_WIDTH_{}_HEIGHT_{}.jpg".format(self.index_current_level,
                                                                        self.maze.name,
                                                                        self.WINDOW_WIDTH,
                                                                        self.WINDOW_HEIGHT)
-            if not os_path_exists(fname):
-                print(fname)
-                pygame_image_save(self.WINDOW, fname)
+            # if not os_path_exists(fname):
+            print(fname)
+            pygame_image_save(self.WINDOW, fname)
                 
     def quit_game(self):
         self.t1 = time()
@@ -714,6 +717,21 @@ class Game:
         if self.pressed[K_q] or self.pressed[K_ESCAPE]:
             self.quit_game()
             return True
+        return False
+    
+    def update_to_save_images(self):
+        if self.save_image:
+            if self.index_current_level != Levels.number_of_levels-1:
+                self.index_current_level += 1
+            else:
+                if not self.show_help:
+                    self.show_help = 1
+                    self.change_in_display = True
+                    self.index_current_level = 0
+                else:
+                    self.quit_game()
+                    return True
+            self.level_changed = True
         return False
 
     # The main function that controls the game
@@ -737,10 +755,12 @@ class Game:
                     self.display_game_window()
                     self.change_in_display = False
                 self.handle_interractions()
-                self.save_image_as_png()
+                self.save_image_as_file()
             self.change_level()
             self.goto_or_leave_help()
             self.change_door_page()
+            if self.update_to_save_images(): # It means you quit the game
+                return None
             # self.change_page()
             
     def save_levels_txt(verbose=0, calculates_solutions=True, short_only=True):

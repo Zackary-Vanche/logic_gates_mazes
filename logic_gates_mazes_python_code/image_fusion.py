@@ -1,9 +1,18 @@
 import os
 import cv2
 from Game import Game
+from Levels import Levels
 from pyautogui import size as pyautogui_size
 
-if __name__ == "__main__":
+def divisor_closest_to_sqrt(n):
+    from numpy import ceil, sqrt
+    d = 1
+    for k in range(1, int(ceil(sqrt(n)))):
+        if n%k == 0:
+            d = k
+    return d
+    
+def main():
 
     # TOTAL_SIZE = pyautogui_size()
     # Game(save_image=1, time_between_level_changing=0, show_help=0).play()
@@ -15,8 +24,9 @@ if __name__ == "__main__":
     del racine[-1]
     racine.append('images')
     racine = '/'.join(racine)
-    m = 2
-    n = 37
+    n_levels = Levels.number_of_levels
+    m = divisor_closest_to_sqrt(n_levels)
+    n = n_levels//m
     for size in [[1920, 1080]]: # [1346, 668], [1920, 1001], [1920, 1055], 
         try:
             WIDTH, HEIGHT = size
@@ -47,7 +57,6 @@ if __name__ == "__main__":
         except:
             raise
         try:
-            print(size)
             WIDTH, HEIGHT = size
             string = "WIDTH_{}_HEIGHT_{}".format(WIDTH, HEIGHT)
             dico = {}
@@ -75,3 +84,7 @@ if __name__ == "__main__":
             #             cv2.hconcat([cv2.imread(file) for file in file_list]))
         except:
             raise
+
+if __name__ == "__main__":
+    
+    main()

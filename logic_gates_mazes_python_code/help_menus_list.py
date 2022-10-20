@@ -412,6 +412,8 @@ help_menus_list['levels']["Tetrahedron"] = """The logic expressions of the doors
 
 help_menus_list['levels']["The 4 queens"] = """This level is inspired from the 8 queens problem."""
 
+help_menus_list['levels']["Strange"] = "You can always try exhaustive testing..."
+
 help_menus_list['levels']["Alice and Bob"] = """Alice wants to send a package to Bob."""
 
 help_menus_list['levels']["Nonogram"] = help_menus_list['NONO']

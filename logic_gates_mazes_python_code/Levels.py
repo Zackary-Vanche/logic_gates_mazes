@@ -66,6 +66,7 @@ from levels.level_recurrence import level_recurrence
 from levels.level_river import level_river
 from levels.level_square import level_square
 from levels.level_solitaire import level_solitaire
+from levels.level_strange import level_strange
 from levels.level_sudoku import level_sudoku
 from levels.level_sujiko import level_sujiko
 from levels.level_superflip import level_superflip
@@ -85,8 +86,8 @@ from levels.level_wave import level_wave
 from levels.level_weights import level_weights
 from levels.level_xor import level_xor
 
-# Full
 # filled car park
+# Full
 # jeep problem ???
 # Conway puzzle ???
 # Century
@@ -140,6 +141,7 @@ class Levels:
                              level_betweenness,
                              level_taxicab_number,
                              level_tetrahedron,
+                             level_strange,
                              level_the_4_queens,
                              level_alice_and_bob,
                              level_nonogram,
@@ -255,9 +257,7 @@ class Levels:
         if not do_it_fast:
             return calculations_times, nb_iterations_list, nb_operations_list
 
-
-if __name__ == "__main__":
-
+def test_levels():
     import matplotlib.pyplot as plt
     print('\nTrying all solutions')
     for level_function in Levels.levels_functions_list:
@@ -283,17 +283,40 @@ if __name__ == "__main__":
     plt.show()
     print('')
 
+if __name__ == "__main__":
+
+    # test_levels()
+
     # import cProfile
     # cProfile.run('solutions = level_manhattan_distance().find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**3)')
 
     # solutions = level_panex().find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**4)
 
-    level = level_code()
+    # n = 20
+    # for a in range(1, n):
+    #     # print("a", a)
+    #     for b in range(a):
+    #         # print("b", b)
+    #         for c in range(1, a):
+    #             # print("c", c)
+    #             for d in range(c):
+    #                 level = level_strange(a, b, c, d)
+    #                 solutions = level.find_all_solutions(verbose=0, stop_at_first_solution=False, nb_iterations_print=10**4)
+    #                 solutions = list(solutions)
+    #                 solutions[0] = [' '.join(list(sol)) for sol in solutions[0]]
+    #                 # print(len(solutions[0]))
+    #                 if len(solutions[0]) == 1:
+    #                     print(a, b, c, d)
+    #                     print(solutions[0][-1])
+    #                     print('')
+
+    level = level_strange()
     solutions = level.find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**4)
     solutions = list(solutions)
     solutions[0] = [' '.join(list(sol)) for sol in solutions[0]]
     print(len(solutions[0]))
-    print(solutions[0][-1])
+    if len(solutions[0]) == 1:
+        print(solutions[0][-1])
 
 
 
