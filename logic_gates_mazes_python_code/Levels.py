@@ -88,7 +88,6 @@ from levels.level_weights import level_weights
 from levels.level_xor import level_xor
 
 # Rotation
-# Inversion
 # filled car park
 # Full
 # jeep problem ???
