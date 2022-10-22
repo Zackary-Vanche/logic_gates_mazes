@@ -454,6 +454,8 @@ help_menus_list['levels']["Sujiko"] = """Sujiko is a logic-based, combinatorial 
 
 help_menus_list['levels']["Electricity"] = help_menus_list['NAND 3']
 
+help_menus_list['levels']["Inversions"] = """This level looks a lot like the level "Permutations"."""
+
 help_menus_list['levels']["Pancake sorting"] = """Pancake sorting is a real computational problem."""
 
 help_menus_list['levels']["Wave"] = """The path to the exit is not so long."""

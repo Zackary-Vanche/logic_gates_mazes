@@ -40,6 +40,7 @@ from levels.level_hitting_set import level_hitting_set
 from levels.level_independent_set import level_independent_set
 from levels.level_infinity import level_infinity
 from levels.level_initiation import level_initiation
+from levels.level_inversions import level_inversions
 from levels.level_knapsack import level_knapsack
 from levels.level_knight import level_knight
 from levels.level_linear import level_linear
@@ -86,6 +87,8 @@ from levels.level_wave import level_wave
 from levels.level_weights import level_weights
 from levels.level_xor import level_xor
 
+# Rotation
+# Inversion
 # filled car park
 # Full
 # jeep problem ???
@@ -165,6 +168,7 @@ class Levels:
                              level_electricity,
                              level_pancake_sorting,
                              level_wave,
+                             level_inversions,
                              level_takuzu,
                              level_travelling_salesman,
                              level_no_three_in_line,
@@ -284,6 +288,7 @@ def test_levels():
     print('')
 
 if __name__ == "__main__":
+    pass
 
     # test_levels()
 
@@ -310,13 +315,15 @@ if __name__ == "__main__":
     #                     print(solutions[0][-1])
     #                     print('')
 
-    level = level_strange()
-    solutions = level.find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**4)
+    level = level_inversions()
+    solutions = level.find_all_solutions(verbose=2, stop_at_first_solution=False, nb_iterations_print=10**4)
     solutions = list(solutions)
     solutions[0] = [' '.join(list(sol)) for sol in solutions[0]]
     print(len(solutions[0]))
-    if len(solutions[0]) == 1:
+    n_solutions = len(solutions[0])
+    if n_solutions != 0:
         print(solutions[0][-1])
+        
 
 
 
