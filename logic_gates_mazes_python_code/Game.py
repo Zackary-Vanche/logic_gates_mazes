@@ -356,22 +356,23 @@ class Game:
                 if self.maze.current_page in door.pages_list:
                     tree = door.tree
                     str_logical_expression = tree.get_easy_logical_expression_PN()
-                    str_logical_expression = str_logical_expression.split('\n')
-                    # if k == 0:
-                    #     print('')
-                    for i in range(len(str_logical_expression)):
-                        string = str_logical_expression[i]
-                        if i == 0:
-                            logical_expression_render = self.font.render(door.name + ' = ' + string,
-                                                                         True,
-                                                                         self.inside_room_color)
-                            self.WINDOW.blit(logical_expression_render, (self.x_separation + 10, gap))
-                        else:
-                            logical_expression_render = self.font.render(' '*(len(door.name)+3) + string,
-                                                                    True,
-                                                                    self.inside_room_color)
-                            self.WINDOW.blit(logical_expression_render, (self.x_separation + 10, gap))
-                        gap += self.gap_between_lines
+                    if not (str_logical_expression == '1' and self.maze.do_not_write_trees_always_open):
+                        str_logical_expression = str_logical_expression.split('\n')
+                        # if k == 0:
+                        #     print('')
+                        for i in range(len(str_logical_expression)):
+                            string = str_logical_expression[i]
+                            if i == 0:
+                                logical_expression_render = self.font.render(door.name + ' = ' + string,
+                                                                             True,
+                                                                             self.inside_room_color)
+                                self.WINDOW.blit(logical_expression_render, (self.x_separation + 10, gap))
+                            else:
+                                logical_expression_render = self.font.render(' '*(len(door.name)+3) + string,
+                                                                        True,
+                                                                        self.inside_room_color)
+                                self.WINDOW.blit(logical_expression_render, (self.x_separation + 10, gap))
+                            gap += self.gap_between_lines
 
     def draw_rooms(self):
         # Affichage des pieces

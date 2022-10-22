@@ -37,7 +37,8 @@ class Maze:
                  random=False,
                  current_page=0,
                  door_multipages=False,
-                 current_door_page=0):
+                 current_door_page=0,
+                 do_not_write_trees_always_open=False):
         self.random = random
         self.name = name
         self.start_room_index = start_room_index
@@ -122,12 +123,14 @@ class Maze:
         self.keep_proportions = keep_proportions
         self.level_color = level_color
         self.n_lines_door_printing = 0
+        self.do_not_write_trees_always_open = do_not_write_trees_always_open
         for k in range(len(self.doors_list())):
             door = self.doors_list()[k]
             tree = door.tree
             logical_expression = tree.get_easy_logical_expression_PN()
             logical_expression = logical_expression.split('\n')
-            self.n_lines_door_printing += len(logical_expression)
+            if not (self.do_not_write_trees_always_open and logical_expression == ['1']):
+                self.n_lines_door_printing += len(logical_expression)
         self.line_size = line_size
         self.uniform_surrounding_colors = uniform_surrounding_colors
         self.uniform_inside_room_color = uniform_inside_room_color
@@ -154,6 +157,7 @@ class Maze:
                     door.pages_list.append(ipage)
         self.door_multipages=door_multipages
         self.current_door_page=current_door_page
+        
 
     def add_door(self, door):
         self.doors_set.add(door)

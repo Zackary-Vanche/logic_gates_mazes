@@ -174,16 +174,6 @@ For example:
     # [1 3] (1 0 1 1) = 0
     # [2 1] (1 0 0 1 1) = 0"""
     
-help_menus_list['NONO'] = """
-The operator # takes two list in argument.
-The first list tells you the number of unbroken lines of 1 that should be presents in the second list in order for the result to be 1.
-For example:
-    # [1 1] (1 0 0 1 0) = 1
-    # [2 1] (1 1 0 0 1) = 1
-    # [4] (1 1 1 1) = 1
-    # [1 3] (1 0 1 1) = 0
-    # [2 1] (1 0 0 1 1) = 0"""
-    
 help_menus_list['BETWEEN'] = """
 The operator BETWEEN takes several arguments:
     A list of triplets of switches
@@ -481,6 +471,8 @@ help_menus_list['levels']["Temple"] = """This level is the retranscription of a 
 help_menus_list['levels']["Puzzle"] = """This level is inspired from the 15-puzzle."""
 
 help_menus_list['levels']["Solitaire"] = help_menus_list['JUMP']
+
+help_menus_list['levels']["Parking"] = """If a door equation is not visible, it means it is always open."""
 
 help_menus_list['levels']["Panex"] = """You are on your own."""
 

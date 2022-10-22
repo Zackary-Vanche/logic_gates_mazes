@@ -19,6 +19,7 @@ def main():
     # TOTAL_SIZE = [1920, 1055]
     Game(is_fullscreen=True, save_image=True).play()
 
+
     racine = __file__
     racine = racine.split('\\')
     del racine[-1]
