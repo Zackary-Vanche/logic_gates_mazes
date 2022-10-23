@@ -11,7 +11,8 @@ class Switch:
                  room = None, 
                  tree = None, 
                  value = 0,
-                 name = None):
+                 name = None,
+                 is_binary = False):
         self.value = value
         self.room = room
         if name is None:
@@ -21,12 +22,15 @@ class Switch:
         assert isinstance(self.name, str), self.name
         self.doors_set = set()
         self.tree = tree
+        self.is_binary = is_binary
 
     def add_door(self, door):
         assert door is not None
         self.doors_set.add(door)
 
     def set_value(self, new_value, update_doors=True):
+        # if self.is_binary:
+        #     assert new_value in [0, 1]
         self.value = new_value
         if update_doors:
             for door in self.doors_set:

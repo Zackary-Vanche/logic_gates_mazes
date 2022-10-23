@@ -361,12 +361,12 @@ def level_parking():
                           SN6, S21, S22, S23,
                           SN6, SN6, S21, S22, S23,
                           # Column 2
-                          SN2, SN6, SN24, SN25, SN26,
-                          SN8, SN6, SN24, SN25, SN26,
-                          SN14, SN6, SN24, SN25, SN26,
+                          SN2, SN6, S24, S25, S26,
+                          SN8, SN6, S24, S25, S26,
+                          SN14, SN6, S24, S25, S26,
                           # Column 3
-                          SN3, SN6, SN27, SN28, SN29,
-                          SN9, SN6, SN27, SN28, SN29,
+                          SN3, SN6, S27, S28, S29,
+                          SN9, SN6, S27, S28, S29,
                           # Column 5
                           SN5, SN6, S30, S31, S32,
                           SN11, SN6, S30, S31, S32,
@@ -715,12 +715,14 @@ def level_parking():
                relative_departure_coordinates=[1, (12-ey/2)/12],
                relative_arrival_coordinates=[0, 1/2])
     
+    color = Levels_colors_list.FROM_HUE(hu=0.1, sa=0.1, li=0.6)
+    color.surrounding_color = [255, 255, 255]
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, R15, R16, R17, R18, R19, R20, R21, R22, R23] + [RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19, D20, D21, D22, D23, D24, D25, D26, D27, D28, D29, D30, D31, D32, D33, D34],
                  fastest_solution=None,
-                 level_color=Levels_colors_list.FROM_HUE(hu=0.1, sa=0.1, li=0.6),
+                 level_color=color,
                  name='Parking',
                  door_window_size=700,
                  keep_proportions=True,

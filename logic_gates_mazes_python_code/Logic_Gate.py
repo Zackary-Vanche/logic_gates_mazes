@@ -5,7 +5,7 @@ Created on Thu Mar  3 16:01:51 2022
 @author: utilisateur
 """
 
-from numba import njit
+# from numba import njit
 from numpy import array as np_array
 
 class Logic_Gate:
@@ -20,27 +20,22 @@ class Logic_Gate:
     #         slv.append(son.get_value())
     #     return slv
 
-    @njit
     def aux_func_NOT(branches_values):
         # # assert len(sons_list) == 1
         return not branches_values[0]
 
-    @njit
     def aux_func_AND(branches_values):
         return not 0 in branches_values
 
-    @njit
     def aux_func_OR(branches_values):
         return 1 in branches_values
 
-    @njit
     def aux_func_XOR(branches_values):
         return sum(branches_values) == 1
 
     def aux_func_XNOR(branches_values):
         return not Logic_Gate.aux_func_XOR(branches_values)
 
-    @njit
     def aux_func_EQU(branches_values):
         # # assert len(sons_list) >= 2
         for i in range(len(branches_values)-1):
@@ -48,15 +43,14 @@ class Logic_Gate:
                 return 0
         return 1
 
-    @njit
     def aux_func_EQUSET(branches_values):
         # # assert len(branches_values) % 2 == 0
         n = len(branches_values) // 2
         return set(branches_values[:n]) == set(branches_values[n:])
 
-    @njit
     def aux_func_DIFF(branches_values):
         # # assert len(sons_list) >= 2
+        # print(branches_values)
         branches_values_sorted = sorted(branches_values)
         for i in range(len(branches_values_sorted)-1):
             if branches_values_sorted[i] == branches_values_sorted[i+1]:
@@ -69,28 +63,23 @@ class Logic_Gate:
     def aux_func_NOR(branches_values):
         return not Logic_Gate.aux_func_OR(branches_values)
 
-    @njit
     def aux_func_SUM(branches_values):
         return sum(branches_values)
 
-    @njit
     def aux_func_PROD(branches_values):
         p = 1
         for x in branches_values:
             p = p * x
         return p
 
-    @njit
     def aux_func_ABS(branches_values):
         # # assert len(sons_list) == 1
         return abs(branches_values[0])
 
-    @njit
     def aux_func_MINUS(branches_values):
         # # assert len(sons_list) == 1
         return -branches_values[0]
 
-    @njit
     def aux_func_INF(branches_values):
         for i in range(len(branches_values)-1):
             if branches_values[i] >= branches_values[i+1]:
@@ -104,70 +93,62 @@ class Logic_Gate:
                 return False
         return True
 
-    @njit
     def aux_func_INFOREQU(branches_values):
         for i in range(len(branches_values)-1):
             if branches_values[i] > branches_values[i+1]:
                 return False
         return True
 
-    @njit
     def aux_func_SUP(branches_values):
         for i in range(len(branches_values)-1):
             if branches_values[i] <= branches_values[i+1]:
                 return False
         return True
 
-    @njit
     def aux_func_SUPOREQU(branches_values):
         for i in range(len(branches_values)-1):
             if branches_values[i] < branches_values[i+1]:
                 return False
         return True
 
-    @njit
     def aux_func_ANB(branches_values):
         # # assert len(sons_list) == 2
         return not branches_values[0] and not branches_values[1]
 
-    @njit
     def aux_func_BNA(branches_values):
         # # assert len(sons_list) == 2
         return not branches_values[1] and not branches_values[0]
-
-    @njit
+    
     def aux_func_AONB(branches_values):
         # # assert len(sons_list) == 2
         return not branches_values[0] or not branches_values[1]
-
-    @njit
+    
     def aux_func_BONA(branches_values):
         # # assert len(sons_list) == 2
         return not branches_values[1] or not branches_values[0]
-
-    @njit
+    
     def aux_func_BIN(branches_values):
         s = 0
         for i in range(len(branches_values)):
+            # try:
+            #     assert branches_values[i] in [0, 1]
+            # except AssertionError:
+            #     print(branches_values)
             s += branches_values[i] * 2**i
         return s
 
-    @njit
     def aux_func_POW(branches_values):
         # # assert len(sons_list) == 2
         return branches_values[0]**branches_values[1]
-
-    @njit
+    
     def aux_func_DIV(branches_values):
         # # assert len(sons_list) == 2
         return branches_values[0]/branches_values[1]
     
-    @njit
     def aux_func_DIVINT(branches_values):
         # # assert len(sons_list) == 2
         return branches_values[0]//branches_values[1]
-
-    @njit
+    
     def aux_func_MOD(branches_values):
         # # assert len(sons_list) == 2
         return branches_values[0] % branches_values[1]
@@ -186,7 +167,6 @@ class Logic_Gate:
         [a, b, c, d] = branches_values
         return ((a-c)**2 + (b-d)**2)**(1/2)
 
-    @njit
     def aux_func_IN(branches_values):
         # # assert len(sons_list) > 1
         return branches_values[0] in branches_values[1:]
