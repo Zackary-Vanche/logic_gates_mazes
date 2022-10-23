@@ -60,6 +60,12 @@ class Maze:
         self.rooms_dict = {}
         for room in self.rooms_list:
             self.rooms_dict[room.name] = room
+            
+        # ROOMS NAMES DICT
+        
+        self.rooms_names_dict = {}
+        for i in range(len(self.rooms_list)):
+            self.rooms_names_dict[self.rooms_list[i].name] = i
         
         # START AND CURRENT ROOM
         
@@ -198,13 +204,6 @@ class Maze:
         self.door_multipages=door_multipages
         self.current_door_page=current_door_page
 
-    def rooms_names_dict(self):
-        rooms_names_dict = {}
-        for i in range(len(self.rooms_list)):
-            room = self.rooms_list[i]
-            rooms_names_dict[room.name] = i
-        return rooms_names_dict
-
     def __str__(self):
         len_line = 100
         txt = ''
@@ -309,7 +308,7 @@ class Maze:
 
     def change_room(self, room_name):
         assert room_name[0] == 'R'
-        self.current_room_index = self.rooms_names_dict()[room_name]
+        self.current_room_index = self.rooms_names_dict[room_name]
 
     def get_current_possible_rooms(self):
         visited_rooms = []
@@ -336,7 +335,7 @@ class Maze:
 
     def legit_change_room(self, room_name):
         assert room_name[0] == 'R'
-        new_current_room_index = self.rooms_names_dict()[room_name]
+        new_current_room_index = self.rooms_names_dict[room_name]
         new_room = self.rooms_list[new_current_room_index]
         return new_room in self.get_current_possible_rooms()
 
@@ -376,25 +375,16 @@ class Maze:
         if self.legit_use_door(door_name):
             self.use_door(door_name)
 
-    def reboot_solution(self,
-                        current_room_index=None,
-                        list_switches_values=None):
-        if current_room_index is None:
-            self.current_room_index = self.start_room_index
-        else:
-            self.current_room_index = current_room_index
+    def reboot_solution(self, fast=False):
+        self.current_room_index = self.start_room_index
         switches_list = self.switches_list
         for i in range(len(switches_list)):
-            switch = switches_list[i]
-            if list_switches_values is None:
-                switch.set_value(self.initial_switches_values[i],
-                                 update_doors=False)
-            else:
-                switch.set_value(list_switches_values[i], update_doors=False)
-        doors_list = self.doors_list
-        for i in range(len(doors_list)):
-            door = doors_list[i]
-            door.update_open()
+            switches_list[i].set_value(self.initial_switches_values[i], update_doors=False)
+        if not fast:
+            doors_list = self.doors_list
+            for i in range(len(doors_list)):
+                door = doors_list[i]
+                door.update_open()
 
     def make_actions(self, actions, separator=' ', allow_all=False):
         actions_list = actions.split(separator)
@@ -502,7 +492,7 @@ class Maze:
                           separator=' ',
                           really_fast=False):
         # results : 0 unauthorised, 1 authorised but wrong, 2 you won
-        self.reboot_solution()
+        self.reboot_solution(fast=True)
         for action in solution[:-1]:
             action_type = action[0]
             if action_type == 'S':
@@ -620,7 +610,7 @@ class Maze:
                         self.all_solutions = solutions_that_work
                         return solutions_that_work, nb_iterations, nb_operations
             assert solutions_to_visit == []
-            self.reboot_solution()
+            self.reboot_solution(fast=True)
         else:
             solutions_that_work = self.all_solutions
         solutions_that_work = sorted(solutions_that_work, key=len)

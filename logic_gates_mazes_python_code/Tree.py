@@ -172,21 +172,27 @@ class Tree:
             root = tree_list[0]
             self.root = Logic_Gate(root)
             sons_list = tree_list[1:]
-                
             for k in range(len(sons_list)):
                 son = sons_list[k]
                 assert isinstance(son, list), """{},{} : {}""".format(self.name, str(k), str(son))
                 self.sons_list.append(Tree(son, 
                                            root_depth = root_depth+1, 
                                            name = self.name + '_' + str(k),
-                                           switches = self.switches_list))
-            self.is_leaf = False      
+                                           switches = self.switches_list[:]))
+            self.is_leaf = False
         self.leafs_switches_updates = False
         self.raw_logical_expression_RPN = None 
         self.easy_logical_expression_PN = easy_logical_expression_PN
         self.logical_expression_RPN_simplified = None 
         self.cut_expression = cut_expression
         self.cut_expression_separator = cut_expression_separator
+        
+        if self.is_leaf: 
+            self.number_of_leafs = 1
+        else: 
+            self.number_of_leafs = 0
+            for son in self.sons_list:
+                self.number_of_leafs += son.number_of_leafs
 
     def update_leafs_switches(self, switches = None):
         if not self.leafs_switches_updates:
@@ -354,35 +360,23 @@ class Tree:
     def get_root(self):
         return self.root
     
-    def switch_leafs(self, root_depth = 0):
+    def switch_leafs(self):
         self.empty = False
-        switch_list = self.switches_list
-        assert len(switch_list) == self.number_of_leafs(), """name : {}\n switch_list : {}\n number_of_leafs : {}\n root_depth : {}\n""".format(self.name, [s.name for s in switch_list], self.number_of_leafs(), root_depth)
         if self.is_leaf:
-            self.is_leaf = True
-            self.root = switch_list[0].value
-            self.switches_list = [switch_list[0]]
-            new_switches_list = switch_list[1:]
+            self.root = self.switches_list[0].value
+            self.switches_list = [self.switches_list[0]]
         else:
-            new_switches_list = switch_list[:]
-            self.is_leaf = False
-            nb_switches_list = []
-            for son in self.sons_list:
-                nb_switches_list.append(son.number_of_leafs())
-            assert self.number_of_leafs() == sum(nb_switches_list)
-            nb_switches_list = array(nb_switches_list)
-            nb_switches_sum = cumsum(nb_switches_list)
+            nb_switches_sum = 0
             for k in range(len(self.sons_list)):
                 son = self.sons_list[k]
-                a, b = nb_switches_sum[k], nb_switches_list[k]
-                son.switches_list = new_switches_list[a-b:a]
-                son.switch_leafs(root_depth+1)
+                son.switches_list = self.switches_list[nb_switches_sum:nb_switches_sum+son.number_of_leafs]
+                nb_switches_sum += son.number_of_leafs
         # Cette fonction change la valeur des feuilles de l'arbre afin de prendre en compte les interrupteurs
     
     def get_value(self):
         # Si la liste des interrupteurs n'est pas vide,
         # on met à jour les interrupteurs
-        if len(self.switches_list) == self.number_of_leafs():
+        if len(self.switches_list) == self.number_of_leafs:
             self.switch_leafs()
         if self.is_leaf: 
             # On a une feuille qu'on peut renvoyer.
@@ -399,16 +393,6 @@ class Tree:
             for son in self.sons_list:
                 maxi = max(son.get_depth(), maxi)
             return 1 + maxi
-    
-    def number_of_leafs(self):
-        if self.is_leaf: 
-            return 1
-        else: 
-            n_leafs = 0
-            for son in self.sons_list:
-                n_leafs += son.number_of_leafs()
-            return n_leafs
-                
         
     def leafs_list(self):
         if self.is_leaf: 
@@ -423,7 +407,7 @@ class Tree:
         # mettre à jour cette fonction si on l'utilise plus
         if type(new_leafs_list) == type(None):
             new_leafs_list = self.leafs_list()
-        assert len(new_leafs_list) == self.number_of_leafs() or root_depth != 0, "{} {}".format(len(new_leafs_list), self.number_of_leafs())
+        assert len(new_leafs_list) == self.number_of_leafs or root_depth != 0, "{} {}".format(len(new_leafs_list), self.number_of_leafs)
         # assert self.switches_list != [], self.name
         T = Tree(name = self.name + '_copy')
         if self.is_leaf:
@@ -451,9 +435,8 @@ class Tree:
         return table
     
     def truth_table(self):
-        n_leafs = self.number_of_leafs()
-        table = Tree.empty_truth_table(n_leafs)
-        for ipossibility in range(2**n_leafs):
+        table = Tree.empty_truth_table(self.number_of_leafs)
+        for ipossibility in range(2**self.number_of_leafs):
             line = table[ipossibility][:-1]
             T_copy = self.copy(line)
             # assert (T_copy.leafs_list() == line).all(), "T_copy.leafs_list() = {}\n line = {}".format(T_copy.leafs_list(), line)
@@ -462,9 +445,8 @@ class Tree:
     
     def possibilities_switches_list(self):
         possibilities_list = []
-        n_leafs = self.number_of_leafs()
-        table = Tree.empty_truth_table(n_leafs)
-        for ipossibility in range(2**n_leafs):
+        table = Tree.empty_truth_table(self.number_of_leafs)
+        for ipossibility in range(2**self.number_of_leafs):
             line = table[ipossibility][:-1]
             T_copy = self.copy(line)
             if T_copy.switch_configuration_possible():
@@ -489,7 +471,7 @@ class Tree:
         return int(sum(table[:,-1]))
     
     def number_of_0_in_truth_table(self):
-        return 2**self.number_of_leafs() - self.number_of_1_in_truth_table()
+        return 2**self.number_of_leafs - self.number_of_1_in_truth_table()
     
     def number_of_possibles_1_in_truth_table(self):
         table = self.truth_table()
@@ -540,7 +522,7 @@ class Tree:
         if self.root_depth == 0 or not self.is_leaf:
             txt += """\n{}value : {}""".format('|   '*(self.root_depth+1), self.get_value())
         if self.root_depth == 0:
-            txt += "\n|   Number of leafs : {}".format(self.number_of_leafs())
+            txt += "\n|   Number of leafs : {}".format(self.number_of_leafs)
             txt += "\n|   depth of the Tree : {}".format(self.get_depth())
         if self.root_depth == 0:
             txt += '\n|   Truth table :{}'.format(self.str_table())
