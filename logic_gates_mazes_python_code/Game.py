@@ -171,7 +171,7 @@ class Game:
             # else:
             self.maze.reboot_solution()
             
-            self.doors_list = self.maze.doors_list()
+            self.doors_list = self.maze.doors_list
             
             level_colors = self.maze.level_color
             self.background_color = level_colors.background_color

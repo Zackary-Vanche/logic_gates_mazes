@@ -39,10 +39,14 @@ class Maze:
                  door_multipages=False,
                  current_door_page=0,
                  do_not_write_trees_always_open=False):
+
         self.random = random
         self.name = name
         self.start_room_index = start_room_index
         self.exit_room_index = exit_room_index
+        
+        # ROOMS LIST
+        
         if rooms_list != []:
             self.exit_room_index = self.exit_room_index % len(rooms_list)
         self.rooms_list = rooms_list
@@ -50,33 +54,69 @@ class Maze:
             assert room is not None
             room.maze = self
         assert start_room_index < len(self.rooms_list)
-        self.start_room = self.rooms_list[self.start_room_index]
-        self.current_room_index = self.start_room_index
-        self.doors_set = set()
-        self.switches_set = set()
-        for room in self.rooms_list:
-            for door in room.departure_doors_list:
-                self.add_door(door)
-            for door in room.arrival_doors_list:
-                self.add_door(door)
-            for door in room.two_way_doors_list:
-                self.add_door(door)
-            for switch in room.switches_list:
-                self.switches_set.add(switch)
-        for room in self.rooms_list:
-            for switch in room.switches_list:
-                self.switches_set.add(switch)
-        self.switches_dict = {}
-        for switch in self.switches_set:
-            self.switches_dict[switch.name] = switch
+        
+        # ROOM DICT
+        
         self.rooms_dict = {}
         for room in self.rooms_list:
             self.rooms_dict[room.name] = room
+        
+        # START AND CURRENT ROOM
+        
+        self.start_room = self.rooms_list[self.start_room_index]
+        self.current_room_index = self.start_room_index
+        
+        # DOORS SET
+        
+        self.doors_set = set()
+        for room in self.rooms_list:
+            for door in room.departure_doors_list:
+                self.doors_set.add(door)
+            for door in room.arrival_doors_list:
+                self.doors_set.add(door)
+            for door in room.two_way_doors_list:
+                self.doors_set.add(door)
+                
+        # DOORS DICT
+        
+        self.doors_dict = {}
+        for door in self.doors_set:
+            self.doors_dict[door.name] = door
+            
+        # DOOR LIST
+        
+        self.doors_list = []
+        for door in self.doors_set:
+            self.doors_list.append(door)
+        self.doors_list = sorted(self.doors_list, key=lambda door: (len(door.name), door.name))
+                
+        # SWITCHES SET
+                
+        self.switches_set = set()   
+        for room in self.rooms_list:
+            for switch in room.switches_list:
+                self.switches_set.add(switch)
+                
+        # SWITCHES DICT
+        
+        self.switches_dict = {}
+        for switch in self.switches_set:
+            self.switches_dict[switch.name] = switch
+            
+        # SWITCHES LIST
+        
+        self.switches_list = []
+        for switch in self.switches_set:
+            self.switches_list.append(switch)
+        self.switches_list = sorted(self.switches_list, key=lambda switch: [len(switch.name), switch.name])
+            
+        ####################
+            
         for door in self.doors_set:
             T = door.tree
             T.switch_leafs()
         self.initial_switches_values = []
-        for switch in self.switches_list():
+        for switch in self.switches_list:
             self.initial_switches_values.append(switch.value)
         self.possibles_actions_list = []
         for switch in self.switches_set:
@@ -86,9 +126,9 @@ class Maze:
         for room in self.rooms_list:
             self.possibles_actions_list.append(room.name)
         self.possibles_actions_list.sort()
-        txterror = ', '.join([' '.join([door.name for door in self.doors_list()]),
+        txterror = ', '.join([' '.join([door.name for door in self.doors_list]),
                               ' '.join([door.name for door in doors_list])])
-        assert set(self.doors_list()) == set(doors_list), txterror
+        assert set(self.doors_list) == set(doors_list), txterror
         # On verifie que aucun nom ne soit donne en double
         # for i in range(len(rooms_list)):
         #     room_i = rooms_list[i]
@@ -100,7 +140,7 @@ class Maze:
         #     for j in range(i):
         #         door_j = doors_list[j]
         #         assert door_i.name != door_j.name
-        # switches_list = self.switches_list()
+        # switches_list = self.switches_list
         # for i in range(len(switches_list)):
         #     switch_i = switches_list[i]
         #     for j in range(i):
@@ -124,8 +164,8 @@ class Maze:
         self.level_color = level_color
         self.n_lines_door_printing = 0
         self.do_not_write_trees_always_open = do_not_write_trees_always_open
-        for k in range(len(self.doors_list())):
-            door = self.doors_list()[k]
+        for k in range(len(self.doors_list)):
+            door = self.doors_list[k]
             tree = door.tree
             logical_expression = tree.get_easy_logical_expression_PN()
             logical_expression = logical_expression.split('\n')
@@ -157,29 +197,6 @@ class Maze:
                     door.pages_list.append(ipage)
         self.door_multipages=door_multipages
         self.current_door_page=current_door_page
-        
-
-    def add_door(self, door):
-        self.doors_set.add(door)
-
-    def doors_list(self):
-        door_l = []
-        for door in self.doors_set:
-            door_l.append(door)
-        return sorted(door_l, key=lambda door: (len(door.name), door.name))
-
-    def doors_dict(self):
-        d = {}
-        for door in self.doors_set:
-            d[door.name] = door
-        return d
-
-    def switches_list(self):
-        switch_l = []
-        for switch in self.switches_set:
-            switch_l.append(switch)
-        return sorted(switch_l,
-                      key=lambda switch: [len(switch.name), switch.name])
 
     def rooms_names_dict(self):
         rooms_names_dict = {}
@@ -211,12 +228,12 @@ class Maze:
             txt += str(room)
             txt += '\n|'
             txt += separateur
-        for door in self.doors_list():
+        for door in self.doors_list:
             txt += '\n|'
             txt += str(door)
             txt += '\n|'
             txt += separateur
-        for switch in self.switches_list():
+        for switch in self.switches_list:
             txt += '\n|'
             txt += str(switch)
             txt += '\n|'
@@ -248,7 +265,7 @@ class Maze:
         self.reboot_solution()
         with open('{}_{}.txt'.format(title_header,
                                      self.name.replace(' ', '_')), 'w') as f:
-            for switch in self.switches_list():
+            for switch in self.switches_list:
                 f.write('{} : {}; '.format(switch.name, switch.value))
             f.write('\n')
             for room in self.rooms_list:
@@ -261,7 +278,7 @@ class Maze:
                     f.write(switch.name)
                     f.write(' ')
                 f.write('\n')
-            for door in self.doors_list():
+            for door in self.doors_list:
                 f.write("{} : ".format(door.name))
                 tree = door.tree
                 f.write("{}; ".format(tree.get_raw_logical_expression_RPN()))
@@ -328,7 +345,7 @@ class Maze:
             self.change_room(room_name)
 
     def use_door(self, door_name):
-        door = self.doors_dict()[door_name]
+        door = self.doors_dict[door_name]
         if door.two_way:
             current_room = self.current_room()
             room_departure = door.room_departure
@@ -342,7 +359,7 @@ class Maze:
             self.change_room(new_room.name)
 
     def legit_use_door(self, door_name):
-        door = self.doors_dict()[door_name]
+        door = self.doors_dict[door_name]
         if not door.is_open:
             return False
         else:
@@ -366,7 +383,7 @@ class Maze:
             self.current_room_index = self.start_room_index
         else:
             self.current_room_index = current_room_index
-        switches_list = self.switches_list()
+        switches_list = self.switches_list
         for i in range(len(switches_list)):
             switch = switches_list[i]
             if list_switches_values is None:
@@ -374,7 +391,7 @@ class Maze:
                                  update_doors=False)
             else:
                 switch.set_value(list_switches_values[i], update_doors=False)
-        doors_list = self.doors_list()
+        doors_list = self.doors_list
         for i in range(len(doors_list)):
             door = doors_list[i]
             door.update_open()
@@ -410,7 +427,7 @@ class Maze:
         solution = solution.replace('\n', separator).split(separator)
         txt_verbose_3 = ''
         if verbose == 2:
-            print("Switches values : {}".format([switch.value for switch in self.switches_list()]))
+            print("Switches values : {}".format([switch.value for switch in self.switches_list]))
         for action in solution:
             if action in self.possibles_actions_list:
                 action_type = action[0]
@@ -435,12 +452,12 @@ class Maze:
                     if 3 > verbose > 0:
                         print("You are in room {}\n".format(self.current_room_name()))
                     switches_values_txt = ''
-                    for switch in self.switches_list():
+                    for switch in self.switches_list:
                         if switch.value:
                             switches_values_txt += str(switch.name) + ' '
                     txt_verbose_3 += action + ' : ' + switches_values_txt + '\n'
                     switches_TF = ''
-                    for switch in self.switches_list():
+                    for switch in self.switches_list:
                         if switch.value:
                             switches_TF = switches_TF + 'T'
                         else:
@@ -461,14 +478,14 @@ class Maze:
                         print("You are in room {}\n".format(self.current_room_name()))
                 if verbose == 2:
                     switches_values_txt = '"Switches values :'
-                    for switch in self.switches_list():
+                    for switch in self.switches_list:
                         switches_values_txt += str(switch.value)
                     print(switches_values_txt)
         if 3 > verbose > 0:
             if self.current_room_index == self.exit_room_index:
                 print('Success !')
             else:
-                for switch in self.switches_list():
+                for switch in self.switches_list:
                     if switch.value:
                         print(switch.name)
                 print(self.current_room_index, self.exit_room_index)
@@ -501,7 +518,7 @@ class Maze:
                 else:
                     return 0
             if action_type == 'D':
-                door = self.doors_dict()[action]
+                door = self.doors_dict[action]
                 door.update_open()
                 if self.legit_use_door(action):
                     self.use_door(action)
@@ -511,7 +528,7 @@ class Maze:
         return int(bool_solution) + 1
 
     def current_situation_to_vector(self):
-        vector = [switch.value for switch in self.switches_list()]
+        vector = [switch.value for switch in self.switches_list]
         vector.append(self.current_room_index)
         return tuple(vector)
 
@@ -571,7 +588,7 @@ class Maze:
                 #     print('*', solution)
                 nb_operations += len(solution)
                 result_solution = self.fast_try_solution(solution)
-                for door in self.doors_list():
+                for door in self.doors_list:
                     door.update_open()
                 if result_solution == 1:
                     current_situation_vector = self.current_situation_to_vector()
