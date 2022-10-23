@@ -19,7 +19,7 @@ if __name__ == "__main__":
          index_current_level=0,
          sleep_time=10**(-2),
          print_click_rects=True,
-         is_fullscreen=False,
+         is_fullscreen=True,
          time_between_actions=0.15,
          time_between_deletings=0.05,
          time_between_level_changing=0.25,

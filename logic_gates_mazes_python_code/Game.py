@@ -530,7 +530,7 @@ class Game:
         pygame_display_update()
 
         if self.save_image:
-            fname = "images/HELP_level_{}_{}_WIDTH_{}_HEIGHT_{}.png".format(self.index_current_level,
+            fname = "images/HELP_level_{}_{}_WIDTH_{}_HEIGHT_{}.jpg".format(self.index_current_level,
                                                                             self.maze.name,
                                                                             self.WINDOW_WIDTH,
                                                                             self.WINDOW_HEIGHT)

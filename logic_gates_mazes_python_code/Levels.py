@@ -291,10 +291,10 @@ def test_levels():
 if __name__ == "__main__":
     pass
 
-    test_levels()
+    # test_levels()
 
-    import cProfile
-    cProfile.run('solutions = level_manhattan_distance().find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**3)')
+    # import cProfile
+    # cProfile.run('solutions = level_manhattan_distance().find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**3)')
 
     # solutions = level_panex().find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**4)
 
@@ -316,14 +316,14 @@ if __name__ == "__main__":
     #                     print(solutions[0][-1])
     #                     print('')
 
-    # level = level_parking()
-    # solutions = level.find_all_solutions(verbose=2, stop_at_first_solution=False, nb_iterations_print=10**4)
-    # solutions = list(solutions)
-    # solutions[0] = [' '.join(list(sol)) for sol in solutions[0]]
-    # print(len(solutions[0]))
-    # n_solutions = len(solutions[0])
-    # if n_solutions != 0:
-    #     print(solutions[0][-1])
+    level = level_parking()
+    solutions = level.find_all_solutions(verbose=2, stop_at_first_solution=False, nb_iterations_print=10**3)
+    solutions = list(solutions)
+    solutions[0] = [' '.join(list(sol)) for sol in solutions[0]]
+    print(len(solutions[0]))
+    n_solutions = len(solutions[0])
+    if n_solutions != 0:
+        print(solutions[0][-1])
         
     # D3 S9 S10 D14 S42 S43 D25 D33 D3 S9 D14 S42 D25 D33 D6 S18 D17 S51 D28 D33 D10 S30 D21 S63 D32 D33 D3 S9 S10 S11 D14 S42 S43 S44 D25 D33 D34
 

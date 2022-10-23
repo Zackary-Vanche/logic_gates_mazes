@@ -544,7 +544,8 @@ class Maze:
                            reverse_actions_order=False,
                            initial_try=(),
                            nb_iterations_print=10**3,
-                           max_calculation_time=float('inf')):
+                           max_calculation_time=float('inf'),
+                           save_solutions_txt=True):
         t0 = time()
         nb_iterations = 0
         nb_operations = 0
@@ -593,6 +594,9 @@ class Maze:
                 elif result_solution == 2:
                     if verbose >= 1 and len(solutions_that_work) <= 10:
                         print('solution :', ' '.join(solution))
+                    if save_solutions_txt:
+                        with open(self.name + '_solutions.txt', 'a') as file:
+                            file.write(' '.join(solution) + '\n')
                     solutions_that_work.append(solution)
                     if stop_at_first_solution:
                         self.reboot_solution()
