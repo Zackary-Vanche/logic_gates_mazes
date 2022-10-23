@@ -203,7 +203,8 @@ class Levels:
                            do_it_fast=False,
                            multithreads=False,
                            fast_solution_finding=True,
-                           max_calculation_time=float('inf')):
+                           max_calculation_time=float('inf'),
+                           save_as_txt=True):
         t0 = time()
         txt = ''
         nb_iterations_list = []
@@ -212,7 +213,6 @@ class Levels:
             os_mkdir('solutions')
         if not do_it_fast:
             calculations_times = [None for i in range(Levels.number_of_levels)]
-
             def find_solution(k):
                 level = Levels.get_level(k, fast_solution_finding)
                 txt = '\n'
@@ -230,7 +230,8 @@ class Levels:
                 if verbose >= 1:
                     txt = txt + str(t3 - t2) + 's'
                     calculations_times[k] = t3 - t2
-                print(txt)
+                if verbose > 0:
+                    print(txt)
             if multithreads:
                 import threading
                 l_threads = []
@@ -254,8 +255,9 @@ class Levels:
             except:
                 print(txt, ('Level ', str(k), ' : ', name, '\n'))
                 raise
-        with open('solutions/solutions.txt', 'w') as f:
-            f.write(txt)
+        if save_as_txt:
+            with open('solutions/solutions.txt', 'w') as f:
+                f.write(txt)
         t1 = time()
         if verbose >= 1:
             print(t1 - t0, 's')
@@ -298,8 +300,8 @@ if __name__ == "__main__":
 
     test_levels()
 
-    # import cProfile
-    # cProfile.run('solutions = level_vortex().find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**3)', sort = 1)
+    import cProfile
+    cProfile.run('Levels.save_solutions_txt(verbose=0, multithreads=False, max_calculation_time=10, save_as_txt=False)', sort=1)
 
     # level = level_syracuse()
     # solutions = level.find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**4)
