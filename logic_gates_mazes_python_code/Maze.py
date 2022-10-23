@@ -566,7 +566,8 @@ class Maze:
                 nb_iterations += 1
                 if nb_iterations % nb_iterations_print == 0 and verbose >= 1:
                      print('nb_iterations : {}'.format(nb_iterations))
-                     print('solutions_to_visit[-1] : {}'.format(' '.join(solutions_to_visit[-1])))
+                     if len(solutions_to_visit[-1]) < 100:
+                         print('solutions_to_visit[-1] : {}'.format(' '.join(solutions_to_visit[-1])))
                      print("solutions_to_visit[-1].count('D') : {}".format(' '.join(solutions_to_visit[-1]).count('D')))
                      print('len(solutions_to_visit) : {}'.format(len(solutions_to_visit)))
                      print('len(solutions_to_visit)/nb_iterations : {}'.format(len(solutions_to_visit)/nb_iterations))
