@@ -27,6 +27,7 @@ from levels.level_congruence import level_congruence
 from levels.level_crossroad import level_crossroad
 from levels.level_crystal import level_crystal
 from levels.level_dead_ends import level_dead_ends
+# from levels.level_desert_crossing import level_desert_crossing
 from levels.level_dominating_set import level_dominating_set
 from levels.level_egyptian_fractions import level_egyptian_fractions
 from levels.level_electricity import level_electricity

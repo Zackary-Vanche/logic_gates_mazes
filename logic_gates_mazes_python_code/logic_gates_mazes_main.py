@@ -22,8 +22,7 @@ if __name__ == "__main__":
          is_fullscreen=True,
          time_between_actions=0.15,
          time_between_deletings=0.05,
-         time_between_level_changing=0.25,
-         ).play()
+         time_between_level_changing=0.25).play()
 
     # import cProfile
     # cProfile.run("Game(show_help=1, index_current_level=0).play()")
