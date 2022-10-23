@@ -203,7 +203,7 @@ class Logic_Gate:
             return None
         branches_values = [son.get_value() for son in sons_list]
         try:
-            return int(Logic_Gate.func_dict[self.name](branches_values))
+            return Logic_Gate.func_dict[self.name](branches_values)
         except TypeError:
             print(self.name)
             raise
@@ -215,25 +215,25 @@ class Logic_Gate:
         for i in range(4):
             self.results_list[i] = int(not self.results_list[i])
 
-    def __str__(self): # TODO : rewrite, no self.results_list anymore 
-        l_txt = []
-        k = 0
-        results_list = self.results_list
-        n = len(results_list)
-        depth_spaces = '|   '*(self.depth+1)
-        n_decimals_bin = len(bin(n)) - 3
-        for k in range(n):
-            result_k = results_list[k]
-            k_bin = bin(k)[2:]
-            k_bin_str = ''
-            for decimal in k_bin:
-                k_bin_str = k_bin_str + decimal + ' '
-            while len(k_bin_str) < 2*n_decimals_bin:
-                k_bin_str = '0 ' + k_bin_str
-            line = depth_spaces + k_bin_str + "| {}".format(result_k)
-            l_txt.append(line)
-            k += 1
-        return '\n'.join(l_txt)
+    # def __str__(self): # TODO : rewrite, no self.results_list anymore 
+    #     l_txt = []
+    #     k = 0
+    #     results_list = self.results_list
+    #     n = len(results_list)
+    #     depth_spaces = '|   '*(self.depth+1)
+    #     n_decimals_bin = len(bin(n)) - 3
+    #     for k in range(n):
+    #         result_k = results_list[k]
+    #         k_bin = bin(k)[2:]
+    #         k_bin_str = ''
+    #         for decimal in k_bin:
+    #             k_bin_str = k_bin_str + decimal + ' '
+    #         while len(k_bin_str) < 2*n_decimals_bin:
+    #             k_bin_str = '0 ' + k_bin_str
+    #         line = depth_spaces + k_bin_str + "| {}".format(result_k)
+    #         l_txt.append(line)
+    #         k += 1
+    #     return '\n'.join(l_txt)
 
 
 if __name__ == "__main__":

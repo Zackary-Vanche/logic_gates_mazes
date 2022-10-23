@@ -211,7 +211,7 @@ class Tree:
                 for son in self.sons_list:
                     switches = son.update_leafs_switches(switches)
                 return switches
-            
+
     def get_easy_logical_expression_PN(self):
         if not (self.easy_logical_expression_PN != None and self.easy_logical_expression_PN != ''):
             self.update_leafs_switches()
@@ -374,15 +374,11 @@ class Tree:
         # Cette fonction change la valeur des feuilles de l'arbre afin de prendre en compte les interrupteurs
     
     def get_value(self):
-        # Si la liste des interrupteurs n'est pas vide,
-        # on met à jour les interrupteurs
         if len(self.switches_list) == self.number_of_leafs:
             self.switch_leafs()
-        if self.is_leaf: 
-            # On a une feuille qu'on peut renvoyer.
+        if self.is_leaf:
             return self.root
-        else: 
-            # Dans ce cas, on a un noeud.
+        else:
             return self.root.func(self.sons_list)
 
     def get_depth(self):

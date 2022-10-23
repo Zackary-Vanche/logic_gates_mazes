@@ -13,16 +13,18 @@ from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
 def level_triangulate():
+    
+    v = 0
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
     S2 = Switch(name='S2')
-    S3 = Switch(name='S3')
+    S3 = Switch(name='S3', value=v)
     S4 = Switch(name='S4')
-    S5 = Switch(name='S5')
+    S5 = Switch(name='S5', value=v)
     S6 = Switch(name='S6')
-    S7 = Switch(name='S7')
-    S8 = Switch(name='S8')
+    S7 = Switch(name='S7', value=v)
+    S8 = Switch(name='S8', value=v)
     S9 = Switch(name='S9')
     
     SN1 = Switch(value=1)
