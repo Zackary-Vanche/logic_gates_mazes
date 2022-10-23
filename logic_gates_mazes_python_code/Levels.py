@@ -263,7 +263,10 @@ class Levels:
             return calculations_times, nb_iterations_list, nb_operations_list
 
 def test_levels():
+
     import matplotlib.pyplot as plt
+    plt.rcParams.update({'font.size': 15})
+
     print('\nTrying all solutions')
     for level_function in Levels.levels_functions_list:
         level = level_function()
@@ -271,8 +274,10 @@ def test_levels():
             r = level.try_solution(level.fastest_solution)
             if r != 2:
                 print(level.name, 'wrong solution')
+
     print('\nSaving solutions')
-    Levels.save_solutions_txt(do_it_fast=True, verbose=1)
+    Levels.save_solutions_txt(do_it_fast=True, verbose=0)
+
     print('\nCalculating solutions lenghts')
     solutions_lenghts = []
     for level_function in Levels.levels_functions_list:
@@ -281,40 +286,20 @@ def test_levels():
             solutions_lenghts.append(len(level.fastest_solution.split(' ')))
     plt.figure(figsize=(15, 5))
     x_list = [i for i in range(len(solutions_lenghts))]
-    plt.plot(x_list,
-              solutions_lenghts, lw=0.3, color='k')
-    plt.scatter(x_list,
-                solutions_lenghts, lw=0.1, color='r')
+    plt.plot(x_list, solutions_lenghts, lw=0.3, color='k')
+    plt.scatter(x_list, solutions_lenghts, lw=0.1, color='r')
+    plt.xlabel('Level number')
+    plt.ylabel('Number of actions in the solution')
     plt.show()
     print('')
 
 if __name__ == "__main__":
     pass
 
-    # test_levels()
+    test_levels()
 
     # import cProfile
     # cProfile.run('solutions = level_vortex().find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**3)', sort = 1)
-
-    # solutions = level_panex().find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**4)
-
-    # n = 20
-    # for a in range(1, n):
-    #     # print("a", a)
-    #     for b in range(a):
-    #         # print("b", b)
-    #         for c in range(1, a):
-    #             # print("c", c)
-    #             for d in range(c):
-    #                 level = level_strange(a, b, c, d)
-    #                 solutions = level.find_all_solutions(verbose=0, stop_at_first_solution=False, nb_iterations_print=10**4)
-    #                 solutions = list(solutions)
-    #                 solutions[0] = [' '.join(list(sol)) for sol in solutions[0]]
-    #                 # print(len(solutions[0]))
-    #                 if len(solutions[0]) == 1:
-    #                     print(a, b, c, d)
-    #                     print(solutions[0][-1])
-    #                     print('')
 
     # level = level_syracuse()
     # solutions = level.find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**4)
@@ -324,16 +309,3 @@ if __name__ == "__main__":
     # n_solutions = len(solutions[0])
     # if n_solutions != 0:
     #     print(solutions[0][-1])
-        
-    # D3 S9 S10 D14 S42 S43 D25 D33 D3 S9 D14 S42 D25 D33 D6 S18 D17 S51 D28 D33 D10 S30 D21 S63 D32 D33 D3 S9 S10 S11 D14 S42 S43 S44 D25 D33 D34
-
-    level = level_parking()
-    level.try_solution(level.fastest_solution, verbose=2)
-
-
-
-
-
-
-
-
