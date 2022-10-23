@@ -291,10 +291,10 @@ def test_levels():
 if __name__ == "__main__":
     pass
 
-    test_levels()
+    # test_levels()
 
-    import cProfile
-    cProfile.run('solutions = level_vortex().find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**3)', sort = 1)
+    # import cProfile
+    # cProfile.run('solutions = level_vortex().find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**3)', sort = 1)
 
     # solutions = level_panex().find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**4)
 
@@ -316,8 +316,8 @@ if __name__ == "__main__":
     #                     print(solutions[0][-1])
     #                     print('')
 
-    level = level_cartesian()
-    solutions = level.find_all_solutions(verbose=2, stop_at_first_solution=False, nb_iterations_print=10**3)
+    level = level_parking()
+    solutions = level.find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**4)
     solutions = list(solutions)
     solutions[0] = [' '.join(list(sol)) for sol in solutions[0]]
     print(len(solutions[0]))

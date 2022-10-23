@@ -599,10 +599,10 @@ class Maze:
                                 #     print(solution+tuple(Slist))
                     visited_situations.add(current_situation_vector)
                 elif result_solution == 2:
-                    if verbose >= 1 and len(solutions_that_work) <= 10:
+                    if verbose > 1 and len(solutions_that_work) <= 10:
                         print('solution :', ' '.join(solution))
                     if save_solutions_txt:
-                        with open(self.name + '_solutions.txt', 'a') as file:
+                        with open('solutions/' + self.name + '_solutions.txt', 'a') as file:
                             file.write(' '.join(solution) + '\n')
                     solutions_that_work.append(solution)
                     if stop_at_first_solution:

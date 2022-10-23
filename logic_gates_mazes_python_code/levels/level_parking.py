@@ -377,6 +377,10 @@ def level_parking():
                empty=True,
                name='T34',
                switches = [SN4, S9, S10, S11])
+    T34 = Tree(tree_list=[None],
+               empty=True,
+               name='T34',
+               switches = [SN1])
 
     dx = 0.5
     a = 1.5
