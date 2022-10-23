@@ -85,8 +85,6 @@ class Logic_Gate:
         return all(branches_values[i] >= branches_values[i+1] for i in range(len(branches_values)-1))
     
     def aux_func_BIN(branches_values):
-        if len(branches_values) > 10:
-            print(sum([branches_values[i]*2**i for i in range(len(branches_values))]))
         return sum([branches_values[i]*2**i for i in range(len(branches_values))])
 
     def aux_func_POW(branches_values):
