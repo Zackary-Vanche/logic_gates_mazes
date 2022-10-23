@@ -6,19 +6,13 @@ Created on Thu Mar  3 16:01:51 2022
 """
 
 # from numba import njit
-from numpy import array as np_array
+from numpy import array as np_array, prod as np_prod
 
 class Logic_Gate:
 
     def __init__(self, name):
         self.switch = None
         self.name = name
-
-    # def sons_list_values(tree):
-    #     slv = []
-    #     for son in tree.sons_list:
-    #         slv.append(son.get_value())
-    #     return slv
 
     def aux_func_NOT(branches_values):
         # # assert len(sons_list) == 1
@@ -34,14 +28,11 @@ class Logic_Gate:
         return sum(branches_values) == 1
 
     def aux_func_XNOR(branches_values):
-        return not Logic_Gate.aux_func_XOR(branches_values)
+        return not sum(branches_values) == 1
 
     def aux_func_EQU(branches_values):
         # # assert len(sons_list) >= 2
-        for i in range(len(branches_values)-1):
-            if branches_values[i] != branches_values[i+1]:
-                return 0
-        return 1
+        return all(branches_values[i] == branches_values[i+1] for i in range(len(branches_values)-1))
 
     def aux_func_EQUSET(branches_values):
         # # assert len(branches_values) % 2 == 0
@@ -52,25 +43,19 @@ class Logic_Gate:
         # # assert len(sons_list) >= 2
         # print(branches_values)
         branches_values_sorted = sorted(branches_values)
-        for i in range(len(branches_values_sorted)-1):
-            if branches_values_sorted[i] == branches_values_sorted[i+1]:
-                return 0
-        return 1
+        return all(branches_values_sorted[i] != branches_values_sorted[i+1] for i in range(len(branches_values)-1))
 
     def aux_func_NAND(branches_values):
-        return not Logic_Gate.aux_func_AND(branches_values)
+        return 0 in branches_values
 
     def aux_func_NOR(branches_values):
-        return not Logic_Gate.aux_func_OR(branches_values)
+        return not 1 in branches_values
 
     def aux_func_SUM(branches_values):
         return sum(branches_values)
 
     def aux_func_PROD(branches_values):
-        p = 1
-        for x in branches_values:
-            p = p * x
-        return p
+        return np_prod(np_array(branches_values))
 
     def aux_func_ABS(branches_values):
         # # assert len(sons_list) == 1
@@ -81,10 +66,7 @@ class Logic_Gate:
         return -branches_values[0]
 
     def aux_func_INF(branches_values):
-        for i in range(len(branches_values)-1):
-            if branches_values[i] >= branches_values[i+1]:
-                return False
-        return True
+        return all(branches_values[i] < branches_values[i+1] for i in range(len(branches_values)-1))
     
     def aux_func_INF0(branches_values):
         for i in range(len(branches_values)-1):
@@ -94,48 +76,16 @@ class Logic_Gate:
         return True
 
     def aux_func_INFOREQU(branches_values):
-        for i in range(len(branches_values)-1):
-            if branches_values[i] > branches_values[i+1]:
-                return False
-        return True
+        return all(branches_values[i] <= branches_values[i+1] for i in range(len(branches_values)-1))
 
     def aux_func_SUP(branches_values):
-        for i in range(len(branches_values)-1):
-            if branches_values[i] <= branches_values[i+1]:
-                return False
-        return True
+        return all(branches_values[i] > branches_values[i+1] for i in range(len(branches_values)-1))
 
     def aux_func_SUPOREQU(branches_values):
-        for i in range(len(branches_values)-1):
-            if branches_values[i] < branches_values[i+1]:
-                return False
-        return True
-
-    def aux_func_ANB(branches_values):
-        # # assert len(sons_list) == 2
-        return not branches_values[0] and not branches_values[1]
-
-    def aux_func_BNA(branches_values):
-        # # assert len(sons_list) == 2
-        return not branches_values[1] and not branches_values[0]
-    
-    def aux_func_AONB(branches_values):
-        # # assert len(sons_list) == 2
-        return not branches_values[0] or not branches_values[1]
-    
-    def aux_func_BONA(branches_values):
-        # # assert len(sons_list) == 2
-        return not branches_values[1] or not branches_values[0]
+        return all(branches_values[i] >= branches_values[i+1] for i in range(len(branches_values)-1))
     
     def aux_func_BIN(branches_values):
-        s = 0
-        for i in range(len(branches_values)):
-            # try:
-            #     assert branches_values[i] in [0, 1]
-            # except AssertionError:
-            #     print(branches_values)
-            s += branches_values[i] * 2**i
-        return s
+        return sum([branches_values[i]*2**i for i in range(len(branches_values))])
 
     def aux_func_POW(branches_values):
         # # assert len(sons_list) == 2
@@ -151,7 +101,7 @@ class Logic_Gate:
     
     def aux_func_MOD(branches_values):
         # # assert len(sons_list) == 2
-        return branches_values[0] % branches_values[1]
+        return branches_values[0]%branches_values[1]
 
     def aux_func_NONO(branches_values):
         branches_values = list(branches_values)
@@ -236,10 +186,6 @@ class Logic_Gate:
                  'INFOREQU': aux_func_INFOREQU,
                  'SUP': aux_func_SUP,
                  'SUPOREQU': aux_func_SUPOREQU,
-                 'ANB': aux_func_ANB,
-                 'BNA': aux_func_BNA,
-                 'AONB': aux_func_AONB,
-                 'BONA': aux_func_BONA,
                  'BIN': aux_func_BIN,
                  'POW': aux_func_POW,
                  'DIV': aux_func_DIV,
@@ -255,14 +201,12 @@ class Logic_Gate:
     def func(self, sons_list):
         if None in sons_list:
             return None
-        branches_values = []
-        for son in sons_list:
-            branches_values.append(son.get_value())
+        branches_values = [son.get_value() for son in sons_list]
         try:
-            return int(Logic_Gate.func_dict[self.name](np_array(branches_values)))
+            return int(Logic_Gate.func_dict[self.name](branches_values))
         except TypeError:
             print(self.name)
-        return None
+            raise
 
     def get_results_list(self):
         return self.results_list
