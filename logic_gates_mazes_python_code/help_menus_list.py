@@ -378,6 +378,8 @@ help_menus_list['levels']["Recurrence"] = help_menus_list['brackets']
 
 help_menus_list['levels']["Naturals"] = '\n'.join([help_menus_list['ABS'], help_menus_list['MINUS'], help_menus_list['BIN']])
 
+help_menus_list['levels']["Compact"] = """It looks easy, but it is maybe just an impression."""
+
 help_menus_list['levels']["Parallel"] = """The "Guess and check" method works well here."""
 
 help_menus_list['levels']["Pythagorean"] = help_menus_list['POW']

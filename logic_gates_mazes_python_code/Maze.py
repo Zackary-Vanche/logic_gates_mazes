@@ -10,6 +10,7 @@ from numpy.linalg import norm as np_linalg_norm
 from time import time as time
 from Level_color import Level_color
 from help_menus_list import help_menus_list
+from random import shuffle
 # from numba import njit
 
 
@@ -441,20 +442,13 @@ class Maze:
                         return 0
                     if 3 > verbose > 0:
                         print("You are in room {}\n".format(self.current_room_name()))
-                    switches_values_txt = ''
-                    for switch in self.switches_list:
-                        if switch.value:
-                            switches_values_txt += str(switch.name) + ' '
-                    txt_verbose_3 += action + ' : ' + switches_values_txt + '\n'
-                    switches_TF = ''
-                    for switch in self.switches_list:
-                        if switch.value:
-                            switches_TF = switches_TF + 'T'
-                        else:
-                            switches_TF = switches_TF + 'F'
+                    sv = 0
+                    for i in range(len(self.switches_list)):
+                        sv += self.switches_list[i].value * 2**i
+                    txt_verbose_3 += action + ' : ' + str(sv) + '\n'
                     if action not in door_trees_dico.keys():
-                        door_trees_dico[action] = ''
-                    door_trees_dico[action] = door_trees_dico[action] + switches_TF + ' '
+                        door_trees_dico[action] = []
+                    door_trees_dico[action].append(sv)
                 if action_type == 'R':
                     if self.legit_change_room(action) or allow_all_doors:
                         if 3 > verbose > 0:
@@ -483,6 +477,9 @@ class Maze:
         if verbose == 3:
             print('')
             print('\n'.join(sorted(txt_verbose_3.split('\n'))))
+            print('')
+            print(door_trees_dico)
+            print(len(door_trees_dico.keys()))
             print('')
         bool_solution = self.current_room_index == self.exit_room_index
         return int(bool_solution) + 1
@@ -552,7 +549,9 @@ class Maze:
                            initial_try=(),
                            nb_iterations_print=10**3,
                            max_calculation_time=float('inf'),
-                           save_solutions_txt=True):
+                           save_solutions_txt=True,
+                           DFS=False,
+                           DFS_random=False): # DFS : deep-first search
         t0 = time()
         nb_iterations = 0
         nb_operations = 0
@@ -588,16 +587,31 @@ class Maze:
                         actions_doors = self.get_current_possible_doors()
                         if reverse_actions_order:
                             actions_doors.reverse()
+                        doors_to_visit = []
                         for action in actions_doors:
-                            solutions_to_visit.append(solution+(action,))
+                            doors_to_visit.append(solution+(action,))
                             # if nb_iterations < 100:
                             #     print(solution+(action,))
                         # SWITCHES
+                        switches_to_visit = []
                         if solution == () or solution[-1][0] != 'S':
                             for Slist in self.current_room().get_possible_switches_actions():
-                                solutions_to_visit.append(solution+tuple(Slist))
+                                switches_to_visit.append(solution+tuple(Slist))
                                 # if nb_iterations < 100:
                                 #     print(solution+tuple(Slist))
+                        if DFS:
+                            if DFS_random:
+                                shuffle(doors_to_visit)
+                                shuffle(switches_to_visit)
+                            else:
+                                doors_to_visit.reverse()
+                                switches_to_visit.reverse()
+                            solutions_to_visit.extend(switches_to_visit)
+                            solutions_to_visit.extend(doors_to_visit)
+                            solutions_to_visit.reverse()
+                        else:
+                            solutions_to_visit.extend(doors_to_visit)
+                            solutions_to_visit.extend(switches_to_visit)
                     visited_situations.add(current_situation_vector)
                 elif result_solution == 2:
                     if verbose > 1 and len(solutions_that_work) <= 10:

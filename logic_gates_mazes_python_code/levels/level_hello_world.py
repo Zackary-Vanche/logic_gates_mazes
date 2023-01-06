@@ -22,7 +22,7 @@ def level_hello_world():
               switches = [S0])
 
     R0 = Room(name='R0',
-              position = [0, 2, 1, 1],
+              position = [0, 1.5, 1, 1],
               switches_list = [S0])
     RE = Room(name='RE',
               position=[0, 0, 1, 1],

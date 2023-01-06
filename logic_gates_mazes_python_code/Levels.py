@@ -23,6 +23,7 @@ from levels.level_bis_repetita import level_bis_repetita
 from levels.level_cartesian import level_cartesian
 from levels.level_chessboard import level_chessboard
 from levels.level_code import level_code
+from levels.level_compact import level_compact
 from levels.level_congruence import level_congruence
 from levels.level_crossroad import level_crossroad
 from levels.level_crystal import level_crystal
@@ -67,6 +68,7 @@ from levels.level_pythagorean import level_pythagorean
 from levels.level_pong import level_pong
 from levels.level_recurrence import level_recurrence
 from levels.level_river import level_river
+from levels.level_small import level_small
 from levels.level_square import level_square
 from levels.level_solitaire import level_solitaire
 from levels.level_strange import level_strange
@@ -133,6 +135,7 @@ class Levels:
                              level_triangulate,
                              level_recurrence,
                              level_naturals,
+                             level_compact,
                              level_parallel,
                              level_pythagorean,
                              level_chessboard,
@@ -215,6 +218,8 @@ class Levels:
             calculations_times = [None for i in range(Levels.number_of_levels)]
             def find_solution(k):
                 level = Levels.get_level(k, fast_solution_finding)
+                if level.name in ['Panex', 'Superflip']:
+                    return None
                 txt = '\n'
                 name = level.name
                 txt = txt + ' '.join(['Level', str(k), ':', name, '\n'])
@@ -263,6 +268,9 @@ class Levels:
             print(t1 - t0, 's')
         if not do_it_fast:
             return calculations_times, nb_iterations_list, nb_operations_list
+        else:
+            a = [1 for i in range(Levels.number_of_levels)]
+            return a, a, a
 
 def test_levels():
 
@@ -298,16 +306,41 @@ def test_levels():
 if __name__ == "__main__":
     pass
 
-    test_levels()
+    # test_levels()
 
-    import cProfile
-    cProfile.run('Levels.save_solutions_txt(verbose=0, multithreads=False, max_calculation_time=10, save_as_txt=False)', sort=1)
+    # import cProfile
+    # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=1, save_as_txt=False)''', sort=1)
 
-    # level = level_syracuse()
-    # solutions = level.find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=10**4)
-    # solutions = list(solutions)
-    # solutions[0] = [' '.join(list(sol)) for sol in solutions[0]]
-    # print(len(solutions[0]))
-    # n_solutions = len(solutions[0])
-    # if n_solutions != 0:
-    #     print(solutions[0][-1])
+    level = level_compact()
+    solutions = level.find_all_solutions(verbose=1,
+                                         stop_at_first_solution=False,
+                                         nb_iterations_print=10**4,
+                                         DFS=True,
+                                         DFS_random=True)
+    solutions = list(solutions)
+    solutions[0] = [' '.join(list(sol)) for sol in solutions[0]]
+    print(len(solutions[0]))
+    n_solutions = len(solutions[0])
+    if n_solutions != 0:
+        print(solutions[0][-1])
+        level.try_solution(solutions[0][-1], verbose=3)
+    print('*'*20)
+    level.try_solution('S0 D0 S1 D4 D3 S0 D0 D4 S2 D3 S0 D0 S1 D4 D3 S0 D0 D4 S2 D6', verbose=2) #    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
