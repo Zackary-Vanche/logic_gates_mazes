@@ -7,7 +7,7 @@ Created on Thu Feb 24 20:59:09 2022
 
 from pygame import init as pygame_init
 from pygame.locals import QUIT, K_UP, K_DOWN, K_RIGHT, K_LEFT
-from pygame.locals import K_a, K_b, K_d, K_e, K_h, K_m, K_p, K_r, K_s, K_l, K_q
+from pygame.locals import K_a, K_b, K_d, K_e, K_h, K_m, K_n, K_p, K_r, K_s, K_l, K_q
 from pygame.locals import K_KP0, K_KP1, K_KP2, K_KP3, K_KP4
 from pygame.locals import K_KP5, K_KP6, K_KP7, K_KP8, K_KP9
 from pygame.locals import K_0, K_1, K_2, K_3, K_4
@@ -116,6 +116,7 @@ class Game:
         self.font_size = 22
         self.help_font_size = 30
         self.is_fullscreen = is_fullscreen
+        self.get_new_level = False
         if self.save_image:
             self.show_help = False
         
@@ -158,14 +159,15 @@ class Game:
         
     def get_level(self):
         
-        if self.level_changed:
+        if self.level_changed or self.get_new_level:
             
             self.change_in_display = True
 
             self.level_changed = False
             
             # self.maze = Levels.levels_functions_list[self.index_current_level]()
-            self.maze = Levels.get_level(self.index_current_level)
+            self.maze = Levels.get_level(self.index_current_level, get_new_level=self.get_new_level)
+            self.get_new_level = False
             # if self.maze.random:
             #     self.maze = level_random()
             # else:
@@ -214,7 +216,7 @@ class Game:
             door_window_size = self.maze.door_window_size
 
             self.x_separation = self.WINDOW_WIDTH - door_window_size
-            keep_proportions = self.maze.keep_proportions
+            #keep_proportions = self.maze.keep_proportions
 
             # Choix de la bordure en fonction de la hauteur de la fenêtre
             (pente, coeff) = linear_function(643, 35, 1080, 75)
@@ -243,6 +245,16 @@ class Game:
             if self.maze.current_page in door.pages_list:
                 real_departure_coordinates = door.real_departure_coordinates
                 real_arrival_coordinates = door.real_arrival_coordinates
+                if not door.is_open:
+                    pygame_draw_line(self.WINDOW,
+                                     self.room_color,
+                                     real_departure_coordinates,
+                                     real_arrival_coordinates,
+                                     self.line_size)
+        for door in self.maze.doors_set:
+            if self.maze.current_page in door.pages_list:
+                real_departure_coordinates = door.real_departure_coordinates
+                real_arrival_coordinates = door.real_arrival_coordinates
                 if door.is_open:
                     if self.uniform_surrounding_colors:
                         pygame_draw_line(self.WINDOW,
@@ -256,12 +268,6 @@ class Game:
                                          real_departure_coordinates,
                                          real_arrival_coordinates,
                                          self.line_size)
-                else:
-                    pygame_draw_line(self.WINDOW,
-                                     self.room_color,
-                                     real_departure_coordinates,
-                                     real_arrival_coordinates,
-                                     self.line_size)
     
     def draw_exterior_lines(self):
         # Bords exterieurs
@@ -671,6 +677,11 @@ class Game:
                 self.last_key_pressed_time = time()
                 self.maze.current_door_page += -1
                 self.maze.current_door_page = self.maze.current_door_page%len(self.maze.doors_set)
+                self.change_in_display = True
+            if self.pressed[K_n]:
+                self.last_key_pressed_time = time()
+                self.get_new_level = True
+                self.get_level()
                 self.change_in_display = True
             if self.pressed[K_p]:
                 self.last_key_pressed_time = time()

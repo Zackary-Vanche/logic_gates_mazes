@@ -85,6 +85,8 @@ class Logic_Gate:
         return all(branches_values[i] >= branches_values[i+1] for i in range(len(branches_values)-1))
     
     def aux_func_BIN(branches_values):
+        for i in range(len(branches_values)):
+            assert isinstance(branches_values[i], int), f'{i} {branches_values}' # TODO : remove
         return sum([branches_values[i]*2**i for i in range(len(branches_values))])
 
     def aux_func_POW(branches_values):

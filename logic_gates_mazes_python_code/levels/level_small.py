@@ -21,88 +21,54 @@ def level_small():
     
     Slist = [S0, S1, S2, S3]
     
-    SN1 = Switch(value=1)
+    def tree_list_IN_BIN(n):
+        return ['IN',
+                Tree.tree_list_BIN(len(Slist))] + [[None]]*n
     
-    T0 = Tree(Tree.tree_list_from_str('T'),
-              empty=True,
-              name='T0',
-              switches = [SN1],
-              cut_expression=True)
-    T1 = Tree(Tree.tree_list_from_str('T'),
-              empty=True,
-              name='T1',
-              switches = [SN1],
-              cut_expression=True)
-    T2 = Tree(Tree.tree_list_from_str('T'),
-              empty=True,
-              name='T2',
-              switches = [SN1],
-              cut_expression=True)
-    T3 = Tree(Tree.tree_list_from_str('T'),
-              empty=True,
-              name='T3',
-              switches = [SN1],
-              cut_expression=True)
-    T4 = Tree(Tree.tree_list_from_str('T'),
-              empty=True,
-              name='T4',
-              switches = [SN1],
-              cut_expression=True)
-    T5 = Tree(Tree.tree_list_from_str('T'),
-              empty=True,
-              name='T5',
-              switches = [SN1],
-              cut_expression=True)
-    T6 = Tree(Tree.tree_list_from_str('T'),
-              empty=True,
-              name='T6',
-              switches = [SN1],
-              cut_expression=True)
-    T7 = Tree(Tree.tree_list_from_str('T'),
-              empty=True,
-              name='T7',
-              switches = [SN1],
-              cut_expression=True)
-    T8 = Tree(Tree.tree_list_from_str('T'),
-              empty=True,
-              name='T8',
-              switches = [SN1],
-              cut_expression=True)
-    T9 = Tree(Tree.tree_list_from_str('T'),
-              empty=True,
-              name='T9',
-              switches = [SN1],
-              cut_expression=True)
-    T10 = Tree(Tree.tree_list_from_str('T'),
-              empty=True,
-              name='T10',
-              switches = [SN1],
-              cut_expression=True)
-    T11 = Tree(Tree.tree_list_from_str('T'),
-              empty=True,
-              name='T11',
-              switches = [SN1],
-              cut_expression=True)
-    T12 = Tree(Tree.tree_list_from_str('T'),
-              empty=True,
-              name='T12',
-              switches = [SN1],
-              cut_expression=True)
+    print(tree_list_IN_BIN(3))
+    
+    door_trees_list = [[i for i in range(15)]]*20
+    door_trees_list = [[1, 10, 11, 12], [3, 6, 8, 14], [0, 3, 7, 8], [10, 11], [14], [1, 12], [5], [0, 7], [0, 9, 10], [6, 8], [1, 3, 6, 12], [2, 9, 11, 14], [13]]
+    
+    def get_tree(i):
+        try:
+            return Tree(tree_list_IN_BIN(len(door_trees_list[i])),
+                        empty=True,
+                        name=f'T{i}',
+                        switches = Slist + door_trees_list[i],
+                        cut_expression=True)
+        except IndexError:
+            print(i, len(door_trees_list))
+            raise
+    
+    T0 = get_tree(0)
+    T1 = get_tree(1)
+    T2 = get_tree(2)
+    T3 = get_tree(3)
+    T4 = get_tree(4)
+    T5 = get_tree(5)
+    T6 = get_tree(6)
+    T7 = get_tree(7)
+    T8 = get_tree(8)
+    T9 = get_tree(9)
+    T10 = get_tree(10)
+    T11 = get_tree(11)
+    T12 = get_tree(12)
     
     R0 = Room(name='R0',
               position = [0, 0, 1, 1],
               switches_list = [S0])
     R1 = Room(name='R1',
-              position = [0, 2, 1, 1],
+              position = [2, 0, 1, 1],
               switches_list = [S1])
     R2 = Room(name='R2',
-              position = [2, 0, 1, 1],
+              position = [0, 2, 1, 1],
               switches_list = [S2])
     R3 = Room(name='R3',
               position = [2, 2, 1, 1],
               switches_list = [S3])
     RE = Room(name='RE',
-              position=[-0.7, -0.7, 0.4, 0.4],
+              position=[-1, 2, 0.5, 1],
               is_exit=True)   # E pour exit ou end
     
     rp = 0.4
@@ -169,10 +135,10 @@ def level_small():
                relative_position=rp)
     D12 = Door(two_way=False,
                tree=T12,
-               room_departure=R0,
+               room_departure=R2,
                room_arrival=RE,
-               relative_departure_coordinates=[0, 0],
-               relative_arrival_coordinates=[0.707, 0.707],
+               relative_departure_coordinates=[0, 1/2],
+               relative_arrival_coordinates=[1, 1/2],
                relative_position=0.45)
 
     level = Maze(start_room_index=0,
@@ -180,9 +146,9 @@ def level_small():
                  rooms_list=[R0, R1, R2, R3] + [RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12],
                  fastest_solution=None,
-                 level_color=Levels_colors_list.FROM_HUE(hu=0.15, sa=1, li=0.9),
+                 level_color=Levels_colors_list.FROM_HUE(hu=0.15, sa=0.2, li=0.8),
                  name='Small',
-                 door_window_size=600,
+                 door_window_size=1000,
                  keep_proportions=False,
                  y_separation=40,
                  border=40)

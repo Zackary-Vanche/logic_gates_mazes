@@ -342,7 +342,7 @@ class Levels_colors_list:
 
     def RANDOM():
         from random import random
-        return Color.FROM_HUE(random())
+        return Levels_colors_list.FROM_HUE(random())
         
         
     

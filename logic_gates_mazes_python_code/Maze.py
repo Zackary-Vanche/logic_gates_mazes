@@ -10,9 +10,17 @@ from numpy.linalg import norm as np_linalg_norm
 from time import time as time
 from Level_color import Level_color
 from help_menus_list import help_menus_list
-from random import shuffle
+from random import shuffle as rd_shuffle
+from random import seed as rd_seed
+from random import choice as rd_choice
+from pickle import dump as pickle_dump
+from pickle import load as pickle_load
 # from numba import njit
 
+from os.path import exists as os_path_exists
+from os import mkdir as os_mkdir
+from os import remove as os_remove
+from os import listdir as os_listdir
 
 class Maze:
 
@@ -96,6 +104,10 @@ class Maze:
         for door in self.doors_set:
             self.doors_list.append(door)
         self.doors_list = sorted(self.doors_list, key=lambda door: (len(door.name), door.name))
+        
+        # DOOR NAMES LIST
+        
+        self.door_names_list = self.doors_dict.keys()
                 
         # SWITCHES SET
                 
@@ -419,6 +431,8 @@ class Maze:
         txt_verbose_3 = ''
         if verbose == 2:
             print("Switches values : {}".format([switch.value for switch in self.switches_list]))
+        for door_name in self.door_names_list:
+            door_trees_dico[door_name] = set()
         for action in solution:
             if action in self.possibles_actions_list:
                 action_type = action[0]
@@ -446,9 +460,7 @@ class Maze:
                     for i in range(len(self.switches_list)):
                         sv += self.switches_list[i].value * 2**i
                     txt_verbose_3 += action + ' : ' + str(sv) + '\n'
-                    if action not in door_trees_dico.keys():
-                        door_trees_dico[action] = []
-                    door_trees_dico[action].append(sv)
+                    door_trees_dico[action].add(sv)
                 if action_type == 'R':
                     if self.legit_change_room(action) or allow_all_doors:
                         if 3 > verbose > 0:
@@ -475,14 +487,75 @@ class Maze:
                 print(self.current_room_index, self.exit_room_index)
                 print('Try again !')
         if verbose == 3:
-            print('')
-            print('\n'.join(sorted(txt_verbose_3.split('\n'))))
-            print('')
-            print(door_trees_dico)
-            print(len(door_trees_dico.keys()))
-            print('')
+            door_trees_list = []
+            for door_name in sorted(door_trees_dico.keys(), key=lambda door_name : int(door_name[1:])):
+                door_trees_list.append(sorted(list(door_trees_dico[door_name])))
+            return door_trees_list
         bool_solution = self.current_room_index == self.exit_room_index
         return int(bool_solution) + 1
+    
+    # def get_random_level_from_aux_level(aux_level_function): # deprecated
+    #     aux_level = aux_level_function()
+    #     solutions = aux_level.find_all_solutions(verbose=0,
+    #                                              stop_at_first_solution=False,
+    #                                              DFS=True,
+    #                                              DFS_random=True)
+    #     sol = ' '.join(solutions[0][-1])
+    #     door_trees_list = aux_level.try_solution(sol, verbose=3)
+    #     return aux_level_function(door_trees_list)
+    
+    def save_random_door_trees_list(aux_level_function, n_files=100, i0=0): # use it with aux level fonctions
+        aux_level = aux_level_function()
+        n_bin = 2**len(aux_level.switches_list)
+        folder = f'levels/{aux_level.name}'
+        if not os_path_exists(folder):
+            os_mkdir(folder)
+        for seed in range(i0, i0+n_files):
+            # Choix de la graine de génération de nombre aléatoires
+            rd_seed(seed)
+            file_name = folder + f'/door_trees_list_{seed}'
+            if not os_path_exists(file_name):
+                print('seed', seed)
+                # Calcul de la solution du niveau et de la première door_trees_list correspondante
+                aux_level.all_solutions = None
+                solutions = aux_level.find_all_solutions(verbose=0,
+                                                         stop_at_first_solution=False,
+                                                         DFS=True,
+                                                         DFS_random=True,
+                                                         save_solutions_txt=False)
+                door_trees_list = aux_level.try_solution(' '.join(solutions[0][-1]), verbose=3)
+                # Ajout de nombres à door_trees_list tant que la solution reste identique (pour rendre la résolution plus compliquée)
+                door_trees_list_copy = [l[:] for l in door_trees_list]
+                sol = aux_level_function(door_trees_list_copy).find_all_solutions(stop_at_first_solution=True)
+                print(' '.join(sol[0][-1]))
+                for i_door in range(len(door_trees_list)-1):
+                    for i_bin in range(n_bin):
+                        if i_bin not in door_trees_list[i_door]:
+                            door_trees_list[i_door].append(i_bin)
+                            new_sol = aux_level_function(door_trees_list).find_all_solutions(stop_at_first_solution=True)
+                            assert door_trees_list != door_trees_list_copy
+                            if new_sol == sol:
+                                door_trees_list_copy = [l[:] for l in door_trees_list]
+                            else:
+                                door_trees_list = [l[:] for l in door_trees_list_copy]
+                # On vérifie que la nouvelle solution est identique à la solution initiale
+                new_sol = aux_level_function(door_trees_list).find_all_solutions(stop_at_first_solution=True)
+                print(' '.join(new_sol[0][-1]))
+                assert sol == new_sol
+                door_trees_list = door_trees_list_copy
+                for i_door in range(len(door_trees_list)):
+                    door_trees_list[i_door].sort()
+                # Enregistrement de door_trees_list dans un fichier
+                with open(file_name, 'wb') as fp:
+                    pickle_dump(door_trees_list, fp)
+                print(door_trees_list)
+    
+    def get_random_level_from_file(aux_level_function):
+        folder = f'levels/{aux_level_function().name}'
+        file_name = '/'.join([folder, rd_choice(os_listdir(folder))])
+        with open(file_name, 'rb') as fp:
+            door_trees_list = pickle_load(fp)
+        return aux_level_function(door_trees_list)
 
     def fast_try_solution(self,
                           solution,
@@ -601,8 +674,8 @@ class Maze:
                                 #     print(solution+tuple(Slist))
                         if DFS:
                             if DFS_random:
-                                shuffle(doors_to_visit)
-                                shuffle(switches_to_visit)
+                                rd_shuffle(doors_to_visit)
+                                rd_shuffle(switches_to_visit)
                             else:
                                 doors_to_visit.reverse()
                                 switches_to_visit.reverse()
@@ -610,15 +683,15 @@ class Maze:
                             solutions_to_visit.extend(doors_to_visit)
                             solutions_to_visit.reverse()
                         else:
-                            solutions_to_visit.extend(doors_to_visit)
                             solutions_to_visit.extend(switches_to_visit)
+                            solutions_to_visit.extend(doors_to_visit)
                     visited_situations.add(current_situation_vector)
                 elif result_solution == 2:
                     if verbose > 1 and len(solutions_that_work) <= 10:
                         print('solution :', ' '.join(solution))
-                    if save_solutions_txt:
-                        with open('solutions/' + self.name + '_solutions.txt', 'a') as file:
-                            file.write(' '.join(solution) + '\n')
+                    # if save_solutions_txt:
+                    #     with open('solutions/' + self.name + '_solutions.txt', 'a') as file:
+                    #         file.write(' '.join(solution) + '\n')
                     solutions_that_work.append(solution)
                     if stop_at_first_solution:
                         self.reboot_solution()

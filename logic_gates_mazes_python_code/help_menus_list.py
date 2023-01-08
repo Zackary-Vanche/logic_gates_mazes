@@ -318,6 +318,11 @@ To leave the game, you can click an the cross but also press [Q] or [ESCAPE]."""
 help_menus_list['see other doors'] = """
 By pressing [P] or [M], you can see the values of the other doors."""
 
+help_menus_list['random'] = """
+By pressing [N], you get a new random level.
+
+Door's expression and solutions of the random levels have all been calculated by computer only."""
+
     ############
     ## LEVELS ##
     ############
@@ -402,6 +407,8 @@ help_menus_list['levels']["Betweenness"] = help_menus_list['BETWEEN']
 
 help_menus_list['levels']["Tetrahedron"] = """The logic expressions of the doors of this level have been calculated by computer.\nThe program that calculated it already knew all the rest of the level.\n\nThis level looks complicated, but you do only need to let the game lead you to the exit."""
 
+help_menus_list['levels']["Small"] = """The solution and the door's expressions of this level have been chosen randomly and calculated by the computer only."""
+
 help_menus_list['levels']["The 4 queens"] = """This level is inspired from the 8 queens problem."""
 
 help_menus_list['levels']["Strange"] = "You can always try exhaustive testing..."
@@ -479,5 +486,16 @@ help_menus_list['levels']["Parking"] = """If a door equation is not visible, it 
 help_menus_list['levels']["Panex"] = """You are on your own."""
 
 help_menus_list['levels']["Superflip"] = help_menus_list['see other doors']
+
+help_menus_list['levels']["Random - K2"] = help_menus_list['random']
+
+help_menus_list['levels']["Random - K5"] = help_menus_list['random']
+
+help_menus_list['levels']["Random - K3,3"] = help_menus_list['random']
+
+help_menus_list['levels']["Random - Loop"] = help_menus_list['random']
+
+help_menus_list['levels']["Random - Star"] = help_menus_list['random']
+
 
 

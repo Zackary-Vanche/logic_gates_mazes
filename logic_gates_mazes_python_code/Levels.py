@@ -66,6 +66,11 @@ from levels.level_point_of_no_return import level_point_of_no_return
 from levels.level_puzzle import level_puzzle
 from levels.level_pythagorean import level_pythagorean
 from levels.level_pong import level_pong
+from levels.level_random_K2 import level_random_K2
+from levels.level_random_K5 import level_random_K5
+from levels.level_random_K33 import level_random_K33
+from levels.level_random_loop import level_random_loop
+from levels.level_random_star import level_random_star
 from levels.level_recurrence import level_recurrence
 from levels.level_river import level_river
 from levels.level_small import level_small
@@ -107,7 +112,7 @@ from levels.level_xor import level_xor
 
 class Levels:
 
-    levels_functions_list = [
+    levels_functions_list = [#level_random_loop,
                              level_hello_world,
                              level_initiation,
                              level_linear,
@@ -147,6 +152,7 @@ class Levels:
                              level_betweenness,
                              level_taxicab_number,
                              level_tetrahedron,
+                             level_small,
                              level_strange,
                              level_the_4_queens,
                              level_alice_and_bob,
@@ -186,20 +192,27 @@ class Levels:
                              level_parking,
                              level_panex,
                              level_superflip,
+                             level_random_K2,
+                             level_random_star,
+                             level_random_K5,
+                             level_random_K33,
                              ]
 
     number_of_levels = len(levels_functions_list)
 
     levels_list = [None for k in range(number_of_levels)]
 
-    def get_level(level_number, fast_solution_finding=False):
-        if Levels.levels_list[level_number] is None:
-            if fast_solution_finding and len(signature(Levels.levels_functions_list[level_number]).parameters) > 0:
-                Levels.levels_list[level_number] = Levels.levels_functions_list[level_number](True)
-            else:
-                Levels.levels_list[level_number] = Levels.levels_functions_list[level_number]()
+    def get_level(level_number, fast_solution_finding=False, get_new_level=False):
+        if get_new_level:
+            Levels.levels_list[level_number] = Levels.levels_functions_list[level_number]()
         else:
-            Levels.levels_list[level_number].reboot_solution()
+            if Levels.levels_list[level_number] is None:
+                if fast_solution_finding and len(signature(Levels.levels_functions_list[level_number]).parameters) > 0:
+                    Levels.levels_list[level_number] = Levels.levels_functions_list[level_number](True)
+                else:
+                    Levels.levels_list[level_number] = Levels.levels_functions_list[level_number]()
+            else:
+                Levels.levels_list[level_number].reboot_solution()
         return Levels.levels_list[level_number]
 
     def save_solutions_txt(verbose=0,
@@ -306,26 +319,42 @@ def test_levels():
 if __name__ == "__main__":
     pass
 
-    # test_levels()
+    import os
+    
+    if os.path.exists('temp.txt'):
+        os.remove('temp.txt')
+
+    # for level_function in Levels.levels_functions_list[:15]:
+    #     level = level_function()
+    #     solutions = level.find_all_solutions(verbose=1,
+    #                                           stop_at_first_solution=False,
+    #                                           nb_iterations_print=10**4,
+    #                                           DFS=False,
+    #                                           DFS_random=False)
+    #     print(solutions)
+
+    #test_levels()
 
     # import cProfile
     # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=1, save_as_txt=False)''', sort=1)
 
-    level = level_compact()
-    solutions = level.find_all_solutions(verbose=1,
-                                         stop_at_first_solution=False,
-                                         nb_iterations_print=10**4,
-                                         DFS=True,
-                                         DFS_random=True)
-    solutions = list(solutions)
-    solutions[0] = [' '.join(list(sol)) for sol in solutions[0]]
-    print(len(solutions[0]))
-    n_solutions = len(solutions[0])
-    if n_solutions != 0:
-        print(solutions[0][-1])
-        level.try_solution(solutions[0][-1], verbose=3)
-    print('*'*20)
-    level.try_solution('S0 D0 S1 D4 D3 S0 D0 D4 S2 D3 S0 D0 S1 D4 D3 S0 D0 D4 S2 D6', verbose=2) #    
+    for k in range(1000):
+        level = level_random_K5()
+        solutions = level.find_all_solutions(verbose=1,
+                                             stop_at_first_solution=False,
+                                             nb_iterations_print=10**4,
+                                             DFS=True,
+                                             DFS_random=True)
+        solutions = list(solutions)
+        solutions[0] = [' '.join(list(sol)) for sol in solutions[0]]
+        n_solutions = len(solutions[0])
+        if n_solutions != 0:
+            door_trees_list = level.try_solution(solutions[0][-1], verbose=3)
+            print(door_trees_list)
+        for sol in solutions[0]:
+            print(sol)
+        sol = solutions[0][-1]
+        level.try_solution(sol, verbose=3)
     
     
     

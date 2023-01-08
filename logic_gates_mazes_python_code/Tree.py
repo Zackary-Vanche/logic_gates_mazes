@@ -12,6 +12,7 @@ from numpy import array
 from numpy import cumsum
 from numpy import zeros as np_zeros
 from Logic_Gate import Logic_Gate
+from Switch import Switch
 
 class Tree:
     """
@@ -155,6 +156,9 @@ class Tree:
         # La deuxième est switches_list.
 
         self.switches_list = switches[:]
+        for i in range(len(self.switches_list)):
+            if isinstance(self.switches_list[i], int):
+                self.switches_list[i] = Switch(value=self.switches_list[i])
         # assert len(list(set(self.switches_list))) == len(self.switches_list), self.name
         # assert not (self.root_depth == 0 and self.switches_list == []), self.name
         for switch in self.switches_list:
