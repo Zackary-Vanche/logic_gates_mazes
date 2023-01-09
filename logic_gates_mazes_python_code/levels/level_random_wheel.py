@@ -11,6 +11,9 @@ from Tree import Tree
 from Door import Door
 from Room import Room
 from Levels_colors_list import Levels_colors_list
+from numpy import cos, sin, pi
+from random import random as random_random
+from random import randint as random_randint
 
 n_switches = 5
 n_doors = 11
@@ -34,34 +37,38 @@ def aux_level_random_wheel(door_trees_list = [[i for i in range(2**n_switches)] 
                      switches = Slist + door_trees_list[i],
                      cut_expression=True)
     
-    position_R0 = [4, 7, 1, 1]
-    position_R1 = [4, 3, 1, 1]
-    position_R2 = [8, 6, 1, 1]
-    position_R3 = [6, 10, 1, 1]
-    position_R4 = [2, 10, 1, 1]
-    position_R5 = [0, 6, 1, 1]
-    position_RE = [7.5, 3.25, 1, 1]
+    ex = 0.2
+    ey = 0.2
+    
+    a0 = 2*pi*random_random()
+    
+    def pos(i):
+        a = a0 + 2*i*pi/5
+        return [cos(a), sin(a), ex, ey]
+    
+    a = a0 +2*random_randint(0, 4)*pi/5 + pi/5
+    posE = [cos(a), sin(a), ex, ey]
     
     R0 = Room(name='R0',
-              position = position_R0,
+              position = [0, 0, ex, ey],
               switches_list = [])
     R1 = Room(name='R1',
-              position = position_R1,
+              position = pos(1),
               switches_list = [S0])
     R2 = Room(name='R2',
-              position = position_R2,
+              position = pos(2),
               switches_list = [S1])
     R3 = Room(name='R3',
-              position = position_R3,
+              position = pos(3),
               switches_list = [S2])
     R4 = Room(name='R4',
-              position = position_R4,
+              position = pos(4),
               switches_list = [S3])
     R5 = Room(name='R5',
-              position = position_R5,
+              position = pos(5),
               switches_list = [S4])
     RE = Room(name='RE',
-              position=position_RE,
+              position=posE,
               is_exit=True)   # E pour exit ou end
     
     D0 = Door(two_way=True,
