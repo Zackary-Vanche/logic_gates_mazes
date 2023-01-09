@@ -66,11 +66,18 @@ from levels.level_point_of_no_return import level_point_of_no_return
 from levels.level_puzzle import level_puzzle
 from levels.level_pythagorean import level_pythagorean
 from levels.level_pong import level_pong
+from levels.level_random_binary_tree import level_random_binary_tree
+from levels.level_random_bull import level_random_bull
+from levels.level_random_butterfly import level_random_butterfly
+from levels.level_random_come_back import level_random_come_back
 from levels.level_random_K2 import level_random_K2
 from levels.level_random_K5 import level_random_K5
 from levels.level_random_K33 import level_random_K33
 from levels.level_random_loop import level_random_loop
+from levels.level_random_line import level_random_line
 from levels.level_random_star import level_random_star
+from levels.level_random_starting_point import level_random_starting_point
+from levels.level_random_wheel import level_random_wheel
 from levels.level_recurrence import level_recurrence
 from levels.level_river import level_river
 from levels.level_small import level_small
@@ -110,9 +117,11 @@ from levels.level_xor import level_xor
 # Nurikabe ???
 # Masyu ???
 
+# TODO : random bull, random butterfly
+
 class Levels:
 
-    levels_functions_list = [#level_random_loop,
+    levels_functions_list = [
                              level_hello_world,
                              level_initiation,
                              level_linear,
@@ -193,7 +202,15 @@ class Levels:
                              level_panex,
                              level_superflip,
                              level_random_K2,
+                             level_random_bull,
+                             level_random_butterfly,
+                             level_random_line,
+                             level_random_loop,
                              level_random_star,
+                             level_random_binary_tree,
+                             level_random_wheel,
+                             level_random_come_back,
+                             level_random_starting_point,
                              level_random_K5,
                              level_random_K33,
                              ]
@@ -315,6 +332,17 @@ def test_levels():
     plt.ylabel('Number of actions in the solution')
     plt.show()
     print('')
+    
+def calculates_random_level_mean_solution_length(aux_level_function):
+    from os import listdir as os_listdir
+    from Maze import Maze
+    folder = f'levels/{aux_level_function().name}'
+    len_l = []
+    for file_name in os_listdir(folder):
+        level = Maze.get_random_level_from_file(aux_level_function, file_name)
+        sol = level.find_all_solutions(verbose=0, stop_at_first_solution=True)
+        len_l.append(len(sol[0][0]))
+    return sum(len_l)/len(len_l)
 
 if __name__ == "__main__":
     pass
@@ -338,25 +366,54 @@ if __name__ == "__main__":
     # import cProfile
     # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=1, save_as_txt=False)''', sort=1)
 
-    for k in range(1000):
-        level = level_random_K5()
-        solutions = level.find_all_solutions(verbose=1,
-                                             stop_at_first_solution=False,
-                                             nb_iterations_print=10**4,
-                                             DFS=True,
-                                             DFS_random=True)
-        solutions = list(solutions)
-        solutions[0] = [' '.join(list(sol)) for sol in solutions[0]]
-        n_solutions = len(solutions[0])
-        if n_solutions != 0:
-            door_trees_list = level.try_solution(solutions[0][-1], verbose=3)
-            print(door_trees_list)
-        for sol in solutions[0]:
-            print(sol)
-        sol = solutions[0][-1]
-        level.try_solution(sol, verbose=3)
+    # for k in range(1000):
+    #     level = level_random_K5()
+    #     solutions = level.find_all_solutions(verbose=1,
+    #                                          stop_at_first_solution=False,
+    #                                          nb_iterations_print=10**4,
+    #                                          DFS=True,
+    #                                          random_search=True)
+    #     solutions = list(solutions)
+    #     solutions[0] = [' '.join(list(sol)) for sol in solutions[0]]
+    #     n_solutions = len(solutions[0])
+    #     if n_solutions != 0:
+    #         door_trees_list = level.try_solution(solutions[0][-1], verbose=3)
+    #         print(door_trees_list)
+    #     for sol in solutions[0]:
+    #         print(sol)
+    #     sol = solutions[0][-1]
+    #     level.try_solution(sol, verbose=3)
     
+    from levels.level_random_K2 import aux_level_random_K2
+    from levels.level_random_K5 import aux_level_random_K5
+    from levels.level_random_K33 import aux_level_random_K33
+    from levels.level_random_star import aux_level_random_star
+    from levels.level_random_starting_point import aux_level_random_starting_point
+    from levels.level_random_loop import aux_level_random_loop
+    from levels.level_random_line import aux_level_random_line
+    from levels.level_random_binary_tree import aux_level_random_binary_tree
+    from levels.level_random_wheel import aux_level_random_wheel
+    from levels.level_random_bull import aux_level_random_bull
+    from levels.level_random_butterfly import aux_level_random_butterfly
+    from levels.level_random_come_back import aux_level_random_come_back
     
+    aux_level_list = [aux_level_random_K2,
+                      aux_level_random_K5,
+                      aux_level_random_K33,
+                      aux_level_random_line,
+                      aux_level_random_loop,
+                      aux_level_random_star,
+                      aux_level_random_starting_point,
+                      aux_level_random_binary_tree,
+                      aux_level_random_wheel,
+                      aux_level_random_bull,
+                      aux_level_random_butterfly,
+                      aux_level_random_come_back
+                      ]
+    
+    for aux_level in aux_level_list:
+        solution_length = calculates_random_level_mean_solution_length(aux_level)
+        print(aux_level().name, solution_length)
     
     
     

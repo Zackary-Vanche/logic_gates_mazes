@@ -13,6 +13,7 @@ from help_menus_list import help_menus_list
 from random import shuffle as rd_shuffle
 from random import seed as rd_seed
 from random import choice as rd_choice
+from random import randint as rd_randint
 from pickle import dump as pickle_dump
 from pickle import load as pickle_load
 # from numba import njit
@@ -520,10 +521,10 @@ class Maze:
                 aux_level.all_solutions = None
                 solutions = aux_level.find_all_solutions(verbose=0,
                                                          stop_at_first_solution=False,
-                                                         DFS=True,
-                                                         DFS_random=True,
+                                                         random_search=True,
                                                          save_solutions_txt=False)
                 door_trees_list = aux_level.try_solution(' '.join(solutions[0][-1]), verbose=3)
+                # assert len(door_trees_list) == len(aux_level.doors_list), f'{aux_level.name} {len(door_trees_list)} {len(aux_level.doors_list)}'
                 # Ajout de nombres à door_trees_list tant que la solution reste identique (pour rendre la résolution plus compliquée)
                 door_trees_list_copy = [l[:] for l in door_trees_list]
                 sol = aux_level_function(door_trees_list_copy).find_all_solutions(stop_at_first_solution=True)
@@ -540,7 +541,6 @@ class Maze:
                                 door_trees_list = [l[:] for l in door_trees_list_copy]
                 # On vérifie que la nouvelle solution est identique à la solution initiale
                 new_sol = aux_level_function(door_trees_list).find_all_solutions(stop_at_first_solution=True)
-                print(' '.join(new_sol[0][-1]))
                 assert sol == new_sol
                 door_trees_list = door_trees_list_copy
                 for i_door in range(len(door_trees_list)):
@@ -548,12 +548,14 @@ class Maze:
                 # Enregistrement de door_trees_list dans un fichier
                 with open(file_name, 'wb') as fp:
                     pickle_dump(door_trees_list, fp)
-                print(door_trees_list)
     
-    def get_random_level_from_file(aux_level_function):
+    def get_random_level_from_file(aux_level_function, file_name=None):
         folder = f'levels/{aux_level_function().name}'
-        file_name = '/'.join([folder, rd_choice(os_listdir(folder))])
-        with open(file_name, 'rb') as fp:
+        if not os_path_exists(folder) or os_listdir(folder) == []:
+            return aux_level_function()
+        if file_name is None:
+            file_name = rd_choice(os_listdir(folder))
+        with open('/'.join([folder, file_name]), 'rb') as fp:
             door_trees_list = pickle_load(fp)
         return aux_level_function(door_trees_list)
 
@@ -624,7 +626,7 @@ class Maze:
                            max_calculation_time=float('inf'),
                            save_solutions_txt=True,
                            DFS=False,
-                           DFS_random=False): # DFS : deep-first search
+                           random_search=False): # DFS : deep-first search
         t0 = time()
         nb_iterations = 0
         nb_operations = 0
@@ -645,7 +647,10 @@ class Maze:
                      print('len(solutions_to_visit)/nb_iterations : {}'.format(len(solutions_to_visit)/nb_iterations))
                      print('len(solutions_that_work) : {}'.format(len(solutions_that_work)))
                      print('')
-                solution = solutions_to_visit.pop(0)
+                if random_search:
+                    solution = solutions_to_visit.pop(rd_randint(0, len(solutions_to_visit)-1))
+                else:
+                    solution = solutions_to_visit.pop(0)
                 # if nb_iterations < 100:
                 #     print('')
                 #     print('*', solution)
@@ -673,15 +678,16 @@ class Maze:
                                 # if nb_iterations < 100:
                                 #     print(solution+tuple(Slist))
                         if DFS:
-                            if DFS_random:
-                                rd_shuffle(doors_to_visit)
-                                rd_shuffle(switches_to_visit)
+                            if random_search:
+                                elements_to_visit = doors_to_visit + switches_to_visit
+                                rd_shuffle(elements_to_visit)
+                                solutions_to_visit.extend(elements_to_visit)
                             else:
                                 doors_to_visit.reverse()
                                 switches_to_visit.reverse()
-                            solutions_to_visit.extend(switches_to_visit)
-                            solutions_to_visit.extend(doors_to_visit)
-                            solutions_to_visit.reverse()
+                                solutions_to_visit.extend(switches_to_visit)
+                                solutions_to_visit.extend(doors_to_visit)
+                                solutions_to_visit.reverse()
                         else:
                             solutions_to_visit.extend(switches_to_visit)
                             solutions_to_visit.extend(doors_to_visit)

@@ -12,7 +12,9 @@ from Door import Door
 from Room import Room
 from Levels_colors_list import Levels_colors_list
 
-def aux_level_random_star(door_trees_list = [[i for i in range(2**5)] for j in range(15)]):
+n_switches = 6
+
+def aux_level_random_star(door_trees_list = [[i for i in range(2**n_switches)] for j in range(11)]):
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -22,6 +24,8 @@ def aux_level_random_star(door_trees_list = [[i for i in range(2**5)] for j in r
     S5 = Switch(name='S5')
     
     Slist = [S0, S1, S2, S3, S4, S5]
+    
+    assert len(Slist) == n_switches
     
     def get_tree(i):
         return Tree(['IN', Tree.tree_list_BIN(len(Slist))] + [[None]]*len(door_trees_list[i]),

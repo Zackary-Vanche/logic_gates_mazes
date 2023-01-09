@@ -487,15 +487,27 @@ help_menus_list['levels']["Panex"] = """You are on your own."""
 
 help_menus_list['levels']["Superflip"] = help_menus_list['see other doors']
 
+help_menus_list['levels']["Random - Binary Tree"] = help_menus_list['random']
+
+help_menus_list['levels']["Random - Bull"] = help_menus_list['random']
+
+help_menus_list['levels']["Random - Come back"] = help_menus_list['random']
+
+help_menus_list['levels']["Random - Butterfly"] = help_menus_list['random']
+
 help_menus_list['levels']["Random - K2"] = help_menus_list['random']
 
 help_menus_list['levels']["Random - K5"] = help_menus_list['random']
 
 help_menus_list['levels']["Random - K3,3"] = help_menus_list['random']
 
+help_menus_list['levels']["Random - Line"] = help_menus_list['random']
+
 help_menus_list['levels']["Random - Loop"] = help_menus_list['random']
 
 help_menus_list['levels']["Random - Star"] = help_menus_list['random']
 
+help_menus_list['levels']["Random - Starting point"] = help_menus_list['random']
 
+help_menus_list['levels']["Random - Wheel"] = help_menus_list['random']
 
