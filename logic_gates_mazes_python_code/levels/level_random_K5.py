@@ -11,6 +11,7 @@ from Tree import Tree
 from Door import Door
 from Room import Room
 from Levels_colors_list import Levels_colors_list
+from numpy import cos, sin, pi
 
 n_switches = 5
 n_doors = 21
@@ -34,33 +35,38 @@ def aux_level_random_K5(door_trees_list = [[i for i in range(2**n_switches)] for
                      switches = Slist + door_trees_list[i],
                      cut_expression=True)
     
-    position_R0 = [4, 3, 2, 2]
-    position_R1 = [8, 6, 2, 2]
-    position_R2 = [6, 10, 2, 2]
-    position_R3 = [2, 10, 2, 2]
-    position_R4 = [0, 6, 2, 2]
-    position_RE = [7.5, 3.25, 1, 1]
+    ex = 0.2
+    ey = 0.2
+    
+    def pos(i):
+        a = pi/2 + 2*i*pi/5
+        return [cos(a)-ex/2, sin(a)-ey/2, ex, ey]
+    
+    exE = 0.6
+    eyE = 0.6
+    
+    position_RE = [-exE/2, -eyE/2, exE, eyE]
     
     R0 = Room(name='R0',
-              position = position_R0,
+              position = pos(0),
               switches_list = [S0])
     R1 = Room(name='R1',
-              position = position_R1,
+              position = pos(1),
               switches_list = [S1])
     R2 = Room(name='R2',
-              position = position_R2,
+              position = pos(2),
               switches_list = [S2])
     R3 = Room(name='R3',
-              position = position_R3,
+              position = pos(3),
               switches_list = [S3])
     R4 = Room(name='R4',
-              position = position_R4,
+              position = pos(4),
               switches_list = [S4])
     RE = Room(name='RE',
               position=position_RE,
               is_exit=True)   # E pour exit ou end
     
-    rp = 0.35
+    rp = 0.25
     
     D0 = Door(two_way=False,
               tree=get_tree(0),
@@ -81,7 +87,7 @@ def aux_level_random_K5(door_trees_list = [[i for i in range(2**n_switches)] for
               tree=get_tree(3),
               room_departure=R2,
               room_arrival=R0,
-              relative_position=0.225)
+              relative_position=rp)
     D4 = Door(two_way=False,
               tree=get_tree(4),
               room_departure=R0,
@@ -91,7 +97,7 @@ def aux_level_random_K5(door_trees_list = [[i for i in range(2**n_switches)] for
               tree=get_tree(5),
               room_departure=R3,
               room_arrival=R0,
-              relative_position=0.225)
+              relative_position=rp)
     D6 = Door(two_way=False,
               tree=get_tree(6),
               room_departure=R0,
@@ -121,17 +127,17 @@ def aux_level_random_K5(door_trees_list = [[i for i in range(2**n_switches)] for
                tree=get_tree(11),
                room_departure=R3,
                room_arrival=R1,
-               relative_position=0.45)
+               relative_position=rp)
     D12 = Door(two_way=False,
                tree=get_tree(12),
                room_departure=R1,
                room_arrival=R4,
-               relative_position=0.25)
+               relative_position=rp)
     D13 = Door(two_way=False,
                tree=get_tree(13),
                room_departure=R4,
                room_arrival=R1,
-               relative_position=0.25)
+               relative_position=rp)
     D14 = Door(two_way=False,
                tree=get_tree(14),
                room_departure=R2,
@@ -146,7 +152,7 @@ def aux_level_random_K5(door_trees_list = [[i for i in range(2**n_switches)] for
                tree=get_tree(16),
                room_departure=R2,
                room_arrival=R4,
-               relative_position=0.45)
+               relative_position=rp)
     D17 = Door(two_way=False,
                tree=get_tree(17),
                room_departure=R4,
@@ -166,7 +172,7 @@ def aux_level_random_K5(door_trees_list = [[i for i in range(2**n_switches)] for
                tree=get_tree(20),
                room_departure=R0,
                room_arrival=RE,
-               relative_position=0.6)
+               relative_position=0.5)
     
     level = Maze(start_room_index=0,
                  exit_room_index=-1,

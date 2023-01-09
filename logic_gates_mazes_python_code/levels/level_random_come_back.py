@@ -13,7 +13,7 @@ from Room import Room
 from Levels_colors_list import Levels_colors_list
 
 n_switches = 5
-n_doors = 21
+n_doors = 15
 
 def aux_level_random_come_back(door_trees_list = [[i for i in range(2**n_switches)] for j in range(n_doors)]):
 
@@ -137,36 +137,6 @@ def aux_level_random_come_back(door_trees_list = [[i for i in range(2**n_switche
                 room_departure=R4,
                 room_arrival=R3,
                 relative_position=rp)
-    # D15 = Door(two_way=False,
-    #             tree=get_tree(15),
-    #             room_departure=R3,
-    #             room_arrival=R2,
-    #             relative_position=rp)
-    # D16 = Door(two_way=False,
-    #             tree=get_tree(16),
-    #             room_departure=R2,
-    #             room_arrival=R4,
-    #             relative_position=0.45)
-    # D17 = Door(two_way=False,
-    #             tree=get_tree(17),
-    #             room_departure=R4,
-    #             room_arrival=R2,
-    #             relative_position=rp)
-    # D18 = Door(two_way=False,
-    #             tree=get_tree(18),
-    #             room_departure=R3,
-    #             room_arrival=R4,
-    #             relative_position=rp)
-    # D19 = Door(two_way=False,
-    #             tree=get_tree(19),
-    #             room_departure=R4,
-    #             room_arrival=R3,
-    #             relative_position=rp)
-    # D20 = Door(two_way=False,
-    #             tree=get_tree(20),
-    #             room_departure=R0,
-    #             room_arrival=RE,
-    #             relative_position=0.6)
     
     level = Maze(start_room_index=0,
                  exit_room_index=-1,

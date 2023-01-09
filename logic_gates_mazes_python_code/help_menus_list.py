@@ -489,15 +489,17 @@ help_menus_list['levels']["Superflip"] = help_menus_list['see other doors']
 
 help_menus_list['levels']["Random - Binary Tree"] = help_menus_list['random']
 
-help_menus_list['levels']["Random - Bull"] = help_menus_list['random']
+help_menus_list['levels']["Random - Bull"] = """The doors form a bull graph.\n\n""" + help_menus_list['random']
 
 help_menus_list['levels']["Random - Come back"] = help_menus_list['random']
 
-help_menus_list['levels']["Random - Butterfly"] = help_menus_list['random']
+help_menus_list['levels']["Random - Butterfly"] = """The doors form a Butterfly graph.\n\n""" + help_menus_list['random']
+
+help_menus_list['levels']["Random - Gemini"] = help_menus_list['random']
 
 help_menus_list['levels']["Random - K2"] = help_menus_list['random']
 
-help_menus_list['levels']["Random - K5"] = help_menus_list['random']
+help_menus_list['levels']["Random - K5"] = """Welcome to hell.\n\n""" + help_menus_list['random']
 
 help_menus_list['levels']["Random - K3,3"] = help_menus_list['random']
 
