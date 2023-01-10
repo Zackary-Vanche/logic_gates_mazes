@@ -75,6 +75,7 @@ from levels.level_random_K2 import level_random_K2
 from levels.level_random_K5 import level_random_K5
 from levels.level_random_K33 import level_random_K33
 from levels.level_random_loop import level_random_loop
+from levels.level_random_ladder import level_random_ladder
 from levels.level_random_line import level_random_line
 from levels.level_random_star import level_random_star
 from levels.level_random_starting_point import level_random_starting_point
@@ -117,6 +118,7 @@ from levels.level_random_bull import aux_level_random_bull
 from levels.level_random_butterfly import aux_level_random_butterfly
 from levels.level_random_come_back import aux_level_random_come_back
 from levels.level_random_gemini import aux_level_random_gemini
+from levels.level_random_ladder import aux_level_random_ladder
 
 # Rotation
 # Full
@@ -224,24 +226,27 @@ class Levels:
                              level_random_wheel,
                              level_random_come_back,
                              level_random_starting_point,
+                             level_random_ladder,
                              level_random_K5,
                              level_random_K33,
                              level_random_gemini,
                              ]
     
-    aux_level_function_list = [aux_level_random_K2,
-                               aux_level_random_K5,
+    aux_level_function_list = [
+                               aux_level_random_binary_tree,
+                               aux_level_random_bull,
+                               aux_level_random_butterfly,
+                               aux_level_random_come_back,
+                               aux_level_random_gemini,
+                               aux_level_random_K2,
                                aux_level_random_K33,
+                               aux_level_random_K5,
+                               aux_level_random_ladder,
                                aux_level_random_line,
                                aux_level_random_loop,
                                aux_level_random_star,
                                aux_level_random_starting_point,
-                               aux_level_random_binary_tree,
                                aux_level_random_wheel,
-                               aux_level_random_bull,
-                               aux_level_random_butterfly,
-                               aux_level_random_come_back,
-                               aux_level_random_gemini
                                ]
 
     number_of_levels = len(levels_functions_list)
@@ -370,6 +375,8 @@ def calculates_random_level_solution_length(aux_level_function):
     for file_name in os_listdir(folder):
         level = Maze.get_random_level_from_file(aux_level_function, file_name)
         sol = level.find_all_solutions(verbose=0, stop_at_first_solution=True)
+        # print(' '.join(sol[0][0]))
+        # print('')
         len_l.append(len(sol[0][0]))
     return len_l
 
@@ -413,9 +420,17 @@ if __name__ == "__main__":
     #     sol = solutions[0][-1]
     #     level.try_solution(sol, verbose=3)
     
+    # import matplotlib.pyplot as plt
     for aux_level in Levels.aux_level_function_list:
+        print(aux_level().name)
         solution_length = calculates_random_level_solution_length(aux_level)
-        print(aux_level().name, min(solution_length), sum(solution_length)/len(solution_length), max(solution_length))
+        # plt.hist(solution_length)
+        # plt.show()
+        print('min', min(solution_length))
+        print('avg', sum(solution_length)/len(solution_length))
+        print('max', max(solution_length))
+        print('len', len(solution_length))
+        print('')
     
     # for aux_level in [aux_level_random_K5]:
     #     print(aux_level().name)

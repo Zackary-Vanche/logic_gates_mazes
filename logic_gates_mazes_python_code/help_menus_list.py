@@ -503,6 +503,8 @@ help_menus_list['levels']["Random - K5"] = """Welcome to hell.\n\n""" + help_men
 
 help_menus_list['levels']["Random - K3,3"] = help_menus_list['random']
 
+help_menus_list['levels']["Random - Ladder"] = help_menus_list['random']
+
 help_menus_list['levels']["Random - Line"] = help_menus_list['random']
 
 help_menus_list['levels']["Random - Loop"] = help_menus_list['random']

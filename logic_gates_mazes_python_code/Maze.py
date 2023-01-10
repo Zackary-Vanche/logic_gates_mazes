@@ -521,8 +521,10 @@ class Maze:
                 aux_level.all_solutions = None
                 solutions = aux_level.find_all_solutions(verbose=0,
                                                          stop_at_first_solution=False,
+                                                         DFS=False,
                                                          random_search=True,
                                                          save_solutions_txt=False)
+                solutions[0].sort(key=lambda sol : sol.count('D'))
                 door_trees_list = aux_level.try_solution(' '.join(solutions[0][-1]), verbose=3)
                 # assert len(door_trees_list) == len(aux_level.doors_list), f'{aux_level.name} {len(door_trees_list)} {len(aux_level.doors_list)}'
                 # Ajout de nombres à door_trees_list tant que la solution reste identique (pour rendre la résolution plus compliquée)
@@ -616,6 +618,18 @@ class Maze:
 
     def get_current_possible_actions_list(self):
         return self.get_current_possible_doors() + self.get_current_possible_switches()
+    
+    def visited_sitution_by_solution(self, solution):
+        self.reboot_solution(fast=True)
+        visited_situations = set()
+        for action in solution[:-1]:
+            action_type = action[0]
+            if action_type == 'S':
+                self.change_switch(action, update_doors=False)
+            if action_type == 'D':
+                self.use_door(action)
+            visited_situations.add(self.current_situation_to_vector())
+        return visited_situations
 
     def find_all_solutions(self,
                            verbose=0,
@@ -647,20 +661,14 @@ class Maze:
                      print('len(solutions_to_visit)/nb_iterations : {}'.format(len(solutions_to_visit)/nb_iterations))
                      print('len(solutions_that_work) : {}'.format(len(solutions_that_work)))
                      print('')
-                if random_search:
-                    solution = solutions_to_visit.pop(rd_randint(0, len(solutions_to_visit)-1))
-                else:
-                    solution = solutions_to_visit.pop(0)
-                # if nb_iterations < 100:
-                #     print('')
-                #     print('*', solution)
+                solution = solutions_to_visit.pop(0)
                 nb_operations += len(solution)
                 result_solution = self.fast_try_solution(solution)
                 for door in self.doors_list:
                     door.update_open()
                 if result_solution == 1:
                     current_situation_vector = self.current_situation_to_vector()
-                    if current_situation_vector not in visited_situations:
+                    if current_situation_vector not in visited_situations:# or (random_search and current_situation_vector not in self.visited_sitution_by_solution(solution[:-1])):
                         # DOORS
                         actions_doors = self.get_current_possible_doors()
                         if reverse_actions_order:
@@ -668,26 +676,22 @@ class Maze:
                         doors_to_visit = []
                         for action in actions_doors:
                             doors_to_visit.append(solution+(action,))
-                            # if nb_iterations < 100:
-                            #     print(solution+(action,))
                         # SWITCHES
                         switches_to_visit = []
                         if solution == () or solution[-1][0] != 'S':
                             for Slist in self.current_room().get_possible_switches_actions():
                                 switches_to_visit.append(solution+tuple(Slist))
-                                # if nb_iterations < 100:
-                                #     print(solution+tuple(Slist))
-                        if DFS:
-                            if random_search:
-                                elements_to_visit = doors_to_visit + switches_to_visit
-                                rd_shuffle(elements_to_visit)
-                                solutions_to_visit.extend(elements_to_visit)
-                            else:
-                                doors_to_visit.reverse()
-                                switches_to_visit.reverse()
-                                solutions_to_visit.extend(switches_to_visit)
-                                solutions_to_visit.extend(doors_to_visit)
-                                solutions_to_visit.reverse()
+                        if random_search:
+                            elements_to_visit = doors_to_visit + switches_to_visit
+                            rd_shuffle(elements_to_visit)
+                            solutions_to_visit.extend(elements_to_visit)
+                            solutions_to_visit.reverse()
+                        elif DFS:
+                            doors_to_visit.reverse()
+                            switches_to_visit.reverse()
+                            solutions_to_visit.extend(switches_to_visit)
+                            solutions_to_visit.extend(doors_to_visit)
+                            solutions_to_visit.reverse()
                         else:
                             solutions_to_visit.extend(switches_to_visit)
                             solutions_to_visit.extend(doors_to_visit)
