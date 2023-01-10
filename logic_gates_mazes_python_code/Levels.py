@@ -420,7 +420,7 @@ if __name__ == "__main__":
     #     sol = solutions[0][-1]
     #     level.try_solution(sol, verbose=3)
     
-    # import matplotlib.pyplot as plt
+    import matplotlib.pyplot as plt
     for aux_level in Levels.aux_level_function_list:
         print(aux_level().name)
         solution_length = calculates_random_level_solution_length(aux_level)
@@ -432,14 +432,14 @@ if __name__ == "__main__":
         print('len', len(solution_length))
         print('')
     
-    # for aux_level in [aux_level_random_K5]:
+    # for aux_level in Levels.aux_level_function_list:
     #     print(aux_level().name)
     #     solutions = aux_level().find_all_solutions(random_search=True)[0]
     #     solutions = [' '.join(sol) for sol in solutions]
     #     print(solutions[-1])
-    #     break
         
-    
+    # solutions = level_random_K5().find_all_solutions(verbose=1, nb_iterations_print=100)
+    # print(solutions)
     
     
     
