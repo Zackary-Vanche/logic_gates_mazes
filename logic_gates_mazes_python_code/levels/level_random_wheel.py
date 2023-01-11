@@ -18,7 +18,8 @@ from random import randint as random_randint
 n_switches = 5
 n_doors = 11
 
-def aux_level_random_wheel(door_trees_list = [[i for i in range(2**n_switches)] for j in range(n_doors)]):
+def aux_level_random_wheel(door_trees_list = [[i for i in range(2**n_switches)] for j in range(n_doors)],
+                           exit_number=None):
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -111,11 +112,22 @@ def aux_level_random_wheel(door_trees_list = [[i for i in range(2**n_switches)] 
               tree=get_tree(9),
               room_departure=R5,
               room_arrival=R1)
-    D10 = Door(two_way=True,
-              tree=get_tree(10),
-              room_departure=R0,
-              room_arrival=RE,
-              relative_position=0.3)
+    if exit_number is None:
+        D10 = Door(two_way=True,
+                  tree=get_tree(10),
+                  room_departure=R0,
+                  room_arrival=RE,
+                  relative_position=0.3)
+    else:
+        D10 = Door(two_way=True,
+                  tree=Tree(['IN', Tree.tree_list_BIN(len(Slist)), [None]],
+                            empty=True,
+                            name='T10',
+                            switches = Slist + [exit_number],
+                            cut_expression=True),
+                  room_departure=R0,
+                  room_arrival=RE,
+                  relative_position=0.3)
     
     level = Maze(start_room_index=0,
                  exit_room_index=-1,

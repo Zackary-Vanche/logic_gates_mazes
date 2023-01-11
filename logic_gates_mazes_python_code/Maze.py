@@ -14,6 +14,7 @@ from random import shuffle as rd_shuffle
 from random import seed as rd_seed
 from random import choice as rd_choice
 from random import randint as rd_randint
+from random import random as rd_random
 from pickle import dump as pickle_dump
 from pickle import load as pickle_load
 # from numba import njit
@@ -513,9 +514,12 @@ class Maze:
             os_mkdir(folder)
         for seed in range(i0, i0+n_files):
             # Choix de la graine de génération de nombre aléatoires
-            rd_seed(seed)
             file_name = folder + f'/door_trees_list_{seed}'
             if not os_path_exists(file_name):
+                rd_seed(seed)
+                exit_number = rd_randint(0, n_bin-1)
+                print('exit_number =', exit_number)
+                aux_level = aux_level_function(exit_number=exit_number)
                 print('seed', seed)
                 # Calcul de la solution du niveau et de la première door_trees_list correspondante
                 aux_level.all_solutions = None
@@ -529,20 +533,23 @@ class Maze:
                 # assert len(door_trees_list) == len(aux_level.doors_list), f'{aux_level.name} {len(door_trees_list)} {len(aux_level.doors_list)}'
                 # Ajout de nombres à door_trees_list tant que la solution reste identique (pour rendre la résolution plus compliquée)
                 door_trees_list_copy = [l[:] for l in door_trees_list]
-                sol = aux_level_function(door_trees_list_copy).find_all_solutions(stop_at_first_solution=True)
+                sol = aux_level_function(door_trees_list_copy,
+                                         exit_number=exit_number).find_all_solutions(stop_at_first_solution=True)
                 print(' '.join(sol[0][-1]))
                 for i_door in range(len(door_trees_list)-1):
                     for i_bin in range(n_bin):
                         if i_bin not in door_trees_list[i_door]:
                             door_trees_list[i_door].append(i_bin)
-                            new_sol = aux_level_function(door_trees_list).find_all_solutions(stop_at_first_solution=True)
+                            new_sol = aux_level_function(door_trees_list,
+                                                         exit_number=exit_number).find_all_solutions(stop_at_first_solution=True)
                             assert door_trees_list != door_trees_list_copy
                             if new_sol == sol:
                                 door_trees_list_copy = [l[:] for l in door_trees_list]
                             else:
                                 door_trees_list = [l[:] for l in door_trees_list_copy]
                 # On vérifie que la nouvelle solution est identique à la solution initiale
-                new_sol = aux_level_function(door_trees_list).find_all_solutions(stop_at_first_solution=True)
+                new_sol = aux_level_function(door_trees_list,
+                                             exit_number=exit_number).find_all_solutions(stop_at_first_solution=True)
                 assert sol == new_sol
                 door_trees_list = door_trees_list_copy
                 for i_door in range(len(door_trees_list)):
@@ -682,7 +689,13 @@ class Maze:
                             for Slist in self.current_room().get_possible_switches_actions():
                                 switches_to_visit.append(solution+tuple(Slist))
                         if random_search:
-                            elements_to_visit = doors_to_visit + switches_to_visit
+                            # rd_shuffle(doors_to_visit)
+                            # rd_shuffle(switches_to_visit)
+                            # if rd_random() > 1/2:
+                            #     elements_to_visit = doors_to_visit + switches_to_visit
+                            # else:
+                            #     elements_to_visit = switches_to_visit + doors_to_visit
+                            elements_to_visit = switches_to_visit + doors_to_visit
                             rd_shuffle(elements_to_visit)
                             solutions_to_visit.extend(elements_to_visit)
                             solutions_to_visit.reverse()

@@ -16,7 +16,8 @@ from numpy import cos, sin, pi
 n_switches = 5
 n_doors = 21
 
-def aux_level_random_K5(door_trees_list = [[i for i in range(2**n_switches)] for j in range(n_doors)]):
+def aux_level_random_K5(door_trees_list = [[i for i in range(2**n_switches)] for j in range(n_doors)],
+                        exit_number=None):
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -168,11 +169,22 @@ def aux_level_random_K5(door_trees_list = [[i for i in range(2**n_switches)] for
                room_departure=R4,
                room_arrival=R3,
                relative_position=rp)
-    D20 = Door(two_way=False,
-               tree=get_tree(20),
-               room_departure=R0,
-               room_arrival=RE,
-               relative_position=0.5)
+    if exit_number is None:
+        D20 = Door(two_way=False,
+                   tree=get_tree(20),
+                   room_departure=R4,
+                   room_arrival=R3,
+                   relative_position=rp)
+    else:
+        D20 = Door(two_way=False,
+                   tree=Tree(['IN', Tree.tree_list_BIN(len(Slist)), [None]],
+                             empty=True,
+                             name='T20',
+                             switches = Slist + [exit_number],
+                             cut_expression=True),
+                   room_departure=R0,
+                   room_arrival=RE,
+                   relative_position=0.5)
     
     level = Maze(start_room_index=0,
                  exit_room_index=-1,

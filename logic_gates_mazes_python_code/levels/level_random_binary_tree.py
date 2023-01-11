@@ -12,7 +12,8 @@ from Door import Door
 from Room import Room
 from Levels_colors_list import Levels_colors_list
 
-def aux_level_random_binary_tree(door_trees_list = [[i for i in range(2**6)] for j in range(7)]):
+def aux_level_random_binary_tree(door_trees_list = [[i for i in range(2**6)] for j in range(7)],
+                                 exit_number=None):
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -80,10 +81,20 @@ def aux_level_random_binary_tree(door_trees_list = [[i for i in range(2**6)] for
               tree=get_tree(5),
               room_departure=R2,
               room_arrival=R5)
-    D6 = Door(two_way=True,
-              tree=get_tree(6),
-              room_departure=R2,
-              room_arrival=R6)
+    if exit_number is None:
+        D6 = Door(two_way=True,
+                  tree=get_tree(6),
+                  room_departure=R2,
+                  room_arrival=R6)
+    else:
+        D6 = Door(two_way=True,
+                  tree=Tree(['IN', Tree.tree_list_BIN(len(Slist)), [None]],
+                            empty=True,
+                            name=f'T{6}',
+                            switches = Slist + [exit_number],
+                            cut_expression=True),
+                  room_departure=R2,
+                  room_arrival=R6)
     
     level = Maze(start_room_index=0,
                  exit_room_index=-1,

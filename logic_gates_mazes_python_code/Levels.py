@@ -421,15 +421,20 @@ if __name__ == "__main__":
     #     level.try_solution(sol, verbose=3)
     
     import matplotlib.pyplot as plt
+    from numpy import array, median
     for aux_level in Levels.aux_level_function_list:
         print(aux_level().name)
         solution_length = calculates_random_level_solution_length(aux_level)
-        # plt.hist(solution_length)
-        # plt.show()
         print('min', min(solution_length))
         print('avg', sum(solution_length)/len(solution_length))
+        print('med', median(array(solution_length)))
         print('max', max(solution_length))
         print('len', len(solution_length))
+        bins_list = [i for i in range(max(solution_length)+1)]
+        plt.figure(figsize=(20, 5))
+        plt.hist(solution_length, bins=bins_list)
+        plt.xticks(bins_list)
+        plt.show()
         print('')
     
     # for aux_level in Levels.aux_level_function_list:

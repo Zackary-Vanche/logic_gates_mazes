@@ -15,7 +15,8 @@ from Levels_colors_list import Levels_colors_list
 n_switches = 6
 n_doors = 23
 
-def aux_level_random_gemini(door_trees_list = [[i for i in range(2**n_switches)] for j in range(n_doors)]):
+def aux_level_random_gemini(door_trees_list = [[i for i in range(2**n_switches)] for j in range(n_doors)],
+                            exit_number=None):
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -173,11 +174,22 @@ def aux_level_random_gemini(door_trees_list = [[i for i in range(2**n_switches)]
                room_departure=R5,
                room_arrival=R4,
                relative_position=rp)
-    D22 = Door(two_way=False,
-               tree=get_tree(22),
-               room_departure=R5,
-               room_arrival=RE,
-               relative_position=0.5)
+    if exit_number is None:
+        D22 = Door(two_way=False,
+                   tree=get_tree(22),
+                   room_departure=R5,
+                   room_arrival=RE,
+                   relative_position=0.5)
+    else:
+        D22 = Door(two_way=False,
+                   tree=Tree(['IN', Tree.tree_list_BIN(len(Slist)), [None]],
+                             empty=True,
+                             name='T22',
+                             switches = Slist + [exit_number],
+                             cut_expression=True),
+                   room_departure=R5,
+                   room_arrival=RE,
+                   relative_position=0.5)
     
     level = Maze(start_room_index=0,
                  exit_room_index=-1,

@@ -14,7 +14,8 @@ from Levels_colors_list import Levels_colors_list
 
 n_switches=6
 
-def aux_level_random_loop(door_trees_list = [[i for i in range(2**n_switches)] for j in range(7)]):
+def aux_level_random_loop(door_trees_list = [[i for i in range(2**n_switches)] for j in range(7)],
+                          exit_number=None):
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -89,11 +90,22 @@ def aux_level_random_loop(door_trees_list = [[i for i in range(2**n_switches)] f
                 room_departure=R5,
                 room_arrival=R0,
                 relative_position=rp)
-    D6 = Door(two_way=False,
-              tree=get_tree(6),
-              room_departure=R0,
-              room_arrival=RE,
-              relative_position=rp)
+    if exit_number is None:
+        D6 = Door(two_way=False,
+                  tree=get_tree(6),
+                  room_departure=R0,
+                  room_arrival=RE,
+                  relative_position=rp)
+    else:
+        D6 = Door(two_way=False,
+                  tree=Tree(['IN', Tree.tree_list_BIN(len(Slist)), [None]],
+                            empty=True,
+                            name='T6',
+                            switches = Slist + [exit_number],
+                            cut_expression=True),
+                  room_departure=R0,
+                  room_arrival=RE,
+                  relative_position=rp)
     
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
