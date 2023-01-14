@@ -85,70 +85,70 @@ def aux_level_random_come_back(door_trees_list = [[i for i in range(2**n_switche
               relative_position=rp)
     D4 = Door(two_way=False,
               tree=get_tree(4),
-              room_departure=R4,
-              room_arrival=RE,
-              relative_position=0.6)
+              room_departure=R1,
+              room_arrival=R0,
+              relative_position=rp)
     D5 = Door(two_way=False,
               tree=get_tree(5),
-              room_departure=R1,
+              room_departure=R2,
               room_arrival=R0,
               relative_position=rp)
     D6 = Door(two_way=False,
               tree=get_tree(6),
               room_departure=R2,
-              room_arrival=R0,
+              room_arrival=R1,
               relative_position=rp)
     D7 = Door(two_way=False,
               tree=get_tree(7),
-              room_departure=R2,
-              room_arrival=R1,
+              room_departure=R3,
+              room_arrival=R0,
               relative_position=rp)
     D8 = Door(two_way=False,
               tree=get_tree(8),
               room_departure=R3,
-              room_arrival=R0,
-              relative_position=rp)
-    D9 = Door(two_way=False,
-              tree=get_tree(9),
-              room_departure=R3,
               room_arrival=R1,
               relative_position=rp)
-    D10 = Door(two_way=False,
-               tree=get_tree(10),
+    D9 = Door(two_way=False,
+               tree=get_tree(9),
                room_departure=R3,
                room_arrival=R2,
                relative_position=rp)
-    D11 = Door(two_way=False,
-               tree=get_tree(11),
+    D10 = Door(two_way=False,
+               tree=get_tree(10),
                room_departure=R4,
                room_arrival=R0,
                relative_position=0.45)
+    D11 = Door(two_way=False,
+                tree=get_tree(11),
+                room_departure=R4,
+                room_arrival=R1,
+                relative_position=0.25)
     D12 = Door(two_way=False,
                 tree=get_tree(12),
                 room_departure=R4,
-                room_arrival=R1,
+                room_arrival=R2,
                 relative_position=0.25)
     D13 = Door(two_way=False,
                 tree=get_tree(13),
                 room_departure=R4,
-                room_arrival=R2,
-                relative_position=0.25)
+                room_arrival=R3,
+                relative_position=rp)
     if exit_number is None:
         D14 = Door(two_way=False,
-                    tree=get_tree(14),
-                    room_departure=R4,
-                    room_arrival=R3,
-                    relative_position=rp)
+                  tree=get_tree(14),
+                  room_departure=R4,
+                  room_arrival=RE,
+                  relative_position=0.6)
     else:
         D14 = Door(two_way=False,
-                    tree=Tree(['IN', Tree.tree_list_BIN(len(Slist)), [None]],
-                              empty=True,
-                              name='T14',
-                              switches = Slist + [exit_number],
-                              cut_expression=True),
-                    room_departure=R4,
-                    room_arrival=R3,
-                    relative_position=rp)
+                  tree=Tree(['IN', Tree.tree_list_BIN(len(Slist)), [None]],
+                            empty=True,
+                            name='T14',
+                            switches = Slist + [exit_number],
+                            cut_expression=True),
+                  room_departure=R4,
+                  room_arrival=RE,
+                  relative_position=0.6)
     
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
@@ -160,7 +160,8 @@ def aux_level_random_come_back(door_trees_list = [[i for i in range(2**n_switche
                  door_window_size=800,
                  keep_proportions=True,
                  y_separation=40,
-                 border=40)
+                 border=40,
+                 random=True)
     
     return level
 

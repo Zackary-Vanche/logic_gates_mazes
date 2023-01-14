@@ -49,9 +49,11 @@ class Maze:
                  current_page=0,
                  door_multipages=False,
                  current_door_page=0,
-                 do_not_write_trees_always_open=False):
+                 do_not_write_trees_always_open=False,
+                 random_long=False):
 
         self.random = random
+        self.random_long = random_long
         self.name = name
         self.start_room_index = start_room_index
         self.exit_room_index = exit_room_index
@@ -429,7 +431,8 @@ class Maze:
                      door_trees_dico={}):
         # results : 0 unauthorised, 1 authorised but wrong, 2 you won
         self.reboot_solution()
-        solution = solution.replace('\n', separator).split(separator)
+        if isinstance(solution, str):
+            solution = solution.replace('\n', separator).split(separator)
         txt_verbose_3 = ''
         if verbose == 2:
             print("Switches values : {}".format([switch.value for switch in self.switches_list]))
@@ -459,7 +462,21 @@ class Maze:
                     if 3 > verbose > 0:
                         print("You are in room {}\n".format(self.current_room_name()))
                     sv = 0
-                    for i in range(len(self.switches_list)):
+                    # if self.random:
+                    #     door = self.doors_dict[door_name]
+                    #     tree = door.tree
+                    #     tree_bin = tree.sons_list[0]
+                    #     for i in range(len(tree_bin.switches_list)):
+                    #         sv += self.switches_list[i].value * 2**i
+                    #     txt_verbose_3 += action + ' : ' + str(sv) + '\n'
+                    #     door_trees_dico[action].add(sv)
+                    # else:
+                    door = self.doors_dict[door_name]
+                    if door.tree.random_switches_bin_list != []:
+                        switches_list = door.tree.random_switches_bin_list
+                    else:
+                        switches_list = self.switches_list
+                    for i in range(len(switches_list)):
                         sv += self.switches_list[i].value * 2**i
                     txt_verbose_3 += action + ' : ' + str(sv) + '\n'
                     door_trees_dico[action].add(sv)
@@ -507,56 +524,143 @@ class Maze:
     #     return aux_level_function(door_trees_list)
     
     def save_random_door_trees_list(aux_level_function, n_files=100, i0=0): # use it with aux level fonctions
+
         aux_level = aux_level_function()
         n_bin = 2**len(aux_level.switches_list)
         folder = f'levels/{aux_level.name}'
         if not os_path_exists(folder):
             os_mkdir(folder)
+
         for seed in range(i0, i0+n_files):
-            # Choix de la graine de génération de nombre aléatoires
+            
             file_name = folder + f'/door_trees_list_{seed}'
             if not os_path_exists(file_name):
+                
+                # Choix de la graine de génération de nombre aléatoires
                 rd_seed(seed)
                 exit_number = rd_randint(0, n_bin-1)
-                print('exit_number =', exit_number)
                 aux_level = aux_level_function(exit_number=exit_number)
                 print('seed', seed)
+                print('exit_number =', exit_number)
+
                 # Calcul de la solution du niveau et de la première door_trees_list correspondante
                 aux_level.all_solutions = None
                 solutions = aux_level.find_all_solutions(verbose=0,
-                                                         stop_at_first_solution=False,
                                                          DFS=False,
                                                          random_search=True,
                                                          save_solutions_txt=False)
                 solutions[0].sort(key=lambda sol : sol.count('D'))
                 door_trees_list = aux_level.try_solution(' '.join(solutions[0][-1]), verbose=3)
-                # assert len(door_trees_list) == len(aux_level.doors_list), f'{aux_level.name} {len(door_trees_list)} {len(aux_level.doors_list)}'
+
                 # Ajout de nombres à door_trees_list tant que la solution reste identique (pour rendre la résolution plus compliquée)
                 door_trees_list_copy = [l[:] for l in door_trees_list]
-                sol = aux_level_function(door_trees_list_copy,
-                                         exit_number=exit_number).find_all_solutions(stop_at_first_solution=True)
-                print(' '.join(sol[0][-1]))
-                for i_door in range(len(door_trees_list)-1):
+                sol = aux_level_function(door_trees_list_copy, exit_number=exit_number).find_all_solutions()
+                assert sol[0] != []
+                i_door_list = [i for i in range(len(door_trees_list)-1)]
+                rd_shuffle(i_door_list)
+                for i_door in i_door_list:
                     for i_bin in range(n_bin):
                         if i_bin not in door_trees_list[i_door]:
                             door_trees_list[i_door].append(i_bin)
-                            new_sol = aux_level_function(door_trees_list,
-                                                         exit_number=exit_number).find_all_solutions(stop_at_first_solution=True)
-                            assert door_trees_list != door_trees_list_copy
-                            if new_sol == sol:
+                            new_sol = aux_level_function(door_trees_list, exit_number=exit_number).find_all_solutions()
+                            # assert door_trees_list != door_trees_list_copy
+                            if new_sol == sol or len(new_sol) == 0:
                                 door_trees_list_copy = [l[:] for l in door_trees_list]
                             else:
                                 door_trees_list = [l[:] for l in door_trees_list_copy]
-                # On vérifie que la nouvelle solution est identique à la solution initiale
-                new_sol = aux_level_function(door_trees_list,
-                                             exit_number=exit_number).find_all_solutions(stop_at_first_solution=True)
-                assert sol == new_sol
+                # door_trees_list_copy[-1] = [exit_number]
                 door_trees_list = door_trees_list_copy
+                # On vérifie que la nouvelle solution est identique à la solution initiale
+                new_sol = aux_level_function(door_trees_list, exit_number=exit_number).find_all_solutions()
+                print(' '.join(sol[0][0]))
+                print(len(sol[0]))
+                print(' '.join(new_sol[0][0]))
+                print(len(new_sol[0]))
+                try:
+                    assert len(new_sol[0]) != 0
+                except AssertionError:
+                    print('*'*50)
+
                 for i_door in range(len(door_trees_list)):
                     door_trees_list[i_door].sort()
                 # Enregistrement de door_trees_list dans un fichier
-                with open(file_name, 'wb') as fp:
-                    pickle_dump(door_trees_list, fp)
+                if not os_path_exists(file_name):
+                    with open(file_name, 'wb') as fp:
+                        pickle_dump(door_trees_list, fp)
+    
+    # def save_random_door_trees_list(aux_level_function, n_files=100, i0=0): # use it with aux level fonctions
+    #     aux_level = aux_level_function()
+    #     n_bin = 2**len(aux_level.switches_list)
+    #     folder = f'levels/{aux_level.name}/'
+    #     if not os_path_exists(folder):
+    #         os_mkdir(folder)
+    #     for seed in range(i0, i0+n_files):
+    #         # Choix de la graine de génération de nombre aléatoires
+    #         file_name = f'door_trees_list_{seed}'
+    #         if not os_path_exists(folder + file_name):
+    #             if aux_level.random_long:
+    #                 pass # TODO
+    #             else:
+    #                 rd_seed(seed)
+    #                 exit_number = rd_randint(0, n_bin-1)
+    #                 print('exit_number =', exit_number)
+    #                 aux_level = aux_level_function(exit_number=exit_number)
+    #                 print('seed', seed)
+    #                 # Calcul de la solution du niveau et de la première door_trees_list correspondante
+    #                 aux_level.all_solutions = None
+    #                 solutions = aux_level.find_all_solutions(verbose=0,
+    #                                                          stop_at_first_solution=False,
+    #                                                          DFS=False,
+    #                                                          random_search=True,
+    #                                                          save_solutions_txt=False)[0]
+    #                 assert solutions != []
+    #                 # if aux_level.linear_random:
+    #                 #     rd_shuffle(solutions)
+    #                 #     door_trees_list = aux_level.try_solution(' '.join(solutions[-1]), verbose=3)
+    #                 #     try:
+    #                 #         assert aux_level_function(door_trees_list).try_solution(solutions[-1]) == 2
+    #                 #     except AssertionError:
+    #                 #         aux_level_function(door_trees_list).try_solution(solutions[-1], verbose=1)
+    #                 #         raise
+    #                 # else:
+    #                 max_door_number = max([' '.join(sol).count('D') for sol in solutions])
+    #                 solutions_max = [sol for sol in solutions if ' '.join(sol).count('D') == max_door_number]
+    #                 rd_shuffle(solutions_max)
+    #                 door_trees_list = aux_level.try_solution(' '.join(solutions_max[-1]), verbose=3)
+    #                 # assert len(door_trees_list) == len(aux_level.doors_list), f'{aux_level.name} {len(door_trees_list)} {len(aux_level.doors_list)}'
+    #                 # Ajout de nombres à door_trees_list tant que la solution reste identique (pour rendre la résolution plus compliquée)
+    #                 door_trees_list_copy = [l[:] for l in door_trees_list]
+    #                 # print(' '.join(solutions_max[-1]))
+    #                 solutions = aux_level_function(door_trees_list_copy,
+    #                                                exit_number=exit_number).find_all_solutions(stop_at_first_solution=False)[0]
+    #                 assert solutions != []
+    #                 # min_door_number = min([' '.join(sol).count('D') for sol in solutions])
+    #                 # n_solutions = len(solutions)
+    #                 # print(' '.join(solutions[-1]))
+    #                 i_door_list = [i for i in range(len(door_trees_list)-1)]
+    #                 print(i_door_list)
+    #                 rd_shuffle(i_door_list)
+    #                 for i_door in i_door_list:
+    #                     for i_bin in range(n_bin):
+    #                         if i_bin not in door_trees_list[i_door]:
+    #                             door_trees_list[i_door].append(i_bin)
+    #                             new_solutions = aux_level_function(door_trees_list,
+    #                                                                exit_number=exit_number).find_all_solutions(stop_at_first_solution=False)[0]
+    #                             assert door_trees_list != door_trees_list_copy
+    #                             if sorted(new_solutions) == sorted(solutions) or len(new_solutions) == 0:
+    #                                 door_trees_list_copy = [l[:] for l in door_trees_list]
+    #                                 solutions = new_solutions
+    #                             else:
+    #                                 door_trees_list = [l[:] for l in door_trees_list_copy]
+    #                 door_trees_list = door_trees_list_copy
+    #                 for i_door in range(len(door_trees_list)):
+    #                     door_trees_list[i_door].sort()
+    #                 # Enregistrement de door_trees_list dans un fichier
+    #                 with open(folder + file_name, 'wb') as fp:
+    #                     pickle_dump(door_trees_list, fp)
+    #                 solutions = Maze.get_random_level_from_file(aux_level_function, file_name=file_name).find_all_solutions()[0]
+    #                 print('solutions\n', [' '.join(sol) for sol in solutions])
+    #                 # print('door_trees_list\n', door_trees_list)
     
     def get_random_level_from_file(aux_level_function, file_name=None):
         folder = f'levels/{aux_level_function().name}'
@@ -676,38 +780,45 @@ class Maze:
                 if result_solution == 1:
                     current_situation_vector = self.current_situation_to_vector()
                     if current_situation_vector not in visited_situations:# or (random_search and current_situation_vector not in self.visited_sitution_by_solution(solution[:-1])):
-                        # DOORS
-                        actions_doors = self.get_current_possible_doors()
-                        if reverse_actions_order:
-                            actions_doors.reverse()
-                        doors_to_visit = []
-                        for action in actions_doors:
-                            doors_to_visit.append(solution+(action,))
-                        # SWITCHES
-                        switches_to_visit = []
-                        if solution == () or solution[-1][0] != 'S':
-                            for Slist in self.current_room().get_possible_switches_actions():
-                                switches_to_visit.append(solution+tuple(Slist))
                         if random_search:
-                            # rd_shuffle(doors_to_visit)
-                            # rd_shuffle(switches_to_visit)
-                            # if rd_random() > 1/2:
-                            #     elements_to_visit = doors_to_visit + switches_to_visit
-                            # else:
-                            #     elements_to_visit = switches_to_visit + doors_to_visit
-                            elements_to_visit = switches_to_visit + doors_to_visit
-                            rd_shuffle(elements_to_visit)
-                            solutions_to_visit.extend(elements_to_visit)
+                            actions_doors = self.get_current_possible_doors()
+                            actions_switches = self.current_room().get_possible_switches_actions()
+                            last_solutions_to_visit = []
+                            for Slist in actions_switches:
+                                for door in actions_doors:
+                                    last_solutions_to_visit.append(solution + tuple(Slist) + (door,))
+                            rd_shuffle(last_solutions_to_visit)
+                            # with open('temp.txt', 'a') as f:
+                            #     for string in [' '.join(l) for l in last_solutions_to_visit]:
+                            #         f.write(string)
+                            #         f.write('\n')
+                            #     f.write('\n')
+                            solutions_to_visit.extend(last_solutions_to_visit)
                             solutions_to_visit.reverse()
-                        elif DFS:
-                            doors_to_visit.reverse()
-                            switches_to_visit.reverse()
-                            solutions_to_visit.extend(switches_to_visit)
-                            solutions_to_visit.extend(doors_to_visit)
-                            solutions_to_visit.reverse()
+                        # not random search
                         else:
-                            solutions_to_visit.extend(switches_to_visit)
-                            solutions_to_visit.extend(doors_to_visit)
+                            # DOORS
+                            actions_doors = self.get_current_possible_doors()
+                            if reverse_actions_order:
+                                actions_doors.reverse()
+                            doors_to_visit = []
+                            for action in actions_doors:
+                                doors_to_visit.append(solution + (action,))
+                            # SWITCHES
+                            switches_to_visit = []
+                            if solution == () or solution[-1][0] != 'S':
+                                for Slist in self.current_room().get_possible_switches_actions():
+                                    switches_to_visit.append(solution + tuple(Slist))
+                            # solutions_to_visit extend
+                            if DFS:
+                                doors_to_visit.reverse()
+                                switches_to_visit.reverse()
+                                solutions_to_visit.extend(switches_to_visit)
+                                solutions_to_visit.extend(doors_to_visit)
+                                solutions_to_visit.reverse()
+                            else:
+                                solutions_to_visit.extend(switches_to_visit)
+                                solutions_to_visit.extend(doors_to_visit)
                     visited_situations.add(current_situation_vector)
                 elif result_solution == 2:
                     if verbose > 1 and len(solutions_that_work) <= 10:

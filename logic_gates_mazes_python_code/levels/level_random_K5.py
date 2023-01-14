@@ -172,9 +172,11 @@ def aux_level_random_K5(door_trees_list = [[i for i in range(2**n_switches)] for
     if exit_number is None:
         D20 = Door(two_way=False,
                    tree=get_tree(20),
-                   room_departure=R4,
-                   room_arrival=R3,
-                   relative_position=rp)
+                   room_departure=R0,
+                   room_arrival=RE,
+                   relative_position=0.8,
+                   relative_arrival_coordinates=[1/2, 1],
+                   relative_departure_coordinates=[1/2, 0])
     else:
         D20 = Door(two_way=False,
                    tree=Tree(['IN', Tree.tree_list_BIN(len(Slist)), [None]],

@@ -28,6 +28,8 @@ def aux_level_random_K33(door_trees_list = [[i for i in range(2**n_switches)] fo
     
     assert len(Slist) == n_switches
     
+    door_trees_list[9] = [door_trees_list[9][0]]
+    
     def get_tree(i):
         return Tree(['IN', Tree.tree_list_BIN(len(Slist))] + [[None]]*len(door_trees_list[i]),
                      empty=True,
@@ -37,25 +39,25 @@ def aux_level_random_K33(door_trees_list = [[i for i in range(2**n_switches)] fo
                      cut_expression_separator=')')
     
     R0 = Room(name='R0',
-              position = [4, 4, 1, 1],
+              position = [2, 2, 1, 1],
               switches_list = [S0])
     R1 = Room(name='R1',
-              position = [2, 2, 1, 1],
+              position = [4, 4, 1, 1],
               switches_list = [S1])
     R2 = Room(name='R2',
-              position = [4, 0, 1, 1],
+              position = [2, 6, 1, 1],
               switches_list = [S2])
     R3 = Room(name='R3',
-              position = [2, 4, 1, 1],
+              position = [4, 2, 1, 1],
               switches_list = [S3])
     R4 = Room(name='R4',
-              position = [4, 2, 1, 1],
+              position = [2, 4, 1, 1],
               switches_list = [S4])
     R5 = Room(name='R5',
-              position = [2, 0, 1, 1],
+              position = [4, 6, 1, 1],
               switches_list = [S5])
     RE = Room(name='RE',
-              position=[0, 4, 1, 1],
+              position=[4, 0, 1, 1],
               is_exit=True)   # E pour exit ou end
     
     rp = 0.5
@@ -74,39 +76,41 @@ def aux_level_random_K33(door_trees_list = [[i for i in range(2**n_switches)] fo
               tree=get_tree(2),
               room_departure=R0,
               room_arrival=R5,
-              relative_departure_coordinates=[1/2, 1],
-              relative_arrival_coordinates=[1/2, 0],
-              relative_position=1/3)
+              relative_departure_coordinates=[1, 1],
+              relative_arrival_coordinates=[0, 0],
+              relative_position=1/5)
     D3 = Door(two_way=True,
-                tree=get_tree(3),
-                room_departure=R1,
-                room_arrival=R3,
-                relative_position=rp)
+              tree=get_tree(3),
+              room_departure=R1,
+              room_arrival=R3,
+              relative_position=rp)
     D4 = Door(two_way=True,
-                tree=get_tree(4),
-                room_departure=R1,
-                room_arrival=R4,
-                relative_position=rp)
+              tree=get_tree(4),
+              room_departure=R1,
+              room_arrival=R4,
+              relative_position=rp)
     D5 = Door(two_way=True,
-                tree=get_tree(5),
-                room_departure=R1,
-                room_arrival=R5,
-                relative_position=rp)
+              tree=get_tree(5),
+              room_departure=R1,
+              room_arrival=R5,
+              relative_position=rp)
     D6 = Door(two_way=True,
-                tree=get_tree(6),
-                room_departure=R2,
-                room_arrival=R3,
-                relative_position=1/3)
+              tree=get_tree(6),
+              room_departure=R2,
+              room_arrival=R3,
+              relative_departure_coordinates=[1, 0],
+              relative_arrival_coordinates=[0, 1],
+              relative_position=1/5)
     D7 = Door(two_way=True,
-                tree=get_tree(7),
-                room_departure=R2,
-                room_arrival=R4,
-                relative_position=rp)
+              tree=get_tree(7),
+              room_departure=R2,
+              room_arrival=R4,
+              relative_position=rp)
     D8 = Door(two_way=True,
-                tree=get_tree(8),
-                room_departure=R2,
-                room_arrival=R5,
-                relative_position=rp)
+              tree=get_tree(8),
+              room_departure=R2,
+              room_arrival=R5,
+              relative_position=rp)
     if exit_number is None:
         D9 = Door(two_way=False,
                   tree=get_tree(9),
@@ -134,7 +138,8 @@ def aux_level_random_K33(door_trees_list = [[i for i in range(2**n_switches)] fo
                  door_window_size=1475,
                  keep_proportions=False,
                  y_separation=40,
-                 border=40)
+                 border=40,
+                 random=True)
     
     return level
 

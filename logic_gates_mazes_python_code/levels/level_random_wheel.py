@@ -139,7 +139,8 @@ def aux_level_random_wheel(door_trees_list = [[i for i in range(2**n_switches)] 
                  door_window_size=850,
                  keep_proportions=True,
                  y_separation=40,
-                 border=40)
+                 border=40,
+                 random=True)
     
     return level
 

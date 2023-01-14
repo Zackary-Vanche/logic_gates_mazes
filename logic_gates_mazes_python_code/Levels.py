@@ -67,6 +67,7 @@ from levels.level_puzzle import level_puzzle
 from levels.level_pythagorean import level_pythagorean
 from levels.level_pong import level_pong
 from levels.level_random_binary_tree import level_random_binary_tree
+from levels.level_random_boustrophedon import level_random_boustrophedon
 from levels.level_random_bull import level_random_bull
 from levels.level_random_butterfly import level_random_butterfly
 from levels.level_random_come_back import level_random_come_back
@@ -77,6 +78,7 @@ from levels.level_random_K33 import level_random_K33
 from levels.level_random_loop import level_random_loop
 from levels.level_random_ladder import level_random_ladder
 from levels.level_random_line import level_random_line
+from levels.level_random_simple import level_random_simple
 from levels.level_random_star import level_random_star
 from levels.level_random_starting_point import level_random_starting_point
 from levels.level_random_wheel import level_random_wheel
@@ -119,6 +121,8 @@ from levels.level_random_butterfly import aux_level_random_butterfly
 from levels.level_random_come_back import aux_level_random_come_back
 from levels.level_random_gemini import aux_level_random_gemini
 from levels.level_random_ladder import aux_level_random_ladder
+from levels.level_random_boustrophedon import aux_level_random_boustrophedon
+from levels.level_random_simple import aux_level_random_simple
 
 # Rotation
 # Full
@@ -216,14 +220,16 @@ class Levels:
                              level_parking,
                              level_panex,
                              level_superflip,
-                             level_random_K2,
+                             level_random_simple,
                              level_random_bull,
                              level_random_butterfly,
+                             level_random_star,
+                             level_random_K2,
+                             level_random_binary_tree,
                              level_random_line,
                              level_random_loop,
-                             level_random_star,
-                             level_random_binary_tree,
                              level_random_wheel,
+                             level_random_boustrophedon,
                              level_random_come_back,
                              level_random_starting_point,
                              level_random_ladder,
@@ -233,21 +239,25 @@ class Levels:
                              ]
     
     aux_level_function_list = [
-                               aux_level_random_binary_tree,
+                               aux_level_random_simple,
                                aux_level_random_bull,
                                aux_level_random_butterfly,
-                               aux_level_random_come_back,
-                               aux_level_random_gemini,
+                               aux_level_random_star,
                                aux_level_random_K2,
-                               aux_level_random_K33,
-                               aux_level_random_K5,
-                               aux_level_random_ladder,
+                               aux_level_random_binary_tree,
                                aux_level_random_line,
                                aux_level_random_loop,
-                               aux_level_random_star,
-                               aux_level_random_starting_point,
                                aux_level_random_wheel,
+                               aux_level_random_boustrophedon,
+                               aux_level_random_come_back,
+                               aux_level_random_starting_point,
+                               aux_level_random_ladder,
+                               aux_level_random_K5,
+                               aux_level_random_K33,
+                               aux_level_random_gemini,
                                ]
+    
+    # aux_level_function_list = [aux_level_random_boustrophedon]
 
     number_of_levels = len(levels_functions_list)
 
@@ -369,16 +379,25 @@ def test_levels():
     
 def calculates_random_level_solution_length(aux_level_function):
     from os import listdir as os_listdir
+    from os.path import exists as os_path_exists
     from Maze import Maze
     folder = f'levels/{aux_level_function().name}'
-    len_l = []
-    for file_name in os_listdir(folder):
-        level = Maze.get_random_level_from_file(aux_level_function, file_name)
-        sol = level.find_all_solutions(verbose=0, stop_at_first_solution=True)
-        # print(' '.join(sol[0][0]))
-        # print('')
-        len_l.append(len(sol[0][0]))
-    return len_l
+    solution_length = []
+    number_of_solutions = []
+    if os_path_exists(folder):
+        for file_name in os_listdir(folder):
+            level = Maze.get_random_level_from_file(aux_level_function, file_name)
+            solutions = level.find_all_solutions(verbose=0, stop_at_first_solution=False)[0]
+            # print(sol)
+            # print(' '.join(sol[0][0]))
+            # print('')
+            try:
+                solution_length.append(len(solutions[0]))
+                number_of_solutions.append(len(solutions))
+            except IndexError:
+                level.find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=1)
+                print(file_name)
+    return solution_length, number_of_solutions
 
 if __name__ == "__main__":
     pass
@@ -420,34 +439,40 @@ if __name__ == "__main__":
     #     sol = solutions[0][-1]
     #     level.try_solution(sol, verbose=3)
     
-    import matplotlib.pyplot as plt
+    # import matplotlib.pyplot as plt
     from numpy import array, median
     for aux_level in Levels.aux_level_function_list:
         print(aux_level().name)
-        solution_length = calculates_random_level_solution_length(aux_level)
+        solution_length, number_of_solutions = calculates_random_level_solution_length(aux_level)
+        if solution_length == []:
+            print('*')
+            continue
+        print('len', len(solution_length))
+        print('solutions length')
         print('min', min(solution_length))
         print('avg', sum(solution_length)/len(solution_length))
         print('med', median(array(solution_length)))
         print('max', max(solution_length))
-        print('len', len(solution_length))
+        print('numbre of solutions')
+        print('min', min(number_of_solutions))
+        print('avg', sum(number_of_solutions)/len(number_of_solutions))
+        print('med', median(array(number_of_solutions)))
+        print('max', max(number_of_solutions))
         bins_list = [i for i in range(max(solution_length)+1)]
-        plt.figure(figsize=(20, 5))
-        plt.hist(solution_length, bins=bins_list)
-        plt.xticks(bins_list)
-        plt.show()
+        # plt.figure(figsize=(20, 5))
+        # plt.hist(solution_length, bins=bins_list)
+        # plt.xticks(bins_list)
+        # plt.show()
         print('')
-    
-    # for aux_level in Levels.aux_level_function_list:
-    #     print(aux_level().name)
-    #     solutions = aux_level().find_all_solutions(random_search=True)[0]
-    #     solutions = [' '.join(sol) for sol in solutions]
-    #     print(solutions[-1])
         
     # solutions = level_random_K5().find_all_solutions(verbose=1, nb_iterations_print=100)
     # print(solutions)
     
+    # aux_level_random_K5().find_all_solutions(random_search=True,
+    #                                          verbose=1,
+    #                                          nb_iterations_print=50)[0]
     
-    
+    print(level_random_boustrophedon().find_all_solutions())
     
     
     

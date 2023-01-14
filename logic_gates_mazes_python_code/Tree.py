@@ -125,7 +125,8 @@ class Tree:
                  easy_logical_expression_PN=None,
                  root_depth=0, 
                  cut_expression=False,
-                 cut_expression_separator=')'):
+                 cut_expression_separator=')',
+                 random_switches_bin_list=[]):
 
         # assert not (root_depth == 0 and switches == []), name
 
@@ -198,6 +199,8 @@ class Tree:
             for son in self.sons_list:
                 self.number_of_leafs += son.number_of_leafs
 
+        self.random_switches_bin_list = random_switches_bin_list
+
     def update_leafs_switches(self, switches = None):
         if not self.leafs_switches_updates:
             self.leafs_switches_updates = True
@@ -241,6 +244,7 @@ class Tree:
                     s0 = self.sons_list[0].get_easy_logical_expression_PN()
                     lin = ' '.join([t.get_easy_logical_expression_PN() for t in self.sons_list[1:]])
                     self.easy_logical_expression_PN = 'i ' + s0 + ' [' + lin + ']'
+                    assert self.easy_logical_expression_PN is not None
                 elif root_name == 'BETWEEN':
                     n = self.sons_list[0].get_value()
                     self.easy_logical_expression_PN = root_name + ' '
@@ -260,9 +264,10 @@ class Tree:
                     elif root_name == 'MINUS': 
                         self.easy_logical_expression_PN = '- ' + self.sons_list[0].get_easy_logical_expression_PN()
                     elif root_name == 'BIN':
-                        pass # Don't need to do anything since BIN doesn't change anything here
+                        self.easy_logical_expression_PN = self.sons_list[0].get_easy_logical_expression_PN()
                     else:
                         self.easy_logical_expression_PN = root_name + self.sons_list[0].get_easy_logical_expression_PN()
+                    assert self.easy_logical_expression_PN is not None
                 elif len(self.sons_list) == 2:
                     son_A = self.sons_list[0]
                     son_B = self.sons_list[1]
@@ -313,6 +318,7 @@ class Tree:
                         self.easy_logical_expression_PN = '% {0} {1}'.format(A, B)
                     else:
                         self.easy_logical_expression_PN = '{0} {1} {2}'.format(root_name, A, B)
+                    assert self.easy_logical_expression_PN is not None
                 else: 
                     txt = ''
                     for son in self.sons_list:
@@ -323,6 +329,7 @@ class Tree:
                     else:
                         txt = root_name + ' ( ' + txt + ') '
                     self.easy_logical_expression_PN = txt
+                    assert self.easy_logical_expression_PN is not None
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('NOT ', '¬ ')
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('NAND ', '¬& ')
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('AND ', '& ')

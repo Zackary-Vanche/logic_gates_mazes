@@ -115,7 +115,8 @@ def aux_level_random_line(door_trees_list = [[i for i in range(2**n_switches)] f
                  door_window_size=1475,
                  keep_proportions=False,
                  y_separation=40,
-                 border=40)
+                 border=40,
+                 random=True)
     
     return level
 

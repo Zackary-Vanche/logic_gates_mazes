@@ -33,26 +33,26 @@ def aux_level_random_binary_tree(door_trees_list = [[i for i in range(2**6)] for
                      cut_expression_separator=')')
     
     R0 = Room(name='R0',
-              position = [2, 2, 1, 1],
-              switches_list = [])
-    R1 = Room(name='R1',
-              position = [0, 2, 1, 1],
-              switches_list = [S0])
-    R2 = Room(name='R2',
-              position = [0, 4, 1, 1],
-              switches_list = [S1])
-    R3 = Room(name='R3',
-              position = [2, 0, 1, 1],
-              switches_list = [S2])
-    R4 = Room(name='R4',
               position = [0, 0, 1, 1],
+              switches_list = [S0])
+    R1 = Room(name='R1',
+              position = [2, 0, 1, 1],
+              switches_list = [S1])
+    R2 = Room(name='R2',
+              position = [0, 2, 1, 1],
+              switches_list = [S2])
+    R3 = Room(name='R3',
+              position = [2, 6, 1, 1],
               switches_list = [S3])
-    R5 = Room(name='R5',
+    R4 = Room(name='R4',
               position = [0, 6, 1, 1],
               switches_list = [S4])
-    R6 = Room(name='R6',
-              position = [2, 6, 1, 1],
+    R5 = Room(name='R5',
+              position = [0, 4, 1, 1],
               switches_list = [S5])
+    R6 = Room(name='R6',
+              position = [2, 2, 1, 1],
+              switches_list = [])
     RE = Room(name='RE',
               position=[2, 4, 1, 1],
               is_exit=True)   # E pour exit ou end
@@ -60,32 +60,32 @@ def aux_level_random_binary_tree(door_trees_list = [[i for i in range(2**6)] for
     D0 = Door(two_way=True,
               tree=get_tree(0),
               room_departure=R0,
-              room_arrival=RE)
+              room_arrival=R2)
     D1 = Door(two_way=True,
               tree=get_tree(1),
-              room_departure=R0,
-              room_arrival=R1)
+              room_departure=R1,
+              room_arrival=R2)
     D2 = Door(two_way=True,
               tree=get_tree(2),
-              room_departure=R0,
-              room_arrival=R2)
+              room_departure=R3,
+              room_arrival=R5)
     D3 = Door(two_way=True,
               tree=get_tree(3),
-              room_departure=R1,
-              room_arrival=R3)
+              room_departure=R4,
+              room_arrival=R5)
     D4 = Door(two_way=True,
               tree=get_tree(4),
-              room_departure=R1,
-              room_arrival=R4)
+              room_departure=R2,
+              room_arrival=R6)
     D5 = Door(two_way=True,
               tree=get_tree(5),
-              room_departure=R2,
-              room_arrival=R5)
+              room_departure=R5,
+              room_arrival=R6)
     if exit_number is None:
         D6 = Door(two_way=True,
                   tree=get_tree(6),
-                  room_departure=R2,
-                  room_arrival=R6)
+                  room_departure=R6,
+                  room_arrival=RE)
     else:
         D6 = Door(two_way=True,
                   tree=Tree(['IN', Tree.tree_list_BIN(len(Slist)), [None]],
@@ -93,8 +93,8 @@ def aux_level_random_binary_tree(door_trees_list = [[i for i in range(2**6)] for
                             name=f'T{6}',
                             switches = Slist + [exit_number],
                             cut_expression=True),
-                  room_departure=R2,
-                  room_arrival=R6)
+                  room_departure=R6,
+                  room_arrival=RE)
     
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
@@ -106,7 +106,8 @@ def aux_level_random_binary_tree(door_trees_list = [[i for i in range(2**6)] for
                  door_window_size=1475,
                  keep_proportions=False,
                  y_separation=40,
-                 border=40)
+                 border=40,
+                 random=True)
     
     return level
 

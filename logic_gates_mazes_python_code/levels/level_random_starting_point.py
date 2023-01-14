@@ -122,7 +122,8 @@ def aux_level_random_starting_point(door_trees_list = [[i for i in range(2**n_sw
                  door_window_size=1475,
                  keep_proportions=True,
                  y_separation=40,
-                 border=40)
+                 border=40,
+                 random=True)
     
     return level
 

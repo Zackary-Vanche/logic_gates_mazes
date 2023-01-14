@@ -59,7 +59,7 @@ def aux_level_random_gemini(door_trees_list = [[i for i in range(2**n_switches)]
               position = [1, 2, ex, ey],
               switches_list = [S5])
     RE = Room(name='RE',
-              position=[1, 2.5, ex, ey/2],
+              position=[1, 2.5, ex, ey],
               is_exit=True)   # E pour exit ou end
     
     rp = 0.35
@@ -201,7 +201,8 @@ def aux_level_random_gemini(door_trees_list = [[i for i in range(2**n_switches)]
                  door_window_size=1475,
                  keep_proportions=False,
                  y_separation=40,
-                 border=40)
+                 border=40,
+                 random=True)
     
     return level
 
