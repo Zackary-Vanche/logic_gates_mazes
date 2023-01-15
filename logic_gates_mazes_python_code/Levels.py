@@ -67,6 +67,7 @@ from levels.level_puzzle import level_puzzle
 from levels.level_pythagorean import level_pythagorean
 from levels.level_pong import level_pong
 from levels.level_random_binary_tree import level_random_binary_tree
+# from levels.level_random_blind_alley import level_random_blind_alley
 from levels.level_random_boustrophedon import level_random_boustrophedon
 from levels.level_random_bull import level_random_bull
 from levels.level_random_butterfly import level_random_butterfly
@@ -123,6 +124,8 @@ from levels.level_random_gemini import aux_level_random_gemini
 from levels.level_random_ladder import aux_level_random_ladder
 from levels.level_random_boustrophedon import aux_level_random_boustrophedon
 from levels.level_random_simple import aux_level_random_simple
+# from levels.level_random_blind_alley import aux_level_random_blind_alley
+
 
 # Rotation
 # Full
@@ -257,7 +260,7 @@ class Levels:
                                aux_level_random_gemini,
                                ]
     
-    # aux_level_function_list = [aux_level_random_boustrophedon]
+    # aux_level_function_list = []
 
     number_of_levels = len(levels_functions_list)
 
@@ -439,7 +442,7 @@ if __name__ == "__main__":
     #     sol = solutions[0][-1]
     #     level.try_solution(sol, verbose=3)
     
-    # import matplotlib.pyplot as plt
+    import matplotlib.pyplot as plt
     from numpy import array, median
     for aux_level in Levels.aux_level_function_list:
         print(aux_level().name)
@@ -453,16 +456,16 @@ if __name__ == "__main__":
         print('avg', sum(solution_length)/len(solution_length))
         print('med', median(array(solution_length)))
         print('max', max(solution_length))
-        print('numbre of solutions')
+        print('number of solutions')
         print('min', min(number_of_solutions))
         print('avg', sum(number_of_solutions)/len(number_of_solutions))
         print('med', median(array(number_of_solutions)))
         print('max', max(number_of_solutions))
         bins_list = [i for i in range(max(solution_length)+1)]
-        # plt.figure(figsize=(20, 5))
-        # plt.hist(solution_length, bins=bins_list)
-        # plt.xticks(bins_list)
-        # plt.show()
+        plt.figure(figsize=(20, 5))
+        plt.hist(solution_length, bins=bins_list)
+        plt.xticks(bins_list)
+        plt.show()
         print('')
         
     # solutions = level_random_K5().find_all_solutions(verbose=1, nb_iterations_print=100)
@@ -471,15 +474,3 @@ if __name__ == "__main__":
     # aux_level_random_K5().find_all_solutions(random_search=True,
     #                                          verbose=1,
     #                                          nb_iterations_print=50)[0]
-    
-    print(level_random_boustrophedon().find_all_solutions())
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    

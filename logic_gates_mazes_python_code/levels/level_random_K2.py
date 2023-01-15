@@ -28,6 +28,8 @@ def aux_level_random_K2(door_trees_list = [[i for i in range(2**n_switches)] for
     
     assert len(Slist) == n_switches
     
+    door_trees_list[-1] = [door_trees_list[-1][0]]
+    
     def get_tree(i):
         return Tree(['IN', Tree.tree_list_BIN(len(Slist))] + [[None]]*len(door_trees_list[i]),
                      empty=True,

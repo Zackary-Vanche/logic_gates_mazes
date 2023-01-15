@@ -523,7 +523,7 @@ class Maze:
     #     door_trees_list = aux_level.try_solution(sol, verbose=3)
     #     return aux_level_function(door_trees_list)
     
-    def save_random_door_trees_list(aux_level_function, n_files=100, i0=0): # use it with aux level fonctions
+    def save_random_door_trees_list(aux_level_function, n_files=64, i0=0): # use it with aux level fonctions
 
         aux_level = aux_level_function()
         n_bin = 2**len(aux_level.switches_list)
@@ -551,6 +551,7 @@ class Maze:
                                                          save_solutions_txt=False)
                 solutions[0].sort(key=lambda sol : sol.count('D'))
                 door_trees_list = aux_level.try_solution(' '.join(solutions[0][-1]), verbose=3)
+                # print(' '.join(solutions[0][-1]))
 
                 # Ajout de nombres à door_trees_list tant que la solution reste identique (pour rendre la résolution plus compliquée)
                 door_trees_list_copy = [l[:] for l in door_trees_list]

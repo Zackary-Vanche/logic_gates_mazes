@@ -489,11 +489,13 @@ help_menus_list['levels']["Superflip"] = help_menus_list['see other doors']
 
 help_menus_list['levels']["Random - Binary Tree"] = help_menus_list['random']
 
+help_menus_list['levels']["Random - Blind alley"] = """The doors form a bull graph.\n\n""" + help_menus_list['random']
+
+help_menus_list['levels']["Random - Boustrophedon"] = """The doors form a Butterfly graph.\n\n""" + help_menus_list['random']
+
 help_menus_list['levels']["Random - Bull"] = """The doors form a bull graph.\n\n""" + help_menus_list['random']
 
 help_menus_list['levels']["Random - Butterfly"] = """The doors form a Butterfly graph.\n\n""" + help_menus_list['random']
-
-help_menus_list['levels']["Random - Boustrophedon"] = """The doors form a Butterfly graph.\n\n""" + help_menus_list['random']
 
 help_menus_list['levels']["Random - Come back"] = help_menus_list['random']
 

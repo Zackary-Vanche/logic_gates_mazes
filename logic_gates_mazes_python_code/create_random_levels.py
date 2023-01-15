@@ -22,12 +22,12 @@ if __name__ == '__main__':
     #     print(aux_level().name)
     #     Maze.save_random_door_trees_list(aux_level, n_files=1, i0=0)
     
-    # Levels.aux_level_function_list = [Levels.aux_level_function_list[9]]
+    # Levels.aux_level_function_list.reverse()
         
-    for p in range(7):
-        for aux_level in Levels.aux_level_function_list:
-            print(aux_level().name)
-            Maze.save_random_door_trees_list(aux_level, n_files=2**p, i0=0)
+    # for p in range(1):
+    for aux_level in Levels.aux_level_function_list:
+        print(aux_level().name)
+        Maze.save_random_door_trees_list(aux_level, n_files=64, i0=0)
 
     #Maze.save_random_door_trees_list(aux_level, n_files=64, i0=0)
 
