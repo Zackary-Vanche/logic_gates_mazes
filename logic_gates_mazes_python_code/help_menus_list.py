@@ -155,11 +155,23 @@ For example:
     b (S0 S1 S2) = + (S0 * 2 S1 * 4 S2)"""
 
 help_menus_list['IN'] = """
-The operator i takes two arguments : une switch and a switch list.
+The operator i takes two arguments : one switch and a switch list.
 It returns the value 1 if the switch is included in the list, 0 if not.
 For example:
     i 0 [1 2] = 0
     i 4 [4 2] = 1"""
+    
+help_menus_list['INLIST'] = """
+Let l and m be two switches list.
+Then,
+    i l m = 1
+if and only if l is a substring of m.
+For example:
+    i (1) [1 2] = 1
+    i (1 0) [0 1 2] = 0
+    i (2 0) [3 2 0] = 1
+    i (3 2) [3 0 2] = 0
+"""
 
 help_menus_list['DIST'] = """
 d (S0 S1 S2 S3) is the euclidian distance between the two points of the plane (S0 S1) and (S2 S3)."""
@@ -168,11 +180,11 @@ help_menus_list['NONO'] = """
 The operator # takes two list in argument.
 The first list tells you the number of unbroken lines of 1 that should be presents in the second list in order for the result to be 1.
 For example:
-    # [1 1] (1 0 0 1 0) = 1
-    # [2 1] (1 1 0 0 1) = 1
-    # [4] (1 1 1 1) = 1
-    # [1 3] (1 0 1 1) = 0
-    # [2 1] (1 0 0 1 1) = 0"""
+    # (1 1) [1 0 0 1 0] = 1
+    # (2 1) [1 1 0 0 1] = 1
+    # (4) [1 1 1 1] = 1
+    # (1 3) [1 0 1 1] = 0
+    # (2 1) [1 0 0 1 1] = 0"""
     
 help_menus_list['BETWEEN'] = """
 The operator BETWEEN takes several arguments:
@@ -389,6 +401,8 @@ help_menus_list['levels']["Parallel"] = """The "Guess and check" method works we
 
 help_menus_list['levels']["Pythagorean"] = help_menus_list['POW']
 
+help_menus_list['levels']["Superpermutation"] = help_menus_list['INLIST']
+
 help_menus_list['levels']["Taxicab number"] = """Taxicab numbers are also called Hardy–Ramanujan numbers."""
 
 help_menus_list['levels']["Chessboard"] = """If you remove the exit, the graph of this level is the graph of the possible moves of a knight in a 3*4 rectangle.\nHowever, sometimes here doors are one-way only."""
@@ -481,11 +495,15 @@ help_menus_list['levels']["Puzzle"] = """This level is inspired from the 15-puzz
 
 help_menus_list['levels']["Solitaire"] = help_menus_list['JUMP']
 
+help_menus_list['levels']["Zebra"] = """There are five houses."""
+
 help_menus_list['levels']["Parking"] = """If a door equation is not visible, it means it is always open."""
 
 help_menus_list['levels']["Panex"] = """You are on your own."""
 
 help_menus_list['levels']["Superflip"] = help_menus_list['see other doors']
+
+help_menus_list['levels']["Random - Sum"] = """By pressing [N], you get a new random level.\n\n From now on, all the levels will have a random component."""
 
 help_menus_list['levels']["Random - Binary Tree"] = help_menus_list['random']
 
@@ -498,6 +516,8 @@ help_menus_list['levels']["Random - Bull"] = """The doors form a bull graph.\n\n
 help_menus_list['levels']["Random - Butterfly"] = """The doors form a Butterfly graph.\n\n""" + help_menus_list['random']
 
 help_menus_list['levels']["Random - Come back"] = help_menus_list['random']
+
+help_menus_list['levels']["Random - Cuboctahedron"] = help_menus_list['random']
 
 help_menus_list['levels']["Random - Gemini"] = help_menus_list['random']
 
@@ -512,6 +532,8 @@ help_menus_list['levels']["Random - Ladder"] = help_menus_list['random']
 help_menus_list['levels']["Random - Line"] = help_menus_list['random']
 
 help_menus_list['levels']["Random - Loop"] = help_menus_list['random']
+
+help_menus_list['levels']["Random - Petersen"] = help_menus_list['random']
 
 help_menus_list['levels']["Random - Simple"] = help_menus_list['random']
 

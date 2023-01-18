@@ -71,6 +71,9 @@ class Tree:
     def tree_list_JUMP(n):
         return ['JUMP'] + [[None]]*n
     
+    def tree_list_INLIST(n):
+        return ['INLIST'] + [[None]]*n
+    
     def tree_list_from_str(txt, CNF=False):
         txt = txt.replace('0', 'F').replace('1', 'T')
         def tree_list_and_from_str(txt):
@@ -239,12 +242,17 @@ class Tree:
                     line = self.sons_list[1+n:]
                     l1 = ' '.join([t.get_easy_logical_expression_PN() for t in groups_of_1_needed])
                     l2 = ' '.join([t.get_easy_logical_expression_PN() for t in line])
-                    self.easy_logical_expression_PN = '# ' + '[' + l1 + '] (' + l2 + ')'
+                    self.easy_logical_expression_PN = '# ' + '(' + l1 + ') [' + l2 + ']'
                 elif root_name == 'IN':
                     s0 = self.sons_list[0].get_easy_logical_expression_PN()
                     lin = ' '.join([t.get_easy_logical_expression_PN() for t in self.sons_list[1:]])
                     self.easy_logical_expression_PN = 'i ' + s0 + ' [' + lin + ']'
                     assert self.easy_logical_expression_PN is not None
+                elif root_name == 'INLIST':
+                    n = self.sons_list[0].get_value()
+                    l1 = ' '.join([t.get_easy_logical_expression_PN() for t in self.sons_list[1:n+1]])
+                    l2 = ' '.join([t.get_easy_logical_expression_PN() for t in self.sons_list[n+1:]])
+                    self.easy_logical_expression_PN = 'i (' + l1 + ') [' + l2 + ']'
                 elif root_name == 'BETWEEN':
                     n = self.sons_list[0].get_value()
                     self.easy_logical_expression_PN = root_name + ' '
@@ -514,8 +522,7 @@ class Tree:
         txt = ''
         if self.root_depth == 0:
             txt += '\n|   Tree {} :\n'.format(self.name)
-            txt += '|   Raw logical expression :\n|      {}\n'.format(self.get_raw_logical_expression_RPN())
-            txt += '|   Logical expression :\n|      {}\n'.format(self.get_logical_expression_RPN_simplified()) 
+            txt += '|   logical expression :\n|      {}\n'.format(self.get_easy_logical_expression_PN())
         assert self.is_leaf != None
         if self.is_leaf:
             txt += '|   '*self.root_depth + '|' + '-'*7 + '> ' + str(self.get_root())
@@ -531,12 +538,12 @@ class Tree:
         if self.root_depth == 0:
             txt += "\n|   Number of leafs : {}".format(self.number_of_leafs)
             txt += "\n|   depth of the Tree : {}".format(self.get_depth())
-        if self.root_depth == 0:
-            txt += '\n|   Truth table :{}'.format(self.str_table())
-            txt += '\n|   Number of 0 in truth table : {}'.format(self.number_of_0_in_truth_table())
-            txt += '\n|   Number of 1 in truth table : {}'.format(self.number_of_1_in_truth_table())
-            txt += '\n|   Number of possibles 0 in truth table : {}'.format(self.number_of_possibles_0_in_truth_table())
-            txt += '\n|   Number of possibles 1 in truth table : {}'.format(self.number_of_possibles_1_in_truth_table())
+        # if self.root_depth == 0:
+        #     txt += '\n|   Truth table :{}'.format(self.str_table())
+        #     txt += '\n|   Number of 0 in truth table : {}'.format(self.number_of_0_in_truth_table())
+        #     txt += '\n|   Number of 1 in truth table : {}'.format(self.number_of_1_in_truth_table())
+        #     txt += '\n|   Number of possibles 0 in truth table : {}'.format(self.number_of_possibles_0_in_truth_table())
+        #     txt += '\n|   Number of possibles 1 in truth table : {}'.format(self.number_of_possibles_1_in_truth_table())
         if self.root_depth == 0:
             txt += '\n|   Same switches list :\n|      {}'.format(self.same_switches_list)
             txt += '\n|   Switches list :\n|      {}'.format([switch.name for switch in self.switches_list])

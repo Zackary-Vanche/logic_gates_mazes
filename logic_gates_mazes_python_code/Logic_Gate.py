@@ -85,8 +85,8 @@ class Logic_Gate:
         return all(branches_values[i] >= branches_values[i+1] for i in range(len(branches_values)-1))
     
     def aux_func_BIN(branches_values):
-        for i in range(len(branches_values)):
-            assert isinstance(branches_values[i], int), f'{i} {branches_values}' # TODO : remove
+        # for i in range(len(branches_values)):
+        #     assert isinstance(branches_values[i], int), f'{i} {branches_values}' # TODO : remove
         return sum([branches_values[i]*2**i for i in range(len(branches_values))])
 
     def aux_func_POW(branches_values):
@@ -122,6 +122,12 @@ class Logic_Gate:
     def aux_func_IN(branches_values):
         # # assert len(sons_list) > 1
         return branches_values[0] in branches_values[1:]
+    
+    def aux_func_INLIST(branches_list):
+        n = branches_list[0]
+        l1 = [str(b) for b in branches_list[1:n+1]]
+        l2 = [str(b) for b in branches_list[n+1:]]
+        return ''.join(l1) in ''.join(l2)
 
     def aux_func_BETWEEN(branches_values):
         branches_values = list(branches_values)
@@ -196,6 +202,7 @@ class Logic_Gate:
                  'NONO': aux_func_NONO,
                  'DIST': aux_func_DIST,
                  'IN': aux_func_IN,
+                 'INLIST' : aux_func_INLIST,
                  'BETWEEN': aux_func_BETWEEN,
                  'JUMP': aux_func_JUMP,
                  }

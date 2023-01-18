@@ -549,6 +549,7 @@ class Maze:
                                                          DFS=False,
                                                          random_search=True,
                                                          save_solutions_txt=False)
+                assert solutions[0] != []
                 solutions[0].sort(key=lambda sol : sol.count('D'))
                 door_trees_list = aux_level.try_solution(' '.join(solutions[0][-1]), verbose=3)
                 # print(' '.join(solutions[0][-1]))
@@ -557,37 +558,34 @@ class Maze:
                 door_trees_list_copy = [l[:] for l in door_trees_list]
                 sol = aux_level_function(door_trees_list_copy, exit_number=exit_number).find_all_solutions()
                 assert sol[0] != []
-                i_door_list = [i for i in range(len(door_trees_list)-1)]
+                i_door_list = [i for i in range(len(door_trees_list))]
                 rd_shuffle(i_door_list)
                 for i_door in i_door_list:
                     for i_bin in range(n_bin):
                         if i_bin not in door_trees_list[i_door]:
                             door_trees_list[i_door].append(i_bin)
-                            new_sol = aux_level_function(door_trees_list, exit_number=exit_number).find_all_solutions()
-                            # assert door_trees_list != door_trees_list_copy
+                            new_sol = aux_level_function(door_trees_list).find_all_solutions()
                             if new_sol == sol or len(new_sol) == 0:
                                 door_trees_list_copy = [l[:] for l in door_trees_list]
                             else:
                                 door_trees_list = [l[:] for l in door_trees_list_copy]
-                # door_trees_list_copy[-1] = [exit_number]
                 door_trees_list = door_trees_list_copy
-                # On vérifie que la nouvelle solution est identique à la solution initiale
-                new_sol = aux_level_function(door_trees_list, exit_number=exit_number).find_all_solutions()
-                print(' '.join(sol[0][0]))
-                print(len(sol[0]))
-                print(' '.join(new_sol[0][0]))
-                print(len(new_sol[0]))
-                try:
-                    assert len(new_sol[0]) != 0
-                except AssertionError:
-                    print('*'*50)
 
+                # On vérifie que la nouvelle solution est identique à la solution initiale
+                new_sol = aux_level_function(door_trees_list).find_all_solutions()
+                print(new_sol)
+                # print(door_trees_list)
+                sol = aux_level_function(door_trees_list).find_all_solutions()
+                assert sol[0] != []
+
+                # Enregistrement de door_trees_list dans un fichier
                 for i_door in range(len(door_trees_list)):
                     door_trees_list[i_door].sort()
-                # Enregistrement de door_trees_list dans un fichier
                 if not os_path_exists(file_name):
                     with open(file_name, 'wb') as fp:
                         pickle_dump(door_trees_list, fp)
+                        
+                assert Maze.get_random_level_from_file(aux_level_function, file_name=None).find_all_solutions()[0] != []
     
     # def save_random_door_trees_list(aux_level_function, n_files=100, i0=0): # use it with aux level fonctions
     #     aux_level = aux_level_function()

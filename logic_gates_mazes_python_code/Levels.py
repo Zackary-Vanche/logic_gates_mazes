@@ -72,6 +72,7 @@ from levels.level_random_boustrophedon import level_random_boustrophedon
 from levels.level_random_bull import level_random_bull
 from levels.level_random_butterfly import level_random_butterfly
 from levels.level_random_come_back import level_random_come_back
+from levels.level_random_cuboctahedron import level_random_cuboctahedron
 from levels.level_random_gemini import level_random_gemini
 from levels.level_random_K2 import level_random_K2
 from levels.level_random_K5 import level_random_K5
@@ -79,9 +80,11 @@ from levels.level_random_K33 import level_random_K33
 from levels.level_random_loop import level_random_loop
 from levels.level_random_ladder import level_random_ladder
 from levels.level_random_line import level_random_line
+from levels.level_random_petersen import level_random_petersen
 from levels.level_random_simple import level_random_simple
 from levels.level_random_star import level_random_star
 from levels.level_random_starting_point import level_random_starting_point
+from levels.level_random_sum import level_random_sum
 from levels.level_random_wheel import level_random_wheel
 from levels.level_recurrence import level_recurrence
 from levels.level_river import level_river
@@ -92,6 +95,7 @@ from levels.level_strange import level_strange
 from levels.level_sudoku import level_sudoku
 from levels.level_sujiko import level_sujiko
 from levels.level_superflip import level_superflip
+from levels.level_superpermutation import level_superpermutation
 from levels.level_syracuse import level_syracuse
 from levels.level_takuzu import level_takuzu
 from levels.level_taxicab_number import level_taxicab_number
@@ -107,6 +111,7 @@ from levels.level_water_pouring import level_water_pouring
 from levels.level_wave import level_wave
 from levels.level_weights import level_weights
 from levels.level_xor import level_xor
+from levels.level_zebra import level_zebra
 
 from levels.level_random_K2 import aux_level_random_K2
 from levels.level_random_K5 import aux_level_random_K5
@@ -124,6 +129,8 @@ from levels.level_random_gemini import aux_level_random_gemini
 from levels.level_random_ladder import aux_level_random_ladder
 from levels.level_random_boustrophedon import aux_level_random_boustrophedon
 from levels.level_random_simple import aux_level_random_simple
+from levels.level_random_petersen import aux_level_random_petersen
+from levels.level_random_cuboctahedron import aux_level_random_cuboctahedron
 # from levels.level_random_blind_alley import aux_level_random_blind_alley
 
 
@@ -174,6 +181,7 @@ class Levels:
                              level_compact,
                              level_parallel,
                              level_pythagorean,
+                             level_superpermutation,
                              level_chessboard,
                              level_partition,
                              level_knapsack,
@@ -220,9 +228,11 @@ class Levels:
                              level_water_pouring,
                              level_puzzle,
                              level_solitaire,
+                             level_zebra,
                              level_parking,
                              level_panex,
                              level_superflip,
+                             level_random_sum,
                              level_random_simple,
                              level_random_bull,
                              level_random_butterfly,
@@ -238,6 +248,8 @@ class Levels:
                              level_random_ladder,
                              level_random_K5,
                              level_random_K33,
+                             level_random_petersen,
+                             level_random_cuboctahedron,
                              level_random_gemini,
                              ]
     
@@ -257,6 +269,8 @@ class Levels:
                                aux_level_random_ladder,
                                aux_level_random_K5,
                                aux_level_random_K33,
+                               aux_level_random_petersen,
+                               aux_level_random_cuboctahedron,
                                aux_level_random_gemini,
                                ]
     
@@ -371,6 +385,8 @@ def test_levels():
         level = level_function()
         if level.fastest_solution is not None:
             solutions_lenghts.append(len(level.fastest_solution.split(' ')))
+        elif not 'Random' in level.name:
+            print(level.name, 'no fastest solution')
     plt.figure(figsize=(15, 5))
     x_list = [i for i in range(len(solutions_lenghts))]
     plt.plot(x_list, solutions_lenghts, lw=0.3, color='k')
@@ -400,6 +416,7 @@ def calculates_random_level_solution_length(aux_level_function):
             except IndexError:
                 level.find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=1)
                 print(file_name)
+                raise
     return solution_length, number_of_solutions
 
 if __name__ == "__main__":
@@ -419,7 +436,7 @@ if __name__ == "__main__":
     #                                           DFS_random=False)
     #     print(solutions)
 
-    #test_levels()
+    test_levels()
 
     # import cProfile
     # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=1, save_as_txt=False)''', sort=1)
@@ -442,34 +459,35 @@ if __name__ == "__main__":
     #     sol = solutions[0][-1]
     #     level.try_solution(sol, verbose=3)
     
-    import matplotlib.pyplot as plt
-    from numpy import array, median
-    for aux_level in Levels.aux_level_function_list:
-        print(aux_level().name)
-        solution_length, number_of_solutions = calculates_random_level_solution_length(aux_level)
-        if solution_length == []:
-            print('*')
-            continue
-        print('len', len(solution_length))
-        print('solutions length')
-        print('min', min(solution_length))
-        print('avg', sum(solution_length)/len(solution_length))
-        print('med', median(array(solution_length)))
-        print('max', max(solution_length))
-        print('number of solutions')
-        print('min', min(number_of_solutions))
-        print('avg', sum(number_of_solutions)/len(number_of_solutions))
-        print('med', median(array(number_of_solutions)))
-        print('max', max(number_of_solutions))
-        bins_list = [i for i in range(max(solution_length)+1)]
-        plt.figure(figsize=(20, 5))
-        plt.hist(solution_length, bins=bins_list)
-        plt.xticks(bins_list)
-        plt.show()
-        print('')
+    # import matplotlib.pyplot as plt
+    # from numpy import array, median
+    # for aux_level in Levels.aux_level_function_list:
+    #     print(aux_level().name)
+    #     solution_length, number_of_solutions = calculates_random_level_solution_length(aux_level)
+    #     if solution_length == []:
+    #         print('*')
+    #         continue
+    #     print('len', len(solution_length))
+    #     print('solutions length')
+    #     print('min', min(solution_length))
+    #     print('avg', sum(solution_length)/len(solution_length))
+    #     print('med', median(array(solution_length)))
+    #     print('max', max(solution_length))
+    #     print('number of solutions')
+    #     print('min', min(number_of_solutions))
+    #     print('avg', sum(number_of_solutions)/len(number_of_solutions))
+    #     print('med', median(array(number_of_solutions)))
+    #     print('max', max(number_of_solutions))
+    #     bins_list = [i for i in range(max(solution_length)+1)]
+    #     plt.figure(figsize=(20, 5))
+    #     plt.hist(solution_length, bins=bins_list)
+    #     plt.xticks(bins_list)
+    #     plt.show()
+    #     print('')
         
-    # solutions = level_random_K5().find_all_solutions(verbose=1, nb_iterations_print=100)
-    # print(solutions)
+    # while True:
+    #     solutions = level_random_sum().find_all_solutions(verbose=0, nb_iterations_print=100)
+    #     print(solutions)
     
     # aux_level_random_K5().find_all_solutions(random_search=True,
     #                                          verbose=1,
