@@ -7,7 +7,7 @@ from pyautogui import size as pyautogui_size
 def divisor_closest_to_sqrt(n):
     from numpy import ceil, sqrt
     d = 1
-    for k in range(1, int(ceil(sqrt(n)))):
+    for k in range(1, int(ceil(sqrt(n)))+1):
         if n%k == 0:
             d = k
     return d
