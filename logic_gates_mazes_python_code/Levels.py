@@ -32,6 +32,7 @@ from levels.level_dead_ends import level_dead_ends
 from levels.level_dominating_set import level_dominating_set
 from levels.level_egyptian_fractions import level_egyptian_fractions
 from levels.level_electricity import level_electricity
+from levels.level_elementary import level_elementary
 from levels.level_eulerian import level_eulerian
 from levels.level_exact_cover import level_exact_cover
 from levels.level_fluid import level_fluid
@@ -181,6 +182,7 @@ class Levels:
                              level_compact,
                              level_parallel,
                              level_pythagorean,
+                             level_elementary,
                              level_superpermutation,
                              level_chessboard,
                              level_partition,

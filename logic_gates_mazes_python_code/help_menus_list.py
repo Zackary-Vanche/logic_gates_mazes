@@ -401,6 +401,8 @@ help_menus_list['levels']["Parallel"] = """The "Guess and check" method works we
 
 help_menus_list['levels']["Pythagorean"] = help_menus_list['POW']
 
+help_menus_list['levels']["Elementary"] = """An elementary permutation is a swap of two adjacent elements.\n""" + help_menus_list['EQUSET']
+
 help_menus_list['levels']["Superpermutation"] = help_menus_list['INLIST']
 
 help_menus_list['levels']["Taxicab number"] = """Taxicab numbers are also called Hardy–Ramanujan numbers."""
@@ -439,7 +441,7 @@ help_menus_list['levels']["Weights"] = '''You must find the good weights in orde
 
 help_menus_list['levels']["Baguenaudier"] = '''The baguenaudier is an old puzzle game.'''
 
-help_menus_list['levels']["Tetris"] = """Each number can represent a position in the plane.\n""" + help_menus_list['EQUSET']
+help_menus_list['levels']["Tetris"] = """Each number can represent a position in the plane.\n"""
 
 help_menus_list['levels']["4 colors theorem"] = """Each couple of switches represent a color.\n"""
 
