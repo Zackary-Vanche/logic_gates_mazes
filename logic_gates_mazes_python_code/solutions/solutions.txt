@@ -247,57 +247,57 @@ None
 Level 82 : Random - Sum
 None
 
-Level 83 : Random - Simple
+Level 83 : Random - Simple (version 54)
 None
 
-Level 84 : Random - Bull
+Level 84 : Random - Bull (version 13)
 None
 
-Level 85 : Random - Butterfly
+Level 85 : Random - Butterfly (version 51)
 None
 
-Level 86 : Random - Star
+Level 86 : Random - Star (version 29)
 None
 
-Level 87 : Random - K2
+Level 87 : Random - K2 (version 42)
 None
 
-Level 88 : Random - Binary Tree
+Level 88 : Random - Binary Tree (version 25)
 None
 
-Level 89 : Random - Line
+Level 89 : Random - Line (version 61)
 None
 
-Level 90 : Random - Loop
+Level 90 : Random - Loop (version 25)
 None
 
-Level 91 : Random - Wheel
+Level 91 : Random - Wheel (version 8)
 None
 
-Level 92 : Random - Boustrophedon
+Level 92 : Random - Boustrophedon (version 59)
 None
 
-Level 93 : Random - Come back
+Level 93 : Random - Come back (version 36)
 None
 
-Level 94 : Random - Starting point
+Level 94 : Random - Starting point (version 47)
 None
 
-Level 95 : Random - Ladder
+Level 95 : Random - Ladder (version 35)
 None
 
-Level 96 : Random - K5
+Level 96 : Random - K5 (version 55)
 None
 
-Level 97 : Random - K3,3
+Level 97 : Random - K3,3 (version 15)
 None
 
-Level 98 : Random - Petersen
+Level 98 : Random - Petersen (version 0)
 None
 
-Level 99 : Random - Cuboctahedron
+Level 99 : Random - Cuboctahedron (version 29)
 None
 
-Level 100 : Random - Gemini
+Level 100 : Random - Gemini (version 62)
 None
 

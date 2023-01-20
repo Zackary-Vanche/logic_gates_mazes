@@ -505,7 +505,7 @@ help_menus_list['levels']["Panex"] = """You are on your own."""
 
 help_menus_list['levels']["Superflip"] = help_menus_list['see other doors']
 
-help_menus_list['levels']["Random - Sum"] = """By pressing [N], you get a new random level.\n\n From now on, all the levels will have a random component."""
+help_menus_list['levels']["Random - Sum"] = help_menus_list['random'] + """\n\nFrom now on, all the levels will have a random component."""
 
 help_menus_list['levels']["Random - Binary Tree"] = help_menus_list['random']
 

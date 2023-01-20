@@ -27,7 +27,7 @@ if __name__ == '__main__':
     # for p in range(1):
     for aux_level in Levels.aux_level_function_list:
         print(aux_level().name)
-        Maze.save_random_door_trees_list(aux_level, n_files=64, i0=0)
+        Maze.save_random_door_trees_list(aux_level, n_files=128, i0=0)
 
     #Maze.save_random_door_trees_list(aux_level, n_files=64, i0=0)
 
