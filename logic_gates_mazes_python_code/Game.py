@@ -326,7 +326,7 @@ class Game:
             logical_expression = tree.get_easy_logical_expression_PN()
             logical_expression = logical_expression.split('\n')
             self.n_lines_door_printing = len(logical_expression)
-            self.gap_between_lines = min((self.WINDOW_HEIGHT - self.maze.y_separation - 50) / (self.n_lines_door_printing), 25)
+            self.gap_between_lines = min((self.WINDOW_HEIGHT - self.maze.y_separation - 50) / (self.n_lines_door_printing), 30)
             tree = door.tree
             str_logical_expression = tree.get_easy_logical_expression_PN()
             str_logical_expression = str_logical_expression.split('\n')

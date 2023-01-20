@@ -50,10 +50,14 @@ class Maze:
                  door_multipages=False,
                  current_door_page=0,
                  do_not_write_trees_always_open=False,
-                 random_long=False):
+                 random_long=False,
+                 random_several_exit=False,
+                 exit_doors_indexes=[]):
 
         self.random = random
         self.random_long = random_long
+        self.random_several_exit = random_several_exit
+        self.exit_doors_indexes = exit_doors_indexes
         self.name = name
         self.start_room_index = start_room_index
         self.exit_room_index = exit_room_index
@@ -538,9 +542,16 @@ class Maze:
                 
                 # Choix de la graine de génération de nombre aléatoires
                 rd_seed(seed)
-                exit_number = rd_randint(0, n_bin-1)
-                aux_level = aux_level_function(exit_number=exit_number)
                 print('seed', seed)
+                exit_number = rd_randint(0, n_bin-1)
+                if aux_level.random_several_exit:
+                    exit_door = rd_choice(aux_level.exit_doors_indexes)
+                    print('exit_door =', exit_door)
+                    aux_level = aux_level_function(exit_number=exit_number,
+                                                   exit_door=exit_door)
+                else:
+                    print('Only one exit')
+                    aux_level = aux_level_function(exit_number=exit_number)
                 print('exit_number =', exit_number)
 
                 # Calcul de la solution du niveau et de la première door_trees_list correspondante
@@ -556,7 +567,13 @@ class Maze:
 
                 # Ajout de nombres à door_trees_list tant que la solution reste identique (pour rendre la résolution plus compliquée)
                 door_trees_list_copy = [l[:] for l in door_trees_list]
-                sol = aux_level_function(door_trees_list_copy, exit_number=exit_number).find_all_solutions()
+                if aux_level.random_several_exit:
+                    sol = aux_level_function(door_trees_list_copy,
+                                             exit_number=exit_number,
+                                             exit_door=exit_door).find_all_solutions()
+                else:
+                    sol = aux_level_function(door_trees_list_copy,
+                                             exit_number=exit_number).find_all_solutions()
                 assert sol[0] != []
                 i_door_list = [i for i in range(len(door_trees_list))]
                 rd_shuffle(i_door_list)
@@ -669,7 +686,9 @@ class Maze:
             file_name = rd_choice(os_listdir(folder))
         with open('/'.join([folder, file_name]), 'rb') as fp:
             door_trees_list = pickle_load(fp)
-        return aux_level_function(door_trees_list)
+        level = aux_level_function(door_trees_list)
+        level.name = ' '.join([level.name, f"(version {file_name.split('_')[-1]})"])
+        return level
 
     def fast_try_solution(self,
                           solution,

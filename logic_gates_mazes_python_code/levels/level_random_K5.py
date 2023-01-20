@@ -14,10 +14,11 @@ from Levels_colors_list import Levels_colors_list
 from numpy import cos, sin, pi
 
 n_switches = 5
-n_doors = 21
+n_doors = 26
 
 def aux_level_random_K5(door_trees_list = [[i for i in range(2**n_switches)] for j in range(n_doors)],
-                        exit_number=None):
+                        exit_number=None,
+                        exit_door=None):
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -67,138 +68,183 @@ def aux_level_random_K5(door_trees_list = [[i for i in range(2**n_switches)] for
               position=position_RE,
               is_exit=True)   # E pour exit ou end
     
-    rp = 0.25
+    rp1 = 0.25
+    rp2 = 0.25
+    rpE = 0.55
     
     D0 = Door(two_way=False,
               tree=get_tree(0),
               room_departure=R0,
               room_arrival=R1,
-              relative_position=rp)
+              relative_position=rp1)
     D1 = Door(two_way=False,
               tree=get_tree(1),
               room_departure=R1,
               room_arrival=R0,
-              relative_position=rp)
+              relative_position=rp1)
     D2 = Door(two_way=False,
               tree=get_tree(2),
               room_departure=R0,
               room_arrival=R2,
-              relative_position=rp)
+              relative_position=rp2)
     D3 = Door(two_way=False,
               tree=get_tree(3),
               room_departure=R2,
               room_arrival=R0,
-              relative_position=rp)
+              relative_position=rp2)
     D4 = Door(two_way=False,
               tree=get_tree(4),
               room_departure=R0,
               room_arrival=R3,
-              relative_position=rp)
+              relative_position=rp2)
     D5 = Door(two_way=False,
               tree=get_tree(5),
               room_departure=R3,
               room_arrival=R0,
-              relative_position=rp)
+              relative_position=rp2)
     D6 = Door(two_way=False,
               tree=get_tree(6),
               room_departure=R0,
               room_arrival=R4,
-              relative_position=rp)
+              relative_position=rp1)
     D7 = Door(two_way=False,
               tree=get_tree(7),
               room_departure=R4,
               room_arrival=R0,
-              relative_position=rp)
+              relative_position=rp1)
     D8 = Door(two_way=False,
               tree=get_tree(8),
               room_departure=R1,
               room_arrival=R2,
-              relative_position=rp)
+              relative_position=rp1)
     D9 = Door(two_way=False,
               tree=get_tree(9),
               room_departure=R2,
               room_arrival=R1,
-              relative_position=rp)
+              relative_position=rp1)
     D10 = Door(two_way=False,
                tree=get_tree(10),
                room_departure=R1,
                room_arrival=R3,
-               relative_position=rp)
+               relative_position=rp2)
     D11 = Door(two_way=False,
                tree=get_tree(11),
                room_departure=R3,
                room_arrival=R1,
-               relative_position=rp)
+               relative_position=rp2)
     D12 = Door(two_way=False,
                tree=get_tree(12),
                room_departure=R1,
                room_arrival=R4,
-               relative_position=rp)
+               relative_position=rp2)
     D13 = Door(two_way=False,
                tree=get_tree(13),
                room_departure=R4,
                room_arrival=R1,
-               relative_position=rp)
+               relative_position=rp2)
     D14 = Door(two_way=False,
                tree=get_tree(14),
                room_departure=R2,
                room_arrival=R3,
-               relative_position=rp)
+               relative_position=rp1)
     D15 = Door(two_way=False,
                tree=get_tree(15),
                room_departure=R3,
                room_arrival=R2,
-               relative_position=rp)
+               relative_position=rp1)
     D16 = Door(two_way=False,
                tree=get_tree(16),
                room_departure=R2,
                room_arrival=R4,
-               relative_position=rp)
+               relative_position=rp2)
     D17 = Door(two_way=False,
                tree=get_tree(17),
                room_departure=R4,
                room_arrival=R2,
-               relative_position=rp)
+               relative_position=rp2)
     D18 = Door(two_way=False,
                tree=get_tree(18),
                room_departure=R3,
                room_arrival=R4,
-               relative_position=rp)
+               relative_position=rp1)
     D19 = Door(two_way=False,
                tree=get_tree(19),
                room_departure=R4,
                room_arrival=R3,
-               relative_position=rp)
+               relative_position=rp1)
     if exit_number is None:
-        D20 = Door(two_way=False,
-                   tree=get_tree(20),
-                   room_departure=R0,
-                   room_arrival=RE,
-                   relative_position=0.8,
-                   relative_arrival_coordinates=[1/2, 1],
-                   relative_departure_coordinates=[1/2, 0])
+        T20 = get_tree(20)
+        T21 = get_tree(21)
+        T22 = get_tree(22)
+        T23 = get_tree(23)
+        T24 = get_tree(24)
     else:
-        D20 = Door(two_way=False,
-                   tree=Tree(['IN', Tree.tree_list_BIN(len(Slist)), [None]],
-                             empty=True,
-                             name='T20',
-                             switches = Slist + [exit_number],
-                             cut_expression=True),
-                   room_departure=R0,
-                   room_arrival=RE,
-                   relative_position=0.5)
+        assert exit_door != None
+        T20 = Tree([None],
+                   empty=True,
+                   name='T20',
+                   switches = [exit_door==20],
+                   cut_expression=True)
+        T21 = Tree([None],
+                   empty=True,
+                   name='T21',
+                   switches = [exit_door==21],
+                   cut_expression=True)
+        T22 = Tree([None],
+                   empty=True,
+                   name='T22',
+                   switches = [exit_door==22],
+                   cut_expression=True)
+        T23 = Tree([None],
+                   empty=True,
+                   name='T23',
+                   switches = [exit_door==23],
+                   cut_expression=True)
+        T24 = Tree([None],
+                   empty=True,
+                   name='T24',
+                   switches = [exit_door==24],
+                   cut_expression=True)
+    D20 = Door(two_way=False,
+               tree=T20,
+               room_departure=R0,
+               room_arrival=RE,
+               relative_position=rpE)
+    D21 = Door(two_way=False,
+               tree=T21,
+               room_departure=R1,
+               room_arrival=RE,
+               relative_position=rpE)
+    D22 = Door(two_way=False,
+               tree=T22,
+               room_departure=R2,
+               room_arrival=RE,
+               relative_position=rpE)
+    D23 = Door(two_way=False,
+               tree=T23,
+               room_departure=R3,
+               room_arrival=RE,
+               relative_position=rpE)
+    D24 = Door(two_way=False,
+               tree=T24,
+               room_departure=R4,
+               room_arrival=RE,
+               relative_position=rpE)
     
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4] + [RE],
-                 doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19, D20],
+                 doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19,
+                             D20, D21, D22, D23, D24],
                  fastest_solution=None,
                  level_color=Levels_colors_list.RANDOM(),
                  name='Random - K5',
                  door_window_size=800,
                  keep_proportions=True,
                  y_separation=40,
-                 border=40)
+                 border=40,
+                 random_several_exit=True,
+                 exit_doors_indexes=[20, 21, 22, 23, 24])
     
     return level
 
