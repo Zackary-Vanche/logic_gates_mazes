@@ -174,6 +174,24 @@ class Logic_Gate:
                              1, 0]]:
                 n_True += 1
         return n_True == 1
+    
+    def aux_func_MAS(branches_list):
+        v_list = set()
+        for v in branches_list:
+            v_list.add(v)
+        assert len(branches_list)%2 == 0
+        n = len(branches_list)//2
+        l1 = branches_list[:n]
+        l2 = branches_list[n:]
+        S = 0
+        for v in v_list:
+            c1 = l1.count(v)
+            c2 = l2.count(v)
+            S += min(c1, c2)
+        for i in range(n):
+            S -= int(l1[i] == l2[i])
+        return S
+        
 
     func_dict = {'NOT': aux_func_NOT,
                  'AND': aux_func_AND,
@@ -205,6 +223,7 @@ class Logic_Gate:
                  'INLIST' : aux_func_INLIST,
                  'BETWEEN': aux_func_BETWEEN,
                  'JUMP': aux_func_JUMP,
+                 'MAS': aux_func_MAS
                  }
 
     def func(self, sons_list):
@@ -295,3 +314,24 @@ if __name__ == "__main__":
         print('')
         print(bl)
         print(Logic_Gate.aux_func_JUMP(bl))
+        
+    assert Logic_Gate.aux_func_MAS([0, 1, 2, 3,
+                                    0, 1, 2, 3]) == 0
+    
+    assert Logic_Gate.aux_func_MAS([0, 1, 2, 3,
+                                    0, 1, 3, 2]) == 2
+    
+    assert Logic_Gate.aux_func_MAS([0, 0, 2, 3,
+                                    0, 0, 3, 2]) == 2
+    
+    assert Logic_Gate.aux_func_MAS([0, 3, 0, 3,
+                                    0, 0, 3, 2]) == 2
+    
+    assert Logic_Gate.aux_func_MAS([1, 1, 1, 1,
+                                    1, 1, 0, 0]) == 0
+    
+    assert Logic_Gate.aux_func_MAS([1, 1, 0, 1,
+                                    1, 1, 0, 0]) == 0
+    
+    assert Logic_Gate.aux_func_MAS([1, 1, 0, 1,
+                                    1, 1, 1, 2]) == 1

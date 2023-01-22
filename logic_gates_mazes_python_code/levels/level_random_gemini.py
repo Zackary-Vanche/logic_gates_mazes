@@ -37,8 +37,8 @@ def aux_level_random_gemini(door_trees_list = [[i for i in range(2**n_switches)]
                      cut_expression=True,
                      cut_expression_separator=')')
     
-    ex = 0.2
-    ey = 0.2
+    ex = 0.325
+    ey = 0.425
     
     R0 = Room(name='R0',
               position = [0, 0, ex, ey],
@@ -58,8 +58,9 @@ def aux_level_random_gemini(door_trees_list = [[i for i in range(2**n_switches)]
     R5 = Room(name='R5',
               position = [1, 2, ex, ey],
               switches_list = [S5])
+    ae = 0.3
     RE = Room(name='RE',
-              position=[0.5, 2.5, ex, ey],
+              position=[0, 2.5, ex+ae, ey/2],
               is_exit=True)   # E pour exit ou end
     
     rp = 0.35
@@ -175,21 +176,18 @@ def aux_level_random_gemini(door_trees_list = [[i for i in range(2**n_switches)]
                room_arrival=R4,
                relative_position=rp)
     if exit_number is None:
-        D22 = Door(two_way=False,
-                   tree=get_tree(22),
-                   room_departure=R5,
-                   room_arrival=RE,
-                   relative_position=0.5)
+        T22 = get_tree(22)
     else:
-        D22 = Door(two_way=False,
-                   tree=Tree(['IN', Tree.tree_list_BIN(len(Slist)), [None]],
-                             empty=True,
-                             name='T22',
-                             switches = Slist + [exit_number],
-                             cut_expression=True),
-                   room_departure=R5,
-                   room_arrival=RE,
-                   relative_position=0.5)
+        T22 = Tree(['IN', Tree.tree_list_BIN(len(Slist)), [None]],
+                  empty=True,
+                  name='T22',
+                  switches = Slist + [exit_number],
+                  cut_expression=True)
+    D22 = Door(two_way=False,
+               tree=T22,
+               room_departure=R5,
+               room_arrival=RE,
+               relative_position=0.6)
     
     level = Maze(start_room_index=0,
                  exit_room_index=-1,

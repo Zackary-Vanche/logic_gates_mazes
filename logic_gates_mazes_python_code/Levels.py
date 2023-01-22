@@ -29,6 +29,7 @@ from levels.level_crossroad import level_crossroad
 from levels.level_crystal import level_crystal
 from levels.level_dead_ends import level_dead_ends
 # from levels.level_desert_crossing import level_desert_crossing
+from levels.level_dichotomy import level_dichotomy
 from levels.level_dominating_set import level_dominating_set
 from levels.level_egyptian_fractions import level_egyptian_fractions
 from levels.level_electricity import level_electricity
@@ -52,6 +53,7 @@ from levels.level_loop import level_loop
 from levels.level_manhattan_distance import level_manhattan_distance
 from levels.level_matrix import level_matrix
 from levels.level_magic_square import level_magic_square  # kakuro
+from levels.level_mastermind import level_mastermind
 from levels.level_naturals import level_naturals
 from levels.level_nonogram import level_nonogram
 from levels.level_no_three_in_line import level_no_three_in_line
@@ -68,7 +70,6 @@ from levels.level_puzzle import level_puzzle
 from levels.level_pythagorean import level_pythagorean
 from levels.level_pong import level_pong
 from levels.level_random_binary_tree import level_random_binary_tree
-# from levels.level_random_blind_alley import level_random_blind_alley
 from levels.level_random_boustrophedon import level_random_boustrophedon
 from levels.level_random_bull import level_random_bull
 from levels.level_random_butterfly import level_random_butterfly
@@ -85,7 +86,7 @@ from levels.level_random_petersen import level_random_petersen
 from levels.level_random_simple import level_random_simple
 from levels.level_random_star import level_random_star
 from levels.level_random_starting_point import level_random_starting_point
-from levels.level_random_sum import level_random_sum
+from levels.level_sum import level_sum
 from levels.level_random_wheel import level_random_wheel
 from levels.level_recurrence import level_recurrence
 from levels.level_river import level_river
@@ -148,6 +149,8 @@ from levels.level_random_cuboctahedron import aux_level_random_cuboctahedron
 # Hitori ???
 # Nurikabe ???
 # Masyu ???
+# Mastermind # TODO
+# Dichotomy # TODO
 
 class Levels:
 
@@ -179,17 +182,25 @@ class Levels:
                              level_triangulate,
                              level_recurrence,
                              level_naturals,
+                             level_sum,
                              level_compact,
+                             level_random_simple,
                              level_parallel,
+                             level_random_bull,
                              level_pythagorean,
+                             level_random_butterfly,
                              level_elementary,
                              level_superpermutation,
                              level_chessboard,
+                             level_dichotomy,
+                             level_random_star,
                              level_partition,
                              level_knapsack,
                              level_permutations,
+                             level_random_K2,
                              level_egyptian_fractions,
                              level_code,
+                             level_random_binary_tree,
                              level_betweenness,
                              level_taxicab_number,
                              level_tetrahedron,
@@ -199,6 +210,7 @@ class Levels:
                              level_alice_and_bob,
                              level_nonogram,
                              level_crystal,
+                             level_mastermind,
                              level_tetris,
                              level_xor,
                              level_weights,
@@ -212,17 +224,29 @@ class Levels:
                              level_dead_ends,
                              level_fractal,
                              level_tesseract,
+                             level_random_loop,
                              level_cartesian,
+                             level_random_line,
                              level_eulerian,
+                             level_random_starting_point,
                              level_sujiko,
                              level_electricity,
+                             level_random_wheel,
                              level_pancake_sorting,
+                             level_random_ladder,
                              level_wave,
+                             level_random_come_back,
                              level_inversions,
+                             level_random_K5,
                              level_takuzu,
+                             level_random_K33,
                              level_travelling_salesman,
+                             level_random_petersen,
                              level_no_three_in_line,
+                             level_random_boustrophedon,
                              level_manhattan_distance,
+                             level_random_gemini,
+                             level_random_cuboctahedron,
                              level_sudoku,
                              level_knight,
                              level_temple,
@@ -234,25 +258,6 @@ class Levels:
                              level_parking,
                              level_panex,
                              level_superflip,
-                             level_random_sum,
-                             level_random_simple,
-                             level_random_bull,
-                             level_random_butterfly,
-                             level_random_star,
-                             level_random_K2,
-                             level_random_binary_tree,
-                             level_random_line,
-                             level_random_loop,
-                             level_random_wheel,
-                             level_random_boustrophedon,
-                             level_random_come_back,
-                             level_random_starting_point,
-                             level_random_ladder,
-                             level_random_K5,
-                             level_random_K33,
-                             level_random_petersen,
-                             level_random_cuboctahedron,
-                             level_random_gemini,
                              ]
     
     aux_level_function_list = [
@@ -275,8 +280,6 @@ class Levels:
                                aux_level_random_cuboctahedron,
                                aux_level_random_gemini,
                                ]
-    
-    # aux_level_function_list = []
 
     number_of_levels = len(levels_functions_list)
 
@@ -387,8 +390,6 @@ def test_levels():
         level = level_function()
         if level.fastest_solution is not None:
             solutions_lenghts.append(len(level.fastest_solution.split(' ')))
-        elif not 'Random' in level.name:
-            print(level.name, 'no fastest solution')
     plt.figure(figsize=(15, 5))
     x_list = [i for i in range(len(solutions_lenghts))]
     plt.plot(x_list, solutions_lenghts, lw=0.3, color='k')
@@ -396,7 +397,32 @@ def test_levels():
     plt.xlabel('Level number')
     plt.ylabel('Number of actions in the solution')
     plt.show()
-    print('')
+    
+    print('Testing random levels')
+    from numpy import array, median
+    for aux_level in Levels.aux_level_function_list:
+        print(aux_level().name)
+        solution_length, number_of_solutions = calculates_random_level_solution_length(aux_level)
+        if solution_length == []:
+            print('*')
+            continue
+        print('len', len(solution_length))
+        print('solutions length')
+        print('min', min(solution_length))
+        print('avg', sum(solution_length)/len(solution_length))
+        print('med', median(array(solution_length)))
+        print('max', max(solution_length))
+        print('number of solutions')
+        print('min', min(number_of_solutions))
+        print('avg', sum(number_of_solutions)/len(number_of_solutions))
+        print('med', median(array(number_of_solutions)))
+        print('max', max(number_of_solutions))
+        bins_list = [i for i in range(max(solution_length)+1)]
+        plt.figure(figsize=(30, 5))
+        plt.hist(solution_length, bins=bins_list)
+        plt.xticks(bins_list)
+        plt.show()
+        print('')
     
 def calculates_random_level_solution_length(aux_level_function):
     from os import listdir as os_listdir
@@ -409,9 +435,6 @@ def calculates_random_level_solution_length(aux_level_function):
         for file_name in os_listdir(folder):
             level = Maze.get_random_level_from_file(aux_level_function, file_name)
             solutions = level.find_all_solutions(verbose=0, stop_at_first_solution=False)[0]
-            # print(sol)
-            # print(' '.join(sol[0][0]))
-            # print('')
             try:
                 solution_length.append(len(solutions[0]))
                 number_of_solutions.append(len(solutions))
@@ -460,37 +483,18 @@ if __name__ == "__main__":
     #         print(sol)
     #     sol = solutions[0][-1]
     #     level.try_solution(sol, verbose=3)
-    
-    # import matplotlib.pyplot as plt
-    # from numpy import array, median
-    # for aux_level in Levels.aux_level_function_list:
-    #     print(aux_level().name)
-    #     solution_length, number_of_solutions = calculates_random_level_solution_length(aux_level)
-    #     if solution_length == []:
-    #         print('*')
-    #         continue
-    #     print('len', len(solution_length))
-    #     print('solutions length')
-    #     print('min', min(solution_length))
-    #     print('avg', sum(solution_length)/len(solution_length))
-    #     print('med', median(array(solution_length)))
-    #     print('max', max(solution_length))
-    #     print('number of solutions')
-    #     print('min', min(number_of_solutions))
-    #     print('avg', sum(number_of_solutions)/len(number_of_solutions))
-    #     print('med', median(array(number_of_solutions)))
-    #     print('max', max(number_of_solutions))
-    #     bins_list = [i for i in range(max(solution_length)+1)]
-    #     plt.figure(figsize=(20, 5))
-    #     plt.hist(solution_length, bins=bins_list)
-    #     plt.xticks(bins_list)
-    #     plt.show()
-    #     print('')
         
     # while True:
-    #     solutions = level_random_sum().find_all_solutions(verbose=0, nb_iterations_print=100)
+    #     solutions = level_sum().find_all_solutions(verbose=0, nb_iterations_print=100)
     #     print(solutions)
     
     # aux_level_random_K5().find_all_solutions(random_search=True,
     #                                          verbose=1,
     #                                          nb_iterations_print=50)[0]
+    
+    # level = level_tree()
+    # assert level.try_solution(level.fastest_solution) == 2
+    
+    # sol = level.find_all_solutions(stop_at_first_solution=True)
+    # assert ' '.join(sol[0][0]) == level.fastest_solution
+    

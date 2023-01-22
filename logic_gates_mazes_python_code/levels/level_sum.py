@@ -16,7 +16,7 @@ from random import randint as rd_randint
 n_switches = 5
 n_doors = 23
 
-def aux_level_random_sum():
+def level_sum():
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -138,7 +138,7 @@ def aux_level_random_sum():
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11],
                  fastest_solution=None,
                  level_color=Levels_colors_list.RANDOM(),
-                 name='Random - Sum',
+                 name='Sum',
                  door_window_size=800,
                  keep_proportions=True,
                  y_separation=40,
@@ -147,6 +147,6 @@ def aux_level_random_sum():
     
     return level
 
-def level_random_sum():
-    # return aux_level_random_sum()
-    return Maze.get_random_level_from_file(aux_level_random_sum)
+# def level_random_sum():
+#     # return aux_level_random_sum()
+#     return Maze.get_random_level_from_file(aux_level_random_sum)

@@ -93,9 +93,9 @@ def level_no_three_in_line():
                          tree_list_SUP_3] + [
                          tree_list_SUP_3]*8 + [
                          tree_list_SUP_5]*5 + [
-                         Tree.tree_list_NONO(34)] + [
                          ['INF', [None], ['SUM'] + [[None]]*25]] + [
-                         ['INF', Tree.tree_list_BIN(4), Tree.tree_list_BIN(4)]],
+                         ['INF', Tree.tree_list_BIN(4), Tree.tree_list_BIN(4)]] + [
+                         Tree.tree_list_NONO(34)],
               empty=True,
               name='T4',
               switches = [SN3, S20, S21, S22, S23, S24,
@@ -127,13 +127,13 @@ def level_no_three_in_line():
                           SN3, S3, S8, S13, S18, S23,
                           SN3, S4, S9, S14, S19, S24,
                           
-                          SN8, SN2, SN1, SN1, SN1, SN1, SN1, SN1, SN2,
-                          S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, S23, S24,
-                          
                           Switch(value=9), S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, S23, S24,
                           
                           S3, S4, S8, S9,
                           S15, S16, S20, S21,
+                          
+                          SN8, SN2, SN1, SN1, SN1, SN1, SN1, SN1, SN2,
+                          S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, S23, S24,
                           ],
               cut_expression=True)
 
@@ -211,7 +211,7 @@ def level_no_three_in_line():
                  fastest_solution="S1 S2 D0 S5 S7 D1 S10 S14 D2 S16 S18 D3 S23 S24 D4",
                  level_color=Levels_colors_list.FROM_HUE(0.05, sa=1, li=0.6),
                  name='No three in line',
-                 door_window_size=930,
+                 door_window_size=1250,
                  keep_proportions=True,
                  y_separation=45)
 

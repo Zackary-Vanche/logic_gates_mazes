@@ -116,6 +116,7 @@ def level_compact():
                  door_window_size=666,
                  keep_proportions=True,
                  y_separation=50,
-                 border=66)
+                 border=66,
+                 group='pure maze')
     
     return level

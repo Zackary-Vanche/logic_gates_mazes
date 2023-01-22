@@ -52,9 +52,14 @@ class Maze:
                  do_not_write_trees_always_open=False,
                  random_long=False,
                  random_several_exit=False,
-                 exit_doors_indexes=[]):
+                 exit_doors_indexes=[],
+                 group=''):
+        
+        self.group = group
 
         self.random = random
+        # A level is said random only if you need to use the function save_random_door_trees_list to creates some versions of it
+        # Some levels have a random component (level_tree, level_sum, level_dichotomy, etc) but are not considered as random.
         self.random_long = random_long
         self.random_several_exit = random_several_exit
         self.exit_doors_indexes = exit_doors_indexes
@@ -517,16 +522,6 @@ class Maze:
         bool_solution = self.current_room_index == self.exit_room_index
         return int(bool_solution) + 1
     
-    # def get_random_level_from_aux_level(aux_level_function): # deprecated
-    #     aux_level = aux_level_function()
-    #     solutions = aux_level.find_all_solutions(verbose=0,
-    #                                              stop_at_first_solution=False,
-    #                                              DFS=True,
-    #                                              DFS_random=True)
-    #     sol = ' '.join(solutions[0][-1])
-    #     door_trees_list = aux_level.try_solution(sol, verbose=3)
-    #     return aux_level_function(door_trees_list)
-    
     def save_random_door_trees_list(aux_level_function, n_files=64, i0=0): # use it with aux level fonctions
 
         aux_level = aux_level_function()
@@ -613,7 +608,8 @@ class Maze:
         with open('/'.join([folder, file_name]), 'rb') as fp:
             door_trees_list = pickle_load(fp)
         level = aux_level_function(door_trees_list)
-        level.name = ' '.join([level.name, f"(version {file_name.split('_')[-1]})"])
+        level.name = level.name.replace('Random - ', '')
+        level.name = ' '.join([level.name, f"v{file_name.split('_')[-1]}"])
         return level
 
     def fast_try_solution(self,

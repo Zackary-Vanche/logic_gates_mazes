@@ -18,7 +18,7 @@ def main():
     # TOTAL_SIZE = pyautogui_size()
     # Game(save_image=1, time_between_level_changing=0, show_help=0).play()
     # TOTAL_SIZE = [1920, 1055]
-    #Game(is_fullscreen=True, save_image=True).play()
+    Game(is_fullscreen=True, save_image=True).play()
     
     if not os.path.exists('images/concat'):
         os.mkdir('images/concat')

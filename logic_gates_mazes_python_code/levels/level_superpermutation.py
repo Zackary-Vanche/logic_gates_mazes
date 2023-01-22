@@ -44,7 +44,7 @@ def level_superpermutation():
     T2 = Tree(tree_list=tree_list,
               empty=True,
               name='T2',
-              switches = [3, 2, 1, 3] + Slist)
+              switches = [2, 2, 1, 3] + Slist)
     T3 = Tree(tree_list=tree_list,
               empty=True,
               name='T3',
@@ -65,19 +65,19 @@ def level_superpermutation():
               position = [3, 0, 1, 1],
               switches_list = [])
     R2 = Room(name='R2',
-              position = [3, 2.5, 1, 1],
+              position = [2.25, 2.5, 1, 1],
               switches_list = [])
     R3 = Room(name='R3',
               position = [3, 5, 1, 1],
               switches_list = [])
     R4 = Room(name='R4',
-              position = [6, 5, 1, 1],
+              position = [5, 5, 1, 1],
               switches_list = [])
     R5 = Room(name='R5',
-              position = [6, 2.5, 1, 1],
+              position = [3.5, 2.5, 1, 1],
               switches_list = [])
     RE = Room(name='RE',
-              position=[6, 0, 1, 1],
+              position=[5, 0, 1, 1],
               is_exit=True)   # E pour exit ou end
 
     D0 = Door(two_way=False,

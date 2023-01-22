@@ -96,7 +96,8 @@ def level_tetrahedron():
              name='Tetrahedron',
              border = 30,
              door_window_size = 550,
-             keep_proportions = True)
+             keep_proportions = True,
+             group='pure maze')
     
     return level
     

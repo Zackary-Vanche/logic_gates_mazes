@@ -239,6 +239,14 @@ class Levels_colors_list:
                          letters_color = Color.WHITE,
                          letter_contour_color = Color.DARK_PURPLE)
     
+    PURPLE_AND_GREY = Level_color(background_color = Color.DARK_BLUE,
+                                  room_color = Color.BLUE_GREEN,
+                                  contour_color = Color.WHITE,
+                                  letters_color = Color.WHITE,
+                                  letter_contour_color = Color.DARK_GREY,
+                                  inside_room_color = Color.BLACK_RED,
+                                  surrounding_color = Color.BLACK_RED)
+    
     PURPLE_BLUE = Level_color(background_color = Color.PURPLE_BLUE,
                               room_color = Color.DARK_PURPLE_BLUE,
                               contour_color = Color.WHITE,

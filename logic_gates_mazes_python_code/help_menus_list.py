@@ -202,6 +202,19 @@ This operator takes as argument a list of switches.
     j (S0 S1 S2 S3 S4 S5) = i b(S0 S1 S2 S3 S4 S5) [22 26 37 41]
     j (S0 S1 S2 S3 S4 S5 S6 S7) = ^ j (S0 S1 S2 S3 S4 S5) j (S2 S3 S4 S5 S6 S7)
     j (S0 S1 S2 S3 S4 S5 S6 S7 S8 S9) = ^ [ j (S0 S1 S2 S3 S4 S5) j (S2 S3 S4 S5 S6 S7) j (S4 S5 S6 S7 S8 S9) ]"""
+    
+help_menus_list['MAS'] = """
+w stands for 'white'.
+This operator takes as argument two lists of switches.
+w l1 l2 is the number of values of l1 that are in l2 but not at the same index.
+
+    w [0 0 0] [0 0 1] = 0
+    w [1 2 3] [2 1 3] = 2
+    w [1 1 2] [1 1 2] = 0
+    w [5 6 2] [5 6 2] = 0
+    w [1 1 5] [5 1 1] = 2
+    w [1 1 5] [6 1 1] = 1
+"""
 
 help_menus_list['AND and NOT'] = """  
 By combining these notations, you can write :
@@ -409,6 +422,8 @@ help_menus_list['levels']["Taxicab number"] = """Taxicab numbers are also called
 
 help_menus_list['levels']["Chessboard"] = """If you remove the exit, the graph of this level is the graph of the possible moves of a knight in a 3*4 rectangle.\nHowever, sometimes here doors are one-way only."""
 
+help_menus_list['levels']["Dichotomy"] = """? is a random integer.\n\nOnce you found the value of ?, the level is over.\n\n""" + help_menus_list['random']
+
 help_menus_list['levels']["Partition"] = """The partition is one of the Karp's 21 NP-complete problems.\n""" + help_menus_list["PROD"]
 
 help_menus_list['levels']["Knapsack"] = """The knapsack is one of the Karp's 21 NP-complete problems."""
@@ -443,6 +458,8 @@ help_menus_list['levels']["Baguenaudier"] = '''The baguenaudier is an old puzzle
 
 help_menus_list['levels']["Tetris"] = """Each number can represent a position in the plane.\n"""
 
+help_menus_list['levels']["Mastermind"] = help_menus_list['MAS']
+
 help_menus_list['levels']["4 colors theorem"] = """Each couple of switches represent a color.\n"""
 
 help_menus_list['levels']["Magic square"] = help_menus_list['DIFF']
@@ -453,7 +470,7 @@ help_menus_list['levels']["River"] = """You want to cross the river with a wolf,
 
 help_menus_list['levels']["Vortex"] = """You might feel dizzy."""
 
-help_menus_list['levels']["Tree"] = """The tree is hidden in the equations."""
+help_menus_list['levels']["Tree"] = """The tree is hidden in the equations.\n\n""" + help_menus_list['random']
 
 help_menus_list['levels']["Dead_ends"] = """Even if it is the first level that actually looks like a printed circuit board, you have been in a computer all this time."""
 
@@ -505,7 +522,7 @@ help_menus_list['levels']["Panex"] = """You are on your own."""
 
 help_menus_list['levels']["Superflip"] = help_menus_list['see other doors']
 
-help_menus_list['levels']["Random - Sum"] = help_menus_list['random'] + """\n\nFrom now on, all the levels will have a random component."""
+help_menus_list['levels']["Sum"] = help_menus_list['random'] + """\n\nFrom now on, all the levels will have a random component."""
 
 help_menus_list['levels']["Random - Binary Tree"] = help_menus_list['random']
 

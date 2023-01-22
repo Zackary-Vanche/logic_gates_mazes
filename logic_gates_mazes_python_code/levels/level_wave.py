@@ -405,7 +405,8 @@ def level_wave():
              door_window_size=425,
              y_separation=50,
              border = 30,
-             keep_proportions = False)
+             keep_proportions = False,
+             group='pure maze')
     
     return level
 

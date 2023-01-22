@@ -11,6 +11,7 @@ from Door import Door
 from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
+from random import shuffle as rd_shuffle
 
 def level_tree():
     
@@ -22,96 +23,118 @@ def level_tree():
     S5 = Switch(name='S5')
     S6 = Switch(name='S6')
     S7 = Switch(name='S7')
-    SN = Switch(name='1', value=1)
+    
+    Slist0 = [S0, S2, S4, S6]
+    Slist1 = [S1, S3, S5, S7]
+    
+    Tlist = ['AND'] + [['EQU', [None], Tree.tree_list_BIN(4)]]*2
+    
+    ln = [[i] for i in range(1, 16)]
+    rd_shuffle(ln)
+    ln = [[0]] + ln
     
     T0 = Tree(tree_list=[None],
                 empty=True,
                 name='T0',
-                switches = [SN])
+                switches = [1])
     T1 = Tree(tree_list=[None],
                 empty=True,
                 name='T1',
-                switches = [SN])
+                switches = [1])
     T2 = Tree(tree_list=[None],
                 empty=True,
                 name='T2',
-                switches = [SN])
+                switches = [1])
     T3 = Tree(tree_list=[None],
                 empty=True,
                 name='T3',
-                switches = [SN])
-    T4 = Tree(tree_list=Tree.tree_list_from_str('FTTFFFFF'),
+                switches = [1])
+    T4 = Tree(tree_list=Tlist,
                 empty=True,
                 name='T4',
-                switches = [S0, S1, S2, S3, S4, S5, S6, S7])
-    T5 = Tree(tree_list=Tree.tree_list_from_str('FTTFFFFT'),
+                switches = ln[0] + Slist0 + ln[1] + Slist1,
+                cut_expression=False)
+    T5 = Tree(tree_list=Tlist,
                 empty=True,
                 name='T5',
-                switches = [S0, S1, S2, S3, S4, S5, S6, S7])
-    T6 = Tree(tree_list=Tree.tree_list_from_str('FFFTTTTF'),
+                switches = ln[1] + Slist0 + ln[2] + Slist1,
+                cut_expression=False)
+    T6 = Tree(tree_list=Tlist,
                 empty=True,
                 name='T6',
-                switches = [S0, S1, S2, S3, S4, S5, S6, S7])
-    T7 = Tree(tree_list=Tree.tree_list_from_str('FFFFFTTF'),
+                switches = ln[1] + Slist0 + ln[3] + Slist1,
+                cut_expression=False)
+    T7 = Tree(tree_list=Tlist,
                 empty=True,
                 name='T7',
-                switches = [S0, S1, S2, S3, S4, S5, S6, S7])
-    T8 = Tree(tree_list=Tree.tree_list_from_str('FTTTTTTF'),
+                switches = ln[2] + Slist0 + ln[4] + Slist1,
+                cut_expression=False)
+    T8 = Tree(tree_list=Tlist,
                 empty=True,
                 name='T8',
-                switches = [S0, S1, S2, S3, S4, S5, S6, S7])
-    T9 = Tree(tree_list=Tree.tree_list_from_str('FFFFFFFT'),
+                switches = ln[2] + Slist0 + ln[5] + Slist1,
+                cut_expression=False)
+    T9 = Tree(tree_list=Tlist,
                 empty=True,
                 name='T9',
-                switches = [S0, S1, S2, S3, S4, S5, S6, S7])
-    T10 = Tree(tree_list=Tree.tree_list_from_str('FFFFFTTT'),
+                switches = ln[3] + Slist0 + ln[6] + Slist1,
+                cut_expression=False)
+    T10 = Tree(tree_list=Tlist,
                 empty=True,
                 name='T10',
-                switches = [S0, S1, S2, S3, S4, S5, S6, S7])
-    T11 = Tree(tree_list=Tree.tree_list_from_str('FTTTTFFF'),
+                switches = ln[3] + Slist0 + ln[7] + Slist1,
+                cut_expression=False)
+    T11 = Tree(tree_list=Tlist,
                 empty=True,
                 name='T11',
-                switches = [S0, S1, S2, S3, S4, S5, S6, S7])
-    T12 = Tree(tree_list=Tree.tree_list_from_str('FTTTTTTT'),
+                switches = ln[4] + Slist0 + ln[8] + Slist1,
+                cut_expression=False)
+    T12 = Tree(tree_list=Tlist,
                 empty=True,
                 name='T12',
-                switches = [S0, S1, S2, S3, S4, S5, S6, S7])
-    T13 = Tree(tree_list=Tree.tree_list_from_str('FFFTTFFF'),
+                switches = ln[4] + Slist0 + ln[9] + Slist1,
+                cut_expression=False)
+    T13 = Tree(tree_list=Tlist,
                 empty=True,
                 name='T13',
-                switches = [S0, S1, S2, S3, S4, S5, S6, S7])
-    T14 = Tree(tree_list=Tree.tree_list_from_str('FTTFFTTF'),
+                switches = ln[5] + Slist0 + ln[10] + Slist1,
+                cut_expression=False)
+    T14 = Tree(tree_list=Tlist,
                 empty=True,
                 name='T14',
-                switches = [S0, S1, S2, S3, S4, S5, S6, S7])
-    T15 = Tree(tree_list=Tree.tree_list_from_str('FFFTTTTT'),
+                switches = ln[5] + Slist0 + ln[11] + Slist1,
+                cut_expression=False)
+    T15 = Tree(tree_list=Tlist,
                 empty=True,
                 name='T15',
-                switches = [S0, S1, S2, S3, S4, S5, S6, S7])
-    T16 = Tree(tree_list=Tree.tree_list_from_str('FFFTTFFT'),
+                switches = ln[6] + Slist0 + ln[12] + Slist1,
+                cut_expression=False)
+    T16 = Tree(tree_list=Tlist,
                 empty=True,
                 name='T16',
-                switches = [S0, S1, S2, S3, S4, S5, S6, S7])
-    T17 = Tree(tree_list=Tree.tree_list_from_str('FTTFFTTT'),
+                switches = ln[6] + Slist0 + ln[13] + Slist1,
+                cut_expression=False)
+    T17 = Tree(tree_list=Tlist,
                 empty=True,
                 name='T17',
-                switches = [S0, S1, S2, S3, S4, S5, S6, S7])
-    T18 = Tree(tree_list=Tree.tree_list_from_str('FTTTTFFT'),
+                switches = ln[7] + Slist0 + ln[14] + Slist1,
+                cut_expression=False)
+    T18 = Tree(tree_list=Tlist,
                 empty=True,
                 name='T18',
-                switches = [S0, S1, S2, S3, S4, S5, S6, S7])
-    T19 = Tree(tree_list=['AND',
-                          Tree.tree_list_XNOR(2),
-                          Tree.tree_list_XNOR(2),
-                          Tree.tree_list_XNOR(2),
-                          Tree.tree_list_XNOR(2)],
+                switches = ln[7] + Slist0 + ln[15] + Slist1,
+                cut_expression=False)
+    T19 = Tree(tree_list=['EQU',
+                          Tree.tree_list_BIN(4),
+                          Tree.tree_list_BIN(4)],
                 empty=True,
                 name='T19',
-                switches = [S0, S1, S2, S3, S4, S5, S6, S7])
-    T20 = Tree(tree_list=Tree.tree_list_from_str('TTFFTTTT'),
+                switches = Slist0 + Slist1)
+    T20 = Tree(tree_list=Tlist,
                 empty=True,
                 name='T20',
-                switches = [S0, S1, S2, S3, S4, S5, S6, S7])
+                switches = ln[15] + Slist0 + ln[15] + Slist1,
+                cut_expression=False)
     
     R0 = Room(name='R0',
                 position = [2, -2, 15, 0.4],
@@ -128,6 +151,11 @@ def level_tree():
     RE = Room(name='RE',
               position = [-2, -2, 1.5, 1],
               is_exit = True)  # E pour exit ou end
+    
+    tree_list = [T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18]
+    rd_shuffle(tree_list)
+    for i in range(len(tree_list)):
+        tree_list[i].name = f'T{i+4}'
     
     D0 = Door(two_way=False,
               tree=T0,
@@ -159,105 +187,105 @@ def level_tree():
               relative_position=0.6)
     n = 17
     D4 = Door(two_way=False,
-              tree=T4,
+              tree=tree_list[0],
               room_departure=R3,
               room_arrival=R0,
               relative_departure_coordinates=[1/n, 0],
               relative_arrival_coordinates=[1/n, 1],
               relative_position=1/9)
     D5 = Door(two_way=False,
-              tree=T5,
+              tree=tree_list[1],
               room_departure=R3,
               room_arrival=R0,
               relative_departure_coordinates=[2/n, 0],
               relative_arrival_coordinates=[2/n, 1],
               relative_position=2/9)
     D6 = Door(two_way=False,
-              tree=T6,
+              tree=tree_list[2],
               room_departure=R3,
               room_arrival=R0,
               relative_departure_coordinates=[3/n, 0],
               relative_arrival_coordinates=[3/n, 1],
               relative_position=3/9)
     D7 = Door(two_way=False,
-              tree=T7,
+              tree=tree_list[3],
               room_departure=R3,
               room_arrival=R0,
               relative_departure_coordinates=[4/n, 0],
               relative_arrival_coordinates=[4/n, 1],
               relative_position=4/9)
     D8 = Door(two_way=False,
-              tree=T8,
+              tree=tree_list[4],
               room_departure=R3,
               room_arrival=R0,
               relative_departure_coordinates=[5/n, 0],
               relative_arrival_coordinates=[5/n, 1],
               relative_position=5/9)
     D9 = Door(two_way=False,
-              tree=T9,
+              tree=tree_list[5],
               room_departure=R3,
               room_arrival=R0,
               relative_departure_coordinates=[6/n, 0],
               relative_arrival_coordinates=[6/n, 1],
               relative_position=6/9)
     D10 = Door(two_way=False,
-               tree=T10,
+               tree=tree_list[6],
                room_departure=R3,
                room_arrival=R0,
                relative_departure_coordinates=[7/n, 0],
                relative_arrival_coordinates=[7/n, 1],
                relative_position=7/9)
     D11 = Door(two_way=False,
-               tree=T11,
+               tree=tree_list[7],
                room_departure=R3,
                room_arrival=R0,
                relative_departure_coordinates=[8/n, 0],
                relative_arrival_coordinates=[8/n, 1],
                relative_position=8/9)
     D12 = Door(two_way=False,
-               tree=T12,
+               tree=tree_list[8],
                room_departure=R3,
                room_arrival=R0,
                relative_departure_coordinates=[9/n, 0],
                relative_arrival_coordinates=[9/n, 1],
                relative_position=1/9)
     D13 = Door(two_way=False,
-               tree=T13,
+               tree=tree_list[9],
                room_departure=R3,
                room_arrival=R0,
                relative_departure_coordinates=[10/n, 0],
                relative_arrival_coordinates=[10/n, 1],
                relative_position=2/9)
     D14 = Door(two_way=False,
-               tree=T14,
+               tree=tree_list[10],
                room_departure=R3,
                room_arrival=R0,
                relative_departure_coordinates=[11/n, 0],
                relative_arrival_coordinates=[11/n, 1],
                relative_position=3/9)
     D15 = Door(two_way=False,
-               tree=T15,
+               tree=tree_list[11],
                room_departure=R3,
                room_arrival=R0,
                relative_departure_coordinates=[12/n, 0],
                relative_arrival_coordinates=[12/n, 1],
                relative_position=4/9)
     D16 = Door(two_way=False,
-               tree=T16,
+               tree=tree_list[12],
                room_departure=R3,
                room_arrival=R0,
                relative_departure_coordinates=[13/n, 0],
                relative_arrival_coordinates=[13/n, 1],
                relative_position=5/9)
     D17 = Door(two_way=False,
-               tree=T17,
+               tree=tree_list[13],
                room_departure=R3,
                room_arrival=R0,
                relative_departure_coordinates=[14/n, 0],
                relative_arrival_coordinates=[14/n, 1],
                relative_position=6/9)
     D18 = Door(two_way=False,
-               tree=T18,
+               tree=tree_list[14],
                room_departure=R3,
                room_arrival=R0,
                relative_departure_coordinates=[15/n, 0],
@@ -282,7 +310,7 @@ def level_tree():
                  exit_room_index=-1, 
                  rooms_list=[R0, R1, R2, R3, RE], 
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19, D20], 
-                 fastest_solution="D1 S7 D3 D9 D0 S6 D2 D19 D1 S5 S7 D3 D7 D0 S4 S6 D2 D19 D1 S3 S5 S7 D3 D16 D0 S2 S4 S6 D2 D19 D1 S1 S3 S5 D3 D17 D0 S0 S2 S4 D2 D19 D20",
+                 fastest_solution=None,#"D1 S7 D3 D9 D0 S6 D2 D19 D1 S5 S7 D3 D7 D0 S4 S6 D2 D19 D1 S3 S5 S7 D3 D16 D0 S2 S4 S6 D2 D19 D1 S1 S3 S5 D3 D17 D0 S0 S2 S4 D2 D19 D20",
                  level_color=Levels_colors_list.RED_AND_YELLOW,
                  name='Tree',
                  border = 40,
