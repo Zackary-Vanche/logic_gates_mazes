@@ -104,156 +104,130 @@ def level_parking():
     S64 = Switch(name='S64', value=v)
     S65 = Switch(name='S65')
     
-    SN0 = Switch(value=0)
-    SN1 = Switch(value=1)
-    SN2 = Switch(value=2)
-    SN3 = Switch(value=3)
-    SN4 = Switch(value=4)
-    SN5 = Switch(value=5)
-    SN6 = Switch(value=6)
-    SN7 = Switch(value=7)
-    SN8 = Switch(value=8)
-    SN9 = Switch(value=9)
-    SN10 = Switch(value=10)
-    SN11 = Switch(value=11)
-    SN12 = Switch(value=12)
-    SN13 = Switch(value=13)
-    SN14 = Switch(value=14)
-    SN15 = Switch(value=15)
-    SN16 = Switch(value=16)
-    SN17 = Switch(value=17)
-    SN18 = Switch(value=18)
-    SN19 = Switch(value=19)
-    SN20 = Switch(value=20)
-    SN21 = Switch(value=21)
-    SN22 = Switch(value=22)
-    SN23 = Switch(value=23)
-    SN24 = Switch(value=24)
-    SN25 = Switch(value=25)
-    SN26 = Switch(value=26)
-    SN27 = Switch(value=27)
-    SN28 = Switch(value=28)
-    SN29 = Switch(value=29)
-    SN30 = Switch(value=30)
-    SN31 = Switch(value=31)
-    SN32 = Switch(value=32)
-    SN33 = Switch(value=33)
-    SN34 = Switch(value=34)
-    SN35 = Switch(value=35)
-    
-    tree_list_INF_BIN = ['INFOREQU', Tree.tree_list_BIN(3), [None]]
-    tree_list_INF_BIN_ABS = ['AND', ['INFOREQU', Tree.tree_list_BIN(3), [None]], ['EQU', [None], ['ABS', ['SUM', Tree.tree_list_BIN(3), ['MINUS', Tree.tree_list_BIN(3)]]]]]
-    tree_list_EQU_BIN = ['EQU', Tree.tree_list_BIN(3), Tree.tree_list_BIN(3)]
+    tree_list_INF_BIN_ABS = ['AND',
+                             ['INFOREQU',
+                              Tree.tree_list_BIN(3),
+                              [None]],
+                             ['EQU',
+                              [None],
+                              ['ABS',
+                               ['SUM',
+                                Tree.tree_list_BIN(3),
+                                ['MINUS',
+                                 Tree.tree_list_BIN(3)]]]]]
+    tree_list_EQU_BIN = ['EQU',
+                         Tree.tree_list_BIN(3),
+                         Tree.tree_list_BIN(3)]
     
     T0 = Tree(tree_list=[None],
               empty=True,
               name='T0',
-              switches = [SN1])
+              switches = [1])
     T1 = Tree(tree_list=[None],
               empty=True,
               name='T1',
-              switches = [SN1])
+              switches = [1])
     T2 = Tree(tree_list=[None],
               empty=True,
               name='T2',
-              switches = [SN1])
+              switches = [1])
     T3 = Tree(tree_list=[None],
               empty=True,
               name='T3',
-              switches = [SN1])
+              switches = [1])
     T4 = Tree(tree_list=[None],
               empty=True,
               name='T4',
-              switches = [SN1])
+              switches = [1])
     T5 = Tree(tree_list=[None],
               empty=True,
               name='T5',
-              switches = [SN1])
+              switches = [1])
     T6 = Tree(tree_list=[None],
               empty=True,
               name='T6',
-              switches = [SN1])
+              switches = [1])
     T7 = Tree(tree_list=[None],
               empty=True,
               name='T7',
-              switches = [SN1])
+              switches = [1])
     T8 = Tree(tree_list=[None],
               empty=True,
               name='T8',
-              switches = [SN1])
+              switches = [1])
     T9 = Tree(tree_list=[None],
               empty=True,
               name='T9',
-              switches = [SN1])
+              switches = [1])
     T10 = Tree(tree_list=[None],
               empty=True,
               name='T10',
-              switches = [SN1])
+              switches = [1])
     T11 = Tree(tree_list=tree_list_INF_BIN_ABS,
               empty=True,
               name='T11',
-              switches = [S0, S1, S2, SN4,
-                          SN1,
+              switches = [S0, S1, S2, 4,
+                          1,
                           S0, S1, S2, S33, S34, S35])
     T12 = Tree(tree_list=tree_list_INF_BIN_ABS,
               empty=True,
               name='T12',
-              switches = [S3, S4, S5, SN3,
-                          SN1,
+              switches = [S3, S4, S5, 3,
+                          1,
                           S3, S4, S5, S36, S37, S38])
     T13 = Tree(tree_list=tree_list_INF_BIN_ABS,
               empty=True,
               name='T13',
-              switches = [S6, S7, S8, SN4,
-                          SN1,
+              switches = [S6, S7, S8, 4,
+                          1,
                           S6, S7, S8, S39, S40, S41,])
     T14 = Tree(tree_list=tree_list_INF_BIN_ABS,
               empty=True,
               name='T14',
-              switches = [S9, S10, S11, SN4,
-                          SN1,
+              switches = [S9, S10, S11, 4,
+                          1,
                           S9, S10, S11, S42, S43, S44,])
     T15 = Tree(tree_list=tree_list_INF_BIN_ABS,
               empty=True,
               name='T15',
-              switches = [S12, S13, S14, SN4,
-                          SN1,
+              switches = [S12, S13, S14, 4,
+                          1,
                           S12, S13, S14, S45, S46, S47,])
     T16 = Tree(tree_list=tree_list_INF_BIN_ABS,
               empty=True,
               name='T16',
-              switches = [S15, S16, S17, SN4,
-                          SN1,
+              switches = [S15, S16, S17, 4,
+                          1,
                           S15, S16, S17, S48, S49, S50,])
     T17 = Tree(tree_list=tree_list_INF_BIN_ABS,
               empty=True,
               name='T17',
-              switches = [S18, S19, S20, SN3,
-                          SN1,
+              switches = [S18, S19, S20, 3,
+                          1,
                           S18, S19, S20, S51, S52, S53,])
     T18 = Tree(tree_list=tree_list_INF_BIN_ABS,
               empty=True,
               name='T18',
-              switches = [S21, S22, S23, SN4,
-                          SN1,
+              switches = [S21, S22, S23, 4,
+                          1,
                           S21, S22, S23, S54, S55, S56,])
     T19 = Tree(tree_list=tree_list_INF_BIN_ABS,
               empty=True,
               name='T19',
-              switches = [S24, S25, S26, SN3,
-                          SN1,
+              switches = [S24, S25, S26, 3,
+                          1,
                           S24, S25, S26, S57, S58, S59,])
     T20 = Tree(tree_list=tree_list_INF_BIN_ABS,
               empty=True,
               name='T20',
-              switches = [S27, S28, S29, SN4,
-                          SN1,
+              switches = [S27, S28, S29, 4,
+                          1,
                           S27, S28, S29, S60, S61, S62,])
     T21 = Tree(tree_list=tree_list_INF_BIN_ABS,
               empty=True,
               name='T21',
-              switches = [S30, S31, S32, SN3,
-                          SN1,
+              switches = [S30, S31, S32, 3,
+                          1,
                           S30, S31, S32, S63, S64, S65,])
 
     T22 = Tree(tree_list=tree_list_EQU_BIN,
@@ -337,46 +311,46 @@ def level_parking():
               name='T33',
               switches = [# Line 0
                           S0, S1, S2,
-                          SN1, S0, S1, S2,
+                          1, S0, S1, S2,
                           S3, S4, S5,
-                          SN1, S3, S4, S5,
-                          SN2, S3, S4, S5,
+                          1, S3, S4, S5,
+                          2, S3, S4, S5,
                           # Line 1
-                          SN6, S6, S7, S8,
-                          SN7, S6, S7, S8,
+                          6, S6, S7, S8,
+                          7, S6, S7, S8,
                           # Line 2
-                          SN12, S9, S10, S11,
-                          SN13, S9, S10, S11,
+                          12, S9, S10, S11,
+                          13, S9, S10, S11,
                           # Line 3
-                          SN18, S12, S13, S14,
-                          SN19, S12, S13, S14,
+                          18, S12, S13, S14,
+                          19, S12, S13, S14,
                           # Line 4
-                          SN24, S15, S16, S17,
-                          SN25, S15, S16, S17,
+                          24, S15, S16, S17,
+                          25, S15, S16, S17,
                           # Line 5
-                          SN30, S18, S19, S20,
-                          SN31, S18, S19, S20,
-                          SN32, S18, S19, S20,
+                          30, S18, S19, S20,
+                          31, S18, S19, S20,
+                          32, S18, S19, S20,
                           # Column 0
-                          SN6, S21, S22, S23,
-                          SN6, SN6, S21, S22, S23,
+                          6, S21, S22, S23,
+                          6, 6, S21, S22, S23,
                           # Column 2
-                          SN2, SN6, S24, S25, S26,
-                          SN8, SN6, S24, S25, S26,
-                          SN14, SN6, S24, S25, S26,
+                          2, 6, S24, S25, S26,
+                          8, 6, S24, S25, S26,
+                          14, 6, S24, S25, S26,
                           # Column 3
-                          SN3, SN6, S27, S28, S29,
-                          SN9, SN6, S27, S28, S29,
+                          3, 6, S27, S28, S29,
+                          9, 6, S27, S28, S29,
                           # Column 5
-                          SN5, SN6, S30, S31, S32,
-                          SN11, SN6, S30, S31, S32,
-                          SN17, SN6, S30, S31, S32,
+                          5, 6, S30, S31, S32,
+                          11, 6, S30, S31, S32,
+                          17, 6, S30, S31, S32,
                           ],
               cut_expression=True)
     T34 = Tree(tree_list=['EQU', [None], Tree.tree_list_BIN(3)],
                empty=True,
                name='T34',
-               switches = [SN4, S9, S10, S11])
+               switches = [4, S9, S10, S11])
     T34 = Tree(tree_list=['AND', ['EQU', [None], Tree.tree_list_BIN(15)], ['EQU', [None], Tree.tree_list_BIN(18)]],
                empty=True,
                name='T34',
@@ -397,7 +371,7 @@ def level_parking():
 
     dx = 0.5
     a = 1.3
-    ey = 0.6
+    ey = 0.7
     lx = 4
 
     R0 = Room(name='R0',
