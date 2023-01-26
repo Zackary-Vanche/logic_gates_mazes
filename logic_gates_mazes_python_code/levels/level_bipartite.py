@@ -199,7 +199,7 @@ def level_bipartite():
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11],
-                 fastest_solution="S0 D0 S1 D1 S4 D4 S8 D4 D7 S3 D8 S11 D2 D3 S12 D3 S1 S7 D1 S4 S10 D7 S3 S9 D10 D11",
+                 fastest_solution="S0 D0 S1 D1 S4 D4 S8 D4 D7 S3 D8 S11 D2 S1 S7 D1 S4 S10 D7 D9 S12 D9 S3 S9 D10 D11",
                  level_color=Levels_colors_list.BLACK_AND_GREY_WHITE_CONTOUR,
                  uniform_surrounding_colors=False,
                  name='Bipartite',

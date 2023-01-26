@@ -230,6 +230,8 @@ class Logic_Gate:
         if None in sons_list:
             return None
         branches_values = [son.get_value() for son in sons_list]
+        if None in branches_values: # I use that case in level_seven when I create random levels
+            return True
         try:
             return Logic_Gate.func_dict[self.name](branches_values)
         except TypeError:

@@ -53,10 +53,12 @@ class Maze:
                  random_long=False,
                  random_several_exit=False,
                  exit_doors_indexes=[],
-                 group=''):
+                 group='',
+                 unique_solution=True):
         
         self.group = group
-
+        self.unique_solution = unique_solution
+        
         self.random = random
         # A level is said random only if you need to use the function save_random_door_trees_list to creates some versions of it
         # Some levels have a random component (level_tree, level_sum, level_dichotomy, etc) but are not considered as random.
@@ -776,7 +778,7 @@ class Maze:
         else:
             solutions_that_work = self.all_solutions
         solutions_that_work = sorted(solutions_that_work, key=len)
-        if not (reverse_actions_order or self.fastest_solution is None or ' '.join(solutions_that_work[0]) == self.fastest_solution):
+        if not (reverse_actions_order or self.fastest_solution is None or ' '.join(solutions_that_work[0]) == self.fastest_solution) and self.unique_solution:
             print(self.name, "wrong fastest solution")
             print("solution found")
             print(str(' '.join(solutions_that_work[0])))

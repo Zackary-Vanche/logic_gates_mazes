@@ -171,7 +171,6 @@ def level_zebra():
     
     tree_list_equ = ['EQU', [None], Tree.tree_list_BIN(3)]
     tree_list_XNOR_equ = ['XNOR', tree_list_equ, tree_list_equ]
-    tree_list_XNOR_equ_8 = ['AND'] + [tree_list_XNOR_equ]*8
     
     color_S = []
     nationality_S = []
@@ -379,7 +378,7 @@ def level_zebra():
                  fastest_solution='''S2 S4 S8 S9 S12 D0 S20 S21 S22 S28 D1 S30 S31 S36 S39 S40 S42 S43 D2 S46 S48 S49 S52 S55 D3 S60 S63 S71 S74 D4 D5 D6 D7''',
                  level_color=Levels_colors_list.FROM_HUE(hu=0.15, sa=0, li=0.95),
                  name='Zebra',
-                 door_window_size=800,
+                 door_window_size=850,
                  keep_proportions=True,
                  y_separation=40,
                  border=40,

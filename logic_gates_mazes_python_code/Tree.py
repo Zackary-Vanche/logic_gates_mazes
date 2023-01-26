@@ -163,6 +163,8 @@ class Tree:
         for i in range(len(self.switches_list)):
             if isinstance(self.switches_list[i], int):
                 self.switches_list[i] = Switch(value=self.switches_list[i])
+            if self.switches_list[i] is None:
+                self.switches_list[i] = Switch(value=None)
         # assert len(list(set(self.switches_list))) == len(self.switches_list), self.name
         # assert not (self.root_depth == 0 and self.switches_list == []), self.name
         for switch in self.switches_list:
@@ -235,8 +237,8 @@ class Tree:
                     n = len(self.sons_list)//2
                     l1 = ' ; '.join([t.get_easy_logical_expression_PN() for t in self.sons_list[:n]])
                     l2 = ' ; '.join([t.get_easy_logical_expression_PN() for t in self.sons_list[n:]])
-                    self.easy_logical_expression_PN = '~ ' + '[' + l1 + '] [' + l2 + ']'
-                if root_name == 'MAS':
+                    self.easy_logical_expression_PN = '~ ' + '(' + l1 + ') (' + l2 + ')'
+                elif root_name == 'MAS':
                     n = len(self.sons_list)//2
                     l1 = ' ; '.join([t.get_easy_logical_expression_PN() for t in self.sons_list[:n]])
                     l2 = ' ; '.join([t.get_easy_logical_expression_PN() for t in self.sons_list[n:]])
@@ -332,7 +334,7 @@ class Tree:
                     else:
                         self.easy_logical_expression_PN = '{0} {1} {2}'.format(root_name, A, B)
                     assert self.easy_logical_expression_PN is not None
-                else: 
+                else:
                     txt = ''
                     for son in self.sons_list:
                         son_PN = son.get_easy_logical_expression_PN()
@@ -356,6 +358,7 @@ class Tree:
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('SUPOREQU ', '>= ')
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('INFOREQU ', '<= ')
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('EQU ', '= ')
+            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('EQUSET ', '~ ')
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('NEQ ', '¬= ')
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('INF0 ', '<0 ')
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('INF ', '< ')
@@ -401,9 +404,10 @@ class Tree:
         if len(self.switches_list) == self.number_of_leafs:
             self.switch_leafs()
         if self.is_leaf:
-            return self.root
+            value = self.root
         else:
-            return self.root.func(self.sons_list)
+            value = self.root.func(self.sons_list)
+        return value
 
     def get_depth(self):
         if self.is_leaf:

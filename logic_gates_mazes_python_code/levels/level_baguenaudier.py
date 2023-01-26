@@ -155,7 +155,7 @@ def level_baguenaudier():
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7],
-                 fastest_solution='D0 S1 D0 D1 S2 D1 S0 D3 S4 D3 D0 S1 D0 D1 S2 D1 S0 D4 S5 D4 D0 S1 D0 S0 D2 S3 D2 S0 D1 S2 D1 S0 D6 S7 D6 D0 S1 D0 D1 S2 D1 S0 D3 S4 D3 D0 S1 D0 S0 D2 S3 D2 D0 S1 D0 S0 D5 S6 D5 D0 S1 D0 D1 S2 D1 S0 D3 S4 D3 D0 S1 D0 S0 D2 S3 D2 D0 S1 D0 S0 D7',
+                 fastest_solution='S0 D0 S1 D0 D2 S3 D2 S0 D0 S1 D0 D3 S4 D3 S0 D1 S2 D1 D0 S1 D0 D5 S6 D5 S0 D0 S1 D0 D2 S3 D2 S0 D0 S1 D0 D3 S4 D3 S0 D1 S2 D1 D0 S1 D0 D6 S7 D6 S0 D0 S1 D0 D2 S3 D2 S0 D1 S2 D1 S0 D4 S5 D4 S0 D1 S2 D1 D0 S1 D0 D3 S4 D3 S0 D1 S2 D1 D0 S1 D0 D7',
                  level_color=Levels_colors_list.FROM_HUE(hu=0.15, sa=1, li=0.9),
                  name='Baguenaudier',
                  door_window_size=600,

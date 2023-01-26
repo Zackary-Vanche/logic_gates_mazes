@@ -386,12 +386,7 @@ def level_temple():
                  exit_room_index=-1, 
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, RE], 
                  doors_list = [D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19, D20, D21, D22, D23, D24], 
-                 fastest_solution="""D0 S0 D12 D6 D9 S27 D21 D22 D23
-D2 D14 D17 S24 D11 S27 D21 D22 D23
-D0 D12 S10 D15 D9 S28 D21 D22 D23
-D2 D14 S15 D8 S24 S25 D11 S28 D21 D22 D23
-D0 D12 D15 S20 D18 S29 D21 D22 D23
-D2 S6 D5 S15 S16 D8 S25 S26 D11 S29 D21 D22 D23 D24""".replace('\n', ' '),
+                 fastest_solution="""D0 S0 D12 S9 S10 D6 S19 S20 D9 S29 D21 D22 D23 D2 D14 D17 S26 D11 S29 D21 D22 D23 D0 D12 S9 D15 S18 S19 D9 S28 D21 D22 D23 D2 D14 S16 D8 D11 S28 D21 D22 D23 D0 D12 D15 S18 D18 S27 D21 D22 D23 D2 S6 D5 D8 D11 S27 D21 D22 D23 D24""",
                  level_color=Levels_colors_list.BEIGE_AND_BROWN,
                  name='Temple',
                  border = 30,

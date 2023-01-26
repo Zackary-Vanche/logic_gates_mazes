@@ -500,13 +500,19 @@ help_menus_list['levels']["No three in line"] = """The no three in line problem 
 
 help_menus_list['levels']["Manhattan_distance"] = """The cheat code might be very useful here."""
 
-help_menus_list['levels']["Sudoku"] = """To solve this level you need to solve a 4*4 sudoku grid."""
+help_menus_list['levels']["Diagonal"] = """To solve this level you need to solve a 4*4 sudoku grid."""
+
+help_menus_list['levels']["Sudoku"] = """It looks a lot like the level diagonal."""
 
 help_menus_list['levels']["Knight"] = """To solve this level you need to find a knight's tour."""
 
 help_menus_list['levels']["Water pouring"] = """You have 3 jugs of liquid, and you need to pour water from one to another."""
 
 help_menus_list['levels']["Syracuse"] = """The solution is pretty long."""
+
+help_menus_list['levels']["Five"] = help_menus_list['random'] +  """\n\nThere might be several solutions."""
+
+help_menus_list['levels']["Shuffled"] = help_menus_list['random'] +  """\n\nThere might be several solutions."""
 
 help_menus_list['levels']["Temple"] = """This level is the retranscription of a really known puzzle game.\nOnce you find which game it is, the level is over."""
 

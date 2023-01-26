@@ -102,7 +102,7 @@ def level_sudoku(fast_solution_finding=False):
                             S30, S14, S8, S18, S3, S7
                             ],
                 cut_expression=True,
-                cut_expression_separator=']')
+                cut_expression_separator=')')
     
     if fast_solution_finding:
         possible_switches_values = [[ 0, 0, 1, 0, 0, 1, 1, 1],

@@ -104,7 +104,7 @@ def level_alice_and_bob():
          exit_room_index=-1, 
          rooms_list=[R0, R1, R2, R3, R4, RE], 
          doors_list = [D0, D1, D2, D3, D4, D5, D6], 
-         fastest_solution="S0 D0 S1 D2 S3 D4 S0 D1 D3 S4 D5 S0 D0 D2 S3 D4 S0 D1 S2 D3 S4 D5 S0 D0 S1 D2 S3 D4 S0 D1 S2 D3 D6",
+         fastest_solution="S0 D0 S1 D2 S3 D4 S0 D1 S2 D3 S4 D5 S0 D0 S1 D2 S3 D4 S0 D1 D3 S4 D5 S0 D0 D2 S3 D4 S0 D1 S2 D3 D6",
          level_color=Levels_colors_list.FROM_HUE(0.57, sa=1, li=0.5),
          name='Alice and Bob',
          door_window_size = 550,

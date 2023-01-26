@@ -29,6 +29,7 @@ from levels.level_crossroad import level_crossroad
 from levels.level_crystal import level_crystal
 from levels.level_dead_ends import level_dead_ends
 # from levels.level_desert_crossing import level_desert_crossing
+from levels.level_diagonal import level_diagonal
 from levels.level_dichotomy import level_dichotomy
 from levels.level_dominating_set import level_dominating_set
 from levels.level_egyptian_fractions import level_egyptian_fractions
@@ -36,6 +37,7 @@ from levels.level_electricity import level_electricity
 from levels.level_elementary import level_elementary
 from levels.level_eulerian import level_eulerian
 from levels.level_exact_cover import level_exact_cover
+from levels.level_five import level_five
 from levels.level_fluid import level_fluid
 from levels.level_fractal import level_fractal
 from levels.level_hamiltonian import level_hamiltonian
@@ -90,6 +92,7 @@ from levels.level_sum import level_sum
 from levels.level_random_wheel import level_random_wheel
 from levels.level_recurrence import level_recurrence
 from levels.level_river import level_river
+from levels.level_shuffled import level_shuffled
 from levels.level_small import level_small
 from levels.level_square import level_square
 from levels.level_solitaire import level_solitaire
@@ -149,8 +152,6 @@ from levels.level_random_cuboctahedron import aux_level_random_cuboctahedron
 # Hitori ???
 # Nurikabe ???
 # Masyu ???
-# Mastermind # TODO
-# Dichotomy # TODO
 
 class Levels:
 
@@ -247,10 +248,13 @@ class Levels:
                              level_manhattan_distance,
                              level_random_gemini,
                              level_random_cuboctahedron,
+                             level_diagonal,
                              level_sudoku,
                              level_knight,
                              level_temple,
                              level_syracuse,
+                             level_five,
+                             level_shuffled,
                              level_water_pouring,
                              level_puzzle,
                              level_solitaire,
@@ -259,7 +263,7 @@ class Levels:
                              level_panex,
                              level_superflip,
                              ]
-    
+
     aux_level_function_list = [
                                aux_level_random_simple,
                                aux_level_random_bull,
@@ -303,7 +307,8 @@ class Levels:
                            multithreads=False,
                            fast_solution_finding=True,
                            max_calculation_time=float('inf'),
-                           save_as_txt=True):
+                           save_as_txt=True,
+                           only_if_known_solution=True):
         t0 = time()
         txt = ''
         nb_iterations_list = []
@@ -313,12 +318,15 @@ class Levels:
         if not do_it_fast:
             calculations_times = [None for i in range(Levels.number_of_levels)]
             def find_solution(k):
+                global n_level_sol_found
                 level = Levels.get_level(k, fast_solution_finding)
-                if level.name in ['Panex', 'Superflip']:
-                    return None
-                txt = '\n'
                 name = level.name
-                txt = txt + ' '.join(['Level', str(k), ':', name, '\n'])
+                if only_if_known_solution and (level.fastest_solution is None or level.name == 'Zebra'):
+                    txt = ' '.join(['Level', str(k), ':', name, '\n'])
+                    txt = '\n' + txt + '\n'
+                    print(txt)
+                    return None
+                txt = ' '.join(['Level', str(k), ':', name, '\n'])
                 t2 = time()
                 solutions, nb_iterations, nb_operations = level.find_all_solutions(stop_at_first_solution=False,
                                                                                    verbose=0,
@@ -331,6 +339,7 @@ class Levels:
                 if verbose >= 1:
                     txt = txt + str(t3 - t2) + 's'
                     calculations_times[k] = t3 - t2
+                txt = '\n' + txt + '\n'
                 if verbose > 0:
                     print(txt)
             if multithreads:
@@ -339,6 +348,8 @@ class Levels:
                 for k in range(Levels.number_of_levels):  # creating the threads
                     thread = threading.Thread(target=find_solution, args=(k,))
                     l_threads.append(thread)
+                n_threads = len(l_threads)
+                print(f'number of threads : {n_threads}\n\n')
                 for thread in l_threads:  # starting all the threads
                     thread.start()
                 for thread in l_threads:  # waiting for all threads to end
@@ -368,7 +379,7 @@ class Levels:
             a = [1 for i in range(Levels.number_of_levels)]
             return a, a, a
 
-def test_levels():
+def test_levels(test_random_levels=False):
 
     import matplotlib.pyplot as plt
     plt.rcParams.update({'font.size': 15})
@@ -398,31 +409,32 @@ def test_levels():
     plt.ylabel('Number of actions in the solution')
     plt.show()
     
-    print('Testing random levels')
-    from numpy import array, median
-    for aux_level in Levels.aux_level_function_list:
-        print(aux_level().name)
-        solution_length, number_of_solutions = calculates_random_level_solution_length(aux_level)
-        if solution_length == []:
-            print('*')
-            continue
-        print('len', len(solution_length))
-        print('solutions length')
-        print('min', min(solution_length))
-        print('avg', sum(solution_length)/len(solution_length))
-        print('med', median(array(solution_length)))
-        print('max', max(solution_length))
-        print('number of solutions')
-        print('min', min(number_of_solutions))
-        print('avg', sum(number_of_solutions)/len(number_of_solutions))
-        print('med', median(array(number_of_solutions)))
-        print('max', max(number_of_solutions))
-        bins_list = [i for i in range(max(solution_length)+1)]
-        plt.figure(figsize=(30, 5))
-        plt.hist(solution_length, bins=bins_list)
-        plt.xticks(bins_list)
-        plt.show()
-        print('')
+    if test_random_levels:
+        print('Testing random levels')
+        from numpy import array, median
+        for aux_level in Levels.aux_level_function_list:
+            print(aux_level().name)
+            solution_length, number_of_solutions = calculates_random_level_solution_length(aux_level)
+            if solution_length == []:
+                print('*')
+                continue
+            print('len', len(solution_length))
+            print('solutions length')
+            print('min', min(solution_length))
+            print('avg', sum(solution_length)/len(solution_length))
+            print('med', median(array(solution_length)))
+            print('max', max(solution_length))
+            print('number of solutions')
+            print('min', min(number_of_solutions))
+            print('avg', sum(number_of_solutions)/len(number_of_solutions))
+            print('med', median(array(number_of_solutions)))
+            print('max', max(number_of_solutions))
+            bins_list = [i for i in range(max(solution_length)+1)]
+            plt.figure(figsize=(30, 5))
+            plt.hist(solution_length, bins=bins_list)
+            plt.xticks(bins_list)
+            plt.show()
+            print('')
     
 def calculates_random_level_solution_length(aux_level_function):
     from os import listdir as os_listdir
@@ -461,7 +473,7 @@ if __name__ == "__main__":
     #                                           DFS_random=False)
     #     print(solutions)
 
-    test_levels()
+    #test_levels()
 
     # import cProfile
     # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=1, save_as_txt=False)''', sort=1)
@@ -498,3 +510,30 @@ if __name__ == "__main__":
     # sol = level.find_all_solutions(stop_at_first_solution=True)
     # assert ' '.join(sol[0][0]) == level.fastest_solution
     
+    # name_dict = {}
+    # for i in range(len(Levels.levels_functions_list)):
+    #     level_function = Levels.levels_functions_list[i]()
+    #     level = level_function
+    #     name = level.name
+    #     name_dict[name] = i
+    # for name in sorted(name_dict.keys()):
+    #     print('{:>5}'.format(name_dict[name]), name)
+    
+    t0 = time()
+    level = level_shuffled()
+    assert level.try_solution(level.fastest_solution) == 2
+    for i in range(100):
+        print('*'*100)
+        solutions = level_five().find_all_solutions(verbose=0)
+        for sol in solutions[0]:
+            print(' '.join(sol))
+    
+    #print(level_parking().fastest_solution.count('D'))
+    
+    # len_list = []
+    # for level_function in Levels.levels_functions_list:
+    #     level = level_function()
+    #     if not level.fastest_solution is None:
+    #         len_list.append([len(level.fastest_solution.split(' ')), level.name])
+    # len_list.sort()
+    # print(len_list)
