@@ -47,28 +47,29 @@ def aux_level_random_boustrophedon(door_trees_list = [[i for i in range(2**8)] f
                      random_switches_bin_list=Slist_i)
     
     ex = 0.5
-    ey = 0.5
+    ey = 0.6
+    ey0 = 0.925
     
     R0 = Room(name='R0',
-              position = [0, 0, ex, ey],
+              position = [0, 0, ex, ey0],
               switches_list = [S0])
     R1 = Room(name='R1',
               position = [1, 0, ex, ey],
               switches_list = [S1])
     R2 = Room(name='R2',
-              position = [1, 1, ex, ey],
+              position = [1, 1, ex, ey0],
               switches_list = [S2])
     R3 = Room(name='R3',
               position = [0, 1, ex, ey],
               switches_list = [S3])
     R4 = Room(name='R4',
-              position = [0, 2, ex, ey],
+              position = [0, 2, ex, ey0],
               switches_list = [S4])
     R5 = Room(name='R5',
               position = [1, 2, ex, ey],
               switches_list = [S5])
     R6 = Room(name='R6',
-              position = [1, 3, ex, ey],
+              position = [1, 3, ex, ey0],
               switches_list = [S6])
     R7 = Room(name='R7',
               position = [0, 3, ex, ey],
@@ -77,34 +78,48 @@ def aux_level_random_boustrophedon(door_trees_list = [[i for i in range(2**8)] f
               position=[0, 4, 1.5, ey],
               is_exit=True)   # E pour exit ou end
     
+    rd0 = [1/2, ey/ey0/2]
+    rd1 = [1/2, 1]
+    ra1 = [1/2, 0]
+    
     D0 = Door(two_way=0,
                 tree=get_tree(0),
                 room_departure=R0,
-                room_arrival=R1)
+                room_arrival=R1,
+                relative_departure_coordinates=rd0)
     D1 = Door(two_way=0,
                 tree=get_tree(1),
                 room_departure=R1,
-                room_arrival=R2)
+                room_arrival=R2,
+                relative_departure_coordinates=rd1,
+                relative_arrival_coordinates=ra1)
     D2 = Door(two_way=0,
                 tree=get_tree(2),
                 room_departure=R2,
-                room_arrival=R3)
+                room_arrival=R3,
+                relative_departure_coordinates=rd0)
     D3 = Door(two_way=0,
                 tree=get_tree(3),
                 room_departure=R3,
-                room_arrival=R4)
+                room_arrival=R4,
+                relative_departure_coordinates=rd1,
+                relative_arrival_coordinates=ra1)
     D4 = Door(two_way=0,
                 tree=get_tree(4),
                 room_departure=R4,
-                room_arrival=R5)
+                room_arrival=R5,
+                relative_departure_coordinates=rd0)
     D5 = Door(two_way=0,
                 tree=get_tree(5),
                 room_departure=R5,
-                room_arrival=R6)
+                room_arrival=R6,
+                relative_departure_coordinates=rd1,
+                relative_arrival_coordinates=ra1)
     D6 = Door(two_way=0,
                 tree=get_tree(6),
                 room_departure=R6,
-                room_arrival=R7)
+                room_arrival=R7,
+                relative_departure_coordinates=rd0)
     D7 = Door(two_way=0,
                 tree=get_tree(7),
                 room_departure=R7,

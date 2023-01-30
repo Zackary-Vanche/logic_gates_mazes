@@ -9,7 +9,13 @@ from Maze import Maze
 from Levels import Levels
 import threading
 
+def create_random_levels(a, b):
+    for aux_level in Levels.aux_level_function_list:
+        print(aux_level().name)
+        Maze.save_random_door_trees_list(aux_level, n_files=a+b, i0=a)
+
 if __name__ == '__main__':
+    pass
     # for aux_level in aux_level_list:
     #     print(aux_level().name)
     #     Maze.save_random_door_trees_list(aux_level, n_files=1, i0=0)
@@ -18,16 +24,14 @@ if __name__ == '__main__':
     #     Maze.save_random_door_trees_list(aux_level, n_files=1, i0=0)
     
     # Levels.aux_level_function_list.reverse()
-    # for aux_level in Levels.aux_level_function_list:
-    #     print(aux_level().name)
-    #     Maze.save_random_door_trees_list(aux_level, n_files=1, i0=0)
+    for aux_level in Levels.aux_level_function_list:
+        print(aux_level().name)
+        Maze.save_random_door_trees_list(aux_level, n_files=128, i0=0)
     
     # Levels.aux_level_function_list.reverse()
         
     # for p in range(1):
-    for aux_level in Levels.aux_level_function_list:
-        print(aux_level().name)
-        Maze.save_random_door_trees_list(aux_level, n_files=128, i0=0)
+    
 
     #Maze.save_random_door_trees_list(aux_level, n_files=64, i0=0)
 

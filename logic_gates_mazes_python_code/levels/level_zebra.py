@@ -260,7 +260,7 @@ def level_zebra():
               name='T5',
               switches = Slist5,
               cut_expression=True,
-              cut_expression_separator=']')
+              cut_expression_separator=')')
     tree_list_AND_equ = ['AND', tree_list_equ, tree_list_equ]
     Slist6 = []
     # The green house is immediately to the right of the ivory house.
@@ -294,9 +294,9 @@ def level_zebra():
               cut_expression=True,
               cut_expression_separator=')')
     
-    ex =0.25
-    ey =4
-    dx =0.6
+    ex = 0.25
+    ey = 4
+    dx = 1
     
     # There are five houses.
     R0 = Room(name='R0',
@@ -378,7 +378,7 @@ def level_zebra():
                  fastest_solution='''S2 S4 S8 S9 S12 D0 S20 S21 S22 S28 D1 S30 S31 S36 S39 S40 S42 S43 D2 S46 S48 S49 S52 S55 D3 S60 S63 S71 S74 D4 D5 D6 D7''',
                  level_color=Levels_colors_list.FROM_HUE(hu=0.15, sa=0, li=0.95),
                  name='Zebra',
-                 door_window_size=850,
+                 door_window_size=500,
                  keep_proportions=True,
                  y_separation=40,
                  border=40,

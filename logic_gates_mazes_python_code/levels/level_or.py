@@ -32,7 +32,7 @@ def level_or():
               name='T2', 
               switches = [S0, S1, S2])
     
-    d = 4
+    d = 5
     
     position_R0 = [0,0,1,1]
     position_R1 = [d,0,1,1]

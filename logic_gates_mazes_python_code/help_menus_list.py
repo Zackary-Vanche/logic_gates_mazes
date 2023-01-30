@@ -566,5 +566,7 @@ help_menus_list['levels']["Random - Star"] = help_menus_list['random']
 
 help_menus_list['levels']["Random - Starting point"] = help_menus_list['random']
 
+help_menus_list['levels']["Random - Tetractys"] = help_menus_list['random']
+
 help_menus_list['levels']["Random - Wheel"] = help_menus_list['random']
 

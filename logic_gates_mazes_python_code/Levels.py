@@ -85,6 +85,7 @@ from levels.level_random_loop import level_random_loop
 from levels.level_random_ladder import level_random_ladder
 from levels.level_random_line import level_random_line
 from levels.level_random_petersen import level_random_petersen
+from levels.level_random_tetractys import level_random_tetractys
 from levels.level_random_simple import level_random_simple
 from levels.level_random_star import level_random_star
 from levels.level_random_starting_point import level_random_starting_point
@@ -136,6 +137,7 @@ from levels.level_random_boustrophedon import aux_level_random_boustrophedon
 from levels.level_random_simple import aux_level_random_simple
 from levels.level_random_petersen import aux_level_random_petersen
 from levels.level_random_cuboctahedron import aux_level_random_cuboctahedron
+from levels.level_random_tetractys import aux_level_random_tetractys
 # from levels.level_random_blind_alley import aux_level_random_blind_alley
 
 
@@ -186,6 +188,7 @@ class Levels:
                              level_sum,
                              level_compact,
                              level_random_simple,
+                             level_random_boustrophedon,
                              level_parallel,
                              level_random_bull,
                              level_pythagorean,
@@ -244,7 +247,6 @@ class Levels:
                              level_travelling_salesman,
                              level_random_petersen,
                              level_no_three_in_line,
-                             level_random_boustrophedon,
                              level_manhattan_distance,
                              level_random_gemini,
                              level_random_cuboctahedron,
@@ -283,6 +285,7 @@ class Levels:
                                aux_level_random_petersen,
                                aux_level_random_cuboctahedron,
                                aux_level_random_gemini,
+                               # aux_level_random_tetractys
                                ]
 
     number_of_levels = len(levels_functions_list)
