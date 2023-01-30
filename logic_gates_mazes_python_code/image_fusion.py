@@ -20,6 +20,9 @@ def main():
     # TOTAL_SIZE = [1920, 1055]
     Game(is_fullscreen=True, save_image=True).play()
     
+    if not os.path.exists('images'):
+        os.mkdir('images')
+    
     if not os.path.exists('images/concat'):
         os.mkdir('images/concat')
 
