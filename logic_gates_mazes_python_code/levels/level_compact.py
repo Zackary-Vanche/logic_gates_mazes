@@ -111,7 +111,7 @@ def level_compact():
                  rooms_list=[R0, R1, R2] + [RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6],
                  fastest_solution='S0 D0 S1 D4 D3 S0 D0 D4 S2 D3 S0 D0 S1 D4 D3 S0 D0 D4 S2 D6',
-                 level_color=Levels_colors_list.FROM_HUE(hu=0.145, sa=0.2, li=0.8),
+                 level_color=Levels_colors_list.FROM_HUE(hu=0.145, sa=0.2, li=0.45),
                  name='Compact',
                  door_window_size=666,
                  keep_proportions=True,
