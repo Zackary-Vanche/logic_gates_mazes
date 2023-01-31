@@ -32,6 +32,7 @@ from levels.level_dead_ends import level_dead_ends
 from levels.level_diagonal import level_diagonal
 from levels.level_dichotomy import level_dichotomy
 from levels.level_dominating_set import level_dominating_set
+from levels.level_doppelganger import level_doppelganger
 from levels.level_egyptian_fractions import level_egyptian_fractions
 from levels.level_electricity import level_electricity
 from levels.level_elementary import level_elementary
@@ -186,6 +187,7 @@ class Levels:
                              level_recurrence,
                              level_naturals,
                              level_sum,
+                             level_doppelganger,
                              level_compact,
                              level_random_simple,
                              level_random_boustrophedon,
@@ -523,13 +525,14 @@ if __name__ == "__main__":
     #     print('{:>5}'.format(name_dict[name]), name)
     
     t0 = time()
-    level = level_shuffled()
-    assert level.try_solution(level.fastest_solution) == 2
-    for i in range(100):
+    level = level_doppelganger
+    # assert level.try_solution(level.fastest_solution) == 2
+    for i in range(1000):
         print('*'*100)
-        solutions = level_five().find_all_solutions(verbose=0)
+        solutions = level_doppelganger().find_all_solutions(verbose=0)
         for sol in solutions[0]:
             print(' '.join(sol))
+        assert len(solutions[0]) != 0
     
     #print(level_parking().fastest_solution.count('D'))
     
