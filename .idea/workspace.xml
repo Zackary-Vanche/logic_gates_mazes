@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c81987db-2369-42c3-99c6-b2e3a51e4576" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_doppelganger.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_doppelganger.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +68,7 @@
       <workItem from="1674841651912" duration="6470000" />
       <workItem from="1675072047153" duration="5000" />
       <workItem from="1675281126703" duration="150000" />
-      <workItem from="1675281364230" duration="797000" />
+      <workItem from="1675281364230" duration="837000" />
     </task>
     <servers />
   </component>

@@ -15,11 +15,11 @@ if __name__ == "__main__":
     # If you don't put it, the pixel of the game
     # will be too big after compilation
 
-    Game(show_help=0,
-         index_current_level=28,
+    Game(show_help=1,
+         index_current_level=0,
          sleep_time=10**(-2),
          print_click_rects=1,
-         is_fullscreen=0,
+         is_fullscreen=1,
          time_between_actions=0.15,
          time_between_deletings=0.05,
          time_between_level_changing=0.25).play()
