@@ -523,16 +523,16 @@ if __name__ == "__main__":
     #     name_dict[name] = i
     # for name in sorted(name_dict.keys()):
     #     print('{:>5}'.format(name_dict[name]), name)
-    
-    t0 = time()
-    level = level_doppelganger
-    # assert level.try_solution(level.fastest_solution) == 2
-    for i in range(1000):
-        print('*'*100)
-        solutions = level_doppelganger().find_all_solutions(verbose=0)
-        for sol in solutions[0]:
-            print(' '.join(sol))
-        assert len(solutions[0]) != 0
+
+    # t0 = time()
+    # level = level_doppelganger
+    # # assert level.try_solution(level.fastest_solution) == 2
+    # for i in range(1000):
+    #     print('*'*100)
+    #     solutions = level_doppelganger().find_all_solutions(verbose=0)
+    #     for sol in solutions[0]:
+    #         print(' '.join(sol))
+    #     assert len(solutions[0]) != 0
     
     #print(level_parking().fastest_solution.count('D'))
     
