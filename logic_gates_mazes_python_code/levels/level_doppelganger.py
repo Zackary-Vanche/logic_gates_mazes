@@ -21,15 +21,14 @@ def level_doppelganger():
     S3 = Switch(name='S3')
     
     Slist = [S0, S1, S2, S3]
-    lint = [i for i in range(4)]
+    lint = [i for i in range(1, 4)]
     rd_shuffle(lint)
-    print(lint)
-    
-    Slist0 = [lint[0]]
+    lint = [0] + lint
+
+    Slist0 = []
     for i in range(4):
-        for j in range(i):
-            Slist0.extend([lint[i] + lint[i] * 4])
-            Slist0.extend([lint[i] + lint[j] * 4])
+        for j in range(i+1):
+            Slist0.extend([lint[j] + lint[i] * 4])
     # Slist0 = sorted(Slist0)
     
     T0 = Tree(tree_list=['IN', Tree.tree_list_BIN(4)] + [[None]]*len(Slist0),
@@ -40,7 +39,7 @@ def level_doppelganger():
     T1 = Tree(tree_list=['EQU', Tree.tree_list_BIN(4), [None]],
               empty=True,
               name='T1',
-              switches = Slist + [lint[-2] + lint[-1] * 4])
+              switches = Slist + [Slist0[-1]])
     
     ex = 0.25
     ey = 0.75
