@@ -442,6 +442,8 @@ help_menus_list['levels']["Small"] = """The solution and the door's expressions 
 
 help_menus_list['levels']["The 4 queens"] = """This level is inspired from the 8 queens problem."""
 
+help_menus_list['levels']["K"] = """You have to locate as many knights in a chessboard as possible."""
+
 help_menus_list['levels']["Strange"] = "You can always try exhaustive testing..."
 
 help_menus_list['levels']["Alice and Bob"] = """Alice wants to send a package to Bob."""

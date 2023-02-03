@@ -48,6 +48,7 @@ from levels.level_independent_set import level_independent_set
 from levels.level_infinity import level_infinity
 from levels.level_initiation import level_initiation
 from levels.level_inversions import level_inversions
+from levels.level_k import level_k
 from levels.level_knapsack import level_knapsack
 from levels.level_knight import level_knight
 from levels.level_linear import level_linear
@@ -98,6 +99,7 @@ from levels.level_shuffled import level_shuffled
 from levels.level_small import level_small
 from levels.level_square import level_square
 from levels.level_solitaire import level_solitaire
+from levels.level_spare import level_spare
 from levels.level_strange import level_strange
 from levels.level_sudoku import level_sudoku
 from levels.level_sujiko import level_sujiko
@@ -158,7 +160,7 @@ from levels.level_random_tetractys import aux_level_random_tetractys
 
 class Levels:
 
-    levels_functions_list = [
+    levels_functions_list = [#level_spare,
                              level_hello_world,
                              level_initiation,
                              level_linear,
@@ -213,6 +215,7 @@ class Levels:
                              level_small,
                              level_strange,
                              level_the_4_queens,
+                             level_k,
                              level_alice_and_bob,
                              level_nonogram,
                              level_crystal,
@@ -478,7 +481,7 @@ if __name__ == "__main__":
     #                                           DFS_random=False)
     #     print(solutions)
 
-    #test_levels()
+    test_levels()
 
     # import cProfile
     # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=1, save_as_txt=False)''', sort=1)
@@ -543,3 +546,5 @@ if __name__ == "__main__":
     #         len_list.append([len(level.fastest_solution.split(' ')), level.name])
     # len_list.sort()
     # print(len_list)
+
+    # solutions = level_k(True).find_all_solutions(verbose=1)
