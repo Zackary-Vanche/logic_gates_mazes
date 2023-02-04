@@ -4,120 +4,148 @@ from Door import Door
 from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
+from Color import Color
 
 def level_spare():
 
     v = 1
-
-    S0 = Switch(name='S0', value=v)
+    S0 = Switch(name='S0')
     S1 = Switch(name='S1')
-    S2 = Switch(name='S2', value=v)
-    S3 = Switch(name='S3')
+    S2 = Switch(name='S2')
+    S3 = Switch(name='S3', value=v)
     S4 = Switch(name='S4')
-    S5 = Switch(name='S5')
+    S5 = Switch(name='S5', value=v)
     S6 = Switch(name='S6')
-    S7 = Switch(name='S7', value=v)
+    S7 = Switch(name='S7')
     S8 = Switch(name='S8')
-    S9 = Switch(name='S9', value=v)
+    S9 = Switch(name='S9')
     S10 = Switch(name='S10')
     S11 = Switch(name='S11')
+    S12 = Switch(name='S12', value=v)
+    S13 = Switch(name='S13')
+    S14 = Switch(name='S14')
 
-    Slist = [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11]
+    SR0 = [S0, S1, S2]
+    SR1 = [S3, S4]
+    SR2 = [S5, S6]
+    SR3 = [S7, S8]
+    SR4 = [S9, S10]
+    SR5 = [S11, S12]
+    SR6 = [S13, S14]
+    Slist = [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14]
 
-    T0 = Tree(tree_list=[None],
+    tree_list_0 = ['AND',
+                   ['OR'] + [['EQU', Tree.tree_list_BIN(2), [None]]]*2,
+                   ['EQU', Tree.tree_list_BIN(3), [None]]]
+    tree_list_1 = ['AND',
+                   ['EQU'] + [Tree.tree_list_BIN(2)]*2,
+                   ['EQU', Tree.tree_list_BIN(3), [None]]]
+    tree_list_2 = ['AND',
+                   ['EQUSET'] + [Tree.tree_list_BIN(2)]*6 + [[None]]*6,
+                   ['EQU', Tree.tree_list_BIN(3), [None]]]
+    Slist2 = [S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, 0, 0, 0, 1, 1, 2,]
+
+    T0 = Tree(tree_list=tree_list_0,
               empty=True,
               name='T0',
-              switches = [1])
-    T1 = Tree(tree_list=[None],
+              switches=SR1 + [0] + SR2 + [0] + SR0 + [1])
+    T1 = Tree(tree_list=tree_list_1,
               empty=True,
               name='T1',
-              switches = [1])
-    T2 = Tree(tree_list=[None],
+              switches=SR1 + SR2 + SR0 + [1])
+    T2 = Tree(tree_list=tree_list_2,
               empty=True,
               name='T2',
-              switches = [1])
-    T3 = Tree(tree_list=[None],
+              switches=Slist2 + SR0 + [1])
+
+    T3 = Tree(tree_list=tree_list_0,
               empty=True,
               name='T3',
-              switches = [1])
-    T4 = Tree(tree_list=[None],
+              switches=SR2 + [0] + SR3 + [0] + SR0 + [2])
+    T4 = Tree(tree_list=tree_list_1,
               empty=True,
               name='T4',
-              switches = [1])
-    T5 = Tree(tree_list=[None],
+              switches=SR2 + SR3 + SR0 + [2])
+    T5 = Tree(tree_list=['AND',
+                         ['EQUSET'] + [Tree.tree_list_BIN(2)]*6 + [[None]]*6,
+                         ['IN', Tree.tree_list_BIN(3), [None], [None]]],
               empty=True,
               name='T5',
-              switches = [1])
-    T6 = Tree(tree_list=[None],
+              switches=Slist2 + SR0 + [2, 5])
+
+    T6 = Tree(tree_list=tree_list_0,
               empty=True,
               name='T6',
-              switches = [1])
-    T7 = Tree(tree_list=[None],
+              switches=SR3 + [0] + SR4 + [0] + SR0 + [3])
+    T7 = Tree(tree_list=tree_list_1,
               empty=True,
               name='T7',
-              switches = [1])
-    T8 = Tree(tree_list=[None],
+              switches=SR3 + SR4 + SR0 + [3])
+    T8 = Tree(tree_list=tree_list_2,
               empty=True,
               name='T8',
-              switches = [1])
-    T9 = Tree(tree_list=[None],
+              switches=Slist2 + SR0 + [3])
+
+    T9 = Tree(tree_list=tree_list_0,
               empty=True,
               name='T9',
-              switches = [1])
-    T10 = Tree(tree_list=[None],
+              switches=SR4 + [0] + SR5 + [0] + SR0 + [4])
+    T10 = Tree(tree_list=tree_list_1,
               empty=True,
               name='T10',
-              switches = [1])
-    T11 = Tree(tree_list=[None],
-               empty=True,
-               name='T11',
-               switches=[1])
-    T12 = Tree(tree_list=[None],
+              switches=SR4 + SR5 + SR0 + [4])
+    T11 = Tree(tree_list=tree_list_2,
+              empty=True,
+              name='T11',
+              switches=Slist2 + SR0 + [4])
+
+    T12 = Tree(tree_list=tree_list_0,
                empty=True,
                name='T12',
-               switches=[1])
-    T13 = Tree(tree_list=[None],
+               switches=SR6 + [0] + SR3 + [0] + SR0 + [5])
+    T13 = Tree(tree_list=tree_list_1,
                empty=True,
                name='T13',
-               switches=[1])
-    T14 = Tree(tree_list=['EQU', Tree.tree_list_BIN(12), Tree.tree_list_BIN(12)],
+               switches=SR6 + SR3 + SR0 + [5])
+
+    T14 = Tree(tree_list=Tree.tree_list_from_str('TTTFTFFFFTFTFFF'),
                empty=True,
                name='T14',
-               switches=Slist + [0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0])
+               switches=Slist)
 
-    ex = 0.15
+    ex = 0.2
     ey = 0.5
-    ex0 = 0.1
-    ey0 = 0.4
+    ex0 = 0.2
+    ey0 = 0.7
     ey3 = 0.45
     ex4 = 0.125
-    ex6 = ex + 0.2
-    ey6 = ey + 0.2
-    exe = 0.6
+    ex6 = 0.3
+    ey6 = 0.6
+    exe = 0.8
     eye = 0.6
-    dx = 0.4
+    dx = 1
 
     R0 = Room(name='R0',
               position = [dx+(ex-ex0)/2, 1+(ey-ey0)/2, ex0, ey0],
-              switches_list = [])
+              switches_list = SR0)
     R1 = Room(name='R1',
               position = [0, 0, ex, ey],
-              switches_list = [S0, S1])
+              switches_list = SR1)
     R2 = Room(name='R2',
               position = [ex-ex4, 1, ex4, ey],
-              switches_list = [S2, S3])
+              switches_list = SR2)
     R3 = Room(name='R3',
               position = [0, 2, ex, ey3],
-              switches_list = [S4, S5])
+              switches_list = SR3)
     R4 = Room(name='R4',
               position = [2*dx-ex+ex4, 1, ex4, ey],
-              switches_list = [S6, S7])
+              switches_list = SR4)
     R5 = Room(name='R5',
               position = [2*dx, ey-ey3, ex, ey3],
-              switches_list = [S8, S9])
+              switches_list = SR5)
     R6 = Room(name='R6',
               position = [2*dx+(ex-ex6), 2+(ex-ex6), ex6, ey6],
-              switches_list = [S10, S11])
+              switches_list = SR6)
     RE = Room(name='RE',
               position=[dx+(ex-exe)/2, 0, exe, eye],
               is_exit=True)   # E pour exit ou end
@@ -194,13 +222,13 @@ def level_spare():
                room_arrival=R0)
     D12 = Door(two_way=False,
                tree=T12,
-               room_departure=R3,
-               room_arrival=R6)
+               room_departure=R0,
+               room_arrival=R6,
+               relative_position=0.4)
     D13 = Door(two_way=False,
                tree=T13,
                room_departure=R6,
-               room_arrival=R0,
-               relative_position=0.55)
+               room_arrival=R3)
     D14 = Door(two_way=False,
                tree=T14,
                room_departure=R0,
@@ -208,15 +236,17 @@ def level_spare():
 
     rp = 1/2
 
-
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.15, sa=1, li=0.4)
+    lcolor.inside_room_color = Color.BLACK_RED
+    lcolor.background_color = Color.ORANGE
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6] + [RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14],
-                 fastest_solution=None,
-                 level_color=Levels_colors_list.FROM_HUE(hu=0.15, sa=1, li=0.9),
+                 fastest_solution='S2 D9 S10 D10 S12 D11 S0 S1 S2 D6 S8 D7 S10 D8 S1 S2 D12 S14 D13 S8 D5 S0 S1 S2 D3 S5 D4 S7 D5 S0 D6 S7 D7 S9 D8 S1 D0 S3 D1 S5 D2 S0 S1 D3 S5 D4 S7 D5 S1 S2 D9 S9 D10 S11 D11 S0 S1 S2 D6 S7 D7 S9 D8 S1 S2 D12 S14 D13 S8 D5 S0 S1 S2 D3 S6 D4 S8 D5 S0 S1 D0 S4 D1 S6 D2 S1 S2 D14',
+                 level_color=lcolor,
                  name='Spare',
-                 door_window_size=1400,
+                 door_window_size=900,
                  keep_proportions=True,
                  y_separation=40,
                  border=40)

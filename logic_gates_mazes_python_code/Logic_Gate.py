@@ -37,7 +37,7 @@ class Logic_Gate:
     def aux_func_EQUSET(branches_values):
         # # assert len(branches_values) % 2 == 0
         n = len(branches_values) // 2
-        return set(branches_values[:n]) == set(branches_values[n:])
+        return sorted(branches_values[:n]) == sorted(branches_values[n:])
 
     def aux_func_DIFF(branches_values):
         # # assert len(sons_list) >= 2

@@ -456,11 +456,13 @@ help_menus_list['levels']["XOR"] = help_menus_list['NAND']
 
 help_menus_list['levels']["Weights"] = '''You must find the good weights in order to reach the exit.'''
 
-help_menus_list['levels']["Baguenaudier"] = '''The baguenaudier is an old puzzle game.'''
-
 help_menus_list['levels']["Tetris"] = """Each number can represent a position in the plane.\n"""
 
 help_menus_list['levels']["Mastermind"] = help_menus_list['MAS'] + """\n\n?0 ?1 ?2 ?3 ?4 ?5 ?6 ?7 are switches.\n\nYou have to guess their values."""
+
+help_menus_list['levels']["Baguenaudier"] = '''The baguenaudier is an old puzzle game.'''
+
+help_menus_list['levels']["Spare"] = '''Use the spare room.'''
 
 help_menus_list['levels']["4 colors theorem"] = """Each couple of switches represent a color.\n"""
 

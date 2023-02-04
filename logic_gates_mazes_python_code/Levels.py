@@ -160,7 +160,7 @@ from levels.level_random_tetractys import aux_level_random_tetractys
 
 class Levels:
 
-    levels_functions_list = [#level_spare,
+    levels_functions_list = [
                              level_hello_world,
                              level_initiation,
                              level_linear,
@@ -224,6 +224,7 @@ class Levels:
                              level_xor,
                              level_weights,
                              level_baguenaudier,
+                             level_spare,
                              level_4_colors_theorem,
                              level_magic_square,
                              level_matrix,
@@ -546,5 +547,3 @@ if __name__ == "__main__":
     #         len_list.append([len(level.fastest_solution.split(' ')), level.name])
     # len_list.sort()
     # print(len_list)
-
-    # solutions = level_k(True).find_all_solutions(verbose=1)
