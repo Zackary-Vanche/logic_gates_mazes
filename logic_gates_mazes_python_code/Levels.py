@@ -487,7 +487,7 @@ if __name__ == "__main__":
     #                                           DFS_random=False)
     #     print(solutions)
 
-    #test_levels()
+    test_levels()
 
     # import cProfile
     # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=1, save_as_txt=False)''', sort=1)
