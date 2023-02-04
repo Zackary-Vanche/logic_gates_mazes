@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c81987db-2369-42c3-99c6-b2e3a51e4576" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/Levels.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/Levels.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/Logic_Gate.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/Logic_Gate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/help_menus_list.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/help_menus_list.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_spare.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_spare.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/solutions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/solutions.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +79,7 @@
       <workItem from="1675342976569" duration="228000" />
       <workItem from="1675409996457" duration="40000" />
       <workItem from="1675447028759" duration="11469000" />
-      <workItem from="1675500181146" duration="6969000" />
+      <workItem from="1675500181146" duration="8056000" />
     </task>
     <servers />
   </component>
@@ -116,9 +111,9 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/logic_gates_mazes$level_k.coverage" NAME="level_k Coverage Results" MODIFIED="1675451689089" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/logic_gates_mazes_python_code/levels" />
     <SUITE FILE_PATH="coverage/logic_gates_mazes$level_random_tetractys.coverage" NAME="level_random_tetractys Coverage Results" MODIFIED="1674847634099" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/logic_gates_mazes_python_code/levels" />
-    <SUITE FILE_PATH="coverage/logic_gates_mazes$main.coverage" NAME="main Coverage Results" MODIFIED="1675507152825" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/logic_gates_mazes_python_code" />
+    <SUITE FILE_PATH="coverage/logic_gates_mazes$main.coverage" NAME="main Coverage Results" MODIFIED="1675508573505" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/logic_gates_mazes_python_code" />
     <SUITE FILE_PATH="coverage/logic_gates_mazes$create_random_levels.coverage" NAME="create_random_levels Coverage Results" MODIFIED="1674848042120" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/logic_gates_mazes_python_code" />
-    <SUITE FILE_PATH="coverage/logic_gates_mazes$Levels.coverage" NAME="Levels Coverage Results" MODIFIED="1675506149236" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/logic_gates_mazes_python_code" />
+    <SUITE FILE_PATH="coverage/logic_gates_mazes$Levels.coverage" NAME="Levels Coverage Results" MODIFIED="1675507239368" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/logic_gates_mazes_python_code" />
     <SUITE FILE_PATH="coverage/logic_gates_mazes$level_doppelganger.coverage" NAME="level_doppelganger Coverage Results" MODIFIED="1675282103554" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/logic_gates_mazes_python_code/levels" />
   </component>
 </project>
