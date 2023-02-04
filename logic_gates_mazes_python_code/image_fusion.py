@@ -11,7 +11,7 @@ def divisor_closest_to_sqrt(n):
     for k in range(1, int(ceil(sqrt(n)))+1):
         if n%k == 0:
             d = k
-    return d
+    return min(n//d, d)
     
 def main():
 
@@ -46,7 +46,7 @@ def main():
         for k in sorted(dico.keys()):
             file_list.append(dico[k])
 
-        assert m <= n 
+        assert m <= n, f'~ {m} <= {n}'
         assert m*n==len(file_list), """{0}, {1}, {2}""".format(m, n, len(file_list))
         l_img_h = []
         for i in range(m):
@@ -80,12 +80,16 @@ def main():
             l = [cv2.imread(file) for file in l]
             im_h = cv2.hconcat(l)
             l_img_h.append(im_h)
-        img = cv2.vconcat(l_img_h)
-        plt.imshow(img)
+        img_h = cv2.vconcat(l_img_h)
+        plt.imshow(img_h)
         plt.show()
         filename = r'images/concat/concat_levels_HELP_{}.jpg'.format(string)
-        cv2.imwrite(filename, img)
-        print(filename)
+        cv2.imwrite(filename, img_h)
+
+        # img_all = cv2.vconcat([r'images/concat/concat_levels_HELP_{}.jpg'.format(string), r'images/concat/concat_levels_{}.jpg'.format(string)])
+        # filename = r'images/concat/concat_levels_all_{}.jpg'.format(string)
+        # cv2.imwrite(filename, img_all)
+        # print(filename)
 
 if __name__ == "__main__":
     

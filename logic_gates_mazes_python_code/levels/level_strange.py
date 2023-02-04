@@ -50,12 +50,12 @@ def level_strange(a=1, b=1, c=1, d=1):
     rp = 1/2
 
     D0 = Door(two_way=False,
-                tree=T0,
-                room_departure=R0,
-                room_arrival=RE,
-                relative_position=rp,
-                relative_departure_coordinates=[1/2, 0],
-                relative_arrival_coordinates=[1/2, 1])
+              tree=T0,
+              room_departure=R0,
+              room_arrival=RE,
+              relative_position=rp,
+              relative_departure_coordinates=[1 / 2, 0],
+              relative_arrival_coordinates=[1 / 2, 1])
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,

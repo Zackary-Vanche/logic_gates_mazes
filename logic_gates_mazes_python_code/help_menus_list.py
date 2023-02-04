@@ -426,6 +426,8 @@ help_menus_list['levels']["Dichotomy"] = """? is a random integer.\n\nOnce you f
 
 help_menus_list['levels']["Partition"] = """The partition is one of the Karp's 21 NP-complete problems.\n""" + help_menus_list["PROD"]
 
+help_menus_list['levels']["Second"] = """second order polynomial equation."""
+
 help_menus_list['levels']["Knapsack"] = """The knapsack is one of the Karp's 21 NP-complete problems."""
 
 help_menus_list['levels']["Permutations"] = """Every permutation can be writen as a product of 2-cycles.\n\nYou can try to find not only one solution, but the fastest one."""

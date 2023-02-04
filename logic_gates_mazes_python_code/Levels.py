@@ -95,6 +95,7 @@ from levels.level_sum import level_sum
 from levels.level_random_wheel import level_random_wheel
 from levels.level_recurrence import level_recurrence
 from levels.level_river import level_river
+from levels.level_second import level_second
 from levels.level_shuffled import level_shuffled
 from levels.level_small import level_small
 from levels.level_square import level_square
@@ -203,6 +204,7 @@ class Levels:
                              level_dichotomy,
                              level_random_star,
                              level_partition,
+                             level_second,
                              level_knapsack,
                              level_permutations,
                              level_random_K2,
@@ -537,8 +539,6 @@ if __name__ == "__main__":
     #     for sol in solutions[0]:
     #         print(' '.join(sol))
     #     assert len(solutions[0]) != 0
-    
-    #print(level_parking().fastest_solution.count('D'))
     
     # len_list = []
     # for level_function in Levels.levels_functions_list:
