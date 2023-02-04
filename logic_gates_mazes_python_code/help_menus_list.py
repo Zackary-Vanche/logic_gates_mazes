@@ -378,6 +378,12 @@ help_menus_list['levels']["Infinity"] = help_menus_list["cheat code"]
 
 help_menus_list['levels']["Fluid"] = help_menus_list['Introduction thuth table']
 
+help_menus_list['levels']["Numeration"] = '\n'.join([help_menus_list['EQU'], help_menus_list['BIN']])
+
+help_menus_list['levels']["Sum"] = help_menus_list['random'] + '\n\n' + help_menus_list['IN'] + """\n\nFrom now on, all the levels will have a random component."""
+
+help_menus_list['levels']["Product"] = help_menus_list['PROD']
+
 help_menus_list['levels']["Congruence"] = help_menus_list['MOD']
 
 help_menus_list['levels']["3 SAT"] = """The 3 SAT problem is NP complete.\n\nThe door expression has been randomly chosen by computer."""
@@ -533,8 +539,6 @@ help_menus_list['levels']["Parking"] = """If a door equation is not visible, it 
 help_menus_list['levels']["Panex"] = """You are on your own."""
 
 help_menus_list['levels']["Superflip"] = help_menus_list['see other doors']
-
-help_menus_list['levels']["Sum"] = help_menus_list['random'] + '\n\n' + help_menus_list['IN'] + """\n\nFrom now on, all the levels will have a random component."""
 
 help_menus_list['levels']["Doppelganger"] = help_menus_list['random']
 
