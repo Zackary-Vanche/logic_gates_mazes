@@ -536,10 +536,7 @@ class Game:
         pygame_display_update()
 
         if self.save_image:
-            fname = "images/HELP_level_{}_{}_WIDTH_{}_HEIGHT_{}.jpg".format(self.index_current_level,
-                                                                            self.maze.name,
-                                                                            self.WINDOW_WIDTH,
-                                                                            self.WINDOW_HEIGHT)
+            fname = f"images/HELP_level_{self.index_current_level}_{self.maze.name}_WIDTH_{int(self.WINDOW_WIDTH)}_HEIGHT_{int(self.WINDOW_HEIGHT)}.jpg"
             if not os_path_exists(fname):
                 print(fname)
                 pygame_image_save(self.WINDOW, fname)
@@ -701,10 +698,7 @@ class Game:
 
     def save_image_as_file(self):
         if self.save_image:
-            fname = "images/level_{}_{}_WIDTH_{}_HEIGHT_{}.jpg".format(self.index_current_level,
-                                                                       self.maze.name,
-                                                                       self.WINDOW_WIDTH,
-                                                                       self.WINDOW_HEIGHT)
+            fname = f"images/level_{self.index_current_level}_{self.maze.name}_WIDTH_{int(self.WINDOW_WIDTH)}_HEIGHT_{int(self.WINDOW_HEIGHT)}.jpg"
             # if not os_path_exists(fname):
             print(fname)
             pygame_image_save(self.WINDOW, fname)

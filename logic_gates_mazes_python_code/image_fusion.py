@@ -4,6 +4,7 @@ from Game import Game
 from Levels import Levels
 from pyautogui import size as pyautogui_size
 import matplotlib.pyplot as plt
+import random as rd
 
 def divisor_closest_to_sqrt(n):
     from numpy import ceil, sqrt
@@ -15,10 +16,12 @@ def divisor_closest_to_sqrt(n):
     
 def main():
 
+    rd.seed(42)
+
     # TOTAL_SIZE = pyautogui_size()
     # Game(save_image=1, time_between_level_changing=0, show_help=0).play()
     # TOTAL_SIZE = [1920, 1055]
-    Game(is_fullscreen=True, save_image=True).play()
+    Game(is_fullscreen=1, save_image=1).play()
     
     if not os.path.exists('images'):
         os.mkdir('images')
@@ -51,9 +54,12 @@ def main():
         l_img_h = []
         for i in range(m):
             l = file_list[n*i:n*i+n]
-            l = [cv2.imread(file) for file in l]
-            im_h = cv2.hconcat(l)
-            l_img_h.append(im_h)
+            if len(l) == 1:
+                l_img_h.append(l[0])
+            else:
+                l = [cv2.imread(file) for file in l]
+                im_h = cv2.hconcat(l)
+                l_img_h.append(im_h)
         img = cv2.vconcat(l_img_h)
         plt.imshow(img)
         plt.show()
@@ -77,9 +83,12 @@ def main():
         l_img_h = []
         for i in range(m):
             l = file_list[n*i:n*i+n]
-            l = [cv2.imread(file) for file in l]
-            im_h = cv2.hconcat(l)
-            l_img_h.append(im_h)
+            if len(l) == 1:
+                l_img_h.append(l[0])
+            else:
+                l = [cv2.imread(file) for file in l]
+                im_h = cv2.hconcat(l)
+                l_img_h.append(im_h)
         img_h = cv2.vconcat(l_img_h)
         plt.imshow(img_h)
         plt.show()

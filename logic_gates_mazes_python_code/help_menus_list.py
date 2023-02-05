@@ -380,7 +380,7 @@ help_menus_list['levels']["Fluid"] = help_menus_list['Introduction thuth table']
 
 help_menus_list['levels']["Numeration"] = '\n'.join([help_menus_list['EQU'], help_menus_list['BIN']])
 
-help_menus_list['levels']["Sum"] = help_menus_list['random'] + '\n\n' + help_menus_list['IN'] + """\n\nFrom now on, all the levels will have a random component."""
+help_menus_list['levels']["Sum"] = help_menus_list['random'] + '\n\n' + help_menus_list['IN'] + '\n\n' + help_menus_list['SUM'] + """\n\nFrom now on, all the levels will have a random component."""
 
 help_menus_list['levels']["Product"] = help_menus_list['PROD']
 
@@ -532,7 +532,7 @@ help_menus_list['levels']["Puzzle"] = """This level is inspired from the 15-puzz
 
 help_menus_list['levels']["Solitaire"] = help_menus_list['JUMP']
 
-help_menus_list['levels']["MOLS"] = 'MOLS stands for "Mutually orthogonal Latin squares".'
+help_menus_list['levels']["MOLS"] = 'MOLS stands for "Mutually Orthogonal Latin Squares".'
 
 help_menus_list['levels']["Zebra"] = """There are five houses."""
 
