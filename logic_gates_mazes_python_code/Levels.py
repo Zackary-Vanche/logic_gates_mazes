@@ -58,6 +58,7 @@ from levels.level_manhattan_distance import level_manhattan_distance
 from levels.level_matrix import level_matrix
 from levels.level_magic_square import level_magic_square  # kakuro
 from levels.level_mastermind import level_mastermind
+from levels.level_mols import level_mols
 from levels.level_naturals import level_naturals
 from levels.level_nonogram import level_nonogram
 from levels.level_no_three_in_line import level_no_three_in_line
@@ -271,6 +272,7 @@ class Levels:
         level_water_pouring,
         level_puzzle,
         level_solitaire,
+        level_mols,
         level_zebra,
         level_parking,
         level_panex,
@@ -550,5 +552,3 @@ if __name__ == "__main__":
     #         len_list.append([len(level.fastest_solution.split(' ')), level.name])
     # len_list.sort()
     # print(len_list)
-
-    print(level_product().find_all_solutions())

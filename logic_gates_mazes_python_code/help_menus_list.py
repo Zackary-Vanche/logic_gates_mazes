@@ -532,6 +532,8 @@ help_menus_list['levels']["Puzzle"] = """This level is inspired from the 15-puzz
 
 help_menus_list['levels']["Solitaire"] = help_menus_list['JUMP']
 
+help_menus_list['levels']["MOLS"] = 'MOLS stands for "Mutually orthogonal Latin squares".'
+
 help_menus_list['levels']["Zebra"] = """There are five houses."""
 
 help_menus_list['levels']["Parking"] = """If a door equation is not visible, it means it is always open."""
@@ -581,4 +583,3 @@ help_menus_list['levels']["Random - Starting point"] = help_menus_list['random']
 help_menus_list['levels']["Random - Tetractys"] = help_menus_list['random']
 
 help_menus_list['levels']["Random - Wheel"] = help_menus_list['random']
-
