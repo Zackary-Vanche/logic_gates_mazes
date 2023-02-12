@@ -16,7 +16,7 @@ if __name__ == "__main__":
     # will be too big after compilation
 
     Game(show_help=1,
-         index_current_level=55,
+         index_current_level=0,
          sleep_time=10**(-2),
          print_click_rects=1,
          is_fullscreen=0,
