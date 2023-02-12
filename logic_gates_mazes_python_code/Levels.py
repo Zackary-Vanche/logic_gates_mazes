@@ -93,6 +93,7 @@ from levels.level_random_petersen import level_random_petersen
 # from levels.level_random_tetractys import level_random_tetractys
 from levels.level_random_simple import level_random_simple
 from levels.level_random_star import level_random_star
+from levels.level_sign import level_sign
 from levels.level_random_starting_point import level_random_starting_point
 from levels.level_sum import level_sum
 from levels.level_random_wheel import level_random_wheel
@@ -269,6 +270,7 @@ class Levels:
         level_syracuse,
         level_five,
         level_shuffled,
+        level_sign,
         level_water_pouring,
         level_puzzle,
         level_solitaire,
@@ -476,18 +478,11 @@ if __name__ == "__main__":
     pass
 
     import os
+    import collections
+    import numpy as np
     
     if os.path.exists('temp.txt'):
         os.remove('temp.txt')
-
-    # for level_function in Levels.levels_functions_list[:15]:
-    #     level = level_function()
-    #     solutions = level.find_all_solutions(verbose=1,
-    #                                           stop_at_first_solution=False,
-    #                                           nb_iterations_print=10**4,
-    #                                           DFS=False,
-    #                                           DFS_random=False)
-    #     print(solutions)
 
     test_levels()
 
@@ -552,3 +547,28 @@ if __name__ == "__main__":
     #         len_list.append([len(level.fastest_solution.split(' ')), level.name])
     # len_list.sort()
     # print(len_list)
+    
+    # solutions = level_sign(True).find_all_solutions(verbose=1, nb_iterations_print=10**3)
+    # bin_list = []
+    # with open('temp.txt', 'w') as fw:
+    #     for sol in solutions[0]:
+    #         sol = ' '.join(sol)
+    #         for i in range(14):
+    #             sol = sol.replace(f'D{i}', '')
+    #         sol = sol.replace('D14', 'D0')
+    #         #assert level_sign(False).try_solution(sol) == 2
+    #         fw.write(' '.join(sol))
+    #         fw.write('\n')
+    #         b = 0
+    #         for i in range(24):
+    #             if f'S{i} ' in sol:
+    #                 b += 2**i
+    #         bin_list.append(b)
+    # bin_list = np.array(bin_list)
+    # for i in range(100):
+    #     i = 2*i+1
+    #     print(i)
+    #     less_common = collections.Counter(bin_list%i).most_common()[-1]
+    #     print(less_common)
+    
+    

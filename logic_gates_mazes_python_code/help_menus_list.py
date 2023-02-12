@@ -526,6 +526,8 @@ help_menus_list['levels']["Five"] = help_menus_list['random'] +  """\n\nThere mi
 
 help_menus_list['levels']["Shuffled"] = help_menus_list['random'] +  """\n\nThere might be several solutions."""
 
+help_menus_list['levels']["Sign"] = 'You might need the help of a computer to solve this one.'
+
 help_menus_list['levels']["Temple"] = """This level is the retranscription of a really known puzzle game.\nOnce you find which game it is, the level is over."""
 
 help_menus_list['levels']["Puzzle"] = """This level is inspired from the 15-puzzle."""

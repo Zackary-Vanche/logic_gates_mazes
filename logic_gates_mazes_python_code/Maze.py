@@ -712,6 +712,7 @@ class Maze:
                      print("solutions_to_visit[-1].count('D') : {}".format(' '.join(solutions_to_visit[-1]).count('D')))
                      print('len(solutions_to_visit) : {}'.format(len(solutions_to_visit)))
                      print('len(solutions_to_visit)/nb_iterations : {}'.format(len(solutions_to_visit)/nb_iterations))
+                     print(f'estimated remaining time : {int(round((time() - t0)*len(solutions_to_visit)/nb_iterations, 0))} s')
                      print('len(solutions_that_work) : {}'.format(len(solutions_that_work)))
                      print('')
                 solution = solutions_to_visit.pop(0)

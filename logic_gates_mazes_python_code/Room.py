@@ -46,9 +46,7 @@ class Room:
         self.switches_positions = None
         self.surrounding_color = surrounding_color
         self.possible_switches_values = possible_switches_values
-        if self.possible_switches_values == None and len(switches_list) <= 20:
-            self.possible_switches_actions = powerset([s.name for s in self.switches_list])
-        elif type(possible_switches_values) == type([]):
+        if type(possible_switches_values) == type([]):
             self.possible_switches_actions = []
             for switches_values in self.possible_switches_values:
                 Slist = []
@@ -114,16 +112,8 @@ class Room:
     
     def get_possible_switches_actions(self):
         if self.possible_switches_actions is None:
-            possible_switches_actions = []
-            for switches_values in self.possible_switches_values():
-                Slist = []
-                for i in range(len(self.switches_list)):
-                    if switches_values[i]:
-                        Slist.append(self.switches_list[i].name)
-                        possible_switches_actions.append(Slist)
-            return possible_switches_actions
-        else:
-             return self.possible_switches_actions
+            self.possible_switches_actions = powerset([s.name for s in self.switches_list])
+        return self.possible_switches_actions
             
     def __str__(self):
         txt =  '\n|   Room {} :'.format(self.name)
