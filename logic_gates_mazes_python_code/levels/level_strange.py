@@ -44,7 +44,7 @@ def level_strange(a=1, b=1, c=1, d=1):
               position = [0, 2, 2, 4],
               switches_list = [S0, S1, S2, S3, S4, S5, S6, S7])
     RE = Room(name='RE',
-              position=[0, 0, 2, 1],
+              position=[-3, 0, 8, 1],
               is_exit=True)   # E pour exit ou end
 
     rp = 1/2

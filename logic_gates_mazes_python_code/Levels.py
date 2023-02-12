@@ -571,4 +571,6 @@ if __name__ == "__main__":
     #     less_common = collections.Counter(bin_list%i).most_common()[-1]
     #     print(less_common)
     
-    
+    solutions = level_sign(True).find_all_solutions(verbose=1)
+
+    print(solutions)

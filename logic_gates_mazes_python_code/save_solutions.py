@@ -39,9 +39,9 @@ if __name__ == "__main__":
     #                                                                                        do_it_fast=True,
     #                                                                                        max_calculation_time=1) 
     calculations_times, nb_iterations_list, nb_operations_list = Levels.save_solutions_txt(verbose=1,
-                                                                                           multithreads=True,
+                                                                                           multithreads=False,
                                                                                            do_it_fast=False,
-                                                                                           max_calculation_time=float('inf')) 
+                                                                                           max_calculation_time=1)#float('inf')) 
     # Cette fonction calcule les solutions,
     # les enregistre dans un fichier texte
     # et renvoie le temps nécessaire pour calculer les solutions
