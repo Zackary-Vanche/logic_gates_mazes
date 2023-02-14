@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c81987db-2369-42c3-99c6-b2e3a51e4576" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/TODO" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_combinatorics.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/Levels.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/Levels.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/Logic_Gate.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/Logic_Gate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/Maze.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/Maze.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/Tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/Tree.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/help_menus_list.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/help_menus_list.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_K.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_K.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_diagonal.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_diagonal.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_no_three_in_line.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_no_three_in_line.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_sudoku.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_sudoku.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/save_solutions.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/save_solutions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/solutions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/solutions.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,6 +182,7 @@
       <workItem from="1676367191318" duration="5650000" />
       <workItem from="1676387860407" duration="2938000" />
       <workItem from="1676394264520" duration="9556000" />
+      <workItem from="1676405698079" duration="27000" />
     </task>
     <servers />
   </component>
