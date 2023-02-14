@@ -2,7 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c81987db-2369-42c3-99c6-b2e3a51e4576" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_permutations.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_permutations.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/TODO" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_combinatorics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/Levels.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/Levels.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/Logic_Gate.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/Logic_Gate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/Maze.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/Maze.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/Tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/Tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/help_menus_list.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/help_menus_list.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_K.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_K.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_diagonal.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_diagonal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_no_three_in_line.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_no_three_in_line.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_sudoku.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_sudoku.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/save_solutions.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/save_solutions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/solutions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/solutions.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +44,8 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
   <component name="RunManager" selected="Python.main">
@@ -49,6 +63,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/logic_gates_mazes_python_code/Levels.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="count_total_lines" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="logic_gates_mazes" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/logic_gates_mazes_python_code" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/logic_gates_mazes_python_code/count_total_lines.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -79,28 +115,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="level_sign" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="logic_gates_mazes" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/logic_gates_mazes_python_code/levels" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_sign.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="logic_gates_mazes" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -123,12 +137,35 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="save_solutions" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="logic_gates_mazes" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/logic_gates_mazes_python_code" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/logic_gates_mazes_python_code/save_solutions.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
-        <item itemvalue="Python.image_fusion" />
         <item itemvalue="Python.Levels" />
-        <item itemvalue="Python.level_sign" />
+        <item itemvalue="Python.save_solutions" />
+        <item itemvalue="Python.image_fusion" />
+        <item itemvalue="Python.count_total_lines" />
       </list>
     </recent_temporary>
   </component>
@@ -155,7 +192,9 @@
       <workItem from="1676196462610" duration="7787000" />
       <workItem from="1676206097579" duration="11561000" />
       <workItem from="1676291683647" duration="17000" />
-      <workItem from="1676367191318" duration="536000" />
+      <workItem from="1676367191318" duration="5650000" />
+      <workItem from="1676387860407" duration="2938000" />
+      <workItem from="1676394264520" duration="9556000" />
     </task>
     <servers />
   </component>
@@ -185,13 +224,15 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/logic_gates_mazes$image_fusion.coverage" NAME="image_fusion Coverage Results" MODIFIED="1676218833602" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/logic_gates_mazes_python_code" />
+    <SUITE FILE_PATH="coverage/logic_gates_mazes$image_fusion.coverage" NAME="image_fusion Coverage Results" MODIFIED="1676370972421" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/logic_gates_mazes_python_code" />
     <SUITE FILE_PATH="coverage/logic_gates_mazes$level_k.coverage" NAME="level_k Coverage Results" MODIFIED="1675451689089" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/logic_gates_mazes_python_code/levels" />
     <SUITE FILE_PATH="coverage/logic_gates_mazes$level_random_tetractys.coverage" NAME="level_random_tetractys Coverage Results" MODIFIED="1674847634099" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/logic_gates_mazes_python_code/levels" />
+    <SUITE FILE_PATH="coverage/logic_gates_mazes$count_total_lines.coverage" NAME="count_total_lines Coverage Results" MODIFIED="1676367855957" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/logic_gates_mazes_python_code" />
     <SUITE FILE_PATH="coverage/logic_gates_mazes$level_sign.coverage" NAME="level_sign Coverage Results" MODIFIED="1676217685033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/logic_gates_mazes_python_code/levels" />
-    <SUITE FILE_PATH="coverage/logic_gates_mazes$main.coverage" NAME="main Coverage Results" MODIFIED="1676367275949" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/logic_gates_mazes_python_code" />
+    <SUITE FILE_PATH="coverage/logic_gates_mazes$save_solutions.coverage" NAME="save_solutions Coverage Results" MODIFIED="1676398956502" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/logic_gates_mazes_python_code" />
+    <SUITE FILE_PATH="coverage/logic_gates_mazes$main.coverage" NAME="main Coverage Results" MODIFIED="1676404637619" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/logic_gates_mazes_python_code" />
     <SUITE FILE_PATH="coverage/logic_gates_mazes$create_random_levels.coverage" NAME="create_random_levels Coverage Results" MODIFIED="1674848042120" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/logic_gates_mazes_python_code" />
-    <SUITE FILE_PATH="coverage/logic_gates_mazes$Levels.coverage" NAME="Levels Coverage Results" MODIFIED="1676218071334" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/logic_gates_mazes_python_code" />
+    <SUITE FILE_PATH="coverage/logic_gates_mazes$Levels.coverage" NAME="Levels Coverage Results" MODIFIED="1676399269013" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/logic_gates_mazes_python_code" />
     <SUITE FILE_PATH="coverage/logic_gates_mazes$level_doppelganger.coverage" NAME="level_doppelganger Coverage Results" MODIFIED="1675282103554" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/logic_gates_mazes_python_code/levels" />
   </component>
 </project>

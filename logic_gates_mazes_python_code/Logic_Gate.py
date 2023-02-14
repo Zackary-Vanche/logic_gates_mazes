@@ -191,7 +191,31 @@ class Logic_Gate:
         for i in range(n):
             S -= int(l1[i] == l2[i])
         return S
-        
+
+    def aux_func_N3L_4(branches_list):
+        assert len(branches_list) == 16
+        [S0, S1, S2, S3,
+         S4, S5, S6, S7,
+         S8, S9, S10, S11,
+         S12, S13, S14, S15] = branches_list
+        branches_array = np_array(branches_list).reshape((4, 4))
+        if (branches_array.sum(axis=0) >= 3).any():
+            return False
+        if (branches_array.sum(axis=1) >= 3).any():
+            return False
+        if S1 + S6 + S11 >= 3:
+            return False
+        if S0 + S5 + S10 + S15 >= 3:
+            return False
+        if S4 + S9 + S14 >= 3:
+            return False
+        if S2 + S5 + S8 >= 3:
+            return False
+        if S3 + S6 + S9 + S12 >= 3:
+            return False
+        if S7 + S10 + S13 >= 3:
+            return False
+        return True
 
     func_dict = {'NOT': aux_func_NOT,
                  'AND': aux_func_AND,
@@ -223,7 +247,8 @@ class Logic_Gate:
                  'INLIST' : aux_func_INLIST,
                  'BETWEEN': aux_func_BETWEEN,
                  'JUMP': aux_func_JUMP,
-                 'MAS': aux_func_MAS
+                 'MAS': aux_func_MAS,
+                 'N3L_4':aux_func_N3L_4
                  }
 
     def func(self, sons_list):

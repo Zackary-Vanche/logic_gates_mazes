@@ -18,6 +18,7 @@ from random import random as rd_random
 from pickle import dump as pickle_dump
 from pickle import load as pickle_load
 # from numba import njit
+from tqdm import tqdm
 
 from os.path import exists as os_path_exists
 from os import mkdir as os_mkdir
@@ -218,6 +219,7 @@ class Maze:
         self.n_help_pages = len(self.help_txt)
         if ' '.join(self.help_txt).replace(' ', '') == '':
             print(self.name, 'empty help')
+            pass
         self.current_page = current_page
         self.number_of_pages = 0
         for room in self.rooms_list:
@@ -331,6 +333,7 @@ class Maze:
                                verbose=0):
         if verbose >= 1:
             print(switch_name)
+            pass
         if self.legit_change_switch(switch_name):
             self.change_switch(switch_name)
 
@@ -400,6 +403,7 @@ class Maze:
     def use_door_if_legit(self, door_name, verbose=0):
         if verbose >= 1:
             print(door_name)
+            pass
         if self.legit_use_door(door_name):
             self.use_door(door_name)
 
@@ -447,6 +451,7 @@ class Maze:
         txt_verbose_3 = ''
         if verbose == 2:
             print("Switches values : {}".format([switch.value for switch in self.switches_list]))
+            pass
         for door_name in self.door_names_list:
             door_trees_dico[door_name] = set()
         for action in solution:
@@ -456,22 +461,27 @@ class Maze:
                     if self.legit_change_switch(action) or allow_all_switches:
                         if 3 > verbose > 0:
                             print('{} is authorised'.format(action))
+                            pass
                         self.change_switch(action)
                     else:
                         if 3 > verbose > 0:
                             print('{} is not authorised'.format(action))
+                            pass
                         return 0
                 if action_type == 'D':
                     if self.legit_use_door(action) or allow_all_doors:
                         if 3 > verbose > 0:
                             print('{} is authorised'.format(action))
+                            pass
                         self.use_door(action)
                     else:
                         if 3 > verbose > 0:
                             print('{} is not authorised'.format(action))
+                            pass
                         return 0
                     if 3 > verbose > 0:
                         print("You are in room {}\n".format(self.current_room_name()))
+                        pass
                     sv = 0
                     # if self.random:
                     #     door = self.doors_dict[door_name]
@@ -495,13 +505,16 @@ class Maze:
                     if self.legit_change_room(action) or allow_all_doors:
                         if 3 > verbose > 0:
                             print('{} is authorised'.format(action))
+                            pass
                         self.change_room(action)
                     else:
                         if 3 > verbose > 0:
                             print('{} is not authorised'.format(action))
+                            pass
                         return 0
                     if 3 > verbose > 0:
                         print("You are in room {}\n".format(self.current_room_name()))
+                        pass
                 if verbose == 2:
                     switches_values_txt = '"Switches values :'
                     for switch in self.switches_list:
@@ -510,10 +523,12 @@ class Maze:
         if 3 > verbose > 0:
             if self.current_room_index == self.exit_room_index:
                 print('Success !')
+                pass
             else:
                 for switch in self.switches_list:
                     if switch.value:
                         print(switch.name)
+                        pass
                 print(self.current_room_index, self.exit_room_index)
                 print('Try again !')
         if verbose == 3:
@@ -692,8 +707,9 @@ class Maze:
                            nb_iterations_print=10**3,
                            max_calculation_time=float('inf'),
                            save_solutions_txt=True,
-                           DFS=False,
-                           random_search=False): # DFS : deep-first search
+                           DFS=False, # DFS : deep-first search
+                           random_search=False,
+                           level_number=None): # Only used for printing
         t0 = time()
         nb_iterations = 0
         nb_operations = 0
@@ -701,11 +717,18 @@ class Maze:
             visited_situations = set()
             solutions_to_visit = [initial_try]
             solutions_that_work = []
+            if verbose == 1:
+                if level_number is None:
+                    pbar_nb_iterations = tqdm(desc=f'{self.name}')
+                else:
+                    pbar_nb_iterations = tqdm(desc=f'Level {level_number}: {self.name}')
             while solutions_to_visit != []:
                 if time() - t0 > max_calculation_time:
                     return [], nb_iterations, nb_operations
                 nb_iterations += 1
-                if nb_iterations % nb_iterations_print == 0 and verbose >= 1:
+                if verbose == 1:
+                    pbar_nb_iterations.update(1)
+                if nb_iterations % nb_iterations_print == 0 and verbose == 2:
                      print('nb_iterations : {}'.format(nb_iterations))
                      if len(solutions_to_visit[-1]) < 100:
                          print('solutions_to_visit[-1] : {}'.format(' '.join(solutions_to_visit[-1])))
@@ -764,8 +787,6 @@ class Maze:
                                 solutions_to_visit.extend(doors_to_visit)
                     visited_situations.add(current_situation_vector)
                 elif result_solution == 2:
-                    if verbose > 1 and len(solutions_that_work) <= 10:
-                        print('solution :', ' '.join(solution))
                     # if save_solutions_txt:
                     #     with open('solutions/' + self.name + '_solutions.txt', 'a') as file:
                     #         file.write(' '.join(solution) + '\n')
@@ -786,10 +807,8 @@ class Maze:
             print("solution in memory")
             print(str(self.fastest_solution))
             print('')
+            pass
         self.all_solutions = solutions_that_work
-        if verbose >= 1:
-            t1 = time()
-            print(t1 - t0, 's')
         return solutions_that_work, nb_iterations, nb_operations
 
     def get_extreme_coordinates(self, ipagein):

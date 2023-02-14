@@ -12,7 +12,7 @@ from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
 
-def level_diagonal():
+def level_diagonal(fast_solution_finding=False):
 
     a = 7
     b = 2
@@ -128,12 +128,42 @@ def level_diagonal():
               name='T6',
               switches=[S2, S3, S5, S7, S11, S13, S17, S19, S23, S29, S31, a, b, S0, S31])
 
+    if fast_solution_finding:
+        possible_switches_values = [[0, 0, 1, 0, 0, 1, 1, 1],
+                                    [0, 0, 1, 0, 1, 1, 0, 1],
+                                    [0, 0, 0, 1, 1, 0, 1, 1],
+                                    [0, 0, 0, 1, 1, 1, 1, 0],
+                                    [0, 0, 1, 1, 1, 0, 0, 1],
+                                    [0, 0, 1, 1, 0, 1, 1, 0],
+                                    [1, 0, 0, 0, 0, 1, 1, 1],
+                                    [1, 0, 0, 0, 1, 1, 0, 1],
+                                    [1, 0, 0, 1, 0, 0, 1, 1],
+                                    [1, 0, 0, 1, 1, 1, 0, 0],
+                                    [1, 0, 1, 1, 0, 0, 0, 1],
+                                    [0, 0, 1, 1, 0, 1, 0, 0],
+                                    [0, 1, 0, 0, 1, 0, 1, 1],
+                                    [0, 1, 0, 0, 1, 1, 1, 0],
+                                    [0, 1, 1, 0, 0, 0, 1, 1],
+                                    [0, 1, 1, 0, 1, 1, 0, 0],
+                                    [0, 1, 1, 1, 0, 0, 1, 0],
+                                    [0, 1, 1, 1, 1, 0, 0, 0],
+                                    [1, 1, 0, 0, 1, 0, 0, 1],
+                                    [1, 1, 0, 0, 0, 1, 1, 0],
+                                    [1, 1, 1, 0, 0, 0, 0, 1],
+                                    [1, 1, 1, 0, 0, 1, 0, 0],
+                                    [1, 1, 0, 1, 0, 0, 1, 0],
+                                    [1, 1, 0, 1, 1, 0, 0, 0]]
+    else:
+        possible_switches_values = None
+
     R0 = Room(name='R0',
               position=[0, 8, 9, 1],
-              switches_list=Slist0)
+              switches_list=Slist0,
+              possible_switches_values=possible_switches_values)
     R1 = Room(name='R1',
               position=[0, 6, 9, 1],
-              switches_list=Slist1)
+              switches_list=Slist1,
+              possible_switches_values=possible_switches_values)
     R2 = Room(name='R2',
               position=[5, 4, 4, 1],
               switches_list=Slist2)

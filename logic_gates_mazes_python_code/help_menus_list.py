@@ -436,13 +436,9 @@ help_menus_list['levels']["Second"] = """second order polynomial equation."""
 
 help_menus_list['levels']["Knapsack"] = """The knapsack is one of the Karp's 21 NP-complete problems."""
 
-help_menus_list['levels']["Permutations"] = """Every permutation can be writen as a product of 2-cycles.\n\nYou can try to find not only one solution, but the fastest one."""
-
 help_menus_list['levels']["Egyptian fractions"] = help_menus_list['DIV']
 
 help_menus_list['levels']["Code"] = "You may want to learn what the Gray code is."
-
-help_menus_list['levels']["Betweenness"] = help_menus_list['BETWEEN']
 
 help_menus_list['levels']["Tetrahedron"] = """The logic expressions of the doors of this level have been calculated by computer.\nThe program that calculated it already knew all the rest of the level.\n\nThis level looks complicated, but you do only need to let the game lead you to the exit."""
 
@@ -486,6 +482,8 @@ help_menus_list['levels']["Tree"] = """The tree is hidden in the equations.\n\n"
 
 help_menus_list['levels']["Dead_ends"] = """Even if it is the first level that actually looks like a printed circuit board, you have been in a computer all this time."""
 
+help_menus_list['levels']["Betweenness"] = help_menus_list['BETWEEN']
+
 help_menus_list['levels']["Fractal"] = """As you see, several doors lead to the exit.\nThere is only one that can be opened."""
 
 help_menus_list['levels']["Tesseract"] = """The tesseract is hidden in the equations."""
@@ -499,6 +497,8 @@ help_menus_list['levels']["Sujiko"] = """Sujiko is a logic-based, combinatorial 
 help_menus_list['levels']["Electricity"] = help_menus_list['NAND 3']
 
 help_menus_list['levels']["Inversions"] = """This level looks a lot like the level "Permutations"."""
+
+help_menus_list['levels']["Permutations"] = """Every permutation can be writen as a product of 2-cycles.\n\nYou can try to find not only one solution, but the fastest one."""
 
 help_menus_list['levels']["Pancake sorting"] = """Pancake sorting is a real computational problem."""
 

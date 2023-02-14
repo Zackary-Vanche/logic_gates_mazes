@@ -23,6 +23,7 @@ from levels.level_bis_repetita import level_bis_repetita
 from levels.level_cartesian import level_cartesian
 from levels.level_chessboard import level_chessboard
 from levels.level_code import level_code
+from levels.level_combinatorics import level_combinatorics
 from levels.level_compact import level_compact
 from levels.level_congruence import level_congruence
 from levels.level_crossroad import level_crossroad
@@ -164,7 +165,7 @@ from levels.level_random_tetractys import aux_level_random_tetractys
 # Masyu ???
 
 class Levels:
-    levels_functions_list = [
+    levels_functions_list = [#level_combinatorics,
         level_hello_world,
         level_initiation,
         level_linear,
@@ -211,12 +212,10 @@ class Levels:
         level_partition,
         level_second,
         level_knapsack,
-        level_permutations,
         level_random_K2,
         level_egyptian_fractions,
         level_code,
         level_random_binary_tree,
-        level_betweenness,
         level_taxicab_number,
         level_tetrahedron,
         level_small,
@@ -239,6 +238,7 @@ class Levels:
         level_vortex,
         level_tree,
         level_dead_ends,
+        level_betweenness,
         level_fractal,
         level_tesseract,
         level_random_loop,
@@ -254,6 +254,7 @@ class Levels:
         level_wave,
         level_random_come_back,
         level_inversions,
+        level_permutations,
         level_random_K5,
         level_takuzu,
         level_random_K33,
@@ -326,8 +327,7 @@ class Levels:
                            fast_solution_finding=True,
                            max_calculation_time=float('inf'),
                            save_as_txt=True,
-                           only_if_known_solution=True):
-        t0 = time()
+                           only_if_known_solution=False):
         txt = ''
         nb_iterations_list = []
         nb_operations_list = []
@@ -338,28 +338,28 @@ class Levels:
             def find_solution(k):
                 global n_level_sol_found
                 level = Levels.get_level(k, fast_solution_finding)
-                name = level.name
-                if only_if_known_solution and (level.fastest_solution is None or level.name == 'Zebra'):
-                    txt = ' '.join(['Level', str(k), ':', name, '\n'])
-                    txt = '\n' + txt + '\n'
-                    print(txt)
-                    return None
-                txt = ' '.join(['Level', str(k), ':', name, '\n'])
-                t2 = time()
+                # print(f'\nLevel {k} : {level.name}')
+                if level.name in ['Dichotomy', 'Mastermind', 'Zebra', 'Panex', 'Superflip']:
+                    return
+                if only_if_known_solution and level.fastest_solution is None:
+                    return
+                # txt = ' '.join(['Level', str(k), ':', name, '\n'])
+                # t2 = time()
                 solutions, nb_iterations, nb_operations = level.find_all_solutions(stop_at_first_solution=False,
-                                                                                   verbose=0,
-                                                                                   max_calculation_time=max_calculation_time)
+                                                                                   verbose=verbose*(not multithreads),
+                                                                                   max_calculation_time=max_calculation_time,
+                                                                                   level_number=k)
                 nb_iterations_list.append(nb_iterations)
                 nb_operations_list.append(nb_operations)
-                t3 = time()
-                for sol in solutions:
-                    txt = txt + ' '.join(sol) + '\n'
-                if verbose >= 1:
-                    txt = txt + str(t3 - t2) + 's'
-                    calculations_times[k] = t3 - t2
-                txt = '\n' + txt + '\n'
-                if verbose > 0:
-                    print(txt)
+                # t3 = time()
+                # for sol in solutions:
+                #     txt = txt + ' '.join(sol) + '\n'
+                # if verbose >= 1:
+                #     txt = txt + str(t3 - t2) + 's'
+                #     calculations_times[k] = t3 - t2
+                # txt = '\n' + txt + '\n'
+                # if verbose > 0:
+                #     print(txt)
             if multithreads:
                 import threading
                 l_threads = []
@@ -388,9 +388,9 @@ class Levels:
         if save_as_txt:
             with open('solutions/solutions.txt', 'w') as f:
                 f.write(txt)
-        t1 = time()
-        if verbose >= 1:
-            print(t1 - t0, 's')
+        # t1 = time()
+        # if verbose >= 1:
+        #     print(t1 - t0, 's')
         if not do_it_fast:
             return calculations_times, nb_iterations_list, nb_operations_list
         else:
@@ -484,7 +484,7 @@ if __name__ == "__main__":
     if os.path.exists('temp.txt'):
         os.remove('temp.txt')
 
-    test_levels()
+    #test_levels()
 
     # import cProfile
     # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=1, save_as_txt=False)''', sort=1)
@@ -571,6 +571,6 @@ if __name__ == "__main__":
     #     less_common = collections.Counter(bin_list%i).most_common()[-1]
     #     print(less_common)
     
-    solutions = level_sign(True).find_all_solutions(verbose=1)
+    solutions = level_knight().find_all_solutions(verbose=1)
 
-    print(solutions)
+    print([' '.join(sol) for sol in solutions[0]])

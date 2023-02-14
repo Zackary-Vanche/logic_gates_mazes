@@ -367,6 +367,7 @@ class Tree:
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('DIST ', 'd ')
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('BETWEEN ', '<< ')
             self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('JUMP ', 'j ')
+            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('N3L_4 ', 'N3L ')
             if self.cut_expression:
                 l_elePN = self.easy_logical_expression_PN.split(self.cut_expression_separator)
                 elePN = ''
