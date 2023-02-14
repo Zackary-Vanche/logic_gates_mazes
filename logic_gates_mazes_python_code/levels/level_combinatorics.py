@@ -6,7 +6,7 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
-def level_combinatorics():
+def level_combinatorics(fast_solution_finding=False):
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -197,93 +197,133 @@ def level_combinatorics():
      S144, S145, S146, S147, S148, S149, S150, S151, S152, S153, S154, S155, S156, S157, S158, S159,
      S160, S161, S162, S163, S164, S165, S166, S167, S168, S169, S170, S171, S172, S173, S174, S175]
 
-    tree_list = ['N3L_4'] + [[None]]*16
+    tree_list0 = ['N3L_4'] + [[None]]*16
 
     def Slist_room(i):
         return Slist[i*16:i*16+16]
+    def Slist_tree(i):
+        return Slist[i * 16:i * 16 + 16] + Slist[i * 16 - 16:i * 16] + Slist[i * 16:i * 16 + 16]
 
-    T0 = Tree(tree_list=tree_list,
+    tree_list = ['AND', tree_list0, ['INF'] + [Tree.tree_list_BIN(16)]*2]
+
+    T0 = Tree(tree_list=tree_list0,
               empty=True,
               name='T0',
-              switches=Slist_room(0))
+              switches=Slist[0:16])
     T1 = Tree(tree_list=tree_list,
               empty=True,
               name='T1',
-              switches=Slist_room(1))
+              switches=Slist_tree(1),
+              cut_expression=True)
     T2 = Tree(tree_list=tree_list,
               empty=True,
               name='T2',
-              switches=Slist_room(2))
+              switches=Slist_tree(2),
+              cut_expression=True)
     T3 = Tree(tree_list=tree_list,
               empty=True,
               name='T3',
-              switches=Slist_room(3))
+              switches=Slist_tree(3),
+              cut_expression=True)
     T4 = Tree(tree_list=tree_list,
               empty=True,
               name='T4',
-              switches=Slist_room(4))
+              switches=Slist_tree(4),
+              cut_expression=True)
     T5 = Tree(tree_list=tree_list,
               empty=True,
               name='T5',
-              switches=Slist_room(5))
+              switches=Slist_tree(5),
+              cut_expression=True)
     T6 = Tree(tree_list=tree_list,
               empty=True,
               name='T6',
-              switches=Slist_room(6))
+              switches=Slist_tree(6),
+              cut_expression=True)
     T7 = Tree(tree_list=tree_list,
               empty=True,
               name='T7',
-              switches=Slist_room(7))
+              switches=Slist_tree(7),
+              cut_expression=True)
     T8 = Tree(tree_list=tree_list,
               empty=True,
               name='T8',
-              switches=Slist_room(8))
+              switches=Slist_tree(8),
+              cut_expression=True)
     T9 = Tree(tree_list=tree_list,
               empty=True,
               name='T9',
-              switches=Slist_room(9))
-    T10 = Tree(tree_list=['AND', tree_list, ['INF'] + [Tree.tree_list_BIN(16)]*11],
+              switches=Slist_tree(9),
+              cut_expression=True)
+    T10 = Tree(tree_list=tree_list,
               empty=True,
               name='T10',
-              switches = Slist_room(10) + Slist,
+              switches = Slist_tree(10),
               cut_expression=True)
 
     def pos(i):
         return [(i % 2)*5, (i//2)*1.25, 4, 1]
 
+    if fast_solution_finding:
+        possible_switches_values = [[1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1],
+                                    [1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1],
+                                    [1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0],
+                                    [1, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1],
+                                    [1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0],
+                                    [0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0],
+                                    [0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1],
+                                    [0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0],
+                                    [0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1],
+                                    [0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0],
+                                    [0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0]]
+    else:
+        possible_switches_values = None
+
+
     R0 = Room(name='R0',
               position=pos(0),
-              switches_list=Slist_room(0))
+              switches_list=Slist_room(0),
+              possible_switches_values=possible_switches_values)
     R1 = Room(name='R1',
               position=pos(1),
-              switches_list=Slist_room(1))
+              switches_list=Slist_room(1),
+              possible_switches_values=possible_switches_values)
     R2 = Room(name='R2',
               position=pos(2),
-              switches_list=Slist_room(2))
+              switches_list=Slist_room(2),
+              possible_switches_values=possible_switches_values)
     R3 = Room(name='R3',
               position=pos(3),
-              switches_list=Slist_room(3))
+              switches_list=Slist_room(3),
+              possible_switches_values=possible_switches_values)
     R4 = Room(name='R4',
               position=pos(4),
-              switches_list=Slist_room(4))
+              switches_list=Slist_room(4),
+              possible_switches_values=possible_switches_values)
     R5 = Room(name='R5',
               position=pos(5),
-              switches_list=Slist_room(5))
+              switches_list=Slist_room(5),
+              possible_switches_values=possible_switches_values)
     R6 = Room(name='R6',
               position=pos(6),
-              switches_list=Slist_room(6))
+              switches_list=Slist_room(6),
+              possible_switches_values=possible_switches_values)
     R7 = Room(name='R7',
               position=pos(7),
-              switches_list=Slist_room(7))
+              switches_list=Slist_room(7),
+              possible_switches_values=possible_switches_values)
     R8 = Room(name='R8',
               position=pos(8),
-              switches_list=Slist_room(8))
+              switches_list=Slist_room(8),
+              possible_switches_values=possible_switches_values)
     R9 = Room(name='R9',
               position=pos(9),
-              switches_list=Slist_room(9))
+              switches_list=Slist_room(9),
+              possible_switches_values=possible_switches_values)
     R10 = Room(name='R10',
                position=pos(10),
-               switches_list=Slist_room(10))
+               switches_list=Slist_room(10),
+              possible_switches_values=possible_switches_values)
     RE = Room(name='RE',
               position=pos(11),
     is_exit = True)  # E pour exit ou end
@@ -374,8 +414,8 @@ def level_combinatorics():
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10] + [RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10],
-                 fastest_solution=None,
-                 level_color=Levels_colors_list.FROM_HUE(hu=0.15, sa=1, li=0.9),
+                 fastest_solution='S2 S3 S4 S5 S10 S11 S12 S13 D0 S17 S19 S21 S23 S24 S26 S28 S30 D1 S32 S34 S37 S39 S41 S43 S44 S46 D2 S49 S51 S52 S53 S58 S59 S60 S62 D3 S64 S67 S69 S70 S72 S75 S77 S78 D4 S81 S82 S84 S87 S88 S91 S93 S94 D5 S97 S98 S100 S103 S105 S106 S108 S111 D6 S112 S114 S118 S119 S120 S121 S125 S127 D7 S129 S131 S132 S134 S136 S138 S141 S143 D8 S144 S146 S148 S150 S153 S155 S157 S159 D9 S160 S161 S166 S167 S168 S169 S174 S175 D10',
+                 level_color=Levels_colors_list.FROM_HUE(hu=0.75, sa=0.3, li=0.6),
                  name='Combinatorics',
                  door_window_size=800,
                  keep_proportions=True,

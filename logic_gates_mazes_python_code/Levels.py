@@ -165,7 +165,7 @@ from levels.level_random_tetractys import aux_level_random_tetractys
 # Masyu ???
 
 class Levels:
-    levels_functions_list = [#level_combinatorics,
+    levels_functions_list = [
         level_hello_world,
         level_initiation,
         level_linear,
@@ -272,6 +272,7 @@ class Levels:
         level_five,
         level_shuffled,
         level_sign,
+        level_combinatorics,
         level_water_pouring,
         level_puzzle,
         level_solitaire,
@@ -339,7 +340,7 @@ class Levels:
                 global n_level_sol_found
                 level = Levels.get_level(k, fast_solution_finding)
                 # print(f'\nLevel {k} : {level.name}')
-                if level.name in ['Dichotomy', 'Mastermind', 'Zebra', 'Panex', 'Superflip']:
+                if level.name in ['Dichotomy', 'Mastermind', 'Zebra', 'Combinatorics', 'Panex', 'Superflip']:
                     return
                 if only_if_known_solution and level.fastest_solution is None:
                     return
@@ -484,7 +485,7 @@ if __name__ == "__main__":
     if os.path.exists('temp.txt'):
         os.remove('temp.txt')
 
-    test_levels()
+    #test_levels()
 
     # import cProfile
     # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=1, save_as_txt=False)''', sort=1)

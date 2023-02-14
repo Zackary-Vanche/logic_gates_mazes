@@ -216,6 +216,20 @@ w l1 l2 is the number of values of l1 that are in l2 but not at the same index.
     w [1 1 5] [6 1 1] = 1
 """
 
+help_menus_list['N3L'] = """
+N3L stands for 'no three in line'.
+This operator takes as argument one list of switches.
+N3L (S0 S1 S2 S3 S4 S5 S6 S7 S8 S9 S10 S11 S12 S13 S14 S15) = 1
+only if there are no three switches aligned in the array :
+         S0  S1  S2  S3
+         S4  S5  S6  S7
+         S8  S9  S10 S11
+         S12 S13 S14 S15
+and if > SUM (S0 S1 S2 S3 S4 S5 S6 S7 S8 S9 S10 S11 S12 S13 S14 S15) 8
+"""
+
+
+
 help_menus_list['AND and NOT'] = """  
 By combining these notations, you can write :
 D1 = & S2 ¬ S3 means :
@@ -527,6 +541,8 @@ help_menus_list['levels']["Five"] = help_menus_list['random'] +  """\n\nThere mi
 help_menus_list['levels']["Shuffled"] = help_menus_list['random'] +  """\n\nThere might be several solutions."""
 
 help_menus_list['levels']["Sign"] = 'You might need the help of a computer to solve this one.'
+
+help_menus_list['levels']["Combinatorics"] = help_menus_list['N3L']
 
 help_menus_list['levels']["Temple"] = """This level is the retranscription of a really known puzzle game.\nOnce you find which game it is, the level is over."""
 

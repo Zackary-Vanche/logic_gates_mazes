@@ -194,6 +194,8 @@ class Logic_Gate:
 
     def aux_func_N3L_4(branches_list):
         assert len(branches_list) == 16
+        if sum(branches_list) != 8:
+            return False
         [S0, S1, S2, S3,
          S4, S5, S6, S7,
          S8, S9, S10, S11,
