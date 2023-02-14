@@ -173,7 +173,7 @@ def level_permutations():
                switches = [S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17, S18,
                            SN0, SN1, SN2, SN3, SN4],
                cut_expression=True,
-               cut_expression_separator=']')
+               cut_expression_separator=')')
     # ['AND',
     #                       Tree.tree_list_from_str('FFFF'),
     #                       Tree.tree_list_from_str('FTF'),
