@@ -413,7 +413,7 @@ def level_weights(fast_solution_finding=False):
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12] + [RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19, D20],
-                 fastest_solution="S2 S3 S4 S6 S7 S8 S11 S13 S15 S17 S18 S19 D2 S22 D13 S21 D4 D15 D3 S20 D3 D6 S26 D6 S25 D15 S24 D7 S27 D17 D8 S23 D8 S28 D11 S29 D18 D19 S31 D19 S30 S2 S3 S4 S6 S7 S8 S11 S13 S15 S17 S18 S19 D2 S22 D13 S21 D4 S24 D15 S25 D3 S20 D3 D6 S26 D6 D15 D7 S27 D17 S28 D8 S23 D8 D11 S29 D18 S30 D19 S31 D19 D20",
+                 fastest_solution='S2 S3 S4 S6 S7 S8 S11 S13 S15 S17 S18 S19 D2 S22 D13 S21 D4 S24 D15 S25 D3 S20 D3 D6 S26 D6 D15 D7 S27 D17 S28 D8 S23 D8 D11 S29 D18 S30 D19 S31 D19 D20',
                  level_color=Levels_colors_list.FROM_HUE(hu=0.45, sa=0.2, li=0.5),
                  name='Weights',
                  door_window_size=600,

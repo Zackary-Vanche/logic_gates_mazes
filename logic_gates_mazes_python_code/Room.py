@@ -85,7 +85,7 @@ class Room:
         xmin = min(x_list)
         ymin = min(y_list)
         
-        ex = 1/(xmax+2)
+        ex = 1/(xmax+3)
         ey = 1/(ymax+2)
 
         new_xmin = x_gap + max(ex*x, 0)

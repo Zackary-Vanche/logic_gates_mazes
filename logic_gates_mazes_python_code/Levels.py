@@ -486,7 +486,7 @@ if __name__ == "__main__":
     if os.path.exists('temp.txt'):
         os.remove('temp.txt')
 
-    #test_levels()
+    test_levels()
 
     # import cProfile
     # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=1, save_as_txt=False)''', sort=1)
@@ -572,5 +572,3 @@ if __name__ == "__main__":
     #     print(i)
     #     less_common = collections.Counter(bin_list%i).most_common()[-1]
     #     print(less_common)
-
-    level_weights(True).find_all_solutions(verbose=2)

@@ -146,10 +146,10 @@ class Game:
         self.last_level_change_time = time()
         if self.print_click_rects:
             self.click_rect_size_x = 40
-            self.click_rect_size_y = 40
+            self.click_rect_size_y = 30
         else:
             self.click_rect_size_x = 40
-            self.click_rect_size_y = 40
+            self.click_rect_size_y = 30
         if self.save_image:
             if not os_path_exists('images'):
                 os_mkdir('images')
