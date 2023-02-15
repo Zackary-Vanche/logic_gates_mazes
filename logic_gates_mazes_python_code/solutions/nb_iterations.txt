@@ -1,0 +1,330 @@
+Hello world
+4
+
+Initiation
+15
+
+Linear
+57
+
+Loop
+23
+
+Backward
+16
+
+Bis repetita
+20
+
+Binary
+359
+
+OR
+50
+
+Crossroad
+90
+
+Square
+26
+
+Infinity
+2349
+
+Fluid
+183
+
+Numeration
+1026
+
+Sum
+408
+
+Product
+18
+
+Congruence
+66
+
+3 SAT
+66
+
+Point of no return
+1036
+
+Bipartite
+25849
+
+Hamiltonian
+373
+
+Pong
+5474
+
+Longest path
+58
+
+Hitting set
+326
+
+Independent set
+1044
+
+Dominating set
+77424
+
+Exact cover
+258
+
+Odd
+111
+
+Triangulate
+1026
+
+Recurrence
+618
+
+Naturals
+812
+
+Doppelganger
+66
+
+Compact
+57
+
+Simple v120
+55
+
+Boustrophedon v31
+25
+
+Parallel
+252
+
+Bull v110
+192
+
+Pythagorean
+545
+
+Butterfly v37
+172
+
+Elementary
+1139
+
+Superpermutation
+13104
+
+Chessboard
+1295
+
+Dichotomy
+10
+
+Star v86
+554
+
+Partition
+4102
+
+Second
+316
+
+Knapsack
+105
+
+K2 v107
+32770
+
+Egyptian fractions
+529
+
+Code
+224
+
+Binary Tree v8
+23410
+
+Taxicab number
+84
+
+Tetrahedron
+89
+
+Small
+258
+
+Strange
+65538
+
+The 4 queens
+65538
+
+K
+165
+
+Alice and Bob
+26662
+
+Nonogram
+1289
+
+Crystal
+4098
+
+Mastermind
+1290
+
+Tetris
+1211181
+
+XOR
+1924
+
+Weights
+2431
+
+Baguenaudier
+65538
+
+Spare
+167178
+
+4 colors theorem
+1036
+
+Magic square
+1026
+
+Matrix
+943
+
+River
+1132
+
+Vortex
+3782
+
+Tree
+158628
+
+Dead_ends
+12878
+
+Betweenness
+1392
+
+Fractal
+22
+
+Tesseract
+785
+
+Loop v111
+222
+
+Cartesian
+2393
+
+Line v55
+535
+
+Eulerian
+290595
+
+Starting point v112
+4826
+
+Sujiko
+344
+
+Electricity
+45409
+
+Wheel v51
+413
+
+Pancake sorting
+4423
+
+Ladder v41
+200
+
+Wave
+424694
+
+Come back v6
+238624
+
+Inversions
+268
+
+Permutations
+7074
+
+K5 v91
+512
+
+Takuzu
+309065
+
+K3,3 v122
+546
+
+Travelling salesman
+146488
+
+Petersen v18
+103092
+
+No three in line
+606
+
+Manhattan_distance
+110
+
+Gemini v91
+33433
+
+Cuboctahedron v125
+318001
+
+Diagonal
+81886
+
+Sudoku
+39161
+
+Knight
+56028
+
+Temple
+65490
+
+Syracuse
+65538
+
+Five
+128108
+
+Shuffled
+24565
+
+Sign
+929714
+
+Combinatorics
+711131
+
+Water pouring
+1538095
+
+Puzzle
+228545
+
+Solitaire
+1743259
+

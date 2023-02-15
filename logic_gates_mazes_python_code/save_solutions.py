@@ -18,6 +18,8 @@ import numpy as np
 
 # import random as rd
 
+plt.rcParams["figure.figsize"] = (30,15)
+
 if __name__ == "__main__":
 
     if not os_path_exists('images'):
@@ -37,11 +39,13 @@ if __name__ == "__main__":
     # calculations_times, nb_iterations_list, nb_operations_list = Levels.save_solutions_txt(verbose=1,
     #                                                                                        multithreads=False,
     #                                                                                        do_it_fast=True,
-    #                                                                                        max_calculation_time=1) 
+    #                                                                                        max_calculation_time=1)
+    only_if_not_yet_calculated = True
     calculations_times, nb_iterations_list, nb_operations_list = Levels.save_solutions_txt(verbose=1,
                                                                                            multithreads=False,
                                                                                            do_it_fast=False,
-                                                                                           max_calculation_time=float('inf'))
+                                                                                           max_calculation_time=float('inf'),
+                                                                                           only_if_not_yet_calculated=only_if_not_yet_calculated)
     # Cette fonction calcule les solutions,
     # les enregistre dans un fichier texte
     # et renvoie le temps nécessaire pour calculer les solutions
@@ -51,7 +55,8 @@ if __name__ == "__main__":
                 'Number of elementary operations']
     for ylabel in l_ylabel:
     
-        if ylabel == l_ylabel[0]:
+        if ylabel == l_ylabel[0]: 
+            continue #  TODO : fix
             x_list = calculations_times
         if ylabel == l_ylabel[1]:
             x_list = nb_iterations_list
@@ -59,9 +64,9 @@ if __name__ == "__main__":
             x_list = nb_operations_list
 
         n = len(x_list)
-        plt.figure(figsize=(20, 15))
-        plt.xlabel('Level number')
-        plt.ylabel(ylabel)
+        plt.figure()
+        plt.xlabel('Level number', fontsize=20)
+        plt.ylabel(ylabel, fontsize=20)
         plt.scatter([i for i in range(len(x_list))],
                     x_list)
         plt.xticks(np.arange(0, n, step=1))
@@ -76,6 +81,9 @@ if __name__ == "__main__":
         plt.plot([0, n], [f(0), f(n)], 'r')
         plt.yscale('log')
         plt.grid()
+        plt.xticks(rotation=90, fontsize=15)
+        plt.yticks(rotation=0, fontsize=20)
+        plt.tight_layout()
 
         if ylabel == l_ylabel[0]:
             plt.savefig('images/solving_time.jpg')

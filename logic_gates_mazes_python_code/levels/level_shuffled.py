@@ -48,7 +48,7 @@ def level_shuffled():
             if S.value:
                 fastest_solution_list.append(S.name)
     fastest_solution_list.append('D0')
-    fastest_solution = ' '.join(fastest_solution_list)
+    # fastest_solution = ' '.join(fastest_solution_list) # The fastest solution might be shorter
     
     tree_list = ['AND'] + [['EQU',
                             [None],
@@ -94,7 +94,7 @@ def level_shuffled():
              exit_room_index=-1, 
              rooms_list=[R0, RE], 
              doors_list=[D0], 
-             fastest_solution=fastest_solution,
+             fastest_solution=None,
              level_color=color,
              name='Shuffled',
              door_window_size = 777,

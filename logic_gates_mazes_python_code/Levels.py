@@ -328,7 +328,8 @@ class Levels:
                            fast_solution_finding=True,
                            max_calculation_time=float('inf'),
                            save_as_txt=True,
-                           only_if_known_solution=False):
+                           only_if_known_solution=False,
+                           only_if_not_yet_calculated=False):
         t0 = time()
         txt = ''
         nb_iterations_list = []
@@ -342,7 +343,7 @@ class Levels:
                 level = Levels.get_level(k, fast_solution_finding)
                 if verbose==1 and multithreads:
                     print(f'\nLevel {k} : {level.name}')
-                if level.name in ['Dichotomy', 'Mastermind', 'Zebra', 'Combinatorics', 'Panex', 'Superflip']:
+                if level.name in ['Dichotomy', 'Mastermind', 'Zebra', 'Panex', 'Superflip']:
                     return
                 if only_if_known_solution and level.fastest_solution is None:
                     return
@@ -353,7 +354,8 @@ class Levels:
                                                                                    verbose=verbose*(not multithreads),
                                                                                    max_calculation_time=max_calculation_time,
                                                                                    level_number=k,
-                                                                                   save_solutions_txt=True)
+                                                                                   save_solutions_txt=True,
+                                                                                   only_if_not_yet_calculated=only_if_not_yet_calculated)
                 nb_iterations_list.append(nb_iterations)
                 nb_operations_list.append(nb_operations)
                 if verbose==1 and multithreads:
@@ -491,7 +493,7 @@ if __name__ == "__main__":
     if os.path.exists('temp.txt'):
         os.remove('temp.txt')
 
-    test_levels()
+    # test_levels()
 
     # import cProfile
     # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=1, save_as_txt=False)''', sort=1)
@@ -577,3 +579,7 @@ if __name__ == "__main__":
     #     print(i)
     #     less_common = collections.Counter(bin_list%i).most_common()[-1]
     #     print(less_common)
+
+    solutions = level_parking().find_all_solutions(verbose=2, save_solutions_txt=True)
+    
+    # Levels.save_solutions_txt(only_if_not_yet_calculated=True, verbose=1)

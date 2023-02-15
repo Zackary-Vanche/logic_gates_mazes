@@ -71,7 +71,7 @@ def level_five():
                 fastest_solution_list.append(S.name)
         fastest_solution_list.append(f'D{i}')
     fastest_solution_list.append('D5')
-    fastest_solution = ' '.join(fastest_solution_list)
+    # fastest_solution = ' '.join(fastest_solution_list) # The actual fastest solution might be shorter
     
     SlistT = [[S0, S5, S10, S15, S20],
               [S1, S6, S11, S16, S21],
@@ -208,7 +208,7 @@ def level_five():
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5] + [RE],
                  doors_list=[D0, D1, D2, D3, D4, D5],
-                 fastest_solution=fastest_solution,
+                 fastest_solution=None,
                  level_color=Levels_colors_list.FROM_HUE(hu=0.925, sa=1, li=0.2),
                  name='Five',
                  door_window_size=800,

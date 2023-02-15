@@ -519,7 +519,7 @@ S0 S2 D13'''.replace('\n', ' ')
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13],
-                 fastest_solution=solution,
+                 fastest_solution='S1 S2 D8 D9 D10 D11 S10 D12 D7 S21 D4 D1 D8 S24 D9 D10 D11 D12 D7 S21 S22 D4 D1 D8 S24 S25 D9 D10 D11 D12 D7 S21 D4 D1 D8 S24 D9 D10 D11 D12 D7 S21 S22 S23 D4 D1 D8 S24 S25 S26 D9 D10 D11 D12 D7 S21 D6 S18 D5 S11 S13 D2 S3 S6 D0 S0 S1 D8 S24 D9 S20 D10 S14 S16 D11 S7 S10 D12 D7 S21 S22 D6 S17 D5 S11 D1 D8 S24 S25 D9 S19 D10 S14 D11 D12 D7 S21 D6 S17 S18 D3 S3 S5 D0 S0 S2 D8 S24 D9 S19 S20 D10 D11 S7 S9 D12 D13',
                  level_color=Levels_colors_list.FROM_HUE(0.58, sa=0.8, li=0.49),
                  name='Water pouring',
                  door_window_size=640,

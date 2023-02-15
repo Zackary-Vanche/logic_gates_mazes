@@ -709,10 +709,40 @@ class Maze:
                            save_solutions_txt=True,
                            DFS=False, # DFS : deep-first search
                            random_search=False,
-                           level_number=None): # Only used for printing
+                           level_number=None,
+                           only_if_not_yet_calculated=False): # Only used for printing
         t0 = time()
         nb_iterations = 0
         nb_operations = 0
+
+        name = self.name
+        solutions_file = f'solutions/{name}_solutions.txt'
+        nb_iterations_file = f'solutions/{name}_nb_iterations.txt'
+        nb_operations_file = f'solutions/{name}_nb_operations.txt'
+        nb_iterations_tot = None
+        nb_operations_tot = None
+        solutions_from_file = None
+        if os_path_exists(nb_iterations_file):
+            try:
+                with open(nb_iterations_file, 'r') as fr:
+                    nb_iterations_tot = int(fr.readline())
+            except ValueError:
+                pass
+        if os_path_exists(nb_operations_file):
+            try:
+                with open(nb_operations_file, 'r') as fr:
+                    nb_operations_tot = int(fr.readline())
+            except ValueError:
+                pass
+        if os_path_exists(solutions_file):
+            try:
+                with open(solutions_file, 'r') as fr:
+                    solutions_from_file = fr.readlines()
+            except ValueError:
+                pass
+        if not (nb_iterations_tot is None or nb_operations_tot is None or solutions_from_file is None) and only_if_not_yet_calculated:
+            return [solutions_from_file, nb_iterations_tot, nb_operations_tot]
+
         if self.all_solutions is None:
             visited_situations = set()
             solutions_to_visit = [initial_try]
@@ -721,7 +751,10 @@ class Maze:
                 if level_number is None:
                     pbar_nb_iterations = tqdm(desc=f'{self.name}')
                 else:
-                    pbar_nb_iterations = tqdm(desc=f'Level {level_number}: {self.name}')
+                    if nb_iterations_tot is None:
+                        pbar_nb_iterations = tqdm(desc=f'Level {level_number}: {self.name}')
+                    else:
+                        pbar_nb_iterations = tqdm(desc=f'Level {level_number}: {self.name}', total=nb_iterations_tot)
             while solutions_to_visit != []:
                 if time() - t0 > max_calculation_time:
                     return [], nb_iterations, nb_operations
@@ -788,15 +821,11 @@ class Maze:
                     visited_situations.add(current_situation_vector)
                 elif result_solution == 2:
                     if save_solutions_txt:
-                        if level_number is None:
-                            name = self.name
-                        else:
-                            name = f'Level_{level_number}_{self.name}'
-                        with open(f'solutions/{name}_solutions.txt', 'a') as file:
+                        with open(solutions_file, 'w') as file:
                             file.write(' '.join(solution) + '\n')
-                        with open(f'solutions/{name}_nb_iterations.txt', 'a') as file:
+                        with open(nb_iterations_file, 'w') as file:
                             file.write(str(nb_iterations))
-                        with open(f'solutions/{name}_nb_operations.txt', 'a') as file:
+                        with open(nb_operations_file, 'w') as file:
                             file.write(str(nb_operations))
                     solutions_that_work.append(solution)
                     if stop_at_first_solution:

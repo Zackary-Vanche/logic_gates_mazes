@@ -5,7 +5,7 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
-def level_sign(fast_expression_finding=False):
+def level_sign(fast_solution_finding=False):
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -62,7 +62,7 @@ def level_sign(fast_expression_finding=False):
     def Slist_tree_n(n):
         return Slisttree[4*n:4*n+4] + Slisttree[:4*n]
 
-    if fast_expression_finding:
+    if fast_solution_finding:
         T0 = Tree(tree_list=[None],
                   empty=True,
                   name='T0',
@@ -370,6 +370,6 @@ def level_sign(fast_expression_finding=False):
                  keep_proportions=True,
                  y_separation=40,
                  border=40,
-                 door_multipages=fast_expression_finding)
+                 door_multipages=fast_solution_finding)
 
     return level
