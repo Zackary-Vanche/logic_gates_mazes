@@ -329,6 +329,7 @@ class Levels:
                            max_calculation_time=float('inf'),
                            save_as_txt=True,
                            only_if_known_solution=False):
+        t0 = time()
         txt = ''
         nb_iterations_list = []
         nb_operations_list = []
@@ -339,13 +340,15 @@ class Levels:
             def find_solution(k):
                 global n_level_sol_found
                 level = Levels.get_level(k, fast_solution_finding)
-                # print(f'\nLevel {k} : {level.name}')
+                if verbose==1 and multithreads:
+                    print(f'\nLevel {k} : {level.name}')
                 if level.name in ['Dichotomy', 'Mastermind', 'Zebra', 'Combinatorics', 'Panex', 'Superflip']:
                     return
                 if only_if_known_solution and level.fastest_solution is None:
                     return
-                # txt = ' '.join(['Level', str(k), ':', name, '\n'])
-                # t2 = time()
+                if verbose==1 and multithreads:
+                    txt = ' '.join(['Level', str(k), ':', level.name, '\n'])
+                    t2 = time()
                 solutions, nb_iterations, nb_operations = level.find_all_solutions(stop_at_first_solution=False,
                                                                                    verbose=verbose*(not multithreads),
                                                                                    max_calculation_time=max_calculation_time,
@@ -353,15 +356,16 @@ class Levels:
                                                                                    save_solutions_txt=True)
                 nb_iterations_list.append(nb_iterations)
                 nb_operations_list.append(nb_operations)
-                # t3 = time()
-                # for sol in solutions:
-                #     txt = txt + ' '.join(sol) + '\n'
-                # if verbose >= 1:
-                #     txt = txt + str(t3 - t2) + 's'
-                #     calculations_times[k] = t3 - t2
-                # txt = '\n' + txt + '\n'
-                # if verbose > 0:
-                #     print(txt)
+                if verbose==1 and multithreads:
+                    t3 = time()
+                    for sol in solutions:
+                        txt = txt + ' '.join(sol) + '\n'
+                    if verbose >= 1:
+                        txt = txt + str(t3 - t2) + 's'
+                        calculations_times[k] = t3 - t2
+                    txt = '\n' + txt + '\n'
+                    if verbose > 0:
+                        print(txt)
             if multithreads:
                 import threading
                 l_threads = []
@@ -390,9 +394,10 @@ class Levels:
         if save_as_txt:
             with open('solutions/solutions.txt', 'w') as f:
                 f.write(txt)
-        # t1 = time()
-        # if verbose >= 1:
-        #     print(t1 - t0, 's')
+        if verbose==1 and multithreads:
+            t1 = time()
+            if verbose >= 1:
+                print(t1 - t0, 's')
         if not do_it_fast:
             return calculations_times, nb_iterations_list, nb_operations_list
         else:
