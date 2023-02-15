@@ -787,9 +787,17 @@ class Maze:
                                 solutions_to_visit.extend(doors_to_visit)
                     visited_situations.add(current_situation_vector)
                 elif result_solution == 2:
-                    # if save_solutions_txt:
-                    #     with open('solutions/' + self.name + '_solutions.txt', 'a') as file:
-                    #         file.write(' '.join(solution) + '\n')
+                    if save_solutions_txt:
+                        if level_number is None:
+                            name = self.name
+                        else:
+                            name = f'Level_{level_number}_{self.name}'
+                        with open(f'solutions/{name}_solutions.txt', 'a') as file:
+                            file.write(' '.join(solution) + '\n')
+                        with open(f'solutions/{name}_nb_iterations.txt', 'a') as file:
+                            file.write(str(nb_iterations))
+                        with open(f'solutions/{name}_nb_operations.txt', 'a') as file:
+                            file.write(str(nb_operations))
                     solutions_that_work.append(solution)
                     if stop_at_first_solution:
                         self.reboot_solution()

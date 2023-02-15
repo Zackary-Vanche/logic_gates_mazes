@@ -349,7 +349,8 @@ class Levels:
                 solutions, nb_iterations, nb_operations = level.find_all_solutions(stop_at_first_solution=False,
                                                                                    verbose=verbose*(not multithreads),
                                                                                    max_calculation_time=max_calculation_time,
-                                                                                   level_number=k)
+                                                                                   level_number=k,
+                                                                                   save_solutions_txt=True)
                 nb_iterations_list.append(nb_iterations)
                 nb_operations_list.append(nb_operations)
                 # t3 = time()
@@ -571,3 +572,5 @@ if __name__ == "__main__":
     #     print(i)
     #     less_common = collections.Counter(bin_list%i).most_common()[-1]
     #     print(less_common)
+
+    level_weights(True).find_all_solutions(verbose=2)
