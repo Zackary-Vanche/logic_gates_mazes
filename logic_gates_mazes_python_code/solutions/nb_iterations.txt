@@ -38,7 +38,7 @@ Numeration
 1026
 
 Sum
-408
+137
 
 Product
 18
@@ -89,28 +89,28 @@ Naturals
 812
 
 Doppelganger
-66
+41
 
 Compact
 57
 
-Simple v120
-55
+Simple
+16
 
-Boustrophedon v31
+Boustrophedon
 25
 
 Parallel
 252
 
-Bull v110
-192
+Bull
+52
 
 Pythagorean
 545
 
-Butterfly v37
-172
+Butterfly
+31
 
 Elementary
 1139
@@ -122,30 +122,30 @@ Chessboard
 1295
 
 Dichotomy
-10
+52
 
-Star v86
+Star
 554
 
 Partition
-4102
+4104
 
 Second
 316
 
 Knapsack
-105
+39
 
-K2 v107
+K2
 32770
 
 Egyptian fractions
 529
 
 Code
-224
+74
 
-Binary Tree v8
+Binary Tree
 23410
 
 Taxicab number
@@ -203,7 +203,7 @@ Matrix
 943
 
 River
-1132
+1135
 
 Vortex
 3782
@@ -218,78 +218,78 @@ Betweenness
 1392
 
 Fractal
-22
+23
 
 Tesseract
 785
 
-Loop v111
-222
+Loop
+209
 
 Cartesian
 2393
 
-Line v55
-535
+Line
+98
 
 Eulerian
 290595
 
-Starting point v112
+Starting point
 4826
 
 Sujiko
-344
+25
 
 Electricity
 45409
 
-Wheel v51
-413
+Wheel
+163
 
 Pancake sorting
 4423
 
-Ladder v41
-200
+Ladder
+47
 
 Wave
 424694
 
-Come back v6
+Come back
 238624
 
 Inversions
-268
+140
 
 Permutations
 7074
 
-K5 v91
-512
+K5
+156
 
 Takuzu
 309065
 
-K3,3 v122
-546
+K3,3
+464
 
 Travelling salesman
 146488
 
-Petersen v18
+Petersen
 103092
 
 No three in line
-606
+153
 
 Manhattan_distance
 110
 
-Gemini v91
-33433
+Gemini
+25373
 
-Cuboctahedron v125
+Cuboctahedron
 318001
 
 Diagonal
@@ -302,7 +302,7 @@ Knight
 56028
 
 Temple
-65490
+86021
 
 Syracuse
 65538

@@ -349,25 +349,25 @@ class Levels:
                     return
                 if verbose==1 and multithreads:
                     txt = ' '.join(['Level', str(k), ':', level.name, '\n'])
-                    t2 = time()
+                t2 = time()
                 solutions, nb_iterations, nb_operations = level.find_all_solutions(stop_at_first_solution=False,
                                                                                    verbose=verbose*(not multithreads),
                                                                                    max_calculation_time=max_calculation_time,
                                                                                    level_number=k,
                                                                                    save_solutions_txt=True,
                                                                                    only_if_not_yet_calculated=only_if_not_yet_calculated)
+                t3 = time()
                 nb_iterations_list.append(nb_iterations)
                 nb_operations_list.append(nb_operations)
                 if verbose==1 and multithreads:
-                    t3 = time()
                     for sol in solutions:
                         txt = txt + ' '.join(sol) + '\n'
                     if verbose >= 1:
                         txt = txt + str(t3 - t2) + 's'
-                        calculations_times[k] = t3 - t2
                     txt = '\n' + txt + '\n'
                     if verbose > 0:
                         print(txt)
+                calculations_times[k] = t3 - t2
             if multithreads:
                 import threading
                 l_threads = []
@@ -493,7 +493,7 @@ if __name__ == "__main__":
     if os.path.exists('temp.txt'):
         os.remove('temp.txt')
 
-    # test_levels()
+    test_levels()
 
     # import cProfile
     # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=1, save_as_txt=False)''', sort=1)
@@ -580,6 +580,8 @@ if __name__ == "__main__":
     #     less_common = collections.Counter(bin_list%i).most_common()[-1]
     #     print(less_common)
 
-    solutions = level_parking().find_all_solutions(verbose=2, save_solutions_txt=True)
+    # solutions = level_panex().find_all_solutions(verbose=1, save_solutions_txt=True)
+
+    # print(' '.join(solutions[0][0]))
     
     # Levels.save_solutions_txt(only_if_not_yet_calculated=True, verbose=1)

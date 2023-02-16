@@ -104,6 +104,7 @@ def level_second():
                  door_window_size=900,
                  keep_proportions=True,
                  y_separation=40,
-                 border=40)
+                 border=40,
+                 random=True)
 
     return level

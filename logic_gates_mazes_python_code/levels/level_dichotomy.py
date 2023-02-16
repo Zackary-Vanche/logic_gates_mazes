@@ -146,6 +146,7 @@ def level_dichotomy():
                  fastest_solution=None,
                  level_color=Levels_colors_list.PURPLE_AND_GREY,
                  name='Dichotomy',
+                 random=True,
                  door_window_size=700,
                  keep_proportions=True,
                  y_separation=40,

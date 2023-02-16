@@ -211,6 +211,7 @@ def level_five():
                  fastest_solution=None,
                  level_color=Levels_colors_list.FROM_HUE(hu=0.925, sa=1, li=0.2),
                  name='Five',
+                 random=True,
                  door_window_size=800,
                  keep_proportions=True,
                  y_separation=40,

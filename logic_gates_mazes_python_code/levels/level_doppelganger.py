@@ -73,7 +73,8 @@ def level_doppelganger():
                  door_window_size=800,
                  keep_proportions=True,
                  y_separation=40,
-                 border=40)
+                 border=40,
+                 random=True)
 
     return level
 

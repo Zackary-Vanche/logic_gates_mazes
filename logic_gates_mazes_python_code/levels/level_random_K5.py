@@ -239,6 +239,7 @@ def aux_level_random_K5(door_trees_list = [[i for i in range(2**n_switches)] for
                  fastest_solution=None,
                  level_color=Levels_colors_list.RANDOM(),
                  name='Random - K5',
+                 random=True,
                  door_window_size=800,
                  keep_proportions=True,
                  y_separation=40,

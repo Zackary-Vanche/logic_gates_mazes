@@ -18,7 +18,7 @@ import numpy as np
 
 # import random as rd
 
-plt.rcParams["figure.figsize"] = (30,15)
+plt.rcParams["figure.figsize"] = (32,18)
 
 if __name__ == "__main__":
 
@@ -40,7 +40,7 @@ if __name__ == "__main__":
     #                                                                                        multithreads=False,
     #                                                                                        do_it_fast=True,
     #                                                                                        max_calculation_time=1)
-    only_if_not_yet_calculated = True
+    only_if_not_yet_calculated = False
     calculations_times, nb_iterations_list, nb_operations_list = Levels.save_solutions_txt(verbose=1,
                                                                                            multithreads=False,
                                                                                            do_it_fast=False,
@@ -55,8 +55,9 @@ if __name__ == "__main__":
                 'Number of elementary operations']
     for ylabel in l_ylabel:
     
-        if ylabel == l_ylabel[0]: 
-            continue #  TODO : fix
+        if ylabel == l_ylabel[0]:
+            if only_if_not_yet_calculated:
+                continue
             x_list = calculations_times
         if ylabel == l_ylabel[1]:
             x_list = nb_iterations_list
@@ -86,12 +87,15 @@ if __name__ == "__main__":
         plt.tight_layout()
 
         if ylabel == l_ylabel[0]:
-            plt.savefig('images/solving_time.jpg')
+            print('images/solving_time.jpg')
+            plt.savefig('images/solving_time.png')
         if ylabel == l_ylabel[1]:
-            plt.savefig('images/nb_iterations.jpg')
+            print('images/nb_iterations.jpg')
+            plt.savefig('images/nb_iterations.png')
         if ylabel == l_ylabel[2]:
-            plt.savefig('images/nb_operations.jpg')
-        plt.show()
+            print('images/nb_operations.jpg')
+            plt.savefig('images/nb_operations.png')
+        plt.close()
     
     with open('solutions/nb_iterations.txt', 'w') as f:
         for i in range(len(nb_iterations_list)):

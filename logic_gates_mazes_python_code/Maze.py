@@ -626,7 +626,8 @@ class Maze:
             door_trees_list = pickle_load(fp)
         level = aux_level_function(door_trees_list)
         level.name = level.name.replace('Random - ', '')
-        level.name = ' '.join([level.name, f"v{file_name.split('_')[-1]}"])
+        level.random = True
+        # level.name = ' '.join([level.name, f"v{file_name.split('_')[-1]}"])
         return level
 
     def fast_try_solution(self,
@@ -727,22 +728,21 @@ class Maze:
                 with open(nb_iterations_file, 'r') as fr:
                     nb_iterations_tot = int(fr.readline())
             except ValueError:
-                pass
+                rint('something wrong with {nb_iterations_file}')
         if os_path_exists(nb_operations_file):
             try:
                 with open(nb_operations_file, 'r') as fr:
                     nb_operations_tot = int(fr.readline())
             except ValueError:
-                pass
+                print('something wrong with {nb_iterations_file}')
         if os_path_exists(solutions_file):
             try:
                 with open(solutions_file, 'r') as fr:
                     solutions_from_file = fr.readlines()
             except ValueError:
-                pass
+                print('something wrong with {solutions_file}')
         if not (nb_iterations_tot is None or nb_operations_tot is None or solutions_from_file is None) and only_if_not_yet_calculated:
             return [solutions_from_file, nb_iterations_tot, nb_operations_tot]
-
         if self.all_solutions is None:
             visited_situations = set()
             solutions_to_visit = [initial_try]
