@@ -15,7 +15,6 @@ class Logic_Gate:
         self.name = name
 
     def aux_func_NOT(branches_values):
-        # # assert len(sons_list) == 1
         return not branches_values[0]
 
     def aux_func_AND(branches_values):
@@ -31,17 +30,13 @@ class Logic_Gate:
         return not sum(branches_values) == 1
 
     def aux_func_EQU(branches_values):
-        # # assert len(sons_list) >= 2
         return all(branches_values[i] == branches_values[i+1] for i in range(len(branches_values)-1))
 
     def aux_func_EQUSET(branches_values):
-        # # assert len(branches_values) % 2 == 0
         n = len(branches_values) // 2
         return sorted(branches_values[:n]) == sorted(branches_values[n:])
 
     def aux_func_DIFF(branches_values):
-        # # assert len(sons_list) >= 2
-        # print(branches_values)
         branches_values_sorted = sorted(branches_values)
         return all(branches_values_sorted[i] != branches_values_sorted[i+1] for i in range(len(branches_values)-1))
 
@@ -58,11 +53,9 @@ class Logic_Gate:
         return np_prod(np_array(branches_values))
 
     def aux_func_ABS(branches_values):
-        # # assert len(sons_list) == 1
         return abs(branches_values[0])
 
     def aux_func_MINUS(branches_values):
-        # # assert len(sons_list) == 1
         return -branches_values[0]
 
     def aux_func_INF(branches_values):
@@ -85,24 +78,18 @@ class Logic_Gate:
         return all(branches_values[i] >= branches_values[i+1] for i in range(len(branches_values)-1))
     
     def aux_func_BIN(branches_values):
-        # for i in range(len(branches_values)):
-        #     assert isinstance(branches_values[i], int), f'{i} {branches_values}' # TODO : remove
         return sum([branches_values[i]*2**i for i in range(len(branches_values))])
 
     def aux_func_POW(branches_values):
-        # # assert len(sons_list) == 2
         return branches_values[0]**branches_values[1]
     
     def aux_func_DIV(branches_values):
-        # # assert len(sons_list) == 2
         return branches_values[0]/branches_values[1]
     
     def aux_func_DIVINT(branches_values):
-        # # assert len(sons_list) == 2
         return branches_values[0]//branches_values[1]
     
     def aux_func_MOD(branches_values):
-        # # assert len(sons_list) == 2
         return branches_values[0]%branches_values[1]
 
     def aux_func_NONO(branches_values):
@@ -271,27 +258,6 @@ class Logic_Gate:
     def invert_gate(self):
         for i in range(4):
             self.results_list[i] = int(not self.results_list[i])
-
-    # def __str__(self): # TODO : rewrite, no self.results_list anymore 
-    #     l_txt = []
-    #     k = 0
-    #     results_list = self.results_list
-    #     n = len(results_list)
-    #     depth_spaces = '|   '*(self.depth+1)
-    #     n_decimals_bin = len(bin(n)) - 3
-    #     for k in range(n):
-    #         result_k = results_list[k]
-    #         k_bin = bin(k)[2:]
-    #         k_bin_str = ''
-    #         for decimal in k_bin:
-    #             k_bin_str = k_bin_str + decimal + ' '
-    #         while len(k_bin_str) < 2*n_decimals_bin:
-    #             k_bin_str = '0 ' + k_bin_str
-    #         line = depth_spaces + k_bin_str + "| {}".format(result_k)
-    #         l_txt.append(line)
-    #         k += 1
-    #     return '\n'.join(l_txt)
-
 
 if __name__ == "__main__":
 

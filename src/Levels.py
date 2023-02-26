@@ -434,7 +434,7 @@ def test_levels(test_random_levels=False):
     plt.scatter(x_list, solutions_lenghts, lw=0.1, color='r')
     plt.xlabel('Level number')
     plt.ylabel('Number of actions in the solution')
-    plt.show()
+    plt.close()
     
     if test_random_levels:
         print('Testing random levels')
@@ -496,4 +496,4 @@ if __name__ == "__main__":
     test_levels()
 
     # import cProfile
-    # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=1, save_as_txt=False)''', sort=1)
+    # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=float('inf'), save_as_txt=False)''', sort=1)
