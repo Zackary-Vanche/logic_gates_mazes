@@ -62,7 +62,7 @@ def main():
                 l_img_h.append(im_h)
         img = cv2.vconcat(l_img_h)
         plt.imshow(img)
-        plt.show()
+        plt.close()
         filename = r'images/concat/concat_levels_{}.jpg'.format(string)
         cv2.imwrite(filename, img)
         print(filename)
@@ -91,7 +91,7 @@ def main():
                 l_img_h.append(im_h)
         img_h = cv2.vconcat(l_img_h)
         plt.imshow(img_h)
-        plt.show()
+        plt.close()
         filename = r'images/concat/concat_levels_HELP_{}.jpg'.format(string)
         cv2.imwrite(filename, img_h)
 

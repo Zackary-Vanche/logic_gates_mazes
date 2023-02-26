@@ -5,40 +5,40 @@ Initiation
 15
 
 Linear
-510
+57
 
 Loop
-26
+23
 
 Backward
 16
 
 Bis repetita
-29
+20
 
 Binary
-1002
+359
 
 OR
 50
 
 Crossroad
-144
+90
 
 Square
 26
 
 Infinity
-4146
+2349
 
 Fluid
-422
+183
 
 Numeration
 1026
 
 Sum
-458
+137
 
 Product
 18
@@ -65,37 +65,37 @@ Longest path
 58
 
 Hitting set
-392
+326
 
 Independent set
 1044
 
 Dominating set
-77492
+77424
 
 Exact cover
 258
 
 Odd
-136
+111
 
 Triangulate
 1026
 
 Recurrence
-906
+618
 
 Naturals
-846
+812
 
 Doppelganger
-66
+56
 
 Compact
 57
 
 Simple
-31
+27
 
 Boustrophedon
 25
@@ -104,25 +104,25 @@ Parallel
 252
 
 Bull
-132
+88
 
 Pythagorean
-548
+545
 
 Butterfly
-217
+80
 
 Elementary
-1378
+1139
 
 Superpermutation
-13108
+13104
 
 Chessboard
-1404
+1295
 
 Dichotomy
-24
+23
 
 Star
 554
@@ -134,16 +134,16 @@ Second
 316
 
 Knapsack
-335
+60
 
 K2
 32770
 
 Egyptian fractions
-545
+529
 
 Code
-237
+69
 
 Binary Tree
 23410
@@ -152,7 +152,7 @@ Taxicab number
 84
 
 Tetrahedron
-91
+89
 
 Small
 258
@@ -164,13 +164,13 @@ The 4 queens
 65538
 
 K
-166
+165
 
 Alice and Bob
-28204
+26662
 
 Nonogram
-3915
+1289
 
 Crystal
 4098
@@ -179,13 +179,13 @@ Mastermind
 1290
 
 Tetris
-1216117
+1211181
 
 XOR
 1924
 
 Weights
-3370
+2431
 
 Baguenaudier
 65538
@@ -197,13 +197,13 @@ Spare
 1036
 
 Magic square
-1078
+1026
 
 Matrix
-1297
+943
 
 River
-1406
+1132
 
 Vortex
 3782
@@ -212,67 +212,67 @@ Tree
 158628
 
 Dead_ends
-13439
+12878
 
 Betweenness
-1412
+1392
 
 Fractal
-20
+23
 
 Tesseract
-807
+785
 
 Loop
 224
 
 Cartesian
-2401
+2393
 
 Line
-142
+139
 
 Eulerian
-324355
+290595
 
 Starting point
 4826
 
 Sujiko
-194
+42
 
 Electricity
-60099
+45409
 
 Wheel
-237
+143
 
 Pancake sorting
-8000
+4423
 
 Ladder
-207
+121
 
 Wave
-424810
+424694
 
 Come back
-397218
+238624
 
 Inversions
-295
+192
 
 Permutations
-7140
+7074
 
 K5
-908
+173
 
 Takuzu
-312329
+309065
 
 K3,3
-443
+222
 
 Travelling salesman
 146488
@@ -281,50 +281,50 @@ Petersen
 103092
 
 No three in line
-336
+126
 
 Manhattan_distance
-172
+116
 
 Gemini
-25390
+25373
 
 Cuboctahedron
 318001
 
 Diagonal
-81934
+81886
 
 Sudoku
-44408
+39161
 
 Knight
 56028
 
 Temple
-77974
+70983
 
 Syracuse
 65538
 
 Five
-128112
+128108
 
 Shuffled
 24565
 
 Sign
-932184
+929714
 
 Combinatorics
-713934
+711131
 
 Water pouring
-1556482
+1538095
 
 Puzzle
-228648
+228545
 
 Solitaire
-1743503
+1743259
 

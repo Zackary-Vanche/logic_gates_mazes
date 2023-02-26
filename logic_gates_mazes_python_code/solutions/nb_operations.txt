@@ -5,40 +5,40 @@ Initiation
 47
 
 Linear
-6246
+346
 
 Loop
-146
+120
 
 Backward
 50
 
 Bis repetita
-240
+119
 
 Binary
-25466
+6548
 
 OR
 343
 
 Crossroad
-1453
+671
 
 Square
 129
 
 Infinity
-84916
+43984
 
 Fluid
-7047
+2265
 
 Numeration
 5126
 
 Sum
-3313
+571
 
 Product
 35
@@ -65,64 +65,64 @@ Longest path
 341
 
 Hitting set
-1891
+1464
 
 Independent set
 4711
 
 Dominating set
-1131954
+1130111
 
 Exact cover
 1028
 
 Odd
-1927
+1348
 
 Triangulate
 5127
 
 Recurrence
-16778
+9925
 
 Naturals
-18816
+17407
 
 Doppelganger
-330
+255
 
 Compact
 637
 
 Simple
-153
+133
 
 Boustrophedon
-187
+141
 
 Parallel
 3011
 
 Bull
-1869
+989
 
 Pythagorean
-2461
+2441
 
 Butterfly
-3263
+565
 
 Elementary
-28164
+21131
 
 Superpermutation
-89707
+89658
 
 Chessboard
-28740
+25757
 
 Dichotomy
-97
+133
 
 Star
 2532
@@ -134,16 +134,16 @@ Second
 1191
 
 Knapsack
-2023
+201
 
 K2
 245773
 
 Egyptian fractions
-19012
+17908
 
 Code
-5990
+879
 
 Binary Tree
 247871
@@ -152,7 +152,7 @@ Taxicab number
 1281
 
 Tetrahedron
-770
+740
 
 Small
 1029
@@ -164,13 +164,13 @@ The 4 queens
 524297
 
 K
-2839
+2806
 
 Alice and Bob
-388097
+366509
 
 Nonogram
-95177
+18889
 
 Crystal
 24580
@@ -179,13 +179,13 @@ Mastermind
 7065
 
 Tetris
-16130058
+15919337
 
 XOR
 84080
 
 Weights
-192122
+97316
 
 Baguenaudier
 524299
@@ -197,13 +197,13 @@ Spare
 5202
 
 Magic square
-31499
+28473
 
 Matrix
-51995
+33108
 
 River
-40653
+29123
 
 Vortex
 49119
@@ -212,67 +212,67 @@ Tree
 2582900
 
 Dead_ends
-627527
+589078
 
 Betweenness
-27556
+26712
 
 Fractal
-75
+120
 
 Tesseract
-28631
+27434
 
 Loop
 6941
 
 Cartesian
-48636
+48376
 
 Line
-1675
+1610
 
 Eulerian
-5949054
+5185182
 
 Starting point
 35794
 
 Sujiko
-3639
+331
 
 Electricity
-2218826
+1513631
 
 Wheel
-5241
+1792
 
 Pancake sorting
-113670
+45007
 
 Ladder
-3105
+1357
 
 Wave
-29902979
+29887168
 
 Come back
-11781816
+5951258
 
 Inversions
-3069
+1648
 
 Permutations
-78304
+77446
 
 K5
-10492
+1090
 
 Takuzu
-6578492
+6496892
 
 K3,3
-6728
+2262
 
 Travelling salesman
 1854997
@@ -281,50 +281,50 @@ Petersen
 870619
 
 No three in line
-5222
+977
 
 Manhattan_distance
-2290
+1127
 
 Gemini
-358964
+358590
 
 Cuboctahedron
 5906170
 
 Diagonal
-1959614
+1958285
 
 Sudoku
-1876317
+1542211
 
 Knight
 8304670
 
 Temple
-1253283
+1126829
 
 Syracuse
 524297
 
 Five
-2800271
+2800149
 
 Shuffled
 1395559
 
 Sign
-70988938
+70689941
 
 Combinatorics
-105380537
+104721495
 
 Water pouring
-110730776
+108667794
 
 Puzzle
-7959427
+7954483
 
 Solitaire
-698080678
+697904496
 
