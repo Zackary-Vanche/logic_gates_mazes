@@ -1,4 +1,4 @@
-images/
-solutions/
+src/images/
+src/solutions/
 __pycache__/
-temp/
+src/temp/
