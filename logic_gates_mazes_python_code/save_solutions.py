@@ -40,7 +40,7 @@ if __name__ == "__main__":
     #                                                                                        multithreads=False,
     #                                                                                        do_it_fast=True,
     #                                                                                        max_calculation_time=1)
-    only_if_not_yet_calculated = False
+    only_if_not_yet_calculated = True
     calculations_times, nb_iterations_list, nb_operations_list = Levels.save_solutions_txt(verbose=1,
                                                                                            multithreads=False,
                                                                                            do_it_fast=False,
