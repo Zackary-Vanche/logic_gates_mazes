@@ -1,12 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Jul  3 20:31:54 2022
-
-@author: utilisateur
-"""
-
-# Théorème des 4 couleurs
-
 from Switch import Switch
 from Tree import Tree
 from Door import Door
@@ -14,7 +5,7 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
-
+# Théorème des 4 couleurs
 def level_4_colors_theorem(fast_solution_finding=False):
 
     S0 = Switch(name='S0')

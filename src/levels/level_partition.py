@@ -1,12 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Jul  3 20:22:46 2022
-
-@author: utilisateur
-"""
-
-# Partition d'un ensemble en deux de sommes égales
-
 from Switch import Switch
 from Tree import Tree
 from Door import Door
@@ -14,7 +5,7 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
-
+# Partition d'un ensemble en deux de sommes égales
 def level_partition():
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')

@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Jan 13 10:27:29 2023
-
-@author: utilisateur
-"""
-
 from Switch import Switch
 from Tree import Tree
 from Door import Door

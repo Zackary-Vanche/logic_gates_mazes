@@ -1,11 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Aug  2 15:40:05 2022
-
-@author: blanc-sablon
-"""
-
 from Switch import Switch
 from Tree import Tree
 from Door import Door

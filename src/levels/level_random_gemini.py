@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Jan  9 19:09:22 2023
-
-@author: utilisateur
-"""
-
 from Maze import Maze
 from Switch import Switch
 from Tree import Tree

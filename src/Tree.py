@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Feb 24 20:50:35 2022
-
-@author: utilisateur
-"""
-
 from numpy import array
 from numpy import cumsum
 from numpy import zeros as np_zeros

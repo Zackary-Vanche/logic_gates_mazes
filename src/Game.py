@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Feb 24 20:59:09 2022
-
-@author: utilisateur
-"""
-
 from pygame import init as pygame_init
 from pygame.locals import QUIT, K_UP, K_DOWN, K_RIGHT, K_LEFT
 from pygame.locals import K_a, K_b, K_d, K_e, K_h, K_m, K_n, K_p, K_r, K_s, K_l, K_q

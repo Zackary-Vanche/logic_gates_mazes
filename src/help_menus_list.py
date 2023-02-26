@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Jul  6 21:06:34 2022
-
-@author: utilisateur
-"""
-
 help_menus_list = {}
 
     ######################

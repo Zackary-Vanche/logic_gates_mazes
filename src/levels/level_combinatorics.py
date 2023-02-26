@@ -1,4 +1,3 @@
-
 from Switch import Switch
 from Tree import Tree
 from Door import Door

@@ -1,12 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Jul  3 20:10:58 2022
-
-@author: utilisateur
-"""
-
-# Problème du sac à dos
-
 from Switch import Switch
 from Tree import Tree
 from Door import Door
@@ -14,7 +5,7 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
-
+# Problème du sac à dos
 def level_knapsack():
     w_list = [2, 3, 4, 5, 6, 7, 8, 9]
     p_list = [8, 9, 10, 12, 12, 18, 20, 21]

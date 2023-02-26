@@ -1,12 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Jul  3 20:28:05 2022
-
-@author: utilisateur
-"""
-
-# Inversion matricielle
-
 from Switch import Switch
 from Tree import Tree
 from Door import Door
@@ -14,7 +5,7 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
-
+# Inversion matricielle
 def level_matrix():
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')

@@ -1,12 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Jul  3 20:30:42 2022
-
-@author: utilisateur
-"""
-
-# Problème 3-SAT
-
 from Switch import Switch
 from Tree import Tree
 from Door import Door
@@ -16,6 +7,7 @@ from Levels_colors_list import Levels_colors_list
 from random import randint as rd_randint
 from random import shuffle as rd_shuffle
 
+# Problème 3-SAT
 def level_3sat():
 
     S0 = Switch(name='S0')

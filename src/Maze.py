@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Feb 24 20:55:41 2022
-@author: utilisateur
-"""
-
 from linear_function import linear_function
 from numpy import array as array
 from numpy.linalg import norm as np_linalg_norm

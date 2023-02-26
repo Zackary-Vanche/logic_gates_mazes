@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Jan 16 09:11:29 2023
-
-@author: utilisateur
-"""
-
 # Solution :
 # House 	    1 	      2 	       3 	      4 	       5
 # Color 	    yellow 	  blue 	       red 	      ivory 	   green
