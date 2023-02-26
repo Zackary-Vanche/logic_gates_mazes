@@ -224,5 +224,4 @@ def aux_level_random_cuboctahedron(door_trees_list = [[i for i in range(2**n_swi
     return level
 
 def level_random_cuboctahedron():
-    # return aux_level_random_cuboctahedron()
     return Maze.get_random_level_from_file(aux_level_random_cuboctahedron)

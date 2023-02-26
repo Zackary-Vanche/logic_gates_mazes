@@ -166,5 +166,4 @@ def aux_level_random_come_back(door_trees_list = [[i for i in range(2**n_switche
     return level
 
 def level_random_come_back():
-    # return aux_level_random_come_back()
     return Maze.get_random_level_from_file(aux_level_random_come_back)

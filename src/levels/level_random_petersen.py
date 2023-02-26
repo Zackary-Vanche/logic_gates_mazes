@@ -24,55 +24,10 @@ def aux_level_random_petersen(door_trees_list = [[i for i in range(2**n_switches
     S2 = Switch(name='S2')
     S3 = Switch(name='S3')
     S4 = Switch(name='S4')
-    # S5 = Switch(name='S5')
-    # S6 = Switch(name='S6')
-    # S7 = Switch(name='S7')
-    # S8 = Switch(name='S8')
-    # S9 = Switch(name='S9')
     
     Slist = [S0, S1, S2, S3, S4]
     
     assert len(Slist) == n_switches
-    
-    # S_index_list = [[3, 7, 8, 9],
-    #                 [4, 5, 8, 9],
-    #                 [0, 5, 6, 9],
-    #                 [1, 5, 6, 7],
-    #                 [2, 6, 7, 8],
-
-    #                 [2, 3, 6, 9],
-    #                 [3, 4, 5, 7],
-    #                 [0, 4, 6, 8],
-    #                 [0, 1, 7, 9],
-    #                 [1, 2, 5, 8],
-
-    #                 [1, 3, 4, 6],
-    #                 [0, 1, 3, 8],
-    #                 [0, 2, 3, 5],
-    #                 [0, 2, 4, 7],
-    #                 [1, 2, 4, 9],
-                    
-    #                 [1, 2, 3, 4]
-    #                 ]
-    
-    # def get_tree(i_door):
-    #     tree_set = set()
-    #     Slist_door = []
-    #     for j in door_trees_list[i_door]:
-    #         string_j = format(j, '010b')[::-1]
-    #         new_j = 0
-    #         for k in range(len(S_index_list[i_door])):
-    #             new_j += int(string_j[S_index_list[i_door][k]]) * 2**k
-    #             tree_set.add(new_j)
-    #     tree_list = sorted(list(tree_set))
-    #     for k in range(len(S_index_list[i_door])):
-    #         Slist_door.append(Slist[S_index_list[i_door][k]])
-    #         assert len(Slist_door) < 11
-    #     return Tree(['IN', Tree.tree_list_BIN(len(Slist_door))] + [[None]]*len(tree_list),
-    #                  empty=True,
-    #                  name=f'T{i_door}',
-    #                  switches = Slist_door + tree_list,
-    #                  cut_expression=True)
     
     def get_tree(i):
         return Tree(['IN', Tree.tree_list_BIN(len(Slist))] + [[None]]*len(door_trees_list[i]),
@@ -244,5 +199,4 @@ def aux_level_random_petersen(door_trees_list = [[i for i in range(2**n_switches
     return level
 
 def level_random_petersen():
-    # return aux_level_random_petersen()
     return Maze.get_random_level_from_file(aux_level_random_petersen)

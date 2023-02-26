@@ -97,5 +97,4 @@ def aux_level_random_K2(door_trees_list = [[i for i in range(2**n_switches)] for
     return level
 
 def level_random_K2():
-    # return aux_level_random_K2()
     return Maze.get_random_level_from_file(aux_level_random_K2)

@@ -143,5 +143,4 @@ def aux_level_random_boustrophedon(door_trees_list = [[i for i in range(2**8)] f
     return level
 
 def level_random_boustrophedon():
-    # return aux_level_random_boustrophedon()
     return Maze.get_random_level_from_file(aux_level_random_boustrophedon)

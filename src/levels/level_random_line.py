@@ -121,5 +121,4 @@ def aux_level_random_line(door_trees_list = [[i for i in range(2**n_switches)] f
     return level
 
 def level_random_line():
-    # return aux_level_random_line()
     return Maze.get_random_level_from_file(aux_level_random_line)

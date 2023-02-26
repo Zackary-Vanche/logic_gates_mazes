@@ -93,5 +93,4 @@ def aux_level_random_simple(door_trees_list = [[i for i in range(2**4)] for j in
     return level
 
 def level_random_simple():
-    # return aux_level_random_K5()
     return Maze.get_random_level_from_file(aux_level_random_simple)

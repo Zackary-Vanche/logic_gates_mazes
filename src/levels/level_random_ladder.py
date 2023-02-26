@@ -168,5 +168,4 @@ def aux_level_random_ladder(door_trees_list = [[i for i in range(2**n_switches)]
     return level
 
 def level_random_ladder():
-    # return aux_level_random_ladder()
     return Maze.get_random_level_from_file(aux_level_random_ladder)

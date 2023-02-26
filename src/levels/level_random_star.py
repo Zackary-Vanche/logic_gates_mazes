@@ -145,5 +145,4 @@ def aux_level_random_star(door_trees_list = [[i for i in range(2**n_switches)] f
     return level
 
 def level_random_star():
-    # return aux_level_random_star()
     return Maze.get_random_level_from_file(aux_level_random_star)
