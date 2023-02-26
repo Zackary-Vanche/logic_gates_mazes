@@ -165,22 +165,22 @@ class Maze:
                               ' '.join([door.name for door in doors_list])])
         assert set(self.doors_list) == set(doors_list), txterror
         # On verifie que aucun nom ne soit donne en double
-        # for i in range(len(rooms_list)):
-        #     room_i = rooms_list[i]
-        #     for j in range(i):
-        #         room_j = rooms_list[j]
-        #         assert room_i.name != room_j.name
-        # for i in range(len(doors_list)):
-        #     door_i = doors_list[i]
-        #     for j in range(i):
-        #         door_j = doors_list[j]
-        #         assert door_i.name != door_j.name
-        # switches_list = self.switches_list
-        # for i in range(len(switches_list)):
-        #     switch_i = switches_list[i]
-        #     for j in range(i):
-        #         switch_j = switches_list[j]
-        #         assert switch_i.name != switch_j.name
+        for i in range(len(rooms_list)):
+            room_i = rooms_list[i]
+            for j in range(i):
+                room_j = rooms_list[j]
+                assert room_i.name != room_j.name
+        for i in range(len(doors_list)):
+            door_i = doors_list[i]
+            for j in range(i):
+                door_j = doors_list[j]
+                assert door_i.name != door_j.name
+        switches_list = self.switches_list
+        for i in range(len(switches_list)):
+            switch_i = switches_list[i]
+            for j in range(i):
+                switch_j = switches_list[j]
+                assert switch_i.name != switch_j.name
         self.all_solutions = None
         if Maze.calculates_solutions:
             self.all_solutions = self.find_all_solutions()
@@ -483,15 +483,6 @@ class Maze:
                         print("You are in room {}\n".format(self.current_room_name()))
                         pass
                     sv = 0
-                    # if self.random:
-                    #     door = self.doors_dict[door_name]
-                    #     tree = door.tree
-                    #     tree_bin = tree.sons_list[0]
-                    #     for i in range(len(tree_bin.switches_list)):
-                    #         sv += self.switches_list[i].value * 2**i
-                    #     txt_verbose_3 += action + ' : ' + str(sv) + '\n'
-                    #     door_trees_dico[action].add(sv)
-                    # else:
                     door = self.doors_dict[door_name]
                     if door.tree.random_switches_bin_list != []:
                         switches_list = door.tree.random_switches_bin_list
@@ -728,7 +719,7 @@ class Maze:
                 with open(nb_iterations_file, 'r') as fr:
                     nb_iterations_tot = int(fr.readline())
             except ValueError:
-                rint('something wrong with {nb_iterations_file}')
+                print('something wrong with {nb_iterations_file}')
         if os_path_exists(nb_operations_file):
             try:
                 with open(nb_operations_file, 'r') as fr:
@@ -870,12 +861,6 @@ class Maze:
                         y_max = max(y_max, y_gap + y)
                 self.extreme_coordinates.append([x_min, x_max, y_min, y_max])
         return self.extreme_coordinates[ipagein]
-
-    # def invert_x_y_coordinates(self):
-    #     for room in self.rooms_list:
-    #         [x_gap, y_gap, x, y] = room.position[self.current_page]
-    #         room.position[self.current_page] = [y_gap, x_gap, y, x]
-    #         self.extreme_coordinates = None
     
     def set_ipage_extreme_coordinates(self,
                                       new_x_min,
