@@ -146,7 +146,6 @@ from levels.level_random_boustrophedon import aux_level_random_boustrophedon
 from levels.level_random_simple import aux_level_random_simple
 from levels.level_random_petersen import aux_level_random_petersen
 from levels.level_random_cuboctahedron import aux_level_random_cuboctahedron
-from levels.level_random_tetractys import aux_level_random_tetractys
 # from levels.level_random_blind_alley import aux_level_random_blind_alley
 
 
