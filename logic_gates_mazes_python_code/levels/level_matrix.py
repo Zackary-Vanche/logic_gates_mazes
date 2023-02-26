@@ -14,8 +14,8 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
+
 def level_matrix():
-    
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
     S2 = Switch(name='S2')
@@ -26,7 +26,7 @@ def level_matrix():
     S7 = Switch(name='S7')
     S8 = Switch(name='S8')
     S9 = Switch(name='S9')
-    
+
     SN2 = Switch(name='2', value=2)
     SN3 = Switch(name='3', value=3)
     SN5 = Switch(name='5', value=5)
@@ -52,7 +52,7 @@ def level_matrix():
     SN83 = Switch(name='83', value=83)
     SN89 = Switch(name='89', value=89)
     SN97 = Switch(name='97', value=97)
-    
+
     SN4 = Switch(name='4', value=4)
     SN6 = Switch(name='6', value=6)
     SN10 = Switch(name='10', value=10)
@@ -84,100 +84,100 @@ def level_matrix():
     SN411 = Switch(name='411', value=411)
     SN443 = Switch(name='443', value=443)
     SN485 = Switch(name='485', value=485)
-    
+
     tree_list_0 = ['EQU',
-                           ['SUM'] + [['PROD', [None], [None]]]*10,
-                           [None]]
-    
+                   ['SUM'] + [['PROD', [None], [None]]] * 10,
+                   [None]]
+
     T0 = Tree(tree_list=tree_list_0,
               empty=True,
               name='T0',
-              switches = [SN2, S0, SN4, S1,
-                          SN13, S2, SN26, S3,
-                          SN31, S4, SN62, S5,
-                          SN53, S6, SN106, S7,
-                          SN73, S8, SN146, S9, 
-                         SN347])
+              switches=[SN2, S0, SN4, S1,
+                        SN13, S2, SN26, S3,
+                        SN31, S4, SN62, S5,
+                        SN53, S6, SN106, S7,
+                        SN73, S8, SN146, S9,
+                        SN347])
     T1 = Tree(tree_list=tree_list_0,
               empty=True,
               name='T1',
-              switches = [SN3, S0, SN6, S1,
-                          SN17, S2, SN34, S3,
-                          SN37, S4, SN74, S5,
-                          SN59, S6, SN118, S7,
-                          SN79, S8, SN158, S9,
-                          SN387])
+              switches=[SN3, S0, SN6, S1,
+                        SN17, S2, SN34, S3,
+                        SN37, S4, SN74, S5,
+                        SN59, S6, SN118, S7,
+                        SN79, S8, SN158, S9,
+                        SN387])
     T2 = Tree(tree_list=tree_list_0,
               empty=True,
               name='T2',
-              switches = [SN5, S0, SN10, S1,
-                          SN19, S2, SN38, S3,
-                          SN41, S4, SN82, S5,
-                          SN61, S6, SN122, S7,
-                          SN83, S8, SN166, S9,
-                          SN411])
+              switches=[SN5, S0, SN10, S1,
+                        SN19, S2, SN38, S3,
+                        SN41, S4, SN82, S5,
+                        SN61, S6, SN122, S7,
+                        SN83, S8, SN166, S9,
+                        SN411])
     T3 = Tree(tree_list=tree_list_0,
               empty=True,
               name='T3',
-              switches = [SN7, S0, SN14, S1,
-                          SN23, S2, SN46, S3,
-                          SN43, S4, SN86, S5,
-                          SN67, S6, SN134, S7,
-                          SN89, S8, SN178, S9,
-                          SN443])
+              switches=[SN7, S0, SN14, S1,
+                        SN23, S2, SN46, S3,
+                        SN43, S4, SN86, S5,
+                        SN67, S6, SN134, S7,
+                        SN89, S8, SN178, S9,
+                        SN443])
     T4 = Tree(tree_list=tree_list_0,
               empty=True,
               name='T4',
-              switches = [SN11, S0, SN22, S1,
-                          SN29, S2, SN58, S3,
-                          SN47, S4, SN94, S5,
-                          SN71, S6, SN142, S7,
-                          SN97, S8, SN194, S9,
-                          SN485])
-    
+              switches=[SN11, S0, SN22, S1,
+                        SN29, S2, SN58, S3,
+                        SN47, S4, SN94, S5,
+                        SN71, S6, SN142, S7,
+                        SN97, S8, SN194, S9,
+                        SN485])
+
     e = 4.5
     d = 6.6
-    
+
     R0 = Room(name='R0',
-              position = [0, 0, 4, 20],
-              switches_list = [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9])
+              position=[0, 0, 4, 20],
+              switches_list=[S0, S1, S2, S3, S4, S5, S6, S7, S8, S9])
     R1 = Room(name='R1',
-              position = [d, 0, 2, 2],
-              switches_list = [])
+              position=[d, 0, 2, 2],
+              switches_list=[])
     R2 = Room(name='R2',
-              position = [d, e, 2, 2],
-              switches_list = [])
+              position=[d, e, 2, 2],
+              switches_list=[])
     R3 = Room(name='R3',
-              position = [d, 2*e, 2, 2],
-              switches_list = [])
+              position=[d, 2 * e, 2, 2],
+              switches_list=[])
     R4 = Room(name='R4',
-              position = [d, 3*e, 2, 2],
-              switches_list = [])
+              position=[d, 3 * e, 2, 2],
+              switches_list=[])
     RE = Room(name='RE',
-              position=[d, 4*e, 2, 2],
-              is_exit=True)   # E pour exit ou end
-    
+              position=[d, 4 * e, 2, 2],
+              is_exit=True)  # E pour exit ou end
+
     D0 = Door(two_way=False,
               tree=T0,
               room_departure=R0,
               room_arrival=R1,
-              relative_departure_coordinates=[3.5/4, 1/20])
+              relative_departure_coordinates=[3.5 / 4, 1 / 20])
     D1 = Door(two_way=False,
-                tree=T1,
-                room_departure=R1,
-                room_arrival=R2)
+              tree=T1,
+              room_departure=R1,
+              room_arrival=R2)
     D2 = Door(two_way=False,
-                tree=T2,
-                room_departure=R2,
-                room_arrival=R3)
+              tree=T2,
+              room_departure=R2,
+              room_arrival=R3)
     D3 = Door(two_way=False,
-                tree=T3,
-                room_departure=R3,
-                room_arrival=R4)
+              tree=T3,
+              room_departure=R3,
+              room_arrival=R4)
     D4 = Door(two_way=False,
-                tree=T4,
-                room_departure=R4,
-                room_arrival=RE)
+              tree=T4,
+              room_departure=R4,
+              room_arrival=RE)
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
@@ -190,12 +190,3 @@ def level_matrix():
                  keep_proportions=True)
 
     return level
-
-if __name__ == "__main__":
-    
-    level = level_matrix
-
-    solutions = level().find_all_solutions(verbose=3,
-                                           stop_at_first_solution=False)
-    
-    print(solutions[-1])

@@ -12,8 +12,8 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
-def level_tetris():
 
+def level_tetris():
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
     S2 = Switch(name='S2')
@@ -26,7 +26,7 @@ def level_tetris():
     S9 = Switch(name='S9')
     S10 = Switch(name='S10')
     S11 = Switch(name='S11')
-    
+
     SN0 = Switch(name='0', value=0)
     SN1 = Switch(name='1', value=1)
     SN2 = Switch(name='2', value=2)
@@ -42,53 +42,53 @@ def level_tetris():
 
     T0 = Tree(tree_list=['EQUSET',
                          Tree.tree_list_BIN(4),
-                         ['SUM', [None], Tree.tree_list_BIN(4),],
-                         ['SUM', [None], Tree.tree_list_BIN(4),],
-                         ['SUM', [None], Tree.tree_list_BIN(4),],
+                         ['SUM', [None], Tree.tree_list_BIN(4), ],
+                         ['SUM', [None], Tree.tree_list_BIN(4), ],
+                         ['SUM', [None], Tree.tree_list_BIN(4), ],
                          Tree.tree_list_BIN(4),
-                         ['SUM', [None], Tree.tree_list_BIN(4),],
-                         ['SUM', [None], Tree.tree_list_BIN(4),],
-                         ['SUM', [None], Tree.tree_list_BIN(4),],
-                         ['SUM', [None], Tree.tree_list_BIN(4),],
-                         ['SUM', [None], Tree.tree_list_BIN(4),],
-                         ['SUM', [None], Tree.tree_list_BIN(4),],
-                         ['SUM', [None], Tree.tree_list_BIN(4),]] + [[None]]*12,
+                         ['SUM', [None], Tree.tree_list_BIN(4), ],
+                         ['SUM', [None], Tree.tree_list_BIN(4), ],
+                         ['SUM', [None], Tree.tree_list_BIN(4), ],
+                         ['SUM', [None], Tree.tree_list_BIN(4), ],
+                         ['SUM', [None], Tree.tree_list_BIN(4), ],
+                         ['SUM', [None], Tree.tree_list_BIN(4), ],
+                         ['SUM', [None], Tree.tree_list_BIN(4), ]] + [[None]] * 12,
               empty=True,
               name='T0',
-              switches = [S0, S1, S2, S3,
-                          SN1, S0, S1, S2, S3,
-                          SN2, S0, S1, S2, S3,
-                          SN5, S0, S1, S2, S3,
-                          S4, S5, S6, S7,
-                          SN4, S4, S5, S6, S7,
-                          SN5, S4, S5, S6, S7,
-                          SN8, S4, S5, S6, S7,
-                          SN2, S8, S9, S10, S11,
-                          SN4, S8, S9, S10, S11,
-                          SN5, S8, S9, S10, S11,
-                          SN6, S8, S9, S10, S11,
-                          SN0, SN1, SN2, SN3, SN4, SN5, SN6, SN7, SN8, SN9, SN10, SN11
-                          ],
+              switches=[S0, S1, S2, S3,
+                        SN1, S0, S1, S2, S3,
+                        SN2, S0, S1, S2, S3,
+                        SN5, S0, S1, S2, S3,
+                        S4, S5, S6, S7,
+                        SN4, S4, S5, S6, S7,
+                        SN5, S4, S5, S6, S7,
+                        SN8, S4, S5, S6, S7,
+                        SN2, S8, S9, S10, S11,
+                        SN4, S8, S9, S10, S11,
+                        SN5, S8, S9, S10, S11,
+                        SN6, S8, S9, S10, S11,
+                        SN0, SN1, SN2, SN3, SN4, SN5, SN6, SN7, SN8, SN9, SN10, SN11
+                        ],
               cut_expression=True)
 
     R0 = Room(name='R0',
-              position = [0, 0, 4, 3],
-              switches_list = [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11])
+              position=[0, 0, 4, 3],
+              switches_list=[S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11])
     RE = Room(name='RE',
               position=[1, 4, 2, 1],
-              is_exit=True) # E pour exit ou end
+              is_exit=True)  # E pour exit ou end
 
     D0 = Door(two_way=False,
               tree=T0,
               room_departure=R0,
               room_arrival=RE,
-              relative_departure_coordinates=[1/2, 1],
-              relative_arrival_coordinates=[1/2, 0])
-    
-    level = Maze(start_room_index=0, 
-                 exit_room_index=-1, 
-                 rooms_list=[R0, RE], 
-                 doors_list=[D0], 
+              relative_departure_coordinates=[1 / 2, 1],
+              relative_arrival_coordinates=[1 / 2, 0])
+
+    level = Maze(start_room_index=0,
+                 exit_room_index=-1,
+                 rooms_list=[R0, RE],
+                 doors_list=[D0],
                  fastest_solution='S0 S8 S10 D0',
                  level_color=Levels_colors_list.FROM_HUE(0.225, sa=1, li=0.3),
                  name='Tetris',

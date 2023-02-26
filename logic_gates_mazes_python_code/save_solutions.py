@@ -46,6 +46,7 @@ if __name__ == "__main__":
                                                                                            do_it_fast=False,
                                                                                            max_calculation_time=float('inf'),
                                                                                            only_if_not_yet_calculated=only_if_not_yet_calculated)
+    calculations_times = list(filter(lambda item: item is not None, calculations_times))
     # Cette fonction calcule les solutions,
     # les enregistre dans un fichier texte
     # et renvoie le temps nécessaire pour calculer les solutions

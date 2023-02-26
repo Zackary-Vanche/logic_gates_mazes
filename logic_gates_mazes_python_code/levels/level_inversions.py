@@ -12,9 +12,9 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
-def level_inversions():
 
-    v = 1    
+def level_inversions():
+    v = 1
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -43,7 +43,7 @@ def level_inversions():
     S18 = Switch(name='S18')
     S19 = Switch(name='S19', value=v)
     S20 = Switch(name='S20', value=v)
-    
+
     SN0 = Switch(value=0)
     SN1 = Switch(value=1)
     SN2 = Switch(value=2)
@@ -51,170 +51,170 @@ def level_inversions():
     SN4 = Switch(value=4)
     SN5 = Switch(value=5)
     SN6 = Switch(value=6)
-    
+
     tree_list_EQU_BIN = ['EQU', Tree.tree_list_BIN(3), [None]]
-    
+
     T0 = Tree(tree_list=tree_list_EQU_BIN,
               empty=True,
               name='T0',
-              switches = [S0, S1, S2, SN0])
+              switches=[S0, S1, S2, SN0])
     T1 = Tree(tree_list=tree_list_EQU_BIN,
               empty=True,
               name='T1',
-              switches = [S0, S1, S2, SN1])
+              switches=[S0, S1, S2, SN1])
     T2 = Tree(tree_list=tree_list_EQU_BIN,
               empty=True,
               name='T2',
-              switches = [S0, S1, S2, SN2])
+              switches=[S0, S1, S2, SN2])
     T3 = Tree(tree_list=tree_list_EQU_BIN,
               empty=True,
               name='T3',
-              switches = [S0, S1, S2, SN3])
+              switches=[S0, S1, S2, SN3])
     T4 = Tree(tree_list=tree_list_EQU_BIN,
               empty=True,
               name='T4',
-              switches = [S0, S1, S2, SN4])
+              switches=[S0, S1, S2, SN4])
 
     T5 = Tree(tree_list=tree_list_EQU_BIN,
               empty=True,
               name='T5',
-              switches = [S0, S1, S2, SN0])
+              switches=[S0, S1, S2, SN0])
     T6 = Tree(tree_list=tree_list_EQU_BIN,
               empty=True,
               name='T6',
-              switches = [S0, S1, S2, SN1])
+              switches=[S0, S1, S2, SN1])
     T7 = Tree(tree_list=tree_list_EQU_BIN,
               empty=True,
               name='T7',
-              switches = [S0, S1, S2, SN2])
+              switches=[S0, S1, S2, SN2])
     T8 = Tree(tree_list=tree_list_EQU_BIN,
               empty=True,
               name='T8',
-              switches = [S0, S1, S2, SN3])
+              switches=[S0, S1, S2, SN3])
     T9 = Tree(tree_list=tree_list_EQU_BIN,
               empty=True,
               name='T9',
-              switches = [S0, S1, S2, SN4])
+              switches=[S0, S1, S2, SN4])
 
     T10 = Tree(tree_list=tree_list_EQU_BIN,
-              empty=True,
-              name='T10',
-              switches = [S0, S1, S2, SN0])
+               empty=True,
+               name='T10',
+               switches=[S0, S1, S2, SN0])
     T11 = Tree(tree_list=tree_list_EQU_BIN,
-              empty=True,
-              name='T11',
-              switches = [S0, S1, S2, SN1])
+               empty=True,
+               name='T11',
+               switches=[S0, S1, S2, SN1])
     T12 = Tree(tree_list=tree_list_EQU_BIN,
-              empty=True,
-              name='T12',
-              switches = [S0, S1, S2, SN2])
+               empty=True,
+               name='T12',
+               switches=[S0, S1, S2, SN2])
     T13 = Tree(tree_list=tree_list_EQU_BIN,
-              empty=True,
-              name='T13',
-              switches = [S0, S1, S2, SN3])
+               empty=True,
+               name='T13',
+               switches=[S0, S1, S2, SN3])
     T14 = Tree(tree_list=tree_list_EQU_BIN,
-              empty=True,
-              name='T14',
-              switches = [S0, S1, S2, SN4])
+               empty=True,
+               name='T14',
+               switches=[S0, S1, S2, SN4])
 
-    T15 = Tree(tree_list=['EQUSET'] + [Tree.tree_list_BIN(3)]*6 + [[None]]*6,
-              empty=True,
-              name='T15',
-              switches = [S3, S4, S5,
-                          S6, S7, S8,
-                          S9, S10, S11,
-                          S12, S13, S14,
-                          S15, S16, S17,
-                          S18, S19, S20,
-                          SN1,
-                          SN2,
-                          SN3,
-                          SN4,
-                          SN5,
-                          SN6],
-              cut_expression=True)
-    
-    T16 = Tree(tree_list=['EQU', Tree.tree_list_BIN(3*7), [None]],
-              empty=True,
-              name='T16',
-              switches = [S0, S1, S2,
-                          S3, S4, S5,
-                          S6, S7, S8,
-                          S9, S10, S11,
-                          S12, S13, S14,
-                          S15, S16, S17,
-                          S18, S19, S20,
-                          Switch(value=342384)])
-    
+    T15 = Tree(tree_list=['EQUSET'] + [Tree.tree_list_BIN(3)] * 6 + [[None]] * 6,
+               empty=True,
+               name='T15',
+               switches=[S3, S4, S5,
+                         S6, S7, S8,
+                         S9, S10, S11,
+                         S12, S13, S14,
+                         S15, S16, S17,
+                         S18, S19, S20,
+                         SN1,
+                         SN2,
+                         SN3,
+                         SN4,
+                         SN5,
+                         SN6],
+               cut_expression=True)
+
+    T16 = Tree(tree_list=['EQU', Tree.tree_list_BIN(3 * 7), [None]],
+               empty=True,
+               name='T16',
+               switches=[S0, S1, S2,
+                         S3, S4, S5,
+                         S6, S7, S8,
+                         S9, S10, S11,
+                         S12, S13, S14,
+                         S15, S16, S17,
+                         S18, S19, S20,
+                         Switch(value=342384)])
+
     ex = 0.75
     ey = 0.75
-    deltay = 1-ey
-    
+    deltay = 1 - ey
+
     R0 = Room(name='R0',
-              position = [0, 0, ex, 12],
-              switches_list = [S0, S1, S2,])
+              position=[0, 0, ex, 12],
+              switches_list=[S0, S1, S2, ])
     R1 = Room(name='R1',
-              position = [2, 1+deltay, 3, ey],
-              switches_list = [S3, S4, S5,])
+              position=[2, 1 + deltay, 3, ey],
+              switches_list=[S3, S4, S5, ])
     R2 = Room(name='R2',
-              position = [2, 3+deltay, 3, ey],
-              switches_list = [S6, S7, S8,])
+              position=[2, 3 + deltay, 3, ey],
+              switches_list=[S6, S7, S8, ])
     R3 = Room(name='R3',
-              position = [2, 5+deltay, 3, ey],
-              switches_list = [S9, S10, S11,])
+              position=[2, 5 + deltay, 3, ey],
+              switches_list=[S9, S10, S11, ])
     R4 = Room(name='R4',
-              position = [2, 7+deltay, 3, ey],
-              switches_list = [S12, S13, S14,])
+              position=[2, 7 + deltay, 3, ey],
+              switches_list=[S12, S13, S14, ])
     R5 = Room(name='R5',
-              position = [2, 9+deltay, 3, ey],
-              switches_list = [S15, S16, S17,])
+              position=[2, 9 + deltay, 3, ey],
+              switches_list=[S15, S16, S17, ])
     R6 = Room(name='R6',
-              position = [2, 11+deltay, 3, ey],
-              switches_list = [S18, S19, S20,])
+              position=[2, 11 + deltay, 3, ey],
+              switches_list=[S18, S19, S20, ])
     R7 = Room(name='R7',
-              position = [6+1-ex, 0, ex, 12],
-              switches_list = [])
+              position=[6 + 1 - ex, 0, ex, 12],
+              switches_list=[])
     RE = Room(name='RE',
               position=[2.5, -1, 2, 1],
-              is_exit=True)   # E pour exit ou end
-    
-    rp = 1/2
-    
+              is_exit=True)  # E pour exit ou end
+
+    rp = 1 / 2
+
     D0 = Door(two_way=False,
               tree=T0,
               room_departure=R0,
               room_arrival=R1,
               relative_position=rp,
-              relative_departure_coordinates=[1, 3.5/12],
-              relative_arrival_coordinates=[0, 1/2])
+              relative_departure_coordinates=[1, 3.5 / 12],
+              relative_arrival_coordinates=[0, 1 / 2])
     D1 = Door(two_way=False,
               tree=T1,
               room_departure=R0,
               room_arrival=R2,
               relative_position=rp,
-              relative_departure_coordinates=[1, 5.5/12],
-              relative_arrival_coordinates=[0, 1/2])
+              relative_departure_coordinates=[1, 5.5 / 12],
+              relative_arrival_coordinates=[0, 1 / 2])
     D2 = Door(two_way=False,
               tree=T2,
               room_departure=R0,
               room_arrival=R3,
               relative_position=rp,
-              relative_departure_coordinates=[1, 7.5/12],
-              relative_arrival_coordinates=[0, 1/2])
+              relative_departure_coordinates=[1, 7.5 / 12],
+              relative_arrival_coordinates=[0, 1 / 2])
     D3 = Door(two_way=False,
               tree=T3,
               room_departure=R0,
               room_arrival=R4,
               relative_position=rp,
-              relative_departure_coordinates=[1, 9.5/12],
-              relative_arrival_coordinates=[0, 1/2])
+              relative_departure_coordinates=[1, 9.5 / 12],
+              relative_arrival_coordinates=[0, 1 / 2])
     D4 = Door(two_way=False,
               tree=T4,
               room_departure=R0,
               room_arrival=R5,
               relative_position=rp,
-              relative_departure_coordinates=[1, 11.5/12],
-              relative_arrival_coordinates=[0, 1/2])
+              relative_departure_coordinates=[1, 11.5 / 12],
+              relative_arrival_coordinates=[0, 1 / 2])
     D5 = Door(two_way=False,
               tree=T5,
               room_departure=R1,
@@ -245,50 +245,50 @@ def level_inversions():
                room_departure=R2,
                room_arrival=R7,
                relative_position=rp,
-               relative_departure_coordinates=[1, 1/2],
-               relative_arrival_coordinates=[0, 1.5/12])
+               relative_departure_coordinates=[1, 1 / 2],
+               relative_arrival_coordinates=[0, 1.5 / 12])
     D11 = Door(two_way=False,
                tree=T11,
                room_departure=R3,
                room_arrival=R7,
                relative_position=rp,
-               relative_departure_coordinates=[1, 1/2],
-               relative_arrival_coordinates=[0, 3.5/12])
+               relative_departure_coordinates=[1, 1 / 2],
+               relative_arrival_coordinates=[0, 3.5 / 12])
     D12 = Door(two_way=False,
                tree=T12,
                room_departure=R4,
                room_arrival=R7,
                relative_position=rp,
-               relative_departure_coordinates=[1, 1/2],
-               relative_arrival_coordinates=[0, 5.5/12])
+               relative_departure_coordinates=[1, 1 / 2],
+               relative_arrival_coordinates=[0, 5.5 / 12])
     D13 = Door(two_way=False,
                tree=T13,
                room_departure=R5,
                room_arrival=R7,
                relative_position=rp,
-               relative_departure_coordinates=[1, 1/2],
-               relative_arrival_coordinates=[0, 7.5/12])
+               relative_departure_coordinates=[1, 1 / 2],
+               relative_arrival_coordinates=[0, 7.5 / 12])
     D14 = Door(two_way=False,
                tree=T14,
                room_departure=R6,
                room_arrival=R7,
                relative_position=rp,
-               relative_departure_coordinates=[1, 1/2],
-               relative_arrival_coordinates=[0, 9.5/12])
+               relative_departure_coordinates=[1, 1 / 2],
+               relative_arrival_coordinates=[0, 9.5 / 12])
     D15 = Door(two_way=False,
                tree=T15,
                room_departure=R7,
                room_arrival=R0,
                relative_position=rp,
-               relative_departure_coordinates=[0, 0.6/12],
-               relative_arrival_coordinates=[1, 0.6/12])
+               relative_departure_coordinates=[0, 0.6 / 12],
+               relative_arrival_coordinates=[1, 0.6 / 12])
     D16 = Door(two_way=False,
                tree=T16,
                room_departure=R0,
                room_arrival=RE,
                relative_position=rp,
                relative_departure_coordinates=[1, 0],
-               relative_arrival_coordinates=[0, 1/2])
+               relative_arrival_coordinates=[0, 1 / 2])
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
@@ -301,6 +301,5 @@ def level_inversions():
                  keep_proportions=True,
                  y_separation=40,
                  border=40)
-    
+
     return level
-    [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20]

@@ -12,8 +12,8 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
+
 def level_dominating_set():
-    
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
     S2 = Switch(name='S2')
@@ -34,115 +34,115 @@ def level_dominating_set():
     S17 = Switch(name='S17')
 
     T0 = Tree(tree_list=['INF',
-                           ['SUM'] + [[None]]*9,
-                           [None]],
-               empty=True,
-               name='T0',
-               switches = [S0, S1, S2, S3, S4, S5, S6, S7, S8, Switch(value=3, name='3')])
+                         ['SUM'] + [[None]] * 9,
+                         [None]],
+              empty=True,
+              name='T0',
+              switches=[S0, S1, S2, S3, S4, S5, S6, S7, S8, Switch(value=3, name='3')])
     T1 = Tree(tree_list=Tree.tree_list_OR(2),
               empty=True,
               name='T1',
-              switches = [S0, S1])
+              switches=[S0, S1])
     T2 = Tree(tree_list=Tree.tree_list_OR(2),
               empty=True,
               name='T2',
-              switches = [S0, S2])
+              switches=[S0, S2])
     T3 = Tree(tree_list=Tree.tree_list_OR(2),
               empty=True,
               name='T3',
-              switches = [S0, S3])
+              switches=[S0, S3])
     T4 = Tree(tree_list=Tree.tree_list_OR(2),
               empty=True,
               name='T4',
-              switches = [S1, S3])
+              switches=[S1, S3])
     T5 = Tree(tree_list=Tree.tree_list_OR(2),
               empty=True,
               name='T5',
-              switches = [S2, S3])
+              switches=[S2, S3])
     T6 = Tree(tree_list=Tree.tree_list_OR(2),
               empty=True,
               name='T6',
-              switches = [S2, S4])
+              switches=[S2, S4])
     T7 = Tree(tree_list=Tree.tree_list_OR(2),
               empty=True,
               name='T7',
-              switches = [S2, S5])
+              switches=[S2, S5])
     T8 = Tree(tree_list=Tree.tree_list_OR(2),
               empty=True,
               name='T8',
-              switches = [S2, S6])
+              switches=[S2, S6])
     T9 = Tree(tree_list=Tree.tree_list_OR(2),
               empty=True,
               name='T9',
-              switches = [S3, S6])
+              switches=[S3, S6])
     T10 = Tree(tree_list=Tree.tree_list_OR(2),
                empty=True,
                name='T10',
-               switches = [S4, S5])
+               switches=[S4, S5])
     T11 = Tree(tree_list=Tree.tree_list_OR(2),
                empty=True,
                name='T11',
-               switches = [S4, S7])
+               switches=[S4, S7])
     T12 = Tree(tree_list=Tree.tree_list_OR(2),
                empty=True,
                name='T12',
-               switches = [S4, S8])
+               switches=[S4, S8])
     T13 = Tree(tree_list=Tree.tree_list_OR(2),
                empty=True,
                name='T13',
-               switches = [S5, S6])
+               switches=[S5, S6])
     T14 = Tree(tree_list=Tree.tree_list_OR(2),
                empty=True,
                name='T14',
-               switches = [S5, S8])
+               switches=[S5, S8])
     T15 = Tree(tree_list=Tree.tree_list_OR(2),
                empty=True,
                name='T15',
-               switches = [S7, S8])
+               switches=[S7, S8])
     T16 = Tree(tree_list=Tree.tree_list_AND(9),
                empty=True,
                name='T16',
                switches=[S9, S10, S11, S12, S13, S14, S15, S16, S17])
 
     R0 = Room(name='R0',
-              position = [0, -0.25, 3, 1.5],
-              switches_list = [S0, S1, S2, S3, S4, S5, S6, S7, S8])
+              position=[0, -0.25, 3, 1.5],
+              switches_list=[S0, S1, S2, S3, S4, S5, S6, S7, S8])
     R1 = Room(name='R1',
-              position = [0, 1.75, 0.6, 0.6],
-              switches_list = [S9])
+              position=[0, 1.75, 0.6, 0.6],
+              switches_list=[S9])
     R2 = Room(name='R2',
-              position = [0, 3, 0.6, 0.6],
-              switches_list = [S10])
+              position=[0, 3, 0.6, 0.6],
+              switches_list=[S10])
     R3 = Room(name='R3',
-              position = [2, 1.75, 0.6, 0.6],
-              switches_list = [S11])
+              position=[2, 1.75, 0.6, 0.6],
+              switches_list=[S11])
     R4 = Room(name='R4',
-              position = [2, 3, 0.6, 0.6],
-              switches_list = [S12])
+              position=[2, 3, 0.6, 0.6],
+              switches_list=[S12])
     R5 = Room(name='R5',
-              position = [4, 0.5, 0.6, 0.6],
-              switches_list = [S13])
+              position=[4, 0.5, 0.6, 0.6],
+              switches_list=[S13])
     R6 = Room(name='R6',
-              position = [4, 1.75, 0.6, 0.6],
-              switches_list = [S14])
+              position=[4, 1.75, 0.6, 0.6],
+              switches_list=[S14])
     R7 = Room(name='R7',
-              position = [4, 3, 0.6, 0.6],
-              switches_list = [S15])
+              position=[4, 3, 0.6, 0.6],
+              switches_list=[S15])
     R8 = Room(name='R8',
-              position = [5.5, -0.125, 0.6, 0.6],
-              switches_list = [S16])
+              position=[5.5, -0.125, 0.6, 0.6],
+              switches_list=[S16])
     R9 = Room(name='R9',
-              position = [5.5, 1.125, 0.6, 0.6],
-              switches_list = [S17])
+              position=[5.5, 1.125, 0.6, 0.6],
+              switches_list=[S17])
     RE = Room(name='RE',
               position=[5.5, 2.375, 0.6, 0.6],
-              is_exit=True)   # E pour exit ou end
-    
+              is_exit=True)  # E pour exit ou end
+
     D0 = Door(two_way=False,
               tree=T0,
               room_departure=R0,
               room_arrival=R1,
-              relative_departure_coordinates=[1/2, 0.9])
+              relative_departure_coordinates=[1 / 2, 0.9])
     D1 = Door(two_way=True,
               tree=T1,
               room_departure=R1,
@@ -219,12 +219,3 @@ def level_dominating_set():
                  keep_proportions=False)
 
     return level
-
-if __name__ == "__main__":
-    
-    level = level_dominating_set
-
-    solutions = level().find_all_solutions(verbose=3,
-                                                 stop_at_first_solution=False)
-    
-    print(solutions[-1])

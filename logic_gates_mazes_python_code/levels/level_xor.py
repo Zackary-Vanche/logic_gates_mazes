@@ -177,8 +177,3 @@ def level_xor():
                  door_window_size=550)
 
     return level
-
-
-if __name__ == '__main__':
-
-    level_xor()

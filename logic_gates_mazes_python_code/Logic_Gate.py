@@ -295,28 +295,41 @@ class Logic_Gate:
 
 if __name__ == "__main__":
 
-    for bl in [[2,
-                1, 1,
-                1, 0, 1, 0, 0],  # True
-               [2,
-                1, 1,
-                0, 1, 0, 0, 1],  # True
-               [2,
-                1, 2,
-                0, 1, 0, 0, 1],  # False
-               [2,
-                1, 2,
-                0, 1, 0, 1, 1],  # True
-               [1,
-                5,
-                1, 1, 1, 1, 1],  # True
-               ]:
-        print(bl)
-        print(Logic_Gate.aux_func_NONO(bl))
+    assert Logic_Gate.aux_func_NOT([0]) == 1
+    assert Logic_Gate.aux_func_NOT([1]) == 0
 
-    print('')
+    assert Logic_Gate.aux_func_AND([0, 0]) == 0
+    assert Logic_Gate.aux_func_AND([0, 1]) == 0
+    assert Logic_Gate.aux_func_AND([1, 0]) == 0
+    assert Logic_Gate.aux_func_AND([1, 1]) == 1
 
-    for bl in [[1,
+    assert Logic_Gate.aux_func_OR([0, 0]) == 0
+    assert Logic_Gate.aux_func_OR([0, 1]) == 1
+    assert Logic_Gate.aux_func_OR([1, 0]) == 1
+    assert Logic_Gate.aux_func_OR([1, 1]) == 1
+
+    for i in range(5):
+        bl = [[2,
+               1, 1,
+               1, 0, 1, 0, 0],  # True
+              [2,
+               1, 1,
+               0, 1, 0, 0, 1],  # True
+              [2,
+               1, 2,
+               0, 1, 0, 0, 1],  # False
+              [2,
+               1, 2,
+               0, 1, 0, 1, 1],  # True
+              [1,
+               5,
+               1, 1, 1, 1, 1],  # True
+              ][i]
+        r = [1, 1, 0, 1, 1][i]
+        assert Logic_Gate.aux_func_NONO(bl) == r
+
+    for i in range(6):
+        bl = [[1,
                 0, 1, 2,
                 0, 4, 5, 1, 2, 6],
                [1,
@@ -332,17 +345,16 @@ if __name__ == "__main__":
                 8, 5, 2, 4],
                [1,
                 8, 5, 2,
-                2, 6, 4, 5, 1, 8, 3, 9]]:
-        print('')
-        print(bl)
-        print(Logic_Gate.aux_func_BETWEEN(bl))
+                2, 6, 4, 5, 1, 8, 3, 9]][i]
+        r = [1, 1, 0, 0, 0, 1][i]
+        assert Logic_Gate.aux_func_BETWEEN(bl) == r
 
-    for bl in [[1, 0, 0, 1, 0, 1],
+    for i in range(3):
+        r = [1, 0, 0][i]
+        bl = [[1, 0, 0, 1, 0, 1],
                [1, 0, 0, 1, 0, 1, 1, 0],
-               [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]]:
-        print('')
-        print(bl)
-        print(Logic_Gate.aux_func_JUMP(bl))
+               [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]][i]
+        assert Logic_Gate.aux_func_JUMP(bl) == r
         
     assert Logic_Gate.aux_func_MAS([0, 1, 2, 3,
                                     0, 1, 2, 3]) == 0

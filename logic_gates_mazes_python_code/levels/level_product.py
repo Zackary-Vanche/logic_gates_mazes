@@ -16,11 +16,11 @@ def level_product():
     T0 = Tree(tree_list=['EQU', ['PROD', [None], Tree.tree_list_BIN(4)], [None]],
               empty=True,
               name='T0',
-              switches = [7, S0, S1, S2, S3, 42])
+              switches=[7, S0, S1, S2, S3, 42])
 
     R0 = Room(name='R0',
-              position = [0, 0, 1, 1],
-              switches_list = [S0, S1, S2, S3])
+              position=[0, 0, 1, 1],
+              switches_list=[S0, S1, S2, S3])
     RE = Room(name='RE',
               position=[1+(sqrt(2)/2-1)/2, 1+(sqrt(2)/2-1)/2, 1, 1],
               is_exit=True)   # E pour exit ou end

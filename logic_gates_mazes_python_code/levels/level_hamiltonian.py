@@ -12,8 +12,8 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
+
 def level_hamiltonian():
-    
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
     S2 = Switch(name='S2')
@@ -26,115 +26,115 @@ def level_hamiltonian():
     S9 = Switch(name='S9')
     S10 = Switch(name='S10')
     S11 = Switch(name='S11')
-    
+
     T0 = Tree(tree_list=Tree.tree_list_from_str('FT'),
-                empty=True,
-                name='T0',
-                switches = [S1, S2])
+              empty=True,
+              name='T0',
+              switches=[S1, S2])
     T1 = Tree(tree_list=Tree.tree_list_from_str('FT'),
-                empty=True,
-                name='T1',
-                switches = [S2, S4])
+              empty=True,
+              name='T1',
+              switches=[S2, S4])
     T2 = Tree(tree_list=Tree.tree_list_from_str('FT'),
-                empty=True,
-                name='T2',
-                switches = [S4, S5])
+              empty=True,
+              name='T2',
+              switches=[S4, S5])
     T3 = Tree(tree_list=Tree.tree_list_from_str('FT'),
-                empty=True,
-                name='T3',
-                switches = [S5, S7])
+              empty=True,
+              name='T3',
+              switches=[S5, S7])
     T4 = Tree(tree_list=Tree.tree_list_from_str('FT'),
-                empty=True,
-                name='T4',
-                switches = [S7, S8])
+              empty=True,
+              name='T4',
+              switches=[S7, S8])
     T5 = Tree(tree_list=Tree.tree_list_from_str('FT'),
-                empty=True,
-                name='T5',
-                switches = [S8, S10])
+              empty=True,
+              name='T5',
+              switches=[S8, S10])
     T6 = Tree(tree_list=Tree.tree_list_from_str('FT'),
-                empty=True,
-                name='T6',
-                switches = [S10, S11])
+              empty=True,
+              name='T6',
+              switches=[S10, S11])
     T7 = Tree(tree_list=Tree.tree_list_from_str('TF'),
-                empty=True,
-                name='T7',
-                switches = [S1, S11])
+              empty=True,
+              name='T7',
+              switches=[S1, S11])
     T8 = Tree(tree_list=Tree.tree_list_from_str('TTFF'),
-                empty=True,
-                name='T8',
-                switches = [S0, S1, S3, S4])
+              empty=True,
+              name='T8',
+              switches=[S0, S1, S3, S4])
     T9 = Tree(tree_list=Tree.tree_list_from_str('TTFF'),
-                empty=True,
-                name='T9',
-                switches = [S3, S4, S6, S7])
+              empty=True,
+              name='T9',
+              switches=[S3, S4, S6, S7])
     T10 = Tree(tree_list=Tree.tree_list_from_str('TTFF'),
-                empty=True,
-                name='T10',
-                switches = [S6, S7, S9, S10])
+               empty=True,
+               name='T10',
+               switches=[S6, S7, S9, S10])
     T11 = Tree(tree_list=Tree.tree_list_from_str('FFTT'),
-                empty=True,
-                name='T11',
-                switches = [S0, S1, S9, S10])
+               empty=True,
+               name='T11',
+               switches=[S0, S1, S9, S10])
     T12 = Tree(tree_list=Tree.tree_list_from_str('TF'),
-                empty=True,
-                name='T12',
-                switches = [S2, S5])
+               empty=True,
+               name='T12',
+               switches=[S2, S5])
     T13 = Tree(tree_list=Tree.tree_list_from_str('TF'),
-                empty=True,
-                name='T13',
-                switches = [S5, S8])
+               empty=True,
+               name='T13',
+               switches=[S5, S8])
     T14 = Tree(tree_list=Tree.tree_list_from_str('TF'),
-                empty=True,
-                name='T14',
-                switches = [S8, S11])
+               empty=True,
+               name='T14',
+               switches=[S8, S11])
     T15 = Tree(tree_list=Tree.tree_list_from_str('FT'),
-                empty=True,
-                name='T15',
-                switches = [S2, S11])
+               empty=True,
+               name='T15',
+               switches=[S2, S11])
     T16 = Tree(tree_list=Tree.tree_list_AND(12),
-                empty=True,
-                name='T16',
-                switches = [S0, S1, S2,
-                            S3, S4, S5,
-                            S6, S7, S8,
-                            S9, S10, S11])
+               empty=True,
+               name='T16',
+               switches=[S0, S1, S2,
+                         S3, S4, S5,
+                         S6, S7, S8,
+                         S9, S10, S11])
 
     a = 0.3
-    c = 2-a
-    
+    c = 2 - a
+
     R0 = Room(name='R0',
-                position = [0, 0, c, c],
-                switches_list = [S0, S1])
+              position=[0, 0, c, c],
+              switches_list=[S0, S1])
     R1 = Room(name='R1',
-                position = [3, 1, 1, 1],
-                switches_list = [S2])
+              position=[3, 1, 1, 1],
+              switches_list=[S2])
     R2 = Room(name='R2',
-                position = [5+a, 0, c, c],
-                switches_list = [S3, S4])
+              position=[5 + a, 0, c, c],
+              switches_list=[S3, S4])
     R3 = Room(name='R3',
-                position = [5, 3, 1, 1],
-                switches_list = [S5])
+              position=[5, 3, 1, 1],
+              switches_list=[S5])
     R4 = Room(name='R4',
-                position = [5+a, 5+a, c, c],
-                switches_list = [S6, S7])
+              position=[5 + a, 5 + a, c, c],
+              switches_list=[S6, S7])
     R5 = Room(name='R5',
-                position = [3, 5, 1, 1],
-                switches_list = [S8])
+              position=[3, 5, 1, 1],
+              switches_list=[S8])
     R6 = Room(name='R6',
-                position = [0, 5+a, c, c],
-                switches_list = [S9, S10])
+              position=[0, 5 + a, c, c],
+              switches_list=[S9, S10])
     R7 = Room(name='R7',
-                position = [1, 3, 1, 1],
-                switches_list = [S11])
+              position=[1, 3, 1, 1],
+              switches_list=[S11])
     RE = Room(name='RE',
-                position = [3.2, 3.2, 0.6, 0.6],
-                switches_list = [],
-                is_exit=True)
-    
+              position=[3.2, 3.2, 0.6, 0.6],
+              switches_list=[],
+              is_exit=True)
+
     e = 0.05
     d0 = e
-    d1 = 1-e
-    
+    d1 = 1 - e
+
     D0 = Door(two_way=False,
               tree=T0,
               room_departure=R1,
@@ -208,25 +208,25 @@ def level_hamiltonian():
                relative_departure_coordinates=[0, 0],
                relative_arrival_coordinates=[0, 1])
     D12 = Door(two_way=False,
-                tree=T12,
-                room_departure=R1,
-                room_arrival=R3)
+               tree=T12,
+               room_departure=R1,
+               room_arrival=R3)
     D13 = Door(two_way=False,
-                tree=T13,
-                room_departure=R3,
-                room_arrival=R5)
+               tree=T13,
+               room_departure=R3,
+               room_arrival=R5)
     D14 = Door(two_way=False,
-                tree=T14,
-                room_departure=R5,
-                room_arrival=R7)
+               tree=T14,
+               room_departure=R5,
+               room_arrival=R7)
     D15 = Door(two_way=False,
-                tree=T15,
-                room_departure=R7,
-                room_arrival=R1)
+               tree=T15,
+               room_departure=R7,
+               room_arrival=R1)
     D16 = Door(two_way=False,
-                tree=T16,
-                room_departure=R1,
-                room_arrival=RE)
+               tree=T16,
+               room_departure=R1,
+               room_arrival=RE)
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,

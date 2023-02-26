@@ -12,8 +12,8 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
-def level_code():
 
+def level_code():
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
     S2 = Switch(name='S2')
@@ -24,50 +24,50 @@ def level_code():
     S7 = Switch(name='S7')
 
     SN1 = Switch(value=1)
-    
+
     T0 = Tree(tree_list=['EQU', Tree.tree_list_BIN(4), Tree.tree_list_BIN(4)],
               empty=True,
               name='T0',
-              switches = [S0, S2, S4, S6,
-                          S1, S3, S5, S7,])
-    tree_gray = ['BIN'] + [Tree.tree_list_XOR(2)]*3 + [[None]]
+              switches=[S0, S2, S4, S6,
+                        S1, S3, S5, S7, ])
+    tree_gray = ['BIN'] + [Tree.tree_list_XOR(2)] * 3 + [[None]]
     T1 = Tree(tree_list=['EQU',
                          tree_gray,
                          ['SUM', [None], tree_gray]],
               empty=True,
               name='T1',
-              switches = [S1, S3,
-                          S3, S5,
-                          S5, S7,
-                          S7,
-                          SN1,
-                          S0, S2,
-                          S2, S4,
-                          S4, S6,
-                          S6,
-                          ],
+              switches=[S1, S3,
+                        S3, S5,
+                        S5, S7,
+                        S7,
+                        SN1,
+                        S0, S2,
+                        S2, S4,
+                        S4, S6,
+                        S6,
+                        ],
               cut_expression=True)
     T2 = Tree(tree_list=Tree.tree_list_from_str('00011001'),
               empty=True,
               name='T2',
-              switches = [S0, S1, S2, S3, S4, S5, S6, S7])
+              switches=[S0, S1, S2, S3, S4, S5, S6, S7])
     # T2 = Tree(tree_list=Tree.tree_list_from_str('T'),
     #           empty=True,
     #           name='T2',
     #           switches = [Switch(value=1)])
-    
+
     R0 = Room(name='R0',
-              position = [3, 3, 2, 2],
-              switches_list = [S0, S2, S4, S6])
+              position=[3, 3, 2, 2],
+              switches_list=[S0, S2, S4, S6])
     R1 = Room(name='R1',
-              position = [3, 0, 2, 2],
-              switches_list = [S1, S3, S5, S7])
+              position=[3, 0, 2, 2],
+              switches_list=[S1, S3, S5, S7])
     RE = Room(name='RE',
               position=[0, 3, 2, 2],
-              is_exit=True)   # E pour exit ou end
-    
-    rp = 1/2
-    
+              is_exit=True)  # E pour exit ou end
+
+    rp = 1 / 2
+
     D0 = Door(two_way=False,
               tree=T0,
               room_departure=R0,
@@ -87,7 +87,7 @@ def level_code():
               room_departure=R0,
               room_arrival=RE,
               relative_position=rp)
-    
+
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1] + [RE],
@@ -99,5 +99,5 @@ def level_code():
                  keep_proportions=True,
                  y_separation=40,
                  border=40)
-    
+
     return level

@@ -31,8 +31,8 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
-def level_zebra():
 
+def level_zebra():
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
     S2 = Switch(name='S2')
@@ -108,77 +108,77 @@ def level_zebra():
     S72 = Switch(name='S72')
     S73 = Switch(name='S73')
     S74 = Switch(name='S74')
-    
+
     blue = [0]
     green = [1]
     ivory = [2]
     red = [3]
     yellow = [4]
-    
-    Englishman= [0]
-    Japanese= [1]
-    Norwegian= [2]
-    Spaniard= [3]
-    Ukrainian= [4]
-    
-    Coffee= [0]
-    Milk= [1]
-    Orange_juice= [2] 
-    Tea= [3]
-    Water= [4]
-    
-    chesterfield= [0]
-    kools= [1]
-    Lucky_Strike= [2]
-    Old_Gold= [3]
-    Parliament= [4]
-    
-    Dog= [0]
-    fox= [1]
-    horse= [2]
-    Snails= [3]
-    Zebra= [4]
-    
+
+    Englishman = [0]
+    Japanese = [1]
+    Norwegian = [2]
+    Spaniard = [3]
+    Ukrainian = [4]
+
+    Coffee = [0]
+    Milk = [1]
+    Orange_juice = [2]
+    Tea = [3]
+    Water = [4]
+
+    chesterfield = [0]
+    kools = [1]
+    Lucky_Strike = [2]
+    Old_Gold = [3]
+    Parliament = [4]
+
+    Dog = [0]
+    fox = [1]
+    horse = [2]
+    Snails = [3]
+    Zebra = [4]
+
     Slist = [S0, S1, S2,
              S3, S4, S5,
              S6, S7, S8,
              S9, S10, S11,
              S12, S13, S14,
-             
+
              S15, S16, S17,
              S18, S19, S20,
              S21, S22, S23,
              S24, S25, S26,
              S27, S28, S29,
-             
+
              S30, S31, S32,
              S33, S34, S35,
              S36, S37, S38,
              S39, S40, S41,
              S42, S43, S44,
-                     
+
              S45, S46, S47,
              S48, S49, S50,
              S51, S52, S53,
              S54, S55, S56,
              S57, S58, S59,
-                     
+
              S60, S61, S62,
              S63, S64, S65,
              S66, S67, S68,
              S69, S70, S71,
-             S72, S73, S74,]
-    
+             S72, S73, S74, ]
+
     tree_list_equ = ['EQU', [None], Tree.tree_list_BIN(3)]
     tree_list_XNOR_equ = ['XNOR', tree_list_equ, tree_list_equ]
-    
+
     color_S = []
     nationality_S = []
     drink_S = []
     smoke_S = []
     pet_S = []
     for i_door in range(5):
-        Slist_room = Slist[15*i_door:15*i_door+15]
+        Slist_room = Slist[15 * i_door:15 * i_door + 15]
         color = Slist_room[0:3]
         nationality = Slist_room[3:6]
         drink = Slist_room[6:9]
@@ -189,8 +189,7 @@ def level_zebra():
         drink_S.append(drink)
         smoke_S.append(smoke)
         pet_S.append(pet)
-        
-    
+
     def get_S(i_door):
         # Slist_room = Slist[15*i_door:15*i_door+15]
         # color = Slist_room[0:3]
@@ -221,155 +220,155 @@ def level_zebra():
         # The Japanese smokes Parliaments.
         Slist_tree = Slist_tree + Japanese + nationality + Parliament + smoke
         return Slist_tree
-    
+
     def get_tree(i_door):
-        return Tree(tree_list=['AND'] + [tree_list_XNOR_equ]*8,
-                  empty=True,
-                  name=f'T{i_door}',
-                  switches = get_S(i_door),
-                  cut_expression=True)
-    
+        return Tree(tree_list=['AND'] + [tree_list_XNOR_equ] * 8,
+                    empty=True,
+                    name=f'T{i_door}',
+                    switches=get_S(i_door),
+                    cut_expression=True)
+
     # The Norwegian lives in the first house.
     T0 = Tree(tree_list=['AND',
-                         ['EQU', [None], Tree.tree_list_BIN(3)]] + [tree_list_XNOR_equ]*8,
+                         ['EQU', [None], Tree.tree_list_BIN(3)]] + [tree_list_XNOR_equ] * 8,
               empty=True,
               name='T0',
-              switches = Norwegian + Slist[0:15][3:6] + get_S(0),
+              switches=Norwegian + Slist[0:15][3:6] + get_S(0),
               cut_expression=True)
     T1 = get_tree(1)
     # Milk is drunk in the middle house.
     T2 = Tree(tree_list=['AND',
-                         ['EQU', [None], Tree.tree_list_BIN(3)]] + [tree_list_XNOR_equ]*8,
+                         ['EQU', [None], Tree.tree_list_BIN(3)]] + [tree_list_XNOR_equ] * 8,
               empty=True,
               name='T2',
-              switches = Milk + Slist[15*2:15*3][6:9] + get_S(2),
+              switches=Milk + Slist[15 * 2:15 * 3][6:9] + get_S(2),
               cut_expression=True)
     T3 = get_tree(3)
     T4 = get_tree(4)
-    S_type_list = [[] for i in range(5)] 
+    S_type_list = [[] for i in range(5)]
     for i_door in range(5):
-        Slist_room = Slist[15*i_door:15*i_door+15]
+        Slist_room = Slist[15 * i_door:15 * i_door + 15]
         for i_type in range(5):
-            S_type_list[i_type].extend(Slist_room[3*i_type:3*i_type+3])
+            S_type_list[i_type].extend(Slist_room[3 * i_type:3 * i_type + 3])
     Slist5 = []
     for i in range(5):
         Slist5.extend(S_type_list[i] + [0, 1, 2, 3, 4])
-    tree_list_EQUSET = ['EQUSET'] + [Tree.tree_list_BIN(3)]*5 + [[None]]*5
-    T5 = Tree(tree_list=['AND'] + [tree_list_EQUSET]*5,
+    tree_list_EQUSET = ['EQUSET'] + [Tree.tree_list_BIN(3)] * 5 + [[None]] * 5
+    T5 = Tree(tree_list=['AND'] + [tree_list_EQUSET] * 5,
               empty=True,
               name='T5',
-              switches = Slist5,
+              switches=Slist5,
               cut_expression=True,
               cut_expression_separator=')')
     tree_list_AND_equ = ['AND', tree_list_equ, tree_list_equ]
     Slist6 = []
     # The green house is immediately to the right of the ivory house.
-    tree_list_right_of = ['OR'] + [tree_list_AND_equ]*4
+    tree_list_right_of = ['OR'] + [tree_list_AND_equ] * 4
     for i in range(4):
-        Slist6 += ivory + color_S[i] + green + color_S[i+1]
+        Slist6 += ivory + color_S[i] + green + color_S[i + 1]
     # The man who smokes chesterfields lives in the house next to the man with the fox.
-    tree_list_next_t0 = ['OR'] + [tree_list_AND_equ]*8
+    tree_list_next_t0 = ['OR'] + [tree_list_AND_equ] * 8
     for i in range(4):
-        Slist6 += chesterfield + smoke_S[i] + fox + pet_S[i+1]
-        Slist6 += chesterfield + smoke_S[i+1] + fox + pet_S[i]
+        Slist6 += chesterfield + smoke_S[i] + fox + pet_S[i + 1]
+        Slist6 += chesterfield + smoke_S[i + 1] + fox + pet_S[i]
     T6 = Tree(tree_list=['AND'] + [tree_list_right_of] + [tree_list_next_t0],
               empty=True,
               name='T6',
-              switches = Slist6,
+              switches=Slist6,
               cut_expression=True,
               cut_expression_separator=')')
     Slist7 = []
     # kools are smoked in the house next to the house where the horse is kept.
     for i in range(4):
-        Slist7 += kools + smoke_S[i] + horse + pet_S[i+1]
-        Slist7 += kools + smoke_S[i+1] + horse + pet_S[i]
+        Slist7 += kools + smoke_S[i] + horse + pet_S[i + 1]
+        Slist7 += kools + smoke_S[i + 1] + horse + pet_S[i]
     # The Norwegian lives next to the blue house.
     for i in range(4):
-        Slist7 += Norwegian + nationality_S[i] + blue + color_S[i+1]
-        Slist7 += Norwegian + nationality_S[i+1] + blue + color_S[i]
-    T7 = Tree(tree_list=['AND'] + [tree_list_next_t0]*2,
+        Slist7 += Norwegian + nationality_S[i] + blue + color_S[i + 1]
+        Slist7 += Norwegian + nationality_S[i + 1] + blue + color_S[i]
+    T7 = Tree(tree_list=['AND'] + [tree_list_next_t0] * 2,
               empty=True,
               name='T7',
-              switches = Slist7,
+              switches=Slist7,
               cut_expression=True,
               cut_expression_separator=')')
-    
+
     ex = 0.25
     ey = 4
     dx = 1
-    
+
     # There are five houses.
     R0 = Room(name='R0',
-              position = [dx, 0, ex, ey],
-              switches_list = Slist[0:15])
+              position=[dx, 0, ex, ey],
+              switches_list=Slist[0:15])
     R1 = Room(name='R1',
-              position = [2*dx, 0, ex, ey],
-              switches_list = Slist[15:2*15])
+              position=[2 * dx, 0, ex, ey],
+              switches_list=Slist[15:2 * 15])
     R2 = Room(name='R2',
-              position = [3*dx, 0, ex, ey],
-              switches_list = Slist[2*15:3*15])
+              position=[3 * dx, 0, ex, ey],
+              switches_list=Slist[2 * 15:3 * 15])
     R3 = Room(name='R3',
-              position = [4*dx, 0, ex, ey],
-              switches_list = Slist[3*15:4*15])
+              position=[4 * dx, 0, ex, ey],
+              switches_list=Slist[3 * 15:4 * 15])
     R4 = Room(name='R4',
-              position = [5*dx, 0, ex, ey],
-              switches_list = Slist[4*15:5*15])
+              position=[5 * dx, 0, ex, ey],
+              switches_list=Slist[4 * 15:5 * 15])
     R5 = Room(name='R5',
-              position = [6*dx, 0, ex, ex],
-              switches_list = [])
+              position=[6 * dx, 0, ex, ex],
+              switches_list=[])
     R6 = Room(name='R6',
-              position = [6*dx, (ey-ex)/3, ex, ex],
-              switches_list = [])
+              position=[6 * dx, (ey - ex) / 3, ex, ex],
+              switches_list=[])
     R7 = Room(name='R7',
-              position = [6*dx, 2*(ey-ex)/3, ex, ex],
-              switches_list = [])
+              position=[6 * dx, 2 * (ey - ex) / 3, ex, ex],
+              switches_list=[])
     RE = Room(name='RE',
-              position=[6*dx, ey-ex, ex, ex],
-              is_exit=True)   # E pour exit ou end
-    
+              position=[6 * dx, ey - ex, ex, ex],
+              is_exit=True)  # E pour exit ou end
+
     rdc = [0.3, 0.3]
     rda = [0.7, 0.7]
-    
+
     D0 = Door(two_way=False,
-                tree=T0,
-                room_departure=R0,
-                room_arrival=R1,
-                relative_departure_coordinates=rdc,
-                relative_arrival_coordinates=rda)
+              tree=T0,
+              room_departure=R0,
+              room_arrival=R1,
+              relative_departure_coordinates=rdc,
+              relative_arrival_coordinates=rda)
     D1 = Door(two_way=False,
-                tree=T1,
-                room_departure=R1,
-                room_arrival=R2,
-                relative_departure_coordinates=rdc,
-                relative_arrival_coordinates=rda)
+              tree=T1,
+              room_departure=R1,
+              room_arrival=R2,
+              relative_departure_coordinates=rdc,
+              relative_arrival_coordinates=rda)
     D2 = Door(two_way=False,
-                tree=T2,
-                room_departure=R2,
-                room_arrival=R3,
-                relative_departure_coordinates=rdc,
-                relative_arrival_coordinates=rda)
+              tree=T2,
+              room_departure=R2,
+              room_arrival=R3,
+              relative_departure_coordinates=rdc,
+              relative_arrival_coordinates=rda)
     D3 = Door(two_way=False,
-                tree=T3,
-                room_departure=R3,
-                room_arrival=R4,
-                relative_departure_coordinates=rdc,
-                relative_arrival_coordinates=rda)
+              tree=T3,
+              room_departure=R3,
+              room_arrival=R4,
+              relative_departure_coordinates=rdc,
+              relative_arrival_coordinates=rda)
     D4 = Door(two_way=False,
-                tree=T4,
-                room_departure=R4,
-                room_arrival=R5)
+              tree=T4,
+              room_departure=R4,
+              room_arrival=R5)
     D5 = Door(two_way=False,
-                tree=T5,
-                room_departure=R5,
-                room_arrival=R6)
+              tree=T5,
+              room_departure=R5,
+              room_arrival=R6)
     D6 = Door(two_way=False,
-                tree=T6,
-                room_departure=R6,
-                room_arrival=R7)
+              tree=T6,
+              room_departure=R6,
+              room_arrival=R7)
     D7 = Door(two_way=False,
-                tree=T7,
-                room_departure=R7,
-                room_arrival=RE)
+              tree=T7,
+              room_departure=R7,
+              room_arrival=RE)
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
@@ -383,5 +382,5 @@ def level_zebra():
                  y_separation=40,
                  border=40,
                  door_multipages=True)
-    
+
     return level

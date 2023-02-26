@@ -597,33 +597,6 @@ class Game:
                     self.current_action = ''
             if self.pressed[K_b]:
                 self.change_in_display = True
-                # if self.maze.random:
-                #     self.level_changed = False
-                #     self.maze = level_random()
-                #     self.doors_list = self.maze.doors_list()
-                #     level_colors = self.maze.level_color
-                #     self.background_color = level_colors.background_color
-                #     self.room_color = level_colors.room_color
-                #     self.contour_color = level_colors.contour_color
-                #     self.letters_color = level_colors.letters_color
-                #     # letter_contour_color = maze.letter_contour_color
-                #     self.inside_room_color = level_colors.inside_room_color
-                #     self.surrounding_color = level_colors.surrounding_color
-                #     self.inside_room_surrounding_color = level_colors.inside_room_surrounding_color
-                #     self.y_separation = self.maze.y_separation
-                #     self.door_window_size = self.maze.door_window_size
-                #     self.x_separation = self.WINDOW_WIDTH - self.door_window_size
-                #     self.current_action = ''
-                #     self.keep_proportions = self.maze.keep_proportions
-                #     # Choix de la bordure en fonction de la hauteur de la fenêtre
-                #     (pente, coeff) = linear_function(643, 35, 1080, 75)
-                #     self.maze.set_extreme_coordinates(0,
-                #                                       self.x_separation,
-                #                                       0,
-                #                                       self.WINDOW_HEIGHT,
-                #                                       pente*self.WINDOW_HEIGHT+coeff,
-                #                                       self.keep_proportions)
-                # else:
                 self.maze.reboot_solution()
                 self.last_key_pressed_time = time()
                 self.current_action = ''
@@ -685,16 +658,6 @@ class Game:
                 self.maze.current_door_page += 1
                 self.maze.current_door_page = self.maze.current_door_page%len(self.maze.doors_set)
                 self.change_in_display = True
-
-    # def change_page(self):
-    #     self.pressed = pygame_key_get_pressed()
-    #     # Changement de page du jeu
-    #     if time() - self.last_key_pressed_time > self.time_between_actions:
-    #         if self.pressed[K_p]:
-    #             self.last_key_pressed_time = time()
-    #             self.maze.current_page += 1
-    #             self.maze.current_page = self.maze.current_page%self.maze.number_of_pages
-    #             self.change_in_display = True
 
     def save_image_as_file(self):
         if self.save_image:

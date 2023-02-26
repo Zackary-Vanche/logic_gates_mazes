@@ -5,7 +5,7 @@ Created on Sat Feb 26 13:12:20 2022
 @author: utilisateur
 """
 
-from time import time
+from time import time, sleep
 from os.path import exists as os_path_exists
 from os import mkdir as os_mkdir
 from inspect import signature
@@ -383,6 +383,7 @@ class Levels:
             else:
                 for k in range(Levels.number_of_levels):
                     find_solution(k)
+                    sleep(0.1)
         txt = ''
         for k in range(Levels.number_of_levels):
             level = Levels.get_level(k, fast_solution_finding)
@@ -497,91 +498,3 @@ if __name__ == "__main__":
 
     # import cProfile
     # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=1, save_as_txt=False)''', sort=1)
-
-    # for k in range(1000):
-    #     level = level_random_K5()
-    #     solutions = level.find_all_solutions(verbose=1,
-    #                                          stop_at_first_solution=False,
-    #                                          nb_iterations_print=10**4,
-    #                                          DFS=True,
-    #                                          random_search=True)
-    #     solutions = list(solutions)
-    #     solutions[0] = [' '.join(list(sol)) for sol in solutions[0]]
-    #     n_solutions = len(solutions[0])
-    #     if n_solutions != 0:
-    #         door_trees_list = level.try_solution(solutions[0][-1], verbose=3)
-    #         print(door_trees_list)
-    #     for sol in solutions[0]:
-    #         print(sol)
-    #     sol = solutions[0][-1]
-    #     level.try_solution(sol, verbose=3)
-        
-    # while True:
-    #     solutions = level_sum().find_all_solutions(verbose=0, nb_iterations_print=100)
-    #     print(solutions)
-    
-    # aux_level_random_K5().find_all_solutions(random_search=True,
-    #                                          verbose=1,
-    #                                          nb_iterations_print=50)[0]
-    
-    # level = level_tree()
-    # assert level.try_solution(level.fastest_solution) == 2
-    
-    # sol = level.find_all_solutions(stop_at_first_solution=True)
-    # assert ' '.join(sol[0][0]) == level.fastest_solution
-    
-    # name_dict = {}
-    # for i in range(len(Levels.levels_functions_list)):
-    #     level_function = Levels.levels_functions_list[i]()
-    #     level = level_function
-    #     name = level.name
-    #     name_dict[name] = i
-    # for name in sorted(name_dict.keys()):
-    #     print('{:>5}'.format(name_dict[name]), name)
-
-    # t0 = time()
-    # level = level_doppelganger
-    # # assert level.try_solution(level.fastest_solution) == 2
-    # for i in range(1000):
-    #     print('*'*100)
-    #     solutions = level_doppelganger().find_all_solutions(verbose=0)
-    #     for sol in solutions[0]:
-    #         print(' '.join(sol))
-    #     assert len(solutions[0]) != 0
-    
-    # len_list = []
-    # for level_function in Levels.levels_functions_list:
-    #     level = level_function()
-    #     if not level.fastest_solution is None:
-    #         len_list.append([len(level.fastest_solution.split(' ')), level.name])
-    # len_list.sort()
-    # print(len_list)
-    
-    # solutions = level_sign(True).find_all_solutions(verbose=1, nb_iterations_print=10**3)
-    # bin_list = []
-    # with open('temp.txt', 'w') as fw:
-    #     for sol in solutions[0]:
-    #         sol = ' '.join(sol)
-    #         for i in range(14):
-    #             sol = sol.replace(f'D{i}', '')
-    #         sol = sol.replace('D14', 'D0')
-    #         #assert level_sign(False).try_solution(sol) == 2
-    #         fw.write(' '.join(sol))
-    #         fw.write('\n')
-    #         b = 0
-    #         for i in range(24):
-    #             if f'S{i} ' in sol:
-    #                 b += 2**i
-    #         bin_list.append(b)
-    # bin_list = np.array(bin_list)
-    # for i in range(100):
-    #     i = 2*i+1
-    #     print(i)
-    #     less_common = collections.Counter(bin_list%i).most_common()[-1]
-    #     print(less_common)
-
-    # solutions = level_panex().find_all_solutions(verbose=1, save_solutions_txt=True)
-
-    # print(' '.join(solutions[0][0]))
-    
-    # Levels.save_solutions_txt(only_if_not_yet_calculated=True, verbose=1)

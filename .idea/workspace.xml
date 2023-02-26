@@ -1,7 +1,134 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c81987db-2369-42c3-99c6-b2e3a51e4576" name="Changes" comment="" />
+    <list default="true" id="c81987db-2369-42c3-99c6-b2e3a51e4576" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/Game.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/Game.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/Levels.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/Levels.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/Logic_Gate.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/Logic_Gate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/images/nb_iterations.png" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/images/nb_iterations.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/images/nb_operations.png" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/images/nb_operations.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_3sat.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_3sat.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_4_colors_theorem.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_4_colors_theorem.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_alice_and_bob.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_alice_and_bob.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_baguenaudier.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_baguenaudier.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_betweenness.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_betweenness.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_bipartite.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_bipartite.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_bis_repetita.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_bis_repetita.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_chessboard.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_chessboard.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_code.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_code.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_compact.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_compact.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_congruence.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_congruence.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_crossroad.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_crossroad.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_crystal.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_crystal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_dead_ends.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_dead_ends.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_dichotomy.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_dichotomy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_dominating_set.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_dominating_set.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_doppelganger.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_doppelganger.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_egyptian_fractions.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_egyptian_fractions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_electricity.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_electricity.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_elementary.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_elementary.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_five.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_five.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_fluid.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_fluid.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_fractal.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_fractal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_hamiltonian.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_hamiltonian.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_hello_world.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_hello_world.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_hitting_set.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_hitting_set.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_independent_set.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_independent_set.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_initiation.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_initiation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_inversions.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_inversions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_knapsack.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_knapsack.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_knight.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_knight.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_linear.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_linear.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_longest_path.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_longest_path.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_loop.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_loop.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_magic_square.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_magic_square.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_manhattan_distance.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_manhattan_distance.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_mastermind.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_mastermind.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_matrix.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_matrix.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_mols.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_mols.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_naturals.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_naturals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_no_three_in_line.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_no_three_in_line.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_nonogram.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_nonogram.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_numeration.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_numeration.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_odd.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_odd.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_or.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_or.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_pancake_sorting.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_pancake_sorting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_panex.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_panex.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_parallel.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_parallel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_parking.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_parking.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_partition.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_partition.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_permutations.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_permutations.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_point_of_no_return.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_point_of_no_return.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_pong.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_pong.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_product.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_product.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_puzzle.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_puzzle.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_solitaire.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_solitaire.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_tetris.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_tetris.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_the_4_queens.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_the_4_queens.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_travelling_salesman.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_travelling_salesman.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_triangulate.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_triangulate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_water_pouring.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_water_pouring.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_wave.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_wave.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_weights.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_weights.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_xor.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_xor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_zebra.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_zebra.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/save_solutions.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/save_solutions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Binary Tree_nb_iterations.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Binary Tree_nb_iterations.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Binary Tree_nb_operations.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Binary Tree_nb_operations.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Binary Tree_solutions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Binary Tree_solutions.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Boustrophedon_nb_operations.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Boustrophedon_nb_operations.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Boustrophedon_solutions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Boustrophedon_solutions.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Bull_nb_iterations.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Bull_nb_iterations.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Bull_nb_operations.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Bull_nb_operations.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Bull_solutions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Bull_solutions.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Butterfly_nb_iterations.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Butterfly_nb_iterations.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Butterfly_nb_operations.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Butterfly_nb_operations.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Butterfly_solutions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Butterfly_solutions.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Come back_nb_iterations.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Come back_nb_iterations.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Come back_nb_operations.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Come back_nb_operations.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Come back_solutions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Come back_solutions.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Doppelganger_nb_iterations.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Doppelganger_nb_iterations.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Doppelganger_nb_operations.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Doppelganger_nb_operations.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Doppelganger_solutions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Doppelganger_solutions.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/K2_nb_iterations.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/K2_nb_iterations.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/K2_nb_operations.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/K2_nb_operations.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/K2_solutions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/K2_solutions.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Ladder_nb_iterations.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Ladder_nb_iterations.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Ladder_nb_operations.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Ladder_nb_operations.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Ladder_solutions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Ladder_solutions.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Line_nb_iterations.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Line_nb_iterations.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Line_nb_operations.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Line_nb_operations.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Line_solutions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Line_solutions.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Loop_nb_iterations.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Loop_nb_iterations.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Loop_nb_operations.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Loop_nb_operations.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Loop_solutions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Loop_solutions.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Second_nb_iterations.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Second_nb_iterations.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Second_nb_operations.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Second_nb_operations.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Second_solutions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Second_solutions.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Simple_nb_iterations.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Simple_nb_iterations.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Simple_nb_operations.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Simple_nb_operations.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Simple_solutions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Simple_solutions.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Star_nb_iterations.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Star_nb_iterations.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Star_nb_operations.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Star_nb_operations.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Star_solutions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Star_solutions.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Starting point_nb_iterations.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Starting point_nb_iterations.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Starting point_nb_operations.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Starting point_nb_operations.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Starting point_solutions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Starting point_solutions.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Sum_nb_iterations.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Sum_nb_iterations.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Sum_nb_operations.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Sum_nb_operations.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Sum_solutions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Sum_solutions.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Tree_nb_iterations.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Tree_nb_iterations.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Tree_nb_operations.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Tree_nb_operations.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Tree_solutions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Tree_solutions.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Wheel_nb_iterations.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Wheel_nb_iterations.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Wheel_nb_operations.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Wheel_nb_operations.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Wheel_solutions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/Wheel_solutions.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/nb_iterations.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/nb_iterations.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/nb_operations.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logic_gates_mazes_python_code/solutions/nb_operations.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,7 +160,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
-  <component name="RunManager" selected="Python.save_solutions">
+  <component name="RunManager" selected="Python.Levels">
     <configuration name="Levels" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="logic_gates_mazes" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -56,7 +183,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="count_total_lines" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="Logic_Gate" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="logic_gates_mazes" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -69,7 +196,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/logic_gates_mazes_python_code/count_total_lines.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/logic_gates_mazes_python_code/Logic_Gate.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -146,11 +273,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.save_solutions" />
         <item itemvalue="Python.Levels" />
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.Logic_Gate" />
+        <item itemvalue="Python.save_solutions" />
         <item itemvalue="Python.image_fusion" />
-        <item itemvalue="Python.count_total_lines" />
       </list>
     </recent_temporary>
   </component>
@@ -186,6 +313,11 @@
       <workItem from="1676475713518" duration="596000" />
       <workItem from="1676481411903" duration="4886000" />
       <workItem from="1676537065603" duration="5000" />
+      <workItem from="1676741791340" duration="253000" />
+      <workItem from="1676742172565" duration="140000" />
+      <workItem from="1676742333027" duration="529000" />
+      <workItem from="1676796350069" duration="374000" />
+      <workItem from="1676799017782" duration="1729000" />
     </task>
     <servers />
   </component>
@@ -203,27 +335,17 @@
       </map>
     </option>
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/logic_gates_mazes_python_code/levels/level_doppelganger.py</url>
-          <line>126</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/logic_gates_mazes$image_fusion.coverage" NAME="image_fusion Coverage Results" MODIFIED="1676407448005" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/logic_gates_mazes_python_code" />
     <SUITE FILE_PATH="coverage/logic_gates_mazes$level_k.coverage" NAME="level_k Coverage Results" MODIFIED="1675451689089" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/logic_gates_mazes_python_code/levels" />
     <SUITE FILE_PATH="coverage/logic_gates_mazes$level_random_tetractys.coverage" NAME="level_random_tetractys Coverage Results" MODIFIED="1674847634099" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/logic_gates_mazes_python_code/levels" />
     <SUITE FILE_PATH="coverage/logic_gates_mazes$count_total_lines.coverage" NAME="count_total_lines Coverage Results" MODIFIED="1676367855957" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/logic_gates_mazes_python_code" />
+    <SUITE FILE_PATH="coverage/logic_gates_mazes$Logic_Gate.coverage" NAME="Logic_Gate Coverage Results" MODIFIED="1676742821822" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/logic_gates_mazes_python_code" />
     <SUITE FILE_PATH="coverage/logic_gates_mazes$level_sign.coverage" NAME="level_sign Coverage Results" MODIFIED="1676217685033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/logic_gates_mazes_python_code/levels" />
-    <SUITE FILE_PATH="coverage/logic_gates_mazes$main.coverage" NAME="main Coverage Results" MODIFIED="1676455478936" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/logic_gates_mazes_python_code" />
-    <SUITE FILE_PATH="coverage/logic_gates_mazes$save_solutions.coverage" NAME="save_solutions Coverage Results" MODIFIED="1676488206390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/logic_gates_mazes_python_code" />
+    <SUITE FILE_PATH="coverage/logic_gates_mazes$save_solutions.coverage" NAME="save_solutions Coverage Results" MODIFIED="1676741861991" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/logic_gates_mazes_python_code" />
+    <SUITE FILE_PATH="coverage/logic_gates_mazes$main.coverage" NAME="main Coverage Results" MODIFIED="1676799935923" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/logic_gates_mazes_python_code" />
     <SUITE FILE_PATH="coverage/logic_gates_mazes$create_random_levels.coverage" NAME="create_random_levels Coverage Results" MODIFIED="1674848042120" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/logic_gates_mazes_python_code" />
-    <SUITE FILE_PATH="coverage/logic_gates_mazes$Levels.coverage" NAME="Levels Coverage Results" MODIFIED="1676486175802" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/logic_gates_mazes_python_code" />
+    <SUITE FILE_PATH="coverage/logic_gates_mazes$Levels.coverage" NAME="Levels Coverage Results" MODIFIED="1676800645832" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/logic_gates_mazes_python_code" />
     <SUITE FILE_PATH="coverage/logic_gates_mazes$level_doppelganger.coverage" NAME="level_doppelganger Coverage Results" MODIFIED="1675282103554" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/logic_gates_mazes_python_code/levels" />
   </component>
 </project>

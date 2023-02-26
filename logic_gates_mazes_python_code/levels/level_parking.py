@@ -12,8 +12,8 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
+
 def level_parking():
-    
     v = 1
     # 0
     S0 = Switch(name='S0')
@@ -103,7 +103,7 @@ def level_parking():
     S63 = Switch(name='S63')
     S64 = Switch(name='S64', value=v)
     S65 = Switch(name='S65')
-    
+
     tree_list_INF_BIN_ABS = ['AND',
                              ['INFOREQU',
                               Tree.tree_list_BIN(3),
@@ -118,163 +118,163 @@ def level_parking():
     tree_list_EQU_BIN = ['EQU',
                          Tree.tree_list_BIN(3),
                          Tree.tree_list_BIN(3)]
-    
+
     T0 = Tree(tree_list=[None],
               empty=True,
               name='T0',
-              switches = [1])
+              switches=[1])
     T1 = Tree(tree_list=[None],
               empty=True,
               name='T1',
-              switches = [1])
+              switches=[1])
     T2 = Tree(tree_list=[None],
               empty=True,
               name='T2',
-              switches = [1])
+              switches=[1])
     T3 = Tree(tree_list=[None],
               empty=True,
               name='T3',
-              switches = [1])
+              switches=[1])
     T4 = Tree(tree_list=[None],
               empty=True,
               name='T4',
-              switches = [1])
+              switches=[1])
     T5 = Tree(tree_list=[None],
               empty=True,
               name='T5',
-              switches = [1])
+              switches=[1])
     T6 = Tree(tree_list=[None],
               empty=True,
               name='T6',
-              switches = [1])
+              switches=[1])
     T7 = Tree(tree_list=[None],
               empty=True,
               name='T7',
-              switches = [1])
+              switches=[1])
     T8 = Tree(tree_list=[None],
               empty=True,
               name='T8',
-              switches = [1])
+              switches=[1])
     T9 = Tree(tree_list=[None],
               empty=True,
               name='T9',
-              switches = [1])
+              switches=[1])
     T10 = Tree(tree_list=[None],
-              empty=True,
-              name='T10',
-              switches = [1])
+               empty=True,
+               name='T10',
+               switches=[1])
     T11 = Tree(tree_list=tree_list_INF_BIN_ABS,
-              empty=True,
-              name='T11',
-              switches = [S0, S1, S2, 4,
-                          1,
-                          S0, S1, S2, S33, S34, S35])
+               empty=True,
+               name='T11',
+               switches=[S0, S1, S2, 4,
+                         1,
+                         S0, S1, S2, S33, S34, S35])
     T12 = Tree(tree_list=tree_list_INF_BIN_ABS,
-              empty=True,
-              name='T12',
-              switches = [S3, S4, S5, 3,
-                          1,
-                          S3, S4, S5, S36, S37, S38])
+               empty=True,
+               name='T12',
+               switches=[S3, S4, S5, 3,
+                         1,
+                         S3, S4, S5, S36, S37, S38])
     T13 = Tree(tree_list=tree_list_INF_BIN_ABS,
-              empty=True,
-              name='T13',
-              switches = [S6, S7, S8, 4,
-                          1,
-                          S6, S7, S8, S39, S40, S41,])
+               empty=True,
+               name='T13',
+               switches=[S6, S7, S8, 4,
+                         1,
+                         S6, S7, S8, S39, S40, S41, ])
     T14 = Tree(tree_list=tree_list_INF_BIN_ABS,
-              empty=True,
-              name='T14',
-              switches = [S9, S10, S11, 4,
-                          1,
-                          S9, S10, S11, S42, S43, S44,])
+               empty=True,
+               name='T14',
+               switches=[S9, S10, S11, 4,
+                         1,
+                         S9, S10, S11, S42, S43, S44, ])
     T15 = Tree(tree_list=tree_list_INF_BIN_ABS,
-              empty=True,
-              name='T15',
-              switches = [S12, S13, S14, 4,
-                          1,
-                          S12, S13, S14, S45, S46, S47,])
+               empty=True,
+               name='T15',
+               switches=[S12, S13, S14, 4,
+                         1,
+                         S12, S13, S14, S45, S46, S47, ])
     T16 = Tree(tree_list=tree_list_INF_BIN_ABS,
-              empty=True,
-              name='T16',
-              switches = [S15, S16, S17, 4,
-                          1,
-                          S15, S16, S17, S48, S49, S50,])
+               empty=True,
+               name='T16',
+               switches=[S15, S16, S17, 4,
+                         1,
+                         S15, S16, S17, S48, S49, S50, ])
     T17 = Tree(tree_list=tree_list_INF_BIN_ABS,
-              empty=True,
-              name='T17',
-              switches = [S18, S19, S20, 3,
-                          1,
-                          S18, S19, S20, S51, S52, S53,])
+               empty=True,
+               name='T17',
+               switches=[S18, S19, S20, 3,
+                         1,
+                         S18, S19, S20, S51, S52, S53, ])
     T18 = Tree(tree_list=tree_list_INF_BIN_ABS,
-              empty=True,
-              name='T18',
-              switches = [S21, S22, S23, 4,
-                          1,
-                          S21, S22, S23, S54, S55, S56,])
+               empty=True,
+               name='T18',
+               switches=[S21, S22, S23, 4,
+                         1,
+                         S21, S22, S23, S54, S55, S56, ])
     T19 = Tree(tree_list=tree_list_INF_BIN_ABS,
-              empty=True,
-              name='T19',
-              switches = [S24, S25, S26, 3,
-                          1,
-                          S24, S25, S26, S57, S58, S59,])
+               empty=True,
+               name='T19',
+               switches=[S24, S25, S26, 3,
+                         1,
+                         S24, S25, S26, S57, S58, S59, ])
     T20 = Tree(tree_list=tree_list_INF_BIN_ABS,
-              empty=True,
-              name='T20',
-              switches = [S27, S28, S29, 4,
-                          1,
-                          S27, S28, S29, S60, S61, S62,])
+               empty=True,
+               name='T20',
+               switches=[S27, S28, S29, 4,
+                         1,
+                         S27, S28, S29, S60, S61, S62, ])
     T21 = Tree(tree_list=tree_list_INF_BIN_ABS,
-              empty=True,
-              name='T21',
-              switches = [S30, S31, S32, 3,
-                          1,
-                          S30, S31, S32, S63, S64, S65,])
+               empty=True,
+               name='T21',
+               switches=[S30, S31, S32, 3,
+                         1,
+                         S30, S31, S32, S63, S64, S65, ])
 
     T22 = Tree(tree_list=tree_list_EQU_BIN,
-              empty=True,
-              name='T22',
-              switches = [S0, S1, S2, S33, S34, S35])
+               empty=True,
+               name='T22',
+               switches=[S0, S1, S2, S33, S34, S35])
 
     T23 = Tree(tree_list=tree_list_EQU_BIN,
-              empty=True,
-              name='T23',
-              switches = [S3, S4, S5, S36, S37, S38,])
+               empty=True,
+               name='T23',
+               switches=[S3, S4, S5, S36, S37, S38, ])
     T24 = Tree(tree_list=tree_list_EQU_BIN,
-              empty=True,
-              name='T24',
-              switches = [S6, S7, S8, S39, S40, S41,])
+               empty=True,
+               name='T24',
+               switches=[S6, S7, S8, S39, S40, S41, ])
     T25 = Tree(tree_list=tree_list_EQU_BIN,
-              empty=True,
-              name='T25',
-              switches = [S9, S10, S11, S42, S43, S44,])
+               empty=True,
+               name='T25',
+               switches=[S9, S10, S11, S42, S43, S44, ])
     T26 = Tree(tree_list=tree_list_EQU_BIN,
-              empty=True,
-              name='T26',
-              switches = [S12, S13, S14, S45, S46, S47,])
+               empty=True,
+               name='T26',
+               switches=[S12, S13, S14, S45, S46, S47, ])
     T27 = Tree(tree_list=tree_list_EQU_BIN,
-              empty=True,
-              name='T27',
-              switches = [S15, S16, S17, S48, S49, S50,])
+               empty=True,
+               name='T27',
+               switches=[S15, S16, S17, S48, S49, S50, ])
     T28 = Tree(tree_list=tree_list_EQU_BIN,
-              empty=True,
-              name='T28',
-              switches = [S18, S19, S20, S51, S52, S53,])
+               empty=True,
+               name='T28',
+               switches=[S18, S19, S20, S51, S52, S53, ])
     T29 = Tree(tree_list=tree_list_EQU_BIN,
-              empty=True,
-              name='T29',
-              switches = [S21, S22, S23, S54, S55, S56,])
+               empty=True,
+               name='T29',
+               switches=[S21, S22, S23, S54, S55, S56, ])
     T30 = Tree(tree_list=tree_list_EQU_BIN,
-              empty=True,
-              name='T30',
-              switches = [S24, S25, S26, S57, S58, S59,])
+               empty=True,
+               name='T30',
+               switches=[S24, S25, S26, S57, S58, S59, ])
     T31 = Tree(tree_list=tree_list_EQU_BIN,
-              empty=True,
-              name='T31',
-              switches = [S27, S28, S29, S60, S61, S62,])
+               empty=True,
+               name='T31',
+               switches=[S27, S28, S29, S60, S61, S62, ])
     T32 = Tree(tree_list=tree_list_EQU_BIN,
-              empty=True,
-              name='T32',
-              switches = [S30, S31, S32, S63, S64, S65,])
+               empty=True,
+               name='T32',
+               switches=[S30, S31, S32, S63, S64, S65, ])
     tree_list_aux_1 = ['SUM', [None], Tree.tree_list_BIN(3)]
     tree_list_aux_2 = ['SUM', [None], ['PROD', [None], Tree.tree_list_BIN(3)]]
     T33 = Tree(tree_list=['DIFF',
@@ -307,67 +307,67 @@ def level_parking():
                           tree_list_aux_2,
                           tree_list_aux_2,
                           ],
-              empty=True,
-              name='T33',
-              switches = [# Line 0
-                          S0, S1, S2,
-                          1, S0, S1, S2,
-                          S3, S4, S5,
-                          1, S3, S4, S5,
-                          2, S3, S4, S5,
-                          # Line 1
-                          6, S6, S7, S8,
-                          7, S6, S7, S8,
-                          # Line 2
-                          12, S9, S10, S11,
-                          13, S9, S10, S11,
-                          # Line 3
-                          18, S12, S13, S14,
-                          19, S12, S13, S14,
-                          # Line 4
-                          24, S15, S16, S17,
-                          25, S15, S16, S17,
-                          # Line 5
-                          30, S18, S19, S20,
-                          31, S18, S19, S20,
-                          32, S18, S19, S20,
-                          # Column 0
-                          6, S21, S22, S23,
-                          6, 6, S21, S22, S23,
-                          # Column 2
-                          2, 6, S24, S25, S26,
-                          8, 6, S24, S25, S26,
-                          14, 6, S24, S25, S26,
-                          # Column 3
-                          3, 6, S27, S28, S29,
-                          9, 6, S27, S28, S29,
-                          # Column 5
-                          5, 6, S30, S31, S32,
-                          11, 6, S30, S31, S32,
-                          17, 6, S30, S31, S32,
-                          ],
-              cut_expression=True)
+               empty=True,
+               name='T33',
+               switches=[  # Line 0
+                   S0, S1, S2,
+                   1, S0, S1, S2,
+                   S3, S4, S5,
+                   1, S3, S4, S5,
+                   2, S3, S4, S5,
+                   # Line 1
+                   6, S6, S7, S8,
+                   7, S6, S7, S8,
+                   # Line 2
+                   12, S9, S10, S11,
+                   13, S9, S10, S11,
+                   # Line 3
+                   18, S12, S13, S14,
+                   19, S12, S13, S14,
+                   # Line 4
+                   24, S15, S16, S17,
+                   25, S15, S16, S17,
+                   # Line 5
+                   30, S18, S19, S20,
+                   31, S18, S19, S20,
+                   32, S18, S19, S20,
+                   # Column 0
+                   6, S21, S22, S23,
+                   6, 6, S21, S22, S23,
+                   # Column 2
+                   2, 6, S24, S25, S26,
+                   8, 6, S24, S25, S26,
+                   14, 6, S24, S25, S26,
+                   # Column 3
+                   3, 6, S27, S28, S29,
+                   9, 6, S27, S28, S29,
+                   # Column 5
+                   5, 6, S30, S31, S32,
+                   11, 6, S30, S31, S32,
+                   17, 6, S30, S31, S32,
+               ],
+               cut_expression=True)
     T34 = Tree(tree_list=['EQU', [None], Tree.tree_list_BIN(3)],
                empty=True,
                name='T34',
-               switches = [4, S9, S10, S11])
+               switches=[4, S9, S10, S11])
     T34 = Tree(tree_list=['AND', ['EQU', [None], Tree.tree_list_BIN(15)], ['EQU', [None], Tree.tree_list_BIN(18)]],
                empty=True,
                name='T34',
-               switches = [Switch(value=12377),
-                           S0, S1, S2,
-                           S3, S4, S5,
-                           S6, S7, S8,
-                           S9, S10, S11,
-                           S12, S13, S14,
-                           Switch(value=103424),
-                           S15, S16, S17,
-                           S18, S19, S20,
-                           S21, S22, S23,
-                           S24, S25, S26,
-                           S27, S28, S29,
-                           S30, S31, S32],
-               cut_expression=True) # 3389010009
+               switches=[Switch(value=12377),
+                         S0, S1, S2,
+                         S3, S4, S5,
+                         S6, S7, S8,
+                         S9, S10, S11,
+                         S12, S13, S14,
+                         Switch(value=103424),
+                         S15, S16, S17,
+                         S18, S19, S20,
+                         S21, S22, S23,
+                         S24, S25, S26,
+                         S27, S28, S29,
+                         S30, S31, S32],
+               cut_expression=True)  # 3389010009
 
     dx = 0.5
     a = 1.3
@@ -375,164 +375,164 @@ def level_parking():
     lx = 4
 
     R0 = Room(name='R0',
-              position = [0, 0, dx, 12],
-              switches_list = [])
+              position=[0, 0, dx, 12],
+              switches_list=[])
 
     R1 = Room(name='R1',
-              position = [dx+a, 0, lx, ey],
-              switches_list = [S0, S1, S2,])
+              position=[dx + a, 0, lx, ey],
+              switches_list=[S0, S1, S2, ])
     R2 = Room(name='R2',
-              position = [dx+a, 1, lx, ey],
-              switches_list = [S3, S4, S5,])
+              position=[dx + a, 1, lx, ey],
+              switches_list=[S3, S4, S5, ])
     R3 = Room(name='R3',
-              position = [dx+a, 2, lx, ey],
-              switches_list = [S6, S7, S8,])
+              position=[dx + a, 2, lx, ey],
+              switches_list=[S6, S7, S8, ])
     R4 = Room(name='R4',
-              position = [dx+a, 3, lx, ey],
-              switches_list = [S9, S10, S11,])
+              position=[dx + a, 3, lx, ey],
+              switches_list=[S9, S10, S11, ])
     R5 = Room(name='R5',
-              position = [dx+a, 4, lx, ey],
-              switches_list = [S12, S13, S14,])
+              position=[dx + a, 4, lx, ey],
+              switches_list=[S12, S13, S14, ])
     R6 = Room(name='R6',
-              position = [dx+a, 5, lx, ey],
-              switches_list = [S15, S16, S17,])
+              position=[dx + a, 5, lx, ey],
+              switches_list=[S15, S16, S17, ])
     R7 = Room(name='R7',
-              position = [dx+a, 6, lx, ey],
-              switches_list = [S18, S19, S20,])
+              position=[dx + a, 6, lx, ey],
+              switches_list=[S18, S19, S20, ])
     R8 = Room(name='R8',
-              position = [dx+a, 7, lx, ey],
-              switches_list = [S21, S22, S23,])
+              position=[dx + a, 7, lx, ey],
+              switches_list=[S21, S22, S23, ])
     R9 = Room(name='R9',
-              position = [dx+a, 8, lx, ey],
-              switches_list = [S24, S25, S26,])
+              position=[dx + a, 8, lx, ey],
+              switches_list=[S24, S25, S26, ])
     R10 = Room(name='R10',
-              position = [dx+a, 9, lx, ey],
-              switches_list = [S27, S28, S29,])
+               position=[dx + a, 9, lx, ey],
+               switches_list=[S27, S28, S29, ])
     R11 = Room(name='R11',
-              position = [dx+a, 10, lx, ey],
-              switches_list = [S30, S31, S32,])
-    
+               position=[dx + a, 10, lx, ey],
+               switches_list=[S30, S31, S32, ])
+
     R12 = Room(name='R12',
-              position = [dx+2*a+lx, 0, lx, ey],
-              switches_list = [S33, S34, S35,])
+               position=[dx + 2 * a + lx, 0, lx, ey],
+               switches_list=[S33, S34, S35, ])
     R13 = Room(name='R13',
-              position = [dx+2*a+lx, 1, lx, ey],
-              switches_list = [S36, S37, S38,])
+               position=[dx + 2 * a + lx, 1, lx, ey],
+               switches_list=[S36, S37, S38, ])
     R14 = Room(name='R14',
-              position = [dx+2*a+lx, 2, lx, ey],
-              switches_list = [S39, S40, S41,])
+               position=[dx + 2 * a + lx, 2, lx, ey],
+               switches_list=[S39, S40, S41, ])
     R15 = Room(name='R15',
-              position = [dx+2*a+lx, 3, lx, ey],
-              switches_list = [S42, S43, S44,])
+               position=[dx + 2 * a + lx, 3, lx, ey],
+               switches_list=[S42, S43, S44, ])
     R16 = Room(name='R16',
-              position = [dx+2*a+lx, 4, lx, ey],
-              switches_list = [S45, S46, S47,])
+               position=[dx + 2 * a + lx, 4, lx, ey],
+               switches_list=[S45, S46, S47, ])
     R17 = Room(name='R17',
-              position = [dx+2*a+lx, 5, lx, ey],
-              switches_list = [S48, S49, S50,])
+               position=[dx + 2 * a + lx, 5, lx, ey],
+               switches_list=[S48, S49, S50, ])
     R18 = Room(name='R18',
-              position = [dx+2*a+lx, 6, lx, ey],
-              switches_list = [S51, S52, S53,])
+               position=[dx + 2 * a + lx, 6, lx, ey],
+               switches_list=[S51, S52, S53, ])
     R19 = Room(name='R19',
-              position = [dx+2*a+lx, 7, lx, ey],
-              switches_list = [S54, S55, S56,])
+               position=[dx + 2 * a + lx, 7, lx, ey],
+               switches_list=[S54, S55, S56, ])
     R20 = Room(name='R20',
-              position = [dx+2*a+lx, 8, lx, ey],
-              switches_list = [S57, S58, S59,])
+               position=[dx + 2 * a + lx, 8, lx, ey],
+               switches_list=[S57, S58, S59, ])
     R21 = Room(name='R21',
-              position = [dx+2*a+lx, 9, lx, ey],
-              switches_list = [S60, S61, S62,])
+               position=[dx + 2 * a + lx, 9, lx, ey],
+               switches_list=[S60, S61, S62, ])
     R22 = Room(name='R22',
-              position = [dx+2*a+lx, 10, lx, ey],
-              switches_list = [S63, S64, S65,])
+               position=[dx + 2 * a + lx, 10, lx, ey],
+               switches_list=[S63, S64, S65, ])
 
     R23 = Room(name='R23',
-              position = [dx+3*a+2*lx, 0, dx, 12],
-              switches_list = [])
+               position=[dx + 3 * a + 2 * lx, 0, dx, 12],
+               switches_list=[])
     RE = Room(name='RE',
-              position=[dx+a, 12-ey, 1, ey],
-              is_exit=True)   # E pour exit ou end
-    
-    rp = 1/2
-    rdc1 = [1, 1/2]
-    rac1 = [0, 1/2]
-    
+              position=[dx + a, 12 - ey, 1, ey],
+              is_exit=True)  # E pour exit ou end
+
+    rp = 1 / 2
+    rdc1 = [1, 1 / 2]
+    rac1 = [0, 1 / 2]
+
     D0 = Door(two_way=False,
               tree=T0,
               room_departure=R0,
               room_arrival=R1,
               relative_position=rp,
-              relative_departure_coordinates=[1, ey/2/12],
+              relative_departure_coordinates=[1, ey / 2 / 12],
               relative_arrival_coordinates=rac1)
     D1 = Door(two_way=False,
               tree=T1,
               room_departure=R0,
               room_arrival=R2,
               relative_position=rp,
-              relative_departure_coordinates=[1, (1+ey/2)/12],
+              relative_departure_coordinates=[1, (1 + ey / 2) / 12],
               relative_arrival_coordinates=rac1)
     D2 = Door(two_way=False,
               tree=T2,
               room_departure=R0,
               room_arrival=R3,
               relative_position=rp,
-              relative_departure_coordinates=[1, (2+ey/2)/12],
+              relative_departure_coordinates=[1, (2 + ey / 2) / 12],
               relative_arrival_coordinates=rac1)
     D3 = Door(two_way=False,
               tree=T3,
               room_departure=R0,
               room_arrival=R4,
               relative_position=rp,
-              relative_departure_coordinates=[1, (3+ey/2)/12],
+              relative_departure_coordinates=[1, (3 + ey / 2) / 12],
               relative_arrival_coordinates=rac1)
     D4 = Door(two_way=False,
               tree=T4,
               room_departure=R0,
               room_arrival=R5,
               relative_position=rp,
-              relative_departure_coordinates=[1, (4+ey/2)/12],
+              relative_departure_coordinates=[1, (4 + ey / 2) / 12],
               relative_arrival_coordinates=rac1)
     D5 = Door(two_way=False,
               tree=T5,
               room_departure=R0,
               room_arrival=R6,
               relative_position=rp,
-              relative_departure_coordinates=[1, (5+ey/2)/12],
+              relative_departure_coordinates=[1, (5 + ey / 2) / 12],
               relative_arrival_coordinates=rac1)
     D6 = Door(two_way=False,
               tree=T6,
               room_departure=R0,
               room_arrival=R7,
               relative_position=rp,
-              relative_departure_coordinates=[1, (6+ey/2)/12],
+              relative_departure_coordinates=[1, (6 + ey / 2) / 12],
               relative_arrival_coordinates=rac1)
     D7 = Door(two_way=False,
               tree=T7,
               room_departure=R0,
               room_arrival=R8,
               relative_position=rp,
-              relative_departure_coordinates=[1, (7+ey/2)/12],
+              relative_departure_coordinates=[1, (7 + ey / 2) / 12],
               relative_arrival_coordinates=rac1)
     D8 = Door(two_way=False,
               tree=T8,
               room_departure=R0,
               room_arrival=R9,
               relative_position=rp,
-              relative_departure_coordinates=[1, (8+ey/2)/12],
+              relative_departure_coordinates=[1, (8 + ey / 2) / 12],
               relative_arrival_coordinates=rac1)
     D9 = Door(two_way=False,
               tree=T9,
               room_departure=R0,
               room_arrival=R10,
               relative_position=rp,
-              relative_departure_coordinates=[1, (9+ey/2)/12],
+              relative_departure_coordinates=[1, (9 + ey / 2) / 12],
               relative_arrival_coordinates=rac1)
     D10 = Door(two_way=False,
                tree=T10,
                room_departure=R0,
                room_arrival=R11,
                relative_position=rp,
-               relative_departure_coordinates=[1, (10+ey/2)/12],
+               relative_departure_coordinates=[1, (10 + ey / 2) / 12],
                relative_arrival_coordinates=rac1)
 
     D11 = Door(two_way=False,
@@ -619,99 +619,101 @@ def level_parking():
                room_arrival=R23,
                relative_position=rp,
                relative_departure_coordinates=rdc1,
-               relative_arrival_coordinates=[0, ey/2/12])
+               relative_arrival_coordinates=[0, ey / 2 / 12])
     D23 = Door(two_way=False,
                tree=T23,
                room_departure=R13,
                room_arrival=R23,
                relative_position=rp,
                relative_departure_coordinates=rdc1,
-               relative_arrival_coordinates=[0, (1+ey/2)/12])
+               relative_arrival_coordinates=[0, (1 + ey / 2) / 12])
     D24 = Door(two_way=False,
                tree=T24,
                room_departure=R14,
                room_arrival=R23,
                relative_position=rp,
                relative_departure_coordinates=rdc1,
-               relative_arrival_coordinates=[0, (2+ey/2)/12])
+               relative_arrival_coordinates=[0, (2 + ey / 2) / 12])
     D25 = Door(two_way=False,
                tree=T25,
                room_departure=R15,
                room_arrival=R23,
                relative_position=rp,
                relative_departure_coordinates=rdc1,
-               relative_arrival_coordinates=[0, (3+ey/2)/12])
+               relative_arrival_coordinates=[0, (3 + ey / 2) / 12])
     D26 = Door(two_way=False,
                tree=T26,
                room_departure=R16,
                room_arrival=R23,
                relative_position=rp,
                relative_departure_coordinates=rdc1,
-               relative_arrival_coordinates=[0, (4+ey/2)/12])
+               relative_arrival_coordinates=[0, (4 + ey / 2) / 12])
     D27 = Door(two_way=False,
                tree=T27,
                room_departure=R17,
                room_arrival=R23,
                relative_position=rp,
                relative_departure_coordinates=rdc1,
-               relative_arrival_coordinates=[0, (5+ey/2)/12])
+               relative_arrival_coordinates=[0, (5 + ey / 2) / 12])
     D28 = Door(two_way=False,
                tree=T28,
                room_departure=R18,
                room_arrival=R23,
                relative_position=rp,
                relative_departure_coordinates=rdc1,
-               relative_arrival_coordinates=[0, (6+ey/2)/12])
+               relative_arrival_coordinates=[0, (6 + ey / 2) / 12])
     D29 = Door(two_way=False,
                tree=T29,
                room_departure=R19,
                room_arrival=R23,
                relative_position=rp,
                relative_departure_coordinates=rdc1,
-               relative_arrival_coordinates=[0, (7+ey/2)/12])
+               relative_arrival_coordinates=[0, (7 + ey / 2) / 12])
     D30 = Door(two_way=False,
                tree=T30,
                room_departure=R20,
                room_arrival=R23,
                relative_position=rp,
                relative_departure_coordinates=rdc1,
-               relative_arrival_coordinates=[0, (8+ey/2)/12])
+               relative_arrival_coordinates=[0, (8 + ey / 2) / 12])
     D31 = Door(two_way=False,
                tree=T31,
                room_departure=R21,
                room_arrival=R23,
                relative_position=rp,
                relative_departure_coordinates=rdc1,
-               relative_arrival_coordinates=[0, (9+ey/2)/12])
+               relative_arrival_coordinates=[0, (9 + ey / 2) / 12])
     D32 = Door(two_way=False,
                tree=T32,
                room_departure=R22,
                room_arrival=R23,
                relative_position=rp,
                relative_departure_coordinates=rdc1,
-               relative_arrival_coordinates=[0, (10+ey/2)/12])
+               relative_arrival_coordinates=[0, (10 + ey / 2) / 12])
 
     D33 = Door(two_way=False,
                tree=T33,
                room_departure=R23,
                room_arrival=R0,
                relative_position=rp,
-               relative_departure_coordinates=[0, (11+ey/4)/12],
-               relative_arrival_coordinates=[1, (11+ey/4)/12])
+               relative_departure_coordinates=[0, (11 + ey / 4) / 12],
+               relative_arrival_coordinates=[1, (11 + ey / 4) / 12])
     D34 = Door(two_way=False,
                tree=T34,
                room_departure=R0,
                room_arrival=RE,
                relative_position=rp,
-               relative_departure_coordinates=[1, (12-ey/2)/12],
-               relative_arrival_coordinates=[0, 1/2])
-    
+               relative_departure_coordinates=[1, (12 - ey / 2) / 12],
+               relative_arrival_coordinates=[0, 1 / 2])
+
     color = Levels_colors_list.FROM_HUE(hu=0.1, sa=0.1, li=0.6)
     color.surrounding_color = [255, 255, 255]
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
-                 rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, R15, R16, R17, R18, R19, R20, R21, R22, R23] + [RE],
-                 doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19, D20, D21, D22, D23, D24, D25, D26, D27, D28, D29, D30, D31, D32, D33, D34],
+                 rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, R15, R16, R17, R18, R19,
+                             R20, R21, R22, R23] + [RE],
+                 doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19,
+                             D20, D21, D22, D23, D24, D25, D26, D27, D28, D29, D30, D31, D32, D33, D34],
                  fastest_solution="D0 S0 D11 S33 D22 D33 D7 S21 S22 D18 S54 S55 D29 D33 D7 S21 D18 S54 D29 D33 D3 S9 D14 S42 D25 D33 D8 S24 D19 S57 D30 D33 D8 S24 S25 D19 S57 S58 D30 D33 D5 S15 D16 S48 D27 D33 D5 S15 S16 D16 S48 S49 D27 D33 D5 S15 D16 S48 D27 D33 D8 S24 S25 D19 S57 S58 D30 D33 D8 S24 D19 S57 D30 D33 D3 S9 D14 S42 D25 D33 D7 S21 D18 S54 D29 D33 D0 S0 D11 S33 D22 D33 D7 S21 S22 D18 S54 S55 D29 D33 D7 S21 D18 S54 D29 D33 D3 S9 D14 S42 D25 D33 D7 S21 S22 S23 D18 S54 S55 S56 D29 D33 D8 S24 D19 S57 D30 D33 D8 S24 S25 D19 S57 S58 D30 D33 D8 S24 D19 S57 D30 D33 D4 S12 D15 S45 D26 D33 D4 S12 S13 D15 S45 S46 D26 D33 D4 S12 D15 S45 D26 D33 D8 S24 D19 S57 D30 D33 D8 S24 S25 D19 S57 S58 D30 D33 D8 S24 D19 S57 D30 D33 D3 S9 D14 S42 D25 D33 D9 S27 S28 D20 S60 S61 D31 D33 D2 S6 S7 S8 D13 S39 S40 S41 D24 D33 D10 S30 S31 D21 S63 S64 D32 D33 D5 S15 S16 S17 D16 S48 S49 S50 D27 D33 D9 S27 D20 S60 D31 D33 D3 S9 S10 D14 S42 S43 D25 D33 D3 S9 D14 S42 D25 D33 D8 S24 D19 S57 D30 D33 D8 S24 S25 D19 S57 S58 D30 D33 D8 S24 D19 S57 D30 D33 D4 S12 D15 S45 D26 D33 D7 S21 S22 S23 D18 S54 S55 S56 D29 D33 D7 S21 D18 S54 D29 D33 D7 S21 S22 D18 S54 S55 D29 D33 D4 S12 D15 S45 D26 D33 D8 S24 D19 S57 D30 D33 D0 S0 D11 S33 D22 D33 D7 S21 D18 S54 D29 D33 D8 S24 S25 D19 S57 S58 D30 D33 D8 S24 D19 S57 D30 D33 D3 S9 D14 S42 D25 D33 D3 S9 S10 D14 S42 S43 D25 D33 D3 S9 D14 S42 D25 D33 D8 S24 D19 S57 D30 D33 D8 S24 S25 D19 S57 S58 D30 D33 D9 S27 D20 S60 D31 D33 D5 S15 S16 S17 D16 S48 S49 S50 D27 D33 D5 S15 D16 S48 D27 D33 D5 S15 S16 D16 S48 S49 D27 D33 D5 S15 D16 S48 D27 D33 D8 S24 S25 D19 S57 S58 D30 D33 D8 S24 D19 S57 D30 D33 D3 S9 D14 S42 D25 D33 D7 S21 D18 S54 D29 D33 D0 S0 D11 S33 D22 D33 D9 S27 D20 S60 D31 D33 D3 S9 S10 D14 S42 S43 D25 D33 D3 S9 D14 S42 D25 D33 D8 S24 D19 S57 D30 D33 D6 S18 D17 S51 D28 D33 D6 S18 S19 D17 S51 S52 D28 D33 D6 S18 D17 S51 D28 D33 D8 S24 S25 D19 S57 S58 D30 D33 D8 S24 D19 S57 D30 D33 D4 S12 D15 S45 D26 D33 D9 S27 S28 S29 D20 S60 S61 S62 D31 D33 D4 S12 S13 D15 S45 S46 D26 D33 D4 S12 D15 S45 D26 D33 D8 S24 D19 S57 D30 D33 D1 S3 D12 S36 D23 D33 D8 S24 S25 D19 S57 S58 D30 D33 D2 S6 D13 S39 D24 D33 D2 S6 S7 D13 S39 S40 D24 D33 D10 S30 D21 S63 D32 D33 D4 S12 S13 S14 D15 S45 S46 S47 D26 D33 D9 S27 S28 S29 D20 S60 S61 S62 D31 D33 D6 S18 D17 S51 D28 D33 D6 S18 S19 D17 S51 S52 D28 D33 D6 S18 D17 S51 D28 D33 D8 S24 D19 S57 D30 D33 D3 S9 D14 S42 D25 D33 D3 S9 S10 D14 S42 S43 D25 D33 D9 S27 D20 S60 D31 D33 D9 S27 S28 D20 S60 S61 D31 D33 D4 S12 S13 S14 D15 S45 S46 S47 D26 D33 D10 S30 D21 S63 D32 D33 D1 S3 D12 S36 D23 D33 D0 S0 D11 S33 D22 D33 D7 S21 D18 S54 D29 D33 D3 S9 D14 S42 D25 D33 D8 S24 D19 S57 D30 D33 D6 S18 D17 S51 D28 D33 D6 S18 S19 D17 S51 S52 D28 D33 D6 S18 D17 S51 D28 D33 D10 S30 S31 D21 S63 S64 D32 D33 D10 S30 D21 S63 D32 D33 D34",
                  level_color=color,
                  name='Parking',
@@ -720,5 +722,5 @@ def level_parking():
                  y_separation=27,
                  border=40,
                  do_not_write_trees_always_open=True)
-    
+
     return level

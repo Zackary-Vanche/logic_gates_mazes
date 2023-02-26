@@ -12,64 +12,64 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
-def level_compact():
 
+def level_compact():
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
     S2 = Switch(name='S2')
-    
+
     SN1 = Switch(value=1)
     SN2 = Switch(value=2)
     SN5 = Switch(value=5)
-    
+
     T0 = Tree(tree_list=['OR', [None], Tree.tree_list_XOR(2)],
               empty=True,
               name='T0',
-              switches = [S0, S1, S2])
+              switches=[S0, S1, S2])
     T1 = Tree(tree_list=['NAND', [None], Tree.tree_list_XOR(2)],
               empty=True,
               name='T1',
-              switches = [S0, S1, S2])
+              switches=[S0, S1, S2])
     T2 = Tree(tree_list=['SUP', Tree.tree_list_SUM(3), [None]],
               empty=True,
               name='T2',
-              switches = [S0, S1, S2, SN2])
+              switches=[S0, S1, S2, SN2])
     T3 = Tree(tree_list=Tree.tree_list_NAND(3),
               empty=True,
               name='T3',
-              switches = [S0, S1, S2])
+              switches=[S0, S1, S2])
     T4 = Tree(tree_list=['SUP', Tree.tree_list_BIN(3), [None]],
               empty=True,
               name='T4',
-              switches = [S0, S1, S2, SN1])
+              switches=[S0, S1, S2, SN1])
     T5 = Tree(tree_list=['INF', Tree.tree_list_BIN(3), [None]],
               empty=True,
               name='T5',
-              switches = [S0, S1, S2, SN5])
+              switches=[S0, S1, S2, SN5])
     T6 = Tree(tree_list=Tree.tree_list_NOR(3),
               empty=True,
               name='T6',
-              switches = [S0, S1, S2])
-    
+              switches=[S0, S1, S2])
+
     a = 1
-    
+
     R0 = Room(name='R0',
-              position = [0, 2, a, a],
-              switches_list = [S0])
+              position=[0, 2, a, a],
+              switches_list=[S0])
     R1 = Room(name='R1',
-              position = [2, 2, a, a],
-              switches_list = [S1])
+              position=[2, 2, a, a],
+              switches_list=[S1])
     R2 = Room(name='R2',
-              position = [2, 0, a, a],
-              switches_list = [S2])
+              position=[2, 0, a, a],
+              switches_list=[S2])
     RE = Room(name='RE',
               position=[0, 0, a, a],
-              is_exit=True)   # E pour exit ou end
-    
-    rp = 1/2
-    
+              is_exit=True)  # E pour exit ou end
+
+    rp = 1 / 2
+
     rp = 0.4
-    
+
     D0 = Door(two_way=False,
               tree=T0,
               room_departure=R0,
@@ -105,7 +105,7 @@ def level_compact():
               room_departure=R2,
               room_arrival=RE,
               relative_position=rp)
-    
+
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2] + [RE],
@@ -118,5 +118,5 @@ def level_compact():
                  y_separation=50,
                  border=66,
                  group='pure maze')
-    
+
     return level

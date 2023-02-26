@@ -13,8 +13,8 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
+
 def level_betweenness():
-    
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
     S2 = Switch(name='S2')
@@ -49,71 +49,73 @@ def level_betweenness():
     SN10 = Switch(value=10)
     SN12 = Switch(value=12)
 
-    tree_list_0 = ['EQU', [None], ['SUM'] + [[None]]*4,]
+    tree_list_0 = ['EQU', [None], ['SUM'] + [[None]] * 4, ]
 
-    Slist = [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, S23]
+    Slist = [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22,
+             S23]
 
     T0 = Tree(tree_list=tree_list_0,
               empty=True,
               name='T0',
-              switches = [SN2, S0, S1, S2, S3,])
+              switches=[SN2, S0, S1, S2, S3, ])
     T1 = Tree(tree_list=tree_list_0,
               empty=True,
               name='T1',
-              switches = [SN2, S4, S5, S6, S7,])
+              switches=[SN2, S4, S5, S6, S7, ])
     T2 = Tree(tree_list=tree_list_0,
               empty=True,
               name='T2',
-              switches = [SN2, S8, S9, S10, S11,])
+              switches=[SN2, S8, S9, S10, S11, ])
     T3 = Tree(tree_list=tree_list_0,
               empty=True,
               name='T3',
-              switches = [SN2, S12, S13, S14, S15,])
+              switches=[SN2, S12, S13, S14, S15, ])
     T4 = Tree(tree_list=tree_list_0,
               empty=True,
               name='T4',
-              switches = [SN2, S16, S17, S18, S19,])
+              switches=[SN2, S16, S17, S18, S19, ])
     n = 5
-    T5 = Tree(tree_list=['AND', tree_list_0, ['BETWEEN'] + [[None]]*(3*n+1) + [Tree.tree_list_BIN(4)]*6, ['INF', Tree.tree_list_BIN(4), Tree.tree_list_BIN(4)]],
+    T5 = Tree(tree_list=['AND', tree_list_0, ['BETWEEN'] + [[None]] * (3 * n + 1) + [Tree.tree_list_BIN(4)] * 6,
+                         ['INF', Tree.tree_list_BIN(4), Tree.tree_list_BIN(4)]],
               empty=True,
               name='T5',
-              switches = [SN2, S20, S21, S22, S23,] + [Switch(value=n),
-                         SN3, SN6, SN9,
-                         SN12, SN10, SN6,
-                         SN6, SN12, SN5,
-                         SN3, SN12, SN6,
-                         SN5, SN3, SN9,] + Slist + [S0, S1, S2, S3,
-                                                    S16, S17, S18, S19,],
+              switches=[SN2, S20, S21, S22, S23, ] + [Switch(value=n),
+                                                      SN3, SN6, SN9,
+                                                      SN12, SN10, SN6,
+                                                      SN6, SN12, SN5,
+                                                      SN3, SN12, SN6,
+                                                      SN5, SN3, SN9, ] + Slist + [S0, S1, S2, S3,
+                                                                                  S16, S17, S18, S19, ],
               cut_expression=True,
               cut_expression_separator=')')
-    
+
     ex = 0.9
     ey = 0.15
     a = 2
 
     R0 = Room(name='R0',
-              position = [0, 0, a, 3+ey],
-              switches_list = [S0, S1, S2, S3,])
+              position=[0, 0, a, 3 + ey],
+              switches_list=[S0, S1, S2, S3, ])
     R1 = Room(name='R1',
-              position = [0, 4, a, 3+ey],
-              switches_list = [S4, S5, S6, S7,])
+              position=[0, 4, a, 3 + ey],
+              switches_list=[S4, S5, S6, S7, ])
     R2 = Room(name='R2',
-              position = [3-ex, 5, 2, 2+ey],
-              switches_list = [S8, S9, S10, S11,])
+              position=[3 - ex, 5, 2, 2 + ey],
+              switches_list=[S8, S9, S10, S11, ])
     R3 = Room(name='R3',
-              position = [6-2*ex, 4, a, 3+ey],
-              switches_list = [S12, S13, S14, S15,])
+              position=[6 - 2 * ex, 4, a, 3 + ey],
+              switches_list=[S12, S13, S14, S15, ])
     R4 = Room(name='R4',
-              position = [6-2*ex, 0, a, 3+ey],
-              switches_list = [S16, S17, S18, S19,])
+              position=[6 - 2 * ex, 0, a, 3 + ey],
+              switches_list=[S16, S17, S18, S19, ])
     R5 = Room(name='R5',
-              position = [3-ex, 0, 2, 2+ey],
-              switches_list = [S20, S21, S22, S23,])
+              position=[3 - ex, 0, 2, 2 + ey],
+              switches_list=[S20, S21, S22, S23, ])
     dE = 0.35
     RE = Room(name='RE',
-              position=[3-ex, 3+dE/2, 2, 1+ey-dE],
-              is_exit=True)   # E pour exit ou end
-    
+              position=[3 - ex, 3 + dE / 2, 2, 1 + ey - dE],
+              is_exit=True)  # E pour exit ou end
+
     p = 0.3
 
     D0 = Door(two_way=False,
@@ -133,7 +135,7 @@ def level_betweenness():
               room_arrival=R3,
               relative_departure_coordinates=[0, 0],
               relative_arrival_coordinates=[0, 0],
-              relative_position=1-p)
+              relative_position=1 - p)
     D3 = Door(two_way=False,
               tree=T3,
               room_departure=R3,
@@ -150,7 +152,7 @@ def level_betweenness():
               room_departure=R5,
               room_arrival=RE,
               relative_departure_coordinates=[0.15, 1],
-              relative_arrival_coordinates=[0.15, 1/2],
+              relative_arrival_coordinates=[0.15, 1 / 2],
               relative_position=0.5)
 
     level = Maze(start_room_index=0,

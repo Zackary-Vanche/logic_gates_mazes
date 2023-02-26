@@ -13,8 +13,8 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
-def level_solitaire(fast_solution_finding=False):
 
+def level_solitaire(fast_solution_finding=False):
     S0 = Switch(name='S0')
     S1 = Switch(name='S1', value=1)
     S2 = Switch(name='S2', value=1)
@@ -47,49 +47,49 @@ def level_solitaire(fast_solution_finding=False):
     S29 = Switch(name='S29', value=1)
 
     SN1 = Switch(value=1)
-    
-    tree_list_SUM_5 = ['SUM'] + [Tree.tree_list_XOR(2)]*5
-    
+
+    tree_list_SUM_5 = ['SUM'] + [Tree.tree_list_XOR(2)] * 5
+
     tree_list_1 = ['EQU',
                    ['SUM',
                     tree_list_SUM_5,
                     tree_list_SUM_5,
                     tree_list_SUM_5],
                    [None]]
-    
+
     Slist1 = [
-              S0, S15,
-              S1, S16,
-              S2, S17,
-              S3, S18,
-              S4, S19,
-              S5, S20,
-              S6, S21,
-              S7, S22,
-              S8, S23,
-              S9, S24,
-              S10, S25,
-              S11, S26,
-              S12, S27,
-              S13, S28,
-              S14, S29,
-              Switch(value=3)]
-    
+        S0, S15,
+        S1, S16,
+        S2, S17,
+        S3, S18,
+        S4, S19,
+        S5, S20,
+        S6, S21,
+        S7, S22,
+        S8, S23,
+        S9, S24,
+        S10, S25,
+        S11, S26,
+        S12, S27,
+        S13, S28,
+        S14, S29,
+        Switch(value=3)]
+
     # tree_list_1 = [None]
     # Slist1 = [SN1]
 
     T0 = Tree(tree_list=['AND',
                          tree_list_1,
                          ['XOR',
-                          Tree.tree_list_JUMP(5*2),
-                          Tree.tree_list_JUMP(4*2),
-                          Tree.tree_list_JUMP(3*2),
-                          Tree.tree_list_JUMP(5*2),
-                          Tree.tree_list_JUMP(4*2),
-                          Tree.tree_list_JUMP(3*2),
-                          Tree.tree_list_JUMP(5*2),
-                          Tree.tree_list_JUMP(4*2),
-                          Tree.tree_list_JUMP(3*2)]],
+                          Tree.tree_list_JUMP(5 * 2),
+                          Tree.tree_list_JUMP(4 * 2),
+                          Tree.tree_list_JUMP(3 * 2),
+                          Tree.tree_list_JUMP(5 * 2),
+                          Tree.tree_list_JUMP(4 * 2),
+                          Tree.tree_list_JUMP(3 * 2),
+                          Tree.tree_list_JUMP(5 * 2),
+                          Tree.tree_list_JUMP(4 * 2),
+                          Tree.tree_list_JUMP(3 * 2)]],
               empty=True,
               name='T0',
               switches=Slist1 + [S0, S15,
@@ -104,7 +104,7 @@ def level_solitaire(fast_solution_finding=False):
                                  S9, S24,
                                  S10, S25,
                                  S11, S26,
-                  
+
                                  S0, S15,
                                  S5, S20,
                                  S9, S24,
@@ -117,7 +117,7 @@ def level_solitaire(fast_solution_finding=False):
                                  S2, S17,
                                  S7, S22,
                                  S11, S26,
-              
+
                                  S4, S19,
                                  S8, S23,
                                  S11, S26,
@@ -129,7 +129,7 @@ def level_solitaire(fast_solution_finding=False):
                                  S12, S27,
                                  S2, S17,
                                  S6, S21,
-                                 S9, S24,],
+                                 S9, S24, ],
               cut_expression=True,
               cut_expression_separator=')')
     T1 = Tree(tree_list=['EQU', Tree.tree_list_BIN(15), Tree.tree_list_BIN(15)],
@@ -138,42 +138,42 @@ def level_solitaire(fast_solution_finding=False):
               switches=[S0, S1, S2, S3, S4,
                         S5, S6, S7, S8,
                         S9, S10, S11,
-                        S12, S13, 
+                        S12, S13,
                         S14,
                         S15, S16, S17, S18, S19,
                         S20, S21, S22, S23,
                         S24, S25, S26,
                         S27, S28,
-                        S29,],
+                        S29, ],
               cut_expression=True,
               cut_expression_separator=')')
     T2 = Tree(tree_list=['AND',
-                          ['EQU', [None], Tree.tree_list_BIN(15)],
-                          ['EQU', [None], Tree.tree_list_BIN(15)]],
+                         ['EQU', [None], Tree.tree_list_BIN(15)],
+                         ['EQU', [None], Tree.tree_list_BIN(15)]],
               empty=True,
               name='T2',
-              switches = [SN1,
-                          S0, S1, S2, S3, S4,
-                          S5, S6, S7, S8,
-                          S9, S10, S11,
-                          S12, S13, 
-                          S14,
-                          SN1,
-                          S15, S16, S17, S18, S19,
-                          S20, S21, S22, S23,
-                          S24, S25, S26,
-                          S27, S28,
-                          S29],
+              switches=[SN1,
+                        S0, S1, S2, S3, S4,
+                        S5, S6, S7, S8,
+                        S9, S10, S11,
+                        S12, S13,
+                        S14,
+                        SN1,
+                        S15, S16, S17, S18, S19,
+                        S20, S21, S22, S23,
+                        S24, S25, S26,
+                        S27, S28,
+                        S29],
               cut_expression=True,
               cut_expression_separator=')')
-    
+
     # T2 = Tree(tree_list=['EQU', Tree.tree_list_BIN(15), Tree.tree_list_BIN(15)],
     #           empty=True,
     #           name='T2',
     #           switches=[S0, S1, S2, S3, S4,
     #                     S5, S6, S7, S8,
     #                     S9, S10, S11,
-    #                     S12, S13, 
+    #                     S12, S13,
     #                     S14,
     #                     S15, S16, S17, S18, S19,
     #                     S20, S21, S22, S23,
@@ -182,7 +182,7 @@ def level_solitaire(fast_solution_finding=False):
     #                     S29,],
     #           cut_expression=True,
     #           cut_expression_separator=')')
-    
+
     if fast_solution_finding:
         possible_switches_values = [[1, 1, 1, 0, 0,
                                      0, 0, 0, 0,
@@ -214,7 +214,7 @@ def level_solitaire(fast_solution_finding=False):
                                      1, 1, 1,
                                      0, 0,
                                      0],
-                                    
+
                                     [1, 0, 0, 0, 0,
                                      1, 0, 0, 0,
                                      1, 0, 0,
@@ -245,7 +245,7 @@ def level_solitaire(fast_solution_finding=False):
                                      0, 0, 1,
                                      0, 0,
                                      0],
-                                    
+
                                     [0, 0, 0, 0, 1,
                                      0, 0, 0, 1,
                                      0, 0, 1,
@@ -275,7 +275,7 @@ def level_solitaire(fast_solution_finding=False):
                                      0, 1, 0, 0,
                                      1, 0, 0,
                                      0, 0,
-                                     0],]
+                                     0], ]
         for l in possible_switches_values:
             assert sum(l) == 3, l
         assert len(possible_switches_values) == 18
@@ -283,16 +283,16 @@ def level_solitaire(fast_solution_finding=False):
         possible_switches_values = None
 
     R0 = Room(name='R0',
-              position = [0, 4, 3, 5],
-              switches_list = [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14],
+              position=[0, 4, 3, 5],
+              switches_list=[S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14],
               possible_switches_values=possible_switches_values)
     R1 = Room(name='R1',
-              position = [4.15, 4, 3, 5],
-              switches_list = [S15, S16, S17, S18, S19, S20, S21, S22, S23, S24, S25, S26, S27, S28, S29],
+              position=[4.15, 4, 3, 5],
+              switches_list=[S15, S16, S17, S18, S19, S20, S21, S22, S23, S24, S25, S26, S27, S28, S29],
               possible_switches_values=possible_switches_values)
     RE = Room(name='RE',
               position=[4.15, 2.2, 3, 0.75],
-              is_exit=True)   # E pour exit ou end
+              is_exit=True)  # E pour exit ou end
 
     D0 = Door(two_way=False,
               tree=T0,
@@ -310,14 +310,15 @@ def level_solitaire(fast_solution_finding=False):
               tree=T2,
               room_departure=R1,
               room_arrival=RE,
-              relative_departure_coordinates=[1/2, 0],
-              relative_arrival_coordinates=[1/2, 1])
+              relative_departure_coordinates=[1 / 2, 0],
+              relative_arrival_coordinates=[1 / 2, 1])
 
-    level = Maze(start_room_index=0, 
-                 exit_room_index=-1, 
-                 rooms_list=[R0, R1, RE], 
-                 doors_list=[D0, D1, D2], 
-                 fastest_solution='''S0 S1 S2 D0 S15 S16 S17 D1 S2 S7 S11 D0 S17 S22 S26 D1 S1 S2 S3 D0 S16 S17 S18 D1 S0 S1 S2 D0 S15 S16 S17 D1 S5 S6 S7 D0 S20 S21 S22 D1 S5 S9 S12 D0 S20 S24 S27 D1 S4 S8 S11 D0 S19 S23 S26 D1 S8 S11 S13 D0 S23 S26 S28 D1 S2 S7 S11 D0 S17 S22 S26 D1 S8 S11 S13 D0 S23 S26 S28 D1 S11 S13 S14 D0 S26 S28 S29 D1 S9 S10 S11 D0 S24 S25 S26 D1 S0 S5 S9 D0 S15 S20 S24 D2'''.replace('\n', ''),
+    level = Maze(start_room_index=0,
+                 exit_room_index=-1,
+                 rooms_list=[R0, R1, RE],
+                 doors_list=[D0, D1, D2],
+                 fastest_solution='''S0 S1 S2 D0 S15 S16 S17 D1 S2 S7 S11 D0 S17 S22 S26 D1 S1 S2 S3 D0 S16 S17 S18 D1 S0 S1 S2 D0 S15 S16 S17 D1 S5 S6 S7 D0 S20 S21 S22 D1 S5 S9 S12 D0 S20 S24 S27 D1 S4 S8 S11 D0 S19 S23 S26 D1 S8 S11 S13 D0 S23 S26 S28 D1 S2 S7 S11 D0 S17 S22 S26 D1 S8 S11 S13 D0 S23 S26 S28 D1 S11 S13 S14 D0 S26 S28 S29 D1 S9 S10 S11 D0 S24 S25 S26 D1 S0 S5 S9 D0 S15 S20 S24 D2'''.replace(
+                     '\n', ''),
                  level_color=Levels_colors_list.FROM_HUE(0, sa=0.35, li=0.49),
                  name='Solitaire',
                  door_window_size=777,

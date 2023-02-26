@@ -12,42 +12,42 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
+
 def level_bis_repetita():
-    
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
     S2 = Switch(name='S2')
-    
+
     T0 = Tree(tree_list=Tree.tree_list_XOR(2),
-                empty=True,
-                name='T0',
-                switches = [S0, S1])
+              empty=True,
+              name='T0',
+              switches=[S0, S1])
     T1 = Tree(tree_list=Tree.tree_list_XOR(2),
-                empty=True,
-                name='T1',
-                switches = [S1, S2])
+              empty=True,
+              name='T1',
+              switches=[S1, S2])
     T2 = Tree(tree_list=[None],
-                empty=True,
-                name='T2',
-                switches = [S2])
+              empty=True,
+              name='T2',
+              switches=[S2])
     T3 = Tree(tree_list=Tree.tree_list_from_str('FFF'),
-                empty=True,
-                name='T3',
-                switches = [S0, S1, S2])
-    
+              empty=True,
+              name='T3',
+              switches=[S0, S1, S2])
+
     R0 = Room(name='R0',
-              position = [0, 0, 3, 3],
-              switches_list = [S0])
+              position=[0, 0, 3, 3],
+              switches_list=[S0])
     R1 = Room(name='R1',
-              position = [2, 4, 1, 1],
-              switches_list = [S1])
+              position=[2, 4, 1, 1],
+              switches_list=[S1])
     R2 = Room(name='R2',
-              position = [4, 4, 3, 3],
-              switches_list = [S2])
+              position=[4, 4, 3, 3],
+              switches_list=[S2])
     RE = Room(name='RE',
-              position = [4, 2, 1, 1],
-              is_exit = True)  # E pour exit ou end
-    
+              position=[4, 2, 1, 1],
+              is_exit=True)  # E pour exit ou end
+
     D0 = Door(two_way=False,
               tree=T0,
               room_departure=R0,
@@ -68,16 +68,16 @@ def level_bis_repetita():
               room_departure=R2,
               room_arrival=RE,
               relative_position=0.7)
-        
-    level = Maze(start_room_index=0, 
-                 exit_room_index=-1, 
-                 rooms_list=[R0, R1, R2, RE], 
-                 doors_list=[D0, D1, D2, D3], 
+
+    level = Maze(start_room_index=0,
+                 exit_room_index=-1,
+                 rooms_list=[R0, R1, R2, RE],
+                 doors_list=[D0, D1, D2, D3],
                  fastest_solution="S0 D0 S1 D1 S2 D2 S0 D0 S1 D1 S2 D3",
                  level_color=Levels_colors_list.BRIGHT_AND_DARK_BLUE,
                  name='Bis repetita',
-                 border = 30,
-                 door_window_size = 600,
+                 border=30,
+                 door_window_size=600,
                  keep_proportions=True)
 
     return level
