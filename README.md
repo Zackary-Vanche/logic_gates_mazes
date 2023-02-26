@@ -1,3 +1,3 @@
 # logic_gates_mazes
 
-main.py launches the game.
+src/main.py launches the game.
