@@ -395,7 +395,7 @@ class Levels:
                 print(txt, ('Level ', str(k), ' : ', name, '\n'))
                 raise
         if save_as_txt:
-            with open('solutions.txt', 'w') as f: # solutions.txt is not saved in the solutions/ directory, because this directory is ignored when pushed on github
+            with open('solutions/solutions.txt', 'w') as f: # solutions/ directory is ignored when pushed on github
                 f.write(txt)
         if verbose==1 and multithreads:
             t1 = time()
