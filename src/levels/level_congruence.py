@@ -35,7 +35,7 @@ def level_congruence():
                         Switch(value=6),
                         S0, S1, S2, S3, S4, S5,
                         Switch(value=8),
-                        Switch(value=7), ])
+                        Switch(value=7)])
 
     R0 = Room(name='R0',
               position=[0, 0, 0.5, 6],

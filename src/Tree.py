@@ -5,9 +5,6 @@ Created on Thu Feb 24 20:50:35 2022
 @author: utilisateur
 """
 
-# from random import random as rd_random
-# from random import randint as rd_randint
-# from random import shuffle as rd_shuffle
 from numpy import array
 from numpy import cumsum
 from numpy import zeros as np_zeros
@@ -165,8 +162,6 @@ class Tree:
                 self.switches_list[i] = Switch(value=self.switches_list[i])
             if self.switches_list[i] is None:
                 self.switches_list[i] = Switch(value=None)
-        # assert len(list(set(self.switches_list))) == len(self.switches_list), self.name
-        # assert not (self.root_depth == 0 and self.switches_list == []), self.name
         for switch in self.switches_list:
             switch.tree = self
             if self.door != None:
@@ -466,7 +461,6 @@ class Tree:
         for ipossibility in range(2**self.number_of_leafs):
             line = table[ipossibility][:-1]
             T_copy = self.copy(line)
-            # assert (T_copy.leafs_list() == line).all(), "T_copy.leafs_list() = {}\n line = {}".format(T_copy.leafs_list(), line)
             table[ipossibility,-1] = T_copy.get_value()
         return table
     
