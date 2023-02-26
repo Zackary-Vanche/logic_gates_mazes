@@ -13,8 +13,8 @@ lightness=0.4
 def color_hls(hu=0, li=lightness, sa=saturation):
     return array(255*array(hls_to_rgb(hu, li, sa)), dtype=uint8).tolist()
 
-class Color:
 
+class Color:
     BLACK = [0, 0, 0]
     BLACK_BLUE = [0, 20, 20]
     BLACK_GREEN = [0, 50, 0]

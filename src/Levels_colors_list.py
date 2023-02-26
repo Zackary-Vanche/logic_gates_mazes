@@ -325,7 +325,6 @@ class Levels_colors_list:
                                    surrounding_color = Color.BRIGHT_RED)
     
     def FROM_HUE(hu, sa=0.5, li=0.3):
-#        print(hu)
         from colorsys import hls_to_rgb
         from numpy import array
         from numpy import uint8

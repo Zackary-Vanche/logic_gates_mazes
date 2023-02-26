@@ -46,9 +46,6 @@ def level_alice_and_bob():
               name='T5',
               switches=[S1, S2])
     T6 = Tree(tree_list=Tree.tree_list_from_str("FFTF"),
-              #  ['AND',
-              # Tree.tree_list_from_str('FF'),
-              # Tree.tree_list_xor],
               empty=True,
               name='T6',
               switches=[S1, S2, S3, S4])
