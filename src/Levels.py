@@ -382,7 +382,7 @@ class Levels:
             else:
                 for k in range(Levels.number_of_levels):
                     find_solution(k)
-                    sleep(0.1)
+                    sleep(1e-5)
         txt = ''
         for k in range(Levels.number_of_levels):
             level = Levels.get_level(k, fast_solution_finding)
@@ -496,4 +496,4 @@ if __name__ == "__main__":
     test_levels()
 
     # import cProfile
-    # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=float('inf'), save_as_txt=False)''', sort=1)
+    # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=60*2, save_as_txt=False)''', sort=1)
