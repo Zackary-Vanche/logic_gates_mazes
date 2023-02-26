@@ -230,8 +230,7 @@ class Logic_Gate:
                  'BETWEEN': aux_func_BETWEEN,
                  'JUMP': aux_func_JUMP,
                  'MAS': aux_func_MAS,
-                 'N3L_4':aux_func_N3L_4
-                 }
+                 'N3L_4':aux_func_N3L_4}
 
     def func(self, sons_list):
         if None in sons_list:

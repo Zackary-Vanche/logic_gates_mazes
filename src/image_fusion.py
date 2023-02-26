@@ -95,11 +95,6 @@ def main():
         filename = r'images/concat/concat_levels_HELP_{}.jpg'.format(string)
         cv2.imwrite(filename, img_h)
 
-        # img_all = cv2.vconcat([r'images/concat/concat_levels_HELP_{}.jpg'.format(string), r'images/concat/concat_levels_{}.jpg'.format(string)])
-        # filename = r'images/concat/concat_levels_all_{}.jpg'.format(string)
-        # cv2.imwrite(filename, img_all)
-        # print(filename)
-
 if __name__ == "__main__":
     
     main()
