@@ -345,29 +345,31 @@ class Tree:
                         txt = root_name + ' ( ' + txt + ') '
                     self.easy_logical_expression_PN = txt
                     assert self.easy_logical_expression_PN is not None
-            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('NOT ', '¬ ')
-            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('NAND ', '¬& ')
-            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('AND ', '& ')
-            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('XOR ', '^ ')
-            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('XNOR ', '¬^ ')
-            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('NOR ', '¬| ')
-            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('OR ', '| ')
-            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('SUM ', '+ ')
-            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('PROD ', '* ')
-            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('DIFF ', '≠ ')
-            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('SUPOREQU ', '>= ')
-            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('INFOREQU ', '<= ')
-            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('EQU ', '= ')
-            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('EQUSET ', '~ ')
-            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('NEQ ', '¬= ')
-            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('INF0 ', '<0 ')
-            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('INF ', '< ')
-            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('SUP ', '> ')
-            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('BIN ', 'b ')
-            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('DIST ', 'd ')
-            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('BETWEEN ', '<< ')
-            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('JUMP ', 'j ')
-            self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace('N3L_4 ', 'N3L ')
+            replace_dict = {'NOT ': '¬ ',
+                            'NAND ': '¬& ',
+                            'AND ': '& ',
+                            'XOR ': '^ ',
+                            'XNOR ': '¬^ ',
+                            'NOR ': '¬| ',
+                            'OR ': '| ',
+                            'SUM ': '+ ',
+                            'PROD ': '* ',
+                            'DIFF ': '≠ ',
+                            'SUPOREQU ': '>= ',
+                            'INFOREQU ': '<= ',
+                            'EQU ': '= ',
+                            'EQUSET ': '~ ',
+                            'NEQ ': '¬= ',
+                            'INF0 ': '<0 ',
+                            'INF ': '< ',
+                            'SUP ': '> ',
+                            'BIN ': 'b ',
+                            'DIST ': 'd ',
+                            'BETWEEN ': '<< ',
+                            'JUMP ': 'j ',
+                            'N3L_4 ': 'N3L '}
+            for key in replace_dict.keys():
+                self.easy_logical_expression_PN = self.easy_logical_expression_PN.replace(key, replace_dict[key])
             if self.cut_expression:
                 l_elePN = self.easy_logical_expression_PN.split(self.cut_expression_separator)
                 elePN = ''
@@ -548,12 +550,6 @@ class Tree:
         if self.root_depth == 0:
             txt += "\n|   Number of leafs : {}".format(self.number_of_leafs)
             txt += "\n|   depth of the Tree : {}".format(self.get_depth())
-        # if self.root_depth == 0:
-        #     txt += '\n|   Truth table :{}'.format(self.str_table())
-        #     txt += '\n|   Number of 0 in truth table : {}'.format(self.number_of_0_in_truth_table())
-        #     txt += '\n|   Number of 1 in truth table : {}'.format(self.number_of_1_in_truth_table())
-        #     txt += '\n|   Number of possibles 0 in truth table : {}'.format(self.number_of_possibles_0_in_truth_table())
-        #     txt += '\n|   Number of possibles 1 in truth table : {}'.format(self.number_of_possibles_1_in_truth_table())
         if self.root_depth == 0:
             txt += '\n|   Same switches list :\n|      {}'.format(self.same_switches_list)
             txt += '\n|   Switches list :\n|      {}'.format([switch.name for switch in self.switches_list])
