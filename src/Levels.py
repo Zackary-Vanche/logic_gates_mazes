@@ -139,6 +139,8 @@ from levels.level_random_boustrophedon import aux_level_random_boustrophedon
 from levels.level_random_simple import aux_level_random_simple
 from levels.level_random_petersen import aux_level_random_petersen
 from levels.level_random_cuboctahedron import aux_level_random_cuboctahedron
+
+
 # from levels.level_random_blind_alley import aux_level_random_blind_alley
 
 
@@ -276,26 +278,26 @@ class Levels:
     ]
 
     aux_level_function_list = [
-                               aux_level_random_simple,
-                               aux_level_random_bull,
-                               aux_level_random_butterfly,
-                               aux_level_random_star,
-                               aux_level_random_K2,
-                               aux_level_random_binary_tree,
-                               aux_level_random_line,
-                               aux_level_random_loop,
-                               aux_level_random_wheel,
-                               aux_level_random_boustrophedon,
-                               aux_level_random_come_back,
-                               aux_level_random_starting_point,
-                               aux_level_random_ladder,
-                               aux_level_random_K5,
-                               aux_level_random_K33,
-                               aux_level_random_petersen,
-                               aux_level_random_cuboctahedron,
-                               aux_level_random_gemini,
-                               # aux_level_random_tetractys
-                               ]
+        aux_level_random_simple,
+        aux_level_random_bull,
+        aux_level_random_butterfly,
+        aux_level_random_star,
+        aux_level_random_K2,
+        aux_level_random_binary_tree,
+        aux_level_random_line,
+        aux_level_random_loop,
+        aux_level_random_wheel,
+        aux_level_random_boustrophedon,
+        aux_level_random_come_back,
+        aux_level_random_starting_point,
+        aux_level_random_ladder,
+        aux_level_random_K5,
+        aux_level_random_K33,
+        aux_level_random_petersen,
+        aux_level_random_cuboctahedron,
+        aux_level_random_gemini,
+        # aux_level_random_tetractys
+    ]
 
     number_of_levels = len(levels_functions_list)
 
@@ -330,20 +332,21 @@ class Levels:
             os_mkdir('solutions')
         if not do_it_fast:
             calculations_times = [None for i in range(Levels.number_of_levels)]
+
             def find_solution(k):
                 global n_level_sol_found
                 level = Levels.get_level(k, fast_solution_finding)
-                if verbose==1 and multithreads:
+                if verbose == 1 and multithreads:
                     print(f'\nLevel {k} : {level.name}')
                 if level.name in ['Dichotomy', 'Mastermind', 'Zebra', 'Panex', 'Superflip']:
                     return
                 if only_if_known_solution and level.fastest_solution is None:
                     return
-                if verbose==1 and multithreads:
+                if verbose == 1 and multithreads:
                     txt = ' '.join(['Level', str(k), ':', level.name, '\n'])
                 t2 = time()
                 solutions, nb_iterations, nb_operations = level.find_all_solutions(stop_at_first_solution=False,
-                                                                                   verbose=verbose*(not multithreads),
+                                                                                   verbose=verbose * (not multithreads),
                                                                                    max_calculation_time=max_calculation_time,
                                                                                    level_number=k,
                                                                                    save_solutions_txt=True,
@@ -351,7 +354,7 @@ class Levels:
                 t3 = time()
                 nb_iterations_list.append(nb_iterations)
                 nb_operations_list.append(nb_operations)
-                if verbose==1 and multithreads:
+                if verbose == 1 and multithreads:
                     for sol in solutions:
                         txt = txt + ' '.join(sol) + '\n'
                     if verbose >= 1:
@@ -360,6 +363,7 @@ class Levels:
                     if verbose > 0:
                         print(txt)
                 calculations_times[k] = t3 - t2
+
             if multithreads:
                 import threading
                 l_threads = []
@@ -387,9 +391,9 @@ class Levels:
                 print(txt, ('Level ', str(k), ' : ', name, '\n'))
                 raise
         if save_as_txt:
-            with open('solutions/solutions.txt', 'w') as f: # solutions/ directory is ignored when pushed on github
+            with open('solutions/solutions.txt', 'w') as f:  # solutions/ directory is ignored when pushed on github
                 f.write(txt)
-        if verbose==1 and multithreads:
+        if verbose == 1 and multithreads:
             t1 = time()
             if verbose >= 1:
                 print(t1 - t0, 's')
@@ -399,8 +403,8 @@ class Levels:
             a = [1 for i in range(Levels.number_of_levels)]
             return a, a, a
 
-def test_levels(test_random_levels=False):
 
+def test_levels(test_random_levels=False):
     import matplotlib.pyplot as plt
     plt.rcParams.update({'font.size': 15})
 
@@ -428,7 +432,7 @@ def test_levels(test_random_levels=False):
     plt.xlabel('Level number')
     plt.ylabel('Number of actions in the solution')
     plt.close()
-    
+
     if test_random_levels:
         print('Testing random levels')
         from numpy import array, median
@@ -441,21 +445,22 @@ def test_levels(test_random_levels=False):
             print('len', len(solution_length))
             print('solutions length')
             print('min', min(solution_length))
-            print('avg', sum(solution_length)/len(solution_length))
+            print('avg', sum(solution_length) / len(solution_length))
             print('med', median(array(solution_length)))
             print('max', max(solution_length))
             print('number of solutions')
             print('min', min(number_of_solutions))
-            print('avg', sum(number_of_solutions)/len(number_of_solutions))
+            print('avg', sum(number_of_solutions) / len(number_of_solutions))
             print('med', median(array(number_of_solutions)))
             print('max', max(number_of_solutions))
-            bins_list = [i for i in range(max(solution_length)+1)]
+            bins_list = [i for i in range(max(solution_length) + 1)]
             plt.figure(figsize=(30, 5))
             plt.hist(solution_length, bins=bins_list)
             plt.xticks(bins_list)
             plt.show()
             print('')
-    
+
+
 def calculates_random_level_solution_length(aux_level_function):
     from os import listdir as os_listdir
     from os.path import exists as os_path_exists
@@ -476,13 +481,14 @@ def calculates_random_level_solution_length(aux_level_function):
                 raise
     return solution_length, number_of_solutions
 
+
 if __name__ == "__main__":
     pass
 
     import os
     import collections
     import numpy as np
-    
+
     if os.path.exists('temp.txt'):
         os.remove('temp.txt')
 

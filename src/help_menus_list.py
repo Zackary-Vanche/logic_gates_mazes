@@ -1,15 +1,15 @@
 help_menus_list = {}
 
-    ######################
-    ## TREE'S NOTATIONS ##
-    ######################
+######################
+## TREE'S NOTATIONS ##
+######################
 
-#'NOR' 
+# 'NOR'
 
 help_menus_list['basis'] = '''
 D0 = S0 means : 
     D0 is open if S0 is turned on.'''
-    
+
 help_menus_list['NOT'] = """
 ¬ means 'NOT'.
 ¬S0 = 1 if S0 = 0
@@ -17,11 +17,11 @@ help_menus_list['NOT'] = """
 Be carefull with the negation, because you have :
     ¬ 1 = 0
     ¬ 0 = 1"""
-    
+
 help_menus_list['MINUS'] = """
 - means 'MINUS'.
 -S0 is the opposite of S0."""
-    
+
 help_menus_list['AND'] = """  
 & means 'AND'.
 D0 = & S0 S1 means :
@@ -34,7 +34,7 @@ S0  S1  D0
   0    1    1
   1    0    1
   1    1    0"""
-      
+
 help_menus_list['NAND 3'] = """NAND can also apply to 3 parameters instead of 2:
 
     NAND truth table [D0 = NAND ( S0 S1 S2 ) = ¬& ( S0 S1 S2 )]:
@@ -47,12 +47,12 @@ help_menus_list['NAND 3'] = """NAND can also apply to 3 parameters instead of 2:
       0    1    1     1
       1    0    1     1
       1    1    1     0"""
-    
+
 help_menus_list['OR'] = '''
 | means 'OR'.
 D2 = | S1 S2 means :
     D1 is open if S1 or S2 is turned on (i.e. if (S0, S1) = (0,1) or (S0, S1) = (1,0) or (S0, S1) = (1,1))'''
-    
+
 help_menus_list['XOR'] = """
 ^ means exclusive or ('XOR').
 D0 = ^ S0 S1 means :
@@ -60,7 +60,7 @@ D0 = ^ S0 S1 means :
 It can be used with more than two parameters:
     D0 = ^ (S0 S1 ...) means :
         D0 is open if there is exactly one switch among all its parameters that is turned on."""
-        
+
 help_menus_list['XOR 3'] = """
 XOR can be used with more than 3 parameters :
     D0 = XOR(S0, S1, ...) means :
@@ -68,7 +68,7 @@ XOR can be used with more than 3 parameters :
 
 help_menus_list['XNOR'] = """
 XOR means exclusive or. XNOR is its opposite.
- 
+
 XOR truth table (D0 = ^ S0 S1):
 S0  S1  D0
   0    0    0
@@ -76,7 +76,7 @@ S0  S1  D0
   1    0    1
   1    1    0  
 In other words, D0 is open if S0 is different from S1.
-      
+
 XNOR truth table (D0 = ¬^ S0 S1):
 S0  S1  D0
   0    0    1
@@ -89,15 +89,15 @@ You can write :
     XOR S0 S1 = | & S0 ¬ S1 & ¬ S0 S1 
     XNOR S0 S1 = | & S0 S1 & ¬ S0 ¬ S1
     XNOR S0 S1 = ¬ XOR S0 S1"""
-        
+
 help_menus_list['SUM'] = """
 + S0 S1 is the sum of S0 and S1.
 With parenthesis, the operator + can be used with more than 2 operands:
     + (S0 S1 S2) is the sum of S0, S1 and S2."""
-    
+
 help_menus_list['DIV'] = """
 / S0 S1 is equal to S0 divided by S1."""
-    
+
 help_menus_list['PROD'] = """
 * S0 S1 is equal to the product of S0 and S1."""
 
@@ -125,7 +125,7 @@ D0 = ~  ( S0 ; S2 ) ( S1 ; S3) means :
 help_menus_list['DIFF'] = '''
 D0 = ≠ (S0 S1 ...) means :
     D0 is open if every elements of (S0 S1 ...) are two by two differents.'''
-    
+
 help_menus_list['INF'] = """
 D0 = < S0 S1 means :
     D0 is open if S0 is inferior to S1"""
@@ -133,7 +133,7 @@ D0 = < S0 S1 means :
 help_menus_list['SUP'] = """
 D0 = > S0 S1 means :
     D0 is open if S0 is superior to S1"""
-    
+
 help_menus_list['INFOREQU'] = """
 D0 = <= S0 S1 means :
     D0 is open if S0 is inferior or equal to S1"""
@@ -141,7 +141,7 @@ D0 = <= S0 S1 means :
 help_menus_list['SUPOREQU'] = """
 D0 = >= S0 S1 means :
     D0 is open if S0 is superior or equal to S1"""
-    
+
 help_menus_list['BIN'] = """
 b (S0 S1 ...) is the number whose binary little endian code is S0 S1 etc.
 For example:
@@ -153,7 +153,7 @@ It returns the value 1 if the switch is included in the list, 0 if not.
 For example:
     i 0 [1 2] = 0
     i 4 [4 2] = 1"""
-    
+
 help_menus_list['INLIST'] = """
 Let l and m be two switches list.
 Then,
@@ -178,7 +178,7 @@ For example:
     # (4) [1 1 1 1] = 1
     # (1 3) [1 0 1 1] = 0
     # (2 1) [1 0 0 1 1] = 0"""
-    
+
 help_menus_list['BETWEEN'] = """
 The operator BETWEEN takes several arguments:
     A list of triplets of switches
@@ -195,7 +195,7 @@ This operator takes as argument a list of switches.
     j (S0 S1 S2 S3 S4 S5) = i b(S0 S1 S2 S3 S4 S5) [22 26 37 41]
     j (S0 S1 S2 S3 S4 S5 S6 S7) = ^ j (S0 S1 S2 S3 S4 S5) j (S2 S3 S4 S5 S6 S7)
     j (S0 S1 S2 S3 S4 S5 S6 S7 S8 S9) = ^ [ j (S0 S1 S2 S3 S4 S5) j (S2 S3 S4 S5 S6 S7) j (S4 S5 S6 S7 S8 S9) ]"""
-    
+
 help_menus_list['MAS'] = """
 w stands for 'white'.
 This operator takes as argument two lists of switches.
@@ -221,8 +221,6 @@ only if there are no three switches aligned in the array :
 and if > SUM (S0 S1 S2 S3 S4 S5 S6 S7 S8 S9 S10 S11 S12 S13 S14 S15) 8
 """
 
-
-
 help_menus_list['AND and NOT'] = """  
 By combining these notations, you can write :
 D1 = & S2 ¬ S3 means :
@@ -234,7 +232,7 @@ D3 = & ¬ S6 ¬ S7  S6 S7 means :
     It can also be written :
     D3 = NOR S6 S7
     D3 = ¬| S6 S7"""
-    
+
 help_menus_list['numerical value'] = """
 Sometimes, a switch can be replaced by a numerical value."""
 
@@ -265,14 +263,14 @@ Here are some examples :
     S0  D0
       0     1
       1     0
-      
+
     AND truth table (D0 = & S0 S1):
     S0  S1  D0
       0    0    0
       0    1    0
       1    0    0
       1    1    1
-      
+
     OR truth table (D0 = | S0 S1):
     S0  S1  D0
       0    0    0
@@ -293,9 +291,9 @@ You can also use the cheat code to go directly in a room by giving its name :
     A R2 allows you to go in the room R2.
 The name of the exit room is RE."""
 
-    ###################
-    ## MISCELLANEOUS ##
-    ###################
+###################
+## MISCELLANEOUS ##
+###################
 
 help_menus_list['introduction'] = """You are trapped in the inside of a computer and want to reach the exit.
 
@@ -355,17 +353,18 @@ By pressing [N], you get a new random level.
 
 Door's expression and solutions of the random levels have all been calculated by computer only."""
 
-    ############
-    ## LEVELS ##
-    ############
-    
+############
+## LEVELS ##
+############
+
 help_menus_list['levels'] = {}
 
 help_menus_list['levels']["Hello world"] = '\n'.join([help_menus_list['introduction'], help_menus_list['basis']])
 
 help_menus_list['levels']["Initiation"] = help_menus_list['OR']
 
-help_menus_list['levels']["Linear"] = '\n'.join([help_menus_list['AND'], help_menus_list['NOT'], help_menus_list['AND and NOT']])
+help_menus_list['levels']["Linear"] = '\n'.join(
+    [help_menus_list['AND'], help_menus_list['NOT'], help_menus_list['AND and NOT']])
 
 help_menus_list['levels']['Loop'] = help_menus_list['change level']
 
@@ -387,13 +386,15 @@ help_menus_list['levels']["Fluid"] = help_menus_list['Introduction thuth table']
 
 help_menus_list['levels']["Numeration"] = '\n'.join([help_menus_list['EQU'], help_menus_list['BIN']])
 
-help_menus_list['levels']["Sum"] = help_menus_list['random'] + '\n\n' + help_menus_list['IN'] + '\n\n' + help_menus_list['SUM']
+help_menus_list['levels']["Sum"] = help_menus_list['random'] + '\n\n' + help_menus_list['IN'] + '\n\n' + \
+                                   help_menus_list['SUM']
 
 help_menus_list['levels']["Product"] = help_menus_list['PROD']
 
 help_menus_list['levels']["Congruence"] = help_menus_list['MOD']
 
-help_menus_list['levels']["3 SAT"] = """The 3 SAT problem is NP complete.\n\nThe door expression has been randomly chosen by computer."""
+help_menus_list['levels'][
+    "3 SAT"] = """The 3 SAT problem is NP complete.\n\nThe door expression has been randomly chosen by computer."""
 
 help_menus_list['levels']["Point of no return"] = help_menus_list['XNOR']
 
@@ -401,17 +402,21 @@ help_menus_list['levels']["Bipartite"] = """Several paths lead to the exit."""
 
 help_menus_list['levels']["Hamiltonian"] = """Don't look for something too complicated."""
 
-help_menus_list['levels']["Pong"] = '\n'.join([help_menus_list['numerical value'], help_menus_list['SUM'], help_menus_list['EQU']])
+help_menus_list['levels']["Pong"] = '\n'.join(
+    [help_menus_list['numerical value'], help_menus_list['SUM'], help_menus_list['EQU']])
 
 help_menus_list['levels']["Longest path"] = "The longest path problem is NP-complete."
-                             
-help_menus_list['levels']["Hitting set"] = """The hitting set is one of the Karp's 21 NP-complete problems.\nIt is equivalent to the set cover problem\n""" + '\n'.join([help_menus_list['INF'], help_menus_list['SUP'], help_menus_list['INFOREQU'], help_menus_list['SUPOREQU']])
+
+help_menus_list['levels'][
+    "Hitting set"] = """The hitting set is one of the Karp's 21 NP-complete problems.\nIt is equivalent to the set cover problem\n""" + '\n'.join(
+    [help_menus_list['INF'], help_menus_list['SUP'], help_menus_list['INFOREQU'], help_menus_list['SUPOREQU']])
 
 help_menus_list['levels']["Independent set"] = "The independent set is one of the Karp's 21 NP-complete problems."
 
 help_menus_list['levels']["Dominating set"] = """Finding dominating set is a NP-Complete problem."""
 
-help_menus_list['levels']["Exact cover"] = """The exact cover is one of the Karp's 21 NP-complete problems.\n""" + help_menus_list['XOR 3']
+help_menus_list['levels']["Exact cover"] = """The exact cover is one of the Karp's 21 NP-complete problems.\n""" + \
+                                           help_menus_list['XOR 3']
 
 help_menus_list['levels']["Odd"] = help_menus_list['leave the game']
 
@@ -419,7 +424,8 @@ help_menus_list['levels']["Triangulate"] = help_menus_list['DIST']
 
 help_menus_list['levels']["Recurrence"] = help_menus_list['brackets']
 
-help_menus_list['levels']["Naturals"] = '\n'.join([help_menus_list['ABS'], help_menus_list['MINUS'], help_menus_list['BIN']])
+help_menus_list['levels']["Naturals"] = '\n'.join(
+    [help_menus_list['ABS'], help_menus_list['MINUS'], help_menus_list['BIN']])
 
 help_menus_list['levels']["Compact"] = """It looks easy, but it is maybe just an impression."""
 
@@ -427,17 +433,22 @@ help_menus_list['levels']["Parallel"] = """The "Guess and check" method works we
 
 help_menus_list['levels']["Pythagorean"] = help_menus_list['POW']
 
-help_menus_list['levels']["Elementary"] = """An elementary permutation is a swap of two adjacent elements.\n""" + help_menus_list['EQUSET']
+help_menus_list['levels']["Elementary"] = """An elementary permutation is a swap of two adjacent elements.\n""" + \
+                                          help_menus_list['EQUSET']
 
 help_menus_list['levels']["Superpermutation"] = help_menus_list['INLIST']
 
 help_menus_list['levels']["Taxicab number"] = """Taxicab numbers are also called Hardy–Ramanujan numbers."""
 
-help_menus_list['levels']["Chessboard"] = """If you remove the exit, the graph of this level is the graph of the possible moves of a knight in a 3*4 rectangle.\nHowever, sometimes here doors are one-way only."""
+help_menus_list['levels'][
+    "Chessboard"] = """If you remove the exit, the graph of this level is the graph of the possible moves of a knight in a 3*4 rectangle.\nHowever, sometimes here doors are one-way only."""
 
-help_menus_list['levels']["Dichotomy"] = """? is a random integer.\n\nOnce you found the value of ?, the level is over.\n\n""" + help_menus_list['random']
+help_menus_list['levels'][
+    "Dichotomy"] = """? is a random integer.\n\nOnce you found the value of ?, the level is over.\n\n""" + \
+                   help_menus_list['random']
 
-help_menus_list['levels']["Partition"] = """The partition is one of the Karp's 21 NP-complete problems.\n""" + help_menus_list["PROD"]
+help_menus_list['levels']["Partition"] = """The partition is one of the Karp's 21 NP-complete problems.\n""" + \
+                                         help_menus_list["PROD"]
 
 help_menus_list['levels']["Second"] = """second order polynomial equation."""
 
@@ -447,9 +458,11 @@ help_menus_list['levels']["Egyptian fractions"] = help_menus_list['DIV']
 
 help_menus_list['levels']["Code"] = "You may want to learn what the Gray code is."
 
-help_menus_list['levels']["Tetrahedron"] = """The logic expressions of the doors of this level have been calculated by computer.\nThe program that calculated it already knew all the rest of the level.\n\nThis level looks complicated, but you do only need to let the game lead you to the exit."""
+help_menus_list['levels'][
+    "Tetrahedron"] = """The logic expressions of the doors of this level have been calculated by computer.\nThe program that calculated it already knew all the rest of the level.\n\nThis level looks complicated, but you do only need to let the game lead you to the exit."""
 
-help_menus_list['levels']["Small"] = """The solution and the door's expressions of this level have been chosen randomly and calculated by the computer only."""
+help_menus_list['levels'][
+    "Small"] = """The solution and the door's expressions of this level have been chosen randomly and calculated by the computer only."""
 
 help_menus_list['levels']["The 4 queens"] = """This level is inspired from the 8 queens problem."""
 
@@ -469,7 +482,8 @@ help_menus_list['levels']["Weights"] = '''You must find the good weights in orde
 
 help_menus_list['levels']["Tetris"] = """Each number can represent a position in the plane.\n"""
 
-help_menus_list['levels']["Mastermind"] = help_menus_list['MAS'] + """\n\n?0 ?1 ?2 ?3 ?4 ?5 ?6 ?7 are switches.\n\nYou have to guess their values."""
+help_menus_list['levels']["Mastermind"] = help_menus_list[
+                                              'MAS'] + """\n\n?0 ?1 ?2 ?3 ?4 ?5 ?6 ?7 are switches.\n\nYou have to guess their values."""
 
 help_menus_list['levels']["Baguenaudier"] = '''The baguenaudier is an old puzzle game.'''
 
@@ -487,17 +501,20 @@ help_menus_list['levels']["Vortex"] = """You might feel dizzy."""
 
 help_menus_list['levels']["Tree"] = """The tree is hidden in the equations.\n\n""" + help_menus_list['random']
 
-help_menus_list['levels']["Dead_ends"] = """Even if it is the first level that actually looks like a printed circuit board, you have been in a computer all this time."""
+help_menus_list['levels'][
+    "Dead_ends"] = """Even if it is the first level that actually looks like a printed circuit board, you have been in a computer all this time."""
 
 help_menus_list['levels']["Betweenness"] = help_menus_list['BETWEEN']
 
-help_menus_list['levels']["Fractal"] = """As you see, several doors lead to the exit.\nThere is only one that can be opened."""
+help_menus_list['levels'][
+    "Fractal"] = """As you see, several doors lead to the exit.\nThere is only one that can be opened."""
 
 help_menus_list['levels']["Tesseract"] = """The tesseract is hidden in the equations."""
 
 help_menus_list['levels']["Cartesian"] = """Sorry, there is nothing to help you here."""
 
-help_menus_list['levels']["Eulerian"] = """This level was initially inspired by the seven bridges of Königsberg problem.\nThe difference is that here there is a solution."""
+help_menus_list['levels'][
+    "Eulerian"] = """This level was initially inspired by the seven bridges of Königsberg problem.\nThe difference is that here there is a solution."""
 
 help_menus_list['levels']["Sujiko"] = """Sujiko is a logic-based, combinatorial number-placement puzzle."""
 
@@ -505,13 +522,15 @@ help_menus_list['levels']["Electricity"] = help_menus_list['NAND 3']
 
 help_menus_list['levels']["Inversions"] = """This level looks a lot like the level "Permutations"."""
 
-help_menus_list['levels']["Permutations"] = """Every permutation can be writen as a product of 2-cycles.\n\nYou can try to find not only one solution, but the fastest one."""
+help_menus_list['levels'][
+    "Permutations"] = """Every permutation can be writen as a product of 2-cycles.\n\nYou can try to find not only one solution, but the fastest one."""
 
 help_menus_list['levels']["Pancake sorting"] = """Pancake sorting is a real computational problem."""
 
 help_menus_list['levels']["Wave"] = """The path to the exit is not so long."""
 
-help_menus_list['levels']["Takuzu"] = """Takuzu is a logic puzzle involving placement of two symbols, often 1s and 0s, on a rectangular grid."""
+help_menus_list['levels'][
+    "Takuzu"] = """Takuzu is a logic puzzle involving placement of two symbols, often 1s and 0s, on a rectangular grid."""
 
 help_menus_list['levels']["Travelling salesman"] = "The travelling salesman is a NP-complete problem."
 
@@ -525,19 +544,21 @@ help_menus_list['levels']["Sudoku"] = """It looks a lot like the level diagonal.
 
 help_menus_list['levels']["Knight"] = """To solve this level you need to find a knight's tour."""
 
-help_menus_list['levels']["Water pouring"] = """You have 3 jugs of liquid, and you need to pour water from one to another."""
+help_menus_list['levels'][
+    "Water pouring"] = """You have 3 jugs of liquid, and you need to pour water from one to another."""
 
 help_menus_list['levels']["Syracuse"] = """The solution is pretty long."""
 
-help_menus_list['levels']["Five"] = help_menus_list['random'] +  """\n\nThere might be several solutions."""
+help_menus_list['levels']["Five"] = help_menus_list['random'] + """\n\nThere might be several solutions."""
 
-help_menus_list['levels']["Shuffled"] = help_menus_list['random'] +  """\n\nThere might be several solutions."""
+help_menus_list['levels']["Shuffled"] = help_menus_list['random'] + """\n\nThere might be several solutions."""
 
 help_menus_list['levels']["Sign"] = 'You might need the help of a computer to solve this one.'
 
 help_menus_list['levels']["Combinatorics"] = help_menus_list['N3L']
 
-help_menus_list['levels']["Temple"] = """This level is the retranscription of a really known puzzle game.\nOnce you find which game it is, the level is over."""
+help_menus_list['levels'][
+    "Temple"] = """This level is the retranscription of a really known puzzle game.\nOnce you find which game it is, the level is over."""
 
 help_menus_list['levels']["Puzzle"] = """This level is inspired from the 15-puzzle."""
 
@@ -559,11 +580,13 @@ help_menus_list['levels']["Random - Binary Tree"] = help_menus_list['random']
 
 help_menus_list['levels']["Random - Blind alley"] = """The doors form a bull graph.\n\n""" + help_menus_list['random']
 
-help_menus_list['levels']["Random - Boustrophedon"] = """The doors form a Butterfly graph.\n\n""" + help_menus_list['random']
+help_menus_list['levels']["Random - Boustrophedon"] = """The doors form a Butterfly graph.\n\n""" + help_menus_list[
+    'random']
 
 help_menus_list['levels']["Random - Bull"] = """The doors form a bull graph.\n\n""" + help_menus_list['random']
 
-help_menus_list['levels']["Random - Butterfly"] = """The doors form a Butterfly graph.\n\n""" + help_menus_list['random']
+help_menus_list['levels']["Random - Butterfly"] = """The doors form a Butterfly graph.\n\n""" + help_menus_list[
+    'random']
 
 help_menus_list['levels']["Random - Come back"] = help_menus_list['random']
 

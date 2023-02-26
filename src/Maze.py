@@ -19,8 +19,8 @@ from os import mkdir as os_mkdir
 from os import remove as os_remove
 from os import listdir as os_listdir
 
-class Maze:
 
+class Maze:
     # Fonctions de creation et de manipulation des differents niveaux
 
     calculates_solutions = False
@@ -50,10 +50,10 @@ class Maze:
                  exit_doors_indexes=[],
                  group='',
                  unique_solution=True):
-        
+
         self.group = group
         self.unique_solution = unique_solution
-        
+
         self.random = random
         # A level is said random only if you need to use the function save_random_door_trees_list to creates some versions of it
         # Some levels have a random component (level_tree, level_sum, level_dichotomy, etc) but are not considered as random.
@@ -63,9 +63,9 @@ class Maze:
         self.name = name
         self.start_room_index = start_room_index
         self.exit_room_index = exit_room_index
-        
+
         # ROOMS LIST
-        
+
         if rooms_list != []:
             self.exit_room_index = self.exit_room_index % len(rooms_list)
         self.rooms_list = rooms_list
@@ -73,26 +73,26 @@ class Maze:
             assert room is not None
             room.maze = self
         assert start_room_index < len(self.rooms_list)
-        
+
         # ROOM DICT
-        
+
         self.rooms_dict = {}
         for room in self.rooms_list:
             self.rooms_dict[room.name] = room
-            
+
         # ROOMS NAMES DICT
-        
+
         self.rooms_names_dict = {}
         for i in range(len(self.rooms_list)):
             self.rooms_names_dict[self.rooms_list[i].name] = i
-        
+
         # START AND CURRENT ROOM
-        
+
         self.start_room = self.rooms_list[self.start_room_index]
         self.current_room_index = self.start_room_index
-        
+
         # DOORS SET
-        
+
         self.doors_set = set()
         for room in self.rooms_list:
             for door in room.departure_doors_list:
@@ -101,46 +101,46 @@ class Maze:
                 self.doors_set.add(door)
             for door in room.two_way_doors_list:
                 self.doors_set.add(door)
-                
+
         # DOORS DICT
-        
+
         self.doors_dict = {}
         for door in self.doors_set:
             self.doors_dict[door.name] = door
-            
+
         # DOOR LIST
-        
+
         self.doors_list = []
         for door in self.doors_set:
             self.doors_list.append(door)
         self.doors_list = sorted(self.doors_list, key=lambda door: (len(door.name), door.name))
-        
+
         # DOOR NAMES LIST
-        
+
         self.door_names_list = self.doors_dict.keys()
-                
+
         # SWITCHES SET
-                
-        self.switches_set = set()   
+
+        self.switches_set = set()
         for room in self.rooms_list:
             for switch in room.switches_list:
                 self.switches_set.add(switch)
-                
+
         # SWITCHES DICT
-        
+
         self.switches_dict = {}
         for switch in self.switches_set:
             self.switches_dict[switch.name] = switch
-            
+
         # SWITCHES LIST
-        
+
         self.switches_list = []
         for switch in self.switches_set:
             self.switches_list.append(switch)
         self.switches_list = sorted(self.switches_list, key=lambda switch: [len(switch.name), switch.name])
-            
+
         ####################
-            
+
         for door in self.doors_set:
             T = door.tree
             T.switch_leafs()
@@ -217,7 +217,7 @@ class Maze:
         self.current_page = current_page
         self.number_of_pages = 0
         for room in self.rooms_list:
-            self.number_of_pages = max(self.number_of_pages, max(room.pages_list)+1)
+            self.number_of_pages = max(self.number_of_pages, max(room.pages_list) + 1)
         for door in self.doors_set:
             door.maze = self
             Rd = door.room_departure
@@ -225,14 +225,14 @@ class Maze:
             for ipage in range(self.number_of_pages):
                 if ipage in Rd.pages_list and ipage in Ra.pages_list:
                     door.pages_list.append(ipage)
-        self.door_multipages=door_multipages
-        self.current_door_page=current_door_page
+        self.door_multipages = door_multipages
+        self.current_door_page = current_door_page
 
     def __str__(self):
         len_line = 100
         txt = ''
-        separateur = '\n' + "-"*len_line
-        txt += "-"*len_line
+        separateur = '\n' + "-" * len_line
+        txt += "-" * len_line
         txt += '\n|'
         txt += '\n|   Maze {} :'.format(self.name)
         txt += '\n|   Start room index : {}'.format(self.start_room_index)
@@ -265,7 +265,7 @@ class Maze:
         for i in range(len(txt)):
             line = txt[i]
             if len(line) < len_line:
-                while len(line) < len_line-1:
+                while len(line) < len_line - 1:
                     line += ' '
                 line += '|'
             txt[i] = line
@@ -483,7 +483,7 @@ class Maze:
                     else:
                         switches_list = self.switches_list
                     for i in range(len(switches_list)):
-                        sv += self.switches_list[i].value * 2**i
+                        sv += self.switches_list[i].value * 2 ** i
                     txt_verbose_3 += action + ' : ' + str(sv) + '\n'
                     door_trees_dico[action].add(sv)
                 if action_type == 'R':
@@ -518,29 +518,29 @@ class Maze:
                 print('Try again !')
         if verbose == 3:
             door_trees_list = []
-            for door_name in sorted(door_trees_dico.keys(), key=lambda door_name : int(door_name[1:])):
+            for door_name in sorted(door_trees_dico.keys(), key=lambda door_name: int(door_name[1:])):
                 door_trees_list.append(sorted(list(door_trees_dico[door_name])))
             return door_trees_list
         bool_solution = self.current_room_index == self.exit_room_index
         return int(bool_solution) + 1
-    
-    def save_random_door_trees_list(aux_level_function, n_files=64, i0=0): # use it with aux level fonctions
+
+    def save_random_door_trees_list(aux_level_function, n_files=64, i0=0):  # use it with aux level fonctions
 
         aux_level = aux_level_function()
-        n_bin = 2**len(aux_level.switches_list)
+        n_bin = 2 ** len(aux_level.switches_list)
         folder = f'levels/{aux_level.name}'
         if not os_path_exists(folder):
             os_mkdir(folder)
 
-        for seed in range(i0, i0+n_files):
-            
+        for seed in range(i0, i0 + n_files):
+
             file_name = folder + f'/door_trees_list_{seed}'
             if not os_path_exists(file_name):
-                
+
                 # Choix de la graine de génération de nombre aléatoires
                 rd_seed(seed)
                 print('seed', seed)
-                exit_number = rd_randint(0, n_bin-1)
+                exit_number = rd_randint(0, n_bin - 1)
                 if aux_level.random_several_exit:
                     exit_door = rd_choice(aux_level.exit_doors_indexes)
                     print('exit_door =', exit_door)
@@ -558,7 +558,7 @@ class Maze:
                                                          random_search=True,
                                                          save_solutions_txt=False)
                 assert solutions[0] != []
-                solutions[0].sort(key=lambda sol : sol.count('D'))
+                solutions[0].sort(key=lambda sol: sol.count('D'))
                 door_trees_list = aux_level.try_solution(' '.join(solutions[0][-1]), verbose=3)
                 # print(' '.join(solutions[0][-1]))
 
@@ -598,9 +598,9 @@ class Maze:
                 if not os_path_exists(file_name):
                     with open(file_name, 'wb') as fp:
                         pickle_dump(door_trees_list, fp)
-                        
+
                 assert Maze.get_random_level_from_file(aux_level_function, file_name=None).find_all_solutions()[0] != []
-    
+
     def get_random_level_from_file(aux_level_function, file_name=None):
         folder = f'levels/{aux_level_function().name}'
         if not os_path_exists(folder) or os_listdir(folder) == []:
@@ -672,7 +672,7 @@ class Maze:
 
     def get_current_possible_actions_list(self):
         return self.get_current_possible_doors() + self.get_current_possible_switches()
-    
+
     def visited_sitution_by_solution(self, solution):
         self.reboot_solution(fast=True)
         visited_situations = set()
@@ -690,13 +690,13 @@ class Maze:
                            stop_at_first_solution=False,
                            reverse_actions_order=False,
                            initial_try=(),
-                           nb_iterations_print=10**3,
+                           nb_iterations_print=10 ** 3,
                            max_calculation_time=float('inf'),
                            save_solutions_txt=True,
-                           DFS=False, # DFS : deep-first search
+                           DFS=False,  # DFS : deep-first search
                            random_search=False,
                            level_number=None,
-                           only_if_not_yet_calculated=False): # Only used for printing
+                           only_if_not_yet_calculated=False):  # Only used for printing
         t0 = time()
         nb_iterations = 0
         nb_operations = 0
@@ -726,7 +726,8 @@ class Maze:
                     solutions_from_file = fr.readlines()
             except ValueError:
                 print('something wrong with {solutions_file}')
-        if not (nb_iterations_tot is None or nb_operations_tot is None or solutions_from_file is None) and only_if_not_yet_calculated:
+        if not (
+                nb_iterations_tot is None or nb_operations_tot is None or solutions_from_file is None) and only_if_not_yet_calculated:
             return [solutions_from_file, nb_iterations_tot, nb_operations_tot]
         if self.all_solutions is None:
             visited_situations = set()
@@ -747,15 +748,16 @@ class Maze:
                 if verbose == 1:
                     pbar_nb_iterations.update(1)
                 if nb_iterations % nb_iterations_print == 0 and verbose == 2:
-                     print('nb_iterations : {}'.format(nb_iterations))
-                     if len(solutions_to_visit[-1]) < 100:
-                         print('solutions_to_visit[-1] : {}'.format(' '.join(solutions_to_visit[-1])))
-                     print("solutions_to_visit[-1].count('D') : {}".format(' '.join(solutions_to_visit[-1]).count('D')))
-                     print('len(solutions_to_visit) : {}'.format(len(solutions_to_visit)))
-                     print('len(solutions_to_visit)/nb_iterations : {}'.format(len(solutions_to_visit)/nb_iterations))
-                     print(f'estimated remaining time : {int(round((time() - t0)*len(solutions_to_visit)/nb_iterations, 0))} s')
-                     print('len(solutions_that_work) : {}'.format(len(solutions_that_work)))
-                     print('')
+                    print('nb_iterations : {}'.format(nb_iterations))
+                    if len(solutions_to_visit[-1]) < 100:
+                        print('solutions_to_visit[-1] : {}'.format(' '.join(solutions_to_visit[-1])))
+                    print("solutions_to_visit[-1].count('D') : {}".format(' '.join(solutions_to_visit[-1]).count('D')))
+                    print('len(solutions_to_visit) : {}'.format(len(solutions_to_visit)))
+                    print('len(solutions_to_visit)/nb_iterations : {}'.format(len(solutions_to_visit) / nb_iterations))
+                    print(
+                        f'estimated remaining time : {int(round((time() - t0) * len(solutions_to_visit) / nb_iterations, 0))} s')
+                    print('len(solutions_that_work) : {}'.format(len(solutions_that_work)))
+                    print('')
                 solution = solutions_to_visit.pop(0)
                 nb_operations += len(solution)
                 result_solution = self.fast_try_solution(solution)
@@ -763,7 +765,7 @@ class Maze:
                     door.update_open()
                 if result_solution == 1:
                     current_situation_vector = self.current_situation_to_vector()
-                    if current_situation_vector not in visited_situations:# or (random_search and current_situation_vector not in self.visited_sitution_by_solution(solution[:-1])):
+                    if current_situation_vector not in visited_situations:  # or (random_search and current_situation_vector not in self.visited_sitution_by_solution(solution[:-1])):
                         if random_search:
                             actions_doors = self.get_current_possible_doors()
                             actions_switches = self.current_room().get_possible_switches_actions()
@@ -822,7 +824,8 @@ class Maze:
         else:
             solutions_that_work = self.all_solutions
         solutions_that_work = sorted(solutions_that_work, key=len)
-        if not (reverse_actions_order or self.fastest_solution is None or ' '.join(solutions_that_work[0]) == self.fastest_solution) and self.unique_solution:
+        if not (reverse_actions_order or self.fastest_solution is None or ' '.join(
+                solutions_that_work[0]) == self.fastest_solution) and self.unique_solution:
             print(self.name, "wrong fastest solution")
             print("solution found")
             print(str(' '.join(solutions_that_work[0])))
@@ -855,7 +858,7 @@ class Maze:
                         y_max = max(y_max, y_gap + y)
                 self.extreme_coordinates.append([x_min, x_max, y_min, y_max])
         return self.extreme_coordinates[ipagein]
-    
+
     def set_ipage_extreme_coordinates(self,
                                       new_x_min,
                                       new_x_max,
@@ -874,29 +877,29 @@ class Maze:
             old_delta_y = old_y_max - old_y_min
             pente_x = (new_x_max - new_x_min) / old_delta_x
             pente_y = (new_y_max - new_y_min) / old_delta_y
-            if 1/pente_x > 1/pente_y:
-                new_y_moy = (new_y_min + new_y_max)/2
+            if 1 / pente_x > 1 / pente_y:
+                new_y_moy = (new_y_min + new_y_max) / 2
                 (pente, coeff_x) = linear_function(old_x_min,
                                                    new_x_min,
                                                    old_x_max,
                                                    new_x_max)
-                new_y_min = new_y_moy - pente*old_delta_y/2
-                coeff_y = new_y_min - old_y_min*pente
+                new_y_min = new_y_moy - pente * old_delta_y / 2
+                coeff_y = new_y_min - old_y_min * pente
             else:
-                new_x_moy = (new_x_min + new_x_max)/2
+                new_x_moy = (new_x_min + new_x_max) / 2
                 (pente, coeff_y) = linear_function(old_y_min,
                                                    new_y_min,
                                                    old_y_max,
                                                    new_y_max)
-                new_x_min = new_x_moy - pente*old_delta_x/2
-                coeff_x = new_x_min - old_x_min*pente
+                new_x_min = new_x_moy - pente * old_delta_x / 2
+                coeff_x = new_x_min - old_x_min * pente
             for room in self.rooms_list:
                 if ipage in room.position.keys():
                     [x_gap, y_gap, x, y] = room.position[ipage]
-                    x_gap = pente*x_gap+coeff_x
-                    y_gap = pente*y_gap+coeff_y
-                    x = pente*x
-                    y = pente*y
+                    x_gap = pente * x_gap + coeff_x
+                    y_gap = pente * y_gap + coeff_y
+                    x = pente * x
+                    y = pente * y
                     room.position[ipage] = [x_gap, y_gap, x, y]
                     self.extreme_coordinates = None
         else:
@@ -911,10 +914,10 @@ class Maze:
             for room in self.rooms_list:
                 if ipage in room.position.keys():
                     [x_gap, y_gap, x, y] = room.position[ipage]
-                    x_gap = pente_x*x_gap+coeff_x
-                    y_gap = pente_y*y_gap+coeff_y
-                    x = pente_x*x
-                    y = pente_y*y
+                    x_gap = pente_x * x_gap + coeff_x
+                    y_gap = pente_y * y_gap + coeff_y
+                    x = pente_x * x
+                    y = pente_y * y
                     room.position[ipage] = [x_gap, y_gap, x, y]
                     self.extreme_coordinates = None
 
@@ -946,14 +949,14 @@ class Maze:
             cRa = door.relative_arrival_coordinates
             [Rd_x_gap, Rd_y_gap, Rd_x, Rd_y] = Rd.position[self.current_page]
             [Ra_x_gap, Ra_y_gap, Ra_x, Ra_y] = Ra.position[self.current_page]
-            door.real_departure_coordinates = array([Rd_x_gap + Rd_x*cRd[0],
-                                                     Rd_y_gap + Rd_y*cRd[1]])
-            door.real_arrival_coordinates = array([Ra_x_gap + Ra_x*cRa[0],
-                                                   Ra_y_gap + Ra_y*cRa[1]])
+            door.real_departure_coordinates = array([Rd_x_gap + Rd_x * cRd[0],
+                                                     Rd_y_gap + Rd_y * cRd[1]])
+            door.real_arrival_coordinates = array([Ra_x_gap + Ra_x * cRa[0],
+                                                   Ra_y_gap + Ra_y * cRa[1]])
             rp = door.relative_position
             dc = door.real_departure_coordinates
             ac = door.real_arrival_coordinates
-            door.real_middle_coordinates = rp*ac + (1-rp)*dc
+            door.real_middle_coordinates = rp * ac + (1 - rp) * dc
             vect_unit = door.real_arrival_coordinates - door.real_departure_coordinates
             vect_unit = vect_unit / np_linalg_norm(vect_unit)
             [x, y] = vect_unit
@@ -961,19 +964,20 @@ class Maze:
             if door.two_way:
                 l_diag = 55
                 L_diag = 65
-                door.arrow_coordinates = [door.real_middle_coordinates + L_diag*vect_unit/2,
-                                          door.real_middle_coordinates + l_diag*array([y, -x])/2,
-                                          door.real_middle_coordinates - L_diag*vect_unit/2,
-                                          door.real_middle_coordinates - l_diag*array([y, -x])/2]
-                door.real_middle_coordinates = door.real_middle_coordinates - array([11/2*len(door.name), 8])
+                door.arrow_coordinates = [door.real_middle_coordinates + L_diag * vect_unit / 2,
+                                          door.real_middle_coordinates + l_diag * array([y, -x]) / 2,
+                                          door.real_middle_coordinates - L_diag * vect_unit / 2,
+                                          door.real_middle_coordinates - l_diag * array([y, -x]) / 2]
+                door.real_middle_coordinates = door.real_middle_coordinates - array([11 / 2 * len(door.name), 8])
             else:
                 D = 20
                 d = 20
                 L = 25
                 F = 30
-                door.arrow_coordinates = [door.real_middle_coordinates + L*vect_unit,
-                                          door.real_middle_coordinates + d*array([y, -x]),
-                                          door.real_middle_coordinates - F*vect_unit + D*array([y, -x]),
-                                          door.real_middle_coordinates - F*vect_unit - D*array([y, -x]),
-                                          door.real_middle_coordinates - d*array([y, -x])]
-                door.real_middle_coordinates = door.real_middle_coordinates - array([11/2*len(door.name), 8])-10*vect_unit
+                door.arrow_coordinates = [door.real_middle_coordinates + L * vect_unit,
+                                          door.real_middle_coordinates + d * array([y, -x]),
+                                          door.real_middle_coordinates - F * vect_unit + D * array([y, -x]),
+                                          door.real_middle_coordinates - F * vect_unit - D * array([y, -x]),
+                                          door.real_middle_coordinates - d * array([y, -x])]
+                door.real_middle_coordinates = door.real_middle_coordinates - array(
+                    [11 / 2 * len(door.name), 8]) - 10 * vect_unit

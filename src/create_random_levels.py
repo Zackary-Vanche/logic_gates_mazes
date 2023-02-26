@@ -10,21 +10,3 @@ if __name__ == '__main__':
     for aux_level in Levels.aux_level_function_list:
         print(aux_level().name)
         Maze.save_random_door_trees_list(aux_level, n_files=128, i0=0)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

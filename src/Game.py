@@ -33,8 +33,8 @@ from linear_function import linear_function
 from Maze import Maze
 from Levels import Levels
 
+
 class Game:
-    
     keys_dict = {K_a: 'A',
                  K_d: 'D',
                  K_e: 'E',
@@ -62,7 +62,7 @@ class Game:
                  K_KP8: '8',
                  K_KP9: '9',
                  K_SPACE: ' '}
-    
+
     def __init__(self,
                  WINDOW_SIZE=None,
                  SMALLEST_WINDOW_SIZE=None,
@@ -80,12 +80,12 @@ class Game:
                  index_help_page=0,
                  show_loop_time=False,
                  update_display_at_every_loop=False,
-                 sleep_time=10**(-2),
+                 sleep_time=10 ** (-2),
                  save_all_images=False):
         if WINDOW_SIZE is None or SMALLEST_WINDOW_SIZE is None:
             from pyautogui import size as pyautogui_size
             TOTAL_SIZE = pyautogui_size()
-            WINDOW_SIZE = (0.95*TOTAL_SIZE.width, 0.85*TOTAL_SIZE.height)
+            WINDOW_SIZE = (0.95 * TOTAL_SIZE.width, 0.85 * TOTAL_SIZE.height)
             self.WINDOW_SIZE = WINDOW_SIZE
             self.SMALLEST_WINDOW_SIZE = WINDOW_SIZE
         else:
@@ -112,7 +112,7 @@ class Game:
         self.get_new_level = False
         if self.save_image:
             self.show_help = False
-        
+
     def game_setup(self):
         # Game Setup
         pygame_init()
@@ -149,15 +149,14 @@ class Game:
         self.current_action = ''
         self.last_key_pressed_time = time()
         self.last_key_BACKSPACE_pressed_time = time()
-        
+
     def get_level(self):
-        
+
         if self.level_changed or self.get_new_level:
-            
             self.change_in_display = True
 
             self.level_changed = False
-            
+
             # self.maze = Levels.levels_functions_list[self.index_current_level]()
             self.maze = Levels.get_level(self.index_current_level, get_new_level=self.get_new_level)
             self.get_new_level = False
@@ -165,9 +164,9 @@ class Game:
             #     self.maze = level_random()
             # else:
             self.maze.reboot_solution()
-            
+
             self.doors_list = self.maze.doors_list
-            
+
             level_colors = self.maze.level_color
             self.background_color = level_colors.background_color
             self.room_color = level_colors.room_color
@@ -187,33 +186,32 @@ class Game:
 
             # Choix de la bordure en fonction de la hauteur de la fenêtre
             (pente, coeff) = linear_function(643, 35, 1080, 75)
-            border=self.maze.border
+            border = self.maze.border
             self.maze.set_extreme_coordinates(0,
                                               self.x_separation,
                                               0,
                                               self.WINDOW_HEIGHT,
                                               border,
                                               self.keep_proportions)
-    
+
     def update_window_size(self):
-        
+
         if (self.WINDOW_WIDTH, self.WINDOW_HEIGHT) != self.WINDOW.get_size():
             self.WINDOW_SIZE_changed = True
             self.WINDOW_WIDTH, self.WINDOW_HEIGHT = self.WINDOW.get_size()
             self.WINDOW_WIDTH = max(self.SMALLEST_WINDOW_SIZE[0], self.WINDOW_WIDTH)
             self.WINDOW_HEIGHT = max(self.SMALLEST_WINDOW_SIZE[1], self.WINDOW_HEIGHT)
-            
-        if self.WINDOW_SIZE_changed:
 
+        if self.WINDOW_SIZE_changed:
             self.y_separation = self.maze.y_separation
             door_window_size = self.maze.door_window_size
 
             self.x_separation = self.WINDOW_WIDTH - door_window_size
-            #keep_proportions = self.maze.keep_proportions
+            # keep_proportions = self.maze.keep_proportions
 
             # Choix de la bordure en fonction de la hauteur de la fenêtre
             (pente, coeff) = linear_function(643, 35, 1080, 75)
-            border=self.maze.border
+            border = self.maze.border
             self.maze.set_extreme_coordinates(0,
                                               self.x_separation,
                                               0,
@@ -222,7 +220,7 @@ class Game:
                                               self.keep_proportions)
             self.WINDOW_SIZE_changed = False
             self.change_in_display = True
-            
+
     def draw_right_window(self):
         # Affichage de la fenêtre de droite
         right_window_rectangle = pygame_Rect(self.x_separation,
@@ -230,7 +228,7 @@ class Game:
                                              self.door_window_size,
                                              self.WINDOW_HEIGHT)
         pygame_draw_rect(self.WINDOW, self.room_color, right_window_rectangle)
-    
+
     def draw_door_lines(self):
         # Affichage des lignes des portes
         self.line_size = self.maze.line_size
@@ -261,31 +259,31 @@ class Game:
                                          real_departure_coordinates,
                                          real_arrival_coordinates,
                                          self.line_size)
-    
+
     def draw_exterior_lines(self):
         # Bords exterieurs
-        l = 5 # Largeur des bords exterieurs
+        l = 5  # Largeur des bords exterieurs
         pygame_draw_line(self.WINDOW,
                          self.contour_color,
                          (0, 0),
                          (0, self.WINDOW_HEIGHT),
-                         l+2)
+                         l + 2)
         pygame_draw_line(self.WINDOW,
                          self.contour_color,
                          (self.WINDOW_WIDTH, 0),
                          (self.WINDOW_WIDTH, self.WINDOW_HEIGHT),
-                         l+2)
+                         l + 2)
         pygame_draw_line(self.WINDOW,
                          self.contour_color,
                          (0, 0),
                          (self.WINDOW_WIDTH, 0),
-                         l+2)
+                         l + 2)
         pygame_draw_line(self.WINDOW,
                          self.contour_color,
                          (0, self.WINDOW_HEIGHT),
                          (self.WINDOW_WIDTH, self.WINDOW_HEIGHT),
-                         l+2)
-        
+                         l + 2)
+
     def draw_windows_separation(self):
         # Séparation des différentes fenetres
         pygame_draw_line(self.WINDOW,
@@ -298,35 +296,37 @@ class Game:
                          (self.x_separation, self.y_separation),
                          (self.WINDOW_WIDTH, self.y_separation),
                          3)
-        
+
     def print_level_name(self):
         # Affichage du nom du niveau courant
-        level_name_render = self.font.render('Level ' + str(self.index_current_level) + ' : ' + self.maze.name.replace('_', ' '),
-                                             True,
-                                             self.letters_color)
+        level_name_render = self.font.render(
+            'Level ' + str(self.index_current_level) + ' : ' + self.maze.name.replace('_', ' '),
+            True,
+            self.letters_color)
         self.WINDOW.blit(level_name_render, (10, 10))
-        
+
     def print_trees(self):
         # Affichage des arbres des portes
         self.n_lines_door_printing = self.maze.n_lines_door_printing
         if self.n_lines_door_printing == 0:
             return None
         if self.print_tree_polygon:
-            pass # deprecated
+            pass  # deprecated
         elif self.maze.door_multipages:
             door = self.doors_list[self.maze.current_door_page]
             tree = door.tree
             logical_expression = tree.get_easy_logical_expression_PN()
             logical_expression = logical_expression.split('\n')
             self.n_lines_door_printing = len(logical_expression)
-            self.gap_between_lines = min((self.WINDOW_HEIGHT - self.maze.y_separation - 50) / (self.n_lines_door_printing), 30)
+            self.gap_between_lines = min(
+                (self.WINDOW_HEIGHT - self.maze.y_separation - 50) / (self.n_lines_door_printing), 30)
             tree = door.tree
             str_logical_expression = tree.get_easy_logical_expression_PN()
             str_logical_expression = str_logical_expression.split('\n')
             gap = self.y_separation + 10
             self.WINDOW.blit(self.font.render('DOORS :',
-                             True,
-                             self.inside_room_color),
+                                              True,
+                                              self.inside_room_color),
                              (self.x_separation + 10, gap))
             gap = self.y_separation + 35
             for i in range(len(str_logical_expression)):
@@ -337,17 +337,18 @@ class Game:
                                                                  self.inside_room_color)
                     self.WINDOW.blit(logical_expression_render, (self.x_separation + 10, gap))
                 else:
-                    logical_expression_render = self.font.render(' '*(len(door.name)+3) + string,
-                                                            True,
-                                                            self.inside_room_color)
+                    logical_expression_render = self.font.render(' ' * (len(door.name) + 3) + string,
+                                                                 True,
+                                                                 self.inside_room_color)
                     self.WINDOW.blit(logical_expression_render, (self.x_separation + 10, gap))
                 gap += self.gap_between_lines
         else:
-            self.gap_between_lines = min((self.WINDOW_HEIGHT - self.maze.y_separation - 50) / (self.n_lines_door_printing), 25)
+            self.gap_between_lines = min(
+                (self.WINDOW_HEIGHT - self.maze.y_separation - 50) / (self.n_lines_door_printing), 25)
             gap = self.y_separation + 10
             self.WINDOW.blit(self.font.render('DOORS :',
-                             True,
-                             self.inside_room_color),
+                                              True,
+                                              self.inside_room_color),
                              (self.x_separation + 10, gap))
             gap = self.y_separation + 35
             for k in range(len(self.doors_list)):
@@ -367,9 +368,9 @@ class Game:
                                                                              self.inside_room_color)
                                 self.WINDOW.blit(logical_expression_render, (self.x_separation + 10, gap))
                             else:
-                                logical_expression_render = self.font.render(' '*(len(door.name)+3) + string,
-                                                                        True,
-                                                                        self.inside_room_color)
+                                logical_expression_render = self.font.render(' ' * (len(door.name) + 3) + string,
+                                                                             True,
+                                                                             self.inside_room_color)
                                 self.WINDOW.blit(logical_expression_render, (self.x_separation + 10, gap))
                             gap += self.gap_between_lines
 
@@ -379,14 +380,16 @@ class Game:
         for room in self.maze.rooms_list:
             if self.maze.current_page in room.pages_list:
                 [x_gap, y_gap, x, y] = array(room.position[self.maze.current_page])
-                room_rectangle = pygame_Rect(x_gap, y_gap, x+2, y+2)
+                room_rectangle = pygame_Rect(x_gap, y_gap, x + 2, y + 2)
                 if room.is_exit:
                     pygame_draw_ellipse(self.WINDOW, self.room_color, room_rectangle)
                     if self.maze.current_room() == room:
                         if self.uniform_surrounding_colors:
-                            pygame_draw_ellipse(self.WINDOW, self.surrounding_color, room_rectangle, width=self.line_size)
+                            pygame_draw_ellipse(self.WINDOW, self.surrounding_color, room_rectangle,
+                                                width=self.line_size)
                         else:
-                            pygame_draw_ellipse(self.WINDOW, room.surrounding_color, room_rectangle, width=self.line_size)
+                            pygame_draw_ellipse(self.WINDOW, room.surrounding_color, room_rectangle,
+                                                width=self.line_size)
                 else:
                     pygame_draw_rect(self.WINDOW, self.room_color, room_rectangle)
                     if self.maze.current_room() == room:
@@ -394,7 +397,7 @@ class Game:
                             pygame_draw_rect(self.WINDOW, self.surrounding_color, room_rectangle, width=self.line_size)
                         else:
                             pygame_draw_rect(self.WINDOW, room.surrounding_color, room_rectangle, width=self.line_size)
-                    
+
     def draw_rooms_names(self):
         # Affichage des pieces
         for room in self.maze.rooms_list:
@@ -411,7 +414,7 @@ class Game:
                                                         self.inside_room_color)
                     if self.print_room_name:
                         self.WINDOW.blit(room_name_render, room.get_name_position())
-           
+
     def draw_doors_polygons(self):
         # Affichage des polygones des portes
         for door in self.maze.doors_set:
@@ -435,7 +438,7 @@ class Game:
                                             door.surrounding_color,
                                             arrow_coordinates,
                                             width=3)
-                
+
     def print_doors_names(self):
         # Affichage des portes
         for door in self.maze.doors_set:
@@ -445,8 +448,8 @@ class Game:
                                                     True,
                                                     self.inside_room_color)
                 self.WINDOW.blit(door_name_render,
-                                 real_middle_coordinates)      
-            
+                                 real_middle_coordinates)
+
     def draw_switches(self):
         # Affichage des interrupteurs
         for room in self.maze.rooms_list:
@@ -457,8 +460,8 @@ class Game:
                 for i in range(len(switches_list)):
                     switch = switches_list[i]
                     position = switches_positions[i]
-                    rect = pygame_Rect(position[0]-self.click_rect_size_x/2,
-                                       position[1]-self.click_rect_size_y/2,
+                    rect = pygame_Rect(position[0] - self.click_rect_size_x / 2,
+                                       position[1] - self.click_rect_size_y / 2,
                                        self.click_rect_size_x,
                                        self.click_rect_size_y)
                     if switch.value:
@@ -467,20 +470,20 @@ class Game:
                                              self.background_color,
                                              rect)
                         else:
-                            rectangle_switch = pygame_Rect(position[0]-self.click_rect_size_x/2,
-                                                           position[1]-self.click_rect_size_y/2,
+                            rectangle_switch = pygame_Rect(position[0] - self.click_rect_size_x / 2,
+                                                           position[1] - self.click_rect_size_y / 2,
                                                            self.click_rect_size_x,
                                                            self.click_rect_size_y)
                             if self.uniform_surrounding_colors:
                                 pygame_draw_rect(self.WINDOW,
                                                  self.inside_room_surrounding_color,
                                                  rectangle_switch,
-                                                 width = 3)
+                                                 width=3)
                             else:
                                 pygame_draw_rect(self.WINDOW,
                                                  room.surrounding_color,
                                                  rectangle_switch,
-                                                 width = 3)
+                                                 width=3)
                     if self.print_click_rects:
                         if switch.value:
                             switch_name_render = self.font.render(switch.name,
@@ -492,34 +495,35 @@ class Game:
                                                                   self.inside_room_color)
                     else:
                         switch_name_render = self.font.render(switch.name,
-                                                         True,
-                                                         self.inside_room_color)
+                                                              True,
+                                                              self.inside_room_color)
                     self.WINDOW.blit(switch_name_render,
-                                position - array([10/2*len(switch.name), 7]))
-        
+                                     position - array([10 / 2 * len(switch.name), 7]))
+
     def display_help(self):
-        
+
         self.WINDOW.fill(self.background_color)
         self.font = pygame_font_SysFont(None, self.help_font_size)
-        
+
         self.draw_exterior_lines()
         # Affichage du nom du niveau courant
-        level_name_render = self.font.render('HELP - Level ' + str(self.index_current_level) + ' : ' + self.maze.name.replace('_', ' '), 
-                                        True,
-                                        self.letters_color)
+        level_name_render = self.font.render(
+            'HELP - Level ' + str(self.index_current_level) + ' : ' + self.maze.name.replace('_', ' '),
+            True,
+            self.letters_color)
         self.WINDOW.blit(level_name_render, (10, 10))
         self.index_help_page = self.index_help_page % self.maze.n_help_pages
         string_help = self.maze.help_txt[self.index_help_page]
         gap = 0
         help_list = string_help.split('\n')
-        p, c = linear_function(768-self.Y_marge, 50, 1080-self.Y_marge, 50)
-        y0 = p*self.WINDOW_HEIGHT + c
-        p, c = linear_function(1366-self.X_marge, 50, 1920-self.X_marge, 50)
-        x0 = p*self.WINDOW_WIDTH + c
+        p, c = linear_function(768 - self.Y_marge, 50, 1080 - self.Y_marge, 50)
+        y0 = p * self.WINDOW_HEIGHT + c
+        p, c = linear_function(1366 - self.X_marge, 50, 1920 - self.X_marge, 50)
+        x0 = p * self.WINDOW_WIDTH + c
         for line in help_list:
             self.WINDOW.blit(self.font.render(line,
-                                         True,
-                                         self.letters_color),
+                                              True,
+                                              self.letters_color),
                              (x0, y0 + gap))
             if line.replace(' ', '') == '':
                 gap += 12
@@ -533,14 +537,14 @@ class Game:
             if not os_path_exists(fname):
                 print(fname)
                 pygame_image_save(self.WINDOW, fname)
-                
+
     def print_current_action(self):
         current_action_render = self.font.render(self.current_action,
                                                  True,
                                                  self.inside_room_color)
         self.WINDOW.blit(current_action_render,
-                         (self.x_separation + self.y_separation/3, self.y_separation/2-7))
-                
+                         (self.x_separation + self.y_separation / 3, self.y_separation / 2 - 7))
+
     def display_game_window(self):
         self.font = pygame_font_SysFont(None, self.font_size)
         self.WINDOW.fill(self.background_color)
@@ -559,7 +563,7 @@ class Game:
         self.print_current_action()
         self.draw_rooms_names()
         pygame_display_update()
-        
+
     def handle_interractions(self):
         self.pressed = pygame_key_get_pressed()
         # Gestion des actions
@@ -573,7 +577,8 @@ class Game:
                     self.change_in_display = True
                     self.current_action = self.current_action + Game.keys_dict[key]
                     self.last_key_pressed_time = time()
-            if self.pressed[K_RETURN] and self.current_action != '' and self.maze.current_room_index != self.maze.exit_room_index:
+            if self.pressed[
+                K_RETURN] and self.current_action != '' and self.maze.current_room_index != self.maze.exit_room_index:
                 self.change_in_display = True
                 if len(self.current_action) > 0:
                     if self.current_action[0] in ['D', 'S', 'R']:
@@ -599,7 +604,7 @@ class Game:
                 self.change_in_display = True
                 self.current_action = self.current_action[:-1]
                 self.last_key_BACKSPACE_pressed_time = time()
-                         
+
     def change_level(self):
         self.pressed = pygame_key_get_pressed()
         # Changement de niveau
@@ -611,7 +616,7 @@ class Game:
                 self.index_current_level -= 1
                 self.level_changed = True
             if (self.pressed[K_UP]):
-                self.index_current_level = Levels.number_of_levels-1
+                self.index_current_level = Levels.number_of_levels - 1
                 self.level_changed = True
             if (self.pressed[K_DOWN]):
                 self.index_current_level = 0
@@ -619,10 +624,10 @@ class Game:
         if self.level_changed:
             self.last_level_change_time = time()
         self.index_current_level = min(self.index_current_level,
-                                       Levels.number_of_levels-1)
+                                       Levels.number_of_levels - 1)
         self.index_current_level = max(self.index_current_level,
-                                  0)
-        
+                                       0)
+
     def goto_or_leave_help(self):
         self.pressed = pygame_key_get_pressed()
         # Passage au menu d'aide / quitter le menu aide
@@ -631,7 +636,7 @@ class Game:
                 self.show_help = not self.show_help
                 self.last_key_pressed_time = time()
                 self.change_in_display = True
-                
+
     def change_door_page(self):
         self.pressed = pygame_key_get_pressed()
         # Changement de page du jeu
@@ -639,7 +644,7 @@ class Game:
             if self.pressed[K_m]:
                 self.last_key_pressed_time = time()
                 self.maze.current_door_page += -1
-                self.maze.current_door_page = self.maze.current_door_page%len(self.maze.doors_set)
+                self.maze.current_door_page = self.maze.current_door_page % len(self.maze.doors_set)
                 self.change_in_display = True
             if self.pressed[K_n]:
                 self.last_key_pressed_time = time()
@@ -649,7 +654,7 @@ class Game:
             if self.pressed[K_p]:
                 self.last_key_pressed_time = time()
                 self.maze.current_door_page += 1
-                self.maze.current_door_page = self.maze.current_door_page%len(self.maze.doors_set)
+                self.maze.current_door_page = self.maze.current_door_page % len(self.maze.doors_set)
                 self.change_in_display = True
 
     def save_image_as_file(self):
@@ -658,17 +663,17 @@ class Game:
             # if not os_path_exists(fname):
             print(fname)
             pygame_image_save(self.WINDOW, fname)
-                
+
     def quit_game(self):
         self.t1 = time()
         if self.show_loop_time:
             self.t_tot = self.t1 - self.t0
             print("number of loops :\n", self.n_loops)
             print("time of execution :\n", round(self.t_tot, 0), 's')
-            print("mean time of execution of one loop :\n", self.t_tot/self.n_loops, 's')
+            print("mean time of execution of one loop :\n", self.t_tot / self.n_loops, 's')
         pygame_quit()
         return None
-    
+
     def do_you_quit_game(self):
         self.pressed = pygame_key_get_pressed()
         for event in pygame_event_get():
@@ -680,10 +685,10 @@ class Game:
             self.quit_game()
             return True
         return False
-    
+
     def update_to_save_images(self):
         if self.save_image:
-            if self.index_current_level != Levels.number_of_levels-1:
+            if self.index_current_level != Levels.number_of_levels - 1:
                 self.index_current_level += 1
             else:
                 if not self.show_help:
@@ -702,7 +707,7 @@ class Game:
         self.t0 = time()
         self.n_loops = 0
         while self.looping:
-            sleep(self.sleep_time) # I did that not to use too much CPU
+            sleep(self.sleep_time)  # I did that not to use too much CPU
             self.n_loops += 1
             if self.do_you_quit_game():
                 return None
@@ -721,10 +726,10 @@ class Game:
             self.change_level()
             self.goto_or_leave_help()
             self.change_door_page()
-            if self.update_to_save_images(): # It means you quit the game
+            if self.update_to_save_images():  # It means you quit the game
                 return None
             # self.change_page()
-            
+
     def save_levels_txt(verbose=0, calculates_solutions=True, short_only=True):
         t0 = time()
         Maze.calculates_solutions = calculates_solutions
