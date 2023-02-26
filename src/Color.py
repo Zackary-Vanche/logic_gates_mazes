@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Feb 24 20:57:18 2022
-
-@author: utilisateur
-"""
-
 from colorsys import hls_to_rgb
 from numpy import array
 from numpy import uint8

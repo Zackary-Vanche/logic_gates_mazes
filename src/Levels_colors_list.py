@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Mar  2 16:50:57 2022
-
-@author: utilisateur
-"""
-
 from Color import Color
 from Level_color import Level_color
 

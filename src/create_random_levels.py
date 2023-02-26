@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Jan  7 15:08:10 2023
-
-@author: utilisateur
-"""
-
 from Maze import Maze
 from Levels import Levels
 

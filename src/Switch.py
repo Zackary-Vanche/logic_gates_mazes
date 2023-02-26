@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Feb 24 20:49:37 2022
-
-@author: utilisateur
-"""
-
 class Switch:
 
     def __init__(self, 

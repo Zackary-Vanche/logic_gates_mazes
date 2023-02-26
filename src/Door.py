@@ -1,11 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Feb 24 20:52:52 2022
-
-@author: utilisateur
-"""
-
-
 class Door:
 
     def __init__(self,

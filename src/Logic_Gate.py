@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Mar  3 16:01:51 2022
-
-@author: utilisateur
-"""
-
 # from numba import njit
 from numpy import array as np_array, prod as np_prod
 

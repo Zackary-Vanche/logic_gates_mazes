@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Feb 26 13:09:49 2022
-
-@author: utilisateur
-"""
-
 import matplotlib.pyplot as plt
 
 from os.path import exists as os_path_exists

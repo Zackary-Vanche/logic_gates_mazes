@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Mar  2 16:39:27 2022
-
-@author: utilisateur
-"""
-
 class Level_color:
     
     def __init__(self,

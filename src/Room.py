@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Feb 24 20:53:44 2022
-
-@author: utilisateur
-"""
-
 from numpy import ceil, sqrt
 from linear_function import linear_function
 from powerset import powerset

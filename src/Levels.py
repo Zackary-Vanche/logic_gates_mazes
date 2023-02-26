@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Feb 26 13:12:20 2022
-
-@author: utilisateur
-"""
-
 from time import time, sleep
 from os.path import exists as os_path_exists
 from os import mkdir as os_mkdir

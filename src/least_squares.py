@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Mar 31 11:20:13 2021
-
-@author: utilisateur
-"""
-
 import numpy as np
 
 def least_squares(A, B, P = None):

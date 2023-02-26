@@ -1,17 +1,9 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Jul  3 20:42:39 2022
-
-@author: utilisateur
-"""
-
 from Switch import Switch
 from Tree import Tree
 from Door import Door
 from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
-
 
 def level_travelling_salesman(fast_solution_finding=False):
     S0 = Switch(name='S0')
