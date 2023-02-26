@@ -13,7 +13,6 @@ from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 from random import shuffle as rd_shuffle
 
-
 def level_tree():
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -312,7 +311,6 @@ def level_tree():
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19,
                              D20],
                  fastest_solution=None,
-                 # "D1 S7 D3 D9 D0 S6 D2 D19 D1 S5 S7 D3 D7 D0 S4 S6 D2 D19 D1 S3 S5 S7 D3 D16 D0 S2 S4 S6 D2 D19 D1 S1 S3 S5 D3 D17 D0 S0 S2 S4 D2 D19 D20",
                  level_color=Levels_colors_list.RED_AND_YELLOW,
                  name='Tree',
                  random=True,
