@@ -37,10 +37,6 @@ def level_electricity():
     S16 = Switch(name='S16', value=w)
     S17 = Switch(name='S17', value=w)
 
-    #    tree_list_1b = Tree.tree_list_from_str('FFT')
-    #    tree_list_6b = Tree.tree_list_from_str('TFF')
-    #    tree_list_7b = Tree.tree_list_from_str('FFT')
-
     tree_list_0 = ['AND', [None], ['NAND', Tree.tree_list_from_str('FFT'), Tree.tree_list_from_str('TFF'),
                                    Tree.tree_list_from_str('FFT')]]
 
