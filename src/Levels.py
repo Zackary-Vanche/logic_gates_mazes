@@ -495,4 +495,4 @@ if __name__ == "__main__":
     test_levels()
 
     # import cProfile
-    # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=60*2, save_as_txt=False)''', sort=1)
+    # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=float('inf'), save_as_txt=False)''', sort=1)
