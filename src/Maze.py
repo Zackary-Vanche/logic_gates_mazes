@@ -12,7 +12,6 @@ from random import random as rd_random
 from pickle import dump as pickle_dump
 from pickle import load as pickle_load
 # from numba import njit
-from tqdm import tqdm
 
 from os.path import exists as os_path_exists
 from os import mkdir as os_mkdir
@@ -697,6 +696,11 @@ class Maze:
                            random_search=False,
                            level_number=None,
                            only_if_not_yet_calculated=False):  # Only used for printing
+
+        from tqdm import tqdm
+        # The main function doesn't use this function
+        # The import is here because you need to be able to run the game without tqdm
+
         t0 = time()
         nb_iterations = 0
         nb_operations = 0
