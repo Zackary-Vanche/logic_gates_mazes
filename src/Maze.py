@@ -812,12 +812,13 @@ class Maze:
                     visited_situations.add(current_situation_vector)
                 elif result_solution == 2:
                     if save_solutions_txt:
-                        with open(solutions_file, 'w') as file:
-                            file.write(' '.join(solution) + '\n')
-                        with open(nb_iterations_file, 'w') as file:
-                            file.write(str(nb_iterations))
-                        with open(nb_operations_file, 'w') as file:
-                            file.write(str(nb_operations))
+                        if os_path_exists('solutions'):
+                            with open(solutions_file, 'w') as file:
+                                file.write(' '.join(solution) + '\n')
+                            with open(nb_iterations_file, 'w') as file:
+                                file.write(str(nb_iterations))
+                            with open(nb_operations_file, 'w') as file:
+                                file.write(str(nb_operations))
                     solutions_that_work.append(solution)
                     if stop_at_first_solution:
                         self.reboot_solution()

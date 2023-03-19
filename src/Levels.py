@@ -33,6 +33,7 @@ from levels.level_elementary import level_elementary
 from levels.level_eulerian import level_eulerian
 from levels.level_exact_cover import level_exact_cover
 from levels.level_five import level_five
+from levels.level_flash_back import level_flash_back
 from levels.level_fluid import level_fluid
 from levels.level_fractal import level_fractal
 from levels.level_hamiltonian import level_hamiltonian
@@ -226,6 +227,7 @@ class Levels:
         level_baguenaudier,
         level_spare,
         level_4_colors_theorem,
+        level_flash_back,
         level_magic_square,
         level_matrix,
         level_river,
@@ -489,10 +491,12 @@ if __name__ == "__main__":
     import collections
     import numpy as np
 
+    print(level_flash_back().find_all_solutions(verbose=2))
+
     if os.path.exists('temp.txt'):
         os.remove('temp.txt')
 
-    test_levels()
+    # test_levels()
 
     # import cProfile
     # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=float('inf'), save_as_txt=False)''', sort=1)

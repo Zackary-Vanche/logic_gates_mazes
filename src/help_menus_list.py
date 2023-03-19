@@ -491,6 +491,8 @@ help_menus_list['levels']["Spare"] = '''Use the spare room.'''
 
 help_menus_list['levels']["4 colors theorem"] = """Each couple of switches represent a color.\n"""
 
+help_menus_list['levels']["Flash-back"] = """Be careful not to come back in a state you already visited."""
+
 help_menus_list['levels']["Magic square"] = help_menus_list['DIFF']
 
 help_menus_list['levels']["Matrix"] = """To solve this level you need to do a 5*5 matrix inversion."""
