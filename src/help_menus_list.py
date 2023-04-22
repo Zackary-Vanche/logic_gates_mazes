@@ -438,6 +438,8 @@ help_menus_list['levels']["Elementary"] = """An elementary permutation is a swap
 
 help_menus_list['levels']["Superpermutation"] = help_menus_list['INLIST']
 
+help_menus_list['levels']["Spaceship"] = 'You have to find the order in the chaos.'
+
 help_menus_list['levels']["Taxicab number"] = """Taxicab numbers are also called Hardy–Ramanujan numbers."""
 
 help_menus_list['levels'][

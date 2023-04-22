@@ -100,6 +100,7 @@ from levels.level_small import level_small
 from levels.level_square import level_square
 from levels.level_solitaire import level_solitaire
 from levels.level_spare import level_spare
+from levels.level_spaceship import level_spaceship
 from levels.level_strange import level_strange
 from levels.level_sudoku import level_sudoku
 from levels.level_sujiko import level_sujiko
@@ -200,6 +201,7 @@ class Levels:
         level_pythagorean,
         level_random_butterfly,
         level_elementary,
+        level_spaceship,
         level_superpermutation,
         level_chessboard,
         level_dichotomy,
@@ -491,12 +493,10 @@ if __name__ == "__main__":
     import collections
     import numpy as np
 
-    print(level_flash_back().find_all_solutions(verbose=2))
-
     if os.path.exists('temp.txt'):
         os.remove('temp.txt')
 
-    # test_levels()
+    test_levels()
 
     # import cProfile
     # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=float('inf'), save_as_txt=False)''', sort=1)

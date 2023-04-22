@@ -689,7 +689,7 @@ class Maze:
                            stop_at_first_solution=False,
                            reverse_actions_order=False,
                            initial_try=(),
-                           nb_iterations_print=10 ** 3,
+                           nb_iterations_print=10**3,
                            max_calculation_time=float('inf'),
                            save_solutions_txt=True,
                            DFS=False,  # DFS : deep-first search
