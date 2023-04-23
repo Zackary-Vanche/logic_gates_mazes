@@ -706,9 +706,14 @@ class Maze:
         nb_operations = 0
 
         name = self.name
-        solutions_file = f'solutions/{name}_solutions.txt'
-        nb_iterations_file = f'solutions/{name}_nb_iterations.txt'
-        nb_operations_file = f'solutions/{name}_nb_operations.txt'
+        if self.random:
+            solutions_file = f'solutions/random_levels/{name}_solutions.txt'
+            nb_iterations_file = f'solutions/random_levels/{name}_nb_iterations.txt'
+            nb_operations_file = f'solutions/random_levels/{name}_nb_operations.txt'
+        else:
+            solutions_file = f'solutions/{name}_solutions.txt'
+            nb_iterations_file = f'solutions/{name}_nb_iterations.txt'
+            nb_operations_file = f'solutions/{name}_nb_operations.txt'
         nb_iterations_tot = None
         nb_operations_tot = None
         solutions_from_file = None
@@ -730,8 +735,7 @@ class Maze:
                     solutions_from_file = fr.readlines()
             except ValueError:
                 print('something wrong with {solutions_file}')
-        if not (
-                nb_iterations_tot is None or nb_operations_tot is None or solutions_from_file is None) and only_if_not_yet_calculated:
+        if not (nb_iterations_tot is None or nb_operations_tot is None or solutions_from_file is None) and only_if_not_yet_calculated:
             return [solutions_from_file, nb_iterations_tot, nb_operations_tot]
         if self.all_solutions is None:
             visited_situations = set()

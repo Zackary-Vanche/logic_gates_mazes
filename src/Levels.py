@@ -332,8 +332,9 @@ class Levels:
         txt = ''
         nb_iterations_list = []
         nb_operations_list = []
-        if not os_path_exists('solutions'):
-            os_mkdir('solutions')
+        for folder in ['solutions', 'solutions/random_levels']:
+            if not os_path_exists(folder):
+                os_mkdir(folder)
         if not do_it_fast:
             calculations_times = [None for i in range(Levels.number_of_levels)]
 
