@@ -44,9 +44,6 @@ def level_spaceship():
     T2 = Tree(tree_list=tree_list_0,
               empty=True, name='T2',
               switches=[S0, S4, S5, S6, S10, S11, S12])
-    # T3 = Tree(tree_list=tree_list_0,
-    #           empty=True, name='T3',
-    #           switches=[S0, S7, S8, S9, S10, S11, S12])
     T3 = Tree(tree_list=tree_list_0,
               empty=True, name='T3',
               switches=[S0, S10, S11, S12, S13, S14, S15])
@@ -117,11 +114,6 @@ def level_spaceship():
               room_departure=R2,
               room_arrival=R4,
               relative_position=0.4)
-    # D3 = Door(two_way=False,
-    #           tree=T3,
-    #           name='D3',
-    #           room_departure=R3,
-    #           room_arrival=R4)
     D3 = Door(two_way=False,
               tree=T3,
               name='D3',

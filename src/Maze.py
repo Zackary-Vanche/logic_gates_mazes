@@ -711,9 +711,9 @@ class Maze:
             nb_iterations_file = f'solutions/random_levels/{name}_nb_iterations.txt'
             nb_operations_file = f'solutions/random_levels/{name}_nb_operations.txt'
         else:
-            solutions_file = f'solutions/{name}_solutions.txt'
-            nb_iterations_file = f'solutions/{name}_nb_iterations.txt'
-            nb_operations_file = f'solutions/{name}_nb_operations.txt'
+            solutions_file = f'solutions/not_random_levels/{name}_solutions.txt'
+            nb_iterations_file = f'solutions/not_random_levels/{name}_nb_iterations.txt'
+            nb_operations_file = f'solutions/not_random_levels/{name}_nb_operations.txt'
         nb_iterations_tot = None
         nb_operations_tot = None
         solutions_from_file = None
