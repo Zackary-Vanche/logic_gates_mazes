@@ -62,7 +62,7 @@ def level_exact_cover():
                           S0, S2, S3,
                           S1, S2,
                           S2, S4, S5,
-                          S3, S4, S4, S7,
+                          S3, S4, S6, S7,
                           S1, S6, S8,
                           S4, S5, S7,
                           S5, S8],
