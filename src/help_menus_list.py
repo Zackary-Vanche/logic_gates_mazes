@@ -438,8 +438,6 @@ help_menus_list['levels']["Elementary"] = """An elementary permutation is a swap
 
 help_menus_list['levels']["Superpermutation"] = help_menus_list['INLIST']
 
-help_menus_list['levels']["Spaceship"] = 'You have to find the order in the chaos.'
-
 help_menus_list['levels']["Taxicab number"] = """Taxicab numbers are also called Hardy–Ramanujan numbers."""
 
 help_menus_list['levels'][
@@ -494,6 +492,8 @@ help_menus_list['levels']["Spare"] = '''Use the spare room.'''
 help_menus_list['levels']["4 colors theorem"] = """Each couple of switches represent a color.\n"""
 
 help_menus_list['levels']["Flash-back"] = """Be careful not to come back in a state you already visited."""
+
+help_menus_list['levels']["Spaceship"] = 'You have to find the order in the chaos.'
 
 help_menus_list['levels']["Magic square"] = help_menus_list['DIFF']
 
