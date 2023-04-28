@@ -353,6 +353,8 @@ By pressing [N], you get a new random level.
 
 Door's expression and solutions of the random levels have all been calculated by computer only."""
 
+help_menus_list['random exit'] = """The configuration you have to reach to open the exit gate is chosen randomly in a file."""
+
 ############
 ## LEVELS ##
 ############
@@ -533,8 +535,9 @@ help_menus_list['levels']["Pancake sorting"] = """Pancake sorting is a real comp
 
 help_menus_list['levels']["Wave"] = """The path to the exit is not so long."""
 
-help_menus_list['levels'][
-    "Takuzu"] = """Takuzu is a logic puzzle involving placement of two symbols, often 1s and 0s, on a rectangular grid."""
+help_menus_list['levels']["Cube"] = help_menus_list['random exit']
+
+help_menus_list['levels']["Takuzu"] = """Takuzu is a logic puzzle involving placement of two symbols, often 1s and 0s, on a rectangular grid."""
 
 help_menus_list['levels']["Travelling salesman"] = "The travelling salesman is a NP-complete problem."
 

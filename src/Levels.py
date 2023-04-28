@@ -21,6 +21,7 @@ from levels.level_compact import level_compact
 from levels.level_congruence import level_congruence
 from levels.level_crossroad import level_crossroad
 from levels.level_crystal import level_crystal
+from levels.level_cube import level_cube
 from levels.level_dead_ends import level_dead_ends
 # from levels.level_desert_crossing import level_desert_crossing
 from levels.level_diagonal import level_diagonal
@@ -250,6 +251,7 @@ class Levels:
         level_pancake_sorting,
         level_random_ladder,
         level_wave,
+        level_cube,
         level_random_come_back,
         level_inversions,
         level_permutations,
@@ -497,7 +499,11 @@ if __name__ == "__main__":
     if os.path.exists('temp.txt'):
         os.remove('temp.txt')
 
-    test_levels()
+    # test_levels()
+    
+    
+    
+            
 
     # import cProfile
     # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=float('inf'), save_as_txt=False)''', sort=1)
