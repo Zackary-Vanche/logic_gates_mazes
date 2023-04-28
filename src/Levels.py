@@ -143,23 +143,9 @@ from levels.level_random_simple import aux_level_random_simple
 from levels.level_random_petersen import aux_level_random_petersen
 from levels.level_random_cuboctahedron import aux_level_random_cuboctahedron
 
-
-# from levels.level_random_blind_alley import aux_level_random_blind_alley
-
-
-# Rotation
-# Full
-# jeep problem ???
-# Conway puzzle ???
-# Century
-# Star battle
-# Skyscraper puzzle
-# Tents
-# Four
-# Hashi ???
-# Hitori ???
-# Nurikabe ???
-# Masyu ???
+# Oval Track Puzzle
+# Hungarian Rings
+# Lights out
 
 class Levels:
     levels_functions_list = [
