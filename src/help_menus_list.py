@@ -353,7 +353,11 @@ By pressing [N], you get a new random level.
 
 Door's expression and solutions of the random levels have all been calculated by computer only."""
 
-help_menus_list['random exit'] = """The configuration you have to reach to open the exit gate is chosen randomly in a file."""
+help_menus_list['random exit'] = """The configuration you have to reach to open the exit gate is chosen randomly in a file.
+Press [N] to get a new exit gate."""
+
+help_menus_list['random configuration'] = """The initial configuration is chosen randomly in a file.
+Press [N] to get a new configuration."""
 
 ############
 ## LEVELS ##
@@ -480,6 +484,8 @@ help_menus_list['levels']["Crystal"] = """If you make a mistake, you have to sta
 
 help_menus_list['levels']["XOR"] = help_menus_list['NAND']
 
+help_menus_list['levels']["Lights_out"] = help_menus_list['random configuration']
+
 help_menus_list['levels']["Weights"] = '''You must find the good weights in order to reach the exit.'''
 
 help_menus_list['levels']["Tetris"] = """Each number can represent a position in the plane.\n"""
@@ -553,8 +559,9 @@ help_menus_list['levels']["Sudoku"] = """It looks a lot like the level diagonal.
 
 help_menus_list['levels']["Knight"] = """To solve this level you need to find a knight's tour."""
 
-help_menus_list['levels'][
-    "Water pouring"] = """You have 3 jugs of liquid, and you need to pour water from one to another."""
+help_menus_list['levels']["Hungarian_rings"] = help_menus_list['random configuration']
+
+help_menus_list['levels']["Water pouring"] = """You have 3 jugs of liquid, and you need to pour water from one to another."""
 
 help_menus_list['levels']["Syracuse"] = """The solution is pretty long."""
 
@@ -566,8 +573,7 @@ help_menus_list['levels']["Sign"] = 'You might need the help of a computer to so
 
 help_menus_list['levels']["Combinatorics"] = help_menus_list['N3L']
 
-help_menus_list['levels'][
-    "Temple"] = """This level is the retranscription of a really known puzzle game.\nOnce you find which game it is, the level is over."""
+help_menus_list['levels']["Temple"] = """This level is the retranscription of a really known puzzle game.\nOnce you find which game it is, the level is over."""
 
 help_menus_list['levels']["Puzzle"] = """This level is inspired from the 15-puzzle."""
 

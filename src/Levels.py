@@ -40,6 +40,7 @@ from levels.level_fractal import level_fractal
 from levels.level_hamiltonian import level_hamiltonian
 from levels.level_hello_world import level_hello_world
 from levels.level_hitting_set import level_hitting_set
+from levels.level_hungarian_rings import level_hungarian_rings
 from levels.level_independent_set import level_independent_set
 from levels.level_infinity import level_infinity
 from levels.level_initiation import level_initiation
@@ -47,6 +48,7 @@ from levels.level_inversions import level_inversions
 from levels.level_k import level_k
 from levels.level_knapsack import level_knapsack
 from levels.level_knight import level_knight
+from levels.level_lights_out import level_lights_out
 from levels.level_linear import level_linear
 from levels.level_longest_path import level_longest_path
 from levels.level_loop import level_loop
@@ -145,7 +147,6 @@ from levels.level_random_petersen import aux_level_random_petersen
 from levels.level_random_cuboctahedron import aux_level_random_cuboctahedron
 
 # Hungarian Rings
-# Lights out
 
 class Levels:
     levels_functions_list = [
@@ -211,6 +212,7 @@ class Levels:
         level_mastermind,
         level_tetris,
         level_xor,
+        level_lights_out,
         level_weights,
         level_baguenaudier,
         level_spare,
@@ -260,6 +262,7 @@ class Levels:
         level_shuffled,
         level_sign,
         level_combinatorics,
+        level_hungarian_rings,
         level_water_pouring,
         level_puzzle,
         level_solitaire,
@@ -321,7 +324,7 @@ class Levels:
         txt = ''
         nb_iterations_list = []
         nb_operations_list = []
-        for folder in ['solutions', 'solutions/random_levels', 'solutions/not_random_levels']:
+        for folder in ['solutions', 'solutions/levels']:
             if not os_path_exists(folder):
                 os_mkdir(folder)
         if not do_it_fast:
@@ -487,10 +490,6 @@ if __name__ == "__main__":
         os.remove('temp.txt')
 
     test_levels()
-    
-    
-    
-            
 
     # import cProfile
     # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=float('inf'), save_as_txt=False)''', sort=1)
