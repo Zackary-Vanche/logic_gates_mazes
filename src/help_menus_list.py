@@ -517,6 +517,8 @@ help_menus_list['levels'][
 
 help_menus_list['levels']["Tesseract"] = """The tesseract is hidden in the equations."""
 
+help_menus_list['levels']["Oval_track_puzzle"] = help_menus_list["cheat code"]
+
 help_menus_list['levels']["Cartesian"] = """Sorry, there is nothing to help you here."""
 
 help_menus_list['levels'][

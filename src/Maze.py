@@ -833,15 +833,17 @@ class Maze:
         else:
             solutions_that_work = self.all_solutions
         solutions_that_work = sorted(solutions_that_work, key=len)
-        if not (reverse_actions_order or self.fastest_solution is None or ' '.join(
-                solutions_that_work[0]) == self.fastest_solution) and self.unique_solution:
-            print(self.name, "wrong fastest solution")
-            print("solution found")
-            print(str(' '.join(solutions_that_work[0])))
-            print("solution in memory")
-            print(str(self.fastest_solution))
-            print('')
-            pass
+        try:
+            if not (reverse_actions_order or self.fastest_solution is None or ' '.join(solutions_that_work[0]) == self.fastest_solution) and self.unique_solution:
+                print(self.name, "wrong fastest solution")
+                print("solution found")
+                print(str(' '.join(solutions_that_work[0])))
+                print("solution in memory")
+                print(str(self.fastest_solution))
+                print('')
+                pass
+        except IndexError:
+            print('IndexError')
         self.all_solutions = solutions_that_work
         return solutions_that_work, nb_iterations, nb_operations
 

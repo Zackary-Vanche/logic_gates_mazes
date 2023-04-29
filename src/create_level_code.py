@@ -1,6 +1,6 @@
-ns = 3*8+3
-nd = 25
-nr = 10
+ns = 2*8+1
+nd = 13
+nr = 9
 
 print('''
 from Switch import Switch

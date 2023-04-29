@@ -66,7 +66,7 @@ class Tree:
         return ['INLIST'] + [[None]] * n
 
     def tree_list_from_str(txt, CNF=False):
-        txt = txt.replace('0', 'F').replace('1', 'T').replace('\n', '').replace(' ', '')
+        txt = txt.replace('0', 'F').replace('1', 'T').replace('\n', '')
 
         def tree_list_and_from_str(txt):
             assert txt.replace('T', '').replace('F', '') == '', txt.replace('T', '').replace('F', '')

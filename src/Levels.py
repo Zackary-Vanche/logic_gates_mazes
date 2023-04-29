@@ -61,6 +61,7 @@ from levels.level_no_three_in_line import level_no_three_in_line
 from levels.level_numeration import level_numeration
 from levels.level_odd import level_odd
 from levels.level_or import level_or
+from levels.level_oval_track_puzzle import level_oval_track_puzzle
 from levels.level_pancake_sorting import level_pancake_sorting
 from levels.level_panex import level_panex
 from levels.level_parallel import level_parallel
@@ -143,7 +144,6 @@ from levels.level_random_simple import aux_level_random_simple
 from levels.level_random_petersen import aux_level_random_petersen
 from levels.level_random_cuboctahedron import aux_level_random_cuboctahedron
 
-# Oval Track Puzzle
 # Hungarian Rings
 # Lights out
 
@@ -227,6 +227,7 @@ class Levels:
         level_fractal,
         level_tesseract,
         level_random_loop,
+        level_oval_track_puzzle,
         level_cartesian,
         level_random_line,
         level_eulerian,
@@ -485,7 +486,7 @@ if __name__ == "__main__":
     if os.path.exists('temp.txt'):
         os.remove('temp.txt')
 
-    # test_levels()
+    test_levels()
     
     
     
