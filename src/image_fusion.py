@@ -67,6 +67,9 @@ def main():
         filename = r'images/concat/concat_levels_{}.jpg'.format(string)
         cv2.imwrite(filename, img)
         print(filename)
+        
+        for file in file_list:
+            os.remove(file)
 
         WIDTH, HEIGHT = size
         string = "WIDTH_{}_HEIGHT_{}".format(WIDTH, HEIGHT)
@@ -95,6 +98,9 @@ def main():
         plt.close()
         filename = r'images/concat/concat_levels_HELP_{}.jpg'.format(string)
         cv2.imwrite(filename, img_h)
+        
+        for file in file_list:
+            os.remove(file)
 
 
 if __name__ == "__main__":
