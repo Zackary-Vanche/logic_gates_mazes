@@ -483,8 +483,8 @@ if __name__ == "__main__":
     pass
 
     import os
-    import collections
-    import numpy as np
+    # import collections
+    # import numpy as np
 
     if os.path.exists('temp.txt'):
         os.remove('temp.txt')
