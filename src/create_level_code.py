@@ -1,6 +1,6 @@
 ns = 8*3+1
-nd = 12
-nr = 9
+nd = 4*6+5
+nr = 9+4
 
 print('''
 from Switch import Switch

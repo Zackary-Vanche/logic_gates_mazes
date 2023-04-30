@@ -37,6 +37,7 @@ from levels.level_five import level_five
 from levels.level_flash_back import level_flash_back
 from levels.level_fluid import level_fluid
 from levels.level_fractal import level_fractal
+from levels.level_grid import level_grid
 from levels.level_hamiltonian import level_hamiltonian
 from levels.level_hello_world import level_hello_world
 from levels.level_hitting_set import level_hitting_set
@@ -217,6 +218,7 @@ class Levels:
         level_baguenaudier,
         level_spare,
         level_4_colors_theorem,
+        level_grid,
         level_flash_back,
         level_spaceship,
         level_magic_square,
@@ -490,6 +492,8 @@ if __name__ == "__main__":
         os.remove('temp.txt')
 
     test_levels()
+    
+    solutions = level_grid().find_all_solutions(verbose=2, nb_iterations_print=10**4, stop_at_first_solution=False)
 
     # import cProfile
     # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=float('inf'), save_as_txt=False)''', sort=1)
