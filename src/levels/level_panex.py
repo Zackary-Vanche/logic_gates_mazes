@@ -876,7 +876,7 @@ def level_panex():
                relative_departure_coordinates=[1 / 2, 0],
                relative_arrival_coordinates=[0.3, 0.7])
 
-    color = Levels_colors_list.FROM_HUE(hu=0.6, sa=0.6, li=0.9)
+    color = Levels_colors_list.FROM_HUE(hu=0.5, sa=0.6, li=0.9)
     color.surrounding_color = Color.RED
     level = Maze(start_room_index=0,
                  exit_room_index=-1,

@@ -285,8 +285,8 @@ def level_mols():
 
     rp = 1 / 2
 
-    lcolor = Levels_colors_list.FROM_HUE(hu=0.9, sa=0.6, li=0.65)
-    lcolor.surrounding_color=Color.WHITE_PINK
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.7, sa=0.6, li=0.65)
+    lcolor.surrounding_color=Color.BRIGHT_YELLOW
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
