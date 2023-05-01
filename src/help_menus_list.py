@@ -129,6 +129,13 @@ D0 = ≠ (S0 S1 ...) means :
 help_menus_list['INF'] = """
 D0 = < S0 S1 means :
     D0 is open if S0 is inferior to S1"""
+    
+help_menus_list['INF0'] = """
+D0 = <0 a b means :
+    D0 = | < a b = a 0 = b 0
+D0 = <0 a b c means :
+    D0 = & <0 a b <0 b c
+"""
 
 help_menus_list['SUP'] = """
 D0 = > S0 S1 means :
@@ -582,6 +589,8 @@ help_menus_list['levels']["Puzzle"] = """This level is inspired from the 15-puzz
 help_menus_list['levels']["Solitaire"] = help_menus_list['JUMP']
 
 help_menus_list['levels']["MOLS"] = 'MOLS stands for "Mutually Orthogonal Latin Squares".'
+
+help_menus_list['levels']["Small panex"] = help_menus_list['INF0']
 
 help_menus_list['levels']["Zebra"] = """There are five houses.\n\n""" + help_menus_list['see other doors']
 

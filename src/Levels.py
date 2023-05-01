@@ -102,6 +102,7 @@ from levels.level_river import level_river
 from levels.level_second import level_second
 from levels.level_shuffled import level_shuffled
 from levels.level_small import level_small
+from levels.level_small_panex import level_small_panex
 from levels.level_square import level_square
 from levels.level_solitaire import level_solitaire
 from levels.level_spare import level_spare
@@ -269,6 +270,7 @@ class Levels:
         level_puzzle,
         level_solitaire,
         level_mols,
+        level_small_panex,
         level_zebra,
         level_parking,
         level_panex,
@@ -493,7 +495,7 @@ if __name__ == "__main__":
 
     test_levels()
     
-    solutions = level_grid().find_all_solutions(verbose=2, nb_iterations_print=10**4, stop_at_first_solution=False)
+    solutions = level_small_panex().find_all_solutions(verbose=2, nb_iterations_print=10**4, stop_at_first_solution=False)
 
     # import cProfile
     # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=float('inf'), save_as_txt=False)''', sort=1)
