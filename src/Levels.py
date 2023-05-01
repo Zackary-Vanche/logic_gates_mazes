@@ -97,6 +97,8 @@ from levels.level_sign import level_sign
 from levels.level_random_starting_point import level_random_starting_point
 from levels.level_sum import level_sum
 from levels.level_random_wheel import level_random_wheel
+from levels.level_rotation import level_rotation
+from levels.level_rotation_bis import level_rotation_bis
 from levels.level_recurrence import level_recurrence
 from levels.level_river import level_river
 from levels.level_second import level_second
@@ -123,6 +125,7 @@ from levels.level_travelling_salesman import level_travelling_salesman
 from levels.level_tree import level_tree
 from levels.level_triangulate import level_triangulate
 from levels.level_vortex import level_vortex
+from levels.level_wasted import level_wasted
 from levels.level_water_pouring import level_water_pouring
 from levels.level_wave import level_wave
 from levels.level_weights import level_weights
@@ -182,6 +185,7 @@ class Levels:
         level_triangulate,
         level_recurrence,
         level_naturals,
+        level_wasted,
         level_doppelganger,
         level_compact,
         level_random_simple,
@@ -191,6 +195,7 @@ class Levels:
         level_pythagorean,
         level_random_butterfly,
         level_elementary,
+        level_rotation,
         level_superpermutation,
         level_chessboard,
         level_dichotomy,
@@ -209,6 +214,7 @@ class Levels:
         level_the_4_queens,
         level_k,
         level_alice_and_bob,
+        level_rotation_bis,
         level_nonogram,
         level_crystal,
         level_mastermind,
@@ -495,7 +501,7 @@ if __name__ == "__main__":
 
     test_levels()
     
-    solutions = level_small_panex().find_all_solutions(verbose=2, nb_iterations_print=10**4, stop_at_first_solution=False)
+    solutions = level_rotation_bis().find_all_solutions(verbose=2, nb_iterations_print=10**3, stop_at_first_solution=False)
 
     # import cProfile
     # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=float('inf'), save_as_txt=False)''', sort=1)

@@ -4,6 +4,9 @@ import os
 from levels.level_cube import level_cube
 from levels.level_grid import level_grid
 from levels.level_oval_track_puzzle import level_oval_track_puzzle
+from levels.level_rotation import level_rotation
+from levels.level_rotation_bis import level_rotation_bis
+from levels.level_wasted import level_wasted
 
 def create_random_levels(a, b):
     for aux_level in Levels.aux_level_function_list:
@@ -17,7 +20,10 @@ if __name__ == '__main__':
         
     for level in [level_cube(),
                   level_grid(),
-                  level_oval_track_puzzle(),]:
+                  level_oval_track_puzzle(),
+                  level_rotation(),
+                  level_rotation_bis(),
+                  level_wasted()]:
         exits_txt = f'levels/{level.name}_random_exits.txt'
         if not os.path.exists(exits_txt):
             solutions = level.find_all_solutions(stop_at_first_solution=False, verbose=0, nb_iterations_print=10**4)

@@ -437,8 +437,9 @@ help_menus_list['levels']["Triangulate"] = help_menus_list['DIST']
 
 help_menus_list['levels']["Recurrence"] = help_menus_list['brackets']
 
-help_menus_list['levels']["Naturals"] = '\n'.join(
-    [help_menus_list['ABS'], help_menus_list['MINUS'], help_menus_list['BIN']])
+help_menus_list['levels']["Naturals"] = '\n'.join([help_menus_list['ABS'], help_menus_list['MINUS'], help_menus_list['BIN']])
+
+help_menus_list['levels']["Wasted"] = """It looks easy, and it is easy."""
 
 help_menus_list['levels']["Compact"] = """It looks easy, but it is maybe just an impression."""
 
@@ -448,6 +449,8 @@ help_menus_list['levels']["Pythagorean"] = help_menus_list['POW']
 
 help_menus_list['levels']["Elementary"] = """An elementary permutation is a swap of two adjacent elements.\n""" + \
                                           help_menus_list['EQUSET']
+                                          
+help_menus_list['levels']["Rotation"] = help_menus_list['random exit']                                          
 
 help_menus_list['levels']["Superpermutation"] = help_menus_list['INLIST']
 
@@ -484,6 +487,8 @@ help_menus_list['levels']["K"] = """You have to locate as many knights in a ches
 help_menus_list['levels']["Strange"] = "You can always try exhaustive testing..."
 
 help_menus_list['levels']["Alice and Bob"] = """Alice wants to send a package to Bob."""
+
+help_menus_list['levels']["Rotation_bis"] = help_menus_list['random exit'] 
 
 help_menus_list['levels']["Nonogram"] = help_menus_list['NONO']
 
