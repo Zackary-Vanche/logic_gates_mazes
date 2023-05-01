@@ -4,9 +4,7 @@ from Door import Door
 from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
-from random import choice as rd_choice
 from random import shuffle as rd_shuffle
-from os.path import exists as os_path_exists
 from Color import Color
 
 def level_hungarian_rings():
@@ -223,7 +221,8 @@ def level_hungarian_rings():
                  level_color=lcolor,
                  name='Hungarian_rings',
                  keep_proportions=True,
-                 door_window_size=1000)
+                 door_window_size=500,
+                 random=True)
     
     return level
 

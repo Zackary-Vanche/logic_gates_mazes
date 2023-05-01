@@ -139,7 +139,7 @@ def level_small():
                  fastest_solution='S0 D0 S1 D1 D2 S2 D7 S1 D6 S2 D10 S3 D11 S2 D12',
                  level_color=Levels_colors_list.FROM_HUE(hu=0.15, sa=0.2, li=0.8),
                  name='Small',
-                 door_window_size=1000,
+                 door_window_size=500,
                  keep_proportions=False,
                  y_separation=40,
                  border=40)

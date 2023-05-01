@@ -104,7 +104,8 @@ def level_wasted():
                  level_color=lcolor,
                  name='Wasted',
                  keep_proportions=True,
-                 door_window_size=800)
+                 door_window_size=500,
+                 random=True)
     
     return level
 

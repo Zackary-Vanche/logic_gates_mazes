@@ -81,7 +81,8 @@ class Game:
                  show_loop_time=False,
                  update_display_at_every_loop=False,
                  sleep_time=10 ** (-2),
-                 save_all_images=False):
+                 save_all_images=False,
+                 game_color=None): # if game_color is not None, it overwrites the levels colors
         if WINDOW_SIZE is None or SMALLEST_WINDOW_SIZE is None:
             from pyautogui import size as pyautogui_size
             TOTAL_SIZE = pyautogui_size()
@@ -112,6 +113,7 @@ class Game:
         self.get_new_level = False
         if self.save_image:
             self.show_help = False
+        self.game_color = game_color
 
     def game_setup(self):
         # Game Setup
@@ -167,6 +169,8 @@ class Game:
 
             self.doors_list = self.maze.doors_list
 
+            if self.game_color is not None:
+                self.maze.level_color = self.game_color
             level_colors = self.maze.level_color
             self.background_color = level_colors.background_color
             self.room_color = level_colors.room_color

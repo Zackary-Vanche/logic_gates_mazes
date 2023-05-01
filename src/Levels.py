@@ -334,7 +334,7 @@ class Levels:
         txt = ''
         nb_iterations_list = []
         nb_operations_list = []
-        for folder in ['solutions', 'solutions/levels']:
+        for folder in ['solutions', 'solutions/levels', 'solutions/levels/random']:
             if not os_path_exists(folder):
                 os_mkdir(folder)
         if not do_it_fast:
@@ -501,7 +501,7 @@ if __name__ == "__main__":
 
     test_levels()
     
-    solutions = level_rotation_bis().find_all_solutions(verbose=2, nb_iterations_print=10**3, stop_at_first_solution=False)
+    solutions = level_permutations().find_all_solutions(verbose=2, nb_iterations_print=10**3, stop_at_first_solution=False)
 
     # import cProfile
     # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=float('inf'), save_as_txt=False)''', sort=1)

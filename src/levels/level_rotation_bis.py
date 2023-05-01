@@ -125,6 +125,7 @@ def level_rotation_bis():
                  level_color=lcolor,
                  name='Rotation_bis',
                  keep_proportions=True,
-                 door_window_size=1000)
+                 door_window_size=1000,
+                 random=True)
     
     return level

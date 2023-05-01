@@ -16,29 +16,6 @@ def level_naturals():
     S6 = Switch(name='S6')
     S7 = Switch(name='S7')
 
-    #    tree_list_a_minus_b = ['SUM',
-    #                               [None],
-    #                               ['MINUS', [None]]]
-    #
-    #    tree_list_0 = ['PROD',
-    #                       [None],
-    #                       tree_list_a_minus_b]
-    #
-    #    tree_list_1 = ['SUM'] + [tree_list_0]*4
-    #
-    #    tree_list_2 = ['ABS', tree_list_1]
-    #
-    #    tree_list_3 = ['INF', tree_list_2, [None]]
-    #
-    #    T0 = Tree(tree_list=tree_list_3,
-    #              empty=True,
-    #              name='T0',
-    #              switches = [Switch(value=1, name='1'), S0, S1,
-    #                          Switch(value=2, name='2'), S2, S3,
-    #                          Switch(value=4, name='4'), S4, S5,
-    #                          Switch(value=8, name='8'), S6, S7,
-    #                          Switch(value=2, name='2')])
-
     T0 = Tree(tree_list=['INF',
                          ['ABS',
                           ['SUM',
@@ -85,7 +62,7 @@ def level_naturals():
                  fastest_solution='S0 D0 S3 D0 S2 D0 S3 S5 D0 S2 S4 D0 S3 D0 S2 D0 S3 S5 S7 D0 S2 S4 S6 D0 S3 D0 S2 D0 S3 S5 D0 S2 S4 D0 S3 D0 S2 D0 S1 D1',
                  level_color=Levels_colors_list.FROM_HUE(0.3),
                  name='Naturals',
-                 door_window_size=800,
+                 door_window_size=450,
                  keep_proportions=True)
 
     return level

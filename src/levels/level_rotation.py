@@ -98,6 +98,7 @@ def level_rotation():
                  level_color=lcolor,
                  name='Rotation',
                  keep_proportions=True,
-                 door_window_size=694)
+                 door_window_size=694,
+                 random=True)
     
     return level

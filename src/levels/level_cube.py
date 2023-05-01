@@ -186,8 +186,8 @@ def level_cube():
     if os_path_exists(filename):
         with open(filename, 'r') as fr:
             lines = fr.readlines()
-            l = rd_choice(lines)
-        T21 = Tree(tree_list=Tree.tree_list_from_str(l),
+            exit_str = rd_choice(lines)
+        T21 = Tree(tree_list=Tree.tree_list_from_str(exit_str),
                     empty=True,
                     name='T21',
                     switches=[S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, S23, S24, S25, S26])
@@ -396,6 +396,7 @@ def level_cube():
                  level_color=Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.5),
                  name='Cube',
                  keep_proportions=True,
-                 door_window_size=1050)
+                 door_window_size=1050,
+                 random=True)
     
     return level

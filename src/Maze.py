@@ -706,10 +706,10 @@ class Maze:
         nb_operations = 0
 
         name = self.name
-        if self.random:
-            solutions_file = f'solutions/levels/random_level_{name}_solutions.txt'
-            nb_iterations_file = f'solutions/levels/random_level_{name}_nb_iterations.txt'
-            nb_operations_file = f'solutions/levels/random_level_{name}_nb_operations.txt'
+        if self.fastest_solution is None:
+            solutions_file = f'solutions/levels/random/level_{name}_solutions.txt'
+            nb_iterations_file = f'solutions/levels/random/level_{name}_nb_iterations.txt'
+            nb_operations_file = f'solutions/levels/random/level_{name}_nb_operations.txt'
         else:
             solutions_file = f'solutions/levels/{name}_solutions.txt'
             nb_iterations_file = f'solutions/levels/{name}_nb_iterations.txt'

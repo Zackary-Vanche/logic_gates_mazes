@@ -5,7 +5,7 @@ from Levels import Levels
 from pyautogui import size as pyautogui_size
 import matplotlib.pyplot as plt
 import random as rd
-
+from Levels_colors_list import Levels_colors_list 
 
 def divisor_closest_to_sqrt(n):
     from numpy import ceil, sqrt
@@ -22,7 +22,9 @@ def main():
     # TOTAL_SIZE = pyautogui_size()
     # Game(save_image=1, time_between_level_changing=0, show_help=0).play()
     # TOTAL_SIZE = [1920, 1055]
-    Game(is_fullscreen=1, save_image=1).play()
+    game_color = Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.4)
+    game_color = None
+    Game(is_fullscreen=1, save_image=1, game_color=game_color).play()
 
     if not os.path.exists('images'):
         os.mkdir('images')
