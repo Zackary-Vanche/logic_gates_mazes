@@ -184,6 +184,8 @@ def level_small_panex():
     RE = Room(name='RE',
               position=[2, 1.9, ex+0.2, ey/2],
               is_exit=True)
+    
+    r = 1/30
 
     D0 = Door(two_way=True,
                 tree=T0,
@@ -295,7 +297,8 @@ def level_small_panex():
                 room_departure=R4,
                 room_arrival=R7,
                 relative_departure_coordinates=[1, 0],
-                relative_arrival_coordinates=[1/2, 0])
+                relative_arrival_coordinates=[1/2, 0],
+                relative_position=0.5-r)
     D15 = Door(two_way=True,
                 tree=T15,
                 name='D15',
@@ -333,7 +336,8 @@ def level_small_panex():
                 room_departure=R10,
                 room_arrival=R7,
                 relative_departure_coordinates=[0, 0],
-                relative_arrival_coordinates=[1/2, 0])
+                relative_arrival_coordinates=[1/2, 0],
+                relative_position=0.5-r)
     D21 = Door(two_way=True,
                 tree=T21,
                 name='D21',
@@ -359,6 +363,6 @@ def level_small_panex():
                  level_color=lcolor,
                  name='Small panex',
                  keep_proportions=True,
-                 door_window_size=800)
+                 door_window_size=700)
     
     return level
