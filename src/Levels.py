@@ -155,7 +155,7 @@ from levels.level_random_cuboctahedron import aux_level_random_cuboctahedron
 # Hungarian Rings
 
 class Levels:
-    levels_functions_list = [#level_the_4th_dimension,
+    levels_functions_list = [level_the_4th_dimension,
         level_hello_world,
         level_initiation,
         level_linear,

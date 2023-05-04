@@ -1,7 +1,10 @@
 from Game import Game
 from pyautogui import size as pyautogui_size
 from Color import Color
-from Levels_colors_list import Levels_colors_list 
+from Levels_colors_list import Levels_colors_list
+
+import sys
+sys.path.append('c:\programdata\anaconda3\lib\site-packages')
 
 if __name__ == "__main__":
 

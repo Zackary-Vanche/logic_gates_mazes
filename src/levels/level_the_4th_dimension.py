@@ -47,33 +47,33 @@ def level_the_4th_dimension():
     S25 = Switch(name='S25')
     S26 = Switch(name='S26')
     
-    Slist = [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, S23,
-             0, 0, 0, 0, 3, 5, 6, 7]
+    Slist = [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, S23,]
     
     def tree_list_IN_BIN(n):
         return ['IN', Tree.tree_list_BIN(3)] + [[None]]*n
     
     tree_list_EQU_BIN = ['EQU', Tree.tree_list_BIN(3), Tree.tree_list_BIN(3)]
+    tree_list_4thD = ['4D'] + [[None]]*24
     tree_list_0 = ['AND',
                    tree_list_IN_BIN(3),
-                   ['EQUSET'] + [Tree.tree_list_BIN(3)]*8 + [[None]]*8]
+                   tree_list_4thD]
     tree_list_1 = ['AND', tree_list_IN_BIN(3), tree_list_EQU_BIN]
     tree_list_8 = ['AND', tree_list_IN_BIN(1), tree_list_EQU_BIN]
 
-    T0 = Tree(tree_list=tree_list_IN_BIN(3),
+    T0 = Tree(tree_list=tree_list_0,
                 empty=True,
                 name='T0',
-                switches=[S24, S25, S26, 1, 2, 3],
+                switches=[S24, S25, S26, 1, 2, 3] + Slist,
                 cut_expression=True)
     T1 = Tree(tree_list=tree_list_1,
                 empty=True,
                 name='T1',
                 switches=[S24, S25, S26, 1, 2, 3,
                           S0, S1, S2, S3, S4, S5])
-    T2 = Tree(tree_list=tree_list_IN_BIN(3),
+    T2 = Tree(tree_list=tree_list_0,
                 empty=True,
                 name='T2',
-                switches=[S24, S25, S26, 1, 4, 5],
+                switches=[S24, S25, S26, 1, 4, 5] + Slist,
                 cut_expression=True,
                 cut_expression_separator='~')
     T3 = Tree(tree_list=tree_list_1,
@@ -81,20 +81,20 @@ def level_the_4th_dimension():
                 name='T3',
                 switches=[S24, S25, S26, 1, 4, 5,
                           S6, S7, S8, S9, S10, S11])
-    T4 = Tree(tree_list=tree_list_IN_BIN(3),
+    T4 = Tree(tree_list=tree_list_0,
                 empty=True,
                 name='T4',
-                switches=[S24, S25, S26, 2, 4, 6],
+                switches=[S24, S25, S26, 2, 4, 6] + Slist,
                 cut_expression=True)
     T5 = Tree(tree_list=tree_list_1,
                 empty=True,
                 name='T5',
                 switches=[S24, S25, S26, 2, 4, 6,
                           S12, S13, S14, S15, S16, S17])
-    T6 = Tree(tree_list=tree_list_IN_BIN(3),
+    T6 = Tree(tree_list=tree_list_0,
                 empty=True,
                 name='T6',
-                switches=[S24, S25, S26, 3, 5, 6],
+                switches=[S24, S25, S26, 3, 5, 6] + Slist,
                 cut_expression=True)
     T7 = Tree(tree_list=tree_list_1,
                 empty=True,
@@ -131,11 +131,10 @@ def level_the_4th_dimension():
                 name='T13',
                 switches=[S24, S25, S26, 6,
                           S15, S16, S17, S21, S22, S23])
-    T14 = Tree(tree_list=['EQUSET'] + [Tree.tree_list_BIN(3)]*8 + [[None]]*8,
+    T14 = Tree(tree_list=[None],
                 empty=True,
                 name='T14',
-                switches=Slist,
-                cut_expression=True)
+                switches=[1])
     filename = 'levels/The_4th_dimension_random_exits.txt'
     if os_path_exists(filename):
         with open(filename, 'r') as fr:
@@ -159,15 +158,15 @@ def level_the_4th_dimension():
                     name='T15',
                     switches=[S24, S25, S26])
     
-    ax = 3
+    ax = 1.75
     ay = 3
 
     R0 = Room(name='R0',
-                position=[1/8*ax, 6*ay, 1.3, 2],
-                switches_list=[])
+                position=[1/8*ax, 6*ay, 1.3, 3],
+                switches_list=[S24])
     R1 = Room(name='R1',
                 position=[9*ax, 4.5*ay, 1.3, 10],
-                switches_list=[S24, S25, S26])
+                switches_list=[S25, S26])
     R2 = Room(name='R2',
                 position=[2*ax, 8*ay, 6, 1],
                 switches_list=[S0, S1, S2])
@@ -175,13 +174,13 @@ def level_the_4th_dimension():
                 position=[4*ax, 6.25*ay, 6, 1],
                 switches_list=[S3, S4, S5])
     R4 = Room(name='R4',
-                position=[0*ax, 2*ay, 1, 5],
+                position=[0.35*ax, 2*ay, 1, 5],
                 switches_list=[S6, S7, S8])
     R5 = Room(name='R5',
                 position=[2*ax, 4*ay, 1.3, 5],
                 switches_list=[S9, S10, S11])
     R6 = Room(name='R6',
-                position=[-1*ax, 0*ay, 8, 1],
+                position=[-1*ax, 0.5*ay, 8, 1],
                 switches_list=[S12, S13, S14])
     R7 = Room(name='R7',
                 position=[0*ax, 1.5*ay, 7, 1],
@@ -213,7 +212,7 @@ def level_the_4th_dimension():
                 name='D2',
                 room_departure=R0,
                 room_arrival=R4,
-                relative_departure_coordinates=[1/4, 0],
+                relative_departure_coordinates=[1/2, 0],
                 relative_arrival_coordinates=[1/2, 1])
     D3 = Door(two_way=True,
                 tree=T3,
@@ -225,7 +224,7 @@ def level_the_4th_dimension():
                 name='D4',
                 room_departure=R0,
                 room_arrival=R6,
-                relative_departure_coordinates=[0, 1/2],
+                relative_departure_coordinates=[0, 0],
                 relative_arrival_coordinates=[0, 1])
     D5 = Door(two_way=True,
                 tree=T5,
@@ -296,36 +295,16 @@ def level_the_4th_dimension():
                 relative_departure_coordinates=[1/2, 0],
                 relative_arrival_coordinates=[1/2, 1/2],
                 relative_position=0.35)
-    # D16 = Door(two_way=True,
-    #             tree=T16,
-    #             name='D16',
-    #             room_departure=R0,
-    #             room_arrival=RE)
-    # D17 = Door(two_way=True,
-    #             tree=T17,
-    #             name='D17',
-    #             room_departure=R0,
-    #             room_arrival=RE)
-    # D18 = Door(two_way=True,
-    #             tree=T18,
-    #             name='D18',
-    #             room_departure=R0,
-    #             room_arrival=RE)
-    # D19 = Door(two_way=True,
-    #             tree=T19,
-    #             name='D19',
-    #             room_departure=R0,
-    #             room_arrival=RE)
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15],#, D15, D16, D17, D18, D19],
                  fastest_solution=None,
-                 level_color=Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.5),
+                 level_color=Levels_colors_list.FROM_HUE(hu=0.21, sa=0.5, li=0.5),
                  name='The_4th_dimension',
                  keep_proportions=True,
-                 door_window_size=650,
+                 door_window_size=1001,
                  y_separation=40)
     
     return level
