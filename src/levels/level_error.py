@@ -7,7 +7,7 @@ from Levels_colors_list import Levels_colors_list
 from random import choice as rd_choice
 from os.path import exists as os_path_exists
 
-def level_the_4th_dimension(): 
+def level_error(): 
     
     v = 1
 
@@ -53,7 +53,7 @@ def level_the_4th_dimension():
         return ['IN', Tree.tree_list_BIN(3)] + [[None]]*n
     
     tree_list_EQU_BIN = ['EQU', Tree.tree_list_BIN(3), Tree.tree_list_BIN(3)]
-    tree_list_4thD = ['4D'] + [[None]]*24
+    tree_list_4thD = ['E'] + [[None]]*24
     tree_list_0 = ['AND',
                    tree_list_IN_BIN(3),
                    tree_list_4thD]
@@ -64,7 +64,7 @@ def level_the_4th_dimension():
                 empty=True,
                 name='T0',
                 switches=[S24, S25, S26, 1, 2, 3] + Slist,
-                cut_expression=True)
+                cut_expression=False)
     T1 = Tree(tree_list=tree_list_1,
                 empty=True,
                 name='T1',
@@ -74,7 +74,7 @@ def level_the_4th_dimension():
                 empty=True,
                 name='T2',
                 switches=[S24, S25, S26, 1, 4, 5] + Slist,
-                cut_expression=True,
+                cut_expression=False,
                 cut_expression_separator='~')
     T3 = Tree(tree_list=tree_list_1,
                 empty=True,
@@ -85,7 +85,7 @@ def level_the_4th_dimension():
                 empty=True,
                 name='T4',
                 switches=[S24, S25, S26, 2, 4, 6] + Slist,
-                cut_expression=True)
+                cut_expression=False)
     T5 = Tree(tree_list=tree_list_1,
                 empty=True,
                 name='T5',
@@ -95,7 +95,7 @@ def level_the_4th_dimension():
                 empty=True,
                 name='T6',
                 switches=[S24, S25, S26, 3, 5, 6] + Slist,
-                cut_expression=True)
+                cut_expression=False)
     T7 = Tree(tree_list=tree_list_1,
                 empty=True,
                 name='T7',
@@ -135,7 +135,7 @@ def level_the_4th_dimension():
                 empty=True,
                 name='T14',
                 switches=[1])
-    filename = 'levels/The_4th_dimension_random_exits.txt'
+    filename = 'levels/Error_random_exits.txt'
     if os_path_exists(filename):
         with open(filename, 'r') as fr:
             lines = fr.readlines()
@@ -301,10 +301,10 @@ def level_the_4th_dimension():
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15],#, D15, D16, D17, D18, D19],
                  fastest_solution=None,
-                 level_color=Levels_colors_list.FROM_HUE(hu=0.21, sa=0.5, li=0.5),
-                 name='The_4th_dimension',
+                 level_color=Levels_colors_list.FROM_HUE(hu=0.21, sa=0.3, li=0.35),
+                 name='Error',
                  keep_proportions=True,
-                 door_window_size=1001,
+                 door_window_size=1070,
                  y_separation=40)
     
     return level

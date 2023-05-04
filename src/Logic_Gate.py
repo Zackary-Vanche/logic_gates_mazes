@@ -200,7 +200,7 @@ class Logic_Gate:
             return False
         return True
     
-    def aux_func_4D(branches_list):
+    def aux_func_E(branches_list):
         assert len(branches_list) == 24
         lbin = [Logic_Gate.aux_func_BIN(branches_list[3*i:3*i+3]) for i in range(8)]
         return Logic_Gate.aux_func_EQUSET(lbin + [0, 0, 0, 0, 3, 5, 6, 7,])
@@ -237,7 +237,7 @@ class Logic_Gate:
                  'JUMP': aux_func_JUMP,
                  'MAS': aux_func_MAS,
                  'N3L_4': aux_func_N3L_4,
-                 '4D': aux_func_4D}
+                 'E': aux_func_E}
 
     def func(self, sons_list):
         if None in sons_list:

@@ -228,6 +228,21 @@ only if there are no three switches aligned in the array :
 and if > SUM (S0 S1 S2 S3 S4 S5 S6 S7 S8 S9 S10 S11 S12 S13 S14 S15) 8
 """
 
+help_menus_list['E'] = """
+One notation is used only in this level :
+
+    E (S0 S1 S2 S3 S4 S5 S6 S7 S8 S9 S10 S11 S12 S13 S14 S15 S16 S17 S18 S19 S20 S21 S22 S23)
+    = ~ (b (S0 S1 S2);
+         b (S3 S4 S5);
+         b (S6 S7 S8);
+         b (S9 S10 S11);
+         b (S12 S13 S14);
+         b (S15 S16 S17);
+         b (S18 S19 S20);
+         b (S21 S22 S23))
+         (0 ; 0 ; 0 ; 0 ; 3 ; 5 ; 6 ; 7)
+"""
+
 help_menus_list['AND and NOT'] = """  
 By combining these notations, you can write :
 D1 = & S2 ¬ S3 means :
@@ -558,6 +573,8 @@ help_menus_list['levels']["Pancake sorting"] = """Pancake sorting is a real comp
 help_menus_list['levels']["Wave"] = """The path to the exit is not so long."""
 
 help_menus_list['levels']["Cube"] = help_menus_list['random exit']
+
+help_menus_list['levels']["Error"] = help_menus_list['E']
 
 help_menus_list['levels']["Takuzu"] = """Takuzu is a logic puzzle involving placement of two symbols, often 1s and 0s, on a rectangular grid."""
 

@@ -6,7 +6,7 @@ from inspect import signature
 from levels.level_3sat import level_3sat
 from levels.level_4_colors_theorem import level_4_colors_theorem
 from levels.level_the_4_queens import level_the_4_queens
-from levels.level_the_4th_dimension import level_the_4th_dimension
+# from levels.level_the_4th_dimension import level_the_4th_dimension
 from levels.level_alice_and_bob import level_alice_and_bob
 from levels.level_backward import level_backward
 from levels.level_baguenaudier import level_baguenaudier
@@ -32,6 +32,7 @@ from levels.level_doppelganger import level_doppelganger
 from levels.level_egyptian_fractions import level_egyptian_fractions
 from levels.level_electricity import level_electricity
 from levels.level_elementary import level_elementary
+from levels.level_error import level_error
 from levels.level_eulerian import level_eulerian
 from levels.level_exact_cover import level_exact_cover
 from levels.level_five import level_five
@@ -155,7 +156,7 @@ from levels.level_random_cuboctahedron import aux_level_random_cuboctahedron
 # Hungarian Rings
 
 class Levels:
-    levels_functions_list = [#level_the_4th_dimension,
+    levels_functions_list = [
         level_hello_world,
         level_initiation,
         level_linear,
@@ -251,6 +252,7 @@ class Levels:
         level_random_ladder,
         level_wave,
         level_cube,
+        level_error,
         level_random_come_back,
         level_inversions,
         level_permutations,
@@ -500,9 +502,9 @@ if __name__ == "__main__":
     if os.path.exists('temp.txt'):
         os.remove('temp.txt')
 
-    test_levels()
+    # test_levels()
     
-    solutions = level_the_4th_dimension().find_all_solutions(verbose=2, nb_iterations_print=10**4, stop_at_first_solution=False)
+    solutions = level_hello_world().find_all_solutions(verbose=2, nb_iterations_print=10**4, stop_at_first_solution=False)
 
     # import cProfile
     # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=float('inf'), save_as_txt=False)''', sort=1)
