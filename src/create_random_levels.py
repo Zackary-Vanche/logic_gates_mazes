@@ -1,7 +1,7 @@
 from Maze import Maze
 from Levels import Levels
 import os
-# from levels.level_the_4th_dimension import level_the_4th_dimension
+from levels.level_the_4th_dimension import level_the_4th_dimension
 from levels.level_cube import level_cube
 from levels.level_error import level_error
 from levels.level_grid import level_grid
@@ -20,7 +20,7 @@ if __name__ == '__main__':
         print(aux_level().name)
         Maze.save_random_door_trees_list(aux_level, n_files=128, i0=0)
         
-    for level in [#level_the_4th_dimension(),
+    for level in [level_the_4th_dimension(),
                   level_cube(),
                   level_error(),
                   level_grid(),

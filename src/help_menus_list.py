@@ -576,6 +576,8 @@ help_menus_list['levels']["Cube"] = help_menus_list['random exit']
 
 help_menus_list['levels']["Error"] = help_menus_list['E']
 
+help_menus_list['levels']["The_4th_dimension"] = """More rotations..."""
+
 help_menus_list['levels']["Takuzu"] = """Takuzu is a logic puzzle involving placement of two symbols, often 1s and 0s, on a rectangular grid."""
 
 help_menus_list['levels']["Travelling salesman"] = "The travelling salesman is a NP-complete problem."

@@ -6,7 +6,7 @@ from inspect import signature
 from levels.level_3sat import level_3sat
 from levels.level_4_colors_theorem import level_4_colors_theorem
 from levels.level_the_4_queens import level_the_4_queens
-# from levels.level_the_4th_dimension import level_the_4th_dimension
+from levels.level_the_4th_dimension import level_the_4th_dimension
 from levels.level_alice_and_bob import level_alice_and_bob
 from levels.level_backward import level_backward
 from levels.level_baguenaudier import level_baguenaudier
@@ -253,6 +253,7 @@ class Levels:
         level_wave,
         level_cube,
         level_error,
+        level_the_4th_dimension,
         level_random_come_back,
         level_inversions,
         level_permutations,
@@ -502,7 +503,7 @@ if __name__ == "__main__":
     if os.path.exists('temp.txt'):
         os.remove('temp.txt')
 
-    # test_levels()
+    test_levels()
     
     solutions = level_hello_world().find_all_solutions(verbose=2, nb_iterations_print=10**4, stop_at_first_solution=False)
 
