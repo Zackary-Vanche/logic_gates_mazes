@@ -3,9 +3,6 @@ from pyautogui import size as pyautogui_size
 from Color import Color
 from Levels_colors_list import Levels_colors_list
 
-import sys
-sys.path.append('c:\programdata\anaconda3\lib\site-packages')
-
 if __name__ == "__main__":
 
     TOTAL_SIZE = pyautogui_size()
