@@ -147,28 +147,28 @@ def level_inversions():
               position=[0, 0, ex, 12],
               switches_list=[S0, S1, S2, ])
     R1 = Room(name='R1',
-              position=[2, 1 + deltay, 3, ey],
+              position=[2, 1 + deltay, 4, ey],
               switches_list=[S3, S4, S5, ])
     R2 = Room(name='R2',
-              position=[2, 3 + deltay, 3, ey],
+              position=[2, 3 + deltay, 4, ey],
               switches_list=[S6, S7, S8, ])
     R3 = Room(name='R3',
-              position=[2, 5 + deltay, 3, ey],
+              position=[2, 5 + deltay, 4, ey],
               switches_list=[S9, S10, S11, ])
     R4 = Room(name='R4',
-              position=[2, 7 + deltay, 3, ey],
+              position=[2, 7 + deltay, 4, ey],
               switches_list=[S12, S13, S14, ])
     R5 = Room(name='R5',
-              position=[2, 9 + deltay, 3, ey],
+              position=[2, 9 + deltay, 4, ey],
               switches_list=[S15, S16, S17, ])
     R6 = Room(name='R6',
-              position=[2, 11 + deltay, 3, ey],
+              position=[2, 11 + deltay, 4, ey],
               switches_list=[S18, S19, S20, ])
     R7 = Room(name='R7',
-              position=[6 + 1 - ex, 0, ex, 12],
+              position=[7 + 1 - ex, 0, ex, 12],
               switches_list=[])
     RE = Room(name='RE',
-              position=[2.5, -1, 2, 1],
+              position=[3+1/8, -1, 2, 1],
               is_exit=True)  # E pour exit ou end
 
     rp = 1 / 2
