@@ -4,10 +4,13 @@ from os import mkdir as os_mkdir
 from Levels import Levels
 from least_squares import least_squares
 import numpy as np
+from time import time
 
 plt.rcParams["figure.figsize"] = (32, 18)
 
 if __name__ == "__main__":
+    
+    t0 = time()
 
     if not os_path_exists('images'):
         os_mkdir('images')
@@ -95,3 +98,5 @@ if __name__ == "__main__":
             f.write(Levels.get_level(i).name + '\n' + str(nb_operations_list[i]) + '\n\n')
 
     # Game.save_levels_txt()
+    
+    print(time() - t0, 's')

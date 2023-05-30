@@ -88,7 +88,7 @@ from levels.level_random_gemini import level_random_gemini
 from levels.level_random_K2 import level_random_K2
 from levels.level_random_K5 import level_random_K5
 from levels.level_random_K33 import level_random_K33
-from levels.level_random_loop import level_random_loop
+from levels.level_random_turning import level_random_turning
 from levels.level_random_ladder import level_random_ladder
 from levels.level_random_line import level_random_line
 from levels.level_random_petersen import level_random_petersen
@@ -139,7 +139,7 @@ from levels.level_random_K5 import aux_level_random_K5
 from levels.level_random_K33 import aux_level_random_K33
 from levels.level_random_star import aux_level_random_star
 from levels.level_random_starting_point import aux_level_random_starting_point
-from levels.level_random_loop import aux_level_random_loop
+from levels.level_random_turning import aux_level_random_turning
 from levels.level_random_line import aux_level_random_line
 from levels.level_random_binary_tree import aux_level_random_binary_tree
 from levels.level_random_wheel import aux_level_random_wheel
@@ -239,7 +239,7 @@ class Levels:
         level_betweenness,
         level_fractal,
         level_tesseract,
-        level_random_loop,
+        level_random_turning,
         level_oval_track_puzzle,
         level_cartesian,
         level_random_line,
@@ -295,7 +295,7 @@ class Levels:
         aux_level_random_K2,
         aux_level_random_binary_tree,
         aux_level_random_line,
-        aux_level_random_loop,
+        aux_level_random_turning,
         aux_level_random_wheel,
         aux_level_random_boustrophedon,
         aux_level_random_come_back,
@@ -349,7 +349,11 @@ class Levels:
                 level = Levels.get_level(k, fast_solution_finding)
                 if verbose == 1 and multithreads:
                     print(f'\nLevel {k} : {level.name}')
-                if level.name in ['Dichotomy', 'Mastermind', 'Zebra', 'Panex', 'Superflip']:
+                if level.name in ['Dichotomy',
+                                  'Mastermind',
+                                  'Zebra',
+                                  'Panex',
+                                  'Superflip']:
                     return
                 if only_if_known_solution and level.fastest_solution is None:
                     return

@@ -743,12 +743,16 @@ class Maze:
             solutions_that_work = []
             if verbose == 1:
                 if level_number is None:
-                    pbar_nb_iterations = tqdm(desc=f'{self.name}')
+                    pbar_nb_iterations = tqdm(desc=f'{self.name}',
+                                              position=0)
                 else:
                     if nb_iterations_tot is None:
-                        pbar_nb_iterations = tqdm(desc=f'Level {level_number}: {self.name}')
+                        pbar_nb_iterations = tqdm(desc=f'Level {level_number}: {self.name}',
+                                                  position=0)
                     else:
-                        pbar_nb_iterations = tqdm(desc=f'Level {level_number}: {self.name}', total=nb_iterations_tot)
+                        pbar_nb_iterations = tqdm(desc=f'Level {level_number}: {self.name}',
+                                                  total=nb_iterations_tot,
+                                                  position=0)
             while solutions_to_visit != []:
                 if time() - t0 > max_calculation_time:
                     return [], nb_iterations, nb_operations

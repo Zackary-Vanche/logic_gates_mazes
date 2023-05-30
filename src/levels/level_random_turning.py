@@ -7,7 +7,7 @@ from Levels_colors_list import Levels_colors_list
 
 n_switches=6
 
-def aux_level_random_loop(door_trees_list = [[i for i in range(2**n_switches)] for j in range(7)],
+def aux_level_random_turning(door_trees_list = [[i for i in range(2**n_switches)] for j in range(7)],
                           exit_number=None):
 
     S0 = Switch(name='S0')
@@ -106,7 +106,7 @@ def aux_level_random_loop(door_trees_list = [[i for i in range(2**n_switches)] f
                  doors_list=[D0, D1, D2, D3, D4, D5, D6],
                  fastest_solution=None,
                  level_color=Levels_colors_list.RANDOM(),
-                 name='Random - Loop',
+                 name='Random - Turning',
                  door_window_size=1475,
                  keep_proportions=False,
                  y_separation=40,
@@ -115,5 +115,5 @@ def aux_level_random_loop(door_trees_list = [[i for i in range(2**n_switches)] f
     
     return level
 
-def level_random_loop():
-    return Maze.get_random_level_from_file(aux_level_random_loop)
+def level_random_turning():
+    return Maze.get_random_level_from_file(aux_level_random_turning)

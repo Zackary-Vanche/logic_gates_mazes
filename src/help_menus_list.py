@@ -654,7 +654,7 @@ help_menus_list['levels']["Random - Ladder"] = help_menus_list['random']
 
 help_menus_list['levels']["Random - Line"] = help_menus_list['random']
 
-help_menus_list['levels']["Random - Loop"] = help_menus_list['random']
+help_menus_list['levels']["Random - Turning"] = help_menus_list['random']
 
 help_menus_list['levels']["Random - Petersen"] = help_menus_list['random']
 
