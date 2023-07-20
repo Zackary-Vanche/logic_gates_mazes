@@ -232,8 +232,8 @@ def level_central_symmetry():
                 name='T50',
                 switches=[1])
     
-    ex = 0.5
-    ey = 0.5
+    ex = 0.25
+    ey = 0.25
 
     R0 = Room(name='R0',
               position=[3, 0, ex, ey],
@@ -284,266 +284,316 @@ def level_central_symmetry():
                position=[0, 3, ex, ey],
                switches_list=[S15])
     R16 = Room(name='R16',
-               position=[-1, 2+ex, 1-ex, ey],
+               position=[-1+2*ex/3, 2+ey, ex, 1-ey],
                switches_list=[S16])
     RE = Room(name='RE',
-              position=[4, 1, ex, ey],
+              position=[4-3*ex/4, 1, ex, ey],
               is_exit=True)
+    
+    rp = 0.35
 
     D0 = Door(two_way=False,
                 tree=T0,
                 name='D0',
                 room_departure=R0,
-                room_arrival=R1)
+                room_arrival=R1,
+                relative_position=rp)
     D1 = Door(two_way=False,
                 tree=T1,
                 name='D1',
                 room_departure=R1,
-                room_arrival=R0)
+                room_arrival=R0,
+                relative_position=rp)
     D2 = Door(two_way=False,
                 tree=T2,
                 name='D2',
                 room_departure=R1,
-                room_arrival=R2)
+                room_arrival=R2,
+                relative_position=rp)
     D3 = Door(two_way=False,
                 tree=T3,
                 name='D3',
                 room_departure=R2,
-                room_arrival=R1)
+                room_arrival=R1,
+                relative_position=rp)
     D4 = Door(two_way=False,
                 tree=T4,
                 name='D4',
                 room_departure=R2,
-                room_arrival=R3)
+                room_arrival=R3,
+                relative_position=rp)
     D5 = Door(two_way=False,
                 tree=T5,
                 name='D5',
                 room_departure=R3,
-                room_arrival=R2)
+                room_arrival=R2,
+                relative_position=rp)
     D6 = Door(two_way=False,
                 tree=T6,
                 name='D6',
                 room_departure=R4,
-                room_arrival=R5)
+                room_arrival=R5,
+                relative_position=rp)
     D7 = Door(two_way=False,
                 tree=T7,
                 name='D7',
                 room_departure=R5,
-                room_arrival=R4)
+                room_arrival=R4,
+                relative_position=rp)
     D8 = Door(two_way=False,
                 tree=T8,
                 name='D8',
                 room_departure=R5,
-                room_arrival=R6)
+                room_arrival=R6,
+                relative_position=rp)
     D9 = Door(two_way=False,
                 tree=T9,
                 name='D9',
                 room_departure=R6,
-                room_arrival=R5)
+                room_arrival=R5,
+                relative_position=rp)
     D10 = Door(two_way=False,
                 tree=T10,
                 name='D10',
                 room_departure=R6,
-                room_arrival=R7)
+                room_arrival=R7,
+                relative_position=rp)
     D11 = Door(two_way=False,
                 tree=T11,
                 name='D11',
                 room_departure=R7,
-                room_arrival=R6)
+                room_arrival=R6,
+                relative_position=rp)
     D12 = Door(two_way=False,
                 tree=T12,
                 name='D12',
                 room_departure=R8,
-                room_arrival=R9)
+                room_arrival=R9,
+                relative_position=rp)
     D13 = Door(two_way=False,
                 tree=T13,
                 name='D13',
                 room_departure=R9,
-                room_arrival=R8)
+                room_arrival=R8,
+                relative_position=rp)
     D14 = Door(two_way=False,
                 tree=T14,
                 name='D14',
                 room_departure=R9,
-                room_arrival=R10)
+                room_arrival=R10,
+                relative_position=rp)
     D15 = Door(two_way=False,
                 tree=T15,
                 name='D15',
                 room_departure=R10,
-                room_arrival=R9)
+                room_arrival=R9,
+                relative_position=rp)
     D16 = Door(two_way=False,
                 tree=T16,
                 name='D16',
                 room_departure=R10,
-                room_arrival=R11)
+                room_arrival=R11,
+                relative_position=rp)
     D17 = Door(two_way=False,
                 tree=T17,
                 name='D17',
-                room_departure=R12,
-                room_arrival=R13)
+                room_departure=R11,
+                room_arrival=R10,
+                relative_position=rp)
     D18 = Door(two_way=False,
                 tree=T18,
                 name='D18',
-                room_departure=R13,
-                room_arrival=R12)
+                room_departure=R12,
+                room_arrival=R13,
+                relative_position=rp)
     D19 = Door(two_way=False,
                 tree=T19,
                 name='D19',
                 room_departure=R13,
-                room_arrival=R14)
+                room_arrival=R12,
+                relative_position=rp)
     D20 = Door(two_way=False,
                 tree=T20,
                 name='D20',
-                room_departure=R14,
-                room_arrival=R13)
+                room_departure=R13,
+                room_arrival=R14,
+                relative_position=rp)
     D21 = Door(two_way=False,
                 tree=T21,
                 name='D21',
                 room_departure=R14,
-                room_arrival=R15)
+                room_arrival=R13,
+                relative_position=rp)
     D22 = Door(two_way=False,
                 tree=T22,
                 name='D22',
-                room_departure=R15,
-                room_arrival=R14)
+                room_departure=R14,
+                room_arrival=R15,
+                relative_position=rp)
     D23 = Door(two_way=False,
                 tree=T23,
                 name='D23',
-                room_departure=R0,
-                room_arrival=R4)
+                room_departure=R15,
+                room_arrival=R14,
+                relative_position=rp)
     D24 = Door(two_way=False,
                 tree=T24,
                 name='D24',
-                room_departure=R4,
-                room_arrival=R0)
+                room_departure=R0,
+                room_arrival=R4,
+                relative_position=rp)
     D25 = Door(two_way=False,
                 tree=T25,
                 name='D25',
-                room_departure=R0,
-                room_arrival=RE)
+                room_departure=R4,
+                room_arrival=R0,
+                relative_position=rp)
     D26 = Door(two_way=False,
                 tree=T26,
                 name='D26',
-                room_departure=R0,
-                room_arrival=RE)
+                room_departure=R4,
+                room_arrival=R8,
+                relative_position=rp)
     D27 = Door(two_way=False,
                 tree=T27,
                 name='D27',
-                room_departure=R0,
-                room_arrival=RE)
+                room_departure=R8,
+                room_arrival=R4,
+                relative_position=rp)
     D28 = Door(two_way=False,
                 tree=T28,
                 name='D28',
-                room_departure=R0,
-                room_arrival=RE)
+                room_departure=R8,
+                room_arrival=R12,
+                relative_position=rp)
     D29 = Door(two_way=False,
                 tree=T29,
                 name='D29',
-                room_departure=R0,
-                room_arrival=RE)
+                room_departure=R12,
+                room_arrival=R8,
+                relative_position=rp)
     D30 = Door(two_way=False,
                 tree=T30,
                 name='D30',
-                room_departure=R0,
-                room_arrival=RE)
+                room_departure=R1,
+                room_arrival=R5,
+                relative_position=rp)
     D31 = Door(two_way=False,
                 tree=T31,
                 name='D31',
-                room_departure=R0,
-                room_arrival=RE)
+                room_departure=R5,
+                room_arrival=R1,
+                relative_position=rp)
     D32 = Door(two_way=False,
                 tree=T32,
                 name='D32',
-                room_departure=R0,
-                room_arrival=RE)
+                room_departure=R5,
+                room_arrival=R9,
+                relative_position=rp)
     D33 = Door(two_way=False,
                 tree=T33,
                 name='D33',
-                room_departure=R0,
-                room_arrival=RE)
+                room_departure=R9,
+                room_arrival=R5,
+                relative_position=rp)
     D34 = Door(two_way=False,
                 tree=T34,
                 name='D34',
-                room_departure=R0,
-                room_arrival=RE)
+                room_departure=R9,
+                room_arrival=R13,
+                relative_position=rp)
     D35 = Door(two_way=False,
                 tree=T35,
                 name='D35',
-                room_departure=R0,
-                room_arrival=RE)
+                room_departure=R13,
+                room_arrival=R9,
+                relative_position=rp)
     D36 = Door(two_way=False,
                 tree=T36,
                 name='D36',
-                room_departure=R0,
-                room_arrival=RE)
+                room_departure=R2,
+                room_arrival=R6,
+                relative_position=rp)
     D37 = Door(two_way=False,
                 tree=T37,
                 name='D37',
-                room_departure=R0,
-                room_arrival=RE)
+                room_departure=R6,
+                room_arrival=R2,
+                relative_position=rp)
     D38 = Door(two_way=False,
                 tree=T38,
                 name='D38',
-                room_departure=R0,
-                room_arrival=RE)
+                room_departure=R6,
+                room_arrival=R10,
+                relative_position=rp)
     D39 = Door(two_way=False,
                 tree=T39,
                 name='D39',
-                room_departure=R0,
-                room_arrival=RE)
+                room_departure=R10,
+                room_arrival=R6,
+                relative_position=rp)
     D40 = Door(two_way=False,
                 tree=T40,
                 name='D40',
-                room_departure=R0,
-                room_arrival=RE)
+                room_departure=R10,
+                room_arrival=R14,
+                relative_position=rp)
     D41 = Door(two_way=False,
                 tree=T41,
                 name='D41',
-                room_departure=R0,
-                room_arrival=RE)
+                room_departure=R14,
+                room_arrival=R10,
+                relative_position=rp)
     D42 = Door(two_way=False,
                 tree=T42,
                 name='D42',
-                room_departure=R0,
-                room_arrival=RE)
+                room_departure=R3,
+                room_arrival=R7,
+                relative_position=rp)
     D43 = Door(two_way=False,
                 tree=T43,
                 name='D43',
-                room_departure=R0,
-                room_arrival=RE)
+                room_departure=R7,
+                room_arrival=R3,
+                relative_position=rp)
     D44 = Door(two_way=False,
                 tree=T44,
                 name='D44',
-                room_departure=R0,
-                room_arrival=RE)
+                room_departure=R7,
+                room_arrival=R11,
+                relative_position=rp)
     D45 = Door(two_way=False,
                 tree=T45,
                 name='D45',
-                room_departure=R0,
-                room_arrival=RE)
+                room_departure=R11,
+                room_arrival=R7,
+                relative_position=rp)
     D46 = Door(two_way=False,
                 tree=T46,
                 name='D46',
-                room_departure=R0,
-                room_arrival=RE)
+                room_departure=R11,
+                room_arrival=R15,
+                relative_position=rp)
     D47 = Door(two_way=False,
                 tree=T47,
                 name='D47',
-                room_departure=R0,
-                room_arrival=RE)
+                room_departure=R15,
+                room_arrival=R11,
+                relative_position=rp)
     D48 = Door(two_way=False,
                 tree=T48,
                 name='D48',
-                room_departure=R0,
-                room_arrival=RE)
+                room_departure=R14,
+                room_arrival=R16)
     D49 = Door(two_way=False,
                 tree=T49,
                 name='D49',
-                room_departure=R0,
-                room_arrival=RE)
+                room_departure=R16,
+                room_arrival=R15)
     D50 = Door(two_way=False,
                 tree=T50,
                 name='D50',
-                room_departure=R0,
+                room_departure=R1,
                 room_arrival=RE)
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
