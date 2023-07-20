@@ -16,7 +16,7 @@ def divisor_closest_to_sqrt(n):
     return min(n // d, d)
 
 
-def main():
+if __name__ == "__main__":
     rd.seed(42)
 
     # TOTAL_SIZE = pyautogui_size()
@@ -40,12 +40,12 @@ def main():
     n_levels = Levels.number_of_levels
     m = divisor_closest_to_sqrt(n_levels)
     n = n_levels // m
-    for size in [[1920, 1080]]:  # [1346, 668], [1920, 1001], [1920, 1055],
+    for size in [[1920, 1200]]:  # [1346, 668], [1920, 1001], [1920, 1055],
         WIDTH, HEIGHT = size
         string = "WIDTH_{}_HEIGHT_{}".format(WIDTH, HEIGHT)
         dico = {}
         for file in os.listdir(racine):
-            if string in file and not "HELP" in file and not "concat" in file:
+            if string in file and not "HELP" in file:# and not "concat" in file:
                 k = int(file.split('_')[1])
                 dico[k] = '/'.join([racine, file])
         file_list = []
@@ -53,7 +53,7 @@ def main():
             file_list.append(dico[k])
 
         assert m <= n, f'~ {m} <= {n}'
-        assert m * n == len(file_list), """{0}, {1}, {2}""".format(m, n, len(file_list))
+        # assert m * n == len(file_list), """{0}, {1}, {2}""".format(m, n, len(file_list))
         l_img_h = []
         for i in range(m):
             l = file_list[n * i:n * i + n]
@@ -103,7 +103,3 @@ def main():
         
         for file in file_list:
             os.remove(file)
-
-
-if __name__ == "__main__":
-    main()

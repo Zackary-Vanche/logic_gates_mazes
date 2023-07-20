@@ -458,6 +458,8 @@ help_menus_list['levels']["Naturals"] = '\n'.join([help_menus_list['ABS'], help_
 
 help_menus_list['levels']["Wasted"] = """It looks easy, and it is easy."""
 
+help_menus_list['levels']["Wind rose"] = """It is not more complicated than the level named "meanders"."""
+
 help_menus_list['levels']["Compact"] = """It looks easy, but it is maybe just an impression."""
 
 help_menus_list['levels']["Parallel"] = """The "Guess and check" method works well here."""

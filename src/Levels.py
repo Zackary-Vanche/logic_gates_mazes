@@ -132,6 +132,7 @@ from levels.level_wasted import level_wasted
 from levels.level_water_pouring import level_water_pouring
 from levels.level_wave import level_wave
 from levels.level_weights import level_weights
+from levels.level_wind_rose import level_wind_rose
 from levels.level_xor import level_xor
 from levels.level_zebra import level_zebra
 
@@ -191,6 +192,7 @@ class Levels:
         level_naturals,
         level_wasted,
         level_doppelganger,
+        level_wind_rose,
         level_compact,
         level_random_simple,
         level_random_boustrophedon,
@@ -509,9 +511,9 @@ if __name__ == "__main__":
     if os.path.exists('temp.txt'):
         os.remove('temp.txt')
 
-    test_levels()
+    # test_levels()
     
-    solutions = level_meanders().find_all_solutions(verbose=2, nb_iterations_print=10**4, stop_at_first_solution=False)
+    solutions = level_wind_rose().find_all_solutions(verbose=2, nb_iterations_print=10**4, stop_at_first_solution=False)
 
     # import cProfile
     # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=float('inf'), save_as_txt=False)''', sort=1)
