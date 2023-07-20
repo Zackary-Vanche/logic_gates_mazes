@@ -511,7 +511,7 @@ if __name__ == "__main__":
 
     test_levels()
     
-    solutions = level_hello_world().find_all_solutions(verbose=2, nb_iterations_print=10**4, stop_at_first_solution=False)
+    solutions = level_meanders().find_all_solutions(verbose=2, nb_iterations_print=10**4, stop_at_first_solution=False)
 
     # import cProfile
     # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=float('inf'), save_as_txt=False)''', sort=1)
