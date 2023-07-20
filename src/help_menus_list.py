@@ -408,6 +408,8 @@ help_menus_list['levels']["Crossroad"] = help_menus_list['reminder B']
 
 help_menus_list['levels']["Square"] = help_menus_list['write several actions']
 
+help_menus_list['levels']["Meanders"] = """You have to go inside every room."""
+
 help_menus_list['levels']["Infinity"] = help_menus_list["cheat code"]
 
 help_menus_list['levels']["Fluid"] = help_menus_list['Introduction thuth table']

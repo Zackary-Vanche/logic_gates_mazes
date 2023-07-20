@@ -59,6 +59,7 @@ from levels.level_manhattan_distance import level_manhattan_distance
 from levels.level_matrix import level_matrix
 from levels.level_magic_square import level_magic_square  # kakuro
 from levels.level_mastermind import level_mastermind
+from levels.level_meanders import level_meanders
 from levels.level_mols import level_mols
 from levels.level_naturals import level_naturals
 from levels.level_nonogram import level_nonogram
@@ -167,6 +168,7 @@ class Levels:
         level_or,
         level_crossroad,
         level_square,
+        level_meanders,
         level_infinity,
         level_fluid,
         level_numeration,
