@@ -14,7 +14,7 @@ from Levels_colors_list import Levels_colors_list
 from numpy import pi, cos, sin
 from Color import Color
 
-def level_wind_rose():
+def level_wind_compass():
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
     S2 = Switch(name='S2')
@@ -167,7 +167,11 @@ def level_wind_rose():
     
     for i in range(8):
         alpha = i*pi/4 + 3*pi/2
-        position_R.append([cos(alpha), -sin(alpha), ex, ey])
+        if i%2==0:
+            r = 1
+        else:
+            r = 0.875
+        position_R.append([r*cos(alpha), -r*sin(alpha), ex, ey])
         
     position_R.append([0, 0, ex, ey])
 
@@ -414,7 +418,7 @@ def level_wind_rose():
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19, D20, D21, D22, D23, D24, D25, D26, D27, D28, D29, D30, D31, D32],
                  fastest_solution="S0 D15 S7 D13 S6 D11 S5 D26 S8 D19 S1 D2 S2 D4 S3 D6 S4 D32",
                  level_color=lcolor,
-                 name='Wind rose',
+                 name='Wind compass',
                  door_window_size=600,
                  y_separation=50,
                  border=30,
