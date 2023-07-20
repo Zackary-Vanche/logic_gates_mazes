@@ -15,6 +15,7 @@ from levels.level_binary import level_binary
 from levels.level_bipartite import level_bipartite
 from levels.level_bis_repetita import level_bis_repetita
 from levels.level_cartesian import level_cartesian
+from levels.level_central_symmetry import level_central_symmetry
 from levels.level_chessboard import level_chessboard
 from levels.level_code import level_code
 from levels.level_combinatorics import level_combinatorics
@@ -158,7 +159,7 @@ from levels.level_random_cuboctahedron import aux_level_random_cuboctahedron
 # Hungarian Rings
 
 class Levels:
-    levels_functions_list = [
+    levels_functions_list = [#level_central_symmetry,
         level_hello_world,
         level_initiation,
         level_linear,

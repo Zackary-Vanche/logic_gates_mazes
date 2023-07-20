@@ -1,6 +1,6 @@
-ns = 0
-nd = 4*8+1
-nr = 0
+ns = 17
+nd = 3*4*2*2+3
+nr = 17
 
 print('''
 from Switch import Switch
@@ -19,7 +19,7 @@ for i in range(ns):
 print('')
     
 for i in range(nd):
-    print(f'''    T{i} = Tree(tree_list=[None],
+    print(f'''    T{i} = Tree(tree_list=tree_list_1,
                 empty=True,
                 name='T{i}',
                 switches=[1])''')
@@ -57,4 +57,4 @@ print(f'''
     
     return level''')
 
-print(f'''[{', '.join([f'S{i}' for i in range(ns)])}]''')
+print(f'''[{', '.join([f'D{i}' for i in range(nd)])}]''')
