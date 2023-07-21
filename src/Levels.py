@@ -156,10 +156,26 @@ from levels.level_random_simple import aux_level_random_simple
 from levels.level_random_petersen import aux_level_random_petersen
 from levels.level_random_cuboctahedron import aux_level_random_cuboctahedron
 
-# Hungarian Rings
+"""
+Problème du problème du postier chinois (Chinese Postman Problem) :
+    Trouver le chemin le plus court pour visiter toutes les arêtes d'un graphe au moins une fois et revenir au point de départ.
+
+Problème du voyageur de commerce asynchrone (Asymmetric TSP) :
+    Une variante du TSP où la distance entre deux villes peut être différente en fonction de la direction du déplacement.
+
+Problème du couplage maximal (Maximum Matching Problem) :
+    Trouver un couplage (ensemble d'arêtes non adjacentes) de taille maximale dans un graphe.
+
+Problème du sous-ensemble somme (Subset Sum Problem) :
+    Trouver un sous-ensemble de nombres donnés dont la somme est égale à un nombre cible donné.
+
+Tetris bis
+
+symmetries
+"""
 
 class Levels:
-    levels_functions_list = [#level_central_symmetry,
+    levels_functions_list = [level_central_symmetry,
         level_hello_world,
         level_initiation,
         level_linear,
@@ -518,3 +534,76 @@ if __name__ == "__main__":
 
     # import cProfile
     # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=float('inf'), save_as_txt=False)''', sort=1)
+    
+    door_list = level_central_symmetry().doors_list
+    door_list = sorted(door_list, key = lambda x : int(x.name.replace('D', '')))
+    for i in range(len(door_list)):
+        door = door_list[i]
+        room_departure_name = door.room_departure.name
+        room_arrival_name = door.room_arrival.name
+        T0 = door.name.replace('D', 'T')
+        S0 = room_departure_name.replace('R', 'S')
+        S1 = room_arrival_name.replace('R', 'S')
+        print(f"""{T0} = Tree(tree_list=tree_list_0,
+                  empty=True,
+                  name='T{i}',
+                  switches=[{S0}, {S1}])""")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

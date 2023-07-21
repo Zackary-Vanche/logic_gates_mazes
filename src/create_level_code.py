@@ -57,4 +57,4 @@ print(f'''
     
     return level''')
 
-print(f'''[{', '.join([f'D{i}' for i in range(nd)])}]''')
+print(f'''[{', '.join([f'S{i}' for i in range(ns)])}]''')
