@@ -546,7 +546,7 @@ if __name__ == "__main__":
         S1 = room_arrival_name.replace('R', 'S')
         print(f"""{T0} = Tree(tree_list=tree_list_0,
                   empty=True,
-                  name='T{i}',
+                  name='{T0}',
                   switches=[{S0}, {S1}])""")
 
 
