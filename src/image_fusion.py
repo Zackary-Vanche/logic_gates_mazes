@@ -40,7 +40,7 @@ if __name__ == "__main__":
     n_levels = Levels.number_of_levels
     m = divisor_closest_to_sqrt(n_levels)
     n = n_levels // m
-    for size in [[1920, 1200]]:  # [1346, 668], [1920, 1001], [1920, 1055],
+    for size in [[1920, 1080]]:  # [1346, 668], [1920, 1001], [1920, 1055],
         WIDTH, HEIGHT = size
         string = "WIDTH_{}_HEIGHT_{}".format(WIDTH, HEIGHT)
         dico = {}
@@ -69,9 +69,6 @@ if __name__ == "__main__":
         filename = r'images/concat/concat_levels_{}.jpg'.format(string)
         cv2.imwrite(filename, img)
         print(filename)
-        
-        for file in file_list:
-            os.remove(file)
 
         WIDTH, HEIGHT = size
         string = "WIDTH_{}_HEIGHT_{}".format(WIDTH, HEIGHT)
@@ -101,5 +98,6 @@ if __name__ == "__main__":
         filename = r'images/concat/concat_levels_HELP_{}.jpg'.format(string)
         cv2.imwrite(filename, img_h)
         
-        for file in file_list:
-            os.remove(file)
+        if len(os.listdir('images/concat/')) >= 2:
+            for file in file_list:
+                os.remove(file)

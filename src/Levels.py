@@ -175,7 +175,7 @@ symmetries
 """
 
 class Levels:
-    levels_functions_list = [level_central_symmetry,
+    levels_functions_list = [
         level_hello_world,
         level_initiation,
         level_linear,
@@ -242,6 +242,7 @@ class Levels:
         level_crystal,
         level_mastermind,
         level_tetris,
+        level_central_symmetry,
         level_xor,
         level_lights_out,
         level_weights,
@@ -451,6 +452,9 @@ def test_levels(test_random_levels=False):
             r = level.try_solution(level.fastest_solution)
             if r != 2:
                 print(level.name, 'wrong solution')
+        elif not level.random:
+            if level.name not in ['Panex', 'Superflip']:
+                print(level.name, 'no solution')
 
     print('\nSaving solutions')
     Levels.save_solutions_txt(do_it_fast=True, verbose=0)
@@ -528,27 +532,30 @@ if __name__ == "__main__":
     if os.path.exists('temp.txt'):
         os.remove('temp.txt')
 
-    # test_levels()
+    test_levels()
     
-    solutions = level_wind_compass().find_all_solutions(verbose=2, nb_iterations_print=10**4, stop_at_first_solution=False)
+    # solutions = level_central_symmetry().find_all_solutions(verbose=2,
+    #                                                         nb_iterations_print=10**4,
+    #                                                         stop_at_first_solution=False)
 
     # import cProfile
     # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=float('inf'), save_as_txt=False)''', sort=1)
     
-    door_list = level_central_symmetry().doors_list
-    door_list = sorted(door_list, key = lambda x : int(x.name.replace('D', '')))
-    for i in range(len(door_list)):
-        door = door_list[i]
-        room_departure_name = door.room_departure.name
-        room_arrival_name = door.room_arrival.name
-        T0 = door.name.replace('D', 'T')
-        S0 = room_departure_name.replace('R', 'S')
-        S1 = room_arrival_name.replace('R', 'S')
-        print(f"""{T0} = Tree(tree_list=tree_list_0,
-                  empty=True,
-                  name='{T0}',
-                  switches=[{S0}, {S1}])""")
+    # door_list = level_central_symmetry().doors_list
+    # door_list = sorted(door_list, key = lambda x : int(x.name.replace('D', '')))
+    # for i in range(len(door_list)):
+    #     door = door_list[i]
+    #     room_departure = door.room_departure
+    #     room_arrival = door.room_arrival
+    #     T0 = door.name.replace('D', 'T')
+    #     S0 = room_departure.switches_list[0].name
+    #     S1 = room_arrival.switches_list[0].name
+    #     print(f"""{T0} = Tree(tree_list=tree_list_0,
+    #               empty=True,
+    #               name='{T0}',
+    #               switches=[{S0}, {S1}])""")
 
+    
 
 
 

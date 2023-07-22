@@ -305,6 +305,7 @@ def level_error():
                  name='Error',
                  keep_proportions=True,
                  door_window_size=1070,
-                 y_separation=40)
+                 y_separation=40,
+                 random=True)
     
     return level

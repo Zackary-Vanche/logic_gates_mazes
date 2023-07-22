@@ -521,6 +521,8 @@ help_menus_list['levels']["Weights"] = '''You must find the good weights in orde
 
 help_menus_list['levels']["Tetris"] = """Each number can represent a position in the plane.\n"""
 
+help_menus_list['levels']["Central symmetry"] = """The name of the level is a hint."""
+
 help_menus_list['levels']["Mastermind"] = help_menus_list[
                                               'MAS'] + """\n\n?0 ?1 ?2 ?3 ?4 ?5 ?6 ?7 are switches.\n\nYou have to guess their values."""
 

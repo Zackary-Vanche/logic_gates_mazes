@@ -37,223 +37,251 @@ def level_central_symmetry():
     S27 = Switch(name='S27')
     S28 = Switch(name='S28')
     
-    tree_list_0 = Tree.tree_list_from_str('TF')
-    tree_list_1 = [None]
+    tree_list_0 = Tree.tree_list_from_str('TFT')
 
-    T0 = Tree(tree_list=[None],
+    T0 = Tree(tree_list=['EQU', [None], ['SUM'] + [[None]]*12],
               empty=True,
               name='T0',
-              switches=[1])
+              switches=[7,
+                        S0, S1, S2,
+                        S3, S4, S5,
+                        S6, S7, S8,
+                        S9, S10, S11])
+
     T1 = Tree(tree_list=tree_list_0,
               empty=True,
               name='T1',
-              switches=[S1, S2])
+              switches=[S12, S13, S0])
     T2 = Tree(tree_list=tree_list_0,
               empty=True,
               name='T2',
-              switches=[S2, S1])
+              switches=[S13, S12, S0])
+
     T3 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T3',
-                      switches=[S2, S3])
+              empty=True,
+              name='T3',
+              switches=[S13, S14, S1])
     T4 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T4',
-                      switches=[S3, S2])
+              empty=True,
+              name='T4',
+              switches=[S14, S13, S1])
+
     T5 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T5',
-                      switches=[S3, S4])
+              empty=True,
+              name='T5',
+              switches=[S14, S15, S2])
     T6 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T6',
-                      switches=[S4, S3])
+              empty=True,
+              name='T6',
+              switches=[S15, S14, S2])
+
     T7 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T7',
-                      switches=[S5, S6])
+              empty=True,
+              name='T7',
+              switches=[S16, S17, S5])
     T8 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T8',
-                      switches=[S6, S5])
+              empty=True,
+              name='T8',
+              switches=[S17, S16, S5])
+
     T9 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T9',
-                      switches=[S6, S7])
+              empty=True,
+              name='T9',
+              switches=[S17, S18, S3])
+    T10 = Tree(tree_list=tree_list_0,
+               empty=True,
+               name='T10',
+               switches=[S18, S17, S3])
+
+    T11 = Tree(tree_list=tree_list_0,
+               empty=True,
+               name='T11',
+               switches=[S18, S19, S4])
+    T12 = Tree(tree_list=tree_list_0,
+               empty=True,
+               name='T12',
+               switches=[S19, S18, S4])
+
+    T13 = Tree(tree_list=tree_list_0,
+               empty=True,
+               name='T13',
+               switches=[S20, S21, S4])
+    T14 = Tree(tree_list=tree_list_0,
+               empty=True,
+               name='T14',
+               switches=[S21, S20, S4])
+
+    T15 = Tree(tree_list=tree_list_0,
+               empty=True,
+               name='T15',
+               switches=[S21, S22, S3])
+    T16 = Tree(tree_list=tree_list_0,
+               empty=True,
+               name='T16',
+               switches=[S22, S21, S3])
+
+    T17 = Tree(tree_list=tree_list_0,
+               empty=True,
+               name='T17',
+               switches=[S22, S23, S5])
+    T18 = Tree(tree_list=tree_list_0,
+               empty=True,
+               name='T18',
+               switches=[S23, S22, S5])
+
+    T19 = Tree(tree_list=tree_list_0,
+               empty=True,
+               name='T19',
+               switches=[S24, S25, S2])
     T20 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T20',
-                      switches=[S7, S6])
+               empty=True,
+               name='T20',
+               switches=[S25, S24, S2])
+
     T21 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T21',
-                      switches=[S7, S8])
+               empty=True,
+               name='T21',
+               switches=[S25, S26, S1])
     T22 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T22',
-                      switches=[S8, S7])
+               empty=True,
+               name='T22',
+               switches=[S26, S25, S1])
+
     T23 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T23',
-                      switches=[S9, S20])
+               empty=True,
+               name='T23',
+               switches=[S26, S27, S0])
     T24 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T24',
-                      switches=[S20, S9])
+               empty=True,
+               name='T24',
+               switches=[S27, S26, S0])
+
     T25 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T25',
-                      switches=[S20, S21])
+               empty=True,
+               name='T25',
+               switches=[S12, S16, S11])
     T26 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T26',
-                      switches=[S21, S20])
+               empty=True,
+               name='T26',
+               switches=[S16, S12, S11])
+
     T27 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T27',
-                      switches=[S21, S22])
+               empty=True,
+               name='T27',
+               switches=[S16, S20, S10])
     T28 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T28',
-                      switches=[S22, S21])
+               empty=True,
+               name='T28',
+               switches=[S20, S16, S10])
+
     T29 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T29',
-                      switches=[S23, S24])
+               empty=True,
+               name='T29',
+               switches=[S20, S24, S9])
     T30 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T30',
-                      switches=[S24, S23])
+               empty=True,
+               name='T30',
+               switches=[S24, S20, S9])
+
     T31 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T31',
-                      switches=[S24, S25])
+               empty=True,
+               name='T31',
+               switches=[S13, S17, S6])
     T32 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T32',
-                      switches=[S25, S24])
+               empty=True,
+               name='T32',
+               switches=[S17, S13, S6])
+
     T33 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T33',
-                      switches=[S25, S26])
+               empty=True,
+               name='T33',
+               switches=[S17, S21, S8])
     T34 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T34',
-                      switches=[S26, S25])
+               empty=True,
+               name='T34',
+               switches=[S21, S17, S8])
+
     T35 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T35',
-                      switches=[S1, S5])
+               empty=True,
+               name='T35',
+               switches=[S21, S25, S7])
     T36 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T36',
-                      switches=[S5, S1])
+               empty=True,
+               name='T36',
+               switches=[S25, S21, S7])
+
     T37 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T37',
-                      switches=[S5, S9])
+               empty=True,
+               name='T37',
+               switches=[S14, S18, S7])
     T38 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T38',
-                      switches=[S9, S5])
+               empty=True,
+               name='T38',
+               switches=[S18, S14, S7])
+
     T39 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T39',
-                      switches=[S9, S23])
+               empty=True,
+               name='T39',
+               switches=[S18, S22, S8])
     T40 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T40',
-                      switches=[S23, S9])
+               empty=True,
+               name='T40',
+               switches=[S22, S18, S8])
+
     T41 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T41',
-                      switches=[S2, S6])
+               empty=True,
+               name='T41',
+               switches=[S22, S26, S6])
     T42 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T42',
-                      switches=[S6, S2])
+               empty=True,
+               name='T42',
+               switches=[S26, S22, S6])
+
     T43 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T43',
-                      switches=[S6, S20])
+               empty=True,
+               name='T43',
+               switches=[S15, S19, S9])
     T44 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T44',
-                      switches=[S20, S6])
+               empty=True,
+               name='T44',
+               switches=[S19, S15, S9])
+
     T45 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T45',
-                      switches=[S20, S24])
+               empty=True,
+               name='T45',
+               switches=[S19, S23, S10])
     T46 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T46',
-                      switches=[S24, S20])
+               empty=True,
+               name='T46',
+               switches=[S23, S19, S10])
+
     T47 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T47',
-                      switches=[S3, S7])
+               empty=True,
+               name='T47',
+               switches=[S23, S27, S11])
     T48 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T48',
-                      switches=[S7, S3])
-    T49 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T49',
-                      switches=[S7, S21])
-    T50 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T50',
-                      switches=[S21, S7])
-    T51 = Tree(tree_list=tree_list_0,
+               empty=True,
+               name='T48',
+               switches=[S27, S23, S11])
+
+    T49 = Tree(tree_list=['NOT', Tree.tree_list_from_str('TTT')],
+               empty=True,
+               name='T49',
+               switches=[S3, S6, S9])
+    T50 = Tree(tree_list=[None],
+               empty=True,
+               name='T50',
+               switches=[S28])
+    T51 = Tree(tree_list=['AND',
+                          Tree.tree_list_AND(8),
+                          Tree.tree_list_AND(9)],
                       empty=True,
                       name='T51',
-                      switches=[S21, S25])
-    T52 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T52',
-                      switches=[S25, S21])
-    T53 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T53',
-                      switches=[S4, S8])
-    T54 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T54',
-                      switches=[S8, S4])
-    T55 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T55',
-                      switches=[S8, S22])
-    T56 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T56',
-                      switches=[S22, S8])
-    T57 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T57',
-                      switches=[S22, S26])
-    T58 = Tree(tree_list=tree_list_0,
-                      empty=True,
-                      name='T58',
-                      switches=[S26, S22])
-    T59 = Tree(tree_list=[None],
-                      empty=True,
-                      name='T59',
-                      switches=[1])
-    T60 = Tree(tree_list=[None],
-                      empty=True,
-                      name='T60',
-                      switches=[1])
-    T61 = Tree(tree_list=['AND',
-                          Tree.tree_list_AND(14),
-                          Tree.tree_list_AND(15)],
-                      empty=True,
-                      name='T61',
-                      switches=[S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, S23, S24, S25, S26, S27, S28],
+                      switches=[S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, S23, S24, S25, S26, S27, S28],
                       cut_expression=True)
     
-    ex = 0.39
-    ey = 0.39
+    ex = 0.38
+    ey = 0.38
     
     R0 = Room(name='R0',
               position=[0, -1+ey, 3+ex, ey/2],
@@ -286,28 +314,28 @@ def level_central_symmetry():
     R9 = Room(name='R9',
               position=[1, 0, ex, ey],
               switches_list=[S20])
-    R20 = Room(name='R20',
+    R10 = Room(name='R10',
               position=[1, 1, ex, ey],
               switches_list=[S21])
-    R21 = Room(name='R21',
+    R11 = Room(name='R11',
                position=[1, 2, ex, ey],
                switches_list=[S22])
-    R22 = Room(name='R22',
+    R12 = Room(name='R12',
                position=[1, 3, ex, ey],
                switches_list=[S23])
-    R23 = Room(name='R23',
+    R13 = Room(name='R13',
                position=[0, 0, ex, ey],
                switches_list=[S24])
-    R24 = Room(name='R24',
+    R14 = Room(name='R14',
                position=[0, 1, ex, ey],
                switches_list=[S25])
-    R25 = Room(name='R25',
+    R15 = Room(name='R15',
                position=[0, 2, ex, ey],
                switches_list=[S26])
-    R26 = Room(name='R26',
+    R16 = Room(name='R16',
                position=[0, 3, ex, ey],
                switches_list=[S27])
-    R27 = Room(name='R27',
+    R17 = Room(name='R17',
                position=[-1+2*ex/3, 2+ey, ex, 1-ey],
                switches_list=[S28])
     RE = Room(name='RE',
@@ -377,264 +405,264 @@ def level_central_symmetry():
                 room_departure=R6,
                 room_arrival=R7,
                 relative_position=rp)
+    D10 = Door(two_way=False,
+                tree=T10,
+                name='D10',
+                room_departure=R7,
+                room_arrival=R6,
+                relative_position=rp)
+    D11 = Door(two_way=False,
+                tree=T11,
+                name='D11',
+                room_departure=R7,
+                room_arrival=R8,
+                relative_position=rp)
+    D12 = Door(two_way=False,
+                tree=T12,
+                name='D12',
+                room_departure=R8,
+                room_arrival=R7,
+                relative_position=rp)
+    D13 = Door(two_way=False,
+                tree=T13,
+                name='D13',
+                room_departure=R9,
+                room_arrival=R10,
+                relative_position=rp)
+    D14 = Door(two_way=False,
+                tree=T14,
+                name='D14',
+                room_departure=R10,
+                room_arrival=R9,
+                relative_position=rp)
+    D15 = Door(two_way=False,
+                tree=T15,
+                name='D15',
+                room_departure=R10,
+                room_arrival=R11,
+                relative_position=rp)
+    D16 = Door(two_way=False,
+                tree=T16,
+                name='D16',
+                room_departure=R11,
+                room_arrival=R10,
+                relative_position=rp)
+    D17 = Door(two_way=False,
+                tree=T17,
+                name='D17',
+                room_departure=R11,
+                room_arrival=R12,
+                relative_position=rp)
+    D18 = Door(two_way=False,
+                tree=T18,
+                name='D18',
+                room_departure=R12,
+                room_arrival=R11,
+                relative_position=rp)
+    D19 = Door(two_way=False,
+                tree=T19,
+                name='D19',
+                room_departure=R13,
+                room_arrival=R14,
+                relative_position=rp)
     D20 = Door(two_way=False,
                 tree=T20,
                 name='D20',
-                room_departure=R7,
-                room_arrival=R6,
+                room_departure=R14,
+                room_arrival=R13,
                 relative_position=rp)
     D21 = Door(two_way=False,
                 tree=T21,
                 name='D21',
-                room_departure=R7,
-                room_arrival=R8,
+                room_departure=R14,
+                room_arrival=R15,
                 relative_position=rp)
     D22 = Door(two_way=False,
                 tree=T22,
                 name='D22',
-                room_departure=R8,
-                room_arrival=R7,
+                room_departure=R15,
+                room_arrival=R14,
                 relative_position=rp)
     D23 = Door(two_way=False,
                 tree=T23,
                 name='D23',
-                room_departure=R9,
-                room_arrival=R20,
+                room_departure=R15,
+                room_arrival=R16,
                 relative_position=rp)
     D24 = Door(two_way=False,
                 tree=T24,
                 name='D24',
-                room_departure=R20,
-                room_arrival=R9,
+                room_departure=R16,
+                room_arrival=R15,
                 relative_position=rp)
     D25 = Door(two_way=False,
                 tree=T25,
                 name='D25',
-                room_departure=R20,
-                room_arrival=R21,
+                room_departure=R1,
+                room_arrival=R5,
                 relative_position=rp)
     D26 = Door(two_way=False,
                 tree=T26,
                 name='D26',
-                room_departure=R21,
-                room_arrival=R20,
+                room_departure=R5,
+                room_arrival=R1,
                 relative_position=rp)
     D27 = Door(two_way=False,
                 tree=T27,
                 name='D27',
-                room_departure=R21,
-                room_arrival=R22,
+                room_departure=R5,
+                room_arrival=R9,
                 relative_position=rp)
     D28 = Door(two_way=False,
                 tree=T28,
                 name='D28',
-                room_departure=R22,
-                room_arrival=R21,
+                room_departure=R9,
+                room_arrival=R5,
                 relative_position=rp)
     D29 = Door(two_way=False,
                 tree=T29,
                 name='D29',
-                room_departure=R23,
-                room_arrival=R24,
+                room_departure=R9,
+                room_arrival=R13,
                 relative_position=rp)
     D30 = Door(two_way=False,
                 tree=T30,
                 name='D30',
-                room_departure=R24,
-                room_arrival=R23,
+                room_departure=R13,
+                room_arrival=R9,
                 relative_position=rp)
     D31 = Door(two_way=False,
                 tree=T31,
                 name='D31',
-                room_departure=R24,
-                room_arrival=R25,
+                room_departure=R2,
+                room_arrival=R6,
                 relative_position=rp)
     D32 = Door(two_way=False,
                 tree=T32,
                 name='D32',
-                room_departure=R25,
-                room_arrival=R24,
+                room_departure=R6,
+                room_arrival=R2,
                 relative_position=rp)
     D33 = Door(two_way=False,
                 tree=T33,
                 name='D33',
-                room_departure=R25,
-                room_arrival=R26,
+                room_departure=R6,
+                room_arrival=R10,
                 relative_position=rp)
     D34 = Door(two_way=False,
                 tree=T34,
                 name='D34',
-                room_departure=R26,
-                room_arrival=R25,
+                room_departure=R10,
+                room_arrival=R6,
                 relative_position=rp)
     D35 = Door(two_way=False,
                 tree=T35,
                 name='D35',
-                room_departure=R1,
-                room_arrival=R5,
+                room_departure=R10,
+                room_arrival=R14,
                 relative_position=rp)
     D36 = Door(two_way=False,
                 tree=T36,
                 name='D36',
-                room_departure=R5,
-                room_arrival=R1,
+                room_departure=R14,
+                room_arrival=R10,
                 relative_position=rp)
     D37 = Door(two_way=False,
                 tree=T37,
                 name='D37',
-                room_departure=R5,
-                room_arrival=R9,
+                room_departure=R3,
+                room_arrival=R7,
                 relative_position=rp)
     D38 = Door(two_way=False,
                 tree=T38,
                 name='D38',
-                room_departure=R9,
-                room_arrival=R5,
+                room_departure=R7,
+                room_arrival=R3,
                 relative_position=rp)
     D39 = Door(two_way=False,
                 tree=T39,
                 name='D39',
-                room_departure=R9,
-                room_arrival=R23,
+                room_departure=R7,
+                room_arrival=R11,
                 relative_position=rp)
     D40 = Door(two_way=False,
                 tree=T40,
                 name='D40',
-                room_departure=R23,
-                room_arrival=R9,
+                room_departure=R11,
+                room_arrival=R7,
                 relative_position=rp)
     D41 = Door(two_way=False,
                 tree=T41,
                 name='D41',
-                room_departure=R2,
-                room_arrival=R6,
+                room_departure=R11,
+                room_arrival=R15,
                 relative_position=rp)
     D42 = Door(two_way=False,
                 tree=T42,
                 name='D42',
-                room_departure=R6,
-                room_arrival=R2,
+                room_departure=R15,
+                room_arrival=R11,
                 relative_position=rp)
     D43 = Door(two_way=False,
                 tree=T43,
                 name='D43',
-                room_departure=R6,
-                room_arrival=R20,
+                room_departure=R4,
+                room_arrival=R8,
                 relative_position=rp)
     D44 = Door(two_way=False,
                 tree=T44,
                 name='D44',
-                room_departure=R20,
-                room_arrival=R6,
+                room_departure=R8,
+                room_arrival=R4,
                 relative_position=rp)
     D45 = Door(two_way=False,
                 tree=T45,
                 name='D45',
-                room_departure=R20,
-                room_arrival=R24,
+                room_departure=R8,
+                room_arrival=R12,
                 relative_position=rp)
     D46 = Door(two_way=False,
                 tree=T46,
                 name='D46',
-                room_departure=R24,
-                room_arrival=R20,
+                room_departure=R12,
+                room_arrival=R8,
                 relative_position=rp)
     D47 = Door(two_way=False,
                 tree=T47,
                 name='D47',
-                room_departure=R3,
-                room_arrival=R7,
+                room_departure=R12,
+                room_arrival=R16,
                 relative_position=rp)
     D48 = Door(two_way=False,
                 tree=T48,
                 name='D48',
-                room_departure=R7,
-                room_arrival=R3,
+                room_departure=R16,
+                room_arrival=R12,
                 relative_position=rp)
     D49 = Door(two_way=False,
                 tree=T49,
                 name='D49',
-                room_departure=R7,
-                room_arrival=R21,
-                relative_position=rp)
+                room_departure=R15,
+                room_arrival=R17)
     D50 = Door(two_way=False,
                 tree=T50,
                 name='D50',
-                room_departure=R21,
-                room_arrival=R7,
-                relative_position=rp)
+                room_departure=R17,
+                room_arrival=R16)
     D51 = Door(two_way=False,
                 tree=T51,
                 name='D51',
-                room_departure=R21,
-                room_arrival=R25,
-                relative_position=rp)
-    D52 = Door(two_way=False,
-                tree=T52,
-                name='D52',
-                room_departure=R25,
-                room_arrival=R21,
-                relative_position=rp)
-    D53 = Door(two_way=False,
-                tree=T53,
-                name='D53',
-                room_departure=R4,
-                room_arrival=R8,
-                relative_position=rp)
-    D54 = Door(two_way=False,
-                tree=T54,
-                name='D54',
-                room_departure=R8,
-                room_arrival=R4,
-                relative_position=rp)
-    D55 = Door(two_way=False,
-                tree=T55,
-                name='D55',
-                room_departure=R8,
-                room_arrival=R22,
-                relative_position=rp)
-    D56 = Door(two_way=False,
-                tree=T56,
-                name='D56',
-                room_departure=R22,
-                room_arrival=R8,
-                relative_position=rp)
-    D57 = Door(two_way=False,
-                tree=T57,
-                name='D57',
-                room_departure=R22,
-                room_arrival=R26,
-                relative_position=rp)
-    D58 = Door(two_way=False,
-                tree=T58,
-                name='D58',
-                room_departure=R26,
-                room_arrival=R22,
-                relative_position=rp)
-    D59 = Door(two_way=False,
-                tree=T59,
-                name='D59',
-                room_departure=R25,
-                room_arrival=R27)
-    D60 = Door(two_way=False,
-                tree=T60,
-                name='D60',
-                room_departure=R27,
-                room_arrival=R26)
-    D61 = Door(two_way=False,
-                tree=T61,
-                name='D61',
                 room_departure=R2,
                 room_arrival=RE)
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
-                 rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R20, R21, R22, R23, R24, R25, R26, R27, RE],
-                 doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D20, D21, D22, D23, D24, D25, D26, D27, D28, D29, D30, D31, D32, D33, D34, D35, D36, D37, D38, D39, D40, D41, D42, D43, D44, D45, D46, D47, D48, D49, D50, D51, D52, D53, D54, D55, D56, D57, D58, D59, D60, D61],
-                 fastest_solution=None,
-                 level_color=Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.5),
-                 name='Central Symmetry',
+                 rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, R15, R16, R17, RE],
+                 doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19, D20, D21, D22, D23, D24, D25, D26, D27, D28, D29, D30, D31, D32, D33, D34, D35, D36, D37, D38, D39, D40, D41, D42, D43, D44, D45, D46, D47, D48, D49, D50, D51],
+                 fastest_solution='S1 S2 S4 S5 S8 S9 S11 D0 S12 D25 S16 D7 S17 D33 S21 D14 S20 D29 S24 D19 S25 D21 S26 D49 S28 D50 S27 D48 S23 D18 S22 D40 S18 D11 S19 D44 S15 D6 S14 D4 S13 D51',
+                 level_color=Levels_colors_list.FROM_HUE(hu=0.6, sa=0.4, li=0.3),
+                 name='Central symmetry',
                  keep_proportions=True,
                  y_separation=27,
-                 door_window_size=600)
+                 door_window_size=550)
     
     return level

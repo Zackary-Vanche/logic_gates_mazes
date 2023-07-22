@@ -92,6 +92,7 @@ def level_flash_back():
                  level_color=Levels_colors_list.FROM_HUE(0.95, sa=0.2, li=0.4),
                  name='Flash-back',
                  door_window_size=800,
-                 keep_proportions=True)
+                 keep_proportions=True,
+                 random=True)
 
     return level

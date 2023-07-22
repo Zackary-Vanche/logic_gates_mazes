@@ -86,7 +86,7 @@ class Game:
         if WINDOW_SIZE is None or SMALLEST_WINDOW_SIZE is None:
             from pyautogui import size as pyautogui_size
             TOTAL_SIZE = pyautogui_size()
-            WINDOW_SIZE = (0.95 * TOTAL_SIZE.width, 0.85 * TOTAL_SIZE.height)
+            WINDOW_SIZE = (0.95 * TOTAL_SIZE.width, 0.90 * TOTAL_SIZE.height)
             self.WINDOW_SIZE = WINDOW_SIZE
             self.SMALLEST_WINDOW_SIZE = WINDOW_SIZE
         else:
