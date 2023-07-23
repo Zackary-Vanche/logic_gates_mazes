@@ -17,6 +17,7 @@ from levels.level_bis_repetita import level_bis_repetita
 from levels.level_cartesian import level_cartesian
 from levels.level_central_symmetry import level_central_symmetry
 from levels.level_chessboard import level_chessboard
+from levels.level_spider import level_spider
 from levels.level_code import level_code
 from levels.level_combinatorics import level_combinatorics
 from levels.level_compact import level_compact
@@ -232,6 +233,7 @@ class Levels:
         level_egyptian_fractions,
         level_code,
         level_random_binary_tree,
+        level_spider,
         level_taxicab_number,
         level_tetrahedron,
         level_small,
@@ -534,11 +536,11 @@ if __name__ == "__main__":
     if os.path.exists('temp.txt'):
         os.remove('temp.txt')
 
-    test_levels()
+    # test_levels()
     
-    # solutions = level_entropy().find_all_solutions(verbose=2,
-    #                                                nb_iterations_print=10**4,
-    #                                                stop_at_first_solution=False)
+    solutions = level_spider().find_all_solutions(verbose=2,
+                                                    nb_iterations_print=10**4,
+                                                    stop_at_first_solution=False)
     
     # for sol in solutions[0]:
     #     l_s = []
@@ -550,19 +552,33 @@ if __name__ == "__main__":
     # import cProfile
     # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=float('inf'), save_as_txt=False)''', sort=1)
     
-    # door_list = level_central_symmetry().doors_list
-    # door_list = sorted(door_list, key = lambda x : int(x.name.replace('D', '')))
-    # for i in range(len(door_list)):
-    #     door = door_list[i]
-    #     room_departure = door.room_departure
-    #     room_arrival = door.room_arrival
-    #     T0 = door.name.replace('D', 'T')
-    #     S0 = room_departure.switches_list[0].name
-    #     S1 = room_arrival.switches_list[0].name
-    #     print(f"""{T0} = Tree(tree_list=tree_list_0,
-    #               empty=True,
-    #               name='{T0}',
-    #               switches=[{S0}, {S1}])""")
+    door_list = level_spider().doors_list
+    door_list = sorted(door_list, key = lambda x : int(x.name.replace('D', '')))
+    for i in range(len(door_list)):
+        door = door_list[i]
+        room_departure = door.room_departure
+        room_arrival = door.room_arrival
+        T0 = door.name.replace('D', 'T')
+        if len(room_arrival.switches_list) == 1:
+            S = room_arrival.switches_list[0].name
+            print(f"""{T0} = Tree(tree_list=Tree.tree_list_not,
+                 empty=True,
+                 name='{T0}',
+                 switches=[{S}])""")
+        if len(room_departure.switches_list) == 1:
+            S = room_departure.switches_list[0].name
+            print(f"""{T0} = Tree(tree_list=[None],
+                 empty=True,
+                 name='{T0}',
+                 switches=[{S}])""")
+            
+            
+        # S0 = room_departure.switches_list[0].name
+        
+        # print(f"""{T0} = Tree(tree_list=tree_list_0,
+        #           empty=True,
+        #           name='{T0}',
+        #           switches=[{S0}, {S1}])""")
 
     
 

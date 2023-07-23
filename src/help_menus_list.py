@@ -494,6 +494,8 @@ help_menus_list['levels']["Egyptian fractions"] = help_menus_list['DIV']
 
 help_menus_list['levels']["Code"] = "You may want to learn what the Gray code is."
 
+help_menus_list['levels']["Spider"] = "Walk on the spider web."
+
 help_menus_list['levels'][
     "Tetrahedron"] = """The logic expressions of the doors of this level have been calculated by computer.\nThe program that calculated it already knew all the rest of the level.\n\nThis level looks complicated, but you do only need to let the game lead you to the exit."""
 

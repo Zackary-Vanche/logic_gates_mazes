@@ -1,6 +1,6 @@
-ns = 14
-nd = 14
-nr = 8
+ns = 5
+nd = 10*2+1
+nr = 9
 
 print('''
 from Switch import Switch
