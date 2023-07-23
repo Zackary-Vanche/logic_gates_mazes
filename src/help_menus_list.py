@@ -475,8 +475,9 @@ help_menus_list['levels']["Superpermutation"] = help_menus_list['INLIST']
 
 help_menus_list['levels']["Taxicab number"] = """Taxicab numbers are also called Hardy–Ramanujan numbers."""
 
-help_menus_list['levels'][
-    "Chessboard"] = """If you remove the exit, the graph of this level is the graph of the possible moves of a knight in a 3*4 rectangle.\nHowever, sometimes here doors are one-way only."""
+help_menus_list['levels']["Chessboard"] = """If you remove the exit, the graph of this level is the graph of the possible moves of a knight in a 3*4 rectangle.\nHowever, sometimes here doors are one-way only."""
+
+help_menus_list['levels']["Entropy"] = """You have a limited number of moves."""
 
 help_menus_list['levels'][
     "Dichotomy"] = """? is a random integer.\n\nOnce you found the value of ?, the level is over.\n\n""" + \

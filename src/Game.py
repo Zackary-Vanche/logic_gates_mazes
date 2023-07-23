@@ -1,5 +1,5 @@
 from pygame import init as pygame_init
-from pygame.locals import QUIT, K_UP, K_DOWN, K_RIGHT, K_LEFT
+from pygame.locals import QUIT, K_RIGHT, K_LEFT, K_UP, K_DOWN
 from pygame.locals import K_a, K_b, K_d, K_e, K_h, K_m, K_n, K_p, K_r, K_s, K_l, K_q
 from pygame.locals import K_KP0, K_KP1, K_KP2, K_KP3, K_KP4
 from pygame.locals import K_KP5, K_KP6, K_KP7, K_KP8, K_KP9
@@ -114,6 +114,9 @@ class Game:
         if self.save_image:
             self.show_help = False
         self.game_color = game_color
+        self.possible_current_actions = None
+        self.current_action_index = 0
+        self.current_action_index_changed = False
 
     def game_setup(self):
         # Game Setup
@@ -197,6 +200,8 @@ class Game:
                                               self.WINDOW_HEIGHT,
                                               border,
                                               self.keep_proportions)
+            
+            self.update_possible_actions()
 
     def update_window_size(self):
 
@@ -567,6 +572,48 @@ class Game:
         self.print_current_action()
         self.draw_rooms_names()
         pygame_display_update()
+        
+    def update_possible_actions(self, reset_current_action_index=True):
+        maze = self.maze
+        current_room = maze.current_room()
+        # SWITCHES LIST
+        switches_list = []
+        for switch in current_room.switches_list:
+             switches_list.append(switch.name)
+        # DOOR LIST
+        doors_list = []
+        for door in current_room.departure_doors_list:
+            if door.is_open:
+                doors_list.append(door.name)
+        for door in current_room.two_way_doors_list:
+            if door.is_open:
+                doors_list.append(door.name)
+        # SORT LIST
+        sort_func = lambda x : int(x.replace('S', '').replace('D', ''))
+        switches_list.sort(key=sort_func)
+        doors_list.sort(key=sort_func)
+        self.possible_current_actions = switches_list + doors_list
+        if reset_current_action_index:
+            self.current_action_index = 0
+        
+    def handle_keys_UP_DOWN(self):
+        if time() - self.last_key_pressed_time > self.time_between_actions:
+            if self.possible_current_actions in [None, []]:
+                self.update_possible_actions(reset_current_action_index=False)
+            if self.possible_current_actions == []:
+                return
+            if (self.pressed[K_UP]):
+                self.current_action_index = self.current_action_index - 1
+                self.current_action_index_changed = True
+            if (self.pressed[K_DOWN]):
+                self.current_action_index = self.current_action_index + 1
+                self.current_action_index_changed = True
+            if self.current_action_index_changed:
+                self.current_action = self.possible_current_actions[self.current_action_index % len(self.possible_current_actions)]
+                self.change_in_display = True
+                self.last_key_pressed_time = time()
+                self.current_action_index_changed = False
+            
 
     def handle_interractions(self):
         self.pressed = pygame_key_get_pressed()
@@ -574,16 +621,18 @@ class Game:
         if self.maze.current_room_index == self.maze.exit_room_index and self.current_action != 'YOU WON !':
             self.current_action = 'YOU WON !'
             self.change_in_display = True
+            self.update_possible_actions()
         if time() - self.last_key_pressed_time > self.time_between_actions:
             self.pressed = pygame_key_get_pressed()
             for key in Game.keys_dict.keys():
                 if self.pressed[key]:
                     self.change_in_display = True
+                    self.update_possible_actions()
                     self.current_action = self.current_action + Game.keys_dict[key]
                     self.last_key_pressed_time = time()
-            if self.pressed[
-                K_RETURN] and self.current_action != '' and self.maze.current_room_index != self.maze.exit_room_index:
+            if self.pressed[K_RETURN] and self.current_action != '' and self.maze.current_room_index != self.maze.exit_room_index:
                 self.change_in_display = True
+                self.update_possible_actions()
                 if len(self.current_action) > 0:
                     if self.current_action[0] in ['D', 'S', 'R']:
                         self.maze.make_actions(self.current_action)
@@ -597,8 +646,10 @@ class Game:
                             self.index_current_level = int(self.current_action[1:])
                             self.level_changed = True
                     self.current_action = ''
+                    self.update_possible_actions()
             if self.pressed[K_b]:
                 self.change_in_display = True
+                self.update_possible_actions()
                 self.maze.reboot_solution()
                 self.last_key_pressed_time = time()
                 self.current_action = ''
@@ -606,6 +657,7 @@ class Game:
         if time() - self.last_key_BACKSPACE_pressed_time > self.time_between_deletings:
             if self.pressed[K_BACKSPACE]:
                 self.change_in_display = True
+                self.update_possible_actions()
                 self.current_action = self.current_action[:-1]
                 self.last_key_BACKSPACE_pressed_time = time()
 
@@ -618,12 +670,6 @@ class Game:
                 self.level_changed = True
             if (self.pressed[K_LEFT]):
                 self.index_current_level -= 1
-                self.level_changed = True
-            if (self.pressed[K_UP]):
-                self.index_current_level = Levels.number_of_levels - 1
-                self.level_changed = True
-            if (self.pressed[K_DOWN]):
-                self.index_current_level = 0
                 self.level_changed = True
         if self.level_changed:
             self.last_level_change_time = time()
@@ -640,6 +686,7 @@ class Game:
                 self.show_help = not self.show_help
                 self.last_key_pressed_time = time()
                 self.change_in_display = True
+                self.update_possible_actions()
 
     def change_door_page(self):
         self.pressed = pygame_key_get_pressed()
@@ -725,6 +772,7 @@ class Game:
                 if self.change_in_display or self.update_display_at_every_loop:
                     self.display_game_window()
                     self.change_in_display = False
+                self.handle_keys_UP_DOWN()
                 self.handle_interractions()
                 self.save_image_as_file()
             self.change_level()

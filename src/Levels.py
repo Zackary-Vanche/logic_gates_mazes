@@ -33,6 +33,7 @@ from levels.level_doppelganger import level_doppelganger
 from levels.level_egyptian_fractions import level_egyptian_fractions
 from levels.level_electricity import level_electricity
 from levels.level_elementary import level_elementary
+from levels.level_entropy import level_entropy
 from levels.level_error import level_error
 from levels.level_eulerian import level_eulerian
 from levels.level_exact_cover import level_exact_cover
@@ -221,6 +222,7 @@ class Levels:
         level_rotation,
         level_superpermutation,
         level_chessboard,
+        level_entropy,
         level_dichotomy,
         level_random_star,
         level_partition,
@@ -534,9 +536,16 @@ if __name__ == "__main__":
 
     test_levels()
     
-    # solutions = level_central_symmetry().find_all_solutions(verbose=2,
-    #                                                         nb_iterations_print=10**4,
-    #                                                         stop_at_first_solution=False)
+    # solutions = level_entropy().find_all_solutions(verbose=2,
+    #                                                nb_iterations_print=10**4,
+    #                                                stop_at_first_solution=False)
+    
+    # for sol in solutions[0]:
+    #     l_s = []
+    #     for action in sol:
+    #         if action in [f'S{i}' for i in range(2, 8)]:
+    #             l_s.append(action)
+    #     print(' '.join(l_s))
 
     # import cProfile
     # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=float('inf'), save_as_txt=False)''', sort=1)

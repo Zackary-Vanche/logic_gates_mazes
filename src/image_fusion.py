@@ -18,6 +18,16 @@ def divisor_closest_to_sqrt(n):
 
 if __name__ == "__main__":
     rd.seed(42)
+    
+    racine = __file__
+    racine = racine.split('\\')
+    del racine[-1]
+    racine.append('images')
+    racine = '/'.join(racine)
+    for file in os.listdir(racine):
+        file = racine + '/' + file
+        if 'level' in file:
+            os.remove(file)
 
     # TOTAL_SIZE = pyautogui_size()
     # Game(save_image=1, time_between_level_changing=0, show_help=0).play()
@@ -31,12 +41,7 @@ if __name__ == "__main__":
 
     if not os.path.exists('images/concat'):
         os.mkdir('images/concat')
-
-    racine = __file__
-    racine = racine.split('\\')
-    del racine[-1]
-    racine.append('images')
-    racine = '/'.join(racine)
+    
     n_levels = Levels.number_of_levels
     m = divisor_closest_to_sqrt(n_levels)
     n = n_levels // m
@@ -97,7 +102,3 @@ if __name__ == "__main__":
         plt.close()
         filename = r'images/concat/concat_levels_HELP_{}.jpg'.format(string)
         cv2.imwrite(filename, img_h)
-        
-        if len(os.listdir('images/concat/')) >= 2:
-            for file in file_list:
-                os.remove(file)
