@@ -408,10 +408,6 @@ help_menus_list['levels']["Crossroad"] = help_menus_list['reminder B']
 
 help_menus_list['levels']["Square"] = help_menus_list['write several actions']
 
-help_menus_list['levels']["Meanders"] = """You have to go inside every room."""
-
-help_menus_list['levels']["Infinity"] = help_menus_list["cheat code"]
-
 help_menus_list['levels']["Fluid"] = help_menus_list['Introduction thuth table']
 
 help_menus_list['levels']["Numeration"] = '\n'.join([help_menus_list['EQU'], help_menus_list['BIN']])
@@ -422,6 +418,10 @@ help_menus_list['levels']["Sum"] = help_menus_list['random'] + '\n\n' + help_men
 help_menus_list['levels']["Product"] = help_menus_list['PROD']
 
 help_menus_list['levels']["Congruence"] = help_menus_list['MOD']
+
+help_menus_list['levels']["Meanders"] = """You have to go inside every room."""
+
+help_menus_list['levels']["Infinity"] = help_menus_list["cheat code"]
 
 help_menus_list['levels'][
     "3 SAT"] = """The 3 SAT problem is NP complete.\n\nThe door expression has been randomly chosen by computer."""
