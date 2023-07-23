@@ -1,6 +1,6 @@
-ns = 5
-nd = 10*2+1
-nr = 9
+ns = 32
+nd = 24+2
+nr = 17
 
 print('''
 from Switch import Switch
@@ -27,8 +27,10 @@ for i in range(nd):
 print('')
     
 for i in range(nr):
+    y = (i-1)%4
+    x = (i-1)//4
     print(f'''    R{i} = Room(name='R{i}',
-                position=[,,,],
+                position=[ {x}*dx, {y}*dy, ex ,ey],
                 switches_list=[])''')
     
 print('''    RE = Room(name='RE',

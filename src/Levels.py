@@ -108,6 +108,7 @@ from levels.level_rotation_bis import level_rotation_bis
 from levels.level_recurrence import level_recurrence
 from levels.level_river import level_river
 from levels.level_second import level_second
+from levels.level_separation import level_separation
 from levels.level_shuffled import level_shuffled
 from levels.level_small import level_small
 from levels.level_small_panex import level_small_panex
@@ -177,7 +178,7 @@ symmetries
 """
 
 class Levels:
-    levels_functions_list = [
+    levels_functions_list = [#level_separation,
         level_hello_world,
         level_initiation,
         level_linear,
@@ -552,25 +553,38 @@ if __name__ == "__main__":
     # import cProfile
     # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=float('inf'), save_as_txt=False)''', sort=1)
     
-    door_list = level_spider().doors_list
+    door_list = level_separation().doors_list
     door_list = sorted(door_list, key = lambda x : int(x.name.replace('D', '')))
     for i in range(len(door_list)):
         door = door_list[i]
-        room_departure = door.room_departure
-        room_arrival = door.room_arrival
+        rd = door.room_departure
+        ra = door.room_arrival
         T0 = door.name.replace('D', 'T')
-        if len(room_arrival.switches_list) == 1:
-            S = room_arrival.switches_list[0].name
-            print(f"""{T0} = Tree(tree_list=Tree.tree_list_not,
-                 empty=True,
-                 name='{T0}',
-                 switches=[{S}])""")
-        if len(room_departure.switches_list) == 1:
-            S = room_departure.switches_list[0].name
-            print(f"""{T0} = Tree(tree_list=[None],
-                 empty=True,
-                 name='{T0}',
-                 switches=[{S}])""")
+        i0 = int(rd.name.replace('R', ''))
+        i1 = int(ra.name.replace('R', ''))
+        dn = door.name
+        i = int(dn.replace('D', ''))
+        S0 = f'S{(i0-1)*2}'
+        S1 = f'S{(i0-1)*2+1}'
+        S2 = f'S{(i1-1)*2}'
+        S3 = f'S{(i1-1)*2+1}'
+        if i not in [0, 25]:
+            print(f"""T{i} = Tree(tree_list=tree_list_1,
+                  empty=True,
+                  name='{T0}',
+                  switches=[{S0}, {S1}, {S2}, {S3}])""")
+        # if len(room_arrival.switches_list) == 1:
+        #     S = room_arrival.switches_list[0].name
+        #     print(f"""{T0} = Tree(tree_list=Tree.tree_list_not,
+        #          empty=True,
+        #          name='{T0}',
+        #          switches=[{S}])""")
+        # if len(room_departure.switches_list) == 1:
+        #     S = room_departure.switches_list[0].name
+        #     print(f"""{T0} = Tree(tree_list=[None],
+        #          empty=True,
+        #          name='{T0}',
+        #          switches=[{S}])""")
             
             
         # S0 = room_departure.switches_list[0].name
