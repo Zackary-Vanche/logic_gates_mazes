@@ -4,48 +4,75 @@ from Door import Door
 from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
+from random import choice as rd_choice
 
 def level_separation(): 
     
-    v=1
+    va = 0
+    vb = 0
 
-    S0 = Switch(name='S0')
-    S1 = Switch(name='S1')
+    S0 = Switch(name='S0', value=vb)
+    S1 = Switch(name='S1', value=vb)
+
     S2 = Switch(name='S2')
-    S3 = Switch(name='S3')
+    S3 = Switch(name='S3', value=vb)
+
     S4 = Switch(name='S4')
-    S5 = Switch(name='S5')
+    S5 = Switch(name='S5', value=vb)
+
     S6 = Switch(name='S6')
-    S7 = Switch(name='S7')
-    S8 = Switch(name='S8', value=v)
-    S9 = Switch(name='S9', value=v)
-    S10 = Switch(name='S10')
-    S11 = Switch(name='S11', value=v)
+    S7 = Switch(name='S7', value=vb)
+
+    S8 = Switch(name='S8', value=va|vb)
+    S9 = Switch(name='S9', value=va|vb)
+
+    S10 = Switch(name='S10', value=vb)
+    S11 = Switch(name='S11', value=va|vb)
+
     S12 = Switch(name='S12')
-    S13 = Switch(name='S13', value=v)
-    S14 = Switch(name='S14')
-    S15 = Switch(name='S15', value=v)
-    S16 = Switch(name='S16', value=v)
-    S17 = Switch(name='S17', value=v)
-    S18 = Switch(name='S18', value=v)
-    S19 = Switch(name='S19', value=v)
-    S20 = Switch(name='S20')
-    S21 = Switch(name='S21', value=v)
-    S22 = Switch(name='S22', value=v)
+    S13 = Switch(name='S13', value=va|vb)
+
+    S14 = Switch(name='S14', value=vb)
+    S15 = Switch(name='S15', value=va)
+
+    S16 = Switch(name='S16', value=va|vb)
+    S17 = Switch(name='S17', value=va|vb)
+
+    S18 = Switch(name='S18', value=va|vb)
+    S19 = Switch(name='S19', value=va)
+
+    S20 = Switch(name='S20', value=vb)
+    S21 = Switch(name='S21', value=va)
+
+    S22 = Switch(name='S22', value=va|vb)
     S23 = Switch(name='S23')
-    S24 = Switch(name='S24', value=v)
-    S25 = Switch(name='S25', value=v)
-    S26 = Switch(name='S26', value=v)
+
+    S24 = Switch(name='S24', value=va)
+    S25 = Switch(name='S25', value=va)
+
+    S26 = Switch(name='S26', value=va)
     S27 = Switch(name='S27')
-    S28 = Switch(name='S28', value=v)
+
+    S28 = Switch(name='S28', value=va)
     S29 = Switch(name='S29')
-    S30 = Switch(name='S30', value=v)
+
+    S30 = Switch(name='S30', value=va)
     S31 = Switch(name='S31')
+    
+    S32 = Switch(name='S32')
+    S33 = Switch(name='S33')
     
     Slist = [S0, S1, S2, S3, S4, S5, S6, S7,
              S8, S9, S10, S11, S12, S13, S14, S15,
              S16, S17, S18, S19, S20, S21, S22, S23,
              S24, S25, S26, S27, S28, S29, S30, S31]
+    
+    Slist1 = []
+    for S in Slist:
+        if S.value:
+            Slist1.append(S.name)
+    print(' '.join(Slist1))
+
     tree_list_1 = ['NOT', ['EQU', Tree.tree_list_BIN(2), Tree.tree_list_BIN(2)]]
     
     tree_list_EQU_BIN = ['EQU'] + [Tree.tree_list_BIN(2)]*4 + [[None]]
@@ -182,7 +209,7 @@ def level_separation():
     T25 = Tree(tree_list=[None],
                 empty=True,
                 name='T25',
-                switches=[1])
+                switches=[S32])
     
     ex = 0.3
     ey = 0.3
@@ -191,6 +218,41 @@ def level_separation():
     dy = 1
     
     ex0 = 1
+    
+    # l = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30]
+    # possible_switches_values = []
+    # if fast_solution_finding:
+    #     lp = [0 for i in range(32)]
+    #     for p in permutations(l):
+    #         v8 = p[4]
+    #         v10 = p[5]
+    #         v12 = p[6]
+    #         v14 = p[7]
+    #         lp[v8] = 1
+    #         lp[v10] = 1
+    #         lp[v12] = 1
+    #         lp[v14] = 1
+    #         v16 = p[8]
+    #         v18 = p[9]
+    #         v20 = p[10]
+    #         v22 = p[11]
+    #         lp[v16+1] = 1
+    #         lp[v18+1] = 1
+    #         lp[v20+1] = 1
+    #         lp[v22+1] = 1
+    #         v24 = p[12]
+    #         v26 = p[13]
+    #         v28 = p[14]
+    #         v30 = p[15]
+    #         lp[v24] = 1
+    #         lp[v26] = 1
+    #         lp[v28] = 1
+    #         lp[v30] = 1
+    #         lp[v24+1] = 1
+    #         lp[v26+1] = 1
+    #         lp[v28+1] = 1
+    #         lp[v30+1] = 1
+    #     possible_switches_values.append(lp)
 
     R0 = Room(name='R0',
               position=[ -ex0-dx+ex, 0, ex0, 3*dy-ey],
@@ -209,7 +271,7 @@ def level_separation():
               switches_list=[])
     R5 = Room(name='R5',
               position=[ 1*dx, 0*dy, ex ,ey],
-              switches_list=[])
+              switches_list=[S32])
     R6 = Room(name='R6',
               position=[ 1*dx, 1*dy, ex ,ey],
               switches_list=[])
@@ -221,7 +283,7 @@ def level_separation():
               switches_list=[])
     R9 = Room(name='R9',
               position=[ 2*dx, 0*dy, ex ,ey],
-              switches_list=[])
+              switches_list=[S33])
     R10 = Room(name='R10',
                position=[ 2*dx, 1*dy, ex ,ey],
                switches_list=[])
@@ -247,7 +309,7 @@ def level_separation():
               position=[ -ex0-dx+ex, 3*dy, ex ,ey],
               is_exit=True)
 
-    D0 = Door(two_way=False,
+    D0 = Door(two_way=True,
               tree=T0,
               name='D0',
               room_departure=R0,
@@ -379,13 +441,20 @@ def level_separation():
                 name='D25',
                 room_departure=R4,
                 room_arrival=RE)
+    
+    fastest_solution = """
+S0 S1 S3 S5 S7 S8 S9 S10 S11 S13 S14 S16 S17 S18 S20 S22
+D0 D1 D16 D17 D7 S33 D7 D17 D16 D1 D0
+S0 S1 S3 S5 S7 S10 S14 S15 S19 S20 S21 S24 S25 S26 S28 S30
+D0 D13 S32 D4 D17 D8 D9 D23 D22 D25
+"""
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, R15, R16, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19, D20, D21, D22, D23, D24, D25],
-                 fastest_solution=None,
-                 level_color=Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.5),
+                 fastest_solution=fastest_solution,
+                 level_color=Levels_colors_list.FROM_HUE(hu=0.15, sa=0.6, li=0.5),
                  name='Separation',
                  keep_proportions=True,
                  door_window_size=500,

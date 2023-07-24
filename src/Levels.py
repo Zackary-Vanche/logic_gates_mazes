@@ -178,7 +178,7 @@ symmetries
 """
 
 class Levels:
-    levels_functions_list = [#level_separation,
+    levels_functions_list = [
         level_hello_world,
         level_initiation,
         level_linear,
@@ -307,6 +307,7 @@ class Levels:
         level_puzzle,
         level_solitaire,
         level_mols,
+        level_separation,
         level_small_panex,
         level_zebra,
         level_parking,
@@ -537,11 +538,11 @@ if __name__ == "__main__":
     if os.path.exists('temp.txt'):
         os.remove('temp.txt')
 
-    # test_levels()
+    test_levels()
     
-    solutions = level_spider().find_all_solutions(verbose=2,
-                                                    nb_iterations_print=10**4,
-                                                    stop_at_first_solution=False)
+    # solutions = level_spider().find_all_solutions(verbose=2,
+    #                                                 nb_iterations_print=10**4,
+    #                                                 stop_at_first_solution=False)
     
     # for sol in solutions[0]:
     #     l_s = []
@@ -553,26 +554,26 @@ if __name__ == "__main__":
     # import cProfile
     # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=float('inf'), save_as_txt=False)''', sort=1)
     
-    door_list = level_separation().doors_list
-    door_list = sorted(door_list, key = lambda x : int(x.name.replace('D', '')))
-    for i in range(len(door_list)):
-        door = door_list[i]
-        rd = door.room_departure
-        ra = door.room_arrival
-        T0 = door.name.replace('D', 'T')
-        i0 = int(rd.name.replace('R', ''))
-        i1 = int(ra.name.replace('R', ''))
-        dn = door.name
-        i = int(dn.replace('D', ''))
-        S0 = f'S{(i0-1)*2}'
-        S1 = f'S{(i0-1)*2+1}'
-        S2 = f'S{(i1-1)*2}'
-        S3 = f'S{(i1-1)*2+1}'
-        if i not in [0, 25]:
-            print(f"""T{i} = Tree(tree_list=tree_list_1,
-                  empty=True,
-                  name='{T0}',
-                  switches=[{S0}, {S1}, {S2}, {S3}])""")
+    # door_list = level_separation().doors_list
+    # door_list = sorted(door_list, key = lambda x : int(x.name.replace('D', '')))
+    # for i in range(len(door_list)):
+    #     door = door_list[i]
+    #     rd = door.room_departure
+    #     ra = door.room_arrival
+    #     T0 = door.name.replace('D', 'T')
+    #     i0 = int(rd.name.replace('R', ''))
+    #     i1 = int(ra.name.replace('R', ''))
+    #     dn = door.name
+    #     i = int(dn.replace('D', ''))
+    #     S0 = f'S{(i0-1)*2}'
+    #     S1 = f'S{(i0-1)*2+1}'
+    #     S2 = f'S{(i1-1)*2}'
+    #     S3 = f'S{(i1-1)*2+1}'
+    #     if i not in [0, 25]:
+    #         print(f"""T{i} = Tree(tree_list=tree_list_1,
+    #               empty=True,
+    #               name='{T0}',
+    #               switches=[{S0}, {S1}, {S2}, {S3}])""")
         # if len(room_arrival.switches_list) == 1:
         #     S = room_arrival.switches_list[0].name
         #     print(f"""{T0} = Tree(tree_list=Tree.tree_list_not,

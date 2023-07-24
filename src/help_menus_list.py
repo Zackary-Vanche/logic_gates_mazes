@@ -623,6 +623,8 @@ help_menus_list['levels']["Solitaire"] = help_menus_list['JUMP']
 
 help_menus_list['levels']["MOLS"] = 'MOLS stands for "Mutually Orthogonal Latin Squares".'
 
+help_menus_list['levels']["Separation"] = """Good luck !"""
+
 help_menus_list['levels']["Small panex"] = help_menus_list['INF0']
 
 help_menus_list['levels']["Zebra"] = """There are five houses.\n\n""" + help_menus_list['see other doors']
