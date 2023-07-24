@@ -206,10 +206,10 @@ def level_separation():
                       empty=True,
                       name='T24',
                       switches=[S22, S23, S30, S31])
-    T25 = Tree(tree_list=[None],
+    T25 = Tree(tree_list=Tree.tree_list_AND(3),
                 empty=True,
                 name='T25',
-                switches=[S32])
+                switches=[S30, S32, S33])
     
     ex = 0.3
     ey = 0.3
@@ -218,41 +218,6 @@ def level_separation():
     dy = 1
     
     ex0 = 1
-    
-    # l = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30]
-    # possible_switches_values = []
-    # if fast_solution_finding:
-    #     lp = [0 for i in range(32)]
-    #     for p in permutations(l):
-    #         v8 = p[4]
-    #         v10 = p[5]
-    #         v12 = p[6]
-    #         v14 = p[7]
-    #         lp[v8] = 1
-    #         lp[v10] = 1
-    #         lp[v12] = 1
-    #         lp[v14] = 1
-    #         v16 = p[8]
-    #         v18 = p[9]
-    #         v20 = p[10]
-    #         v22 = p[11]
-    #         lp[v16+1] = 1
-    #         lp[v18+1] = 1
-    #         lp[v20+1] = 1
-    #         lp[v22+1] = 1
-    #         v24 = p[12]
-    #         v26 = p[13]
-    #         v28 = p[14]
-    #         v30 = p[15]
-    #         lp[v24] = 1
-    #         lp[v26] = 1
-    #         lp[v28] = 1
-    #         lp[v30] = 1
-    #         lp[v24+1] = 1
-    #         lp[v26+1] = 1
-    #         lp[v28+1] = 1
-    #         lp[v30+1] = 1
-    #     possible_switches_values.append(lp)
 
     R0 = Room(name='R0',
               position=[ -ex0-dx+ex, 0, ex0, 3*dy-ey],
@@ -442,12 +407,7 @@ def level_separation():
                 room_departure=R4,
                 room_arrival=RE)
     
-    fastest_solution = """
-S0 S1 S3 S5 S7 S8 S9 S10 S11 S13 S14 S16 S17 S18 S20 S22
-D0 D1 D16 D17 D7 S33 D7 D17 D16 D1 D0
-S0 S1 S3 S5 S7 S10 S14 S15 S19 S20 S21 S24 S25 S26 S28 S30
-D0 D13 S32 D4 D17 D8 D9 D23 D22 D25
-"""
+    fastest_solution = """S0 S1 S3 S5 S7 S8 S9 S10 S11 S13 S14 S16 S17 S18 S20 S22 D0 D1 D16 D17 D7 S33 D7 D17 D16 D1 D0 S0 S1 S3 S5 S7 S10 S14 S15 S19 S20 S21 S24 S25 S26 S28 S30 D0 D13 S32 D4 D17 D8 D9 D23 D22 D25"""
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
