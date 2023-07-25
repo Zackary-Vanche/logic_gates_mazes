@@ -336,20 +336,22 @@ If you made a mistake when taping the name of a door or a switch, you can always
 To leave the help menu (or come back to it), press [H].
 To start the level again from the beginning, press [B].
 To go to the next level, press the right arrow key.
+To go to the previous level, press the right arrow key.
 
 On the left size window of the game are equations that tell you when a door is open :
 These equations work with any name of door or switch."""
 
-help_menus_list['change level'] = """
+help_menus_list['directions keys'] = """
 To change level, you can use :
 
     the right arrow key to go to the next level
     the left arrow key to go to the previous level
-    the down arrow key to go to the first level
-    the up arrow key to go to the last level
 
     L and the number of the level you want to go to.
-    For instance, if you write L12 and then press enter you will go to the level 12."""
+    For instance, if you write L12 and then press enter you will go to the level 12.
+
+Instead of taping the action you want to do, you can see the possibles actions by using the UP and the DOWN keys.
+"""
 
 help_menus_list['go in a room'] = """
 To go directly in a room, you can type its name (if it is possible for you to go there).
@@ -394,7 +396,7 @@ help_menus_list['levels']["Initiation"] = help_menus_list['OR']
 help_menus_list['levels']["Linear"] = '\n'.join(
     [help_menus_list['AND'], help_menus_list['NOT'], help_menus_list['AND and NOT']])
 
-help_menus_list['levels']['Loop'] = help_menus_list['change level']
+help_menus_list['levels']['Loop'] = help_menus_list['directions keys']
 
 help_menus_list['levels']["Backward"] = help_menus_list['parenthesis']
 
