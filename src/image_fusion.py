@@ -45,60 +45,64 @@ if __name__ == "__main__":
     n_levels = Levels.number_of_levels
     m = divisor_closest_to_sqrt(n_levels)
     n = n_levels // m
-    for size in [[1920, 1200]]:  # [1346, 668], [1920, 1001], [1920, 1055],
-        WIDTH, HEIGHT = size
-        string = "WIDTH_{}_HEIGHT_{}".format(WIDTH, HEIGHT)
-        dico = {}
-        for file in os.listdir(racine):
-            if string in file and not "HELP" in file:# and not "concat" in file:
-                k = int(file.split('_')[1])
-                dico[k] = '/'.join([racine, file])
-        file_list = []
-        for k in sorted(dico.keys()):
-            file_list.append(dico[k])
-
-        assert m <= n, f'~ {m} <= {n}'
-        # assert m * n == len(file_list), """{0}, {1}, {2}""".format(m, n, len(file_list))
-        l_img_h = []
-        for i in range(m):
-            l = file_list[n * i:n * i + n]
-            if len(l) == 1:
-                l_img_h.append(l[0])
-            else:
-                l = [cv2.imread(file) for file in l]
-                im_h = cv2.hconcat(l)
-                l_img_h.append(im_h)
-        img = cv2.vconcat(l_img_h)
-        plt.imshow(img)
-        plt.close()
-        filename = r'images/concat/concat_levels_{}.jpg'.format(string)
-        cv2.imwrite(filename, img)
-        print(filename)
-
-        WIDTH, HEIGHT = size
-        string = "WIDTH_{}_HEIGHT_{}".format(WIDTH, HEIGHT)
-        dico = {}
-        for file in os.listdir(racine):
-            if string in file and "HELP" in file and not "concat" in file:
-                k = int(file.split('_')[2])
-                dico[k] = '/'.join([racine, file])
-        file_list = []
-        for k in sorted(dico.keys()):
-            file_list.append(dico[k])
-
-        assert m <= n
-        assert m * n == len(file_list)
-        l_img_h = []
-        for i in range(m):
-            l = file_list[n * i:n * i + n]
-            if len(l) == 1:
-                l_img_h.append(l[0])
-            else:
-                l = [cv2.imread(file) for file in l]
-                im_h = cv2.hconcat(l)
-                l_img_h.append(im_h)
-        img_h = cv2.vconcat(l_img_h)
-        plt.imshow(img_h)
-        plt.close()
-        filename = r'images/concat/concat_levels_HELP_{}.jpg'.format(string)
-        cv2.imwrite(filename, img_h)
+    for size in [[1920, 1200],
+                 [1920, 1080]]:  # [1346, 668], [1920, 1001], [1920, 1055],
+        try:
+            WIDTH, HEIGHT = size
+            string = "WIDTH_{}_HEIGHT_{}".format(WIDTH, HEIGHT)
+            dico = {}
+            for file in os.listdir(racine):
+                if string in file and not "HELP" in file:# and not "concat" in file:
+                    k = int(file.split('_')[1])
+                    dico[k] = '/'.join([racine, file])
+            file_list = []
+            for k in sorted(dico.keys()):
+                file_list.append(dico[k])
+    
+            assert m <= n, f'~ {m} <= {n}'
+            # assert m * n == len(file_list), """{0}, {1}, {2}""".format(m, n, len(file_list))
+            l_img_h = []
+            for i in range(m):
+                l = file_list[n * i:n * i + n]
+                if len(l) == 1:
+                    l_img_h.append(l[0])
+                else:
+                    l = [cv2.imread(file) for file in l]
+                    im_h = cv2.hconcat(l)
+                    l_img_h.append(im_h)
+            img = cv2.vconcat(l_img_h)
+            plt.imshow(img)
+            plt.close()
+            filename = r'images/concat/concat_levels_{}.jpg'.format(string)
+            cv2.imwrite(filename, img)
+            print(filename)
+    
+            WIDTH, HEIGHT = size
+            string = "WIDTH_{}_HEIGHT_{}".format(WIDTH, HEIGHT)
+            dico = {}
+            for file in os.listdir(racine):
+                if string in file and "HELP" in file and not "concat" in file:
+                    k = int(file.split('_')[2])
+                    dico[k] = '/'.join([racine, file])
+            file_list = []
+            for k in sorted(dico.keys()):
+                file_list.append(dico[k])
+    
+            assert m <= n
+            assert m * n == len(file_list)
+            l_img_h = []
+            for i in range(m):
+                l = file_list[n * i:n * i + n]
+                if len(l) == 1:
+                    l_img_h.append(l[0])
+                else:
+                    l = [cv2.imread(file) for file in l]
+                    im_h = cv2.hconcat(l)
+                    l_img_h.append(im_h)
+            img_h = cv2.vconcat(l_img_h)
+            plt.imshow(img_h)
+            plt.close()
+            filename = r'images/concat/concat_levels_HELP_{}.jpg'.format(string)
+            cv2.imwrite(filename, img_h)
+        except TypeError:
+            pass
