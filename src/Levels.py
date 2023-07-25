@@ -134,6 +134,7 @@ from levels.level_tree import level_tree
 from levels.level_triangulate import level_triangulate
 from levels.level_vortex import level_vortex
 from levels.level_wasted import level_wasted
+from levels.level_water_lily import level_water_lily
 from levels.level_water_pouring import level_water_pouring
 from levels.level_wave import level_wave
 from levels.level_weights import level_weights
@@ -226,6 +227,7 @@ class Levels:
         level_superpermutation,
         level_singleton,
         level_chessboard,
+        level_water_lily,
         level_entropy,
         level_dichotomy,
         level_random_star,
@@ -542,10 +544,11 @@ if __name__ == "__main__":
 
     test_levels()
     
-    # solutions = level_singleton().find_all_solutions(verbose=2,
+    # solutions = level_water_lily().find_all_solutions(verbose=2,
     #                                                 nb_iterations_print=10**4,
     #                                                 stop_at_first_solution=False)
-    # print(' '.join(solutions[0][0]))
+    # for sol in solutions[0]:
+    #     print(' '.join(sol))
     
     # for sol in solutions[0]:
     #     l_s = []
@@ -598,6 +601,17 @@ if __name__ == "__main__":
         #           name='{T0}',
         #           switches=[{S0}, {S1}])""")
 
+    # level = level_water_lily()
+    # level.find_all_solutions(verbose)
+    # room_list = level.rooms_list
+    # for room in room_list:
+    #     doors_list = room.departure_doors_list + room.two_way_doors_list + room.arrival_doors_list
+    #     doors_name_list = [door.name for door in doors_list]
+    #     int_list = [int(door.replace('D', '')) for door in doors_name_list]
+    #     int_list.sort()
+    #     Slist = [f'S{i}' for i in int_list if i != 0]
+    #     print('2, ' + ', '.join(Slist) + ',')# + ',\n' + room.switches_list[0].name)
+    #     # print(f'tree_list_EQU_SUM({len(Slist)}),')
     
 
 

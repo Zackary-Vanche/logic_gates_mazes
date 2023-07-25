@@ -479,6 +479,8 @@ help_menus_list['levels']["Taxicab number"] = """Taxicab numbers are also called
 
 help_menus_list['levels']["Chessboard"] = """If you remove the exit, the graph of this level is the graph of the possible moves of a knight in a 3*4 rectangle.\nHowever, sometimes here doors are one-way only."""
 
+help_menus_list['levels']["Water lily"] = """A water lily is a floating aquatic plant with round, flat leaves and beautiful flowers that bloom on or above the water's surface."""
+
 help_menus_list['levels']["Entropy"] = """You have a limited number of moves."""
 
 help_menus_list['levels'][
