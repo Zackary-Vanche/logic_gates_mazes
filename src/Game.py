@@ -673,6 +673,10 @@ class Game:
                 self.level_changed = True
         if self.level_changed:
             self.last_level_change_time = time()
+        if self.index_current_level == -1:
+            self.index_current_level = Levels.number_of_levels - 1
+        if self.index_current_level == Levels.number_of_levels:
+            self.index_current_level = 0
         self.index_current_level = min(self.index_current_level,
                                        Levels.number_of_levels - 1)
         self.index_current_level = max(self.index_current_level,
