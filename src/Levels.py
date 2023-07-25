@@ -110,6 +110,7 @@ from levels.level_river import level_river
 from levels.level_second import level_second
 from levels.level_separation import level_separation
 from levels.level_shuffled import level_shuffled
+from levels.level_singleton import level_singleton
 from levels.level_small import level_small
 from levels.level_small_panex import level_small_panex
 from levels.level_square import level_square
@@ -223,6 +224,7 @@ class Levels:
         level_elementary,
         level_rotation,
         level_superpermutation,
+        level_singleton,
         level_chessboard,
         level_entropy,
         level_dichotomy,
@@ -540,9 +542,10 @@ if __name__ == "__main__":
 
     test_levels()
     
-    # solutions = level_spider().find_all_solutions(verbose=2,
+    # solutions = level_singleton().find_all_solutions(verbose=2,
     #                                                 nb_iterations_print=10**4,
     #                                                 stop_at_first_solution=False)
+    # print(' '.join(solutions[0][0]))
     
     # for sol in solutions[0]:
     #     l_s = []

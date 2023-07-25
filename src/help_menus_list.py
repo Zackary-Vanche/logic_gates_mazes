@@ -473,6 +473,8 @@ help_menus_list['levels']["Rotation"] = help_menus_list['random exit']
 
 help_menus_list['levels']["Superpermutation"] = help_menus_list['INLIST']
 
+help_menus_list['levels']["Singleton"] = """A singleton is a set with exactly one element."""
+
 help_menus_list['levels']["Taxicab number"] = """Taxicab numbers are also called Hardy–Ramanujan numbers."""
 
 help_menus_list['levels']["Chessboard"] = """If you remove the exit, the graph of this level is the graph of the possible moves of a knight in a 3*4 rectangle.\nHowever, sometimes here doors are one-way only."""
