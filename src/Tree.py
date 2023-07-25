@@ -122,7 +122,9 @@ class Tree:
                  root_depth=0,
                  cut_expression=False,
                  cut_expression_separator=')',
-                 random_switches_bin_list=[]):
+                 cut_expression_depth_1=False,
+                 random_switches_bin_list=[],
+                 min_size_cut=6):
 
         # assert not (root_depth == 0 and switches == []), name
 
@@ -196,6 +198,11 @@ class Tree:
                 self.number_of_leafs += son.number_of_leafs
 
         self.random_switches_bin_list = random_switches_bin_list
+        
+        self.min_size_cut = min_size_cut
+        
+        self.cut_expression_depth_1 = cut_expression_depth_1
+            
 
     def update_leafs_switches(self, switches=None):
         if not self.leafs_switches_updates:
@@ -228,7 +235,7 @@ class Tree:
                     n = len(self.sons_list) // 2
                     l1 = ' ; '.join([t.get_easy_logical_expression_PN() for t in self.sons_list[:n]])
                     l2 = ' ; '.join([t.get_easy_logical_expression_PN() for t in self.sons_list[n:]])
-                    self.easy_logical_expression_PN = '~ ' + '(' + l1 + ') (' + l2 + ')'
+                    self.easy_logical_expression_PN = '~ ' + '(' + l1 + ') (' + l2 + ') '
                 elif root_name == 'MAS':
                     n = len(self.sons_list) // 2
                     l1 = ' ; '.join([t.get_easy_logical_expression_PN() for t in self.sons_list[:n]])
@@ -329,7 +336,10 @@ class Tree:
                     txt = ''
                     for son in self.sons_list:
                         son_PN = son.get_easy_logical_expression_PN()
-                        txt = txt + son_PN + ' '
+                        if self.cut_expression_depth_1:
+                            txt = txt + son_PN + '\n'
+                        else:
+                            txt = txt + son_PN + ' '
                     if '(' in txt:
                         txt = root_name + ' [ ' + txt + '] '
                     else:
@@ -366,7 +376,7 @@ class Tree:
                 elePN = ''
                 for i in range(len(l_elePN)):
                     if i < len(l_elePN) - 2:
-                        if len(l_elePN[i + 1]) < 6:
+                        if len(l_elePN[i + 1]) < self.min_size_cut:
                             elePN = elePN + l_elePN[i] + self.cut_expression_separator
                         else:
                             elePN = elePN + l_elePN[i] + self.cut_expression_separator + '\n'
@@ -401,6 +411,7 @@ class Tree:
             value = self.root
         else:
             value = self.root.func(self.sons_list)
+        # print(self.easy_logical_expression_PN, '=', value)
         return value
 
     def get_depth(self):

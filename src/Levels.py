@@ -17,6 +17,7 @@ from levels.level_bis_repetita import level_bis_repetita
 from levels.level_cartesian import level_cartesian
 from levels.level_central_symmetry import level_central_symmetry
 from levels.level_chessboard import level_chessboard
+from levels.level_chinese_postman import level_chinese_postman
 from levels.level_spider import level_spider
 from levels.level_code import level_code
 from levels.level_combinatorics import level_combinatorics
@@ -176,7 +177,7 @@ Problème du sous-ensemble somme (Subset Sum Problem) :
 """
 
 class Levels:
-    levels_functions_list = [
+    levels_functions_list = [level_chinese_postman,
         level_hello_world,
         level_initiation,
         level_linear,
@@ -538,13 +539,13 @@ if __name__ == "__main__":
     if os.path.exists('temp.txt'):
         os.remove('temp.txt')
 
-    test_levels()
-    
-    # solutions = level_water_lily().find_all_solutions(verbose=2,
-    #                                                 nb_iterations_print=10**4,
-    #                                                 stop_at_first_solution=False)
-    # for sol in solutions[0]:
-    #     print(' '.join(sol))
+    # test_levels()
+
+    solutions = level_chinese_postman().find_all_solutions(verbose=2,
+                                                           nb_iterations_print=10**5,
+                                                           stop_at_first_solution=False)
+    for sol in solutions[0]:
+        print(' '.join(sol))
     
     # for sol in solutions[0]:
     #     l_s = []
