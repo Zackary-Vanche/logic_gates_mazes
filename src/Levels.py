@@ -173,10 +173,6 @@ Problème du couplage maximal (Maximum Matching Problem) :
 
 Problème du sous-ensemble somme (Subset Sum Problem) :
     Trouver un sous-ensemble de nombres donnés dont la somme est égale à un nombre cible donné.
-
-Tetris bis
-
-symmetries
 """
 
 class Levels:
@@ -196,7 +192,6 @@ class Levels:
         level_sum,
         level_product,
         level_congruence,
-        level_meanders,
         level_infinity,
         level_3sat,
         level_point_of_no_return,
@@ -214,6 +209,7 @@ class Levels:
         level_naturals,
         level_wasted,
         level_doppelganger,
+        level_meanders,
         level_wind_compass,
         level_compact,
         level_random_simple,
