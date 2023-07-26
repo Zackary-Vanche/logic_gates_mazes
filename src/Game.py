@@ -634,6 +634,8 @@ class Game:
                 self.change_in_display = True
                 self.update_possible_actions()
                 if len(self.current_action) > 0:
+                    with open('temp.txt', 'a') as fa:
+                        fa.write(self.current_action + ' ')
                     if self.current_action[0] in ['D', 'S', 'R']:
                         self.maze.make_actions(self.current_action)
                     if self.current_action[0:2] == 'A ':

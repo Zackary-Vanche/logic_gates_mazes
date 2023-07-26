@@ -635,6 +635,8 @@ help_menus_list['levels']["Small panex"] = help_menus_list['INF0']
 
 help_menus_list['levels']["Zebra"] = """There are five houses.\n\n""" + help_menus_list['see other doors']
 
+help_menus_list['levels']["Chinese postman"] = """Königsberg is not in China."""
+
 help_menus_list['levels']["Parking"] = """If a door equation is not visible, it means it is always open."""
 
 help_menus_list['levels']["Panex"] = """You are on your own."""

@@ -179,7 +179,7 @@ class Levels:
         Trouver un sous-ensemble de nombres donnés dont la somme est égale à un nombre cible donné.
     """
 
-    levels_functions_list = [#level_chinese_postman,
+    levels_functions_list = [
         level_hello_world,
         level_initiation,
         level_linear,
@@ -313,6 +313,7 @@ class Levels:
         level_separation,
         level_small_panex,
         level_zebra,
+        level_chinese_postman,
         level_parking,
         level_panex,
         level_superflip,
@@ -543,11 +544,11 @@ if __name__ == "__main__":
 
     # test_levels()
     
-    level = level_chinese_postman()
-    sol = "D0 S0 D1"
-    level.try_solution(sol)
-    for S in level.switches_list:
-        print(S.name, S.value)
+    # level = level_chinese_postman()
+    # sol = "D0 S0 D1"
+    # level.try_solution(sol)
+    # for S in level.switches_list:
+    #     print(S.name, S.value)
     
     
     solutions = level_chinese_postman().find_all_solutions(verbose=2,

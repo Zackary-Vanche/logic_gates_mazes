@@ -1,11 +1,10 @@
-# 
-
 from Switch import Switch
 from Tree import Tree
 from Door import Door
 from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
+from Color import Color
 
 def level_chinese_postman(): 
 
@@ -112,7 +111,6 @@ def level_chinese_postman():
                 switches=[S4, S5, S6, S7, S8,
                           S13, S14, S15, S16, S17,
                           1])
-    # TODO
     # T2 = Tree(tree_list=['EQU',
     #                       Tree.tree_list_BIN(5),
     #                       Tree.tree_list_BIN(5),],
@@ -160,11 +158,10 @@ def level_chinese_postman():
                 switches=[S0, S1, S2, S3,
                           S18, S19, S20, S21, S22, S23, S24,
                           S4, S5, S6, S7, S8, 32])
-    # TODO
-    T11 = Tree(tree_list=Tree.tree_list_from_str('T'*7),
-                empty=True,
-                name='T11',
-                switches=[S18, S19, S20, S21, S22, S23, S24])
+    # T11 = Tree(tree_list=Tree.tree_list_from_str('T'*7),
+    #             empty=True,
+    #             name='T11',
+    #             switches=[S18, S19, S20, S21, S22, S23, S24])
     
     ex = 1
     ey = 1
@@ -264,7 +261,7 @@ def level_chinese_postman():
                 name='D9',
                 room_departure=R0,
                 room_arrival=R9)
-    D10 = Door(two_way=False,
+    D10 = Door(two_way=True,
                 tree=T10,
                 name='D10',
                 room_departure=R0,
@@ -275,12 +272,15 @@ def level_chinese_postman():
                 room_departure=R0,
                 room_arrival=RE)
 
+    lcolor = Levels_colors_list.FROM_HUE(hu=0, sa=0.5, li=0.3)
+    lcolor.surrounding_color = Color.TOTAL_YELLOW
+    lcolor.contour_color = Color.TOTAL_YELLOW
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11],
                  fastest_solution=None,
-                 level_color=Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.5),
+                 level_color=lcolor,
                  name='Chinese_postman',
                  keep_proportions=True,
                  door_window_size=750)
