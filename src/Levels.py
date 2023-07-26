@@ -550,11 +550,11 @@ if __name__ == "__main__":
         print(S.name, S.value)
     
     
-    # solutions = level_chinese_postman().find_all_solutions(verbose=2,
-    #                                                        nb_iterations_print=10**4,
-    #                                                        stop_at_first_solution=False)
-    # for sol in solutions[0]:
-    #     print(' '.join(sol))
+    solutions = level_chinese_postman().find_all_solutions(verbose=2,
+                                                            nb_iterations_print=10**4,
+                                                            stop_at_first_solution=False)
+    for sol in solutions[0]:
+        print(' '.join(sol))
     
     # for sol in solutions[0]:
     #     l_s = []

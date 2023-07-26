@@ -112,6 +112,7 @@ def level_chinese_postman():
                 switches=[S4, S5, S6, S7, S8,
                           S13, S14, S15, S16, S17,
                           1])
+    # TODO
     # T2 = Tree(tree_list=['EQU',
     #                       Tree.tree_list_BIN(5),
     #                       Tree.tree_list_BIN(5),],
@@ -159,6 +160,11 @@ def level_chinese_postman():
                 switches=[S0, S1, S2, S3,
                           S18, S19, S20, S21, S22, S23, S24,
                           S4, S5, S6, S7, S8, 32])
+    # TODO
+    T11 = Tree(tree_list=Tree.tree_list_from_str('T'*7),
+                empty=True,
+                name='T11',
+                switches=[S18, S19, S20, S21, S22, S23, S24])
     
     ex = 1
     ey = 1
