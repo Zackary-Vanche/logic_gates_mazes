@@ -113,8 +113,8 @@ def level_chinese_postman():
                           S13, S14, S15, S16, S17,
                           1])
     # T2 = Tree(tree_list=['EQU',
-    #                      Tree.tree_list_BIN(5),
-    #                      Tree.tree_list_BIN(5),],
+    #                       Tree.tree_list_BIN(5),
+    #                       Tree.tree_list_BIN(5),],
     #             empty=True,
     #             name='T2',
     #             switches=[S4, S5, S6, S7, S8,
