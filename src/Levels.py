@@ -162,22 +162,24 @@ from levels.level_random_simple import aux_level_random_simple
 from levels.level_random_petersen import aux_level_random_petersen
 from levels.level_random_cuboctahedron import aux_level_random_cuboctahedron
 
-"""
-Problème du problème du postier chinois (Chinese Postman Problem) :
-    Trouver le chemin le plus court pour visiter toutes les arêtes d'un graphe au moins une fois et revenir au point de départ.
-
-Problème du voyageur de commerce asynchrone (Asymmetric TSP) :
-    Une variante du TSP où la distance entre deux villes peut être différente en fonction de la direction du déplacement.
-
-Problème du couplage maximal (Maximum Matching Problem) :
-    Trouver un couplage (ensemble d'arêtes non adjacentes) de taille maximale dans un graphe.
-
-Problème du sous-ensemble somme (Subset Sum Problem) :
-    Trouver un sous-ensemble de nombres donnés dont la somme est égale à un nombre cible donné.
-"""
 
 class Levels:
-    levels_functions_list = [level_chinese_postman,
+
+    """
+    Problème du problème du postier chinois (Chinese Postman Problem) :
+        Trouver le chemin le plus court pour visiter toutes les arêtes d'un graphe au moins une fois et revenir au point de départ.
+    
+    Problème du voyageur de commerce asynchrone (Asymmetric TSP) :
+        Une variante du TSP où la distance entre deux villes peut être différente en fonction de la direction du déplacement.
+    
+    Problème du couplage maximal (Maximum Matching Problem) :
+        Trouver un couplage (ensemble d'arêtes non adjacentes) de taille maximale dans un graphe.
+    
+    Problème du sous-ensemble somme (Subset Sum Problem) :
+        Trouver un sous-ensemble de nombres donnés dont la somme est égale à un nombre cible donné.
+    """
+
+    levels_functions_list = [#level_chinese_postman,
         level_hello_world,
         level_initiation,
         level_linear,
@@ -540,12 +542,28 @@ if __name__ == "__main__":
         os.remove('temp.txt')
 
     # test_levels()
-
-    solutions = level_chinese_postman().find_all_solutions(verbose=2,
-                                                           nb_iterations_print=10**5,
-                                                           stop_at_first_solution=False)
-    for sol in solutions[0]:
-        print(' '.join(sol))
+    
+    l = [[0, 1],
+         [0, 2],
+         [0, 4],
+         [0, 5],
+         [1, 6],
+         [2, 6],
+         [3, 8],
+         [4, 10],
+         [5, 10],
+         [6, 7],
+         [7, 8],
+         [8, 9],
+         [9, 10]]
+    
+    
+    
+    # solutions = level_water_lily().find_all_solutions(verbose=2,
+    #                                                 nb_iterations_print=10**4,
+    #                                                 stop_at_first_solution=False)
+    # for sol in solutions[0]:
+    #     print(' '.join(sol))
     
     # for sol in solutions[0]:
     #     l_s = []
