@@ -61,10 +61,19 @@ def level_chinese_postman():
     
     tree_list_3 = ['EQU', Tree.tree_list_BIN(4), Tree.tree_list_BIN(4), [None]]
 
-    T0 = Tree(tree_list=[None],
+    T0 = Tree(tree_list=['AND'] + [['NAND',
+                                    Tree.tree_list_NOT,
+                                    ['EQU', [None], Tree.tree_list_BIN(4)],]]*7,
                 empty=True,
                 name='T0',
-                switches=[1])
+                switches=[S18, 1, S0, S1, S2, S3,
+                          S19, 2, S0, S1, S2, S3,
+                          S20, 3, S0, S1, S2, S3,
+                          S21, 4, S0, S1, S2, S3,
+                          S22, 5, S0, S1, S2, S3,
+                          S23, 7, S0, S1, S2, S3,
+                          S24, 9, S0, S1, S2, S3],
+                cut_expression=True)
 
     Slist_tree_1 = []
     for c in lgraph:
@@ -103,6 +112,13 @@ def level_chinese_postman():
                 switches=[S4, S5, S6, S7, S8,
                           S13, S14, S15, S16, S17,
                           1])
+    # T2 = Tree(tree_list=['EQU',
+    #                      Tree.tree_list_BIN(5),
+    #                      Tree.tree_list_BIN(5),],
+    #             empty=True,
+    #             name='T2',
+    #             switches=[S4, S5, S6, S7, S8,
+    #                       S13, S14, S15, S16, S17])
     T3 = Tree(tree_list=['EQU'] + [Tree.tree_list_BIN(9)]*2,
                 empty=True,
                 name='T3',
