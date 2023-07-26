@@ -15,7 +15,6 @@ def divisor_closest_to_sqrt(n):
             d = k
     return min(n // d, d)
 
-
 if __name__ == "__main__":
     rd.seed(42)
     

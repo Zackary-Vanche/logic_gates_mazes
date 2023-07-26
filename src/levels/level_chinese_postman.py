@@ -157,7 +157,7 @@ def level_chinese_postman():
                 name='T11',
                 switches=[S0, S1, S2, S3,
                           S18, S19, S20, S21, S22, S23, S24,
-                          S4, S5, S6, S7, S8, 32])
+                          S4, S5, S6, S7, S8, 16])
     # T11 = Tree(tree_list=Tree.tree_list_from_str('T'*7),
     #             empty=True,
     #             name='T11',
@@ -281,7 +281,7 @@ def level_chinese_postman():
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11],
                  fastest_solution=None,
                  level_color=lcolor,
-                 name='Chinese_postman',
+                 name='Chinese postman',
                  keep_proportions=True,
                  door_window_size=750)
     

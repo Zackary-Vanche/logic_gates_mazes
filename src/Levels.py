@@ -14,6 +14,7 @@ from levels.level_betweenness import level_betweenness
 from levels.level_binary import level_binary
 from levels.level_bipartite import level_bipartite
 from levels.level_bis_repetita import level_bis_repetita
+from levels.level_boolean import level_boolean
 from levels.level_cartesian import level_cartesian
 from levels.level_central_symmetry import level_central_symmetry
 from levels.level_chessboard import level_chessboard
@@ -77,6 +78,7 @@ from levels.level_panex import level_panex
 from levels.level_parallel import level_parallel
 from levels.level_parking import level_parking
 from levels.level_partition import level_partition
+from levels.level_playground import level_playground
 from levels.level_permutations import level_permutations
 from levels.level_point_of_no_return import level_point_of_no_return
 from levels.level_pong import level_pong
@@ -181,9 +183,11 @@ class Levels:
 
     levels_functions_list = [
         level_hello_world,
+        level_playground,
         level_initiation,
         level_linear,
         level_loop,
+        level_boolean,
         level_backward,
         level_bis_repetita,
         level_binary,
@@ -285,8 +289,8 @@ class Levels:
         level_error,
         level_the_4th_dimension,
         level_random_come_back,
-        level_inversions,
         level_permutations,
+        level_inversions,
         level_random_K5,
         level_takuzu,
         level_random_K33,
@@ -313,7 +317,7 @@ class Levels:
         level_separation,
         level_small_panex,
         level_zebra,
-        level_chinese_postman,
+        # level_chinese_postman,
         level_parking,
         level_panex,
         level_superflip,
@@ -542,7 +546,7 @@ if __name__ == "__main__":
     if os.path.exists('temp.txt'):
         os.remove('temp.txt')
 
-    # test_levels()
+    test_levels()
     
     # level = level_chinese_postman()
     # sol = "D0 S0 D1"
