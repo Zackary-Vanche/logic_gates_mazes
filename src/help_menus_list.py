@@ -506,6 +506,8 @@ help_menus_list['levels']["Small"] = """The solution and the door's expressions 
 
 help_menus_list['levels']["The 4 queens"] = """This level is inspired from the 8 queens problem."""
 
+help_menus_list['levels']["Mansion"] = """You might get lost in this mansion."""
+
 help_menus_list['levels']["K"] = """You have to locate as many knights in a chessboard as possible."""
 
 help_menus_list['levels']["Strange"] = "You can always try exhaustive testing..."
@@ -629,7 +631,11 @@ help_menus_list['levels']["Small panex"] = help_menus_list['INF0']
 
 help_menus_list['levels']["Zebra"] = """There are five houses.\n\n""" + help_menus_list['see other doors']
 
-help_menus_list['levels']["Bridges"] = """Königsberg is not in China."""
+help_menus_list['levels']["Bridges"] = """There are seven bridges in Königsberg."""
+
+help_menus_list['levels']["Chinese postman problem"] = """In graph theory the Chinese postman problem is to find a shortest closed path that visits every edge of a connected undirected graph at least once."""
+
+help_menus_list['levels']["Postman"] = """You need to visit every house.\nThis level looks a lot like the level named "bridges"."""
 
 help_menus_list['levels']["Parking"] = """If a door equation is not visible, it means it is always open."""
 

@@ -55,8 +55,7 @@ def level_bridges():
               [6, 7],
               [7, 8],
               [8, 9],
-              [9, 10],
-              [10, 9]]
+              [9, 10]]
     
     tree_list_3 = ['EQU', Tree.tree_list_BIN(4), Tree.tree_list_BIN(4), [None]]
 

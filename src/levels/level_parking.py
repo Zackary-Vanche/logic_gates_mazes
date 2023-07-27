@@ -699,7 +699,7 @@ def level_parking():
                relative_departure_coordinates=[1, (12 - ey / 2) / 12],
                relative_arrival_coordinates=[0, 1 / 2])
 
-    color = Levels_colors_list.FROM_HUE(hu=0.6, sa=0.5, li=0.6)
+    color = Levels_colors_list.FROM_HUE(hu=0.1, sa=0.15, li=0.6)
     color.surrounding_color = [255, 255, 255]
     level = Maze(start_room_index=0,
                  exit_room_index=-1,

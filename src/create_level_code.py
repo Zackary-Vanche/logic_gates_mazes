@@ -1,6 +1,6 @@
-ns = 2
-nd = 2
-nr = 2
+ns = 22
+nd = 13
+nr = 13
 
 print('''
 from Switch import Switch
@@ -19,10 +19,10 @@ for i in range(ns):
 print('')
     
 for i in range(nd):
-    print(f'''    T{i} = Tree(tree_list=tree_list_1,
+    print(f'''    T{i} = Tree(tree_list=[None],
                 empty=True,
                 name='T{i}',
-                switches=[S{i}])''')
+                switches=[1])''')
     
 print('')
     
@@ -30,8 +30,8 @@ for i in range(nr):
     x = (i-1)%4
     y = (i-1)//4
     print(f'''    R{i} = Room(name='R{i}',
-                position=[],
-                switches_list=[])''')
+                position=[delta_x, delta_y, ex3, ey3],
+                switches_list=[S{i+6}])''')
     
 print('''    RE = Room(name='RE',
               position=[,,,],
