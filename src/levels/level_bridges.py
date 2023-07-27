@@ -6,7 +6,7 @@ from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 from Color import Color
 
-def level_chinese_postman(): 
+def level_bridges(): 
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -157,7 +157,7 @@ def level_chinese_postman():
                 name='T11',
                 switches=[S0, S1, S2, S3,
                           S18, S19, S20, S21, S22, S23, S24,
-                          S4, S5, S6, S7, S8, 16])
+                          S4, S5, S6, S7, S8, 14])
     # T11 = Tree(tree_list=Tree.tree_list_from_str('T'*7),
     #             empty=True,
     #             name='T11',
@@ -279,9 +279,9 @@ def level_chinese_postman():
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11],
-                 fastest_solution=None,
+                 fastest_solution="""D0 S0 D1 S4 D2 S9 S13 D3 D4 S18 D4 D0 S0 D1 S4 S5 D2 S9 S13 S14 D3 D0 S1 D1 S4 D2 S10 S13 D3 D5 S19 D5 D0 S1 D1 S4 S5 S6 D2 S10 S13 S14 S15 D3 D0 S2 D1 S4 D2 S11 S13 D3 D7 S21 D7 D0 S2 D1 S4 S5 D2 S11 S13 S14 D3 D0 S0 S1 D1 S4 D2 S9 S10 S13 D3 D6 S20 D6 D0 S0 S1 S3 D1 S4 S5 S6 S7 D2 S9 S10 S12 S13 S14 S15 S16 D3 D0 S0 S1 S2 S3 D1 S4 D2 S9 S10 S11 S12 S13 D3 D9 S23 D9 D0 S0 S1 S2 S3 D1 S4 S5 D2 S9 S10 S11 S12 S13 S14 D3 D0 S0 D1 S4 D2 S9 S13 D3 D10 S24 D10 D0 S0 S1 D1 S4 S5 S6 D2 S9 S10 S13 S14 S15 D3 D0 S0 S1 S2 S3 D1 S4 D2 S9 S10 S11 S12 S13 D3 D8 S22 D8 D0 S0 S2 D1 S4 S5 D2 S9 S11 S13 S14 D3 D11""",
                  level_color=lcolor,
-                 name='Chinese postman',
+                 name='Bridges',
                  keep_proportions=True,
                  door_window_size=750)
     

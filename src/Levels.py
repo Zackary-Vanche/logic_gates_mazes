@@ -18,7 +18,7 @@ from levels.level_boolean import level_boolean
 from levels.level_cartesian import level_cartesian
 from levels.level_central_symmetry import level_central_symmetry
 from levels.level_chessboard import level_chessboard
-from levels.level_chinese_postman import level_chinese_postman
+from levels.level_bridges import level_bridges
 from levels.level_spider import level_spider
 from levels.level_code import level_code
 from levels.level_combinatorics import level_combinatorics
@@ -317,7 +317,7 @@ class Levels:
         level_separation,
         level_small_panex,
         level_zebra,
-        # level_chinese_postman,
+        level_bridges,
         level_parking,
         level_panex,
         level_superflip,
@@ -548,18 +548,20 @@ if __name__ == "__main__":
 
     test_levels()
     
-    # level = level_chinese_postman()
+    # level = level_bridges()
     # sol = "D0 S0 D1"
     # level.try_solution(sol)
     # for S in level.switches_list:
     #     print(S.name, S.value)
+
+    # solutions = level_bridges().find_all_solutions(verbose=2,
+    #                                                         nb_iterations_print=10**4,
+    #                                                         stop_at_first_solution=False)
+    # for sol in solutions[0]:
+    #     print(' '.join(sol))
     
-    
-    solutions = level_chinese_postman().find_all_solutions(verbose=2,
-                                                            nb_iterations_print=10**4,
-                                                            stop_at_first_solution=False)
-    for sol in solutions[0]:
-        print(' '.join(sol))
+    # 0000 01110 0000 01110 1111111
+    # 0000 00001 0000 00001 1111111
     
     # for sol in solutions[0]:
     #     l_s = []
