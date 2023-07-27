@@ -15,10 +15,10 @@ from levels.level_binary import level_binary
 from levels.level_bipartite import level_bipartite
 from levels.level_bis_repetita import level_bis_repetita
 from levels.level_boolean import level_boolean
+from levels.level_bridges import level_bridges
 from levels.level_cartesian import level_cartesian
 from levels.level_central_symmetry import level_central_symmetry
 from levels.level_chessboard import level_chessboard
-from levels.level_bridges import level_bridges
 from levels.level_spider import level_spider
 from levels.level_code import level_code
 from levels.level_combinatorics import level_combinatorics
