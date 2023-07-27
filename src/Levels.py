@@ -34,6 +34,7 @@ from levels.level_diagonal import level_diagonal
 from levels.level_dichotomy import level_dichotomy
 from levels.level_dominating_set import level_dominating_set
 from levels.level_doppelganger import level_doppelganger
+from levels.level_draw import level_draw
 from levels.level_egyptian_fractions import level_egyptian_fractions
 from levels.level_electricity import level_electricity
 from levels.level_elementary import level_elementary
@@ -49,6 +50,7 @@ from levels.level_grid import level_grid
 from levels.level_hamiltonian import level_hamiltonian
 from levels.level_hello_world import level_hello_world
 from levels.level_hitting_set import level_hitting_set
+from levels.level_house import level_house
 from levels.level_hungarian_rings import level_hungarian_rings
 from levels.level_independent_set import level_independent_set
 from levels.level_infinity import level_infinity
@@ -84,7 +86,7 @@ from levels.level_playground import level_playground
 from levels.level_permutations import level_permutations
 from levels.level_point_of_no_return import level_point_of_no_return
 from levels.level_pong import level_pong
-from levels.level_postman import level_postman
+# from levels.level_postman import level_postman
 from levels.level_product import level_product
 from levels.level_puzzle import level_puzzle
 from levels.level_pythagorean import level_pythagorean
@@ -291,7 +293,9 @@ class Levels:
         level_wave,
         level_cube,
         level_error,
+        level_house,
         level_the_4th_dimension,
+        level_draw,
         level_random_come_back,
         level_permutations,
         level_inversions,
@@ -562,11 +566,13 @@ if __name__ == "__main__":
     # sol = "D0 S3 D1 S5 D2 S7 D3 S11 D4 D6 S15 D6 D5"
     # level_chinese_postman_problem().try_solution(sol, verbose=2)
 
-    # solutions = level_chinese_postman_problem().find_all_solutions(verbose=2,
+    # solutions = level_draw().find_all_solutions(verbose=2,
     #                                                         nb_iterations_print=10**4,
     #                                                         stop_at_first_solution=False)
     # for sol in solutions[0]:
     #     print(' '.join(sol))
+        
+    # 
     
     # for sol in solutions[0]:
     #     l_s = []
@@ -578,7 +584,7 @@ if __name__ == "__main__":
     # import cProfile
     # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=float('inf'), save_as_txt=False)''', sort=1)
     
-    # door_list = level_chinese_postman_problem().doors_list
+    # door_list = level_draw().doors_list
     # door_list = sorted(door_list, key = lambda x : int(x.name.replace('D', '')))
     # for i in range(len(door_list)):
     #     door = door_list[i]
@@ -588,12 +594,32 @@ if __name__ == "__main__":
     #     # i0 = int(rd.name.replace('R', ''))
     #     # i1 = int(ra.name.replace('R', ''))
     #     # dn = door.name
-    #     # S0 = f'S{i0}'
-    #     # S1 = f'S{i1}'
-    #     print(f"""T{i} = Tree(tree_list=tree_list_0,
-    #           empty=True,
-    #           name='T{i}',
-    #           switches=[{rd.name.replace('R', 'S')}, {ra.name.replace('R', 'S')}])""")
+    #     Slist_d = rd.switches_list
+    #     Slist_a = ra.switches_list
+    #     Slist = ['S1', 'S2', 'S4', 'S6', 'S7', 'S8', 'S10']
+    #     if len(Slist_d) != 0:
+    #         S0 = Slist_d[0].name
+    #         print(f"""T{i} = Tree(tree_list=[None],
+    #               empty=True,
+    #               name='T{i}',
+    #               switches=[{S0}])""")
+    #     if len(Slist_a) != 0:
+    #         S1 = Slist_a[0].name
+    #         print(f"""T{i} = Tree(tree_list=Tree.tree_list_NOT,
+    #               empty=True,
+    #               name='T{i}',
+    #               switches=[{S1}])""")
+                
+            
+        #     print(f"""T{i} = Tree(tree_list=tree_list_0,
+        #           empty=True,
+        #           name='T{i}',
+        #           switches=[{S0}, {S1}])""")
+        # else:
+        #     print(f'''T{i} = Tree(tree_list=[None],
+        #           empty=True,
+        #           name='T{i}',
+        #           switches=[1])''')
         # if len(room_arrival.switches_list) == 1:
         #     S = room_arrival.switches_list[0].name
         #     print(f"""{T0} = Tree(tree_list=Tree.tree_list_not,

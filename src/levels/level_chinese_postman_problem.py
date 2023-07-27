@@ -251,7 +251,7 @@ def level_chinese_postman_problem():
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12],
                  fastest_solution='S0 D0 S4 D1 S6 D2 S7 D3 S11 D4 D7 S16 D7 D5 S1 D0 S3 S4 D1 S5 S6 D2 S7 S8 D3 S11 S12 D4 D9 S18 D9 D5 S0 S1 S2 D0 S4 D1 S6 D2 S7 D3 S11 D4 D10 S19 D10 D5 S0 D0 S3 D1 S5 D2 S7 S8 S9 D3 S11 S12 S13 D4 D11 S20 D11 D5 D0 S3 D1 S5 D2 S7 D3 S11 D4 D5 S0 S1 S2 D0 S3 S4 D1 S5 S6 D2 S7 S8 D3 S11 S12 D4 D8 S17 D8 D5 S1 D0 S3 D1 S5 D2 S7 D3 S11 D4 D6 S15 D6 D5 D0 S3 D1 S5 D2 S7 S8 S9 S10 D3 S11 S12 S13 S14 D4 D12',
-                 level_color=Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.5),
+                 level_color=Levels_colors_list.FROM_HUE(hu=0.6, sa=0.5, li=0.5),
                  name='Chinese postman problem',
                  keep_proportions=True,
                  door_window_size=500)
