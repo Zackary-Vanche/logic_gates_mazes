@@ -23,6 +23,8 @@ if __name__ == "__main__":
     del racine[-1]
     racine.append('images')
     racine = '/'.join(racine)
+    if not os.path.exists(racine):
+        os.mkdir(racine)
     for file in os.listdir(racine):
         file = racine + '/' + file
         if 'level' in file:

@@ -65,6 +65,14 @@ help_menus_list['XOR 3'] = """
 XOR can be used with more than 3 parameters :
     D0 = XOR(S0, S1, ...) means :
         D0 is open if there is exactly one switch among its parameters that is turned on."""
+        
+help_menus_list['XNOR short'] = """
+XOR means exclusive or. XNOR is its opposite.
+
+Their definitions are :
+    XOR S0 S1 = | & S0 ¬ S1 & ¬ S0 S1 
+    XNOR S0 S1 = | & S0 S1 & ¬ S0 ¬ S1
+    XNOR S0 S1 = ¬ XOR S0 S1"""
 
 help_menus_list['XNOR'] = """
 XOR means exclusive or. XNOR is its opposite.
@@ -425,6 +433,8 @@ help_menus_list['levels']["Sum"] = help_menus_list['random'] + '\n\n' + help_men
 help_menus_list['levels']["Product"] = help_menus_list['PROD']
 
 help_menus_list['levels']["Congruence"] = help_menus_list['MOD']
+
+help_menus_list['levels']["Sorted"] = '\n'.join([help_menus_list['random'], help_menus_list['EQUSET']])
 
 help_menus_list['levels']["Meanders"] = """You have to go inside every room."""
 

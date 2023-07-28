@@ -124,6 +124,7 @@ from levels.level_small import level_small
 from levels.level_small_panex import level_small_panex
 from levels.level_square import level_square
 from levels.level_solitaire import level_solitaire
+from levels.level_sorted import level_sorted
 from levels.level_spare import level_spare
 from levels.level_spaceship import level_spaceship
 from levels.level_strange import level_strange
@@ -223,6 +224,7 @@ class Levels:
         level_naturals,
         level_wasted,
         level_doppelganger,
+        level_sorted,
         level_meanders,
         level_wind_compass,
         level_compact,
