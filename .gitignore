@@ -2,5 +2,6 @@ src/images/
 src/solutions/
 __pycache__/
 src/temp/
+src/temp.txt
 .idea/
 .github/

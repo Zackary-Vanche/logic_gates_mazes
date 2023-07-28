@@ -613,7 +613,21 @@ class Game:
                 self.change_in_display = True
                 self.last_key_pressed_time = time()
                 self.current_action_index_changed = False
-            
+    
+    def show_solution(self):
+        maze = self.maze
+        solution = maze.fastest_solution
+        if solution is None:
+            return
+        solution_actions_list = solution.split(' ')
+        for action in solution_actions_list:
+            self.current_action = action
+            self.display_game_window()
+            sleep(.2)
+            self.maze.make_actions(action)
+            self.current_action = ''
+            self.display_game_window()
+            sleep(.2)
 
     def handle_interractions(self):
         self.pressed = pygame_key_get_pressed()
@@ -634,8 +648,11 @@ class Game:
                 self.change_in_display = True
                 self.update_possible_actions()
                 if len(self.current_action) > 0:
-                    with open('temp.txt', 'a') as fa:
-                        fa.write(self.current_action + ' ')
+                    # with open('temp.txt', 'a') as fa:
+                    #     fa.write(self.current_action + ' ')
+                    if self.current_action == 'EEEEE':
+                        self.show_solution()
+                        return
                     if self.current_action[0] in ['D', 'S', 'R']:
                         self.maze.make_actions(self.current_action)
                     if self.current_action[0:2] == 'A ':
