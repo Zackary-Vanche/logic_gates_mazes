@@ -107,3 +107,14 @@ if __name__ == "__main__":
             cv2.imwrite(filename, img_h)
         except TypeError:
             pass
+    
+    lx = [i for i in range(140, 170)]
+    ly = []
+    for i in lx:
+        a = divisor_closest_to_sqrt(i)
+        b = i//a
+        a, b = min(a, b), max(a, b)
+        ly.append(a/b)
+    plt.plot(lx, ly)
+    plt.scatter(lx, ly)
+    plt.grid()
