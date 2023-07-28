@@ -1,6 +1,6 @@
-ns = 14
-nd = 0
-nr = 0
+ns = 6
+nd = 7
+nr = 7
 
 print('''
 from Switch import Switch

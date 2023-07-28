@@ -45,6 +45,7 @@ from levels.level_exact_cover import level_exact_cover
 from levels.level_five import level_five
 from levels.level_flash_back import level_flash_back
 from levels.level_fluid import level_fluid
+from levels.level_forest import level_forest
 from levels.level_fractal import level_fractal
 from levels.level_grid import level_grid
 from levels.level_hamiltonian import level_hamiltonian
@@ -198,6 +199,7 @@ class Levels:
         level_binary,
         level_or,
         level_crossroad,
+        level_forest,
         level_square,
         level_fluid,
         level_numeration,
@@ -555,7 +557,7 @@ if __name__ == "__main__":
     if os.path.exists('temp.txt'):
         os.remove('temp.txt')
 
-    test_levels()
+    # test_levels()
     
     # level = level_bridges()
     # sol = "D0 S0 D1"
@@ -566,7 +568,7 @@ if __name__ == "__main__":
     # sol = "D0 S3 D1 S5 D2 S7 D3 S11 D4 D6 S15 D6 D5"
     # level_chinese_postman_problem().try_solution(sol, verbose=2)
 
-    # solutions = level_draw().find_all_solutions(verbose=2,
+    # solutions = level_forest().find_all_solutions(verbose=2,
     #                                                         nb_iterations_print=10**4,
     #                                                         stop_at_first_solution=False)
     # for sol in solutions[0]:

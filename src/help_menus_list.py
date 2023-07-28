@@ -411,6 +411,8 @@ help_menus_list['levels']["OR"] = '''Enjoy the game while it is still easy.'''
 
 help_menus_list['levels']["Crossroad"] = help_menus_list['reminder B']
 
+help_menus_list['levels']["Forest"] = help_menus_list['XNOR']
+
 help_menus_list['levels']["Square"] = help_menus_list['write several actions']
 
 help_menus_list['levels']["Fluid"] = help_menus_list['Introduction thuth table']
