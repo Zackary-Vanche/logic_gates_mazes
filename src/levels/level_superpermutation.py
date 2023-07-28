@@ -37,7 +37,7 @@ def level_superpermutation():
     T2 = Tree(tree_list=tree_list,
               empty=True,
               name='T2',
-              switches = [2, 2, 1, 3] + Slist)
+              switches = [3, 2, 1, 3] + Slist)
     T3 = Tree(tree_list=tree_list,
               empty=True,
               name='T3',

@@ -60,6 +60,7 @@ def level_sorted():
                  level_color=Levels_colors_list.FROM_HUE(hu=0.75, sa=0.5, li=0.4),
                  name='Sorted',
                  keep_proportions=True,
-                 door_window_size=500)
+                 door_window_size=500,
+                 random=True)
     
     return level
