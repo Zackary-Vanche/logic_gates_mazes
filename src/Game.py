@@ -630,6 +630,17 @@ class Game:
             sleep(.2)
             if self.do_you_quit_game():
                 return None
+            
+    def show_all_solutions(self):
+        for i_level in range(Levels.number_of_levels):
+            print(i_level)
+            self.index_current_level = i_level
+            self.level_changed = True
+            self.get_level()
+            self.display_game_window()
+            sleep(.5)
+            self.show_solution()
+            sleep(.5)
 
     def handle_interractions(self):
         self.pressed = pygame_key_get_pressed()
@@ -652,8 +663,11 @@ class Game:
                 if len(self.current_action) > 0:
                     # with open('temp.txt', 'a') as fa:
                     #     fa.write(self.current_action + ' ')
-                    if self.current_action == 'EEEEE':
+                    if self.current_action == 'EEE':
                         self.show_solution()
+                        return
+                    if self.current_action == 'EEEEE':
+                        self.show_all_solutions()
                         return
                     if self.current_action[0] in ['D', 'S', 'R']:
                         self.maze.make_actions(self.current_action)
