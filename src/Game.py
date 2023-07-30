@@ -628,6 +628,8 @@ class Game:
             self.current_action = ''
             self.display_game_window()
             sleep(.2)
+            if self.do_you_quit_game():
+                return None
 
     def handle_interractions(self):
         self.pressed = pygame_key_get_pressed()
