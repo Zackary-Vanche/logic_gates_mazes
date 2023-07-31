@@ -631,6 +631,7 @@ class Game:
                 fname = folder + f"level_{self.index_current_level}_{self.maze.name}_WIDTH_{int(self.WINDOW_WIDTH)}_HEIGHT_{int(self.WINDOW_HEIGHT)}_frame_{i}.jpg"
                 return fname
             self.save_image_as_file(fname(0))
+            self.save_image_as_file()
         for i in range(len(solution_actions_list)):
             action = solution_actions_list[i]
             self.current_action = action
@@ -807,6 +808,11 @@ class Game:
 
     def save_image_as_file(self,
                            fname=None):
+        for folder in ["images",
+                       "videos",
+                       "videos/frames"]:
+            if not os_path_exists(folder):
+                os_mkdir(folder)
         if type(fname) is not str:
             fname = f"images/level_{self.index_current_level}_{self.maze.name}_WIDTH_{int(self.WINDOW_WIDTH)}_HEIGHT_{int(self.WINDOW_HEIGHT)}.jpg"
         # if not os_path_exists(fname):
