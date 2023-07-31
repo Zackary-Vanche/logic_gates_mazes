@@ -559,7 +559,7 @@ if __name__ == "__main__":
     if os.path.exists('temp.txt'):
         os.remove('temp.txt')
 
-    test_levels()
+    # test_levels()
     
     # level = level_bridges()
     # sol = "D0 S0 D1"
@@ -570,11 +570,11 @@ if __name__ == "__main__":
     # sol = "D0 S3 D1 S5 D2 S7 D3 S11 D4 D6 S15 D6 D5"
     # level_chinese_postman_problem().try_solution(sol, verbose=2)
 
-    # solutions = level_superpermutation().find_all_solutions(verbose=2,
-    #                                                         nb_iterations_print=10**4,
-    #                                                         stop_at_first_solution=False)
-    # for sol in solutions[0]:
-    #     print(' '.join(sol))
+    solutions = level_cartesian().find_all_solutions(verbose=2,
+                                                     nb_iterations_print=10**4,
+                                                     stop_at_first_solution=False)
+    for sol in solutions[0]:
+        print(' '.join(sol))
         
     # 
     

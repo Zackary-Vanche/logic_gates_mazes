@@ -737,6 +737,7 @@ class Maze:
                 print('something wrong with {solutions_file}')
         if not (nb_iterations_tot is None or nb_operations_tot is None or solutions_from_file is None) and only_if_not_yet_calculated:
             return [solutions_from_file, nb_iterations_tot, nb_operations_tot]
+
         if self.all_solutions is None:
             visited_situations = set()
             solutions_to_visit = [initial_try]
@@ -793,6 +794,7 @@ class Maze:
                             #     f.write('\n')
                             solutions_to_visit.extend(last_solutions_to_visit)
                             solutions_to_visit.reverse()
+                            print(solutions_to_visit)
                         # not random search
                         else:
                             # DOORS
