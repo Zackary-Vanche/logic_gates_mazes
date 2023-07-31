@@ -7,15 +7,16 @@ import matplotlib.pyplot as plt
 import random as rd
 from Levels_colors_list import Levels_colors_list 
 
-def divisor_closest_to_sqrt(n):
-    from numpy import ceil, sqrt
-    d = 1
-    for k in range(1, int(ceil(sqrt(n))) + 1):
-        if n % k == 0:
-            d = k
-    return min(n // d, d)
-
 if __name__ == "__main__":
+    
+    def divisor_closest_to_sqrt(n):
+        from numpy import ceil, sqrt
+        d = 1
+        for k in range(1, int(ceil(sqrt(n))) + 1):
+            if n % k == 0:
+                d = k
+        return min(n // d, d)
+    
     rd.seed(42)
     
     racine = __file__

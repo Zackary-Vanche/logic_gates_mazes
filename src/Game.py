@@ -25,6 +25,7 @@ from pygame import FULLSCREEN as pygame_FULLSCREEN
 
 from os.path import exists as os_path_exists
 from os import mkdir as os_mkdir
+from os import listdir as os_listdir
 from numpy import array
 from time import time
 from time import sleep
@@ -81,7 +82,6 @@ class Game:
                  show_loop_time=False,
                  update_display_at_every_loop=False,
                  sleep_time=10 ** (-2),
-                 save_all_images=False,
                  game_color=None): # if game_color is not None, it overwrites the levels colors
         if WINDOW_SIZE is None or SMALLEST_WINDOW_SIZE is None:
             from pyautogui import size as pyautogui_size
@@ -544,7 +544,6 @@ class Game:
         if self.save_image:
             fname = f"images/HELP_level_{self.index_current_level}_{self.maze.name}_WIDTH_{int(self.WINDOW_WIDTH)}_HEIGHT_{int(self.WINDOW_HEIGHT)}.jpg"
             if not os_path_exists(fname):
-                print(fname)
                 pygame_image_save(self.WINDOW, fname)
 
     def print_current_action(self):
@@ -614,33 +613,88 @@ class Game:
                 self.last_key_pressed_time = time()
                 self.current_action_index_changed = False
     
-    def show_solution(self):
+    def show_solution(self,
+                      save_videos=False,
+                      dt=0.1):
         maze = self.maze
         solution = maze.fastest_solution
         if solution is None:
             return
         solution_actions_list = solution.split(' ')
-        for action in solution_actions_list:
+        if save_videos:
+            name = self.maze.name.replace(' ', '_')
+            folder = f"videos/frames/{name}/"
+            if not os_path_exists(folder):
+                os_mkdir(folder)
+            def fname(i):
+                fname = folder + f"level_{self.index_current_level}_{self.maze.name}_WIDTH_{int(self.WINDOW_WIDTH)}_HEIGHT_{int(self.WINDOW_HEIGHT)}_frame_{i}.jpg"
+                return fname
+            self.save_image_as_file(fname(0))
+        for i in range(len(solution_actions_list)):
+            action = solution_actions_list[i]
             self.current_action = action
             self.display_game_window()
-            sleep(.2)
+            if save_videos:
+                self.save_image_as_file(fname(1+2*i))
+            sleep(dt)
             self.maze.make_actions(action)
             self.current_action = ''
             self.display_game_window()
-            sleep(.2)
+            if save_videos:
+                self.save_image_as_file(fname(2+2*i))
+            sleep(dt)
             if self.do_you_quit_game():
                 return None
+        if save_videos:
+            import numpy as np
+            from cv2 import VideoWriter, VideoWriter_fourcc, resize, cvtColor, COLOR_BGR2RGB #, imread#
+            from PIL import Image
+            size = (int(self.WINDOW_WIDTH), int(self.WINDOW_HEIGHT))
+            video_name = f"videos/level_{self.index_current_level}_{self.maze.name}.avi"
+            out = VideoWriter(video_name,
+                              VideoWriter_fourcc(*'DIVX'),
+                              24,
+                              size)
+            name = self.maze.name.replace(' ', '_')
+            def fname(i):
+                fname = folder + f"level_{self.index_current_level}_{self.maze.name}_WIDTH_{int(self.WINDOW_WIDTH)}_HEIGHT_{int(self.WINDOW_HEIGHT)}_frame_{i}.jpg"
+                return fname
+            i = 0
+            while os_path_exists(fname(i)):
+                img = Image.open(fname(i))
+                img = np.array(img, dtype=np.uint8)
+                img = resize(img, size)
+                img = np.array(img, dtype=np.uint8)
+                img = cvtColor(img, COLOR_BGR2RGB)
+                for k in range(12):
+                    out.write(img)
+                i = i+1
+            for k in range(12): # You add the last image 12 more times.
+                out.write(img)
+            out.release()
             
-    def show_all_solutions(self):
+    def show_all_solutions(self, save_videos=False, dt=0.2):
         for i_level in range(Levels.number_of_levels):
-            print(i_level)
+            t0 = time()
             self.index_current_level = i_level
             self.level_changed = True
             self.get_level()
             self.display_game_window()
-            sleep(.5)
-            self.show_solution()
-            sleep(.5)
+            sleep(dt)
+            self.show_solution(save_videos=save_videos,
+                               dt=dt)
+            sleep(dt)
+            assert dt >= 0
+            sleep(max(0, 2*dt-time()+t0))
+            
+    def save_videos(self):
+        # from PIL.Image import fromarray
+        if not os_path_exists('videos'):
+            os_mkdir('videos')
+        if not os_path_exists('videos/frames'):
+            os_mkdir('videos/frames')
+        self.show_all_solutions(save_videos=True,
+                                dt = 0)
 
     def handle_interractions(self):
         self.pressed = pygame_key_get_pressed()
@@ -668,6 +722,9 @@ class Game:
                         return
                     if self.current_action == 'EEEEE':
                         self.show_all_solutions()
+                        return
+                    if self.current_action == 'EEEEEEE':
+                        self.save_videos()
                         return
                     if self.current_action[0] in ['D', 'S', 'R']:
                         self.maze.make_actions(self.current_action)
@@ -747,12 +804,12 @@ class Game:
                 self.maze.current_door_page = self.maze.current_door_page % len(self.maze.doors_set)
                 self.change_in_display = True
 
-    def save_image_as_file(self):
-        if self.save_image:
+    def save_image_as_file(self,
+                           fname=None):
+        if type(fname) is not str:
             fname = f"images/level_{self.index_current_level}_{self.maze.name}_WIDTH_{int(self.WINDOW_WIDTH)}_HEIGHT_{int(self.WINDOW_HEIGHT)}.jpg"
-            # if not os_path_exists(fname):
-            print(fname)
-            pygame_image_save(self.WINDOW, fname)
+        # if not os_path_exists(fname):
+        pygame_image_save(self.WINDOW, fname)
 
     def quit_game(self):
         self.t1 = time()
@@ -813,7 +870,8 @@ class Game:
                     self.change_in_display = False
                 self.handle_keys_UP_DOWN()
                 self.handle_interractions()
-                self.save_image_as_file()
+                if self.save_image:
+                    self.save_image_as_file()
             self.change_level()
             self.goto_or_leave_help()
             self.change_door_page()
