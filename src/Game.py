@@ -26,6 +26,7 @@ from pygame import FULLSCREEN as pygame_FULLSCREEN
 from os.path import exists as os_path_exists
 from os import mkdir as os_mkdir
 from os import listdir as os_listdir
+from os import remove as os_remove
 from numpy import array
 from time import time
 from time import sleep
@@ -666,10 +667,10 @@ class Game:
                 img = resize(img, size)
                 img = np.array(img, dtype=np.uint8)
                 img = cvtColor(img, COLOR_BGR2RGB)
-                for k in range(12):
+                for k in range(6):
                     out.write(img)
                 i = i+1
-            for k in range(12): # You add the last image 12 more times.
+            for k in range(6): # You add the last image 12 more times.
                 out.write(img)
             out.release()
             
