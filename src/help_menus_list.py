@@ -613,6 +613,8 @@ help_menus_list['levels']["No three in line"] = """The no three in line problem 
 
 help_menus_list['levels']["Manhattan_distance"] = """The cheat code might be very useful here."""
 
+help_menus_list['levels']["Minimum spanning tree"] = """A Minimum spanning tree is the subset of edges in a graph that connects all the vertices together\nwith the minimum total edge weight possible, without forming any cycles."""
+
 help_menus_list['levels']["Diagonal"] = """To solve this level you need to solve a 4*4 sudoku grid."""
 
 help_menus_list['levels']["Sudoku"] = """It looks a lot like the level diagonal."""

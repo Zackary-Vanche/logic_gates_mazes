@@ -1,6 +1,6 @@
-ns = 8
-nd = 2
-nr = 2
+ns = 18+11
+nd = 21
+nr = 11
 
 print('''
 from Switch import Switch
@@ -17,12 +17,14 @@ for i in range(ns):
     print(f'''    S{i} = Switch(name='S{i}')''')
     
 print('')
+print(f'''    Slist = [{', '.join([f'S{i}' for i in range(ns)])}]''')
+print('')
     
 for i in range(nd):
     print(f'''    T{i} = Tree(tree_list=[None],
                 empty=True,
                 name='T{i}',
-                switches=[1])''')
+                switches=[S{i-1}])''')
     
 print('')
     
@@ -58,5 +60,3 @@ print(f'''
                  door_window_size=500)
     
     return level''')
-
-print(f'''[{', '.join([f'S{i}' for i in range(ns)])}]''')

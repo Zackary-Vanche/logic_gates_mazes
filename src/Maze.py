@@ -417,6 +417,7 @@ class Maze:
             if not (action in self.possibles_actions_list or (action in self.rooms_dict.keys() and allow_all)):
                 return None
         for action in actions_list:
+            print(action)
             action_type = action[0]
             if action_type == 'S' and (self.legit_change_switch(action) or allow_all):
                 # print(action)
