@@ -20,7 +20,7 @@ from levels.level_cartesian import level_cartesian
 from levels.level_central_symmetry import level_central_symmetry
 from levels.level_chessboard import level_chessboard
 from levels.level_chinese_postman_problem import level_chinese_postman_problem
-from levels.level_spider import level_spider
+# from levels.level_circonvolution import level_circonvolution
 from levels.level_code import level_code
 from levels.level_combinatorics import level_combinatorics
 from levels.level_compact import level_compact
@@ -123,6 +123,7 @@ from levels.level_shuffled import level_shuffled
 from levels.level_singleton import level_singleton
 from levels.level_small import level_small
 from levels.level_small_panex import level_small_panex
+from levels.level_spider import level_spider
 from levels.level_square import level_square
 from levels.level_solitaire import level_solitaire
 from levels.level_sorted import level_sorted
@@ -574,11 +575,11 @@ if __name__ == "__main__":
     # sol = 'S0 S1 S2 S4 S5 S7 S10 S13 S16 D0 S18 D1 S19 D3 S20 D6 S21 D6 D8 S24 D8 D3 D5 S23 D14 S26 D14 D5 D1 D2 S22 D11 S25 D17 S27 D19'
     # level_minimum_spanning_tree().try_solution(sol, verbose=2)
 
-    solutions = level_the_4th_dimension().find_all_solutions(verbose=2,
-                                                             nb_iterations_print=10**4,
-                                                             stop_at_first_solution=False)
-    for sol in solutions[0]:
-        print(' '.join(sol))
+    # solutions = level_the_4th_dimension().find_all_solutions(verbose=2,
+    #                                                          nb_iterations_print=10**4,
+    #                                                          stop_at_first_solution=False)
+    # for sol in solutions[0]:
+    #     print(' '.join(sol))
         
     # 
     
@@ -592,7 +593,7 @@ if __name__ == "__main__":
     # import cProfile
     # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=float('inf'), save_as_txt=False)''', sort=1)
     
-    # door_list = level_draw().doors_list
+    # door_list = level_circonvolution().doors_list
     # door_list = sorted(door_list, key = lambda x : int(x.name.replace('D', '')))
     # for i in range(len(door_list)):
     #     door = door_list[i]
@@ -605,18 +606,23 @@ if __name__ == "__main__":
     #     Slist_d = rd.switches_list
     #     Slist_a = ra.switches_list
     #     Slist = ['S1', 'S2', 'S4', 'S6', 'S7', 'S8', 'S10']
-    #     if len(Slist_d) != 0:
-    #         S0 = Slist_d[0].name
-    #         print(f"""T{i} = Tree(tree_list=[None],
+    #     if len(Slist_d) == 1 and len(Slist_a) == 1:
+    #         print(f"""T{i} = Tree(tree_list=tree_list_1,
     #               empty=True,
     #               name='T{i}',
-    #               switches=[{S0}])""")
-    #     if len(Slist_a) != 0:
-    #         S1 = Slist_a[0].name
-    #         print(f"""T{i} = Tree(tree_list=Tree.tree_list_NOT,
-    #               empty=True,
-    #               name='T{i}',
-    #               switches=[{S1}])""")
+    #               switches=[{Slist_d[0].name}, {Slist_a[0].name}])""")
+    #     # if len(Slist_d) != 0:
+        #     S0 = Slist_d[0].name
+        #     print(f"""T{i} = Tree(tree_list=[None],
+        #           empty=True,
+        #           name='T{i}',
+        #           switches=[{S0}])""")
+        # if len(Slist_a) != 0:
+        #     S1 = Slist_a[0].name
+        #     print(f"""T{i} = Tree(tree_list=Tree.tree_list_NOT,
+        #           empty=True,
+        #           name='T{i}',
+        #           switches=[{S1}])""")
                 
             
         #     print(f"""T{i} = Tree(tree_list=tree_list_0,

@@ -1,6 +1,6 @@
-ns = 18+11
-nd = 21
-nr = 11
+ns = 24+16
+nd = 2*3*4+2
+nr = 17
 
 print('''
 from Switch import Switch
@@ -24,15 +24,15 @@ for i in range(nd):
     print(f'''    T{i} = Tree(tree_list=[None],
                 empty=True,
                 name='T{i}',
-                switches=[S{i-1}])''')
+                switches=[1])''')
     
 print('')
     
 for i in range(nr):
-    x = (i-1)%4
-    y = (i-1)//4
+    x = (i-1)//4
+    y = (i-1)%4
     print(f'''    R{i} = Room(name='R{i}',
-                position=[0*dx, 0*dy, ex, ey],
+                position=[{x}*dx, {y}*dy, ex, ey],
                 switches_list=[])''')
     
 print('''    RE = Room(name='RE',
@@ -46,7 +46,8 @@ for i in range(nd):
                 tree=T{i},
                 name='D{i}',
                 room_departure=R0,
-                room_arrival=RE)''')
+                room_arrival=RE,
+                relative_position=rp)''')
 
 print(f'''
     level = Maze(start_room_index=0,
