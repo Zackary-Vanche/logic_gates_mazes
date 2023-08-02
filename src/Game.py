@@ -1,6 +1,6 @@
 from pygame import init as pygame_init
 from pygame.locals import QUIT, K_RIGHT, K_LEFT, K_UP, K_DOWN
-from pygame.locals import K_a, K_b, K_d, K_e, K_h, K_m, K_n, K_p, K_r, K_s, K_l, K_q
+from pygame.locals import K_a, K_b, K_d, K_e, K_h, K_m, K_n, K_p, K_r, K_s, K_l, K_q, K_w
 from pygame.locals import K_KP0, K_KP1, K_KP2, K_KP3, K_KP4
 from pygame.locals import K_KP5, K_KP6, K_KP7, K_KP8, K_KP9
 from pygame.locals import K_0, K_1, K_2, K_3, K_4
@@ -118,6 +118,7 @@ class Game:
         self.possible_current_actions = None
         self.current_action_index = 0
         self.current_action_index_changed = False
+        self.show_wires = False
 
     def game_setup(self):
         # Game Setup
@@ -854,6 +855,21 @@ class Game:
                     return True
             self.level_changed = True
         return False
+    
+    def change_draw_wires(self):
+        print('change_draw_wires', time())
+        self.pressed = pygame_key_get_pressed()
+        # Passage au menu d'aide / quitter le menu aide
+        if time() - self.last_key_pressed_time > self.time_between_actions:
+            if self.pressed[K_w]:
+                self.show_wires = not self.show_wires
+                self.last_key_pressed_time = time()
+                self.change_in_display = True
+                self.update_possible_actions()
+                print('self.show_wires', self.show_wires)
+        
+    def draw_wires(self):
+        pass
 
     # The main function that controls the game
     def play(self):
@@ -872,6 +888,10 @@ class Game:
                     self.display_help()
                     self.change_in_display = False
             else:
+                # if self.show_wires:
+                #     if self.change_in_display or self.update_display_at_every_loop:
+                #         self.draw_wires()
+                # else:
                 if self.change_in_display or self.update_display_at_every_loop:
                     self.display_game_window()
                     self.change_in_display = False
@@ -882,6 +902,7 @@ class Game:
             self.change_level()
             self.goto_or_leave_help()
             self.change_door_page()
+            # self.change_draw_wires()
             if self.update_to_save_images():  # It means you quit the game
                 return None
             # self.change_page()
