@@ -1,6 +1,6 @@
-ns = 3
-nd = 2*3*4+2
-nr = 17
+ns = 14
+nd = 48
+nr = 15
 
 print('''
 from Switch import Switch
@@ -29,11 +29,11 @@ for i in range(nd):
 print('')
     
 for i in range(nr):
-    x = (i-1)//4
-    y = (i-1)%4
+    x = (i)//4
+    y = (i)%4
     print(f'''    R{i} = Room(name='R{i}',
                 position=[{x}*dx, {y}*dy, ex, ey],
-                switches_list=[])''')
+                switches_list=[S{i-1}])''')
     
 print('''    RE = Room(name='RE',
               position=[0, 0, ex, ey],
@@ -41,18 +41,57 @@ print('''    RE = Room(name='RE',
 
 print('')
 
+room_names_list = [f'R{i}' for i in range(nr)] + ['RE']
+room_departure_arrival_list = []
+for i_room_departure in range(len(room_names_list)-1):
+    for a in [-4, -1, +1, +4]:
+        i_room_arrival = i_room_departure+a
+        if a == -1 and i_room_departure%4 == 0:
+            continue
+        if a == 1 and i_room_arrival%4 == 0:
+            continue
+        if 0 <= i_room_arrival < len(room_names_list):
+            room_departure_arrival_list.append([i_room_departure, i_room_arrival])
+for i in range(len(room_departure_arrival_list)):
+    i_room_departure = room_departure_arrival_list[i][0]
+    i_room_arrival = room_departure_arrival_list[i][1]
+    room_departure_name = room_names_list[i_room_departure]
+    room_arrival_name = room_names_list[i_room_arrival]
+    a = i_room_arrival - i_room_departure
+    if a == +1:
+        rdc = 'c'
+        rac = 'a'
+    elif a == -1:
+        rdc = 'b'
+        rac = 'd'
+    elif a == +4:
+        rdc = 'd'
+        rac = 'c'
+    elif a == -4:
+        rdc = 'b'
+        rac = 'a'
+    else:
+        rdc = '[1/2, 1/2]'
+        rac = '[1/2, 1/2]'
+    print(f'''    D{i} = Door(two_way=False,
+                tree=T{i},
+                name='D{i}',
+                room_departure={room_departure_name},
+                room_arrival={room_arrival_name},
+                relative_departure_coordinates={rdc},
+                relative_arrival_coordinates={rac})''')
+
 for i in range(nd):
     print(f'''    D{i} = Door(two_way=False,
                 tree=T{i},
                 name='D{i}',
                 room_departure=R0,
-                room_arrival=RE,
-                relative_position=rp)''')
+                room_arrival=RE)''')
 
 print(f'''
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
-                 rooms_list=[{', '.join([f'R{i}' for i in range(nr)] + ['RE'])}],
+                 rooms_list=[{', '.join(room_names_list)}],
                  doors_list=[{', '.join([f'D{i}' for i in range(nd)])}],
                  fastest_solution=None,
                  level_color=Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.5),
