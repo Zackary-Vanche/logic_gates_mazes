@@ -556,6 +556,8 @@ help_menus_list['levels']["Flash-back"] = """Be careful not to come back in a st
 
 help_menus_list['levels']["Spaceship"] = 'You have to find the order in the chaos.'
 
+help_menus_list['levels']["Connect the dots"] = "I don't think you need help for this one."
+
 help_menus_list['levels']["Magic square"] = help_menus_list['DIFF']
 
 help_menus_list['levels']["Matrix"] = """To solve this level you need to do a 5*5 matrix inversion."""

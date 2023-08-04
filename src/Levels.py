@@ -24,6 +24,7 @@ from levels.level_chinese_postman_problem import level_chinese_postman_problem
 from levels.level_code import level_code
 from levels.level_combinatorics import level_combinatorics
 from levels.level_compact import level_compact
+from levels.level_connect_the_dots import level_connect_the_dots
 from levels.level_congruence import level_congruence
 from levels.level_crossroad import level_crossroad
 from levels.level_crystal import level_crystal
@@ -276,6 +277,7 @@ class Levels:
         level_grid,
         level_flash_back,
         level_spaceship,
+        level_connect_the_dots,
         level_magic_square,
         level_matrix,
         level_river,
@@ -564,7 +566,7 @@ if __name__ == "__main__":
     if os.path.exists('temp.txt'):
         os.remove('temp.txt')
 
-    test_levels()
+    # test_levels()
     
     # level = level_bridges()
     # sol = "D0 S0 D1"
@@ -575,7 +577,7 @@ if __name__ == "__main__":
     # sol = 'S0 S1 S2 S4 S5 S7 S10 S13 S16 D0 S18 D1 S19 D3 S20 D6 S21 D6 D8 S24 D8 D3 D5 S23 D14 S26 D14 D5 D1 D2 S22 D11 S25 D17 S27 D19'
     # level_minimum_spanning_tree().try_solution(sol, verbose=2)
 
-    solutions = level_the_4th_dimension().find_all_solutions(verbose=2,
+    solutions = level_connect_the_dots().find_all_solutions(verbose=2,
                                                               nb_iterations_print=10**4,
                                                               stop_at_first_solution=False)
     for sol in solutions[0]:
@@ -593,7 +595,7 @@ if __name__ == "__main__":
     # import cProfile
     # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=float('inf'), save_as_txt=False)''', sort=1)
     
-    # door_list = level_circonvolution().doors_list
+    # door_list = level_connect_the_dots().doors_list
     # door_list = sorted(door_list, key = lambda x : int(x.name.replace('D', '')))
     # for i in range(len(door_list)):
     #     door = door_list[i]
@@ -611,18 +613,18 @@ if __name__ == "__main__":
     #               empty=True,
     #               name='T{i}',
     #               switches=[{Slist_d[0].name}, {Slist_a[0].name}])""")
-    #     # if len(Slist_d) != 0:
-        #     S0 = Slist_d[0].name
-        #     print(f"""T{i} = Tree(tree_list=[None],
-        #           empty=True,
-        #           name='T{i}',
-        #           switches=[{S0}])""")
-        # if len(Slist_a) != 0:
-        #     S1 = Slist_a[0].name
-        #     print(f"""T{i} = Tree(tree_list=Tree.tree_list_NOT,
-        #           empty=True,
-        #           name='T{i}',
-        #           switches=[{S1}])""")
+    #     # # if len(Slist_d) != 0:
+    #     #     S0 = Slist_d[0].name
+    #     #     print(f"""T{i} = Tree(tree_list=[None],
+    #     #           empty=True,
+    #     #           name='T{i}',
+    #     #           switches=[{S0}])""")
+    #     else:
+    #         # S1 = Slist_a[0].name
+    #         print(f"""T{i} = Tree(tree_list=[None],
+    #               empty=True,
+    #               name='T{i}',
+    #               switches=[1])""")
                 
             
         #     print(f"""T{i} = Tree(tree_list=tree_list_0,
