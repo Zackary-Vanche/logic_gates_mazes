@@ -619,6 +619,7 @@ class Game:
                       save_videos=False,
                       dt=0.1):
         maze = self.maze
+        maze.reboot_solution()
         solution = maze.fastest_solution
         if solution is None:
             return
