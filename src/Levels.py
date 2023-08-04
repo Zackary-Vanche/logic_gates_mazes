@@ -40,6 +40,7 @@ from levels.level_egyptian_fractions import level_egyptian_fractions
 from levels.level_electricity import level_electricity
 from levels.level_elementary import level_elementary
 from levels.level_entropy import level_entropy
+from levels.level_equation import level_equation
 from levels.level_error import level_error
 from levels.level_eulerian import level_eulerian
 from levels.level_exact_cover import level_exact_cover
@@ -70,7 +71,9 @@ from levels.level_mansion import level_mansion
 from levels.level_matrix import level_matrix
 from levels.level_magic_square import level_magic_square  # kakuro
 from levels.level_mastermind import level_mastermind
+from levels.level_max_cut import level_max_cut
 from levels.level_meanders import level_meanders
+from levels.level_min_cut import level_min_cut
 from levels.level_minimum_spanning_tree import level_minimum_spanning_tree
 from levels.level_mols import level_mols
 from levels.level_naturals import level_naturals
@@ -208,6 +211,7 @@ class Levels:
         level_fluid,
         level_numeration,
         level_sum,
+        level_equation,
         level_product,
         level_congruence,
         level_infinity,
@@ -222,6 +226,8 @@ class Levels:
         level_dominating_set,
         level_exact_cover,
         level_odd,
+        level_min_cut,
+        level_max_cut,
         level_triangulate,
         level_recurrence,
         level_naturals,
@@ -566,7 +572,7 @@ if __name__ == "__main__":
     if os.path.exists('temp.txt'):
         os.remove('temp.txt')
 
-    # test_levels()
+    test_levels()
     
     # level = level_bridges()
     # sol = "D0 S0 D1"
@@ -577,14 +583,12 @@ if __name__ == "__main__":
     # sol = 'S0 S1 S2 S4 S5 S7 S10 S13 S16 D0 S18 D1 S19 D3 S20 D6 S21 D6 D8 S24 D8 D3 D5 S23 D14 S26 D14 D5 D1 D2 S22 D11 S25 D17 S27 D19'
     # level_minimum_spanning_tree().try_solution(sol, verbose=2)
 
-    solutions = level_connect_the_dots().find_all_solutions(verbose=2,
-                                                              nb_iterations_print=10**4,
-                                                              stop_at_first_solution=False)
-    for sol in solutions[0]:
-        print(' '.join(sol))
+    # solutions = level_max_cut().find_all_solutions(verbose=2,
+    #                                                 nb_iterations_print=10**4,
+    #                                                 stop_at_first_solution=False)
+    # for sol in solutions[0]:
+    #     print(' '.join(sol))
         
-    # 
-    
     # for sol in solutions[0]:
     #     l_s = []
     #     for action in sol:

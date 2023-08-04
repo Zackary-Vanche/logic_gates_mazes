@@ -429,6 +429,8 @@ help_menus_list['levels']["Numeration"] = '\n'.join([help_menus_list['EQU'], hel
 
 help_menus_list['levels']["Sum"] = help_menus_list['random'] + '\n\n' + help_menus_list['IN'] + '\n\n' + \
                                    help_menus_list['SUM']
+                                   
+help_menus_list['levels']["Equation"] = help_menus_list['MINUS']
 
 help_menus_list['levels']["Product"] = help_menus_list['PROD']
 
@@ -465,6 +467,10 @@ help_menus_list['levels']["Dominating set"] = """Finding dominating set is a NP-
 help_menus_list['levels']["Exact cover"] = """The exact cover is one of the Karp's 21 NP-complete problems.\n""" + help_menus_list['XOR 3']
 
 help_menus_list['levels']["Odd"] = help_menus_list['leave the game']
+
+help_menus_list['levels']["Min-cut"] = """A cut is a partition of the vertices of a graph into two disjoint subsets.\nYou must cut as few edges as possible."""
+
+help_menus_list['levels']["Max-cut"] = """You must cut as many edges as possible."""
 
 help_menus_list['levels']["Triangulate"] = help_menus_list['DIST']
 

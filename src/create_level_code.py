@@ -1,6 +1,6 @@
-ns = 14
-nd = 48
-nr = 15
+ns = 8
+nd = 1
+nr = 1
 
 print('''
 from Switch import Switch
@@ -42,44 +42,44 @@ print('''    RE = Room(name='RE',
 print('')
 
 room_names_list = [f'R{i}' for i in range(nr)] + ['RE']
-room_departure_arrival_list = []
-for i_room_departure in range(len(room_names_list)-1):
-    for a in [-4, -1, +1, +4]:
-        i_room_arrival = i_room_departure+a
-        if a == -1 and i_room_departure%4 == 0:
-            continue
-        if a == 1 and i_room_arrival%4 == 0:
-            continue
-        if 0 <= i_room_arrival < len(room_names_list):
-            room_departure_arrival_list.append([i_room_departure, i_room_arrival])
-for i in range(len(room_departure_arrival_list)):
-    i_room_departure = room_departure_arrival_list[i][0]
-    i_room_arrival = room_departure_arrival_list[i][1]
-    room_departure_name = room_names_list[i_room_departure]
-    room_arrival_name = room_names_list[i_room_arrival]
-    a = i_room_arrival - i_room_departure
-    if a == +1:
-        rdc = 'c'
-        rac = 'a'
-    elif a == -1:
-        rdc = 'b'
-        rac = 'd'
-    elif a == +4:
-        rdc = 'd'
-        rac = 'c'
-    elif a == -4:
-        rdc = 'b'
-        rac = 'a'
-    else:
-        rdc = '[1/2, 1/2]'
-        rac = '[1/2, 1/2]'
-    print(f'''    D{i} = Door(two_way=False,
-                tree=T{i},
-                name='D{i}',
-                room_departure={room_departure_name},
-                room_arrival={room_arrival_name},
-                relative_departure_coordinates={rdc},
-                relative_arrival_coordinates={rac})''')
+# room_departure_arrival_list = []
+# for i_room_departure in range(len(room_names_list)-1):
+#     for a in [-4, -1, +1, +4]:
+#         i_room_arrival = i_room_departure+a
+#         if a == -1 and i_room_departure%4 == 0:
+#             continue
+#         if a == 1 and i_room_arrival%4 == 0:
+#             continue
+#         if 0 <= i_room_arrival < len(room_names_list):
+#             room_departure_arrival_list.append([i_room_departure, i_room_arrival])
+# for i in range(len(room_departure_arrival_list)):
+#     i_room_departure = room_departure_arrival_list[i][0]
+#     i_room_arrival = room_departure_arrival_list[i][1]
+#     room_departure_name = room_names_list[i_room_departure]
+#     room_arrival_name = room_names_list[i_room_arrival]
+#     a = i_room_arrival - i_room_departure
+#     if a == +1:
+#         rdc = 'c'
+#         rac = 'a'
+#     elif a == -1:
+#         rdc = 'b'
+#         rac = 'd'
+#     elif a == +4:
+#         rdc = 'd'
+#         rac = 'c'
+#     elif a == -4:
+#         rdc = 'b'
+#         rac = 'a'
+#     else:
+#         rdc = '[1/2, 1/2]'
+#         rac = '[1/2, 1/2]'
+#     print(f'''    D{i} = Door(two_way=False,
+#                 tree=T{i},
+#                 name='D{i}',
+#                 room_departure={room_departure_name},
+#                 room_arrival={room_arrival_name},
+#                 relative_departure_coordinates={rdc},
+#                 relative_arrival_coordinates={rac})''')
 
 for i in range(nd):
     print(f'''    D{i} = Door(two_way=False,
