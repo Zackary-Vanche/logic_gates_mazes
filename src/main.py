@@ -13,7 +13,7 @@ if __name__ == "__main__":
     Game(show_help=1,
          index_current_level=0,
          is_fullscreen=0,
-         # game_color=Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.4)
+         # game_color=Levels_colors_list.FROM_HUE(hu=0.5, sa=0.2, li=0.49)
          ).play()
 
     # import cProfile
