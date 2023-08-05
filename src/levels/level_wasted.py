@@ -94,8 +94,8 @@ def level_wasted():
                 relative_departure_coordinates=[1/2, 0],
                 relative_arrival_coordinates=[1/2, 1])
 
-    lcolor = Levels_colors_list.FROM_HUE(hu=0, sa=0.8, li=0.6)
-    lcolor.room_color = Color.BRIGHT_ORANGE
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.6, sa=0.6, li=0.4)
+    # lcolor.room_color = Color.BLUE
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, RE],
