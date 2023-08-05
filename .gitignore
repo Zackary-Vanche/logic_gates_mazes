@@ -6,3 +6,4 @@ src/temp/
 src/temp.txt
 .idea/
 .github/
+src/.pylint.d
