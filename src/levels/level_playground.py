@@ -6,7 +6,7 @@ from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
 def level_playground():
-    S0 = Switch(name='S0')
+    S0 = Switch(name='S0', value=1)
 
     T0 = Tree(tree_list=Tree.tree_list_NOT,
               empty=True,
@@ -30,7 +30,7 @@ def level_playground():
                  exit_room_index=-1,
                  rooms_list=[R0] + [RE],
                  doors_list=[D0],
-                 fastest_solution='D0',
+                 fastest_solution='S0 D0',
                  level_color=Levels_colors_list.FROM_HUE(hu=0.16, sa=0.5, li=0.51),
                  name='Playground',
                  door_window_size=480,
