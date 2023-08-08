@@ -6,7 +6,7 @@ from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
 
-def level_xor():
+def level_stairs():
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -166,7 +166,7 @@ def level_xor():
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8],
                  fastest_solution='S1 S3 S5 D0 S8 D1 D2 D3 D4 D5 D6 D7 D8',
                  level_color=Levels_colors_list.RED_AND_ORANGE,
-                 name='XOR',
+                 name='Stairs',
                  door_window_size=550)
 
     return level

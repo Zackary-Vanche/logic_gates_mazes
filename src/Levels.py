@@ -81,7 +81,7 @@ from levels.level_nonogram import level_nonogram
 from levels.level_no_three_in_line import level_no_three_in_line
 from levels.level_numeration import level_numeration
 from levels.level_odd import level_odd
-from levels.level_or import level_or
+from levels.level_yoyo import level_yoyo
 from levels.level_oval_track_puzzle import level_oval_track_puzzle
 from levels.level_pancake_sorting import level_pancake_sorting
 from levels.level_panex import level_panex
@@ -155,7 +155,7 @@ from levels.level_water_pouring import level_water_pouring
 from levels.level_wave import level_wave
 from levels.level_weights import level_weights
 from levels.level_wind_compass import level_wind_compass
-from levels.level_xor import level_xor
+from levels.level_stairs import level_stairs
 from levels.level_zebra import level_zebra
 
 from levels.level_random_K2 import aux_level_random_K2
@@ -204,7 +204,7 @@ class Levels:
         level_backward,
         level_bis_repetita,
         level_binary,
-        level_or,
+        level_yoyo,
         level_crossroad,
         level_forest,
         level_square,
@@ -274,7 +274,7 @@ class Levels:
         level_mastermind,
         level_tetris,
         level_central_symmetry,
-        level_xor,
+        level_stairs,
         level_lights_out,
         level_weights,
         level_baguenaudier,
