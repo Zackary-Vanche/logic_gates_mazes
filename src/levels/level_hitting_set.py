@@ -86,7 +86,7 @@ def level_hitting_set():
                  level_color=Levels_colors_list.FROM_HUE(0, sa=0.3, li=0.5),
                  name='Hitting set',
                  border=30,
-                 door_window_size=700,
+                 door_window_size=385,
                  keep_proportions=True)
 
     return level

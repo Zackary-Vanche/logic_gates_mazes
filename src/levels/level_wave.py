@@ -395,7 +395,7 @@ def level_wave():
                  fastest_solution="S0 S3 S4 D0 D1 S5 D13 D18 S10 D6 D10 S14 D22 D25 D26",
                  level_color=Levels_colors_list.PURPLE_BLUE,
                  name='Wave',
-                 door_window_size=425,
+                 door_window_size=300,
                  y_separation=50,
                  border=30,
                  keep_proportions=False,

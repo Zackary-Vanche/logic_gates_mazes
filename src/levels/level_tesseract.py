@@ -344,7 +344,7 @@ def level_tesseract():
               level_color=Levels_colors_list.BLACK_AND_WHITE,
               name='Tesseract',
               keep_proportions=False,
-              door_window_size=550,
+              door_window_size=350,
               y_separation=50)
     return level
 

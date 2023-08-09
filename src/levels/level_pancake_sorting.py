@@ -187,7 +187,7 @@ def level_pancake_sorting():
                  fastest_solution='S0 S1 S3 S4 S9 D2 D3 S10 S11 S12 S13 S14 S15 S16 S17 S18 D4 D5 S1 S5 S8 S9 D1 D3 S11 S15 S18 S19 D4 D5 S0 S2 S4 S6 S8 D2 D3 S10 S12 S14 S16 S18 D4 D6',
                  level_color=Levels_colors_list.FROM_HUE(0.05, sa=0.4, li=0.4),
                  name='Pancake sorting',
-                 door_window_size=700,
+                 door_window_size=250,
                  keep_proportions=False)
 
     return level

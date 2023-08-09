@@ -60,7 +60,7 @@ def level_initiation():
                  fastest_solution="S0 D0 S1 D1 D2",
                  level_color=Levels_colors_list.GREY,
                  name='Initiation',
-                 door_window_size=500,
+                 door_window_size=395,
                  keep_proportions=True)
 
     return level

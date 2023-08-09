@@ -90,6 +90,6 @@ def level_min_cut():
                  level_color=Levels_colors_list.FROM_HUE(hu=0.2, sa=0.4, li=0.6),
                  name='Min-cut',
                  keep_proportions=True,
-                 door_window_size=700)
+                 door_window_size=400)
     
     return level

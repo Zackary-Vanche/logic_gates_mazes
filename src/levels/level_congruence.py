@@ -28,7 +28,8 @@ def level_congruence():
                         Switch(value=6),
                         S0, S1, S2, S3, S4, S5,
                         Switch(value=8),
-                        Switch(value=7)])
+                        Switch(value=7)],
+              cut_expression_depth_1=True)
 
     R0 = Room(name='R0',
               position=[0, 0, 0.5, 6],
@@ -53,7 +54,7 @@ def level_congruence():
                  fastest_solution='S0 S1 S2 S4 S5 D0',
                  level_color=Levels_colors_list.FROM_HUE(0.83, sa=0.3, li=0.6),
                  name='Congruence',
-                 door_window_size=610,
+                 door_window_size=380,
                  keep_proportions=True)
 
     return level

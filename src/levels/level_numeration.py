@@ -45,7 +45,7 @@ def level_numeration():
                  fastest_solution='S1 S3 S4 S7 S9 D0',
                  level_color=Levels_colors_list.FROM_HUE(hu=0.1, sa=0.8, li=0.35),
                  name='Numeration',
-                 door_window_size=700,
+                 door_window_size=450,
                  keep_proportions=True,
                  y_separation=40,
                  border=40)

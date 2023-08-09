@@ -208,7 +208,7 @@ def level_dominating_set():
                  fastest_solution='S3 S4 D0 S9 D3 S12 D4 S10 D4 D5 S11 D6 S13 D10 S14 D10 D11 S16 D11 D12 S17 D12 D6 D5 D9 S15 D16',
                  level_color=Levels_colors_list.FROM_HUE(0.6),
                  name='Dominating set',
-                 door_window_size=480,
+                 door_window_size=390,
                  keep_proportions=False)
 
     return level

@@ -196,7 +196,7 @@ def level_bipartite():
                  level_color=Levels_colors_list.BLACK_AND_GREY_WHITE_CONTOUR,
                  uniform_surrounding_colors=False,
                  name='Bipartite',
-                 door_window_size=450,
+                 door_window_size=400,
                  border=100,
                  keep_proportions=False)
 

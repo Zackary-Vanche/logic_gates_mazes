@@ -608,6 +608,6 @@ def level_connect_the_dots():
                  level_color=Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.5),
                  name='Connect the dots',
                  keep_proportions=True,
-                 door_window_size=500)
+                 door_window_size=250)
     
     return level

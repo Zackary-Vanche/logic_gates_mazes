@@ -132,7 +132,7 @@ def level_sum():
                  fastest_solution=None,
                  level_color=Levels_colors_list.RANDOM(),
                  name='Sum',
-                 door_window_size=800,
+                 door_window_size=375,
                  keep_proportions=True,
                  y_separation=40,
                  border=40,

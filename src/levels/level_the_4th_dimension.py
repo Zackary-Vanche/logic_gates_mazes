@@ -244,7 +244,7 @@ def level_the_4th_dimension():
                  level_color=Levels_colors_list.FROM_HUE(hu=0.6, sa=0.4, li=0.5),
                  name='The_4th_dimension',
                  keep_proportions=True,
-                 door_window_size=1000,
+                 door_window_size=450,
                  random=True)
     
     return level

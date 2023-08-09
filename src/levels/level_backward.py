@@ -55,6 +55,6 @@ def level_backward():
                  fastest_solution='S0 D0 S2 D0 S0 S1 D1',
                  level_color=Levels_colors_list.BROWN,
                  name='Backward',
-                 door_window_size=500)
+                 door_window_size=350)
 
     return level

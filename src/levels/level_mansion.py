@@ -348,6 +348,6 @@ def level_mansion():
                  level_color=Levels_colors_list.FROM_HUE(hu=0.1, sa=0.4, li=0.4),
                  name='Mansion',
                  keep_proportions=False,
-                 door_window_size=500)
+                 door_window_size=300)
     
     return level

@@ -239,7 +239,7 @@ def level_chessboard():
                  level_color=Levels_colors_list.YELLOW_AND_GREY,
                  uniform_surrounding_colors=False,
                  name='Chessboard',
-                 door_window_size=440,
+                 door_window_size=360,
                  keep_proportions=False,
                  line_size=4)
 

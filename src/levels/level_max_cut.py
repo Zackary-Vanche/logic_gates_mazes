@@ -93,6 +93,6 @@ def level_max_cut():
                  level_color=Levels_colors_list.FROM_HUE(hu=0.5, sa=0.3, li=0.6),
                  name='Max-cut',
                  keep_proportions=True,
-                 door_window_size=690)
+                 door_window_size=400)
     
     return level

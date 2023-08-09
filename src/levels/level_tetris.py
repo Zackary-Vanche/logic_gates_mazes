@@ -85,7 +85,7 @@ def level_tetris():
                  fastest_solution='S0 S8 S10 D0',
                  level_color=Levels_colors_list.FROM_HUE(0.225, sa=1, li=0.3),
                  name='Tetris',
-                 door_window_size=800,
+                 door_window_size=350,
                  keep_proportions=True)
 
     return level

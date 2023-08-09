@@ -25,11 +25,12 @@ def level_yoyo():
               switches=[S0, S1, S2])
 
     d = 5
+    e = 1.75
 
-    position_R0 = [0, 0, 1, 1]
-    position_R1 = [d, 0, 1, 1]
-    position_R2 = [2 * d, 0, 1, 1]
-    position_RE = [3 * d, 0, 1, 1]
+    position_R0 = [0, 0, e, e]
+    position_R1 = [d, 0, e, e]
+    position_R2 = [2 * d, 0, e, e]
+    position_RE = [3 * d, 0, e, e]
 
     R0 = Room(name='R0', position=position_R0, switches_list=[S0])
     R1 = Room(name='R1', position=position_R1, switches_list=[S1])

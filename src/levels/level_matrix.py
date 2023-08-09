@@ -177,7 +177,7 @@ def level_matrix():
                  fastest_solution='S2 S5 S6 S8 S9 D0 D1 D2 D3 D4',
                  level_color=Levels_colors_list.BLACK_AND_GREEN,
                  name='Matrix',
-                 door_window_size=950,
+                 door_window_size=400,
                  keep_proportions=True)
 
     return level

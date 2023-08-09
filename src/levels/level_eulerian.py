@@ -118,7 +118,7 @@ def level_eulerian():
              fastest_solution="S0 D1 D3 D9 S9 D14 D18 S13 D17 S12 D16 S11 D12 S7 D8 S4 D7 D4 S2 D5 S6 D10 D15 S14 D13 S8 D11 D6 S3 D0 D2",
              level_color=Levels_colors_list.BLACK_AND_BLUE,
              name='Eulerian',
-             door_window_size = 550,
+             door_window_size = 325,
              # print_tree_gap=28
              )
     

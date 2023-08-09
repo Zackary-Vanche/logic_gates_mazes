@@ -113,6 +113,7 @@ def level_point_of_no_return():
                  doors_list=[D0, D1, D2, D3, D4, D5],
                  fastest_solution='S0 S5 S7 S8 D0 S9 D1 S1 D1 D2 S2 D2 D3 S3 D3 D4 S4 D4 D5',
                  level_color=Levels_colors_list.DARK_BLUE,
+                 door_window_size=400,
                  name='Point of no return')
 
     return level

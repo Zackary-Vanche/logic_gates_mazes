@@ -304,7 +304,7 @@ def level_error():
                  level_color=Levels_colors_list.FROM_HUE(hu=0.21, sa=0.3, li=0.35),
                  name='Error',
                  keep_proportions=True,
-                 door_window_size=1070,
+                 door_window_size=450,
                  y_separation=40,
                  random=True)
     

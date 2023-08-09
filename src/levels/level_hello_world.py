@@ -32,7 +32,7 @@ def level_hello_world():
                  fastest_solution='S0 D0',
                  level_color=Levels_colors_list.FROM_HUE(hu=0.8, sa=0.4, li=0.3),
                  name='Hello world',
-                 door_window_size=500,
+                 door_window_size=380,
                  keep_proportions=True,
                  y_separation=40,
                  border=40)

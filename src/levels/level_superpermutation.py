@@ -107,7 +107,7 @@ def level_superpermutation():
                  fastest_solution='S0 S3 S4 S6 S7 S9 S10 D0 D1 D2 D3 D4 D5',
                  level_color=Levels_colors_list.FROM_HUE(hu=0.55, sa=1, li=0.35),
                  name='Superpermutation',
-                 door_window_size=700,
+                 door_window_size=400,
                  keep_proportions=True,
                  y_separation=40,
                  border=40,

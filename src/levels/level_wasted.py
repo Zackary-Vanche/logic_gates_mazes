@@ -67,7 +67,7 @@ def level_wasted():
               position=[0, 3, 3, 0.25],
               switches_list=[S3, S4, S5])
     RE = Room(name='RE',
-              position=[0, 1.5, 3, 0.25],
+              position=[0, 1, 3, 0.25],
               is_exit=True)
 
     D0 = Door(two_way=False,
@@ -103,7 +103,7 @@ def level_wasted():
                  level_color=lcolor,
                  name='Wasted',
                  keep_proportions=True,
-                 door_window_size=500,
+                 door_window_size=300,
                  random=True)
     
     return level

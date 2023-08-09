@@ -58,7 +58,7 @@ def level_pong():
                  fastest_solution='S0 S1 S2 D0 S5 S8 D0 S3 S4 D0 S6 S7 S9 D1',
                  level_color=Levels_colors_list.FROM_HUE(0.4, sa=0.1, li=0.4),
                  name='Pong',
-                 door_window_size=800,
+                 door_window_size=450,
                  keep_proportions=True)
 
     return level

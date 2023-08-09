@@ -329,7 +329,7 @@ def level_water_lily():
                  level_color=lcolor,
                  name='Water lily',
                  keep_proportions=True,
-                 door_window_size=555)
+                 door_window_size=330)
     
     return level
 

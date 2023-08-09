@@ -196,6 +196,6 @@ def level_electricity():
                  level_color=Levels_colors_list.GOLD_AND_SILVER,
                  name='Electricity',
                  border=70,
-                 door_window_size=575)
+                 door_window_size=400)
 
     return level

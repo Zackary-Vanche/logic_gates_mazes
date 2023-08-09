@@ -71,7 +71,7 @@ def level_loop():
                  fastest_solution='S0 D0 S1 D1 S2 S3 D2 S0 D3',
                  level_color=Levels_colors_list.BRIGHT_RED,
                  name='Loop',
-                 door_window_size=600,
+                 door_window_size=400,
                  border=60,
                  keep_proportions=True)
 

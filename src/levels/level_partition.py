@@ -65,7 +65,7 @@ def level_partition():
                  fastest_solution="S0 S1 S2 S3 S4 S5 D0 D1",
                  level_color=Levels_colors_list.FROM_HUE(0.5),
                  name='Partition',
-                 door_window_size=950,
+                 door_window_size=400,
                  keep_proportions=True)
 
     return level

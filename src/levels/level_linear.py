@@ -70,7 +70,7 @@ def level_linear():
                  fastest_solution='S0 S1 D0 S2 D1 S5 D2 D3',
                  level_color=Levels_colors_list.BRIGHT_GREEN,
                  name='Linear',
-                 door_window_size=550,
+                 door_window_size=400,
                  keep_proportions=True)
 
     return level

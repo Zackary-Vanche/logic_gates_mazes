@@ -57,6 +57,6 @@ def level_boolean():
                  level_color=lcolor,
                  name='Boolean',
                  keep_proportions=True,
-                 door_window_size=460)
+                 door_window_size=400)
     
     return level

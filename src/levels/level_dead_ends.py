@@ -265,7 +265,7 @@ def level_dead_ends():
                  fastest_solution="S0 D1 S1 D2 D3 S4 D4 D11 S8 D12 S0 D13 S9 S11 D14 D5 S5 D6 S0 D9 S7 D10 S0 D7 S6 D8 D0",
                  level_color=Levels_colors_list.DARK_GREEN,
                  name='Dead_ends',
-                 door_window_size=500,
+                 door_window_size=300,
                  border=50)
 
     return level

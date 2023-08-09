@@ -101,7 +101,7 @@ def level_second():
                  fastest_solution=None,
                  level_color=Levels_colors_list.FROM_HUE(hu=0, sa=0.2, li=0.4),
                  name='Second',
-                 door_window_size=900,
+                 door_window_size=375,
                  keep_proportions=True,
                  y_separation=40,
                  border=40,

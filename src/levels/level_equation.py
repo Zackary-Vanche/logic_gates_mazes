@@ -58,7 +58,7 @@ def level_equation():
                  level_color=Levels_colors_list.FROM_HUE(hu=0, sa=0.5, li=0.2),
                  name='Equation',
                  keep_proportions=True,
-                 door_window_size=800,
+                 door_window_size=350,
                  random=True)
     
     return level    

@@ -88,6 +88,6 @@ def level_binary():
                  fastest_solution='S0 D3 S4 D3 D2 S3 D2 D3 D1 S2 D1 D5 S6 D5 D3 D2 D0 S1 D0 D4 S5 D4 D2 D6',
                  level_color=Levels_colors_list.BLUE_GREEN,
                  name='Binary',
-                 door_window_size=500)
+                 door_window_size=340)
 
     return level

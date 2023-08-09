@@ -102,7 +102,7 @@ def level_independent_set():
                  fastest_solution='S0 S2 S6 S8 D0 D1 D2 D3 D4',
                  level_color=Levels_colors_list.FROM_HUE(0.2),
                  name='Independent set',
-                 door_window_size=600,
+                 door_window_size=380,
                  keep_proportions=True)
 
     return level

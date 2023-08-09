@@ -81,7 +81,7 @@ def level_knapsack():
                  fastest_solution='S0 S2 S3 D0 D1',
                  level_color=Levels_colors_list.BLACK_AND_ORANGE,
                  name='Knapsack',
-                 door_window_size=800,
+                 door_window_size=500,
                  keep_proportions=True)
 
     return level

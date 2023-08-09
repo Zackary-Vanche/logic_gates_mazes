@@ -63,7 +63,7 @@ def level_egyptian_fractions():
                  fastest_solution='S0 S1 S3 S4 S5 S6 S7 S8 S9 S10 S12 S14 D0',
                  level_color=Levels_colors_list.FROM_HUE(hu=0.15, sa=0.8, li=0.51),
                  name='Egyptian fractions',
-                 door_window_size=750,
+                 door_window_size=350,
                  keep_proportions=True,
                  y_separation=40,
                  border=40)

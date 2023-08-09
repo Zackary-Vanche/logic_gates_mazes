@@ -532,7 +532,7 @@ def level_house():
                  level_color=Levels_colors_list.FROM_HUE(hu=0.1, sa=0.4, li=0.3),
                  name='House',
                  keep_proportions=True,
-                 door_window_size=400,
+                 door_window_size=300,
                  y_separation=40)
     
     return level

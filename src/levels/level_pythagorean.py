@@ -64,7 +64,7 @@ def level_pythagorean():
              fastest_solution='S0 S1 S5 S6 S8 D0 D1',
              level_color=Levels_colors_list.FROM_HUE(0.15, sa=1, li=0.25),
              name='Pythagorean',
-             door_window_size = 800,
+             door_window_size = 350,
              keep_proportions = True)
     
     return level

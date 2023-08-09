@@ -104,7 +104,7 @@ def level_odd():
                  level_color=Levels_colors_list.PURPLE,
                  name='Odd',
                  border=60,
-                 door_window_size=500,
+                 door_window_size=340,
                  keep_proportions=True)
 
     return level

@@ -308,6 +308,6 @@ def level_tree():
                  name='Tree',
                  random=True,
                  border=40,
-                 door_window_size=500)
+                 door_window_size=250)
 
     return level

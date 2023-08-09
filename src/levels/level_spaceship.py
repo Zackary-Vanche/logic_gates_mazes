@@ -176,6 +176,6 @@ def level_spaceship():
                  level_color=color,
                  name='Spaceship',
                  border=50,
-                 door_window_size=650,
+                 door_window_size=350,
                  keep_proportions=False)
     return level

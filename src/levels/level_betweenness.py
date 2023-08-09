@@ -154,7 +154,7 @@ def level_betweenness():
                  fastest_solution='S0 S2 D0 S4 S5 D1 S10 S11 D2 S13 S15 D3 S17 S18 D4 S20 S23 D5',
                  level_color=Levels_colors_list.FROM_HUE(0.57, sa=0.3, li=0.5),
                  name='Betweenness',
-                 door_window_size=642,
+                 door_window_size=300,
                  keep_proportions=True)
 
     return level

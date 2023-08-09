@@ -217,7 +217,7 @@ def level_magic_square(fast_solution_finding=False):
                  fastest_solution="S0 S2 S6 S7 S8 D0 S10 S11 S14 S16 D1 S18 S24 S25 S26 D2 D3 D4 D5",
                  level_color=Levels_colors_list.PINK_AND_WHITE,
                  name='Magic square',
-                 door_window_size=700,
+                 door_window_size=600,
                  keep_proportions=True,
                  border=20)
 

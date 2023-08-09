@@ -190,7 +190,7 @@ def level_vortex():
                  fastest_solution="S0 D0 D1 D2 S3 D3 S4 D4 S0 D5 S4 D6 D7 D8 S7 D9 S0 D0 D1 S2 D2 D3 S4 D4 S0 D5 S4 D6 D7 S6 D8 D9 S0 D0 S1 D1 D2 D3 S4 D4 S0 D5 S4 D6 S5 D7 D8 D9 S0 D10",
                  level_color=Levels_colors_list.FROM_HUE(hu=0.85, sa=1, li=0.9),
                  name='Vortex',
-                 door_window_size=712,
+                 door_window_size=300,
                  keep_proportions=True,
                  y_separation=66,
                  border=50)

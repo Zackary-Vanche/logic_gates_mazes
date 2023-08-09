@@ -63,7 +63,7 @@ def level_doppelganger():
                  fastest_solution=None,
                  level_color=Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.3),
                  name='Doppelganger',
-                 door_window_size=800,
+                 door_window_size=400,
                  keep_proportions=True,
                  y_separation=40,
                  border=40,

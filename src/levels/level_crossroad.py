@@ -59,6 +59,6 @@ def level_crossroad():
                  level_color=Levels_colors_list.YELLOW,
                  name='Crossroad',
                  border=30,
-                 door_window_size=500)
+                 door_window_size=470)
 
     return level

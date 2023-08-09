@@ -148,7 +148,7 @@ def level_cartesian():
                  fastest_solution="S0 D0 D1 S2 D6 S7 D9 D0 S1 D1 S2 D2 S3 D3 S4 D7 S8 D9 D0 D1 D2 D3 S4 D4 D5 S6 D8 D9 D0 D1 D2 D3 D4 S5 D5 S6 D8 D9 D0 D1 D2 D3 S4 D7 D9 D0 S1 D1 S2 D6 D9 S0 D10",
                  level_color=Levels_colors_list.GREEN_GREY,
                  name='Cartesian',
-                 door_window_size=550,
+                 door_window_size=250,
                  keep_proportions=True)
 
     return level

@@ -129,7 +129,7 @@ def level_forest():
                  fastest_solution="D1 D5 S5 D5 D1 S0 D0 D2 S2 D2 D0 S0 S1 D0 D3 S3 D3 D0 S0 D1 D4 S4 D4 D1 D6",
                  level_color=lcolor,
                  name='Forest',
-                 keep_proportions=True,
-                 door_window_size=500)
+                 keep_proportions=False,
+                 door_window_size=350)
     
     return level

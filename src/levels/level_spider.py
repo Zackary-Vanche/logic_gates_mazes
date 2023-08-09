@@ -274,7 +274,7 @@ def level_spider():
                  level_color=Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.3),
                  name='Spider',
                  keep_proportions=True,
-                 door_window_size=500)
+                 door_window_size=300)
     
     return level
 # [S0, S1, S2, S3, S4]

@@ -224,7 +224,7 @@ def level_oval_track_puzzle():
                  level_color=Levels_colors_list.FROM_HUE(hu=-0.075, sa=0.6, li=0.3),
                  name='Oval_track_puzzle',
                  keep_proportions=True,
-                 door_window_size=850,
+                 door_window_size=250,
                  random=True)
     
     return level

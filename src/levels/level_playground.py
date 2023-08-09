@@ -33,7 +33,7 @@ def level_playground():
                  fastest_solution='S0 D0',
                  level_color=Levels_colors_list.FROM_HUE(hu=0.16, sa=0.5, li=0.51),
                  name='Playground',
-                 door_window_size=480,
+                 door_window_size=300,
                  keep_proportions=True,
                  y_separation=40,
                  border=40)

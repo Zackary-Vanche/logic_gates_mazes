@@ -215,7 +215,7 @@ def level_sujiko():
                  fastest_solution='S2 D0 S3 S4 D1 S6 S7 S8 D2 S10 S11 D3 S12 D4 S16 D5 S18 S20 D6 D7 S27 D8',
                  level_color=Levels_colors_list.FROM_HUE(0.9, sa=1, li=0.3),
                  name='Sujiko',
-                 door_window_size=700,
+                 door_window_size=400,
                  keep_proportions=True)
 
     return level

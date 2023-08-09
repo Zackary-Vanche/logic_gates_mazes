@@ -70,7 +70,7 @@ def level_triangulate():
                  fastest_solution='S0 S1 S2 S5 S7 S8 D0',
                  level_color=Levels_colors_list.FROM_HUE(hu=0, sa=0.3, li=0.7),
                  name='Triangulate',
-                 door_window_size=700,
+                 door_window_size=395,
                  keep_proportions=True,
                  y_separation=40,
                  border=70)

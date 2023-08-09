@@ -235,7 +235,7 @@ def level_lights_out():
                  level_color=lcolor,
                  name='Lights_out',
                  keep_proportions=True,
-                 door_window_size=1000,
+                 door_window_size=700,
                  random=True)
     
     return level

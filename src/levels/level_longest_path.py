@@ -194,7 +194,7 @@ def level_longest_path():
                  fastest_solution='S0 D1 S2 D5 S5 D9 S7 D11 S8 D12',
                  level_color=Levels_colors_list.WHITE,
                  name='Longest path',
-                 door_window_size=550,
+                 door_window_size=300,
                  keep_proportions=True)
 
     return level

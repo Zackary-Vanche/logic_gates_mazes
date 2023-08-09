@@ -38,7 +38,7 @@ def level_product():
                  fastest_solution='S1 S2 D0',
                  level_color=Levels_colors_list.FROM_HUE(hu=0.45, sa=0.6, li=0.7),
                  name='Product',
-                 door_window_size=500,
+                 door_window_size=400,
                  keep_proportions=True,
                  y_separation=40,
                  border=40)

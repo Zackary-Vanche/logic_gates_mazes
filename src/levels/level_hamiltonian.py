@@ -228,7 +228,7 @@ def level_hamiltonian():
                  fastest_solution="S0 S1 D7 S11 D6 S9 S10 D5 S8 D4 S6 S7 D3 S5 D2 S3 S4 D1 S2 D16",
                  level_color=Levels_colors_list.SHINY_GREEN,
                  name='Hamiltonian',
-                 door_window_size=600,
+                 door_window_size=400,
                  keep_proportions=False)
 
     return level

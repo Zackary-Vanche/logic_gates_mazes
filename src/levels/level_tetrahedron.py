@@ -88,7 +88,7 @@ def level_tetrahedron():
              level_color=Levels_colors_list.REALLY_BRIGHT_RED,
              name='Tetrahedron',
              border = 30,
-             door_window_size = 550,
+             door_window_size = 400,
              keep_proportions = True,
              group='pure maze')
     

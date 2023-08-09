@@ -108,7 +108,7 @@ def level_taxicab_number():
                  fastest_solution='S0 D0 S6 S7 D1 S8 S11 D2 S13 S15 D3',
                  level_color=Levels_colors_list.YELLOW_AND_BLACK,
                  name='Taxicab number',
-                 door_window_size=600,
+                 door_window_size=350,
                  keep_proportions=False)
 
     return level
