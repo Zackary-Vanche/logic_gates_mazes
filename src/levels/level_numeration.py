@@ -32,9 +32,11 @@ def level_numeration():
               position=[2, 3, 1, 1],
               is_exit=True)   # E pour exit ou end
     D0 = Door(two_way=False,
-                tree=T0,
-                room_departure=R0,
-                room_arrival=RE)
+              tree=T0,
+              room_departure=R0,
+              room_arrival=RE,
+              relative_departure_coordinates=[1/2, 1],
+              relative_arrival_coordinates=[1/2, 0])
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,

@@ -160,50 +160,55 @@ class Game:
     def get_level(self):
 
         if self.level_changed or self.get_new_level:
-            self.change_in_display = True
-
-            self.level_changed = False
-
-            # self.maze = Levels.levels_functions_list[self.index_current_level]()
-            self.maze = Levels.get_level(self.index_current_level, get_new_level=self.get_new_level)
-            self.get_new_level = False
-            # if self.maze.random:
-            #     self.maze = level_random()
-            # else:
-            self.maze.reboot_solution()
-
-            self.doors_list = self.maze.doors_list
-
-            if self.game_color is not None:
-                self.maze.level_color = self.game_color
-            level_colors = self.maze.level_color
-            self.background_color = level_colors.background_color
-            self.room_color = level_colors.room_color
-            self.contour_color = level_colors.contour_color
-            self.letters_color = level_colors.letters_color
-            # letter_contour_color = maze.letter_contour_color
-            self.inside_room_color = level_colors.inside_room_color
-            self.surrounding_color = level_colors.surrounding_color
-            self.inside_room_surrounding_color = level_colors.inside_room_surrounding_color
-
-            self.y_separation = self.maze.y_separation
-            self.door_window_size = self.maze.door_window_size
-
-            self.x_separation = self.WINDOW_WIDTH - self.door_window_size
-            self.current_action = ''
-            self.keep_proportions = self.maze.keep_proportions
-
-            # Choix de la bordure en fonction de la hauteur de la fenêtre
-            (pente, coeff) = linear_function(643, 35, 1080, 75)
-            border = self.maze.border
-            self.maze.set_extreme_coordinates(0,
-                                              self.x_separation,
-                                              0,
-                                              self.WINDOW_HEIGHT,
-                                              border,
-                                              self.keep_proportions)
-            
-            self.update_possible_actions()
+            try:
+                self.change_in_display = True
+    
+                self.level_changed = False
+    
+                # self.maze = Levels.levels_functions_list[self.index_current_level]()
+                self.maze = Levels.get_level(self.index_current_level, get_new_level=self.get_new_level)
+                self.get_new_level = False
+                # if self.maze.random:
+                #     self.maze = level_random()
+                # else:
+                self.maze.reboot_solution()
+    
+                self.doors_list = self.maze.doors_list
+    
+                if self.game_color is not None:
+                    self.maze.level_color = self.game_color
+                level_colors = self.maze.level_color
+                self.background_color = level_colors.background_color
+                self.room_color = level_colors.room_color
+                self.contour_color = level_colors.contour_color
+                self.letters_color = level_colors.letters_color
+                # letter_contour_color = maze.letter_contour_color
+                self.inside_room_color = level_colors.inside_room_color
+                self.surrounding_color = level_colors.surrounding_color
+                self.inside_room_surrounding_color = level_colors.inside_room_surrounding_color
+    
+                self.y_separation = self.maze.y_separation
+                self.door_window_size = self.maze.door_window_size
+    
+                self.x_separation = self.WINDOW_WIDTH - self.door_window_size
+                self.current_action = ''
+                self.keep_proportions = self.maze.keep_proportions
+    
+                # Choix de la bordure en fonction de la hauteur de la fenêtre
+                (pente, coeff) = linear_function(643, 35, 1080, 75)
+                border = self.maze.border
+                self.maze.set_extreme_coordinates(0,
+                                                  self.x_separation,
+                                                  0,
+                                                  self.WINDOW_HEIGHT,
+                                                  border,
+                                                  self.keep_proportions)
+                
+                self.update_possible_actions()
+            except ZeroDivisionError:
+                maze_name = Levels.get_level(self.index_current_level, get_new_level=self.get_new_level).name
+                print(f'The level {maze_name} cannot be loaded.')
+                print('Your screen is too small.')
 
     def update_window_size(self):
 
@@ -316,7 +321,7 @@ class Game:
             self.letters_color)
         self.WINDOW.blit(level_name_render, (10, 10))
 
-    def print_trees(self):
+    def print_trees(self): # TODO : revenir à la ligne si on dépasse du cadre
         # Affichage des arbres des portes
         self.n_lines_door_printing = self.maze.n_lines_door_printing
         if self.n_lines_door_printing == 0:
@@ -513,40 +518,45 @@ class Game:
 
     def display_help(self):
 
-        self.WINDOW.fill(self.background_color)
-        self.font = pygame_font_SysFont(None, self.help_font_size)
-
-        self.draw_exterior_lines()
-        # Affichage du nom du niveau courant
-        level_name_render = self.font.render(
-            'HELP - Level ' + str(self.index_current_level) + ' : ' + self.maze.name.replace('_', ' '),
-            True,
-            self.letters_color)
-        self.WINDOW.blit(level_name_render, (10, 10))
-        self.index_help_page = self.index_help_page % self.maze.n_help_pages
-        string_help = self.maze.help_txt[self.index_help_page]
-        gap = 0
-        help_list = string_help.split('\n')
-        p, c = linear_function(768 - self.Y_marge, 50, 1080 - self.Y_marge, 50)
-        y0 = p * self.WINDOW_HEIGHT + c
-        p, c = linear_function(1366 - self.X_marge, 50, 1920 - self.X_marge, 50)
-        x0 = p * self.WINDOW_WIDTH + c
-        for line in help_list:
-            self.WINDOW.blit(self.font.render(line,
-                                              True,
-                                              self.letters_color),
-                             (x0, y0 + gap))
-            if line.replace(' ', '') == '':
-                gap += 12
-            else:
-                gap += 25
-
-        pygame_display_update()
-
-        if self.save_image:
-            fname = f"images/HELP_level_{self.index_current_level}_{self.maze.name}_WIDTH_{int(self.WINDOW_WIDTH)}_HEIGHT_{int(self.WINDOW_HEIGHT)}.jpg"
-            if not os_path_exists(fname):
-                pygame_image_save(self.WINDOW, fname)
+        try:
+            self.WINDOW.fill(self.background_color)
+            self.font = pygame_font_SysFont(None, self.help_font_size)
+    
+            self.draw_exterior_lines()
+            # Affichage du nom du niveau courant
+            level_name_render = self.font.render(
+                'HELP - Level ' + str(self.index_current_level) + ' : ' + self.maze.name.replace('_', ' '),
+                True,
+                self.letters_color)
+            self.WINDOW.blit(level_name_render, (10, 10))
+            self.index_help_page = self.index_help_page % self.maze.n_help_pages
+            string_help = self.maze.help_txt[self.index_help_page]
+            gap = 0
+            help_list = string_help.split('\n')
+            p, c = linear_function(768 - self.Y_marge, 50, 1080 - self.Y_marge, 50)
+            y0 = p * self.WINDOW_HEIGHT + c
+            p, c = linear_function(1366 - self.X_marge, 50, 1920 - self.X_marge, 50)
+            x0 = p * self.WINDOW_WIDTH + c
+            for line in help_list:
+                self.WINDOW.blit(self.font.render(line,
+                                                  True,
+                                                  self.letters_color),
+                                 (x0, y0 + gap))
+                if line.replace(' ', '') == '':
+                    gap += 12
+                else:
+                    gap += 25
+    
+            pygame_display_update()
+    
+            if self.save_image:
+                fname = f"images/HELP_level_{self.index_current_level}_{self.maze.name}_WIDTH_{int(self.WINDOW_WIDTH)}_HEIGHT_{int(self.WINDOW_HEIGHT)}.jpg"
+                if not os_path_exists(fname):
+                    pygame_image_save(self.WINDOW, fname)
+        except ZeroDivisionError:
+            maze_name = Levels.get_level(self.index_current_level, get_new_level=self.get_new_level).name
+            print(f'The level {maze_name} cannot be loaded.')
+            print('Your screen is too small.')
 
     def print_current_action(self):
         current_action_render = self.font.render(self.current_action,
@@ -556,23 +566,28 @@ class Game:
                          (self.x_separation + self.y_separation / 3, self.y_separation / 2 - 7))
 
     def display_game_window(self):
-        self.font = pygame_font_SysFont(None, self.font_size)
-        self.WINDOW.fill(self.background_color)
-        self.uniform_surrounding_colors = self.maze.uniform_surrounding_colors
-        self.uniform_inside_room_color = self.maze.uniform_inside_room_color
-        self.draw_right_window()
-        self.draw_exterior_lines()
-        self.draw_windows_separation()
-        self.print_level_name()
-        self.print_trees()
-        self.draw_door_lines()
-        self.draw_rooms()
-        self.draw_switches()
-        self.draw_doors_polygons()
-        self.print_doors_names()
-        self.print_current_action()
-        self.draw_rooms_names()
-        pygame_display_update()
+        try:
+            self.font = pygame_font_SysFont(None, self.font_size)
+            self.WINDOW.fill(self.background_color)
+            self.uniform_surrounding_colors = self.maze.uniform_surrounding_colors
+            self.uniform_inside_room_color = self.maze.uniform_inside_room_color
+            self.draw_right_window()
+            self.draw_exterior_lines()
+            self.draw_windows_separation()
+            self.print_level_name()
+            self.print_trees()
+            self.draw_door_lines()
+            self.draw_rooms()
+            self.draw_switches()
+            self.draw_doors_polygons()
+            self.print_doors_names()
+            self.print_current_action()
+            self.draw_rooms_names()
+            pygame_display_update()
+        except ZeroDivisionError:
+            maze_name = Levels.get_level(self.index_current_level, get_new_level=self.get_new_level).name
+            print(f'The level {maze_name} cannot be loaded.')
+            print('Your screen is too small.')
         
     def update_possible_actions(self, reset_current_action_index=True):
         maze = self.maze

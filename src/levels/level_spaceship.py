@@ -136,7 +136,7 @@ def level_spaceship():
               name='D6',
               room_departure=R1,
               room_arrival=R4,
-              relative_position=0.275)
+              relative_position=0.3)
     D7 = Door(two_way=False,
               tree=T7,
               name='D7',
@@ -176,6 +176,6 @@ def level_spaceship():
                  level_color=color,
                  name='Spaceship',
                  border=50,
-                 door_window_size=750,
-                 keep_proportions=True)
+                 door_window_size=650,
+                 keep_proportions=False)
     return level

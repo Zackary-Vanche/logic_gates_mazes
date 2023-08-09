@@ -122,7 +122,7 @@ def level_spare():
     ex6 = 0.3
     ey6 = 0.6
     exe = 0.8
-    eye = 0.6
+    eye = 0.4
     dx = 1
 
     R0 = Room(name='R0',
@@ -149,8 +149,6 @@ def level_spare():
     RE = Room(name='RE',
               position=[dx+(ex-exe)/2, 0, exe, eye],
               is_exit=True)   # E pour exit ou end
-
-    rp = 0.375
 
     epsilon = 1/6
 
@@ -232,9 +230,9 @@ def level_spare():
     D14 = Door(two_way=False,
                tree=T14,
                room_departure=R0,
-               room_arrival=RE)
-
-    rp = 1/2
+               room_arrival=RE,
+               relative_departure_coordinates=[1/2, 0],
+               relative_arrival_coordinates=[1/2, 1])
 
     lcolor = Levels_colors_list.FROM_HUE(hu=0.15, sa=1, li=0.4)
     lcolor.inside_room_color = Color.BLACK_RED
@@ -246,7 +244,7 @@ def level_spare():
                  fastest_solution='S2 D9 S10 D10 S12 D11 S0 S1 S2 D6 S8 D7 S10 D8 S1 S2 D12 S14 D13 S8 D5 S0 S1 S2 D3 S5 D4 S7 D5 S0 D6 S7 D7 S9 D8 S1 D0 S3 D1 S5 D2 S0 S1 D3 S5 D4 S7 D5 S1 S2 D9 S9 D10 S11 D11 S0 S1 S2 D6 S7 D7 S9 D8 S1 S2 D12 S14 D13 S8 D5 S0 S1 S2 D3 S6 D4 S8 D5 S0 S1 D0 S4 D1 S6 D2 S1 S2 D14',
                  level_color=lcolor,
                  name='Spare',
-                 door_window_size=900,
+                 door_window_size=800,
                  keep_proportions=True,
                  y_separation=40,
                  border=40)

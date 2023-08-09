@@ -11,10 +11,12 @@ if __name__ == "__main__":
     # will be too big after compilation
 
     Game(show_help=1,
-         index_current_level=0,
-         is_fullscreen=0,
-         # game_color=Levels_colors_list.FROM_HUE(hu=0.5, sa=0.2, li=0.49)
-         ).play()
+          index_current_level=0,
+          is_fullscreen=0,
+          # WINDOW_SIZE=(1920, 1080),
+          # SMALLEST_WINDOW_SIZE=(1700, 500),
+          # game_color=Levels_colors_list.FROM_HUE(hu=0.5, sa=0.2, li=0.49)
+          ).play()
 
     # import cProfile
     # cProfile.run("Game(show_help=1, index_current_level=0).play()")

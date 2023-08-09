@@ -267,7 +267,7 @@ def level_k(fast_solution_finding=False):
                      fastest_solution='S0 S2 S4 S6 S8 S10 S12 S14 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18',
                      level_color=Levels_colors_list.FROM_HUE(hu=0.55, sa=0.9, li=0.3),
                      name='K',
-                     door_window_size=1000,
+                     door_window_size=600,
                      keep_proportions=True,
                      y_separation=40,
                      border=40)

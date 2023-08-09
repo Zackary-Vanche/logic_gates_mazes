@@ -52,7 +52,7 @@ def level_triangulate():
               position=[0, 0, 5, 2],
               switches_list=[S0, S1, S2, S3, S4, S5, S6, S7, S8, S9])
     RE = Room(name='RE',
-              position=[2, 2.5, 1, 1 / 2],
+              position=[2, 3, 1, 1 / 2],
               is_exit=True)  # E pour exit ou end
 
     D0 = Door(two_way=False,

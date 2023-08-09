@@ -175,7 +175,7 @@ def level_wind_compass():
         
     position_R.append([0, 0, ex, ey])
 
-    position_RE = [0, -1.5, ex, ey]
+    position_RE = [position_R[2][0], position_R[4][1], ex, ey]
 
     R0 = Room(name='R0',
               position=position_R[0],

@@ -390,8 +390,8 @@ def level_grid():
                  fastest_solution=None,
                  level_color=lcolor,
                  name='Grid',
-                 keep_proportions=True,
-                 door_window_size=800,
+                 keep_proportions=False,
+                 door_window_size=750,
                  random=True)
     
     return level

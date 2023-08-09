@@ -38,13 +38,13 @@ def level_doppelganger():
     ey = 0.75
 
     R0 = Room(name='R0',
-              position = [0, 0, ex, ey],
+              position = [0.5, 0, ex, ey],
               switches_list = [S0, S1])
     R1 = Room(name='R1',
               position = [0, 1, ex, ey],
               switches_list = [S2, S3])
     RE = Room(name='RE',
-              position=[0, 2, ex, ey],
+              position=[1, 2, ex, ey],
               is_exit=True)   # E pour exit ou end
 
     D0 = Door(two_way=True,
