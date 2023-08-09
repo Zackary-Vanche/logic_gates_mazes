@@ -415,7 +415,7 @@ help_menus_list['levels']["Bis repetita"] = """You might have to repeat twice th
 
 help_menus_list['levels']["Binary"] = help_menus_list['go in a room']
 
-help_menus_list['levels']["OR"] = '''Enjoy the game while it is still easy.'''
+help_menus_list['levels']["Yoyo"] = '''Enjoy the game while it is still easy.'''
 
 help_menus_list['levels']["Crossroad"] = help_menus_list['reminder B']
 
@@ -538,7 +538,7 @@ help_menus_list['levels']["Nonogram"] = help_menus_list['NONO']
 
 help_menus_list['levels']["Crystal"] = """If you make a mistake, you have to start all over again."""
 
-help_menus_list['levels']["XOR"] = help_menus_list['NAND']
+help_menus_list['levels']["Stairs"] = help_menus_list['NAND']
 
 help_menus_list['levels']["Lights_out"] = help_menus_list['random configuration']
 

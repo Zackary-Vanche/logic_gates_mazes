@@ -6,7 +6,7 @@ from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
 
-def level_or():
+def level_yoyo():
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
     S2 = Switch(name='S2')
@@ -58,7 +58,7 @@ def level_or():
                  doors_list=[D0, D1, D2],
                  fastest_solution="S0 D0 S1 D0 S0 D0 D1 S2 D1 S1 D1 S2 D2",
                  level_color=Levels_colors_list.FROM_HUE(0.9),
-                 name='OR',
+                 name='Yoyo',
                  door_window_size=250,
                  keep_proportions=True)
 
