@@ -370,7 +370,7 @@ For instance, you can write :
 if you want to turn on S0, S1 and then use the door D0."""
 
 help_menus_list['leave the game'] = """
-To leave the game, you can click an the cross but also press [Q] or [ESCAPE]."""
+To leave the game, you can click an the cross but also press [ESCAPE]."""
 
 help_menus_list['see other doors'] = """
 By pressing [P] or [M], you can see the values of the other doors."""

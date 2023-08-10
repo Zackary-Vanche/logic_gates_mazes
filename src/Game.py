@@ -1,12 +1,10 @@
 from pygame import init as pygame_init
 # from pygame import MOUSEBUTTONDOWN
-from pygame.locals import QUIT, K_RIGHT, K_LEFT, K_UP, K_DOWN, K_SPACE, K_LALT, K_RALT
-from pygame.locals import K_a, K_b, K_d, K_e, K_m, K_n, K_p, K_r, K_s, K_l, K_q, K_w
+import pygame.locals
 from pygame.locals import K_KP0, K_KP1, K_KP2, K_KP3, K_KP4
 from pygame.locals import K_KP5, K_KP6, K_KP7, K_KP8, K_KP9
-from pygame.locals import K_0, K_1, K_2, K_3, K_4
-from pygame.locals import K_5, K_6, K_7, K_8, K_9
-from pygame.locals import K_RETURN, K_BACKSPACE, K_SPACE, K_ESCAPE
+from pygame.locals import QUIT, K_RIGHT, K_LEFT, K_UP, K_DOWN, K_SPACE, K_LALT, K_RALT
+from pygame.locals import K_RETURN, K_BACKSPACE, K_ESCAPE
 from pygame.display import set_mode as pygame_display_set_mode
 from pygame.display import set_caption as pygame_display_set_caption
 from pygame.display import update as pygame_display_update
@@ -41,23 +39,7 @@ from Levels import Levels
 
 
 class Game:
-    keys_dict = {K_a: 'A',
-                 K_d: 'D',
-                 K_e: 'E',
-                 K_l: 'L',
-                 K_r: 'R',
-                 K_s: 'S',
-                 K_0: '0',
-                 K_1: '1',
-                 K_2: '2',
-                 K_3: '3',
-                 K_4: '4',
-                 K_5: '5',
-                 K_6: '6',
-                 K_7: '7',
-                 K_8: '8',
-                 K_9: '9',
-                 K_KP0: '0',
+    keys_dict = {K_KP0: '0',
                  K_KP1: '1',
                  K_KP2: '2',
                  K_KP3: '3',
@@ -68,7 +50,19 @@ class Game:
                  K_KP8: '8',
                  K_KP9: '9',
                  K_SPACE: ' '}
-
+    
+    # Add all alphabet letters to the dictionary
+    for letter_key in range(pygame.locals.K_a, pygame.locals.K_z + 1):
+        letter_char = chr(letter_key).upper()
+        keys_dict[letter_key] = letter_char
+    
+    # Add numbers to the dictionary
+    for number_key in range(pygame.locals.K_0, pygame.locals.K_9 + 1):
+        number_char = chr(number_key)
+        keys_dict[number_key] = number_char
+        
+    print(keys_dict)
+    
     def __init__(self,
                  WINDOW_SIZE=None,
                  SMALLEST_WINDOW_SIZE=None,
@@ -878,6 +872,14 @@ class Game:
                 if len(self.current_action) > 0:
                     # with open('temp.txt', 'a') as fa:
                     #     fa.write(self.current_action + ' ')
+                    if self.current_action == 'B':
+                        self.change_in_display = True
+                        self.update_possible_actions()
+                        self.maze.reboot_solution()
+                        self.last_key_pressed_time = time()
+                        self.current_action = ''
+                        self.maze.current_door_page = 0
+                        return
                     if self.current_action == 'EEE':
                         self.show_solution()
                         return
@@ -900,13 +902,6 @@ class Game:
                             self.level_changed = True
                     self.current_action = ''
                     self.update_possible_actions()
-            if self.pressed[K_b]:
-                self.change_in_display = True
-                self.update_possible_actions()
-                self.maze.reboot_solution()
-                self.last_key_pressed_time = time()
-                self.current_action = ''
-                self.maze.current_door_page = 0
         if time() - self.last_key_BACKSPACE_pressed_time > self.time_between_deletings:
             if self.pressed[K_BACKSPACE]:
                 self.change_in_display = True
@@ -953,25 +948,25 @@ class Game:
     #             self.change_in_display = True
     #             self.update_possible_actions()
 
-    def change_door_page(self):
-        self.pressed = pygame_key_get_pressed()
-        # Changement de page du jeu
-        if time() - self.last_key_pressed_time > self.time_between_actions:
-            if self.pressed[K_m]:
-                self.last_key_pressed_time = time()
-                self.maze.current_door_page += -1
-                self.maze.current_door_page = self.maze.current_door_page % len(self.maze.doors_set)
-                self.change_in_display = True
-            if self.pressed[K_n]:
-                self.last_key_pressed_time = time()
-                self.get_new_level = True
-                self.get_level()
-                self.change_in_display = True
-            if self.pressed[K_p]:
-                self.last_key_pressed_time = time()
-                self.maze.current_door_page += 1
-                self.maze.current_door_page = self.maze.current_door_page % len(self.maze.doors_set)
-                self.change_in_display = True
+    # def change_door_page(self):
+    #     self.pressed = pygame_key_get_pressed()
+    #     # Changement de page du jeu
+    #     if time() - self.last_key_pressed_time > self.time_between_actions:
+    #         if self.pressed[K_m]:
+    #             self.last_key_pressed_time = time()
+    #             self.maze.current_door_page += -1
+    #             self.maze.current_door_page = self.maze.current_door_page % len(self.maze.doors_set)
+    #             self.change_in_display = True
+    #         # if self.pressed[K_n]:
+    #         #     self.last_key_pressed_time = time()
+    #         #     self.get_new_level = True
+    #         #     self.get_level()
+    #         #     self.change_in_display = True
+    #         if self.pressed[K_p]:
+    #             self.last_key_pressed_time = time()
+    #             self.maze.current_door_page += 1
+    #             self.maze.current_door_page = self.maze.current_door_page % len(self.maze.doors_set)
+    #             self.change_in_display = True
 
     def save_image_as_file(self,
                            fname=None):
@@ -1002,7 +997,7 @@ class Game:
                 # print(number_of_loops)
                 self.quit_game()
                 return True
-        if self.pressed[K_q] or self.pressed[K_ESCAPE]:
+        if self.pressed[K_ESCAPE]:
             self.quit_game()
             return True
         return False
@@ -1022,17 +1017,16 @@ class Game:
             self.level_changed = True
         return False
     
-    def change_draw_wires(self):
-        print('change_draw_wires', time())
-        self.pressed = pygame_key_get_pressed()
-        # Passage au menu d'aide / quitter le menu aide
-        if time() - self.last_space_pressed_time > self.time_between_actions:
-            if self.pressed[K_w]:
-                self.show_wires = not self.show_wires
-                self.last_space_pressed_time = time()
-                self.change_in_display = True
-                self.update_possible_actions()
-                print('self.show_wires', self.show_wires)
+    # def change_draw_wires(self):
+    #     print('change_draw_wires', time())
+    #     self.pressed = pygame_key_get_pressed()
+    #     if time() - self.last_space_pressed_time > self.time_between_actions:
+    #         if self.pressed[K_w]:
+    #             self.show_wires = not self.show_wires
+    #             self.last_space_pressed_time = time()
+    #             self.change_in_display = True
+    #             self.update_possible_actions()
+    #             print('self.show_wires', self.show_wires)
         
     def draw_wires(self):
         pass
@@ -1081,8 +1075,7 @@ class Game:
             self.change_level()
             # self.goto_or_leave_help()
             self.handle_ALT()
-            self.change_door_page()
-            # self.change_draw_wires()
+            # self.change_door_page()
             if self.update_to_save_images():  # It means you quit the game
                 return None
             # self.change_page()
