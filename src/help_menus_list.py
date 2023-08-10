@@ -14,7 +14,7 @@ help_menus_list['NOT'] = """
 ¬ means 'NOT'.
 ¬S0 = 1 if S0 = 0
 ¬S0 = 0 if S0 = 1
-Be carefull with the negation, because you have :
+Be carefull with the negation, because :
     ¬ 1 = 0
     ¬ 0 = 1"""
 
@@ -25,7 +25,7 @@ help_menus_list['MINUS'] = """
 help_menus_list['AND'] = """
 & means 'AND'.
 D0 = & S0 S1 means :
-    D0 is open if (S0, S1) = (1,1)"""
+    D0 is open only if (S0, S1) = (1,1)"""
 
 help_menus_list['NAND'] = """
 NAND truth table (D0 = ¬& S0 S1):
@@ -337,7 +337,7 @@ There are differents elements in this game :
         Diamond-shape doors are two-way while triangle-shaped doors are one-way only.
 
 To go in a room, use a switch or travel by a door, write its name and press enter.
-You can only use switches of your current room, and travel by opened doors.
+You can only use switches of your current room, and travel by open doors.
 You can always erase what you wrote with the backspace key.
 
 To start the level again from the beginning, press [B] and then enter.
