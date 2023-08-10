@@ -395,7 +395,7 @@ def level_cube():
                  fastest_solution=None,
                  level_color=Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.5),
                  name='Cube',
-                 keep_proportions=True,
+                 keep_proportions=False,
                  door_window_size=575,
                  random=True)
     
