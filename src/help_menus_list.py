@@ -339,18 +339,17 @@ There are differents elements in this game :
         Diamond-shape doors are two-way while triangle-shaped doors are one-way only (in this level, all doors are one-way only).      
 If you made a mistake when taping the name of a door or a switch, you can always erase it by taping on the backspace key.
 
-To leave the help menu (or come back to it), press [H].
 To start the level again from the beginning, press [B].
-To go to the next level, press the right arrow key.
-To go to the previous level, press the right arrow key.
+To go to the next page, press the right arrow key.
+To go to the previous page, press the right arrow key.
 
 On the left size window of the game are equations that tell you when a door is open. These equations work with any name of door or switch."""
 
 help_menus_list['directions keys'] = """
 To change level, you can use :
 
-    the right arrow key to go to the next level
-    the left arrow key to go to the previous level
+    the right arrow key to go to the next page
+    the left arrow key to go to the previous page
 
     L and the number of the level you want to go to.
     For instance, if you write L12 and then press enter you will go to the level 12.
