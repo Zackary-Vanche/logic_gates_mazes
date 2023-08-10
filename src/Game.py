@@ -62,8 +62,8 @@ class Game:
         keys_dict[number_key] = number_char
     
     def __init__(self,
-                 WINDOW_SIZE=None,
-                 SMALLEST_WINDOW_SIZE=None,
+                 WINDOW_SIZE=(1366, 768),
+                 SMALLEST_WINDOW_SIZE=(1366, 768),
                  XY_marge=(0, 0),  # (25, 120)
                  is_fullscreen=True,
                  save_image=False,
@@ -877,6 +877,11 @@ class Game:
                         self.last_key_pressed_time = time()
                         self.current_action = ''
                         self.maze.current_door_page = 0
+                        return
+                    if self.current_action == 'N':
+                        self.get_new_level = True
+                        self.get_level()
+                        self.change_in_display = True
                         return
                     if self.current_action == 'HHH':
                         self.show_solution()
