@@ -16,12 +16,23 @@ def level_sorted():
     S5 = Switch(name='S5')
     S6 = Switch(name='S6')
     S7 = Switch(name='S7')
+    S8 = Switch(name='S8')
+    S9 = Switch(name='S9')
+    S10 = Switch(name='S10')
+    S11 = Switch(name='S11')
+    S12 = Switch(name='S12')
+    S13 = Switch(name='S13')
+    S14 = Switch(name='S14')
     
-    Slist = [S0, S1, S2, S3, S4, S5, S6, S7]
+    Slist = [S0, S1, S2,
+             S3, S4, S5,
+             S6, S7, S8,
+             S9, S10, S11,
+             S12, S13, S14]
 
     R0 = Room(name='R0',
                 position=[0, 0, 2, 4],
-                switches_list=[S0, S1, S2, S3, S4, S5, S6, S7])
+                switches_list=Slist)
     R1 = Room(name='R1',
                 position=[3, 0, 1, 1],
                 switches_list=[])
@@ -29,13 +40,15 @@ def level_sorted():
               position=[3, 2, 1, 1],
               is_exit=True)
     
+    i_list = [i for i in range(2**3)]
     rd_shuffle(Slist)
+    rd_shuffle(i_list)
     
-    T0 = Tree(tree_list=['EQUSET'] + [Tree.tree_list_BIN(2)]*4 + [[None]]*4,
+    T0 = Tree(tree_list=['EQUSET'] + [Tree.tree_list_BIN(3)]*5 + [[None]]*5,
                 empty=True,
                 name='T0',
-                switches=Slist + [0, 1, 2, 3])
-    T1 = Tree(tree_list=['INF'] + [Tree.tree_list_BIN(2)]*4,
+                switches=Slist + i_list)
+    T1 = Tree(tree_list=['INF'] + [Tree.tree_list_BIN(3)]*5,
                 empty=True,
                 name='T1',
                 switches=Slist)
