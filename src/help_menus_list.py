@@ -387,6 +387,8 @@ Press [N] to get a new exit gate."""
 help_menus_list['random configuration'] = """The initial configuration is chosen randomly in a file.
 Press [N] to get a new configuration."""
 
+help_menus_list['ALT'] = 'Use the right and left alt keys to see all the equations.'
+
 ############
 ## LEVELS ##
 ############
@@ -476,7 +478,7 @@ help_menus_list['levels']["Naturals"] = '\n'.join([help_menus_list['ABS'], help_
 
 help_menus_list['levels']["Wasted"] = """It looks easy, and it is easy."""
 
-help_menus_list['levels']["Wind compass"] = """It is not more complicated than the level named "meanders"."""
+help_menus_list['levels']["Wind compass"] = """It is not more complicated than the level named "meanders".\n""" + help_menus_list['ALT']
 
 help_menus_list['levels']["Compact"] = """It looks easy, but it is maybe just an impression."""
 
