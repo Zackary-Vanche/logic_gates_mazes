@@ -386,11 +386,6 @@ class Game:
             self.gap_between_lines = min(
                 (self.WINDOW_HEIGHT - self.maze.y_separation - 50) / (self.n_lines_door_printing), 25)
             gap = self.y_separation + 10
-            self.WINDOW.blit(self.font.render('DOORS :',
-                                              True,
-                                              self.inside_room_color),
-                             (self.x_separation + 10, gap))
-            gap = self.y_separation + 35
             for k in range(len(self.doors_list)): # loop on the doors
                 door = self.doors_list[k]
                 if self.maze.current_page in door.pages_list:
@@ -892,6 +887,7 @@ class Game:
                     if self.current_action == 'VVV':
                         self.save_videos()
                         return
+                    self.current_action = self.current_action.replace('EXIT', 'RE')
                     if self.current_action[0] in ['D', 'S', 'R']:
                         self.maze.make_actions(self.current_action)
                     if self.current_action[0:2] == 'A ':

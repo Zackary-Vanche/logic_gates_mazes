@@ -332,18 +332,16 @@ There are differents elements in this game :
         The room inside which you are is surrounded.
     Switches (S0, S1, S2, ...) : 
         If a switch is turned on, it is surrounded, and you say it is equal to 1. If it is turned off, it is equal to 0.
-        To turn on a switch, write its name and press enter.
     Doors (D0, D1, D2, ...) :    
         If a door is open, it is surrounded, and you say it is equal to 1. If it is closed, it is equal to 0.
-        To use a door, write its name and press enter.
-        Diamond-shape doors are two-way while triangle-shaped doors are one-way only (in this level, all doors are one-way only).      
-If you made a mistake when taping the name of a door or a switch, you can always erase it by taping on the backspace key.
+        Diamond-shape doors are two-way while triangle-shaped doors are one-way only.
 
-To start the level again from the beginning, press [B].
-To go to the next page, press the right arrow key.
-To go to the previous page, press the right arrow key.
+To go in a room, use a switch or travel by a door, write its name and press enter.
+You can only use switches of your current room, and travel by opened doors.
+You can always erase what you wrote with the backspace key.
 
-On the left size window of the game are equations that tell you when a door is open. These equations work with any name of door or switch."""
+To start the level again from the beginning, press [B] and then enter.
+To go to the next (previous) page, press the right (left) arrow key."""
 
 help_menus_list['directions keys'] = """
 To change level, you can use :
