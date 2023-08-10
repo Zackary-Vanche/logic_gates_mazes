@@ -878,13 +878,13 @@ class Game:
                         self.current_action = ''
                         self.maze.current_door_page = 0
                         return
-                    if self.current_action == 'EEE':
+                    if self.current_action == 'HHH':
                         self.show_solution()
                         return
-                    if self.current_action == 'EEEEE':
+                    if self.current_action == 'HHHHH':
                         self.show_all_solutions()
                         return
-                    if self.current_action == 'EEEEEEE':
+                    if self.current_action == 'VVV':
                         self.save_videos()
                         return
                     if self.current_action[0] in ['D', 'S', 'R']:

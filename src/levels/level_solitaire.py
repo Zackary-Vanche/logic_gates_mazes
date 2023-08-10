@@ -313,7 +313,7 @@ def level_solitaire(fast_solution_finding=False):
                      '\n', ''),
                  level_color=Levels_colors_list.FROM_HUE(0, sa=0.35, li=0.49),
                  name='Solitaire',
-                 door_window_size=555,
+                 door_window_size=545,
                  keep_proportions=True)
 
     return level
