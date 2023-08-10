@@ -60,8 +60,6 @@ class Game:
     for number_key in range(pygame.locals.K_0, pygame.locals.K_9 + 1):
         number_char = chr(number_key)
         keys_dict[number_key] = number_char
-        
-    print(keys_dict)
     
     def __init__(self,
                  WINDOW_SIZE=None,
