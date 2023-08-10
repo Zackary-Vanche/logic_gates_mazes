@@ -37,6 +37,7 @@ from linear_function import linear_function
 from Maze import Maze
 from Levels import Levels
 
+from Levels_colors_list import Levels_colors_list
 
 class Game:
     keys_dict = {K_KP0: '0',
@@ -872,35 +873,36 @@ class Game:
                         self.last_key_pressed_time = time()
                         self.current_action = ''
                         self.maze.current_door_page = 0
-                        return
-                    if self.current_action == 'N':
+                    elif self.current_action == 'N':
                         self.get_new_level = True
                         self.get_level()
                         self.change_in_display = True
-                        return
-                    if self.current_action == 'HHH':
+                    elif self.current_action == 'HHH':
                         self.show_solution()
-                        return
-                    if self.current_action == 'HHHHH':
+                    elif self.current_action == 'HHHHH':
                         self.show_all_solutions()
-                        return
-                    if self.current_action == 'VVV':
+                    elif self.current_action == 'VVV':
                         self.save_videos()
-                        return
-                    self.current_action = self.current_action.replace('EXIT', 'RE')
-                    if self.current_action[0] in ['D', 'S', 'R']:
-                        self.maze.make_actions(self.current_action)
-                    if self.current_action[0:2] == 'A ':
-                        self.maze.make_actions(self.current_action[2:], allow_all=True)
-                    if self.current_action[0] == 'A':
-                        self.maze.make_actions(self.current_action[1:], allow_all=True)
-                    elif self.current_action[0] == 'L':
-                        level_number_list = [str(i) for i in range(Levels.number_of_levels)]
-                        if self.current_action[1:] in level_number_list:
-                            self.index_current_level = int(self.current_action[1:])
-                            self.level_changed = True
-                    self.current_action = ''
-                    self.update_possible_actions()
+                    elif self.current_action == 'GREY':
+                        self.game_color = Levels_colors_list.FROM_HUE(hu=0.1, sa=0, li=0.35)
+                        self.get_new_level = True
+                        self.get_level()
+                        self.change_in_display = True
+                    else:
+                        self.current_action = self.current_action.replace('EXIT', 'RE')
+                        if self.current_action[0] in ['D', 'S', 'R']:
+                            self.maze.make_actions(self.current_action)
+                        if self.current_action[0:2] == 'A ':
+                            self.maze.make_actions(self.current_action[2:], allow_all=True)
+                        if self.current_action[0] == 'A':
+                            self.maze.make_actions(self.current_action[1:], allow_all=True)
+                        elif self.current_action[0] == 'L':
+                            level_number_list = [str(i) for i in range(Levels.number_of_levels)]
+                            if self.current_action[1:] in level_number_list:
+                                self.index_current_level = int(self.current_action[1:])
+                                self.level_changed = True
+                        self.current_action = ''
+                        self.update_possible_actions()
         if time() - self.last_key_BACKSPACE_pressed_time > self.time_between_deletings:
             if self.pressed[K_BACKSPACE]:
                 self.change_in_display = True

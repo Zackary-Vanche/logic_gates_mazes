@@ -1,7 +1,7 @@
 from Game import Game
 from pyautogui import size as pyautogui_size
-# from Color import Color
-# from Levels_colors_list import Levels_colors_list
+from Color import Color
+from Levels_colors_list import Levels_colors_list
 
 if __name__ == "__main__":
 
@@ -15,7 +15,7 @@ if __name__ == "__main__":
          is_fullscreen=0,
          # WINDOW_SIZE=None,
          # SMALLEST_WINDOW_SIZE=None,
-         # game_color=Levels_colors_list.FROM_HUE(hu=0.5, sa=0.2, li=0.49)
+         # game_color=Levels_colors_list.FROM_HUE(hu=0.1, sa=0, li=0.35)
          ).play()
 
     # import cProfile
