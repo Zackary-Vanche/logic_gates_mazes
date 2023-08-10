@@ -410,7 +410,7 @@ def level_weights(fast_solution_finding=False):
                  fastest_solution='S2 S3 S4 S6 S7 S8 S11 S13 S15 S17 S18 S19 D2 S22 D13 S21 D4 S24 D15 S25 D3 S20 D3 D6 S26 D6 D15 D7 S27 D17 S28 D8 S23 D8 D11 S29 D18 S30 D19 S31 D19 D20',
                  level_color=Levels_colors_list.FROM_HUE(hu=0.45, sa=0.2, li=0.5),
                  name='Weights',
-                 door_window_size=600,
+                 door_window_size=450,
                  keep_proportions=True,
                  y_separation=40,
                  border=40)

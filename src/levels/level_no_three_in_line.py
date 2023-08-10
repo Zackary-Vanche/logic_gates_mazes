@@ -204,7 +204,7 @@ def level_no_three_in_line(fast_solution_finding=False):
                  fastest_solution="S1 S2 D0 S5 S7 D1 S10 S14 D2 S16 S18 D3 S23 S24 D4",
                  level_color=Levels_colors_list.FROM_HUE(0.05, sa=1, li=0.6),
                  name='No three in line',
-                 door_window_size=975,
+                 door_window_size=700,
                  keep_proportions=True,
                  y_separation=45)
 

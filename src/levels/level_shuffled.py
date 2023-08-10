@@ -91,7 +91,7 @@ def level_shuffled():
              level_color=color,
              name='Shuffled',
              random=True,
-             door_window_size = 777,
+             door_window_size = 444,
              keep_proportions = True)
     
     return level

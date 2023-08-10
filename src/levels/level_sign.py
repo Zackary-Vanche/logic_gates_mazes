@@ -366,7 +366,7 @@ def level_sign(fast_solution_finding=False):
                  fastest_solution='D0 S2 S3 D1 S5 D2 S7 D3 S8 S9 D4 S10 S11 D5 D6 S13 S14 D7 S16 D8 S17 D9 S18 D10 D11 S21 D12 S22 D13 S23 D14',
                  level_color=Levels_colors_list.FROM_HUE(hu=0.5, sa=0.4, li=0.4),
                  name='Sign',
-                 door_window_size=900,
+                 door_window_size=400,
                  keep_proportions=True,
                  y_separation=40,
                  border=40,

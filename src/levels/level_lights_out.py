@@ -130,7 +130,7 @@ def level_lights_out():
                 position=[0, 7.5, 3, 3],
                 switches_list=[S9, S10, S11, S12, S13, S14, S15, S16, S17])
     RE = Room(name='RE',
-              position=[1, 0.5, 1, 0.5],
+              position=[4, 2, 1, 0.5],
               is_exit=True)
 
     D0 = Door(two_way=False,
@@ -217,8 +217,8 @@ def level_lights_out():
                 name='D10',
                 room_departure=R0,
                 room_arrival=RE,
-                relative_departure_coordinates=[1/2, 0],
-                relative_arrival_coordinates=[1/2, 1])
+                relative_departure_coordinates=[1, 0],
+                relative_arrival_coordinates=[0, 1/2])
     
     lcolor = Levels_colors_list.FROM_HUE(hu=0.2, sa=0.5, li=0.9)
     lcolor.contour_color = Color.GREY_60

@@ -179,7 +179,7 @@ def level_takuzu():
                  fastest_solution='S0 S1 D0 S5 S6 D1 S10 S11 D2 S12 S15 D3 D4 D5',
                  level_color=Levels_colors_list.FROM_HUE(hu=0.45, sa=0.4, li=0.25),
                  name='Takuzu',
-                 door_window_size=700,
+                 door_window_size=600,
                  keep_proportions=True,
                  y_separation=40,
                  border=40)

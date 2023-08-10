@@ -282,6 +282,6 @@ def level_bridges():
                  level_color=lcolor,
                  name='Bridges',
                  keep_proportions=True,
-                 door_window_size=750)
+                 door_window_size=500)
     
     return level

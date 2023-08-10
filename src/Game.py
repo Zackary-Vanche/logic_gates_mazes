@@ -1,5 +1,6 @@
 from pygame import init as pygame_init
-from pygame.locals import QUIT, K_RIGHT, K_LEFT, K_UP, K_DOWN
+# from pygame import MOUSEBUTTONDOWN
+from pygame.locals import QUIT, K_RIGHT, K_LEFT, K_UP, K_DOWN, K_SPACE, K_LALT, K_RALT
 from pygame.locals import K_a, K_b, K_d, K_e, K_h, K_m, K_n, K_p, K_r, K_s, K_l, K_q, K_w
 from pygame.locals import K_KP0, K_KP1, K_KP2, K_KP3, K_KP4
 from pygame.locals import K_KP5, K_KP6, K_KP7, K_KP8, K_KP9
@@ -9,13 +10,14 @@ from pygame.locals import K_RETURN, K_BACKSPACE, K_SPACE, K_ESCAPE
 from pygame.display import set_mode as pygame_display_set_mode
 from pygame.display import set_caption as pygame_display_set_caption
 from pygame.display import update as pygame_display_update
+from pygame.event import get as pygame_event_get
 from pygame.font import SysFont as pygame_font_SysFont
 from pygame import Rect as pygame_Rect
 from pygame.draw import rect as pygame_draw_rect
 from pygame.draw import line as pygame_draw_line
 from pygame.draw import ellipse as pygame_draw_ellipse
 from pygame.draw import polygon as pygame_draw_polygon
-from pygame.event import get as pygame_event_get
+# from pygame.event import get as pygame_event_get
 from pygame.key import get_pressed as pygame_key_get_pressed
 from pygame.image import save as pygame_image_save
 from pygame import quit as pygame_quit
@@ -28,6 +30,8 @@ from os import mkdir as os_mkdir
 from os import listdir as os_listdir
 from os import remove as os_remove
 from numpy import array
+# from numpy import sqrt
+from numpy.linalg import norm
 from time import time
 from time import sleep
 
@@ -82,7 +86,7 @@ class Game:
                  index_help_page=0,
                  show_loop_time=False,
                  update_display_at_every_loop=False,
-                 sleep_time=10 ** (-2),
+                 sleep_time=1e-3,
                  game_color=None): # if game_color is not None, it overwrites the levels colors
         if WINDOW_SIZE is None or SMALLEST_WINDOW_SIZE is None:
             from pyautogui import size as pyautogui_size
@@ -155,6 +159,7 @@ class Game:
                 os_mkdir('images')
         self.current_action = ''
         self.last_key_pressed_time = time()
+        self.last_space_pressed_time = time()
         self.last_key_BACKSPACE_pressed_time = time()
 
     def get_level(self):
@@ -324,16 +329,19 @@ class Game:
     def blit_text(self,
                   text,
                   pos,
-                  max_width):
-        words = [word.split(' ') for word in text.splitlines()]  # 2D array where each row is a list of words.
+                  max_width,
+                  color=None):
+        if color is None:
+            color = self.inside_room_color
+        lines_list = [word.split(' ') for word in text.splitlines()]  # 2D array where each row is a list of words.
         space = self.font.size(' ')[0]  # The width of a space.
         # max_width, max_height = self.WINDOW.get_size()
         x0, y = pos
         x = x0
         xmax = 0
-        for line in words:
+        for line in lines_list:
             for word in line:
-                word_surface = self.font.render(word, 1, self.inside_room_color)
+                word_surface = self.font.render(word, 1, color)
                 word_width, word_height = word_surface.get_size()
                 if x + word_width >= x0 + max_width:
                     x = pos[0]  # Reset the x.
@@ -367,19 +375,19 @@ class Game:
             self.WINDOW.blit(self.font.render('DOORS :',
                                               True,
                                               self.inside_room_color),
-                             (self.x_separation + 10, gap))
+                              (self.x_separation + 10, gap))
             gap = self.y_separation + 35
             for i in range(len(str_logical_expression)):
                 string = str_logical_expression[i]
                 if i == 0:
                     logical_expression_render = self.font.render(door.name + ' = ' + string,
-                                                                 True,
-                                                                 self.inside_room_color)
+                                                                  True,
+                                                                  self.inside_room_color)
                     self.WINDOW.blit(logical_expression_render, (self.x_separation + 10, gap))
                 else:
                     logical_expression_render = self.font.render(' ' * (len(door.name) + 3) + string,
-                                                                 True,
-                                                                 self.inside_room_color)
+                                                                  True,
+                                                                  self.inside_room_color)
                     self.WINDOW.blit(logical_expression_render, (self.x_separation + 10, gap))
                 gap += self.gap_between_lines
         else:
@@ -418,11 +426,11 @@ class Game:
                     xmax, gap = self.blit_text(all_trees_expressions,
                                                pos=((self.x_separation + 10, gap)),
                                                max_width=self.door_window_size - 40)
-                    print(xmax - self.x_separation,
-                          self.maze.door_window_size)
-                    if xmax - self.x_separation > self.maze.door_window_size*1.25:
-                        if self.maze.door_window_size > 400:
-                            print(self.maze.name)
+                    # print(xmax - self.x_separation,
+                    #       self.maze.door_window_size)
+                    # if xmax - self.x_separation > self.maze.door_window_size*1.25:
+                    #     if self.maze.door_window_size > 400:
+                    #         print(self.maze.name)
                         # word_list = string.split(' ') # TODO
                         # line_list = []
                         # current_line = " "
@@ -510,6 +518,80 @@ class Game:
                                             door.surrounding_color,
                                             arrow_coordinates,
                                             width=3)
+        # TODO
+        # for door in self.maze.doors_set:
+        #     word_surface = self.font.render(door.name, 1, self.inside_room_color)
+        #     word_width, word_height = word_surface.get_size()
+        #     real_middle_coordinates = array(door.real_middle_coordinates)
+        #     center_point = array(real_middle_coordinates) + array([word_width, word_height])/2
+        #     # arrow_coordinates = door.arrow_coordinates
+        #     p1 = door.real_departure_coordinates
+        #     p2 = door.real_arrival_coordinates
+        #     epsilon = 2
+    
+        #     # Bounding box of the text in the native coordinates
+        #     a = real_middle_coordinates + array([-epsilon, -epsilon])
+        #     b = real_middle_coordinates + array([word_width+epsilon, -epsilon])
+        #     c = real_middle_coordinates + array([word_width+epsilon, word_height+epsilon])
+        #     d = real_middle_coordinates + array([-epsilon, word_height+epsilon])
+
+        #     # Calculate the direction vector of the line
+        #     line_direction = array([p2[0] - p1[0], p2[1] - p1[1]])
+        #     line_direction /= norm(line_direction)
+            
+        #     # Create an orthogonal vector to the line direction
+        #     orthogonal_vector = array([-line_direction[1], line_direction[0]])
+        #     orthogonal_vector /= norm(orthogonal_vector)  # Normalize the orthogonal vector
+            
+        #     # Calculate the coordinates of a, b, c, d in the new coordinate system
+        #     a_new = array([a[0] - center_point[0], a[1] - center_point[1]])
+        #     b_new = array([b[0] - center_point[0], b[1] - center_point[1]])
+        #     c_new = array([c[0] - center_point[0], c[1] - center_point[1]])
+        #     d_new = array([d[0] - center_point[0], d[1] - center_point[1]])
+            
+        #     # Calculate the coordinates of the bounding box corners in the new coordinate system
+        #     x_min = min(a_new.dot(orthogonal_vector),
+        #                 b_new.dot(orthogonal_vector),
+        #                 c_new.dot(orthogonal_vector),
+        #                 d_new.dot(orthogonal_vector))
+        #     x_max = max(a_new.dot(orthogonal_vector),
+        #                 b_new.dot(orthogonal_vector),
+        #                 c_new.dot(orthogonal_vector),
+        #                 d_new.dot(orthogonal_vector))
+        #     y_min = min(a_new.dot(line_direction),
+        #                 b_new.dot(line_direction),
+        #                 c_new.dot(line_direction),
+        #                 d_new.dot(line_direction))
+        #     y_max = max(a_new.dot(line_direction),
+        #                 b_new.dot(line_direction),
+        #                 c_new.dot(line_direction),
+        #                 d_new.dot(line_direction))
+            
+        #     # Calculate new arrow coordinates
+        #     a_final = center_point + x_min * orthogonal_vector + y_min * line_direction
+        #     b_final = center_point + x_max * orthogonal_vector + y_min * line_direction
+        #     c_final = center_point + x_max * orthogonal_vector + y_max * line_direction
+        #     d_final = center_point + x_min * orthogonal_vector + y_max * line_direction
+        #     if door.two_way:
+        #         arrow_coordinates = [a_final,
+        #                              center_point + (y_min-15) * line_direction,
+        #                              b_final,
+        #                              c_final,
+        #                              center_point + (y_max+15) * line_direction,
+        #                              d_final]
+        #     else:
+        #         arrow_coordinates = [a_final,
+        #                              b_final,
+        #                              c_final,
+        #                              center_point + (y_max+15) * line_direction,
+        #                              d_final]
+        #     for i in range(len(arrow_coordinates)):
+        #         line_size = self.maze.line_size
+        #         arrow_coordinates[i] = arrow_coordinates[i] + line_size/2*orthogonal_vector
+        #     print(arrow_coordinates)
+        #     pygame_draw_polygon(self.WINDOW,
+        #                         self.room_color,
+        #                         arrow_coordinates)
 
     def print_doors_names(self):
         # Affichage des portes
@@ -593,15 +675,19 @@ class Game:
             y0 = p * self.WINDOW_HEIGHT + c
             p, c = linear_function(1366 - self.X_marge, 50, 1920 - self.X_marge, 50)
             x0 = p * self.WINDOW_WIDTH + c
-            for line in help_list:
-                self.WINDOW.blit(self.font.render(line,
-                                                  True,
-                                                  self.letters_color),
-                                 (x0, y0 + gap))
-                if line.replace(' ', '') == '':
-                    gap += 12
-                else:
-                    gap += 25
+            self.blit_text(text=' \n '.join(help_list),
+                           pos=(x0, y0 + gap),
+                           max_width=self.WINDOW_WIDTH-20-x0,
+                           color=self.letters_color)
+            # for line in help_list:
+            #     self.WINDOW.blit(self.font.render(line,
+            #                                       True,
+            #                                       self.letters_color),
+            #                      (x0, y0 + gap))
+            #     if line.replace(' ', '') == '':
+            #         gap += 12
+            #     else:
+            #         gap += 25
     
             pygame_display_update()
     
@@ -932,16 +1018,29 @@ class Game:
         print('change_draw_wires', time())
         self.pressed = pygame_key_get_pressed()
         # Passage au menu d'aide / quitter le menu aide
-        if time() - self.last_key_pressed_time > self.time_between_actions:
+        if time() - self.last_space_pressed_time > self.time_between_actions:
             if self.pressed[K_w]:
                 self.show_wires = not self.show_wires
-                self.last_key_pressed_time = time()
+                self.last_space_pressed_time = time()
                 self.change_in_display = True
                 self.update_possible_actions()
                 print('self.show_wires', self.show_wires)
         
     def draw_wires(self):
         pass
+    
+    def handle_ALT(self):
+        # print(time() - self.last_key_pressed_time)
+        self.pressed = pygame_key_get_pressed()
+        if time() - self.last_key_pressed_time > self.time_between_actions:
+            if self.pressed[K_RALT]:
+                self.doors_list = self.doors_list[1:] + self.doors_list[:1]
+                self.last_key_pressed_time = time()
+                self.change_in_display = True
+            if self.pressed[K_LALT]:
+                self.doors_list = self.doors_list[-1:] + self.doors_list[:-1]
+                self.last_key_pressed_time = time()
+                self.change_in_display = True
 
     # The main function that controls the game
     def play(self):
@@ -973,6 +1072,7 @@ class Game:
                     self.save_image_as_file()
             self.change_level()
             self.goto_or_leave_help()
+            self.handle_ALT()
             self.change_door_page()
             # self.change_draw_wires()
             if self.update_to_save_images():  # It means you quit the game

@@ -663,6 +663,6 @@ def level_central_symmetry():
                  name='Central symmetry',
                  keep_proportions=True,
                  y_separation=27,
-                 door_window_size=550)
+                 door_window_size=250)
     
     return level

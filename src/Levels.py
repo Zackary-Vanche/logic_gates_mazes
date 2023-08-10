@@ -343,8 +343,8 @@ class Levels:
         level_bridges,
         level_chinese_postman_problem,
         level_parking,
-        level_panex,
-        level_superflip,
+        # level_panex,
+        # level_superflip,
     ]
 
     aux_level_function_list = [

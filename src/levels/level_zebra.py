@@ -372,7 +372,7 @@ def level_zebra():
                  name='Zebra',
                  door_window_size=500,
                  keep_proportions=True,
-                 y_separation=40,
+                 y_separation=35,
                  border=40,
                  door_multipages=True)
 

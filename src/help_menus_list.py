@@ -331,12 +331,10 @@ There are differents elements in this game :
     Rooms (R0, R1, R2, ..., EXIT) :  
         The room inside which you are is surrounded.
     Switches (S0, S1, S2, ...) : 
-        If a switch is turned on, it is surrounded, and you say it is equal to 1.
-        If it is turned off, it is equal to 0.
+        If a switch is turned on, it is surrounded, and you say it is equal to 1. If it is turned off, it is equal to 0.
         To turn on a switch, write its name and press enter.
     Doors (D0, D1, D2, ...) :    
-        If a door is open, it is surrounded, and you say it is equal to 1.
-        If it is closed, it is equal to 0.
+        If a door is open, it is surrounded, and you say it is equal to 1. If it is closed, it is equal to 0.
         To use a door, write its name and press enter.
         Diamond-shape doors are two-way while triangle-shaped doors are one-way only (in this level, all doors are one-way only).      
 If you made a mistake when taping the name of a door or a switch, you can always erase it by taping on the backspace key.
@@ -346,8 +344,7 @@ To start the level again from the beginning, press [B].
 To go to the next level, press the right arrow key.
 To go to the previous level, press the right arrow key.
 
-On the left size window of the game are equations that tell you when a door is open :
-These equations work with any name of door or switch."""
+On the left size window of the game are equations that tell you when a door is open. These equations work with any name of door or switch."""
 
 help_menus_list['directions keys'] = """
 To change level, you can use :
@@ -362,8 +359,7 @@ Instead of taping the action you want to do, you can see the possibles actions b
 """
 
 help_menus_list['go in a room'] = """
-To go directly in a room, you can type its name (if it is possible for you to go there).
-The exit room is called RE."""
+To go directly in a room, you can type its name (if it is possible for you to go there). The exit room is called RE."""
 
 help_menus_list['reminder B'] = """
 [Reminder] : To start the level again from the beginning, press [B]."""
@@ -663,7 +659,7 @@ help_menus_list['levels']["Chinese postman problem"] = """In graph theory the Ch
 
 help_menus_list['levels']["Postman"] = """You need to visit every house.\nThis level looks a lot like the level named "bridges"."""
 
-help_menus_list['levels']["Parking"] = """If a door equation is not visible, it means it is always open."""
+help_menus_list['levels']["Parking"] = """There are cars everywhere."""
 
 help_menus_list['levels']["Panex"] = """You are on your own."""
 

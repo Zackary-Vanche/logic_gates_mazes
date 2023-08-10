@@ -957,7 +957,7 @@ class Maze:
                                                ipage)
         self.calculate_doors_coordinates()
 
-    def calculate_doors_coordinates(self):
+    def calculate_doors_coordinates(self): # DEPRECATED
         for door in self.doors_set:
             # for ipage in range(self.number_of_pages): # TODO
             Rd = door.room_departure

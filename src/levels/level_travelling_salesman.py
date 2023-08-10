@@ -309,7 +309,7 @@ def level_travelling_salesman(fast_solution_finding=False):
                  fastest_solution='S2 S3 D0 S7 S10 D1 S13 S15 S17 D2 S20 S21 S22 S23 D3 S25 S26 S27 S28 D4 S31 S32 D5 S38 D6 D7',
                  level_color=Levels_colors_list.FROM_HUE(0.2, sa=0.5, li=0.4),
                  name='Travelling salesman',
-                 door_window_size=800,
+                 door_window_size=650,
                  keep_proportions=False)
 
     return level

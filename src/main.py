@@ -10,11 +10,11 @@ if __name__ == "__main__":
     # If you don't put it, the pixel of the game
     # will be too big after compilation
 
-    Game(show_help=0,
-         index_current_level=115,
+    Game(show_help=1,
+         index_current_level=0,
          is_fullscreen=0,
-          WINDOW_SIZE=(1024, 600),
-          SMALLEST_WINDOW_SIZE=(1700, 500),
+         WINDOW_SIZE=(1366, 768),
+         SMALLEST_WINDOW_SIZE=(1366, 768),
          # game_color=Levels_colors_list.FROM_HUE(hu=0.5, sa=0.2, li=0.49)
          ).play()
 

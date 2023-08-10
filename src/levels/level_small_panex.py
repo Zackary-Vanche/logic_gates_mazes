@@ -363,6 +363,6 @@ def level_small_panex():
                  level_color=lcolor,
                  name='Small panex',
                  keep_proportions=True,
-                 door_window_size=700)
+                 door_window_size=525)
     
     return level
