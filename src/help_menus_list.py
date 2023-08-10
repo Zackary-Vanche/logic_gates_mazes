@@ -354,7 +354,7 @@ To change level, you can use :
     L and the number of the level you want to go to.
     For instance, if you write L12 and then press enter you will go to the level 12.
 
-Instead of taping the action you want to do, you can see the possibles actions by using the UP and the DOWN keys.
+Instead of taping the action you want to do, you can see the possibles actions by using the ALT keys.
 """
 
 help_menus_list['go in a room'] = """
@@ -386,7 +386,7 @@ Press [N] to get a new exit gate."""
 help_menus_list['random configuration'] = """The initial configuration is chosen randomly in a file.
 Press [N] to get a new configuration."""
 
-help_menus_list['ALT'] = 'Use the right and left alt keys to see all the equations.'
+help_menus_list['UP DOWN'] = 'Use the UP and DOWN keys to see all the equations.'
 
 ############
 ## LEVELS ##
@@ -477,7 +477,7 @@ help_menus_list['levels']["Naturals"] = '\n'.join([help_menus_list['ABS'], help_
 
 help_menus_list['levels']["Wasted"] = """It looks easy, and it is easy."""
 
-help_menus_list['levels']["Wind compass"] = """It is not more complicated than the level named "meanders".\n""" + help_menus_list['ALT']
+help_menus_list['levels']["Wind compass"] = """It is not more complicated than the level named "meanders".\n""" + help_menus_list['UP DOWN']
 
 help_menus_list['levels']["Compact"] = """It looks easy, but it is maybe just an impression."""
 

@@ -752,10 +752,10 @@ class Game:
                 self.update_possible_actions(reset_current_action_index=False)
             if self.possible_current_actions == []:
                 return
-            if (self.pressed[K_UP]):
+            if (self.pressed[K_RALT]):
                 self.current_action_index = self.current_action_index - 1
                 self.current_action_index_changed = True
-            if (self.pressed[K_DOWN]):
+            if (self.pressed[K_LALT]):
                 self.current_action_index = self.current_action_index + 1
                 self.current_action_index_changed = True
             if self.current_action_index_changed:
@@ -1038,11 +1038,11 @@ class Game:
         # print(time() - self.last_key_pressed_time)
         self.pressed = pygame_key_get_pressed()
         if time() - self.last_key_pressed_time > self.time_between_actions:
-            if self.pressed[K_RALT]:
+            if self.pressed[K_DOWN]:
                 self.doors_list = self.doors_list[1:] + self.doors_list[:1]
                 self.last_key_pressed_time = time()
                 self.change_in_display = True
-            if self.pressed[K_LALT]:
+            if self.pressed[K_UP]:
                 self.doors_list = self.doors_list[-1:] + self.doors_list[:-1]
                 self.last_key_pressed_time = time()
                 self.change_in_display = True
