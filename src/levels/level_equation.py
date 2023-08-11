@@ -26,15 +26,24 @@ def level_equation():
     assert 0 <= a < 2**4
     assert 0 <= b < 2**4
     
-    tree_list_SUM = ['SUM', Tree.tree_list_BIN(4), Tree.tree_list_BIN(4)]
-    tree_list_MINUS = ['SUM', Tree.tree_list_BIN(4), ['MINUS', Tree.tree_list_BIN(4)]]
+    V0 = Tree(tree_list=Tree.tree_list_BIN(4),
+              empty=True,
+              name='V0',
+              switches=[S0, S1, S2, S3])
+    V1 = Tree(tree_list=Tree.tree_list_BIN(4),
+              empty=True,
+              name='V1',
+              switches=[S4, S5, S6, S7])
+    
+    tree_list_SUM = ['SUM', [None], [None]]
+    tree_list_MINUS = ['SUM', [None], ['MINUS', [None]]]
 
     T0 = Tree(tree_list=['AND',
                          ['EQU', tree_list_SUM, [None]],
                          ['EQU', tree_list_MINUS, [None]]],
                 empty=True,
                 name='T0',
-                switches=Slist + [a+b] + Slist + [a-b])
+                switches=[V0, V1, a+b, V0, V1, a-b])
 
     R0 = Room(name='R0',
                 position=[0, 2, 3, 3],
@@ -53,6 +62,7 @@ def level_equation():
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, RE],
+                 intermediate_values_list=[V0, V1],
                  doors_list=[D0],
                  fastest_solution=None,
                  level_color=Levels_colors_list.FROM_HUE(hu=0, sa=0.5, li=0.2),

@@ -172,6 +172,14 @@ class Game:
                 self.maze.reboot_solution()
     
                 self.doors_list = self.maze.doors_list
+                self.name_tree_list = []
+                for tree in self.maze.intermediate_values_list:
+                    assert tree.name[0] == 'V'
+                    self.name_tree_list.append([tree.name, tree])
+                for k in range(len(self.doors_list)): # loop on the doors
+                    door = self.doors_list[k]
+                    tree = door.tree
+                    self.name_tree_list.append([door.name, tree])
     
                 if self.game_color is not None:
                     self.maze.level_color = self.game_color
@@ -395,14 +403,7 @@ class Game:
             self.gap_between_lines = min(
                 (self.WINDOW_HEIGHT - self.maze.y_separation - 50) / (self.n_lines_door_printing), 25)
             gap = self.y_separation + 10
-            name_tree_list = []
-            for tree in self.maze.intermediate_values_list:
-                name_tree_list.append([tree.name, tree])
-            for k in range(len(self.doors_list)): # loop on the doors
-                door = self.doors_list[k]
-                tree = door.tree
-                name_tree_list.append([door.name, tree])
-            for c in name_tree_list:
+            for c in self.name_tree_list:
                 [name, tree] = c
                 str_logical_expression = tree.get_easy_logical_expression_PN()
                 str_logical_expression = str_logical_expression.split('\n')
@@ -412,7 +413,7 @@ class Game:
                     if i == 0:
                         string = name + ' = ' + string
                     else:
-                        string = ' ' * (len(door.name) + 3) + string
+                        string = ' ' * (len(name) + 3) + string
                     all_trees_expressions.append(string)
                 all_trees_expressions = ' \n '.join(all_trees_expressions)
                 xmax, gap = self.blit_text(all_trees_expressions,
@@ -1020,11 +1021,11 @@ class Game:
         self.pressed = pygame_key_get_pressed()
         if time() - self.last_key_pressed_time > self.time_between_actions:
             if self.pressed[K_DOWN]:
-                self.doors_list = self.doors_list[1:] + self.doors_list[:1]
+                self.name_tree_list = self.name_tree_list[1:] + self.name_tree_list[:1]
                 self.last_key_pressed_time = time()
                 self.change_in_display = True
             if self.pressed[K_UP]:
-                self.doors_list = self.doors_list[-1:] + self.doors_list[:-1]
+                self.name_tree_list = self.name_tree_list[-1:] + self.name_tree_list[:-1]
                 self.last_key_pressed_time = time()
                 self.change_in_display = True
 
