@@ -888,6 +888,11 @@ class Game:
                         self.get_new_level = True
                         self.get_level()
                         self.change_in_display = True
+                    elif self.current_action == 'COLOR':
+                        self.game_color = None
+                        self.get_new_level = True
+                        self.get_level()
+                        self.change_in_display = True
                     else:
                         self.current_action = self.current_action.replace('EXIT', 'RE')
                         if self.current_action[0] in ['D', 'S', 'R']:
