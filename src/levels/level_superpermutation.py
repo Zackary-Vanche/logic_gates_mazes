@@ -22,9 +22,34 @@ def level_superpermutation():
     S10 = Switch(name='S10', value=v)
     S11 = Switch(name='S11')
     
-    Slist = [1, 2, 3, S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11]
+    V0 = Tree(tree_list=Tree.tree_list_BIN(2),
+              empty=True,
+              name='V0',
+              switches=[S0, S1])
+    V1 = Tree(tree_list=Tree.tree_list_BIN(2),
+              empty=True,
+              name='V1',
+              switches=[S2, S3])
+    V2 = Tree(tree_list=Tree.tree_list_BIN(2),
+              empty=True,
+              name='V2',
+              switches=[S4, S5])
+    V3 = Tree(tree_list=Tree.tree_list_BIN(2),
+              empty=True,
+              name='V3',
+              switches=[S6, S7])
+    V4 = Tree(tree_list=Tree.tree_list_BIN(2),
+              empty=True,
+              name='V4',
+              switches=[S8, S9])
+    V5 = Tree(tree_list=Tree.tree_list_BIN(2),
+              empty=True,
+              name='V5',
+              switches=[S10, S11])
     
-    tree_list = ['INLIST'] + [[None]]*7 + [Tree.tree_list_BIN(2)]*6
+    Slist = [1, 2, 3, V0, V1, V2, V3, V4, V5]
+    
+    tree_list = ['INLIST'] + [[None]]*13
     
     T0 = Tree(tree_list=tree_list,
               empty=True,
@@ -103,6 +128,7 @@ def level_superpermutation():
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5] + [RE],
+                 intermediate_values_list=[V0, V1, V2, V3, V4, V5],
                  doors_list=[D0, D1, D2, D3, D4, D5],
                  fastest_solution='S0 S3 S4 S6 S7 S9 S10 D0 D1 D2 D3 D4 D5',
                  level_color=Levels_colors_list.FROM_HUE(hu=0.55, sa=1, li=0.35),

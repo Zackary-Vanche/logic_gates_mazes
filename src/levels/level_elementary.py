@@ -21,22 +21,44 @@ def level_elementary():
 
     S8 = Switch(name='S8', value=1)
     S9 = Switch(name='S9', value=1)
+    
+    V0 = Tree(tree_list=Tree.tree_list_BIN(2),
+              empty=True,
+              name='V0',
+              switches=[S0, S1])
+    V1 = Tree(tree_list=Tree.tree_list_BIN(2),
+              empty=True,
+              name='V1',
+              switches=[S2, S3])
+    V2 = Tree(tree_list=Tree.tree_list_BIN(2),
+              empty=True,
+              name='V2',
+              switches=[S4, S5])
+    V3 = Tree(tree_list=Tree.tree_list_BIN(2),
+              empty=True,
+              name='V3',
+              switches=[S6, S7])
+    V4 = Tree(tree_list=Tree.tree_list_BIN(2),
+              empty=True,
+              name='V4',
+              switches=[S8, S9])
 
-    tree_list_036 = ['EQU', Tree.tree_list_BIN(2), [None]]
+    tree_list_036 = ['EQU', [None], [None]]
 
-    tree_list_147 = ['EQU', Tree.tree_list_BIN(2), Tree.tree_list_BIN(2)]
+    tree_list_147 = ['EQU', [None], [None]]
 
-    tree_list_258 = ['EQUSET'] + [Tree.tree_list_BIN(2)] * 4 + [[None]] * 4
-    switches_list_258 = [S2, S3, S4, S5, S6, S7, S8, S9, 0, 1, 2, 3]
+    tree_list_258 = ['EQUSET'] + [[None]]*8
+
+    switches_list_258 = [V1, V2, V3, V4, 0, 1, 2, 3]
 
     T0 = Tree(tree_list=tree_list_036,
               empty=True,
               name='T0',
-              switches=[S0, S1, 1])
+              switches=[V0, 1])
     T1 = Tree(tree_list=tree_list_147,
               empty=True,
               name='T1',
-              switches=[S2, S3, S4, S5])
+              switches=[V1, V2])
     T2 = Tree(tree_list=tree_list_258,
               empty=True,
               name='T2',
@@ -44,11 +66,11 @@ def level_elementary():
     T3 = Tree(tree_list=tree_list_036,
               empty=True,
               name='T3',
-              switches=[S0, S1, 2])
+              switches=[V0, 2])
     T4 = Tree(tree_list=tree_list_147,
               empty=True,
               name='T4',
-              switches=[S4, S5, S6, S7])
+              switches=[V2, V3])
     T5 = Tree(tree_list=tree_list_258,
               empty=True,
               name='T5',
@@ -56,11 +78,11 @@ def level_elementary():
     T6 = Tree(tree_list=tree_list_036,
               empty=True,
               name='T6',
-              switches=[S0, S1, 3])
+              switches=[V0, 3])
     T7 = Tree(tree_list=tree_list_147,
               empty=True,
               name='T7',
-              switches=[S6, S7, S8, S9])
+              switches=[V3, V4])
     T8 = Tree(tree_list=tree_list_258,
               empty=True,
               name='T8',
@@ -142,6 +164,7 @@ def level_elementary():
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4] + [RE],
+                 intermediate_values_list=[V0, V1, V2, V3, V4],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9],
                  fastest_solution='S0 D0 S2 D1 S4 S5 D4 S6 D7 S8 S9 D8 D0 S2 S3 D1 S4 D4 S7 D5 D0 S2 D1 S4 D2 S0 S1 D9',
                  level_color=Levels_colors_list.FROM_HUE(hu=0.15, sa=1, li=0.9),

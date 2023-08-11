@@ -26,49 +26,52 @@ def level_second():
     b = rd_randint(0, 15)
     c = rd_randint(0, 15)
 
-    Sa = Switch(name='?a', value=a)
-    Sb = Switch(name='?b', value=b)
-    Sc = Switch(name='?c', value=c)
     lint = [i for i in range(-63, 64)]
     rd_shuffle(lint)
-
-    Slist = [S0, S1, S2, S3,
-             S4, S5, S6, S7,
-             S8, S9, S10, S11]
+    
+    V0 = Tree(tree_list=Tree.tree_list_BIN(4),
+              empty=True,
+              name='V0',
+              switches=[S0, S1, S2, S3])
+    V1 = Tree(tree_list=Tree.tree_list_BIN(4),
+              empty=True,
+              name='V1',
+              switches=[S4, S5, S6, S7])
+    V2 = Tree(tree_list=Tree.tree_list_BIN(4),
+              empty=True,
+              name='V2',
+              switches=[S8, S9, S10, S11])
 
     tree_list = ['EQU',
                   ['SUM',
-                   ['PROD', Tree.tree_list_BIN(4), ['POW', [None], [None]]],
-                   ['PROD', Tree.tree_list_BIN(4), [None]],
-                   Tree.tree_list_BIN(4)],
+                   ['PROD', [None], ['POW', [None], [None]]],
+                   ['PROD', [None], [None]],
+                   [None]],
                  [None],]
 
-    def Slist_i(i):
+    def tree_i(i):
         x = lint[i]
-        return [S0, S1, S2, S3, x, 2,
-                S4, S5, S6, S7, x,
-                S8, S9, S10, S11,
-                a * x ** 2 + b * x + c,]
+        Slist_i = [V0, x, 2,
+                   V1, x,
+                   V2,
+                   a * x ** 2 + b * x + c,]
+        return Tree(tree_list=tree_list,
+                    empty=True,
+                    name=f'T{i}',
+                    switches=Slist_i)
 
-    T0 = Tree(tree_list=tree_list,
-              empty=True,
-              name='T0',
-              switches=Slist_i(0))
-    T1 = Tree(tree_list=tree_list,
-              empty=True,
-              name='T1',
-              switches=Slist_i(1))
-    T2 = Tree(tree_list=tree_list,
-              empty=True,
-              name='T2',
-              switches=Slist_i(2))
+    T0 = tree_i(0)
+    T1 = tree_i(1)
+    T2 = tree_i(2)
 
     ex = 1
     ey = 3/4
 
     R0 = Room(name='R0',
               position = [0, 6, 4, 3],
-              switches_list = Slist)
+              switches_list = [S0, S1, S2, S3,
+                               S4, S5, S6, S7,
+                               S8, S9, S10, S11])
     R1 = Room(name='R1',
               position = [0, 4, ex, ey],
               switches_list = [])
@@ -97,6 +100,7 @@ def level_second():
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2] + [RE],
+                 intermediate_values_list=[V0, V1, V2],
                  doors_list=[D0, D1, D2],
                  fastest_solution=None,
                  level_color=Levels_colors_list.FROM_HUE(hu=0, sa=0.2, li=0.4),
