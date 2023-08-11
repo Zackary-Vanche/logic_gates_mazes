@@ -166,7 +166,7 @@ def level_wind_compass():
     position_R = []
     
     for i in range(8):
-        alpha = i*pi/4 + 3*pi/2
+        alpha = i*pi/4 + 2*pi/2
         if i%2==0:
             r = 1
         else:
@@ -175,7 +175,7 @@ def level_wind_compass():
         
     position_R.append([0, 0, ex, ey])
 
-    position_RE = [position_R[2][0], position_R[4][1], ex, ey]
+    position_RE = [position_R[4][0]+0.5, position_R[4][1], ex, ey]
 
     R0 = Room(name='R0',
               position=position_R[0],
@@ -419,7 +419,7 @@ def level_wind_compass():
                  fastest_solution="S0 D15 S7 D13 S6 D11 S5 D26 S8 D19 S1 D2 S2 D4 S3 D6 S4 D32",
                  level_color=lcolor,
                  name='Wind compass',
-                 door_window_size=600,
+                 door_window_size=275,
                  y_separation=50,
                  border=30,
                  keep_proportions=True,

@@ -319,6 +319,14 @@ class Game:
             self.letters_color)
         self.WINDOW.blit(level_name_render, (10, 10))
         
+    def print_you_won(self):
+        if self.maze.current_room_index == self.maze.exit_room_index and self.current_action != 'YOU WON !':
+            word_surface = self.font.render('YOU WON !',
+                                            True,
+                                            self.letters_color)
+            word_width, word_height = word_surface.get_size()
+            self.WINDOW.blit(word_surface, (self.x_separation - word_width - 10, 10))
+        
     def blit_text(self,
                   text,
                   pos,
@@ -706,6 +714,7 @@ class Game:
             self.draw_windows_separation()
             self.print_level_name()
             self.print_trees()
+            self.print_you_won()
             self.draw_door_lines()
             self.draw_rooms()
             self.draw_switches()
@@ -848,10 +857,10 @@ class Game:
     def handle_interractions(self):
         self.pressed = pygame_key_get_pressed()
         # Gestion des actions
-        if self.maze.current_room_index == self.maze.exit_room_index and self.current_action != 'YOU WON !':
-            self.current_action = 'YOU WON !'
-            self.change_in_display = True
-            self.update_possible_actions()
+        # if self.maze.current_room_index == self.maze.exit_room_index and self.current_action != 'YOU WON !':
+        #     self.current_action = 'YOU WON !'
+        #     self.change_in_display = True
+        #     self.update_possible_actions()
         if time() - self.last_key_pressed_time > self.time_between_actions:
             self.pressed = pygame_key_get_pressed()
             for key in Game.keys_dict.keys():
@@ -860,7 +869,7 @@ class Game:
                     self.update_possible_actions()
                     self.current_action = self.current_action + Game.keys_dict[key]
                     self.last_key_pressed_time = time()
-            if self.pressed[K_RETURN] and self.current_action != '' and self.maze.current_room_index != self.maze.exit_room_index:
+            if self.pressed[K_RETURN] and self.current_action != '':# and self.maze.current_room_index != self.maze.exit_room_index:
                 self.change_in_display = True
                 self.update_possible_actions()
                 if len(self.current_action) > 0:
