@@ -14,19 +14,23 @@ def level_small():
     
     Slist = [S0, S1, S2, S3]
     
-    def tree_list_IN_BIN(n):
-        return ['IN',
-                Tree.tree_list_BIN(len(Slist))] + [[None]]*n
+    V0 = Tree(tree_list=Tree.tree_list_BIN(len(Slist)),
+              empty=True,
+              name='V0',
+              switches = Slist)
+    
+    def tree_list_IN(n):
+        return ['IN'] + [[None]]*(n+1)
     
     door_trees_list = [[i for i in range(15)]]*20
     door_trees_list = [[1, 10, 11, 12], [3, 6, 8, 14], [0, 3, 7, 8], [10, 11], [14], [1, 12], [5], [0, 7], [0, 9, 10], [6, 8], [1, 3, 6, 12], [2, 9, 11, 14], [13]]
     
     def get_tree(i):
         try:
-            return Tree(tree_list_IN_BIN(len(door_trees_list[i])),
+            return Tree(tree_list_IN(len(door_trees_list[i])),
                         empty=True,
                         name=f'T{i}',
-                        switches = Slist + door_trees_list[i],
+                        switches = [V0] + door_trees_list[i],
                         cut_expression=True)
         except IndexError:
             print(i, len(door_trees_list))
@@ -135,6 +139,7 @@ def level_small():
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3] + [RE],
+                 intermediate_values_list=[V0],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12],
                  fastest_solution='S0 D0 S1 D1 D2 S2 D7 S1 D6 S2 D10 S3 D11 S2 D12',
                  level_color=Levels_colors_list.FROM_HUE(hu=0.15, sa=0.2, li=0.8),

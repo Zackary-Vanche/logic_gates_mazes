@@ -27,8 +27,25 @@ def level_taxicab_number():
     SN1 = Switch(name='1', value=1)
     SN3 = Switch(name='3', value=3)
     
-    tree_list_INF = ['INF', Tree.tree_list_BIN(4), Tree.tree_list_BIN(4)]
-    tree_list_3 = ['POW', Tree.tree_list_BIN(4), [None]]
+    V0 = Tree(tree_list=Tree.tree_list_BIN(4),
+              empty=True,
+              name='V0',
+              switches=[S0, S1, S2, S3])
+    V1 = Tree(tree_list=Tree.tree_list_BIN(4),
+              empty=True,
+              name='V1',
+              switches=[S4, S5, S6, S7])
+    V2 = Tree(tree_list=Tree.tree_list_BIN(4),
+              empty=True,
+              name='V2',
+              switches=[S8, S9, S10, S11])
+    V3 = Tree(tree_list=Tree.tree_list_BIN(4),
+              empty=True,
+              name='V3',
+              switches=[S12, S13, S14, S15])
+    
+    tree_list_INF = ['INF', [None], [None]]
+    tree_list_3 = ['POW', [None], [None]]
     tree_list_SUM = ['SUM', tree_list_3, tree_list_3]
     tree_list_EQU = ['EQU', tree_list_SUM, tree_list_SUM]
 
@@ -39,25 +56,25 @@ def level_taxicab_number():
     T1 = Tree(tree_list=tree_list_INF,
               empty=True,
               name='T1',
-              switches = [S0, S1, S2, S3, S4, S5, S6, S7])
+              switches = [V0, V1])
     T2 = Tree(tree_list=tree_list_INF,
               empty=True,
               name='T2',
-              switches = [S0, S1, S2, S3, S8, S9, S10, S11])
+              switches = [V0, V2])
     T3 = Tree(tree_list=['AND',
                              tree_list_INF,
                              tree_list_EQU],
               empty=True,
               name='T3',
-              switches = [S8, S9, S10, S11,
-                          S12, S13, S14, S15,
-                          S0, S1, S2, S3,
+              switches = [V2,
+                          V3,
+                          V0,
                           SN3,
-                          S4, S5, S6, S7,
+                          V1,
                           SN3,
-                          S8, S9, S10, S11,
+                          V2,
                           SN3,
-                          S12, S13, S14, S15,
+                          V3,
                           SN3],
               cut_expression=True)
     
@@ -104,11 +121,12 @@ def level_taxicab_number():
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, RE],
+                 intermediate_values_list=[V0, V1, V2, V3],
                  doors_list=[D0, D1, D2, D3],
                  fastest_solution='S0 D0 S6 S7 D1 S8 S11 D2 S13 S15 D3',
                  level_color=Levels_colors_list.YELLOW_AND_BLACK,
                  name='Taxicab number',
-                 door_window_size=350,
+                 door_window_size=410,
                  keep_proportions=False)
 
     return level
