@@ -9,6 +9,9 @@ help_menus_list = {}
 help_menus_list['basis'] = '''
 D0 = S0 means : 
     D0 is open if S0 is turned on.'''
+    
+help_menus_list['V'] = '''
+The elements named V0, V1, etc. are intermediate values.'''
 
 help_menus_list['NOT'] = """
 ¬ means 'NOT'.
@@ -422,8 +425,7 @@ help_menus_list['levels']["Fluid"] = help_menus_list['Introduction thuth table']
 
 help_menus_list['levels']["Numeration"] = '\n'.join([help_menus_list['EQU'], help_menus_list['BIN']])
 
-help_menus_list['levels']["Sum"] = help_menus_list['random'] + '\n\n' + help_menus_list['IN'] + '\n\n' + \
-                                   help_menus_list['SUM']
+help_menus_list['levels']["Sum"] ='\n'.join([help_menus_list['random'], help_menus_list['V'], help_menus_list['IN'], help_menus_list['SUM']])
                                    
 help_menus_list['levels']["Equation"] = help_menus_list['MINUS']
 

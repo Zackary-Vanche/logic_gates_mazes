@@ -1,3 +1,5 @@
+from Switch import Switch
+
 class Door:
 
     def __init__(self,
@@ -30,7 +32,8 @@ class Door:
         self.tree = tree
         assert self.tree.name.replace('T', 'D') == self.name, f'{self.tree.name} {self.name}'
         for switch in self.tree.switches_list:
-            switch.add_door(self)
+            if type(switch) == Switch:
+                switch.add_door(self)
         if room_departure is not None and room_arrival is not None:
             self.set_rooms(room_departure, room_arrival)
         if self.room_arrival is not None and self.room_arrival.is_exit:

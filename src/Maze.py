@@ -29,6 +29,7 @@ class Maze:
                  exit_room_index=-1,
                  rooms_list=[],
                  doors_list=[],
+                 intermediate_values_list=[],
                  level_color=Level_color(),
                  uniform_surrounding_colors=True,
                  uniform_inside_room_color=True,
@@ -226,6 +227,8 @@ class Maze:
                     door.pages_list.append(ipage)
         self.door_multipages = door_multipages
         self.current_door_page = current_door_page
+        
+        self.intermediate_values_list = intermediate_values_list
 
     def __str__(self):
         len_line = 100

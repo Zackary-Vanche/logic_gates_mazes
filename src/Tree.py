@@ -129,7 +129,7 @@ class Tree:
         # assert not (root_depth == 0 and switches == []), name
 
         self.name = name
-        assert self.name[0] == 'T'
+        assert self.name[0] in ['T', 'V']
         self.is_leaf = None
         self.empty = empty
         # La racine sera soit un booléen si il s'agit d'une feuille, soit d'une porte logique binaire.
@@ -394,7 +394,7 @@ class Tree:
     def switch_leafs(self):
         self.empty = False
         if self.is_leaf:
-            self.root = self.switches_list[0].value
+            self.root = self.switches_list[0].get_value()
             self.switches_list = [self.switches_list[0]]
         else:
             nb_switches_sum = 0

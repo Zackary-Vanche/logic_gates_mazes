@@ -395,60 +395,29 @@ class Game:
             self.gap_between_lines = min(
                 (self.WINDOW_HEIGHT - self.maze.y_separation - 50) / (self.n_lines_door_printing), 25)
             gap = self.y_separation + 10
+            name_tree_list = []
+            for tree in self.maze.intermediate_values_list:
+                name_tree_list.append([tree.name, tree])
             for k in range(len(self.doors_list)): # loop on the doors
                 door = self.doors_list[k]
-                if self.maze.current_page in door.pages_list:
-                    tree = door.tree
-                    str_logical_expression = tree.get_easy_logical_expression_PN()
-                    if str_logical_expression == '1' and self.maze.do_not_write_trees_always_open:
-                        continue
-                    str_logical_expression = str_logical_expression.split('\n')
-                    # if k == 0:
-                    #     print('')
-                    all_trees_expressions = []
-                    for i in range(len(str_logical_expression)):
-                        string = str_logical_expression[i]
-                        if i == 0:
-                            string = door.name + ' = ' + string
-                        else:
-                            string = ' ' * (len(door.name) + 3) + string
-                        all_trees_expressions.append(string)
-                        # logical_expression_render = self.font.render(string,
-                        #                                              True,
-                        #                                              self.inside_room_color)
-                        # self.WINDOW.blit(logical_expression_render, (self.x_separation + 10, gap))
-                        # gap += self.gap_between_lines
-                    all_trees_expressions = ' \n '.join(all_trees_expressions)
-                    xmax, gap = self.blit_text(all_trees_expressions,
-                                               pos=((self.x_separation + 10, gap)),
-                                               max_width=self.door_window_size - 40)
-                    # print(xmax - self.x_separation,
-                    #       self.maze.door_window_size)
-                    # if xmax - self.x_separation > self.maze.door_window_size*1.25:
-                    #     if self.maze.door_window_size > 400:
-                    #         print(self.maze.name)
-                        # word_list = string.split(' ') # TODO
-                        # line_list = []
-                        # current_line = " "
-                        # for word in word_list:
-                        #     # print(current_line)
-                        #     # print(self.font.size(current_line))
-                        #     # print(self.door_window_size - 15)
-                        #     # print(line_list)
-                        #     # print('')
-                        #     if self.font.size(current_line)[0] > self.door_window_size - 15:
-                        #         line_list.append(current_line)
-                        #         current_line = ""
-                        #     current_line = current_line + " " + word
-                        # line_list.append(current_line)
-                        # print(line_list)
-                        # # assert False
-                        # for line in line_list:
-                        #     logical_expression_render = self.font.render(string,
-                        #                                                  True,
-                        #                                                  self.inside_room_color)
-                        #     self.WINDOW.blit(logical_expression_render, (self.x_separation + 10, gap))
-                        #     gap += self.gap_between_lines
+                tree = door.tree
+                name_tree_list.append([door.name, tree])
+            for c in name_tree_list:
+                [name, tree] = c
+                str_logical_expression = tree.get_easy_logical_expression_PN()
+                str_logical_expression = str_logical_expression.split('\n')
+                all_trees_expressions = []
+                for i in range(len(str_logical_expression)):
+                    string = str_logical_expression[i]
+                    if i == 0:
+                        string = name + ' = ' + string
+                    else:
+                        string = ' ' * (len(door.name) + 3) + string
+                    all_trees_expressions.append(string)
+                all_trees_expressions = ' \n '.join(all_trees_expressions)
+                xmax, gap = self.blit_text(all_trees_expressions,
+                                           pos=((self.x_separation + 10, gap)),
+                                           max_width=self.door_window_size - 40)
 
     def draw_rooms(self):
         # Affichage des pieces

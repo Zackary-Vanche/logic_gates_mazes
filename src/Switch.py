@@ -28,6 +28,9 @@ class Switch:
         if update_doors:
             for door in self.doors_set:
                 door.update_open()
+                
+    def get_value(self):
+        return self.value
 
     def __str__(self):
         txt = ''

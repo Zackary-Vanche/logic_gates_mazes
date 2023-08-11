@@ -18,16 +18,22 @@ def level_sum():
     S4 = Switch(name='S4')
     
     Slist = [S0, S1, S2, S3, S4]
+    Slist_sum = [S1, S2, S3, S4]
     
     assert len(Slist) == n_switches
     
+    V0 = Tree(tree_list=['SUM'] + [[None]] * 4,
+              empty=True,
+              name='V0',
+              switches=Slist_sum)
+    
     def tree_sum(i, name='T'):
         return Tree(['EQU',
-                     ['SUM'] + [[None]] * 4,
+                     [None],
                      [None]],
                      empty=True,
                      name=name,
-                     switches = [S1, S2, S3, S4, i],
+                     switches = [V0, i],
                      cut_expression=True,
                      cut_expression_separator=')')
     
@@ -136,7 +142,8 @@ def level_sum():
                  keep_proportions=True,
                  y_separation=40,
                  border=40,
-                 random=True)
+                 random=True,
+                 intermediate_values_list=[V0])
     
     return level
 
