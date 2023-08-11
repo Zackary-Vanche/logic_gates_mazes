@@ -13,20 +13,25 @@ def level_congruence():
     S3 = Switch(name='S3')
     S4 = Switch(name='S4')
     S5 = Switch(name='S5')
+    
+    V0 = Tree(tree_list=Tree.tree_list_BIN(6),
+              empty=True,
+              name='V0',
+              switches=[S0, S1, S2, S3, S4, S5])
 
     tree_list_0 = ['EQU',
                    ['MOD',
-                    Tree.tree_list_BIN(6),
+                    [None],
                     [None]],
                    [None]]
 
     T0 = Tree(tree_list=['AND', tree_list_0, tree_list_0],
               empty=True,
               name='T0',
-              switches=[S0, S1, S2, S3, S4, S5,
+              switches=[V0,
                         Switch(value=7),
                         Switch(value=6),
-                        S0, S1, S2, S3, S4, S5,
+                        V0,
                         Switch(value=8),
                         Switch(value=7)],
               cut_expression_depth_1=True)
@@ -50,6 +55,7 @@ def level_congruence():
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, RE],
+                 intermediate_values_list=[V0],
                  doors_list=[D0],
                  fastest_solution='S0 S1 S2 S4 S5 D0',
                  level_color=Levels_colors_list.FROM_HUE(0.83, sa=0.3, li=0.6),
