@@ -356,7 +356,7 @@ Instead of taping the action you want to do, you can see the possibles actions b
 """
 
 help_menus_list['go in a room'] = """
-To go directly in a room, you can type its name (if it is possible for you to go there). The exit room is called RE."""
+To go directly in a room, you can type its name (if it is possible for you to go there). The exit room is called "EXIT" or "RE"."""
 
 help_menus_list['reminder B'] = """
 [Reminder] : To start the level again from the beginning, press [B]."""
