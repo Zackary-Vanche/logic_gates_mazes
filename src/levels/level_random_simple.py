@@ -15,11 +15,16 @@ def aux_level_random_simple(door_trees_list = [[i for i in range(2**4)] for j in
     
     Slist = [S0, S1, S2, S3]
     
+    V0 = Tree(tree_list=Tree.tree_list_BIN(len(Slist)),
+              empty=True,
+              name='V0',
+              switches = Slist)
+    
     def get_tree(i):
-        return Tree(['IN', Tree.tree_list_BIN(len(Slist))] + [[None]]*len(door_trees_list[i]),
+        return Tree(['IN', [None]] + [[None]]*len(door_trees_list[i]),
                     empty=True,
                     name=f'T{i}',
-                    switches = Slist + door_trees_list[i],
+                    switches = [V0] + door_trees_list[i],
                     cut_expression=True,
                     cut_expression_separator=')')
     
@@ -73,6 +78,7 @@ def aux_level_random_simple(door_trees_list = [[i for i in range(2**4)] for j in
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3] + [RE],
+                 intermediate_values_list=[V0],
                  doors_list=[D0, D1, D2, D3, D4],
                  fastest_solution=None,
                  level_color=Levels_colors_list.RANDOM(),
