@@ -160,10 +160,6 @@ class Tree:
                 self.switches_list[i] = Switch(value=self.switches_list[i])
             if self.switches_list[i] is None:
                 self.switches_list[i] = Switch(value=None)
-        for switch in self.switches_list:
-            switch.tree = self
-            if self.door != None:
-                switch.add_door(self.door)
         self.same_switches_list = []
 
         assert isinstance(tree_list, list), self.name

@@ -29,12 +29,29 @@ def level_congruence():
               empty=True,
               name='T0',
               switches=[V0,
-                        Switch(value=7),
-                        Switch(value=6),
+                        7,
+                        6,
                         V0,
-                        Switch(value=8),
-                        Switch(value=7)],
+                        8,
+                        7],
               cut_expression_depth_1=True)
+    
+    # tree_list_0 = ['EQU',
+    #                ['MOD',
+    #                 Tree.tree_list_BIN(6),
+    #                 [None]],
+    #                [None]]
+
+    # T0 = Tree(tree_list=['AND', tree_list_0, tree_list_0],
+    #           empty=True,
+    #           name='T0',
+    #           switches=[S0, S1, S2, S3, S4, S5,
+    #                     7,
+    #                     6,
+    #                     S0, S1, S2, S3, S4, S5,
+    #                     8,
+    #                     7],
+    #           cut_expression_depth_1=True)
 
     R0 = Room(name='R0',
               position=[0, 0, 0.5, 6],

@@ -31,9 +31,14 @@ class Door:
         self.two_way = two_way
         self.tree = tree
         assert self.tree.name.replace('T', 'D') == self.name, f'{self.tree.name} {self.name}'
-        for switch in self.tree.switches_list:
-            if type(switch) == Switch:
-                switch.add_door(self)
+        to_update_list = self.tree.switches_list[:]
+        while len(to_update_list) != 0: # recursive loop to update every switch
+            x = to_update_list.pop(0)
+            if type(x) == Switch: # It is a switch
+                x.add_door(self)
+            else: # It is a tree
+                for y in x.switches_list:
+                    to_update_list.append(y)
         if room_departure is not None and room_arrival is not None:
             self.set_rooms(room_departure, room_arrival)
         if self.room_arrival is not None and self.room_arrival.is_exit:

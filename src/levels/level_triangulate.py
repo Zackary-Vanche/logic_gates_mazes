@@ -19,34 +19,40 @@ def level_triangulate():
     S7 = Switch(name='S7', value=v)
     S8 = Switch(name='S8', value=v)
     S9 = Switch(name='S9')
-
-    SN1 = Switch(value=1)
-
-    tree_list_BIN_5 = Tree.tree_list_BIN(5)
+    
+    V0 = Tree(tree_list=Tree.tree_list_BIN(5),
+              empty=True,
+              name='V0',
+              switches=[S0, S1, S2, S3, S4])
+    V1 = Tree(tree_list=Tree.tree_list_BIN(5),
+              empty=True,
+              name='V1',
+              switches=[S5, S6, S7, S8, S9])
+    
+    t_aux = ['DIST', [None], [None], [None], [None]]
 
     T0 = Tree(tree_list=['AND',
-                         ['SUPOREQU', [None], ['DIST', tree_list_BIN_5, tree_list_BIN_5, [None], [None]]],
-                         ['SUPOREQU', [None], ['DIST', tree_list_BIN_5, tree_list_BIN_5, [None], [None]]],
-                         ['SUP', [None], ['DIST', tree_list_BIN_5, tree_list_BIN_5, [None], [None]]]],
+                         ['SUPOREQU', [None], t_aux],
+                         ['SUPOREQU', [None], t_aux],
+                         ['SUP', [None], t_aux]],
               empty=True,
               name='T0',
               switches=[Switch(value=2),
-                        S0, S1, S2, S3, S4,
-                        S5, S6, S7, S8, S9,
+                        V0,
+                        V1,
                         Switch(value=7), Switch(value=12),
 
                         Switch(value=3),
-                        S0, S1, S2, S3, S4,
-                        S5, S6, S7, S8, S9,
+                        V0,
+                        V1,
                         Switch(value=7), Switch(value=10),
 
                         Switch(value=4),
-                        S0, S1, S2, S3, S4,
-                        S5, S6, S7, S8, S9,
+                        V0,
+                        V1,
                         Switch(value=9), Switch(value=16),
                         ],
-              cut_expression=True,
-              cut_expression_separator=']')
+              cut_expression_depth_1=True)
 
     R0 = Room(name='R0',
               position=[0, 0, 5, 2],
@@ -66,6 +72,7 @@ def level_triangulate():
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, RE],
+                 intermediate_values_list=[V0, V1],
                  doors_list=[D0],
                  fastest_solution='S0 S1 S2 S5 S7 S8 D0',
                  level_color=Levels_colors_list.FROM_HUE(hu=0, sa=0.3, li=0.7),
