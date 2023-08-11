@@ -79,7 +79,7 @@ class Game:
                  index_help_page=0,
                  show_loop_time=False,
                  update_display_at_every_loop=False,
-                 sleep_time=1e-3,
+                 sleep_time=1e-2,
                  game_color=None): # if game_color is not None, it overwrites the levels colors
         if WINDOW_SIZE is None or SMALLEST_WINDOW_SIZE is None:
             from pyautogui import size as pyautogui_size
