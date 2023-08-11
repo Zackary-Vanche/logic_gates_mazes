@@ -24,11 +24,29 @@ def level_sorted():
     S13 = Switch(name='S13')
     S14 = Switch(name='S14')
     
-    Slist = [S0, S1, S2,
-             S3, S4, S5,
-             S6, S7, S8,
-             S9, S10, S11,
-             S12, S13, S14]
+    V0 = Tree(tree_list=Tree.tree_list_BIN(3),
+                empty=True,
+                name='V0',
+                switches=[S0, S1, S2])
+    V1 = Tree(tree_list=Tree.tree_list_BIN(3),
+                empty=True,
+                name='V1',
+                switches=[S3, S4, S5])
+    V2 = Tree(tree_list=Tree.tree_list_BIN(3),
+                empty=True,
+                name='V2',
+                switches=[S6, S7, S8])
+    V3 = Tree(tree_list=Tree.tree_list_BIN(3),
+                empty=True,
+                name='V3',
+                switches=[S9, S10, S11])
+    V4 = Tree(tree_list=Tree.tree_list_BIN(3),
+                empty=True,
+                name='V4',
+                switches=[S12, S13, S14])
+    
+    Slist = [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14]
+    Vlist = [V0, V1, V2, V3, V4]
 
     R0 = Room(name='R0',
                 position=[0, 0, 2, 4],
@@ -44,14 +62,14 @@ def level_sorted():
     rd_shuffle(Slist)
     rd_shuffle(i_list)
     
-    T0 = Tree(tree_list=['EQUSET'] + [Tree.tree_list_BIN(3)]*5 + [[None]]*5,
+    T0 = Tree(tree_list=['EQUSET'] + [[None]]*5 + [[None]]*5,
                 empty=True,
                 name='T0',
-                switches=Slist + i_list)
-    T1 = Tree(tree_list=['INF'] + [Tree.tree_list_BIN(3)]*5,
+                switches=Vlist + i_list)
+    T1 = Tree(tree_list=['INF'] + [[None]]*5,
                 empty=True,
                 name='T1',
-                switches=Slist)
+                switches=Vlist)
 
     D0 = Door(two_way=False,
                 tree=T0,
@@ -68,6 +86,7 @@ def level_sorted():
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, RE],
+                 intermediate_values_list=Vlist,
                  doors_list=[D0, D1],
                  fastest_solution=None,
                  level_color=Levels_colors_list.FROM_HUE(hu=0.75, sa=0.5, li=0.4),
