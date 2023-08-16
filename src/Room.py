@@ -1,7 +1,7 @@
 from numpy import ceil, sqrt
 from linear_function import linear_function
 from powerset import powerset
-
+from Switch import Switch
 
 class Room:
 
@@ -28,6 +28,7 @@ class Room:
         self.switches_list = switches_list
         self.switches_list.sort(key=lambda x: [len(x.name), x.name])
         for switch in self.switches_list:
+            assert type(switch) == Switch
             switch.room = self
         if isinstance(position, list):
             self.position = {0: position}

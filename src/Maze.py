@@ -146,7 +146,7 @@ class Maze:
             T.switch_leafs()
         self.initial_switches_values = []
         for switch in self.switches_list:
-            self.initial_switches_values.append(switch.value)
+            self.initial_switches_values.append(switch.get_value())
         self.possibles_actions_list = []
         for switch in self.switches_set:
             self.possibles_actions_list.append(switch.name)
@@ -228,7 +228,9 @@ class Maze:
         self.door_multipages = door_multipages
         self.current_door_page = current_door_page
         
-        self.intermediate_values_list = intermediate_values_list
+        self.intermediate_values_list = intermediate_values_list[:]
+        intermediate_values_names = [x.name for x in intermediate_values_list]
+        assert len(set(intermediate_values_names)) == len(intermediate_values_names)
 
     def __str__(self):
         len_line = 100

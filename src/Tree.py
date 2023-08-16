@@ -164,7 +164,7 @@ class Tree:
 
         assert isinstance(tree_list, list), self.name
 
-        if len(tree_list) == 1:
+        if len(tree_list) in [1]:
             self.root = tree_list[0]
             self.is_leaf = True
         else:
