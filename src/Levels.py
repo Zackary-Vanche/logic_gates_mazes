@@ -582,6 +582,12 @@ if __name__ == "__main__":
     
     # sol = 'S0 S1 S2 S4 S5 S7 S10 S13 S16 D0 S18 D1 S19 D3 S20 D6 S21 D6 D8 S24 D8 D3 D5 S23 D14 S26 D14 D5 D1 D2 S22 D11 S25 D17 S27 D19'
     # level_minimum_spanning_tree().try_solution(sol, verbose=2)
+    
+    solutions = level_flash_back().find_all_solutions(verbose=2,
+                                                    nb_iterations_print=10**4,
+                                                    stop_at_first_solution=False)
+    for sol in solutions[0]:
+        print(' '.join(sol))
 
     solutions = level_cartesian().find_all_solutions(verbose=2,
                                                     nb_iterations_print=10**4,

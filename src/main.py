@@ -19,7 +19,7 @@ if __name__ == "__main__":
     # 140 141 142 143 144 145 146 147 
 
     Game(show_help=0,
-         index_current_level=83, 
+         index_current_level=86, 
          is_fullscreen=0,
          # WINDOW_SIZE=None,
          # SMALLEST_WINDOW_SIZE=None,

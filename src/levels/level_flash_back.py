@@ -14,9 +14,15 @@ def level_flash_back():
     S3 = Switch(name='S3')
     S4 = Switch(name='S4')
     S5 = Switch(name='S5')
-
-    Slist0 = [S0, S1, S2]
-    Slist1 = [S3, S4, S5]
+    
+    V0 = Tree(tree_list=Tree.tree_list_BIN(3),
+              empty=True,
+              name='V0',
+              switches=[S0, S1, S2])
+    V1 = Tree(tree_list=Tree.tree_list_BIN(3),
+              empty=True,
+              name='V1',
+              switches=[S3, S4, S5])
 
     vlist = [1, 2, 3, 4, 5, 6, 7]
     rd_shuffle(vlist)
@@ -24,9 +30,9 @@ def level_flash_back():
 
     def tree_list_IN(k):
         if k == 1:
-            return ['EQU', Tree.tree_list_BIN(3), [None]]
+            return ['EQU', [None], [None]]
         else:
-            return ['IN', Tree.tree_list_BIN(3)] + [[None]]*k
+            return ['IN', [None]] + [[None]]*k
 
     tree_list_1 = ['OR']
     Slist_tree1 = []
@@ -34,22 +40,22 @@ def level_flash_back():
         tree_list_1.append(['AND',
                             tree_list_IN(1),
                             tree_list_IN(min(i+2, 8))])
-        Slist_tree1.extend(Slist0 + [vlist[i]] + Slist1 + sorted(vlist[:i+2]))
+        Slist_tree1.extend([V0, vlist[i], V1] + sorted(vlist[:i+2]))
 
+    T0 = Tree(tree_list=['EQU'] + [[None]]*2,
+              empty=True,
+              name='T0',
+              switches=[V0, V1])
     T1 = Tree(tree_list=tree_list_1,
               empty=True,
               name='T1',
               switches=Slist_tree1,
               cut_expression=True,
               cut_expression_separator=']')
-    T0 = Tree(tree_list=['EQU'] + [Tree.tree_list_BIN(3)]*2,
-              empty=True,
-              name='T0',
-              switches=[S0, S1, S2, S3, S4, S5])
     T2 = Tree(tree_list=['AND', tree_list_IN(1), tree_list_IN(1)],
               empty=True,
               name='T2',
-              switches=Slist0 + [vlist[-1]] + Slist1 + [vlist[-1]])
+              switches=[V0, vlist[-1], V1, vlist[-1]])
 
     ex = 1/2
     ey = 1/2
@@ -57,10 +63,10 @@ def level_flash_back():
 
     R0 = Room(name='R0',
               position=[0, 0, ex, 5],
-              switches_list=Slist0)
+              switches_list=[S0, S1, S2])
     R1 = Room(name='R1',
               position=[dx, 0, ex, 5],
-              switches_list=Slist1)
+              switches_list=[S3, S4, S5])
     RE = Room(name='RE',
               position=[0, 6, dx+ex, ey],
               is_exit=True)  # E pour exit ou end
