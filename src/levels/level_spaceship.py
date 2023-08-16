@@ -32,40 +32,61 @@ def level_spaceship():
     S14 = Switch(name='S14')
     S15 = Switch(name='S15', value=v)
     
-    tree_list_0 = ['AND', Tree.tree_list_not, ['EQU', Tree.tree_list_BIN(3), Tree.tree_list_BIN(3)]]
-    tree_list_1 = ['AND', [None], ['EQU', Tree.tree_list_BIN(3), Tree.tree_list_BIN(3)]]
+    tree_list_0 = ['AND', Tree.tree_list_not, ['EQU', [None], [None]]]
+    tree_list_1 = ['AND', [None], ['EQU', [None], [None]]]
+    
+    V0 = Tree(tree_list=Tree.tree_list_BIN(3),
+              empty=True,
+              name='V0',
+              switches=[S1, S2, S3])
+    V1 = Tree(tree_list=Tree.tree_list_BIN(3),
+              empty=True,
+              name='V1',
+              switches=[S4, S5, S6])
+    V2 = Tree(tree_list=Tree.tree_list_BIN(3),
+              empty=True,
+              name='V2',
+              switches=[S7, S8, S9])
+    V3 = Tree(tree_list=Tree.tree_list_BIN(3),
+              empty=True,
+              name='V3',
+              switches=[S10, S11, S12])
+    V4 = Tree(tree_list=Tree.tree_list_BIN(3),
+              empty=True,
+              name='V4',
+              switches=[S13, S14, S15])
 
     T0 = Tree(tree_list=Tree.tree_list_not,
               empty=True, name='T0',
               switches=[S0])
     T1 = Tree(tree_list=tree_list_0,
               empty=True, name='T1',
-              switches=[S0, S1, S2, S3, S4, S5, S6])
+              switches=[S0, V0, V1])
     T2 = Tree(tree_list=tree_list_0,
               empty=True, name='T2',
-              switches=[S0, S4, S5, S6, S10, S11, S12])
+              switches=[S0, V1, V3])
     T3 = Tree(tree_list=tree_list_0,
               empty=True, name='T3',
-              switches=[S0, S10, S11, S12, S13, S14, S15])
+              switches=[S0, V3, V4])
     T4 = Tree(tree_list=[None],
               empty=True, name='T4',
               switches=[S0])
     T5 = Tree(tree_list=tree_list_1,
               empty=True, name='T5',
-              switches=[S0, S7, S8, S9, S1, S2, S3])
+              switches=[S0, V2, V0])
     T6 = Tree(tree_list=tree_list_1,
               empty=True, name='T6',
-              switches=[S0, S1, S2, S3, S10, S11, S12])
+              switches=[S0, V0, V3])
     T7 = Tree(tree_list=tree_list_1,
               empty=True, name='T7',
-              switches=[S0, S10, S11, S12, S4, S5, S6])
+              switches=[S0, V3, V1])
     T8 = Tree(tree_list=tree_list_1,
               empty=True, name='T8',
-              switches=[S0, S4, S5, S6, S13, S14, S15])
-    T9 = Tree(tree_list=['EQUSET'] + [Tree.tree_list_BIN(3)]*5 + [[None]]*5,
+              switches=[S0, V1, V4])
+    T9 = Tree(tree_list=['EQUSET'] + [[None]]*10,
               empty=True,
               name='T9',
-              switches=[S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15,
+              switches=[V0, V1, V2, V3, V4,
                          0, 1, 2, 3, 4],
                cut_expression=True)
     T10 = Tree(tree_list=Tree.tree_list_from_str('1001110000010100'),
@@ -176,6 +197,6 @@ def level_spaceship():
                  level_color=color,
                  name='Spaceship',
                  border=50,
-                 door_window_size=350,
+                 door_window_size=300,
                  keep_proportions=False)
     return level
