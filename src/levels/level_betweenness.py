@@ -43,8 +43,12 @@ def level_betweenness():
 
     tree_list_0 = ['EQU', [None], ['SUM'] + [[None]] * 4, ]
 
-    Slist = [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22,
-             S23]
+    Slist = [S0, S1, S2, S3,
+             S4, S5, S6, S7,
+             S8, S9, S10, S11,
+             S12, S13, S14, S15,
+             S16, S17, S18, S19,
+             S20, S21, S22, S23]
 
     T0 = Tree(tree_list=tree_list_0,
               empty=True,
@@ -154,7 +158,7 @@ def level_betweenness():
                  fastest_solution='S0 S2 D0 S4 S5 D1 S10 S11 D2 S13 S15 D3 S17 S18 D4 S20 S23 D5',
                  level_color=Levels_colors_list.FROM_HUE(0.57, sa=0.3, li=0.5),
                  name='Betweenness',
-                 door_window_size=300,
+                 door_window_size=333,
                  keep_proportions=True)
 
     return level
