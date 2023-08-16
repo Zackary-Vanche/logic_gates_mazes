@@ -148,7 +148,6 @@ def level_dichotomy():
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3] + [RE],
-                 intermediate_values_list=[V0, V1, V2],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6],
                  fastest_solution=None,
                  level_color=Levels_colors_list.PURPLE_AND_GREY,

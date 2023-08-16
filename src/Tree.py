@@ -132,27 +132,11 @@ class Tree:
         assert self.name[0] in ['T', 'V']
         self.is_leaf = None
         self.empty = empty
-        # La racine sera soit un booléen si il s'agit d'une feuille, soit d'une porte logique binaire.
+        # La racine sera soit un booléen si il s'agit d'une feuille, soit une porte logique binaire.
         self.root = None
         self.sons_list = []
         self.door = None
         self.root_depth = root_depth
-
-        # Chaque interrupteur actionne plusieurs feuilles.
-        # Soit la liste des interrupteurs est vide,
-        # soit c'est une liste de liste qui contient toutes les feuilles.
-        # Les feuilles sont alors répertoriées par leurs numéros.
-
-        # Chaque feuille est actionnée par un interrupteur.
-        # Deux feuilles ou plus peuvent être actionnées par le même interrupteur.
-        # Si la liste des interrupteurs est vide, on ne les prend pas en compte.
-
-        # Deux listes sont attachées à un arbre et expliquent ses interrupteurs.
-        # La première est same_switches_list.
-        # C'est une liste de liste.
-        # Si deux indices sont dans la même sous-liste de self.same_switches_list,
-        # cela signifie que les feuilles correspondantes sont actionnées par le même interrupteur.
-        # La deuxième est switches_list.
 
         self.switches_list = switches[:]
         for i in range(len(self.switches_list)):
@@ -160,7 +144,8 @@ class Tree:
                 self.switches_list[i] = Switch(value=self.switches_list[i])
             if self.switches_list[i] is None:
                 self.switches_list[i] = Switch(value=None)
-        self.same_switches_list = []
+        
+        self.all_switches_list = self.switches_list[:]
 
         assert isinstance(tree_list, list), self.name
 
@@ -447,7 +432,6 @@ class Tree:
             for son in self.sons_list:
                 son, new_leafs_list = son.copy(new_leafs_list, root_depth + 1)
                 T.sons_list.append(son)
-        T.same_switches_list = self.same_switches_list
         if root_depth != 0:
             return T, new_leafs_list
         else:
@@ -479,17 +463,6 @@ class Tree:
             else:
                 possibilities_list.append(0)
         return array(possibilities_list)
-
-    def switch_configuration_possible(self):
-        leafs_list = self.leafs_list()
-        switches = self.same_switches_list
-        for i in range(len(switches)):
-            l_switch = []
-            for j in switches[i]:
-                l_switch.append(leafs_list[j])
-            if 1 in l_switch and 0 in l_switch:
-                return False
-        return True
 
     def number_of_1_in_truth_table(self):
         table = self.truth_table()
@@ -549,7 +522,6 @@ class Tree:
             txt += "\n|   Number of leafs : {}".format(self.number_of_leafs)
             txt += "\n|   depth of the Tree : {}".format(self.get_depth())
         if self.root_depth == 0:
-            txt += '\n|   Same switches list :\n|      {}'.format(self.same_switches_list)
             txt += '\n|   Switches list :\n|      {}'.format([switch.name for switch in self.switches_list])
         return txt
 
@@ -566,14 +538,3 @@ class Tree:
                 for son in self.sons_list:
                     self_list.append(self.son.to_list())
                 return self_list
-
-    def update_same_switches_list(self):
-        if self.switches_list != []:
-            same_switches_set = set()
-            for i in range(self.switches_list):
-                l = []
-                for j in range(self.switches_list):
-                    if self.switches_list[i] == self.switches_list[j]:
-                        l.append(j)
-                same_switches_set.append(l)
-            self.same_switches_list = list(same_switches_set)

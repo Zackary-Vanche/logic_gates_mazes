@@ -134,7 +134,6 @@ def level_sum():
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4] + [RE],
-                 intermediate_values_list=[V0],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11],
                  fastest_solution=None,
                  level_color=Levels_colors_list.RANDOM(),

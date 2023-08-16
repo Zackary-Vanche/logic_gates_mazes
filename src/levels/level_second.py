@@ -95,12 +95,9 @@ def level_second():
               room_departure=R2,
               room_arrival=RE)
 
-    rp = 1/2
-
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2] + [RE],
-                 intermediate_values_list=[V0, V1, V2],
                  doors_list=[D0, D1, D2],
                  fastest_solution=None,
                  level_color=Levels_colors_list.FROM_HUE(hu=0, sa=0.2, li=0.4),

@@ -128,7 +128,6 @@ def level_superpermutation():
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5] + [RE],
-                 intermediate_values_list=[V0, V1, V2, V3, V4, V5],
                  doors_list=[D0, D1, D2, D3, D4, D5],
                  fastest_solution='S0 S3 S4 S6 S7 S9 S10 D0 D1 D2 D3 D4 D5',
                  level_color=Levels_colors_list.FROM_HUE(hu=0.55, sa=1, li=0.35),

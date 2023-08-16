@@ -164,7 +164,6 @@ def level_elementary():
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4] + [RE],
-                 intermediate_values_list=[V0, V1, V2, V3, V4],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9],
                  fastest_solution='S0 D0 S2 D1 S4 S5 D4 S6 D7 S8 S9 D8 D0 S2 S3 D1 S4 D4 S7 D5 D0 S2 D1 S4 D2 S0 S1 D9',
                  level_color=Levels_colors_list.FROM_HUE(hu=0.15, sa=1, li=0.9),

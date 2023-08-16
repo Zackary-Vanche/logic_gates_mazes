@@ -72,7 +72,6 @@ def level_triangulate():
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, RE],
-                 intermediate_values_list=[V0, V1],
                  doors_list=[D0],
                  fastest_solution='S0 S1 S2 S5 S7 S8 D0',
                  level_color=Levels_colors_list.FROM_HUE(hu=0, sa=0.3, li=0.7),

@@ -121,7 +121,6 @@ def level_taxicab_number():
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, RE],
-                 intermediate_values_list=[V0, V1, V2, V3],
                  doors_list=[D0, D1, D2, D3],
                  fastest_solution='S0 D0 S6 S7 D1 S8 S11 D2 S13 S15 D3',
                  level_color=Levels_colors_list.YELLOW_AND_BLACK,

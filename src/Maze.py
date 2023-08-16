@@ -18,6 +18,9 @@ from os import mkdir as os_mkdir
 from os import remove as os_remove
 from os import listdir as os_listdir
 
+from Tree import Tree
+from Door import Door
+from Switch import Switch
 
 class Maze:
     # Fonctions de creation et de manipulation des differents niveaux
@@ -29,7 +32,6 @@ class Maze:
                  exit_room_index=-1,
                  rooms_list=[],
                  doors_list=[],
-                 intermediate_values_list=[],
                  level_color=Level_color(),
                  uniform_surrounding_colors=True,
                  uniform_inside_room_color=True,
@@ -228,9 +230,22 @@ class Maze:
         self.door_multipages = door_multipages
         self.current_door_page = current_door_page
         
-        self.intermediate_values_list = intermediate_values_list[:]
-        intermediate_values_names = [x.name for x in intermediate_values_list]
-        assert len(set(intermediate_values_names)) == len(intermediate_values_names)
+        self.intermediate_values_list = []
+        
+        list_to_visit = self.doors_list[:]
+        while len(list_to_visit) != 0:
+            # print(list_to_visit)
+            x = list_to_visit.pop(0)
+            if type(x) == Door:
+                list_to_visit.extend(x.tree.all_switches_list)
+            if type(x) == Tree:
+                self.intermediate_values_list.append(x)
+        self.intermediate_values_list = list(set(self.intermediate_values_list))
+        
+        self.intermediate_values_list.sort(key = lambda x : int(x.name[1:]))
+        
+        intermediate_values_names = [t.name for t in self.intermediate_values_list]
+        assert len(intermediate_values_names) == len(set(intermediate_values_names))
 
     def __str__(self):
         len_line = 100
