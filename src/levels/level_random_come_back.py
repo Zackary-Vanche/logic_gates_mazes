@@ -21,12 +21,18 @@ def aux_level_random_come_back(door_trees_list = [[i for i in range(2**n_switche
     
     assert len(Slist) == n_switches
     
+    V0 = Tree(tree_list=Tree.tree_list_BIN(len(Slist)),
+              empty=True,
+              name='V0',
+              switches = Slist)
+    
     def get_tree(i):
-        return Tree(['IN', Tree.tree_list_BIN(len(Slist))] + [[None]]*len(door_trees_list[i]),
+        return Tree(['IN', [None]] + [[None]]*len(door_trees_list[i]),
                      empty=True,
                      name=f'T{i}',
-                     switches = Slist + door_trees_list[i],
-                     cut_expression=True)
+                     switches = [V0] + door_trees_list[i],
+                     cut_expression=True,
+                     cut_expression_separator=')')
     
     position_R0 = [4, 3, 2, 2]
     position_R1 = [8, 6, 2, 2]
