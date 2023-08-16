@@ -28,17 +28,22 @@ def level_lights_out():
     S16 = Switch(name='S16', value=rd_choice([0, 1]))
     S17 = Switch(name='S17', value=rd_choice([0, 1]))
     
-    Slist = [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17]
-    
     t0 = Tree.tree_list_not
     t1 = [None]
+    
+    V0 = Tree(tree_list=Tree.tree_list_BIN(9),
+              empty=True,
+              name='V0',
+              switches=[S9, S10, S11, S12, S13, S14, S15, S16, S17])
+    
+    Slist = [S0, S1, S2, S3, S4, S5, S6, S7, S8, V0]
 
     T0 = Tree(tree_list=['EQU',
                          ['BIN',
                           t0, t0, t1,
                           t0, t1, t1,
                           t1, t1, t1],
-                         Tree.tree_list_BIN(9)],
+                         [None]],
                 empty=True,
                 name='T0',
                 switches=Slist)
@@ -47,7 +52,7 @@ def level_lights_out():
                           t0, t0, t0,
                           t1, t0, t1,
                           t1, t1, t1],
-                         Tree.tree_list_BIN(9)],
+                         [None]],
                 empty=True,
                 name='T1',
                 switches=Slist)
@@ -56,7 +61,7 @@ def level_lights_out():
                           t1, t0, t0,
                           t1, t1, t0,
                           t1, t1, t1],
-                         Tree.tree_list_BIN(9)],
+                         [None]],
                 empty=True,
                 name='T2',
                 switches=Slist)
@@ -65,7 +70,7 @@ def level_lights_out():
                           t0, t1, t1,
                           t0, t0, t1,
                           t0, t1, t1],
-                         Tree.tree_list_BIN(9)],
+                         [None]],
                 empty=True,
                 name='T3',
                 switches=Slist)
@@ -74,7 +79,7 @@ def level_lights_out():
                           t1, t0, t1,
                           t0, t0, t0,
                           t1, t0, t1],
-                         Tree.tree_list_BIN(9)],
+                         [None]],
                 empty=True,
                 name='T4',
                 switches=Slist)
@@ -83,7 +88,7 @@ def level_lights_out():
                           t1, t1, t0,
                           t1, t0, t0,
                           t1, t1, t0],
-                         Tree.tree_list_BIN(9)],
+                         [None]],
                 empty=True,
                 name='T5',
                 switches=Slist)
@@ -92,7 +97,7 @@ def level_lights_out():
                           t1, t1, t1,
                           t0, t1, t1,
                           t0, t0, t1],
-                         Tree.tree_list_BIN(9)],
+                         [None]],
                 empty=True,
                 name='T6',
                 switches=Slist)
@@ -101,7 +106,7 @@ def level_lights_out():
                           t1, t1, t1,
                           t1, t0, t1,
                           t0, t0, t0],
-                         Tree.tree_list_BIN(9)],
+                         [None]],
                 empty=True,
                 name='T7',
                 switches=Slist)
@@ -110,18 +115,18 @@ def level_lights_out():
                           t1, t1, t1,
                           t1, t1, t0,
                           t1, t0, t0],
-                         Tree.tree_list_BIN(9)],
+                         [None]],
                 empty=True,
                 name='T8',
                 switches=Slist)
-    T9 = Tree(tree_list=['EQU', Tree.tree_list_BIN(9), Tree.tree_list_BIN(9)],
+    T9 = Tree(tree_list=['EQU', Tree.tree_list_BIN(9), [None]],
                 empty=True,
                 name='T9',
-                switches=Slist)
+                switches=[S0, S1, S2, S3, S4, S5, S6, S7, S8, V0])
     T10 = Tree(tree_list=['EQU', Tree.tree_list_BIN(18), [None]],
                 empty=True,
                 name='T10',
-                switches=Slist + [0])
+                switches=[S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17] + [0])
 
     R0 = Room(name='R0',
                 position=[0, 2, 3, 3],
@@ -130,7 +135,7 @@ def level_lights_out():
                 position=[0, 7.5, 3, 3],
                 switches_list=[S9, S10, S11, S12, S13, S14, S15, S16, S17])
     RE = Room(name='RE',
-              position=[4, 2, 1, 0.5],
+              position=[4.5, 2, 2, 3],
               is_exit=True)
 
     D0 = Door(two_way=False,
@@ -217,7 +222,7 @@ def level_lights_out():
                 name='D10',
                 room_departure=R0,
                 room_arrival=RE,
-                relative_departure_coordinates=[1, 0],
+                relative_departure_coordinates=[1, 1/2],
                 relative_arrival_coordinates=[0, 1/2])
     
     lcolor = Levels_colors_list.FROM_HUE(hu=0.2, sa=0.5, li=0.9)
@@ -235,7 +240,7 @@ def level_lights_out():
                  level_color=lcolor,
                  name='Lights_out',
                  keep_proportions=True,
-                 door_window_size=700,
+                 door_window_size=450,
                  random=True)
     
     return level
