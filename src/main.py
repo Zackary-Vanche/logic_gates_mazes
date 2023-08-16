@@ -10,7 +10,7 @@ if __name__ == "__main__":
     # If you don't put it, the pixel of the game
     # will be too big after compilation
     
-    # 83 85 89
+    # 83 85
     # 93 95 98 99 
     # 101 103 104 106 107 108
     # 110 111 112 113 114 115 117 118
@@ -18,8 +18,8 @@ if __name__ == "__main__":
     # 130 132 137 138 139
     # 140 141 142 143 144 145 146 147 
 
-    Game(show_help=0,
-         index_current_level=87, 
+    Game(show_help=1,
+         index_current_level=0, 
          is_fullscreen=0,
          # WINDOW_SIZE=None,
          # SMALLEST_WINDOW_SIZE=None,
