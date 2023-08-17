@@ -37,8 +37,13 @@ def level_solitaire(fast_solution_finding=False):
     S27 = Switch(name='S27', value=1)
     S28 = Switch(name='S28', value=1)
     S29 = Switch(name='S29', value=1)
-
-    SN1 = Switch(value=1)
+    
+    V0 = Tree(tree_list=Tree.tree_list_BIN(15),
+              name='V0',
+              switches=[S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14])
+    V1 = Tree(tree_list=Tree.tree_list_BIN(15),
+              name='V1',
+              switches=[S15, S16, S17, S18, S19, S20, S21, S22, S23, S24, S25, S26, S27, S28, S29])
 
     tree_list_SUM_5 = ['SUM'] + [Tree.tree_list_XOR(2)] * 5
 
@@ -123,36 +128,19 @@ def level_solitaire(fast_solution_finding=False):
                                  S9, S24, ],
               cut_expression=True,
               cut_expression_separator=')')
-    T1 = Tree(tree_list=['EQU', Tree.tree_list_BIN(15), Tree.tree_list_BIN(15)],
+    T1 = Tree(tree_list=['EQU', [None], [None]],
               name='T1',
-              switches=[S0, S1, S2, S3, S4,
-                        S5, S6, S7, S8,
-                        S9, S10, S11,
-                        S12, S13,
-                        S14,
-                        S15, S16, S17, S18, S19,
-                        S20, S21, S22, S23,
-                        S24, S25, S26,
-                        S27, S28,
-                        S29, ],
+              switches=[V0, V1],
               cut_expression=True,
               cut_expression_separator=')')
     T2 = Tree(tree_list=['AND',
-                         ['EQU', [None], Tree.tree_list_BIN(15)],
-                         ['EQU', [None], Tree.tree_list_BIN(15)]],
+                         ['EQU', [None], [None]],
+                         ['EQU', [None], [None]]],
               name='T2',
-              switches=[SN1,
-                        S0, S1, S2, S3, S4,
-                        S5, S6, S7, S8,
-                        S9, S10, S11,
-                        S12, S13,
-                        S14,
-                        SN1,
-                        S15, S16, S17, S18, S19,
-                        S20, S21, S22, S23,
-                        S24, S25, S26,
-                        S27, S28,
-                        S29],
+              switches=[1,
+                        V0,
+                        1,
+                        V1],
               cut_expression=True,
               cut_expression_separator=')')
 
@@ -310,7 +298,7 @@ def level_solitaire(fast_solution_finding=False):
                      '\n', ''),
                  level_color=Levels_colors_list.FROM_HUE(0, sa=0.35, li=0.49),
                  name='Solitaire',
-                 door_window_size=545,
+                 door_window_size=500,
                  keep_proportions=True)
 
     return level
