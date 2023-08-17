@@ -845,25 +845,21 @@ class Game:
                         sa = 0
                         li = 0.35
                         l = self.current_action.split(' ')[1:]
-                        print(l)
                         if len(l) >= 1:
                             try:
                                 hu = float(l.pop(0))
                             except ValueError:
                                 pass
-                            print('hu =', hu)
                         if len(l) >= 1:
                             try:
                                 sa = float(l.pop(0))
                             except ValueError:
                                 pass
-                            print('sa =', sa)
                         if len(l) >= 1:
                             try:
                                 li = float(l.pop(0))
                             except ValueError:
                                 pass
-                            print('li =', li)
                         self.game_color = Levels_colors_list.FROM_HUE(hu=hu, sa=sa, li=li)
                         self.get_new_level = True
                         self.get_level()
