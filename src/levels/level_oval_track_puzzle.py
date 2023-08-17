@@ -36,49 +36,84 @@ def level_oval_track_puzzle():
 
     S15 = Switch(name='S15', value=v)
     S16 = Switch(name='S16', value=v)
+
+    Slist_0 = [S1, S2]
+    Slist_1 = [S3, S4]
+    Slist_2 = [S5, S6]
+    Slist_3 = [S7, S8]
+    Slist_4 = [S9, S10]
+    Slist_5 = [S11, S12]
+    Slist_6 = [S13, S14]
+    Slist_7 = [S15, S16]
+    V0 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_0)),
+              name='V0',
+              switches=Slist_0)
+    V1 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_1)),
+              name='V1',
+              switches=Slist_1)
+    V2 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_2)),
+              name='V2',
+              switches=Slist_2)
+    V3 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_3)),
+              name='V3',
+              switches=Slist_3)
+    V4 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_4)),
+              name='V4',
+              switches=Slist_4)
+    V5 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_5)),
+              name='V5',
+              switches=Slist_5)
+    V6 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_6)),
+              name='V6',
+              switches=Slist_6)
+    V7 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_7)),
+              name='V7',
+              switches=Slist_7)
     
-    tree_list_1 = ['EQU', Tree.tree_list_BIN(2), Tree.tree_list_BIN(2)]
+    tree_list_1 = ['EQU', [None], [None]]
     tree_list_2 = ['AND', [None], tree_list_1]
-    tree_list_8 = ['EQUSET'] + [Tree.tree_list_BIN(2)]*8 + [[None]]*8
+    tree_list_8 = ['EQUSET'] + [[None]]*8 + [[None]]*8
 
     T0 = Tree(tree_list=[None],
                 name='T0',
                 switches=[S0])
     T1 = Tree(tree_list=tree_list_1,
                 name='T1',
-                switches=[S1, S2, S3, S4])
+                switches=[V0, V1])
     T2 = Tree(tree_list=tree_list_2,
                 name='T2',
-                switches=[S0, S3, S4, S5, S6])
+                switches=[S0, V1, V2])
     T3 = Tree(tree_list=tree_list_2,
                 name='T3',
-                switches=[S0, S5, S6, S7, S8])
+                switches=[S0, V2, V3])
     T4 = Tree(tree_list=tree_list_2,
                 name='T4',
-                switches=[S0, S7, S8, S9, S10])
+                switches=[S0, V3, V4])
     T5 = Tree(tree_list=tree_list_2,
                 name='T5',
-                switches=[S0, S9, S10, S11, S12])
+                switches=[S0, V4, V5])
     T6 = Tree(tree_list=tree_list_2,
                 name='T6',
-                switches=[S0, S11, S12, S13, S14])
+                switches=[S0, V5, V6])
     T7 = Tree(tree_list=tree_list_1,
                 name='T7',
-                switches=[S13, S14, S15, S16])
+                switches=[V6, V7])
     T8 = Tree(tree_list=tree_list_8,
                 name='T8',
-                switches=[S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16,
-                          0, 0, 1, 1, 2, 2, 3, 3])
+                switches=[V0, V1, V2, V3, V4, V5, V6, V7,
+                          0, 0, 1, 1, 2, 2, 3, 3],
+                cut_expression=True)
     T9 = Tree(tree_list=Tree.tree_list_not,
                 name='T9',
                 switches=[S0])
     T10 = Tree(tree_list=tree_list_2,
                 name='T10',
-                switches=[S0, S15, S16, S1, S2])
+                switches=[S0, V7, V0])
     T11 = Tree(tree_list=tree_list_8,
                 name='T11',
-                switches=[S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16,
-                          0, 0, 1, 1, 2, 2, 3, 3])
+                switches=[V0, V1, V2, V3, V4, V5, V6, V7,
+                          0, 0, 1, 1, 2, 2, 3, 3],
+                cut_expression=True)
     filename = 'levels/Oval_track_puzzle_random_exits.txt'
     if os_path_exists(filename):
         with open(filename, 'r') as fr:
@@ -210,7 +245,7 @@ def level_oval_track_puzzle():
                  level_color=Levels_colors_list.FROM_HUE(hu=-0.075, sa=0.6, li=0.3),
                  name='Oval_track_puzzle',
                  keep_proportions=True,
-                 door_window_size=250,
+                 door_window_size=400,
                  random=True)
     
     return level
