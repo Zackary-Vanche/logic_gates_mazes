@@ -840,7 +840,7 @@ class Game:
                         self.get_new_level = True
                         self.get_level()
                         self.change_in_display = True
-                    elif self.current_action[:5] == 'COLOR':
+                    elif self.current_action[:3] == 'HSL':
                         hu = 0.1
                         sa = 0
                         li = 0.35
@@ -864,7 +864,6 @@ class Game:
                         self.get_new_level = True
                         self.get_level()
                         self.change_in_display = True
-                    
                     else:
                         self.current_action = self.current_action.replace('EXIT', 'RE')
                         if self.current_action[0] in ['D', 'S', 'R']:
