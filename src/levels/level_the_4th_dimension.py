@@ -49,53 +49,79 @@ def level_the_4th_dimension():
     Slist4 = [S12, S13, S14]
     Slist5 = [S15, S16, S17]
     
+    Slist_0 = [S0, S1, S2]
+    Slist_1 = [S3, S4, S5]
+    Slist_2 = [S6, S7, S8]
+    Slist_3 = [S9, S10, S11]
+    Slist_4 = [S12, S13, S14]
+    Slist_5 = [S15, S16, S17]
+    
+    V0 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_0)),
+              name='V0',
+              switches=Slist_0)
+    V1 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_1)),
+              name='V1',
+              switches=Slist_1)
+    V2 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_2)),
+              name='V2',
+              switches=Slist_2)
+    V3 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_3)),
+              name='V3',
+              switches=Slist_3)
+    V4 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_4)),
+              name='V4',
+              switches=Slist_4)
+    V5 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_5)),
+              name='V5',
+              switches=Slist_5)
+    
     Slist = Slist0 + Slist1 + Slist2 + Slist3 + Slist4 + Slist5
     
     
-    # tree_list_0 = ['IN'] + [Tree.tree_list_BIN(3)]*4
-    tree_list_1 = ['EQU'] + [Tree.tree_list_BIN(3)]*2
-    tree_list_4 = ['EQU'] + [Tree.tree_list_BIN(3)]*3
-    tree_list_10 = ['EQU', ['BIN', [None], [None], Tree.tree_list_not], Tree.tree_list_BIN(3)]
+    # tree_list_0 = ['IN'] + [[None]]*4
+    tree_list_1 = ['EQU'] + [[None]]*2
+    tree_list_4 = ['EQU'] + [[None]]*3
+    tree_list_10 = ['EQU', ['BIN', [None], [None], Tree.tree_list_not], [None]]
 
     T0 = Tree(tree_list=[None],
                 name='T0',
-                switches=[1]) # Slist0 + Slist2 + Slist3 + Slist4)
+                switches=[1])
     T1 = Tree(tree_list=tree_list_1,
                 name='T1',
-                switches=Slist0 + Slist2)
+                switches=[V0, V2])
     T2 = Tree(tree_list=tree_list_1,
                 name='T2',
-                switches=Slist0 + Slist3)
+                switches=[V0, V3])
     T3 = Tree(tree_list=tree_list_1,
                 name='T3',
-                switches=Slist0 + Slist4)
+                switches=[V0, V4])
     T4 = Tree(tree_list=tree_list_4,
                 name='T4',
-                switches=Slist1 + Slist2 + Slist3)
+                switches=[V1, V2, V3])
     T5 = Tree(tree_list=tree_list_4,
                 name='T5',
-                switches=Slist1 + Slist2 + Slist4)
+                switches=[V1, V2, V4])
     T6 = Tree(tree_list=tree_list_4,
                 name='T6',
-                switches=Slist1 + Slist2 + Slist5)
+                switches=[V1, V2, V5])
     T7 = Tree(tree_list=tree_list_4,
                 name='T7',
-                switches=Slist1 + Slist3 + Slist4)
+                switches=[V1, V3, V4])
     T8 = Tree(tree_list=tree_list_4,
                 name='T8',
-                switches=Slist1 + Slist3 + Slist5)
+                switches=[V1, V3, V5])
     T9 = Tree(tree_list=tree_list_4,
                 name='T9',
-                switches=Slist1 + Slist4 + Slist5)
+                switches=[V1, V4, V5])
     T10 = Tree(tree_list=tree_list_10,
                 name='T10',
-                switches=Slist0 + Slist3)
+                switches=Slist0 + [V3])
     T11 = Tree(tree_list=tree_list_10,
                 name='T11',
-                switches=Slist0 + Slist4)
+                switches=Slist0 + [V4])
     T12 = Tree(tree_list=tree_list_10,
                 name='T12',
-                switches=Slist0 + Slist5)
+                switches=Slist0 + [V5])
     filename = 'levels/The_4th_dimension_random_exits.txt'
     if os_path_exists(filename):
         with open(filename, 'r') as fr:
@@ -228,7 +254,7 @@ def level_the_4th_dimension():
                  fastest_solution=None,
                  level_color=Levels_colors_list.FROM_HUE(hu=0.6, sa=0.4, li=0.5),
                  name='The_4th_dimension',
-                 keep_proportions=True,
+                 keep_proportions=False,
                  door_window_size=450,
                  random=True)
     
