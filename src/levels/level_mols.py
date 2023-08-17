@@ -80,33 +80,142 @@ def level_mols():
     S69 = Switch(name='S69')
     S70 = Switch(name='S70')
     S71 = Switch(name='S71')
+    
+    V0 = Tree(tree_list=Tree.tree_list_BIN(2),
+              name='V0',
+              switches=[S0, S1])
+    V1 = Tree(tree_list=Tree.tree_list_BIN(2),
+              name='V1',
+              switches=[S2, S3])
+    V2 = Tree(tree_list=Tree.tree_list_BIN(2),
+              name='V2',
+              switches=[S4, S5])
+    V3 = Tree(tree_list=Tree.tree_list_BIN(2),
+              name='V3',
+              switches=[S6, S7])
+    V4 = Tree(tree_list=Tree.tree_list_BIN(2),
+              name='V4',
+              switches=[S8, S9])
+    V5 = Tree(tree_list=Tree.tree_list_BIN(2),
+              name='V5',
+              switches=[S10, S11])
+    V6 = Tree(tree_list=Tree.tree_list_BIN(2),
+              name='V6',
+              switches=[S12, S13])
+    V7 = Tree(tree_list=Tree.tree_list_BIN(2),
+              name='V7',
+              switches=[S14, S15])
+    V8 = Tree(tree_list=Tree.tree_list_BIN(2),
+              name='V8',
+              switches=[S16, S17])
+    V9 = Tree(tree_list=Tree.tree_list_BIN(2),
+              name='V9',
+              switches=[S18, S19])
+    V10 = Tree(tree_list=Tree.tree_list_BIN(2),
+              name='V10',
+              switches=[S20, S21])
+    V11 = Tree(tree_list=Tree.tree_list_BIN(2),
+              name='V11',
+              switches=[S22, S23])
+    V12 = Tree(tree_list=Tree.tree_list_BIN(2),
+              name='V12',
+              switches=[S24, S25])
+    V13 = Tree(tree_list=Tree.tree_list_BIN(2),
+              name='V13',
+              switches=[S26, S27])
+    V14 = Tree(tree_list=Tree.tree_list_BIN(2),
+              name='V14',
+              switches=[S28, S29])
+    V15 = Tree(tree_list=Tree.tree_list_BIN(2),
+              name='V15',
+              switches=[S30, S31])
+    V16 = Tree(tree_list=Tree.tree_list_BIN(2),
+              name='V16',
+              switches=[S32, S33])
+    V17 = Tree(tree_list=Tree.tree_list_BIN(2),
+              name='V17',
+              switches=[S34, S35])
+    V18 = Tree(tree_list=Tree.tree_list_BIN(2),
+              name='V18',
+              switches=[S36, S37])
+    V19 = Tree(tree_list=Tree.tree_list_BIN(2),
+              name='V19',
+              switches=[S38, S39])
+    V20 = Tree(tree_list=Tree.tree_list_BIN(2),
+              name='V20',
+              switches=[S40, S41])
+    V21 = Tree(tree_list=Tree.tree_list_BIN(2),
+              name='V21',
+              switches=[S42, S43])
+    V22 = Tree(tree_list=Tree.tree_list_BIN(2),
+              name='V22',
+              switches=[S44, S45])
+    V23 = Tree(tree_list=Tree.tree_list_BIN(2),
+              name='V23',
+              switches=[S46, S47])
+    V24 = Tree(tree_list=Tree.tree_list_BIN(2),
+              name='V24',
+              switches=[S48, S49])
+    V25 = Tree(tree_list=Tree.tree_list_BIN(2),
+              name='V25',
+              switches=[S50, S51])
+    V26 = Tree(tree_list=Tree.tree_list_BIN(2),
+              name='V26',
+              switches=[S52, S53])
+    V27 = Tree(tree_list=Tree.tree_list_BIN(2),
+              name='V27',
+              switches=[S54, S55])
+    V28 = Tree(tree_list=Tree.tree_list_BIN(2),
+              name='V28',
+              switches=[S56, S57])
+    V29 = Tree(tree_list=Tree.tree_list_BIN(2),
+              name='V29',
+              switches=[S58, S59])
+    V30 = Tree(tree_list=Tree.tree_list_BIN(2),
+              name='V30',
+              switches=[S60, S61])
+    V31 = Tree(tree_list=Tree.tree_list_BIN(2),
+              name='V31',
+              switches=[S62, S63])
+    V32 = Tree(tree_list=Tree.tree_list_BIN(2),
+              name='V32',
+              switches=[S64, S65])
+    V33 = Tree(tree_list=Tree.tree_list_BIN(2),
+              name='V33',
+              switches=[S66, S67])
+    V34 = Tree(tree_list=Tree.tree_list_BIN(2),
+              name='V34',
+              switches=[S68, S69])
+    V35 = Tree(tree_list=Tree.tree_list_BIN(2),
+              name='V35',
+              switches=[S70, S71])
 
     Slist = [
-     S0, S1, S2, S3, S4, S5,
-     S6, S7, S8, S9, S10, S11,
-     S12, S13, S14, S15, S16, S17,
-     S18, S19, S20, S21, S22, S23,
+      S0, S1, S2, S3, S4, S5,
+      S6, S7, S8, S9, S10, S11,
+      S12, S13, S14, S15, S16, S17,
+      S18, S19, S20, S21, S22, S23,
 
-     S24, S25, S26, S27, S28, S29,
-     S30, S31, S32, S33, S34, S35,
-     S36, S37, S38, S39, S40, S41,
-     S42, S43, S44, S45, S46, S47,
+      S24, S25, S26, S27, S28, S29,
+      S30, S31, S32, S33, S34, S35,
+      S36, S37, S38, S39, S40, S41,
+      S42, S43, S44, S45, S46, S47,
 
-     S48, S49, S50, S51, S52, S53,
-     S54, S55, S56, S57, S58, S59,
-     S60, S61, S62, S63, S64, S65,
-     S66, S67, S68, S69, S70, S71]
+      S48, S49, S50, S51, S52, S53,
+      S54, S55, S56, S57, S58, S59,
+      S60, S61, S62, S63, S64, S65,
+      S66, S67, S68, S69, S70, S71]
 
-    def Slist_i(i):
-        return Slist[i * 6:i * 6 + 6]
+    # def Slist_i(i):
+    #     return Slist[i * 6:i * 6 + 6]
 
-    def Slist_transverse(i):
-        l = []
-        for j in range(0, 6, 2):
-            for k in range(3*i, 3*i+4):
-                l.append(Slist_i(k)[j])
-                l.append(Slist_i(k)[j+1])
-        return l
+    # def Slist_transverse(i):
+    #     l = []
+    #     for j in range(0, 6, 2):
+    #         for k in range(3*i, 3*i+4):
+    #             l.append(Slist_i(k)[j])
+    #             l.append(Slist_i(k)[j+1])
+    #     return l
 
     Slist12 = []
     for i in range(12):
@@ -114,49 +223,81 @@ def level_mols():
             Slist12.extend(Slist[j*24:j*24+24][2*i:2*i+2])
     assert len(Slist12) == len(Slist), len(Slist12)
     Slist12.extend([0, 1+4, 2+4*2, 3+4*3])
+    
+    Vlist = [V0, V1, V2,
+             V3, V4, V5,
+             V6, V7, V8,
+             V9, V10, V11,
+             
+             V12, V13, V14,
+             V15, V16, V17,
+             V18, V19, V20,
+             V21, V22, V23,
+             
+             V24, V25, V26,
+             V27, V28, V29,
+             V30, V31, V32,
+             V33, V34, V35]
+    
+    def Vlist_i(i):
+        return Vlist[i * 3:i * 3 + 3]
 
-    tree_list0 = ['DIFF'] + [Tree.tree_list_BIN(2)]*3 + [[None]]
-    tree_list3 = ['AND'] + [['DIFF'] + [Tree.tree_list_BIN(2)]*4]*3 + [tree_list0]
-    tree_list4 = ['AND', tree_list0, ['INF', Tree.tree_list_BIN(2), Tree.tree_list_BIN(2)]]
+    def Vlist_transverse(i):
+        l = []
+        for j in range(0, 3, 1):
+            for k in range(3*i, 3*i+4):
+                l.append(Vlist_i(k)[j])
+        return l
+
+    Vlist12 = []
+    for i in range(12):
+        for j in range(3):
+            Vlist12.append(Vlist[j*12:j*12+12][i])
+    assert len(Vlist12) == len(Vlist), len(Vlist12)
+    Vlist12.extend([0, 1+4, 2+4*2, 3+4*3])
+
+    tree_list0 = ['DIFF'] + [[None]]*3 + [[None]]
+    tree_list3 = ['AND'] + [['DIFF'] + [[None]]*4]*3 + [tree_list0]
+    tree_list4 = ['AND', tree_list0, ['INF', [None], [None]]]
 
     T0 = Tree(tree_list=tree_list0,
               name='T0',
-              switches=Slist_i(0) + [0])
+              switches=Vlist_i(0) + [0])
     T1 = Tree(tree_list=tree_list0,
               name='T1',
-              switches=Slist_i(1) + [1])
+              switches=Vlist_i(1) + [1])
     T2 = Tree(tree_list=tree_list0,
               name='T2',
-              switches=Slist_i(2) + [2])
+              switches=Vlist_i(2) + [2])
     T3 = Tree(tree_list=tree_list3,
               name='T3',
-              switches=Slist_transverse(0) + Slist_i(3) + [3],
+              switches=Vlist_transverse(0) + Vlist_i(3) + [3],
               cut_expression=True)
     T4 = Tree(tree_list=tree_list4,
               name='T4',
-              switches=Slist_i(4) + [0] + [S0, S1, S24, S25])
+              switches=Vlist_i(4) + [0] + [V0, V12])
     T5 = Tree(tree_list=tree_list0,
               name='T5',
-              switches=Slist_i(5) + [1])
+              switches=Vlist_i(5) + [1])
     T6 = Tree(tree_list=tree_list0,
               name='T6',
-              switches=Slist_i(6) + [2])
+              switches=Vlist_i(6) + [2])
     T7 = Tree(tree_list=tree_list3,
               name='T7',
-              switches=Slist_transverse(1) + Slist_i(7) + [3],
+              switches=Vlist_transverse(1) + Vlist_i(7) + [3],
               cut_expression=True)
     T8 = Tree(tree_list=tree_list4,
               name='T8',
-              switches=Slist_i(8) + [0] + [S24, S25, S48, S49])
+              switches=Vlist_i(8) + [0] + [V12, V24])
     T9 = Tree(tree_list=tree_list0,
               name='T9',
-              switches=Slist_i(9) + [1])
+              switches=Vlist_i(9) + [1])
     T10 = Tree(tree_list=tree_list0,
                name='T10',
-               switches=Slist_i(10) + [2])
+               switches=Vlist_i(10) + [2])
     T11 = Tree(tree_list=tree_list3,
                name='T11',
-               switches=Slist_transverse(2) + Slist_i(11) + [3],
+               switches=Vlist_transverse(2) + Vlist_i(11) + [3],
                cut_expression=True)
     tree_list = ['DIFF'] + [Tree.tree_list_BIN(6)]*12 + [[None]]*4
     Slistp = [S2, S3, S5, S7, S11, S13, S17, S19, S23, S29, S31, S37, S41, S43, S47, S53, S59, S61, S67, S71]
@@ -175,7 +316,7 @@ def level_mols():
     def get_room(i):
         return Room(name=f'R{i}',
                     position=[i//2*dx, int(i%4 in [1, 2])*dy, ex, ey],
-                    switches_list=Slist_i(i))
+                    switches_list=Slist[i * 6:i * 6 + 6])
 
     R0 = get_room(0)
     R1 = get_room(1)
