@@ -52,8 +52,42 @@ def level_hungarian_rings():
     S22 = Switch(name='S22', value=v_list[7][0])
     S23 = Switch(name='S23', value=v_list[7][1])
     S24 = Switch(name='S24', value=v_list[7][2])
+
+    Slist_0 = [S1, S2, S3]
+    Slist_1 = [S4, S5, S6]
+    Slist_2 = [S7, S8, S9]
+    Slist_3 = [S10, S11, S12]
+    Slist_4 = [S13, S14, S15]
+    Slist_5 = [S16, S17, S18]
+    Slist_6 = [S19, S20, S21]
+    Slist_7 = [S22, S23, S24]
+
+    V0 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_0)),
+              name='V0',
+              switches=Slist_0)
+    V1 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_1)),
+              name='V1',
+              switches=Slist_1)
+    V2 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_2)),
+              name='V2',
+              switches=Slist_2)
+    V3 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_3)),
+              name='V3',
+              switches=Slist_3)
+    V4 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_4)),
+              name='V4',
+              switches=Slist_4)
+    V5 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_5)),
+              name='V5',
+              switches=Slist_5)
+    V6 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_6)),
+              name='V6',
+              switches=Slist_6)
+    V7 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_7)),
+              name='V7',
+              switches=Slist_7)
     
-    tree_list_EQU_BIN = ['EQU'] + [Tree.tree_list_BIN(3)]*2
+    tree_list_EQU_BIN = ['EQU'] + [[None]]*2
     tree_list_1 = ['AND', [None], tree_list_EQU_BIN]
     tree_list_6 = ['AND', Tree.tree_list_not, tree_list_EQU_BIN]
 
@@ -62,46 +96,46 @@ def level_hungarian_rings():
                 switches=[S0])
     T1 = Tree(tree_list=tree_list_1,
                 name='T1',
-                switches=[S0, S1, S2, S3, S4, S5, S6])
+                switches=[S0, V0, V1])
     T2 = Tree(tree_list=tree_list_1,
                 name='T2',
-                switches=[S0, S4, S5, S6, S7, S8, S9])
+                switches=[S0, V1, V2])
     T3 = Tree(tree_list=tree_list_1,
                 name='T3',
-                switches=[S0, S7, S8, S9, S19, S20, S21])
+                switches=[S0, V2, V6])
     T4 = Tree(tree_list=tree_list_1,
                 name='T4',
-                switches=[S0, S19, S20, S21, S22, S23, S24])
+                switches=[S0, V6, V7])
     T5 = Tree(tree_list=Tree.tree_list_not,
                 name='T5',
                 switches=[S0])
     T6 = Tree(tree_list=tree_list_6,
                 name='T6',
-                switches=[S0, S13, S14, S15, S10, S11, S12])
+                switches=[S0, V4, V3])
     T7 = Tree(tree_list=tree_list_6,
                 name='T7',
-                switches=[S0, S10, S11, S12, S7, S8, S9])
+                switches=[S0, V3, V2])
     T8 = Tree(tree_list=tree_list_6,
                 name='T8',
-                switches=[S0, S7, S8, S9, S16, S17, S18])
+                switches=[S0, V2, V5])
     T9 = Tree(tree_list=tree_list_6,
                 name='T9',
-                switches=[S0, S16, S17, S18, S22, S23, S24])
-    T10 = Tree(tree_list=['DIFF'] + [Tree.tree_list_BIN(3)]*8,
+                switches=[S0, V5, V7])
+    T10 = Tree(tree_list=['DIFF'] + [[None]]*8,
                 name='T10',
-                switches=[S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, S23, S24],
+                switches=[V0, V1, V2, V3, V4, V5, V6, V7],
                 cut_expression=True)
-    T11 = Tree(tree_list=['AND', [None]] + [['EQU', [None], Tree.tree_list_BIN(3)]]*8,
+    T11 = Tree(tree_list=['AND', [None]] + [['EQU', [None], [None]]]*8,
                 name='T11',
                 switches=[S0,
-                          0, S1, S2, S3,
-                          1, S4, S5, S6,
-                          2, S7, S8, S9,
-                          3, S10, S11, S12,
-                          4, S13, S14, S15,
-                          5, S16, S17, S18,
-                          6, S19, S20, S21,
-                          7, S22, S23, S24,],
+                          0, V0,
+                          1, V1,
+                          2, V2,
+                          3, V3,
+                          4, V4,
+                          5, V5,
+                          6, V6,
+                          7, V7,],
                 cut_expression=True)
 
     R0 = Room(name='R0',
@@ -109,28 +143,28 @@ def level_hungarian_rings():
                 switches_list=[S0])
     R1 = Room(name='R1',
                 position=[2, 3, 0.5, 2],
-                switches_list=[S1, S2, S3])
+                switches_list=Slist_0)
     R2 = Room(name='R2',
                 position=[2, 8, 0.5, 2],
-                switches_list=[S4, S5, S6])
+                switches_list=Slist_1)
     R3 = Room(name='R3',
                 position=[3, 8, 3, 0.5],
-                switches_list=[S7, S8, S9])
+                switches_list=Slist_2)
     R4 = Room(name='R4',
                 position=[6.5, 8, 0.5, 2],
-                switches_list=[S10, S11, S12])
+                switches_list=Slist_3)
     R5 = Room(name='R5',
                 position=[6.5, 3, 0.5, 2],
-                switches_list=[S13, S14, S15])
+                switches_list=Slist_4)
     R6 = Room(name='R6',
                 position=[2.5, 5, 0.5, 3],
-                switches_list=[S16, S17, S18])
+                switches_list=Slist_5)
     R7 = Room(name='R7',
                 position=[6, 5, 0.5, 3],
-                switches_list=[S19, S20, S21])
+                switches_list=Slist_6)
     R8 = Room(name='R8',
                 position=[3, 4.5, 3, 0.5],
-                switches_list=[S22, S23, S24])
+                switches_list=Slist_7)
     RE = Room(name='RE',
               position=[4, 2, 1, 0.5],
               is_exit=True)

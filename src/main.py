@@ -15,11 +15,11 @@ if __name__ == "__main__":
     #
     # 111
     # 128 129
-    # 130 132 137 138 139
+    # 130 138 139
     # 140 141 142 143 144 145 146 147 
 
-    Game(show_help=0,
-         index_current_level=132, 
+    Game(show_help=1,
+         index_current_level=0, 
          is_fullscreen=0,
          # WINDOW_SIZE=None,
          # SMALLEST_WINDOW_SIZE=None,
