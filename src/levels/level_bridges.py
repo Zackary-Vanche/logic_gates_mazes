@@ -34,13 +34,32 @@ def level_bridges():
     S23 = Switch(name='S23')
     S24 = Switch(name='S24')
     
-    Slist1 = [S0, S1, S2, S3,
-              S4, S5, S6, S7, S8]
-    SlisT3 = [S9, S10, S11, S12, 
-              S13, S14, S15, S16, S17]
+    Slist = [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, S23, S24]
     
-    SlisT4 = [S0, S1, S2, S3,
-              S9, S10, S11, S12]
+    Slist_0 = [S0, S1, S2, S3]
+    Slist_1 = [S4, S5, S6, S7, S8]
+    Slist_2 = [S9, S10, S11, S12]
+    Slist_3 = [S13, S14, S15, S16, S17]
+    V0 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_0)),
+              name='V0',
+              switches=Slist_0)
+    V1 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_1)),
+              name='V1',
+              switches=Slist_1)
+    V2 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_2)),
+              name='V2',
+              switches=Slist_2)
+    V3 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_3)),
+              name='V3',
+              switches=Slist_3)
+    
+    Slist1 = [V0,
+              V1]
+    SlisT3 = [V2, 
+              V3]
+    
+    SlisT4 = [V0,
+              V2]
     
     lgraph = [[0, 1],
               [0, 2],
@@ -57,19 +76,19 @@ def level_bridges():
               [8, 9],
               [9, 10]]
     
-    tree_list_3 = ['EQU', Tree.tree_list_BIN(4), Tree.tree_list_BIN(4), [None]]
+    tree_list_3 = ['EQU', [None], [None], [None]]
 
     T0 = Tree(tree_list=['AND'] + [['NAND',
                                     Tree.tree_list_NOT,
-                                    ['EQU', [None], Tree.tree_list_BIN(4)],]]*7,
+                                    ['EQU', [None], [None]],]]*7,
                 name='T0',
-                switches=[S18, 1, S0, S1, S2, S3,
-                          S19, 2, S0, S1, S2, S3,
-                          S20, 3, S0, S1, S2, S3,
-                          S21, 4, S0, S1, S2, S3,
-                          S22, 5, S0, S1, S2, S3,
-                          S23, 7, S0, S1, S2, S3,
-                          S24, 9, S0, S1, S2, S3],
+                switches=[S18, 1, V0,
+                          S19, 2, V0,
+                          S20, 3, V0,
+                          S21, 4, V0,
+                          S22, 5, V0,
+                          S23, 7, V0,
+                          S24, 9, V0],
                 cut_expression=True)
 
     Slist_tree_1 = []
@@ -78,14 +97,14 @@ def level_bridges():
         Slist_tree_1.extend([
                              a,
                              b,
-                             S0, S1, S2, S3,
-                             S9, S10, S11, S12,
+                             V0,
+                             V2,
                              ])
     tree_list_EQUSET_BIN = ['EQUSET',
                             [None],
                             [None],
-                            Tree.tree_list_BIN(4),
-                            Tree.tree_list_BIN(4),]
+                            [None],
+                            [None],]
     tree_list_1 = ['OR'] + [tree_list_EQUSET_BIN]*14
     
     
@@ -101,11 +120,11 @@ def level_bridges():
                 switches=Slist_tree_1,
                 cut_expression_depth_1=True)
     T2 = Tree(tree_list=['EQU',
-                         Tree.tree_list_BIN(5),
-                         ['SUM', Tree.tree_list_BIN(5), [None]]],
+                         [None],
+                         ['SUM', [None], [None]]],
                 name='T2',
-                switches=[S4, S5, S6, S7, S8,
-                          S13, S14, S15, S16, S17,
+                switches=[V1,
+                          V3,
                           1])
     # T2 = Tree(tree_list=['EQU',
     #                       Tree.tree_list_BIN(5),
@@ -116,7 +135,7 @@ def level_bridges():
     #                       S13, S14, S15, S16, S17])
     T3 = Tree(tree_list=['EQU'] + [Tree.tree_list_BIN(9)]*2,
                 name='T3',
-                switches=Slist1+SlisT3)
+                switches=Slist)
     T4 = Tree(tree_list=tree_list_3,
                 name='T4',
                 switches=SlisT4 + [1])
@@ -140,11 +159,11 @@ def level_bridges():
                 switches=SlisT4 + [9])
     T11 = Tree(tree_list=['AND',
                           Tree.tree_list_from_str('F'*4+'T'*7),
-                          ['INFOREQU', Tree.tree_list_BIN(5), [None]]],
+                          ['INFOREQU', [None], [None]]],
                 name='T11',
                 switches=[S0, S1, S2, S3,
                           S18, S19, S20, S21, S22, S23, S24,
-                          S4, S5, S6, S7, S8, 14])
+                          V1, 14])
     # T11 = Tree(tree_list=Tree.tree_list_from_str('T'*7),
     #             
     #             name='T11',
@@ -166,7 +185,7 @@ def level_bridges():
                 switches_list=[S4, S5, S6, S7, S8])
     R3 = Room(name='R3',
                 position=[3.5, 2.5, 1.5*ex, 1.5*ey],
-                switches_list=SlisT3)
+                switches_list=[S9, S10, S11, S12, S13, S14, S15, S16, S17])
     R4 = Room(name='R4',
                 position=[5, 4, ex, ey],
                 switches_list=[S18])
@@ -270,6 +289,6 @@ def level_bridges():
                  level_color=lcolor,
                  name='Bridges',
                  keep_proportions=True,
-                 door_window_size=500)
+                 door_window_size=362)
     
     return level

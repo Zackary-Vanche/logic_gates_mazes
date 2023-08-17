@@ -146,6 +146,14 @@ class Tree:
                 self.switches_list[i] = Switch(value=None)
         
         self.all_switches_list = self.switches_list[:]
+        for switch in self.all_switches_list:
+            try:
+                assert type(switch) in [Switch, Tree]
+            except AssertionError:
+                print(type(switch))
+                print(switch)
+                print(self.all_switches_list)
+                raise
 
         assert isinstance(tree_list, list), self.name
 

@@ -1,4 +1,5 @@
 from Switch import Switch
+from Tree import Tree
 
 class Door:
 
@@ -36,9 +37,14 @@ class Door:
             x = to_update_list.pop(0)
             if type(x) == Switch: # It is a switch
                 x.add_door(self)
-            else: # It is a tree
+            elif type(x) == Tree: # It is a tree
                 for y in x.switches_list:
                     to_update_list.append(y)
+            else:
+                print(type(x))
+                print(x)
+                assert False
+                raise
         if room_departure is not None and room_arrival is not None:
             self.set_rooms(room_departure, room_arrival)
         if self.room_arrival is not None and self.room_arrival.is_exit:
