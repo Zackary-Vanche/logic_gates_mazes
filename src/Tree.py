@@ -115,7 +115,7 @@ class Tree:
 
     def __init__(self,
                  tree_list=[None],
-                 empty=None,
+                 empty=True,
                  name='T',
                  switches=[],
                  easy_logical_expression_PN=None,

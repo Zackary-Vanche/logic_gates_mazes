@@ -36,47 +36,82 @@ def level_sujiko():
     S26 = Switch(name='S26')
     S27 = Switch(name='S27')
     
-    SN1 = Switch(name='1', value=1)
+    Slist_0 = [S0, S1, S2]
+    Slist_1 = [S3, S4, S5]
+    Slist_2 = [S6, S7, S8]
+    Slist_3 = [S9, S10, S11]
+    Slist_4 = [S12, S13, S14]
+    Slist_5 = [S15, S16, S17]
+    Slist_6 = [S18, S19, S20]
+    Slist_7 = [S21, S22, S23]
+    Slist_8 = [S24, S25, S26, S27]
     
-    tree_list_EQU = ['EQU', ['SUM'] + [Tree.tree_list_BIN(3)]*4, [None]]
+    V0 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_0)),
+              empty=True,
+              name='V0',
+              switches=Slist_0)
+    V1 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_1)),
+              empty=True,
+              name='V1',
+              switches=Slist_1)
+    V2 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_2)),
+              empty=True,
+              name='V2',
+              switches=Slist_2)
+    V3 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_3)),
+              empty=True,
+              name='V3',
+              switches=Slist_3)
+    V4 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_4)),
+              empty=True,
+              name='V4',
+              switches=Slist_4)
+    V5 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_5)),
+              empty=True,
+              name='V5',
+              switches=Slist_5)
+    V6 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_6)),
+              empty=True,
+              name='V6',
+              switches=Slist_6)
+    V7 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_7)),
+              empty=True,
+              name='V7',
+              switches=Slist_7)
+    V8 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_8)),
+              empty=True,
+              name='V8',
+              switches=Slist_8)
+    
+    tree_list_EQU = ['EQU', ['SUM'] + [[None]]*4, [None]]
 
     
     T0 = Tree(tree_list=[None],
-                empty=True,
-                name='T0',
-                switches = [SN1])
+              empty=True,
+              name='T0',
+              switches = [1])
     T1 = Tree(tree_list=[None],
-                empty=True,
-                name='T1',
-                switches = [SN1])
+              empty=True,
+              name='T1',
+              switches = [1])
     T2 = Tree(tree_list=[None],
-                empty=True,
-                name='T2',
-                switches = [SN1])
+              empty=True,
+              name='T2',
+              switches = [1])
     T3 = Tree(tree_list=[None],
-                empty=True,
-                name='T3',
-                switches = [SN1])
+              empty=True,
+              name='T3',
+              switches = [1])
     T4 = Tree(tree_list=tree_list_EQU,
-                empty=True,
-                name='T4',
-                switches = [S0, S1, S2,
-                            S3, S4, S5,
-                            S9, S10, S11,
-                            S12, S13, S14,
-                            Switch(value=14)
-                            ],
+              empty=True,
+              name='T4',
+              switches = [V0, V1, V3, V4, 14],
                 cut_expression=True,
                 cut_expression_separator=']')
     T5 = Tree(tree_list=tree_list_EQU,
-                empty=True,
-                name='T5',
-                switches = [S3, S4, S5,
-                            S6, S7, S8,
-                            S12, S13, S14,
-                            S15, S16, S17,
-                            Switch(value=13)
-                            ],
+              empty=True,
+              name='T5',
+              switches = [V1, V2, V4, V5, 13],
                 cut_expression=True,
                 cut_expression_separator=']')
     T6 = Tree(tree_list=Tree.tree_list_OR(2),
@@ -88,35 +123,16 @@ def level_sujiko():
     T7 = Tree(tree_list=tree_list_EQU,
                 empty=True,
                 name='T7',
-                switches = [S9, S10, S11,
-                            S12, S13, S14,
-                            S18, S19, S20,
-                            S21, S22, S23,
-                            Switch(value=12)
-                            ],
+                switches = [V3, V4, V6, V7, 12],
                 cut_expression=True,
                 cut_expression_separator=']')
     T8 = Tree(tree_list=['AND',
-                            ['EQU', ['SUM'] + [Tree.tree_list_BIN(3)]*3 + [Tree.tree_list_BIN(4)], [None]],
-                            ['DIFF'] + [Tree.tree_list_BIN(3)]*8 + [Tree.tree_list_BIN(4)]],
+                            ['EQU', ['SUM'] + [[None]]*3 + [[None]], [None]],
+                            ['DIFF'] + [[None]]*8 + [[None]]],
                 empty=True,
                 name='T8',
-                switches = [S12, S13, S14,
-                            S15, S16, S17,
-                            S21, S22, S23,
-                            S24, S25, S26, S27,
-                            Switch(value=11),
-                            S0, S1, S2,
-                            S3, S4, S5,
-                            S6, S7, S8,
-                            S9, S10, S11,
-                            S12, S13, S14,
-                            S15, S16, S17,
-                            S18, S19, S20,
-                            S21, S22, S23,
-                            S24, S25, S26, S27],
-                cut_expression=True,
-                cut_expression_separator=')')
+                switches = [V4, V5, V7, V8, 11,
+                            V0, V1, V2, V3, V4, V5, V6, V7, V8])
     
     lx = 1
     ly = 4
@@ -126,31 +142,31 @@ def level_sujiko():
     
     R0 = Room(name='R0',
               position = [3*dx, 0, lx, ly],
-              switches_list = [S0, S1, S2])
+              switches_list = Slist_0)
     R1 = Room(name='R1',
               position = [2*dx, -ey, lx, ly],
-              switches_list = [S3, S4, S5])
+              switches_list = Slist_1)
     R2 = Room(name='R2',
               position = [dx, 0, lx, ly],
-              switches_list = [S6, S7, S8])
+              switches_list = Slist_2)
     R3 = Room(name='R3',
               position = [0, -ey, lx, ly],
-              switches_list = [S9, S10, S11])
+              switches_list = Slist_3)
     R4 = Room(name='R4',
               position = [0, dy, lx, ly],
-              switches_list = [S12, S13, S14])
+              switches_list = Slist_4)
     R5 = Room(name='R5',
               position = [dx, dy-ey, lx, ly],
-              switches_list = [S15, S16, S17])
+              switches_list = Slist_5)
     R6 = Room(name='R6',
               position = [2*dx, dy, lx, ly],
-              switches_list = [S18, S19, S20])
+              switches_list = Slist_6)
     R7 = Room(name='R7',
               position = [3*dx, dy-ey, lx, ly],
-              switches_list = [S21, S22, S23])
+              switches_list = Slist_7)
     R8 = Room(name='R8',
               position = [4*dx, dy-ey, lx, ly+1],
-              switches_list = [S24, S25, S26, S27])
+              switches_list = Slist_8)
     RE = Room(name='RE',
               position=[4*dx-0.1, -ey, lx+0.2, ly-1],
               is_exit=True)   # E pour exit ou end

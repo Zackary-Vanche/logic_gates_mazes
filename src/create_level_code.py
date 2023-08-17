@@ -1,6 +1,7 @@
-ns = 19
+ns = 28
 nd = 1
 nr = 1
+nv = 9
 
 print('''
 from Switch import Switch
@@ -19,6 +20,15 @@ for i in range(ns):
 print('')
 print(f'''    Slist = [{', '.join([f'S{i}' for i in range(ns)])}]''')
 print('')
+
+for i in range(nv):
+    print(f'Slist_{i} = []')
+
+for i in range(nv):
+    print(f'''V{i} = Tree(tree_list=Tree.tree_list_BIN(len(Slist_{i})),
+          empty=True,
+          name='V{i}',
+          switches=Slist_{i})''')
     
 for i in range(nd):
     print(f'''    T{i} = Tree(tree_list=[None],
