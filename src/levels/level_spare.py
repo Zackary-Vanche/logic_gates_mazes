@@ -25,74 +25,96 @@ def level_spare():
     S13 = Switch(name='S13')
     S14 = Switch(name='S14')
 
-    SR0 = [S0, S1, S2]
-    SR1 = [S3, S4]
-    SR2 = [S5, S6]
-    SR3 = [S7, S8]
-    SR4 = [S9, S10]
-    SR5 = [S11, S12]
-    SR6 = [S13, S14]
+    Slist_0 = [S0, S1, S2]
+    Slist_1 = [S3, S4]
+    Slist_2 = [S5, S6]
+    Slist_3 = [S7, S8]
+    Slist_4 = [S9, S10]
+    Slist_5 = [S11, S12]
+    Slist_6 = [S13, S14]
     Slist = [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14]
+    
+    V0 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_0)),
+              name='V0',
+              switches=Slist_0)
+    V1 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_1)),
+              name='V1',
+              switches=Slist_1)
+    V2 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_2)),
+              name='V2',
+              switches=Slist_2)
+    V3 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_3)),
+              name='V3',
+              switches=Slist_3)
+    V4 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_4)),
+              name='V4',
+              switches=Slist_4)
+    V5 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_5)),
+              name='V5',
+              switches=Slist_5)
+    V6 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_6)),
+              name='V6',
+              switches=Slist_6)
 
     tree_list_0 = ['AND',
-                   ['OR'] + [['EQU', Tree.tree_list_BIN(2), [None]]]*2,
-                   ['EQU', Tree.tree_list_BIN(3), [None]]]
+                   ['OR'] + [['EQU', [None], [None]]]*2,
+                   ['EQU', [None], [None]]]
     tree_list_1 = ['AND',
-                   ['EQU'] + [Tree.tree_list_BIN(2)]*2,
-                   ['EQU', Tree.tree_list_BIN(3), [None]]]
+                   ['EQU'] + [[None]]*2,
+                   ['EQU', [None], [None]]]
     tree_list_2 = ['AND',
-                   ['EQUSET'] + [Tree.tree_list_BIN(2)]*6 + [[None]]*6,
-                   ['EQU', Tree.tree_list_BIN(3), [None]]]
-    Slist2 = [S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, 0, 0, 0, 1, 1, 2,]
+                   ['EQUSET'] + [[None]]*6 + [[None]]*6,
+                   ['EQU', [None], [None]]]
+    Slist2 = [V1, V2, V3, V4, V5, V6, 0, 0, 0, 1, 1, 2,]
 
     T0 = Tree(tree_list=tree_list_0,
               name='T0',
-              switches=SR1 + [0] + SR2 + [0] + SR0 + [1])
+              switches=[V1] + [0] + [V2] + [0] + [V0] + [1])
     T1 = Tree(tree_list=tree_list_1,
               name='T1',
-              switches=SR1 + SR2 + SR0 + [1])
+              switches=[V1] + [V2] + [V0] + [1])
     T2 = Tree(tree_list=tree_list_2,
               name='T2',
-              switches=Slist2 + SR0 + [1])
+              switches=Slist2 + [V0] + [1])
 
     T3 = Tree(tree_list=tree_list_0,
               name='T3',
-              switches=SR2 + [0] + SR3 + [0] + SR0 + [2])
+              switches=[V2] + [0] + [V3] + [0] + [V0] + [2])
     T4 = Tree(tree_list=tree_list_1,
               name='T4',
-              switches=SR2 + SR3 + SR0 + [2])
+              switches=[V2] + [V3] + [V0] + [2])
     T5 = Tree(tree_list=['AND',
-                         ['EQUSET'] + [Tree.tree_list_BIN(2)]*6 + [[None]]*6,
-                         ['IN', Tree.tree_list_BIN(3), [None], [None]]],
+                         ['EQUSET'] + [[None]]*6 + [[None]]*6,
+                         ['IN', [None], [None], [None]]],
               name='T5',
-              switches=Slist2 + SR0 + [2, 5])
+              switches=Slist2 + [V0] + [2, 5])
 
     T6 = Tree(tree_list=tree_list_0,
               name='T6',
-              switches=SR3 + [0] + SR4 + [0] + SR0 + [3])
+              switches=[V3] + [0] + [V4] + [0] + [V0] + [3])
     T7 = Tree(tree_list=tree_list_1,
               name='T7',
-              switches=SR3 + SR4 + SR0 + [3])
+              switches=[V3] + [V4] + [V0] + [3])
     T8 = Tree(tree_list=tree_list_2,
               name='T8',
-              switches=Slist2 + SR0 + [3])
+              switches=Slist2 + [V0] + [3])
 
     T9 = Tree(tree_list=tree_list_0,
               name='T9',
-              switches=SR4 + [0] + SR5 + [0] + SR0 + [4])
+              switches=[V4] + [0] + [V5] + [0] + [V0] + [4])
     T10 = Tree(tree_list=tree_list_1,
               name='T10',
-              switches=SR4 + SR5 + SR0 + [4])
+              switches=[V4] + [V5] + [V0] + [4])
     T11 = Tree(tree_list=tree_list_2,
               name='T11',
-              switches=Slist2 + SR0 + [4])
+              switches=Slist2 + [V0] + [4])
 
     T12 = Tree(tree_list=tree_list_0,
                name='T12',
-               switches=SR6 + [0] + SR3 + [0] + SR0 + [5])
+               switches=[V6] + [0] + [V3] + [0] + [V0] + [5])
     T13 = Tree(tree_list=tree_list_1,
                name='T13',
-               switches=SR6 + SR3 + SR0 + [5])
+               switches=[V6] + [V3] + [V0] + [5])
 
     T14 = Tree(tree_list=Tree.tree_list_from_str('TTTFTFFFFTFTFFF'),
                name='T14',
@@ -112,25 +134,25 @@ def level_spare():
 
     R0 = Room(name='R0',
               position = [dx+(ex-ex0)/2, 1+(ey-ey0)/2, ex0, ey0],
-              switches_list = SR0)
+              switches_list = Slist_0)
     R1 = Room(name='R1',
               position = [0, 0, ex, ey],
-              switches_list = SR1)
+              switches_list = Slist_1)
     R2 = Room(name='R2',
               position = [ex-ex4, 1, ex4, ey],
-              switches_list = SR2)
+              switches_list = Slist_2)
     R3 = Room(name='R3',
               position = [0, 2, ex, ey3],
-              switches_list = SR3)
+              switches_list = Slist_3)
     R4 = Room(name='R4',
               position = [2*dx-ex+ex4, 1, ex4, ey],
-              switches_list = SR4)
+              switches_list = Slist_4)
     R5 = Room(name='R5',
               position = [2*dx, ey-ey3, ex, ey3],
-              switches_list = SR5)
+              switches_list = Slist_5)
     R6 = Room(name='R6',
               position = [2*dx+(ex-ex6), 2+(ex-ex6), ex6, ey6],
-              switches_list = SR6)
+              switches_list = Slist_6)
     RE = Room(name='RE',
               position=[dx+(ex-exe)/2, 0, exe, eye],
               is_exit=True)   # E pour exit ou end
