@@ -10,7 +10,6 @@ if __name__ == "__main__":
     # If you don't put it, the pixel of the game
     # will be too big after compilation
     
-    # 128 129
     # 130 138 139
     # 140 141 142 143 144 145 146 147 
 
