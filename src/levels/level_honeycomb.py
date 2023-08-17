@@ -7,6 +7,52 @@ from Levels_colors_list import Levels_colors_list
 from Color import Color
 from random import shuffle as rd_shuffle
 
+def find(parents, node):
+    if parents[node] == -1:
+        return node
+    parents[node] = find(parents, parents[node])
+    return parents[node]
+
+def union(parents, ranks, node1, node2):
+    root1 = find(parents, node1)
+    root2 = find(parents, node2)
+    
+    if root1 != root2:
+        if ranks[root1] > ranks[root2]:
+            root1, root2 = root2, root1
+        parents[root1] = root2
+        if ranks[root1] == ranks[root2]:
+            ranks[root2] += 1
+
+def kruskal(edges):
+    node_indices = {}  # Dictionnaire pour mapper les noms de nœuds à des indices numériques
+    num_nodes = 0
+    parents = []
+    ranks = []
+    total_weight = 0
+
+    for node1, node2, weight in edges:
+        if node1 not in node_indices:
+            node_indices[node1] = num_nodes
+            num_nodes += 1
+            parents.append(-1)
+            ranks.append(0)
+        if node2 not in node_indices:
+            node_indices[node2] = num_nodes
+            num_nodes += 1
+            parents.append(-1)
+            ranks.append(0)
+
+    edges_with_indices = [(node_indices[node1], node_indices[node2], weight) for node1, node2, weight in edges]
+    edges_with_indices.sort()
+
+    for node1, node2, weight in edges_with_indices:
+        if find(parents, node1) != find(parents, node2):
+            union(parents, ranks, node1, node2)
+            total_weight += weight
+
+    return total_weight
+
 def level_honeycomb(): 
 
     S0 = Switch(name='S0')
@@ -46,11 +92,36 @@ def level_honeycomb():
     S34 = Switch(name='S34')
     S35 = Switch(name='S35')
     
-    a = 10000
-    
     l_weights = [i+1 for i in range(127)]
     rd_shuffle(l_weights)
     l_weights = l_weights[:24]
+    
+    edges = [('R1', 'R2', l_weights[0]),
+             ('R1', 'R3', l_weights[1]),
+             ('R1', 'R4', l_weights[2]),
+             ('R2', 'R4', l_weights[3]),
+             ('R2', 'R5', l_weights[4]),
+             ('R3', 'R4', l_weights[5]),
+             ('R3', 'R6', l_weights[6]),
+             ('R3', 'R7', l_weights[7]),
+             ('R4', 'R5', l_weights[8]),
+             ('R4', 'R7', l_weights[9]),
+             ('R4', 'R8', l_weights[10]),
+             ('R5', 'R8', l_weights[11]),
+             ('R5', 'R9', l_weights[12]),
+             ('R6', 'R7', l_weights[13]),
+             ('R6', 'R10', l_weights[14]),
+             ('R7', 'R8', l_weights[15]),
+             ('R7', 'R10', l_weights[16]),
+             ('R7', 'R11', l_weights[17]),
+             ('R8', 'R9', l_weights[18]),
+             ('R8', 'R11', l_weights[19]),
+             ('R8', 'R12', l_weights[20]),
+             ('R9', 'R12', l_weights[21]),
+             ('R10', 'R11', l_weights[22]),
+             ('R11', 'R12', l_weights[23])]
+    
+    a = kruskal(edges)
     
     Slist = [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, S23]
     
@@ -342,6 +413,7 @@ def level_honeycomb():
                  level_color=lcolor,
                  name='Honeycomb',
                  keep_proportions=True,
-                 door_window_size=500)
+                 door_window_size=300,
+                 random=True)
     
     return level

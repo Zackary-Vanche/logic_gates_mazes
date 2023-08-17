@@ -195,7 +195,7 @@ class Levels:
         Trouver un sous-ensemble de nombres donnés dont la somme est égale à un nombre cible donné.
     """
 
-    levels_functions_list = [#level_honeycomb,
+    levels_functions_list = [
         level_hello_world,
         level_playground,
         level_initiation,
@@ -322,6 +322,7 @@ class Levels:
         level_no_three_in_line,
         level_manhattan_distance,
         level_minimum_spanning_tree,
+        level_honeycomb,
         level_random_gemini,
         level_random_cuboctahedron,
         level_diagonal,
@@ -584,24 +585,30 @@ if __name__ == "__main__":
     # sol = 'S0 S1 S2 S4 S5 S7 S10 S13 S16 D0 S18 D1 S19 D3 S20 D6 S21 D6 D8 S24 D8 D3 D5 S23 D14 S26 D14 D5 D1 D2 S22 D11 S25 D17 S27 D19'
     # level_minimum_spanning_tree().try_solution(sol, verbose=2)
     
-    # solutions = level_error().find_all_solutions(verbose=2,
+    # solutions = level_honeycomb().find_all_solutions(verbose=2,
     #                                                 nb_iterations_print=10**4,
     #                                                 stop_at_first_solution=False)
     # for sol in solutions[0]:
     #     print(' '.join(sol))
     #     print('')
 
-    solutions = level_cartesian().find_all_solutions(verbose=2,
-                                                    nb_iterations_print=10**4,
-                                                    stop_at_first_solution=False)
-    for sol in solutions[0]:
-        print(' '.join(sol))
-        print('')
+    # solutions = level_cartesian().find_all_solutions(verbose=2,
+    #                                                 nb_iterations_print=10**4,
+    #                                                 stop_at_first_solution=False)
+    # for sol in solutions[0]:
+    #     print(' '.join(sol))
+    #     print('')
     
-    dico = {}
-    for door in level_honeycomb():
-        dico[door.name]
-        print(door.name)
+    # dico = {}
+    # k = 0
+    # for door in level_honeycomb().doors_list:
+    #     if door.name in ['D0', 'D25']:
+    #         continue
+    #     # print(door.name)
+    #     rd = door.room_departure
+    #     ra = door.room_arrival
+    #     print(f'''('{rd.name}', '{ra.name}', l_weights[{k}]),''')
+    #     k += 1
         
     # for sol in solutions[0]:
     #     l_s = []
