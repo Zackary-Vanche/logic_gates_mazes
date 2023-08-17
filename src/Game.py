@@ -340,6 +340,8 @@ class Game:
                   pos,
                   max_width,
                   color=None):
+        if text == '':
+            return
         if color is None:
             color = self.inside_room_color
         lines_list = [word.split(' ') for word in text.splitlines()]  # 2D array where each row is a list of words.

@@ -53,6 +53,7 @@ from levels.level_grid import level_grid
 from levels.level_hamiltonian import level_hamiltonian
 from levels.level_hello_world import level_hello_world
 from levels.level_hitting_set import level_hitting_set
+from levels.level_honeycomb import level_honeycomb
 from levels.level_house import level_house
 from levels.level_hungarian_rings import level_hungarian_rings
 from levels.level_independent_set import level_independent_set
@@ -194,7 +195,7 @@ class Levels:
         Trouver un sous-ensemble de nombres donnés dont la somme est égale à un nombre cible donné.
     """
 
-    levels_functions_list = [
+    levels_functions_list = [#level_honeycomb,
         level_hello_world,
         level_playground,
         level_initiation,
@@ -596,6 +597,11 @@ if __name__ == "__main__":
     for sol in solutions[0]:
         print(' '.join(sol))
         print('')
+    
+    dico = {}
+    for door in level_honeycomb():
+        dico[door.name]
+        print(door.name)
         
     # for sol in solutions[0]:
     #     l_s = []
