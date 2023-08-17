@@ -27,57 +27,68 @@ def level_syracuse(test_solution=False):
     SN1 = Switch(name='1', value=1)
     SN2 = Switch(name='2', value=2)
     SN3 = Switch(name='3', value=3)
-    SN228 = Switch(name='228', value=228)
+    
+    Slist_0 = [S0, S1, S2, S3,
+               S4, S5, S6, S7]
+    Slist_1 = [S8, S9, S10, S11,
+               S12, S13, S14, S15]
+
+    V0 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_0)),
+              name='V0',
+              switches=Slist_0)
+    V1 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_1)),
+              name='V1',
+              switches=Slist_1)
 
     tree_list_0 = ['EQU',
-                   Tree.tree_list_BIN(8),
-                   Tree.tree_list_BIN(8)]
+                   [None],
+                   [None]]
 
     tree_list_1 = ['EQU',
-                       Tree.tree_list_BIN(8),
+                       [None],
                        ['DIV',
-                            Tree.tree_list_BIN(8),
+                            [None],
                             [None]]]
 
-    tree_list_prod = ['PROD', [None], Tree.tree_list_BIN(8)]
+    tree_list_prod = ['PROD', [None], [None]]
     tree_list_3plus1 = ['SUM', tree_list_prod, [None]]
-    tree_list_equ_3plus1 = ['EQU', Tree.tree_list_BIN(8), tree_list_3plus1]
+    tree_list_equ_3plus1 = ['EQU', [None], tree_list_3plus1]
     tree_list_equ_mod = ['EQU', [None], [None]] 
     tree_list_2 = ['AND', tree_list_equ_mod, tree_list_equ_3plus1]
 
-    tree_list_3 = ['EQU', Tree.tree_list_BIN(8), Tree.tree_list_BIN(8), [None]]
+    tree_list_3 = ['EQU', [None], [None], [None]]
 
     T0 = Tree(tree_list=tree_list_0,
               name='T0',
-              switches = [S0, S1, S2, S3, S4, S5, S6, S7,
-                          S8, S9, S10, S11, S12, S13, S14, S15])
+              switches = [V0,
+                          V1])
     T1 = Tree(tree_list=tree_list_1,
               name='T1',
-              switches = [S0, S1, S2, S3, S4, S5, S6, S7,
-                          S8, S9, S10, S11, S12, S13, S14, S15,
+              switches = [V0,
+                          V1,
                           SN2])
     T2 = Tree(tree_list=tree_list_2,
               name='T2',
               switches = [S8,
                           SN1,
-                          S0, S1, S2, S3, S4, S5, S6, S7,
+                          V0,
                           SN3,
-                          S8, S9, S10, S11, S12, S13, S14, S15,
+                          V1,
                           SN1],
               cut_expression=True,
               cut_expression_separator=']')
     T3 = Tree(tree_list=tree_list_3,
               name='T3',
-              switches = [S0, S1, S2, S3, S4, S5, S6, S7,
-                          S8, S9, S10, S11, S12, S13, S14, S15,
-                          SN228])
+              switches = [V0,
+                          V1,
+                          228])
 
     R0 = Room(name='R0',
               position = [0, 0, 4, 2],
-              switches_list = [S0, S1, S2, S3, S4, S5, S6, S7])
+              switches_list = Slist_0)
     R1 = Room(name='R1',
               position = [0, 4, 4, 2],
-              switches_list = [S8, S9, S10, S11, S12, S13, S14, S15])
+              switches_list = Slist_1)
     RE = Room(name='RE',
               position=[0, 8, 4, 1],
               is_exit=True)   # E pour exit ou end
@@ -114,7 +125,7 @@ def level_syracuse(test_solution=False):
                  fastest_solution='S0 D0 S8 S9 D1 S0 S1 D0 S9 S10 D1 S1 S2 D0 S10 S11 D1 S2 S3 D0 S11 S12 D1 S3 S4 D0 S8 S10 S12 D2 S0 S2 S4 D0 S8 S9 S10 S11 D1 S0 S1 S2 S3 D0 S9 S10 S11 S12 D1 S1 S2 S3 S4 D0 S10 S11 S12 S13 D1 S2 S3 S4 S5 D0 S8 S10 S13 D2 S0 S2 S5 D0 S8 S9 S10 S12 D1 S0 S1 S2 S4 D0 S9 S10 S11 S13 D1 S1 S2 S3 S5 D0 S8 S10 S13 D2 S0 S2 S5 D0 S8 S9 S12 S13 D1 S0 S1 S4 S5 D0 S8 S11 S13 D2 S0 S3 S5 D0 S8 S10 S11 S12 D1 S0 S2 S3 S4 D0 S8 S12 D2 S0 S4 D0 S8 S11 D1 S0 S3 D0 S9 S12 D1 S1 S4 D0 S10 S13 D1 S2 S5 D0 S11 S14 D1 S3 S6 D0 S8 S10 S12 S14 D2 S0 S2 S4 S6 D0 S8 S9 S10 S11 S13 S14 D1 S0 S1 S2 S3 S5 S6 D0 S9 S10 S11 S12 S14 S15 D1 S1 S2 S3 S4 S6 S7 D0 S8 S10 S13 S15 D2 S0 S2 S5 S7 D0 S8 S9 S12 S14 D1 S0 S1 S4 S6 D0 S9 S10 S13 S15 D1 S1 S2 S5 S7 D0 S8 S10 S15 D2 S0 S2 S7 D0 S8 S9 S14 S15 D1 S0 S1 S6 S7 D0 S8 S11 S13 S15 D2 S0 S3 S5 S7 D0 S8 S10 S11 S12 S13 S14 D1 S0 S2 S3 S4 S5 S6 D0 S9 S11 S12 S13 S14 S15 D1 S1 S3 S4 S5 S6 S7 D0 S8 S10 S12 S15 D2 S0 S2 S4 S7 D0 S8 S9 S11 S14 D1 S0 S1 S3 S6 D0 S9 S10 S12 S15 D1 S1 S2 S4 S7 D0 D3',
                  level_color=Levels_colors_list.BROWN_AND_BLUE,
                  name='Syracuse',
-                 door_window_size = 800,
+                 door_window_size = 400,
                  keep_proportions = True,
                  border=50)
 
