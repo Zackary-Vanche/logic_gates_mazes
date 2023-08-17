@@ -3,7 +3,7 @@ from pygame import init as pygame_init
 import pygame.locals
 from pygame.locals import K_KP0, K_KP1, K_KP2, K_KP3, K_KP4
 from pygame.locals import K_KP5, K_KP6, K_KP7, K_KP8, K_KP9
-from pygame.locals import QUIT, K_RIGHT, K_LEFT, K_UP, K_DOWN, K_SPACE, K_LALT, K_RALT
+from pygame.locals import QUIT, K_RIGHT, K_LEFT, K_UP, K_DOWN, K_SPACE, K_LALT, K_RALT, K_KP_PERIOD
 from pygame.locals import K_RETURN, K_BACKSPACE, K_ESCAPE
 from pygame.display import set_mode as pygame_display_set_mode
 from pygame.display import set_caption as pygame_display_set_caption
@@ -50,6 +50,7 @@ class Game:
                  K_KP7: '7',
                  K_KP8: '8',
                  K_KP9: '9',
+                 K_KP_PERIOD: '.',
                  K_SPACE: ' '}
     
     # Add all alphabet letters to the dictionary
@@ -828,22 +829,46 @@ class Game:
                         self.get_new_level = True
                         self.get_level()
                         self.change_in_display = True
-                    elif self.current_action == 'HHH':
+                    elif self.current_action == 'SOLUTION':
                         self.show_solution()
-                    elif self.current_action == 'HHHHH':
+                    elif self.current_action == 'SOLUTIONS':
                         self.show_all_solutions()
-                    elif self.current_action == 'VVV':
+                    elif self.current_action == 'VIDEO':
                         self.save_videos()
-                    elif self.current_action == 'GREY':
-                        self.game_color = Levels_colors_list.FROM_HUE(hu=0.1, sa=0, li=0.35)
-                        self.get_new_level = True
-                        self.get_level()
-                        self.change_in_display = True
                     elif self.current_action == 'COLOR':
                         self.game_color = None
                         self.get_new_level = True
                         self.get_level()
                         self.change_in_display = True
+                    elif self.current_action[:5] == 'COLOR':
+                        hu = 0.1
+                        sa = 0
+                        li = 0.35
+                        l = self.current_action.split(' ')[1:]
+                        print(l)
+                        if len(l) >= 1:
+                            try:
+                                hu = float(l.pop(0))
+                            except ValueError:
+                                pass
+                            print('hu =', hu)
+                        if len(l) >= 1:
+                            try:
+                                sa = float(l.pop(0))
+                            except ValueError:
+                                pass
+                            print('sa =', sa)
+                        if len(l) >= 1:
+                            try:
+                                li = float(l.pop(0))
+                            except ValueError:
+                                pass
+                            print('li =', li)
+                        self.game_color = Levels_colors_list.FROM_HUE(hu=hu, sa=sa, li=li)
+                        self.get_new_level = True
+                        self.get_level()
+                        self.change_in_display = True
+                    
                     else:
                         self.current_action = self.current_action.replace('EXIT', 'RE')
                         if self.current_action[0] in ['D', 'S', 'R']:
