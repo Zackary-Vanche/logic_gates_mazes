@@ -30,92 +30,102 @@ def level_chinese_postman_problem():
     S20 = Switch(name='S20')
     # S21 = Switch(name='S21')
     
-    Slist0 = [S0, S1, S2]
-    Slist1 = [S3, S4]
-    Slist2 = [S5, S6]
-    Slist3 = [S7, S8, S9, S10]
-    Slist4 = [S11, S12, S13, S14]
+    Slist_0 = [S0, S1, S2]
+    Slist_1 = [S3, S4]
+    Slist_2 = [S5, S6]
+    Slist_3 = [S7, S8, S9, S10]
+    Slist_4 = [S11, S12, S13, S14]
     SlistE = [S15, S16, S17, S18, S19, S20]
     
-    def tree_list_EQU_BIN(n):
-        return ['EQU',
-                       Tree.tree_list_BIN(n),
-                       [None]]
+    V0 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_0)),
+              name='V0',
+              switches=Slist_0)
+    V1 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_1)),
+              name='V1',
+              switches=Slist_1)
+    V2 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_2)),
+              name='V2',
+              switches=Slist_2)
+    V3 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_3)),
+              name='V3',
+              switches=Slist_3)
+    V4 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_4)),
+              name='V4',
+              switches=Slist_4)
     
-    tree_list_6 = tree_list_EQU_BIN(3)
+    tree_list_EQU = ['EQU', [None], [None]]
     
-    tree_list_EQU_BIN2 = tree_list_EQU_BIN(2)
-    tree_list_IN_BIN = ['IN', Tree.tree_list_BIN(3)] + [[None]]*3
+    tree_list_IN = ['IN'] + [[None]]*4
 
     T0 = Tree(tree_list=['OR'] + [['AND',
-                                   tree_list_EQU_BIN2,
-                                   tree_list_IN_BIN]]*4,
+                                   tree_list_EQU,
+                                   tree_list_IN]]*4,
                 name='T0',
-                switches=[S5, S6, 0, S0, S1, S2, 0, 1, 2,
-                          S5, S6, 1, S0, S1, S2, 0, 3, 4,
-                          S5, S6, 2, S0, S1, S2, 1, 3, 5,
-                          S5, S6, 3, S0, S1, S2, 2, 4, 5],
+                switches=[V2, 0, V0, 0, 1, 2,
+                          V2, 1, V0, 0, 3, 4,
+                          V2, 2, V0, 1, 3, 5,
+                          V2, 3, V0, 2, 4, 5],
                 cut_expression_depth_1=True)
     T1 = Tree(tree_list=['OR'] + [['AND',
-                                   tree_list_EQU_BIN(3),
+                                   tree_list_EQU,
                                    ['EQUSET',
-                                    Tree.tree_list_BIN(2),
-                                    Tree.tree_list_BIN(2),
+                                    [None],
+                                    [None],
                                     [None],
                                     [None]]]]*6,
                 name='T1',
-                switches=[S0, S1, S2, 0, S3, S4, S5, S6, 0, 1, 
-                          S0, S1, S2, 1, S3, S4, S5, S6, 0, 2,
-                          S0, S1, S2, 2, S3, S4, S5, S6, 0, 3,
-                          S0, S1, S2, 3, S3, S4, S5, S6, 1, 2,
-                          S0, S1, S2, 4, S3, S4, S5, S6, 1, 3,
-                          S0, S1, S2, 5, S3, S4, S5, S6, 2, 3,],
+                switches=[V0, 0, V1, V2, 0, 1, 
+                          V0, 1, V1, V2, 0, 2,
+                          V0, 2, V1, V2, 0, 3,
+                          V0, 3, V1, V2, 1, 2,
+                          V0, 4, V1, V2, 1, 3,
+                          V0, 5, V1, V2, 2, 3,],
                 cut_expression_depth_1=True)
-    T2 = Tree(tree_list=['EQU', Tree.tree_list_BIN(2), Tree.tree_list_BIN(2)],
+    T2 = Tree(tree_list=['EQU', [None], [None]],
                 name='T2',
-                switches=Slist1+Slist2)
+                switches=[V1, V2])
     T3 = Tree(tree_list=['EQU',
-                         Tree.tree_list_BIN(4),
-                         ['SUM', Tree.tree_list_BIN(4), [None]]],
+                         [None],
+                         ['SUM', [None], [None]]],
                 name='T3',
-                switches=Slist3+Slist4+[1])
-    T4 = Tree(tree_list=['EQU'] + [Tree.tree_list_BIN(4)]*2,
+                switches=[V3, V4, 1])
+    T4 = Tree(tree_list=['EQU'] + [[None]]*2,
                 name='T4',
-                switches=Slist3+Slist4)
+                switches=[V3, V4])
     T5 = Tree(tree_list=['AND'] + [['NAND',
                                     Tree.tree_list_NOT,
-                                    ['EQU', [None], Tree.tree_list_BIN(3)],]]*6,
+                                    ['EQU', [None], [None]],]]*6,
                 name='T5',
-                switches=[S15, 0, S0, S1, S2,
-                          S16, 1, S0, S1, S2,
-                          S17, 2, S0, S1, S2,
-                          S18, 3, S0, S1, S2,
-                          S19, 4, S0, S1, S2,
-                          S20, 5, S0, S1, S2],
+                switches=[S15, 0, V0,
+                          S16, 1, V0,
+                          S17, 2, V0,
+                          S18, 3, V0,
+                          S19, 4, V0,
+                          S20, 5, V0],
                 cut_expression=True)
-    T6 = Tree(tree_list=tree_list_6,
+    T6 = Tree(tree_list=tree_list_EQU,
                 name='T6',
-                switches=Slist0+[0])
-    T7 = Tree(tree_list=tree_list_6,
+                switches=[V0, 0])
+    T7 = Tree(tree_list=tree_list_EQU,
                 name='T7',
-                switches=Slist0+[1])
-    T8 = Tree(tree_list=tree_list_6,
+                switches=[V0, 1])
+    T8 = Tree(tree_list=tree_list_EQU,
                 name='T8',
-                switches=Slist0+[2])
-    T9 = Tree(tree_list=tree_list_6,
+                switches=[V0, 2])
+    T9 = Tree(tree_list=tree_list_EQU,
                 name='T9',
-                switches=Slist0+[3])
-    T10 = Tree(tree_list=tree_list_6,
+                switches=[V0, 3])
+    T10 = Tree(tree_list=tree_list_EQU,
                 name='T10',
-                switches=Slist0+[4])
-    T11 = Tree(tree_list=tree_list_6,
+                switches=[V0, 4])
+    T11 = Tree(tree_list=tree_list_EQU,
                 name='T11',
-                switches=Slist0+[5])
+                switches=[V0, 5])
     T12 = Tree(tree_list=['AND',
                           Tree.tree_list_from_str('F'*5+'T'*6),
-                          ['INF', Tree.tree_list_BIN(4), [None]]],
+                          ['INF', [None], [None]]],
                 name='T12',
-                switches=Slist0+Slist1+SlistE+Slist3+[16],
+                switches=Slist_0+Slist_1+SlistE+[V3, 16],
                 cut_expression=True)
     
     ex = 1
@@ -125,19 +135,19 @@ def level_chinese_postman_problem():
 
     R0 = Room(name='R0',
                 position=[2*dx, 0*dy, 3*ex, ey],
-                switches_list=Slist0)
+                switches_list=Slist_0)
     R1 = Room(name='R1',
                 position=[1*dx, 2*dy, 2*ex, ey],
-                switches_list=Slist1)
+                switches_list=Slist_1)
     R2 = Room(name='R2',
                 position=[4*dx, 2*dy, 2*ex, ey],
-                switches_list=Slist2)
+                switches_list=Slist_2)
     R3 = Room(name='R3',
                 position=[4*dx, 4*dy, 3*ex, ey],
-                switches_list=Slist3)
+                switches_list=Slist_3)
     R4 = Room(name='R4',
                 position=[0*dx, 4*dy, 3*ex, ey],
-                switches_list=Slist4)
+                switches_list=Slist_4)
     R5 = Room(name='R5',
                 position=[3*dx, 6*dy, ex, ey/2],
                 switches_list=[])
@@ -241,6 +251,6 @@ def level_chinese_postman_problem():
                  level_color=Levels_colors_list.FROM_HUE(hu=0.6, sa=0.5, li=0.5),
                  name='Chinese postman problem',
                  keep_proportions=True,
-                 door_window_size=500)
+                 door_window_size=400)
     
     return level
