@@ -56,7 +56,6 @@ def level_minimum_spanning_tree():
     ln = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
 
     T0 = Tree(tree_list=tree_list_0,
-              empty=True,
               name='T0',
               switches=[ln[0], S0,
                         ln[1], S1,
@@ -79,79 +78,60 @@ def level_minimum_spanning_tree():
                         184],
               cut_expression=True)
     T1 = Tree(tree_list=[None],
-                empty=True,
                 name='T1',
                 switches=[S0])
     T2 = Tree(tree_list=[None],
-                empty=True,
                 name='T2',
                 switches=[S1])
     T3 = Tree(tree_list=[None],
-                empty=True,
                 name='T3',
                 switches=[S2])
     T4 = Tree(tree_list=[None],
-                empty=True,
                 name='T4',
                 switches=[S3])
     T5 = Tree(tree_list=[None],
-                empty=True,
                 name='T5',
                 switches=[S4])
     T6 = Tree(tree_list=[None],
-                empty=True,
                 name='T6',
                 switches=[S5])
     T7 = Tree(tree_list=[None],
-                empty=True,
                 name='T7',
                 switches=[S6])
     T8 = Tree(tree_list=[None],
-                empty=True,
                 name='T8',
                 switches=[S7])
     T9 = Tree(tree_list=[None],
-                empty=True,
                 name='T9',
                 switches=[S8])
     T10 = Tree(tree_list=[None],
-                empty=True,
                 name='T10',
                 switches=[S9])
     T11 = Tree(tree_list=[None],
-                empty=True,
                 name='T11',
                 switches=[S10])
     T12 = Tree(tree_list=[None],
-                empty=True,
                 name='T12',
                 switches=[S11])
     T13 = Tree(tree_list=[None],
-                empty=True,
                 name='T13',
                 switches=[S12])
     T14 = Tree(tree_list=[None],
-                empty=True,
                 name='T14',
                 switches=[S13])
     T15 = Tree(tree_list=[None],
-                empty=True,
                 name='T15',
                 switches=[S14])
     T16 = Tree(tree_list=[None],
-                empty=True,
                 name='T16',
                 switches=[S15])
     T17 = Tree(tree_list=[None],
-                empty=True,
                 name='T17',
                 switches=[S16])
     T18 = Tree(tree_list=[None],
-                empty=True,
                 name='T18',
                 switches=[S17])
     T19 = Tree(tree_list=Tree.tree_list_AND(10),
-                empty=True,
                 name='T19',
                 switches=[S18, S19, S20, S21, S22, S23, S24, S25, S26, S27])
     

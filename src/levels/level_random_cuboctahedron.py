@@ -22,13 +22,11 @@ def aux_level_random_cuboctahedron(door_trees_list = [[i for i in range(2**n_swi
     assert len(Slist) == n_switches
     
     V0 = Tree(tree_list=Tree.tree_list_BIN(len(Slist)),
-              empty=True,
               name='V0',
               switches = Slist)
     
     def get_tree(i):
         return Tree(['IN', [None]] + [[None]]*len(door_trees_list[i]),
-                     empty=True,
                      name=f'T{i}',
                      switches = [V0] + door_trees_list[i],
                      cut_expression=True,
@@ -200,7 +198,6 @@ def aux_level_random_cuboctahedron(door_trees_list = [[i for i in range(2**n_swi
     else:
         D24 = Door(two_way=False,
                     tree=Tree(['IN', Tree.tree_list_BIN(len(Slist)), [None]],
-                              empty=True,
                               name=f'T{24}',
                               switches = Slist + [exit_number],
                               cut_expression=True),

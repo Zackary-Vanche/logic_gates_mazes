@@ -36,61 +36,54 @@ def level_spaceship():
     tree_list_1 = ['AND', [None], ['EQU', [None], [None]]]
     
     V0 = Tree(tree_list=Tree.tree_list_BIN(3),
-              empty=True,
               name='V0',
               switches=[S1, S2, S3])
     V1 = Tree(tree_list=Tree.tree_list_BIN(3),
-              empty=True,
               name='V1',
               switches=[S4, S5, S6])
     V2 = Tree(tree_list=Tree.tree_list_BIN(3),
-              empty=True,
               name='V2',
               switches=[S7, S8, S9])
     V3 = Tree(tree_list=Tree.tree_list_BIN(3),
-              empty=True,
               name='V3',
               switches=[S10, S11, S12])
     V4 = Tree(tree_list=Tree.tree_list_BIN(3),
-              empty=True,
               name='V4',
               switches=[S13, S14, S15])
 
     T0 = Tree(tree_list=Tree.tree_list_not,
-              empty=True, name='T0',
+               name='T0',
               switches=[S0])
     T1 = Tree(tree_list=tree_list_0,
-              empty=True, name='T1',
+               name='T1',
               switches=[S0, V0, V1])
     T2 = Tree(tree_list=tree_list_0,
-              empty=True, name='T2',
+               name='T2',
               switches=[S0, V1, V3])
     T3 = Tree(tree_list=tree_list_0,
-              empty=True, name='T3',
+               name='T3',
               switches=[S0, V3, V4])
     T4 = Tree(tree_list=[None],
-              empty=True, name='T4',
+               name='T4',
               switches=[S0])
     T5 = Tree(tree_list=tree_list_1,
-              empty=True, name='T5',
+               name='T5',
               switches=[S0, V2, V0])
     T6 = Tree(tree_list=tree_list_1,
-              empty=True, name='T6',
+               name='T6',
               switches=[S0, V0, V3])
     T7 = Tree(tree_list=tree_list_1,
-              empty=True, name='T7',
+               name='T7',
               switches=[S0, V3, V1])
     T8 = Tree(tree_list=tree_list_1,
-              empty=True, name='T8',
+               name='T8',
               switches=[S0, V1, V4])
     T9 = Tree(tree_list=['EQUSET'] + [[None]]*10,
-              empty=True,
               name='T9',
               switches=[V0, V1, V2, V3, V4,
                          0, 1, 2, 3, 4],
                cut_expression=True)
     T10 = Tree(tree_list=Tree.tree_list_from_str('1001110000010100'),
-               empty=True,
                name='T10',
                switches=[S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15])
     

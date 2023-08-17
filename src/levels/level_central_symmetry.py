@@ -40,7 +40,6 @@ def level_central_symmetry():
     tree_list_0 = Tree.tree_list_from_str('TFT')
 
     T0 = Tree(tree_list=['EQU', [None], ['SUM'] + [[None]]*12],
-              empty=True,
               name='T0',
               switches=[7,
                         S0, S1, S2,
@@ -49,233 +48,182 @@ def level_central_symmetry():
                         S9, S10, S11])
 
     T1 = Tree(tree_list=tree_list_0,
-              empty=True,
               name='T1',
               switches=[S12, S13, S0])
     T2 = Tree(tree_list=tree_list_0,
-              empty=True,
               name='T2',
               switches=[S13, S12, S0])
 
     T3 = Tree(tree_list=tree_list_0,
-              empty=True,
               name='T3',
               switches=[S13, S14, S1])
     T4 = Tree(tree_list=tree_list_0,
-              empty=True,
               name='T4',
               switches=[S14, S13, S1])
 
     T5 = Tree(tree_list=tree_list_0,
-              empty=True,
               name='T5',
               switches=[S14, S15, S2])
     T6 = Tree(tree_list=tree_list_0,
-              empty=True,
               name='T6',
               switches=[S15, S14, S2])
 
     T7 = Tree(tree_list=tree_list_0,
-              empty=True,
               name='T7',
               switches=[S16, S17, S5])
     T8 = Tree(tree_list=tree_list_0,
-              empty=True,
               name='T8',
               switches=[S17, S16, S5])
 
     T9 = Tree(tree_list=tree_list_0,
-              empty=True,
               name='T9',
               switches=[S17, S18, S3])
     T10 = Tree(tree_list=tree_list_0,
-               empty=True,
                name='T10',
                switches=[S18, S17, S3])
 
     T11 = Tree(tree_list=tree_list_0,
-               empty=True,
                name='T11',
                switches=[S18, S19, S4])
     T12 = Tree(tree_list=tree_list_0,
-               empty=True,
                name='T12',
                switches=[S19, S18, S4])
 
     T13 = Tree(tree_list=tree_list_0,
-               empty=True,
                name='T13',
                switches=[S20, S21, S4])
     T14 = Tree(tree_list=tree_list_0,
-               empty=True,
                name='T14',
                switches=[S21, S20, S4])
 
     T15 = Tree(tree_list=tree_list_0,
-               empty=True,
                name='T15',
                switches=[S21, S22, S3])
     T16 = Tree(tree_list=tree_list_0,
-               empty=True,
                name='T16',
                switches=[S22, S21, S3])
 
     T17 = Tree(tree_list=tree_list_0,
-               empty=True,
                name='T17',
                switches=[S22, S23, S5])
     T18 = Tree(tree_list=tree_list_0,
-               empty=True,
                name='T18',
                switches=[S23, S22, S5])
 
     T19 = Tree(tree_list=tree_list_0,
-               empty=True,
                name='T19',
                switches=[S24, S25, S2])
     T20 = Tree(tree_list=tree_list_0,
-               empty=True,
                name='T20',
                switches=[S25, S24, S2])
 
     T21 = Tree(tree_list=tree_list_0,
-               empty=True,
                name='T21',
                switches=[S25, S26, S1])
     T22 = Tree(tree_list=tree_list_0,
-               empty=True,
                name='T22',
                switches=[S26, S25, S1])
 
     T23 = Tree(tree_list=tree_list_0,
-               empty=True,
                name='T23',
                switches=[S26, S27, S0])
     T24 = Tree(tree_list=tree_list_0,
-               empty=True,
                name='T24',
                switches=[S27, S26, S0])
 
     T25 = Tree(tree_list=tree_list_0,
-               empty=True,
                name='T25',
                switches=[S12, S16, S11])
     T26 = Tree(tree_list=tree_list_0,
-               empty=True,
                name='T26',
                switches=[S16, S12, S11])
 
     T27 = Tree(tree_list=tree_list_0,
-               empty=True,
                name='T27',
                switches=[S16, S20, S10])
     T28 = Tree(tree_list=tree_list_0,
-               empty=True,
                name='T28',
                switches=[S20, S16, S10])
 
     T29 = Tree(tree_list=tree_list_0,
-               empty=True,
                name='T29',
                switches=[S20, S24, S9])
     T30 = Tree(tree_list=tree_list_0,
-               empty=True,
                name='T30',
                switches=[S24, S20, S9])
 
     T31 = Tree(tree_list=tree_list_0,
-               empty=True,
                name='T31',
                switches=[S13, S17, S6])
     T32 = Tree(tree_list=tree_list_0,
-               empty=True,
                name='T32',
                switches=[S17, S13, S6])
 
     T33 = Tree(tree_list=tree_list_0,
-               empty=True,
                name='T33',
                switches=[S17, S21, S8])
     T34 = Tree(tree_list=tree_list_0,
-               empty=True,
                name='T34',
                switches=[S21, S17, S8])
 
     T35 = Tree(tree_list=tree_list_0,
-               empty=True,
                name='T35',
                switches=[S21, S25, S7])
     T36 = Tree(tree_list=tree_list_0,
-               empty=True,
                name='T36',
                switches=[S25, S21, S7])
 
     T37 = Tree(tree_list=tree_list_0,
-               empty=True,
                name='T37',
                switches=[S14, S18, S7])
     T38 = Tree(tree_list=tree_list_0,
-               empty=True,
                name='T38',
                switches=[S18, S14, S7])
 
     T39 = Tree(tree_list=tree_list_0,
-               empty=True,
                name='T39',
                switches=[S18, S22, S8])
     T40 = Tree(tree_list=tree_list_0,
-               empty=True,
                name='T40',
                switches=[S22, S18, S8])
 
     T41 = Tree(tree_list=tree_list_0,
-               empty=True,
                name='T41',
                switches=[S22, S26, S6])
     T42 = Tree(tree_list=tree_list_0,
-               empty=True,
                name='T42',
                switches=[S26, S22, S6])
 
     T43 = Tree(tree_list=tree_list_0,
-               empty=True,
                name='T43',
                switches=[S15, S19, S9])
     T44 = Tree(tree_list=tree_list_0,
-               empty=True,
                name='T44',
                switches=[S19, S15, S9])
 
     T45 = Tree(tree_list=tree_list_0,
-               empty=True,
                name='T45',
                switches=[S19, S23, S10])
     T46 = Tree(tree_list=tree_list_0,
-               empty=True,
                name='T46',
                switches=[S23, S19, S10])
 
     T47 = Tree(tree_list=tree_list_0,
-               empty=True,
                name='T47',
                switches=[S23, S27, S11])
     T48 = Tree(tree_list=tree_list_0,
-               empty=True,
                name='T48',
                switches=[S27, S23, S11])
 
     T49 = Tree(tree_list=['NOT', Tree.tree_list_from_str('TTT')],
-               empty=True,
                name='T49',
                switches=[S3, S6, S9])
     T50 = Tree(tree_list=[None],
-               empty=True,
                name='T50',
                switches=[S28])
     T51 = Tree(tree_list=['AND',
                           Tree.tree_list_AND(8),
                           Tree.tree_list_AND(9)],
-                      empty=True,
                       name='T51',
                       switches=[S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, S23, S24, S25, S26, S27, S28],
                       cut_expression=True)

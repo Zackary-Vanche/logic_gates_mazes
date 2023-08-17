@@ -14,7 +14,6 @@ def level_product():
     S3 = Switch(name='S3')
 
     T0 = Tree(tree_list=['EQU', ['PROD', [None], Tree.tree_list_BIN(4)], [None]],
-              empty=True,
               name='T0',
               switches=[7, S0, S1, S2, S3, 42])
 

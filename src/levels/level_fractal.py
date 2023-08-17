@@ -24,95 +24,72 @@ def level_fractal():
     S14 = Switch(name='S14')
 
     T0 = Tree(tree_list=Tree.tree_list_OR(2),
-              empty=True,
               name='T0',
               switches=[S0, S8])
     T1 = Tree(tree_list=[None],
-              empty=True,
               name='T1',
               switches=[S14])
     T2 = Tree(tree_list=['AND', [None], Tree.tree_list_XNOR(2)],
-              empty=True,
               name='T2',
               switches=[S0, S1, S2])
     T3 = Tree(tree_list=Tree.tree_list_from_str('TTF'),
-              empty=True,
               name='T3',
               switches=[S0, S1, S2])
     T4 = Tree(tree_list=Tree.tree_list_from_str('TT'),
-              empty=True,
               name='T4',
               switches=[S0, S1])
     T5 = Tree(tree_list=['AND', [None], Tree.tree_list_XOR(2)],
-              empty=True,
               name='T5',
               switches=[S0, S3, S4])
     T6 = Tree(tree_list=Tree.tree_list_from_str('FT'),
-              empty=True,
               name='T6',
               switches=[S1, S2])
     T7 = Tree(tree_list=[None],
-              empty=True,
               name='T7',
               switches=[S10])
     T8 = Tree(tree_list=['AND', [None], Tree.tree_list_NOR(2)],
-              empty=True,
               name='T8',
               switches=[S0, S5, S6])
     T9 = Tree(tree_list=Tree.tree_list_from_str('TT'),
-              empty=True,
               name='T9',
               switches=[S3, S4])
     T10 = Tree(tree_list=[None],
-               empty=True,
                name='T10',
                switches=[S7])
     T11 = Tree(tree_list=[None],
-               empty=True,
                name='T11',
                switches=[S7])
     T12 = Tree(tree_list=Tree.tree_list_from_str('FF'),
-               empty=True,
                name='T12',
                switches=[S3, S4])
     T13 = Tree(tree_list=Tree.tree_list_from_str('TT'),
-               empty=True,
                name='T13',
                switches=[S9, S1])
     T14 = Tree(tree_list=[None],
-               empty=True,
                name='T14',
                switches=[S9])
     T15 = Tree(tree_list=[None],
-               empty=True,
                name='T15',
                switches=[S5])
     T16 = Tree(tree_list=[None],
-               empty=True,
                name='T16',
                switches=[S11])
     T17 = Tree(tree_list=[None],
-               empty=True,
                name='T17',
                switches=[S11])
     T18 = Tree(tree_list=[None],
-               empty=True,
                name='T18',
                switches=[S8])
     T19 = Tree(tree_list=[None],
-               empty=True,
                name='T19',
                switches=[S13])
     T20 = Tree(tree_list=[None],
-               empty=True,
                name='T20',
                switches=[S13])
     T21 = Tree(tree_list=Tree.tree_list_from_str('FTTTTTFT'),
-               empty=True,
                name='T21',
                switches=[S0, S1, S2, S3, S4, S6, S10, S12])
     T22 = Tree(tree_list=Tree.tree_list_from_str('FTTTTTFT'),
-               empty=True,
                name='T22',
                switches=[S0, S1, S2, S3, S4, S6, S8, S10])
 

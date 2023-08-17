@@ -216,7 +216,6 @@ def level_zebra():
 
     def get_tree(i_door):
         return Tree(tree_list=['AND'] + [tree_list_XNOR_equ] * 8,
-                    empty=True,
                     name=f'T{i_door}',
                     switches=get_S(i_door),
                     cut_expression=True)
@@ -224,7 +223,6 @@ def level_zebra():
     # The Norwegian lives in the first house.
     T0 = Tree(tree_list=['AND',
                          ['EQU', [None], Tree.tree_list_BIN(3)]] + [tree_list_XNOR_equ] * 8,
-              empty=True,
               name='T0',
               switches=Norwegian + Slist[0:15][3:6] + get_S(0),
               cut_expression=True)
@@ -232,7 +230,6 @@ def level_zebra():
     # Milk is drunk in the middle house.
     T2 = Tree(tree_list=['AND',
                          ['EQU', [None], Tree.tree_list_BIN(3)]] + [tree_list_XNOR_equ] * 8,
-              empty=True,
               name='T2',
               switches=Milk + Slist[15 * 2:15 * 3][6:9] + get_S(2),
               cut_expression=True)
@@ -248,7 +245,6 @@ def level_zebra():
         Slist5.extend(S_type_list[i] + [0, 1, 2, 3, 4])
     tree_list_EQUSET = ['EQUSET'] + [Tree.tree_list_BIN(3)] * 5 + [[None]] * 5
     T5 = Tree(tree_list=['AND'] + [tree_list_EQUSET] * 5,
-              empty=True,
               name='T5',
               switches=Slist5,
               cut_expression=True,
@@ -265,7 +261,6 @@ def level_zebra():
         Slist6 += chesterfield + smoke_S[i] + fox + pet_S[i + 1]
         Slist6 += chesterfield + smoke_S[i + 1] + fox + pet_S[i]
     T6 = Tree(tree_list=['AND'] + [tree_list_right_of] + [tree_list_next_t0],
-              empty=True,
               name='T6',
               switches=Slist6,
               cut_expression=True,
@@ -280,7 +275,6 @@ def level_zebra():
         Slist7 += Norwegian + nationality_S[i] + blue + color_S[i + 1]
         Slist7 += Norwegian + nationality_S[i + 1] + blue + color_S[i]
     T7 = Tree(tree_list=['AND'] + [tree_list_next_t0] * 2,
-              empty=True,
               name='T7',
               switches=Slist7,
               cut_expression=True,

@@ -24,66 +24,51 @@ def level_singleton():
     tree_list_SUM_MOD = ['EQU', ['MOD', Tree.tree_list_SUM(3), [None]], [None]]
 
     T0 = Tree(tree_list=['AND'] + [tree_list_SUM_MOD]*2,
-                empty=True,
                 name='T0',
                 switches=[S2, S6, S7, 2, 0,
                           S2, S10, S11, 2, 0])
     T1 = Tree(tree_list=[None],
-                empty=True,
                 name='T1',
                 switches=[S0])
     T2 = Tree(tree_list=[None],
-                empty=True,
                 name='T2',
                 switches=[S1])
     T3 = Tree(tree_list=[None],
-                empty=True,
                 name='T3',
                 switches=[S2])
     T4 = Tree(tree_list=[None],
-                empty=True,
                 name='T4',
                 switches=[S3])
     T5 = Tree(tree_list=[None],
-                empty=True,
                 name='T5',
                 switches=[S4])
     T6 = Tree(tree_list=[None],
-                empty=True,
                 name='T6',
                 switches=[S5])
     T7 = Tree(tree_list=[None],
-                empty=True,
                 name='T7',
                 switches=[S6])
     T8 = Tree(tree_list=[None],
-                empty=True,
                 name='T8',
                 switches=[S7])
     T9 = Tree(tree_list=[None],
-                empty=True,
                 name='T9',
                 switches=[S8])
     T10 = Tree(tree_list=[None],
-                empty=True,
                 name='T10',
                 switches=[S9])
     T11 = Tree(tree_list=[None],
-                empty=True,
                 name='T11',
                 switches=[S10])
     T12 = Tree(tree_list=[None],
-                empty=True,
                 name='T12',
                 switches=[S11])
     T13 = Tree(tree_list=[None],
-                empty=True,
                 name='T13',
                 switches=[S12])
     T14 = Tree(tree_list=['INFOREQU',
                           Tree.tree_list_SUM(8),
                           [None]],
-                empty=True,
                 name='T14',
                 switches=[S0, S1, S3, S4, S5, S8, S9, S12, 2])
     

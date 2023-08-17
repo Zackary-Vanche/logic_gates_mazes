@@ -58,55 +58,42 @@ def level_the_4th_dimension():
     tree_list_10 = ['EQU', ['BIN', [None], [None], Tree.tree_list_not], Tree.tree_list_BIN(3)]
 
     T0 = Tree(tree_list=[None],
-                empty=True,
                 name='T0',
                 switches=[1]) # Slist0 + Slist2 + Slist3 + Slist4)
     T1 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T1',
                 switches=Slist0 + Slist2)
     T2 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T2',
                 switches=Slist0 + Slist3)
     T3 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T3',
                 switches=Slist0 + Slist4)
     T4 = Tree(tree_list=tree_list_4,
-                empty=True,
                 name='T4',
                 switches=Slist1 + Slist2 + Slist3)
     T5 = Tree(tree_list=tree_list_4,
-                empty=True,
                 name='T5',
                 switches=Slist1 + Slist2 + Slist4)
     T6 = Tree(tree_list=tree_list_4,
-                empty=True,
                 name='T6',
                 switches=Slist1 + Slist2 + Slist5)
     T7 = Tree(tree_list=tree_list_4,
-                empty=True,
                 name='T7',
                 switches=Slist1 + Slist3 + Slist4)
     T8 = Tree(tree_list=tree_list_4,
-                empty=True,
                 name='T8',
                 switches=Slist1 + Slist3 + Slist5)
     T9 = Tree(tree_list=tree_list_4,
-                empty=True,
                 name='T9',
                 switches=Slist1 + Slist4 + Slist5)
     T10 = Tree(tree_list=tree_list_10,
-                empty=True,
                 name='T10',
                 switches=Slist0 + Slist3)
     T11 = Tree(tree_list=tree_list_10,
-                empty=True,
                 name='T11',
                 switches=Slist0 + Slist4)
     T12 = Tree(tree_list=tree_list_10,
-                empty=True,
                 name='T12',
                 switches=Slist0 + Slist5)
     filename = 'levels/The_4th_dimension_random_exits.txt'
@@ -115,12 +102,10 @@ def level_the_4th_dimension():
             lines = fr.readlines()
             l = rd_choice(lines)
         T13 = Tree(tree_list=Tree.tree_list_from_str(l),
-                    empty=True,
                     name='T13',
                     switches=Slist)
     else:
         T13 = Tree(tree_list=Tree.tree_list_from_str('FFFFFF'),
-                    empty=True,
                     name='T13',
                     switches=[S0, S1, S2, S3, S4, S5])
     

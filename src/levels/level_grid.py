@@ -39,112 +39,85 @@ def level_grid():
                    ['EQU', Tree.tree_list_not, [None]]]
 
     T0 = Tree(tree_list=['EQU'] + [Tree.tree_list_BIN(9)]*2,
-                empty=True,
                 name='T0',
                 switches=[S0, S1, S2, S3, S4, S5, S6, S7, S8,
                           S13, S14, S15, S16, S17, S18, S19, S20, S21])
     T1 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T1',
                 switches=[S9, S10, 1])
     T2 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T2',
                 switches=[S9, S10, 2])
     T3 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T3',
                 switches=[S9, S10, 3])
     T4 = Tree(tree_list=tree_list_2,
-                empty=True,
                 name='T4',
                 switches=[S9, S10, 1, S0, S13])
     T5 = Tree(tree_list=tree_list_2,
-                empty=True,
                 name='T5',
                 switches=[S9, S10, 2, S3, S16])
     T6 = Tree(tree_list=tree_list_2,
-                empty=True,
                 name='T6',
                 switches=[S9, S10, 3, S6, S19])
     T7 = Tree(tree_list=tree_list_2,
-                empty=True,
                 name='T7',
                 switches=[S9, S10, 1, S1, S14])
     T8 = Tree(tree_list=tree_list_2,
-                empty=True,
                 name='T8',
                 switches=[S9, S10, 2, S4, S17])
     T9 = Tree(tree_list=tree_list_2,
-                empty=True,
                 name='T9',
                 switches=[S9, S10, 3, S7, S20])
     T10 = Tree(tree_list=tree_list_2,
-                empty=True,
                 name='T10',
                 switches=[S9, S10, 1, S2, S15])
     T11 = Tree(tree_list=tree_list_2,
-                empty=True,
                 name='T11',
                 switches=[S9, S10, 2, S5, S18])
     T12 = Tree(tree_list=tree_list_2,
-                empty=True,
                 name='T12',
                 switches=[S9, S10, 3, S8, S21])
     T13 = Tree(tree_list=[None],
-                empty=True,
                 name='T13',
                 switches=[1])
     T14 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T14',
                 switches=[S11, S12, 1])
     T15 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T15',
                 switches=[S11, S12, 2])
     T16 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T16',
                 switches=[S11, S12, 3])
     T17 = Tree(tree_list=tree_list_2,
-                empty=True,
                 name='T17',
                 switches=[S11, S12, 1, S6, S19])
     T18 = Tree(tree_list=tree_list_2,
-                empty=True,
                 name='T18',
                 switches=[S11, S12, 2, S7, S20])
     T19 = Tree(tree_list=tree_list_2,
-                empty=True,
                 name='T19',
                 switches=[S11, S12, 3, S8, S21])
     T20 = Tree(tree_list=tree_list_2,
-                empty=True,
                 name='T20',
                 switches=[S11, S12, 1, S3, S16])
     T21 = Tree(tree_list=tree_list_2,
-                empty=True,
                 name='T21',
                 switches=[S11, S12, 2, S4, S17])
     T22 = Tree(tree_list=tree_list_2,
-                empty=True,
                 name='T22',
                 switches=[S11, S12, 3, S5, S18])
     T23 = Tree(tree_list=tree_list_2,
-                empty=True,
                 name='T23',
                 switches=[S11, S12, 1, S0, S13])
     T24 = Tree(tree_list=tree_list_2,
-                empty=True,
                 name='T24',
                 switches=[S11, S12, 2, S1, S14])
     T25 = Tree(tree_list=tree_list_2,
-                empty=True,
                 name='T25',
                 switches=[S11, S12, 3, S2, S15])
     T26 = Tree(tree_list=['EQU', ['SUM'] + [Tree.tree_list_XOR(2)]*9, [None]],
-                empty=True,
                 name='T26',
                 switches=[S0, S13,
                           S1, S14,
@@ -162,12 +135,10 @@ def level_grid():
             lines = fr.readlines()
             l = rd_choice(lines)
         T27 = Tree(tree_list=Tree.tree_list_from_str(l[:13]),
-                   empty=True,
                    name='T27',
                    switches=[S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12])
     else:
         T27 = Tree(tree_list=Tree.tree_list_AND(4),
-                    empty=True,
                     name='T27',
                     switches=[S9, S10, S11, S12])
 

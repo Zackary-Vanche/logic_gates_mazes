@@ -32,7 +32,6 @@ def level_lights_out():
     t1 = [None]
     
     V0 = Tree(tree_list=Tree.tree_list_BIN(9),
-              empty=True,
               name='V0',
               switches=[S9, S10, S11, S12, S13, S14, S15, S16, S17])
     
@@ -44,7 +43,6 @@ def level_lights_out():
                           t0, t1, t1,
                           t1, t1, t1],
                          [None]],
-                empty=True,
                 name='T0',
                 switches=Slist)
     T1 = Tree(tree_list=['EQU',
@@ -53,7 +51,6 @@ def level_lights_out():
                           t1, t0, t1,
                           t1, t1, t1],
                          [None]],
-                empty=True,
                 name='T1',
                 switches=Slist)
     T2 = Tree(tree_list=['EQU',
@@ -62,7 +59,6 @@ def level_lights_out():
                           t1, t1, t0,
                           t1, t1, t1],
                          [None]],
-                empty=True,
                 name='T2',
                 switches=Slist)
     T3 = Tree(tree_list=['EQU',
@@ -71,7 +67,6 @@ def level_lights_out():
                           t0, t0, t1,
                           t0, t1, t1],
                          [None]],
-                empty=True,
                 name='T3',
                 switches=Slist)
     T4 = Tree(tree_list=['EQU',
@@ -80,7 +75,6 @@ def level_lights_out():
                           t0, t0, t0,
                           t1, t0, t1],
                          [None]],
-                empty=True,
                 name='T4',
                 switches=Slist)
     T5 = Tree(tree_list=['EQU',
@@ -89,7 +83,6 @@ def level_lights_out():
                           t1, t0, t0,
                           t1, t1, t0],
                          [None]],
-                empty=True,
                 name='T5',
                 switches=Slist)
     T6 = Tree(tree_list=['EQU',
@@ -98,7 +91,6 @@ def level_lights_out():
                           t0, t1, t1,
                           t0, t0, t1],
                          [None]],
-                empty=True,
                 name='T6',
                 switches=Slist)
     T7 = Tree(tree_list=['EQU',
@@ -107,7 +99,6 @@ def level_lights_out():
                           t1, t0, t1,
                           t0, t0, t0],
                          [None]],
-                empty=True,
                 name='T7',
                 switches=Slist)
     T8 = Tree(tree_list=['EQU',
@@ -116,15 +107,12 @@ def level_lights_out():
                           t1, t1, t0,
                           t1, t0, t0],
                          [None]],
-                empty=True,
                 name='T8',
                 switches=Slist)
     T9 = Tree(tree_list=['EQU', Tree.tree_list_BIN(9), [None]],
-                empty=True,
                 name='T9',
                 switches=[S0, S1, S2, S3, S4, S5, S6, S7, S8, V0])
     T10 = Tree(tree_list=['EQU', Tree.tree_list_BIN(18), [None]],
-                empty=True,
                 name='T10',
                 switches=[S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17] + [0])
 

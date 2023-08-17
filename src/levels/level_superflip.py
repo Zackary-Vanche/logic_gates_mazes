@@ -80,37 +80,30 @@ def level_superflip():
     tree_list = ['AND'] + [['EQU', Tree.tree_list_BIN(12), Tree.tree_list_BIN(12)]]*12
 
     T0 = Tree(tree_list=tree_list,
-              empty=True,
               name='T0',
               switches = l_switches[0],
               cut_expression=True)
     T1 = Tree(tree_list=tree_list,
-              empty=True,
               name='T1',
               switches = l_switches[1],
               cut_expression=True)
     T2 = Tree(tree_list=tree_list,
-              empty=True,
               name='T2',
               switches = l_switches[2],
               cut_expression=True)
     T3 = Tree(tree_list=tree_list,
-              empty=True,
               name='T3',
               switches = l_switches[3],
               cut_expression=True)
     T4 = Tree(tree_list=tree_list,
-              empty=True,
               name='T4',
               switches = l_switches[4],
               cut_expression=True)
     T5 = Tree(tree_list=tree_list,
-              empty=True,
               name='T5',
               switches = l_switches[5],
               cut_expression=True)
     T6 = Tree(tree_list=tree_list,
-              empty=True,
               name='T6',
               switches = l_switches[6],
               cut_expression=True)
@@ -124,7 +117,6 @@ def level_superflip():
             switches_D7.append(Switch(value=final_values_list[i*12+j]))
     
     T7 = Tree(tree_list=['AND'] + [['EQU', Tree.tree_list_BIN(12), Tree.tree_list_BIN(12)]]*24,
-              empty=True,
               name='T7',
               switches = switches_D7,
               cut_expression=True)

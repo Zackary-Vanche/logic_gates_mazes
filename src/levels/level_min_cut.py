@@ -64,7 +64,6 @@ def level_min_cut():
     T0 = Tree(tree_list=['AND',
                          tree_list_0,
                          ['INF', [None], [None]]],
-              empty=True,
               name='T0',
               switches=Slist_tree_0 + [4, Sa, Sb],
               cut_expression=True)

@@ -37,23 +37,18 @@ def level_nonogram():
     SN2 = Switch(name='2', value=2)
 
     T0 = Tree(tree_list=Tree.tree_list_NONO(8),
-              empty=True,
               name='T0',
               switches=[SN2, SN1, SN1, S0, S1, S2, S3, S4])
     T1 = Tree(tree_list=Tree.tree_list_NONO(8),
-              empty=True,
               name='T1',
               switches=[SN2, SN1, SN1, S5, S6, S7, S8, S9])
     T2 = Tree(tree_list=Tree.tree_list_NONO(8),
-              empty=True,
               name='T2',
               switches=[SN2, SN1, SN2, S10, S11, S12, S13, S14])
     T3 = Tree(tree_list=Tree.tree_list_NONO(7),
-              empty=True,
               name='T3',
               switches=[SN1, SN1, S15, S16, S17, S18, S19])
     T4 = Tree(tree_list=Tree.tree_list_NONO(7),
-              empty=True,
               name='T4',
               switches=[SN1, SN1, S20, S21, S22, S23, S24])
     T5 = Tree(tree_list=['AND',
@@ -64,7 +59,6 @@ def level_nonogram():
                          Tree.tree_list_NONO(8),
                          Tree.tree_list_NONO(8),
                          Tree.tree_list_NONO(7)],
-              empty=True,
               name='T5',
               switches=[SN2, SN1, SN1, S0, S5, S10, S15, S20,
                         SN2, SN1, SN1, S1, S6, S11, S16, S21,

@@ -12,11 +12,9 @@ def level_boolean():
     S1 = Switch(name='S1')
 
     T0 = Tree(tree_list=Tree.tree_list_XOR(2),
-                empty=True,
                 name='T0',
                 switches=[S0, S1])
     T1 = Tree(tree_list=[None],
-                empty=True,
                 name='T1',
                 switches=[S1])
 

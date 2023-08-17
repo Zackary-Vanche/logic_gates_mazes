@@ -50,21 +50,17 @@ def level_sudoku(fast_solution_finding=False):
     tree_list_0 = ['EQUSET'] + [Tree.tree_list_BIN(2)]*4 + [[None]]*4
 
     T0 = Tree(tree_list=tree_list_0,
-              empty=True,
               name='T0',
               switches = [S0, S1, S2, S3, S4, S5, S6, S7] + SNlist)
     T1 = Tree(tree_list=tree_list_0,
-              empty=True,
               name='T1',
               switches = [S8, S9, S10, S11, S12, S13, S14, S15] + SNlist)
     T2 = Tree(tree_list=tree_list_0,
-              empty=True,
               name='T2',
               switches = [S16, S17, S18, S19, S20, S21, S22, S23] + SNlist)
     T3 = Tree(tree_list=['AND'] + [tree_list_0]*9 + [['XOR'] + [[None]]*4] + [Tree.tree_list_OR(2),
                                                                               Tree.tree_list_NAND(2),
                                                                               Tree.tree_list_XOR(2)],
-                empty=True,
                 name='T3',
                 switches = [S24, S25, S26, S27, S28, S29, S30, S31,
                             SN0, SN1, SN2, SN3,

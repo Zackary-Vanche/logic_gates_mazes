@@ -207,56 +207,45 @@ def level_combinatorics(fast_solution_finding=False):
     tree_list = ['AND', tree_list0, ['INF'] + [Tree.tree_list_BIN(16)]*2]
 
     T0 = Tree(tree_list=tree_list0,
-              empty=True,
               name='T0',
               switches=Slist[0:16])
     T1 = Tree(tree_list=tree_list,
-              empty=True,
               name='T1',
               switches=Slist_tree(1),
               cut_expression=True)
     T2 = Tree(tree_list=tree_list,
-              empty=True,
               name='T2',
               switches=Slist_tree(2),
               cut_expression=True)
     T3 = Tree(tree_list=tree_list,
-              empty=True,
               name='T3',
               switches=Slist_tree(3),
               cut_expression=True)
     T4 = Tree(tree_list=tree_list,
-              empty=True,
               name='T4',
               switches=Slist_tree(4),
               cut_expression=True)
     T5 = Tree(tree_list=tree_list,
-              empty=True,
               name='T5',
               switches=Slist_tree(5),
               cut_expression=True)
     T6 = Tree(tree_list=tree_list,
-              empty=True,
               name='T6',
               switches=Slist_tree(6),
               cut_expression=True)
     T7 = Tree(tree_list=tree_list,
-              empty=True,
               name='T7',
               switches=Slist_tree(7),
               cut_expression=True)
     T8 = Tree(tree_list=tree_list,
-              empty=True,
               name='T8',
               switches=Slist_tree(8),
               cut_expression=True)
     T9 = Tree(tree_list=tree_list,
-              empty=True,
               name='T9',
               switches=Slist_tree(9),
               cut_expression=True)
     T10 = Tree(tree_list=tree_list,
-              empty=True,
               name='T10',
               switches = Slist_tree(10),
               cut_expression=True)

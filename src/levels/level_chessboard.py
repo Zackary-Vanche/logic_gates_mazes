@@ -22,63 +22,48 @@ def level_chessboard():
     S11 = Switch(name='S11')
 
     T0 = Tree(tree_list=[None],
-              empty=True,
               name='T0',
               switches=[S2])
     T1 = Tree(tree_list=Tree.tree_list_OR(2),
-              empty=True,
               name='T1',
               switches=[S0, S2])
     T2 = Tree(tree_list=[None],
-              empty=True,
               name='T2',
               switches=[S3])
     T3 = Tree(tree_list=Tree.tree_list_not,
-              empty=True,
               name='T3',
               switches=[S5])
     T4 = Tree(tree_list=[None],
-              empty=True,
               name='T4',
               switches=[S0])
     T5 = Tree(tree_list=Tree.tree_list_OR(2),
-              empty=True,
               name='T5',
               switches=[S0, S2])
     T6 = Tree(tree_list=[None],
-              empty=True,
               name='T6',
               switches=[S5])
     T7 = Tree(tree_list=Tree.tree_list_not,
-              empty=True,
               name='T7',
               switches=[S0])
     T8 = Tree(tree_list=[None],
-              empty=True,
               name='T8',
               switches=[S6])
     T9 = Tree(tree_list=[None],
-              empty=True,
               name='T9',
               switches=[S8])
     T10 = Tree(tree_list=[None],
-               empty=True,
                name='T10',
                switches=[S3])
     T11 = Tree(tree_list=[None],
-               empty=True,
                name='T11',
                switches=[S2])
     T12 = Tree(tree_list=[None],
-               empty=True,
                name='T12',
                switches=[S8])
     T13 = Tree(tree_list=[None],
-               empty=True,
                name='T13',
                switches=[S6])
     T14 = Tree(tree_list=Tree.tree_list_from_str('TTFTTT'),
-               empty=True,
                name='T14',
                switches=[S1, S4, S6, S7, S10, S11])
     

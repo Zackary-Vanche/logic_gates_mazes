@@ -65,7 +65,6 @@ def level_water_lily():
                          tree_list_EQU_SUM(3),
                          tree_list_EQU_SUM(2),
                          tree_list_EQU_SUM(4),],
-                empty=True,
                 name='T0',
                 switches=[S0,
                           2, S0, S1, S10,
@@ -83,79 +82,60 @@ def level_water_lily():
                           3, S5, S8, S13, S15,],
                 cut_expression=True)
     T1 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T1',
                 switches=[S1])
     T2 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T2',
                 switches=[S2])
     T3 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T3',
                 switches=[S3])
     T4 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T4',
                 switches=[S4])
     T5 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T5',
                 switches=[S5])
     T6 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T6',
                 switches=[S6])
     T7 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T7',
                 switches=[S7])
     T8 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T8',
                 switches=[S8])
     T9 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T9',
                 switches=[S9])
     T10 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T10',
                 switches=[S10])
     T11 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T11',
                 switches=[S11])
     T12 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T12',
                 switches=[S12])
     T13 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T13',
                 switches=[S13])
     T14 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T14',
                 switches=[S14])
     T15 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T15',
                 switches=[S15])
     T16 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T16',
                 switches=[S16])
     T17 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T17',
                 switches=[S17])
     T18 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T18',
                 switches=[S18])
     T19 = Tree(tree_list=Tree.tree_list_AND(12),
-                empty=True,
                 name='T19',
                 switches=[S19, S20, S21, S22, S23, S24, S25, S26, S27, S28, S29, S30],
                 cut_expression=True)

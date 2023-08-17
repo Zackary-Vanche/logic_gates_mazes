@@ -31,7 +31,6 @@ def level_egyptian_fractions():
                           ['DIV', [None], ['SUM', [None], Tree.tree_list_BIN(3)]],
                           ['DIV', [None], ['SUM', [None], Tree.tree_list_BIN(4)]],
                           ['DIV', [None], ['SUM', [None], Tree.tree_list_BIN(8)]]], ],
-              empty=True,
               name='T0',
               switches=[Switch(value=7), Switch(value=22),
                         SN1, SN1,

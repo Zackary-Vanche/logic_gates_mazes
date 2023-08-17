@@ -9,7 +9,6 @@ def level_hello_world():
     S0 = Switch(name='S0')
 
     T0 = Tree(tree_list=[None],
-              empty=True,
               name='T0',
               switches=[S0])
 

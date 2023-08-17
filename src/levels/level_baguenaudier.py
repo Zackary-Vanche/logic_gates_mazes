@@ -19,45 +19,37 @@ def level_baguenaudier():
     SN1 = Switch(value=1)
 
     T0 = Tree(tree_list=[None],
-              empty=True,
               name='T0',
               switches=[SN1])
     T1 = Tree(tree_list=Tree.tree_list_XOR(2),
-              empty=True,
               name='T1',
               switches=[S0, S1])
     T2 = Tree(tree_list=Tree.tree_list_from_str('FFT TTF'),
-              empty=True,
               name='T2',
               switches=[S0, S1, S2,
                         S0, S1, S2],
               cut_expression=True)
     T3 = Tree(tree_list=Tree.tree_list_from_str('FFFT TTTF'),
-              empty=True,
               name='T3',
               switches=[S0, S1, S2, S3,
                         S0, S1, S2, S3],
               cut_expression=True)
     T4 = Tree(tree_list=Tree.tree_list_from_str('FFFFT TTTTF'),
-              empty=True,
               name='T4',
               switches=[S0, S1, S2, S3, S4,
                         S0, S1, S2, S3, S4],
               cut_expression=True)
     T5 = Tree(tree_list=Tree.tree_list_from_str('FFFFFT TTTTTF'),
-              empty=True,
               name='T5',
               switches=[S0, S1, S2, S3, S4, S5,
                         S0, S1, S2, S3, S4, S5],
               cut_expression=True)
     T6 = Tree(tree_list=Tree.tree_list_from_str('FFFFFFT TTTTTTF'),
-              empty=True,
               name='T6',
               switches=[S0, S1, S2, S3, S4, S5, S6,
                         S0, S1, S2, S3, S4, S5, S6],
               cut_expression=True)
     T7 = Tree(tree_list=Tree.tree_list_AND(8),
-              empty=True,
               name='T7',
               switches=[S0, S1, S2, S3, S4, S5, S6, S7],
               cut_expression=True)

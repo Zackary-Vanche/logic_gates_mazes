@@ -55,126 +55,101 @@ def level_puzzle(fast_solution_finding=False):
     tree_list_0_IN = ['IN', [None], Tree.tree_list_BIN(3), Tree.tree_list_BIN(3)]
 
     T0 = Tree(tree_list=['EQUSET'] + [Tree.tree_list_BIN(3)] * 6 + [[None]] * 6,
-              empty=True,
               name='T0',
               switches=[S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20,
                         SN0, SN1, SN2, SN3, SN4, SN5],
               cut_expression=True)
     T1 = Tree(tree_list=[None],
-              empty=True,
               name='T1',
               switches=[SN1])
     T2 = Tree(tree_list=[None],
-              empty=True,
               name='T2',
               switches=[SN1])
     # T3 = Tree(tree_list=tree_list_EQU_BIN3,
-    #           empty=True,
+    #           
     #           name='T3',
     #           switches = [S0, S1, S2, SN0])
     T3 = Tree(tree_list=['AND',
                          ['EQU', [None], Tree.tree_list_BIN(3)],
                          ['EQU', Tree.tree_list_BIN(18), [None]]],
-              empty=True,
               name='T3',
               switches=[SN0, S0, S1, S2,
                         S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20,
                         Switch(value=69987)],
               cut_expression=True)
     T4 = Tree(tree_list=tree_list_EQU_BIN3,
-              empty=True,
               name='T4',
               switches=[S0, S1, S2, SN1])
     T5 = Tree(tree_list=tree_list_EQU_BIN3,
-              empty=True,
               name='T5',
               switches=[S0, S1, S2, SN1])
     T6 = Tree(tree_list=tree_list_EQU_BIN3,
-              empty=True,
               name='T6',
               switches=[S0, S1, S2, SN2])
     T7 = Tree(tree_list=['AND', tree_list_EQU_BIN3, tree_list_0_IN],
-              empty=True,
               name='T7',
               switches=[S0, S1, S2, SN2,
                         SN0,
                         S6, S7, S8, S9, S10, S11])
     T8 = Tree(tree_list=tree_list_EQU_BIN3,
-              empty=True,
               name='T8',
               switches=[S0, S1, S2, SN3])
     T9 = Tree(tree_list=tree_list_EQU_BIN3,
-              empty=True,
               name='T9',
               switches=[S0, S1, S2, SN3])
     T10 = Tree(tree_list=tree_list_EQU_BIN3,
-               empty=True,
                name='T10',
                switches=[S0, S1, S2, SN4])
     T11 = Tree(tree_list=['AND', tree_list_EQU_BIN3, tree_list_0_IN],
-               empty=True,
                name='T11',
                switches=[S0, S1, S2, SN4,
                          SN0,
                          S15, S16, S17, S18, S19, S20])
     T12 = Tree(tree_list=tree_list_EQU_BIN3,
-               empty=True,
                name='T12',
                switches=[S0, S1, S2, SN5])
     T13 = Tree(tree_list=tree_list_EQU_BIN3,
-               empty=True,
                name='T13',
                switches=[S0, S1, S2, SN5])
     T14 = Tree(tree_list=['AND', tree_list_EQU_BIN3, tree_list_0_IN],
-               empty=True,
                name='T14',
                switches=[S0, S1, S2, SN5,
                          SN0,
                          S3, S4, S5, S12, S13, S14])
     T15 = Tree(tree_list=tree_list_EQU_BIN3,
-               empty=True,
                name='T15',
                switches=[S0, S1, S2, SN6])
     T16 = Tree(tree_list=tree_list_EQU_BIN3,
-               empty=True,
                name='T16',
                switches=[S0, S1, S2, SN6])
     T17 = Tree(tree_list=['AND', tree_list_EQU_BIN3, tree_list_0_IN],
-               empty=True,
                name='T17',
                switches=[S0, S1, S2, SN6,
                          SN0,
                          S6, S7, S8, S15, S16, S17])
     T18 = Tree(tree_list=tree_list_EQU_BIN3,
-               empty=True,
                name='T18',
                switches=[S0, S1, S2, SN7])
     T19 = Tree(tree_list=tree_list_EQU_BIN3,
-               empty=True,
                name='T19',
                switches=[S0, S1, S2, SN7])
     T20 = Tree(tree_list=['AND', tree_list_EQU_BIN3, tree_list_0_IN],
-               empty=True,
                name='T20',
                switches=[S0, S1, S2, SN7,
                          SN0,
                          S9, S10, S11, S18, S19, S20])
     T21 = Tree(tree_list=tree_list_EQU_BIN3,
-               empty=True,
                name='T21',
                switches=[S0, S1, S2, SN2])
     T22 = Tree(tree_list=['AND', tree_list_EQU_BIN3, tree_list_0_IN],
-               empty=True,
                name='T22',
                switches=[S0, S1, S2, SN1,
                          SN0,
                          S3, S4, S5, S6, S7, S8])
     T23 = Tree(tree_list=tree_list_EQU_BIN3,
-               empty=True,
                name='T23',
                switches=[S0, S1, S2, SN4])
     T24 = Tree(tree_list=['AND', tree_list_EQU_BIN3, tree_list_0_IN],
-               empty=True,
                name='T24',
                switches=[S0, S1, S2, SN3,
                          SN0,

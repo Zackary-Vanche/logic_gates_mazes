@@ -15,31 +15,24 @@ def level_alice_and_bob():
     S4 = Switch(name='S4')
 
     T0 = Tree(tree_list=Tree.tree_list_XNOR(2),
-              empty=True,
               name='T0',
               switches=[S3, S4])
     T1 = Tree(tree_list=Tree.tree_list_XOR(2),
-              empty=True,
               name='T1',
               switches=[S3, S4])
     T2 = Tree(tree_list=[None],
-              empty=True,
               name='T2',
               switches=[S0])
     T3 = Tree(tree_list=Tree.tree_list_not,
-              empty=True,
               name='T3',
               switches=[S0])
     T4 = Tree(tree_list=Tree.tree_list_OR(2),
-              empty=True,
               name='T4',
               switches=[S1, S2])
     T5 = Tree(tree_list=Tree.tree_list_OR(2),
-              empty=True,
               name='T5',
               switches=[S1, S2])
     T6 = Tree(tree_list=Tree.tree_list_from_str("FFTF"),
-              empty=True,
               name='T6',
               switches=[S1, S2, S3, S4])
 

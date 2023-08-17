@@ -16,13 +16,11 @@ def aux_level_random_simple(door_trees_list = [[i for i in range(2**4)] for j in
     Slist = [S0, S1, S2, S3]
     
     V0 = Tree(tree_list=Tree.tree_list_BIN(len(Slist)),
-              empty=True,
               name='V0',
               switches = Slist)
     
     def get_tree(i):
         return Tree(['IN', [None]] + [[None]]*len(door_trees_list[i]),
-                    empty=True,
                     name=f'T{i}',
                     switches = [V0] + door_trees_list[i],
                     cut_expression=True,
@@ -68,7 +66,6 @@ def aux_level_random_simple(door_trees_list = [[i for i in range(2**4)] for j in
     else:
         D4 = Door(two_way=False,
                   tree=Tree(['IN', Tree.tree_list_BIN(len(Slist)), [None]],
-                            empty=True,
                             name='T4',
                             switches = Slist + [exit_number],
                             cut_expression=True),

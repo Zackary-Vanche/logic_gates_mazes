@@ -19,7 +19,6 @@ def level_code():
     SN1 = Switch(value=1)
 
     T0 = Tree(tree_list=['EQU', Tree.tree_list_BIN(4), Tree.tree_list_BIN(4)],
-              empty=True,
               name='T0',
               switches=[S0, S2, S4, S6,
                         S1, S3, S5, S7, ])
@@ -27,7 +26,6 @@ def level_code():
     T1 = Tree(tree_list=['EQU',
                          tree_gray,
                          ['SUM', [None], tree_gray]],
-              empty=True,
               name='T1',
               switches=[S1, S3,
                         S3, S5,
@@ -41,11 +39,10 @@ def level_code():
                         ],
               cut_expression=True)
     T2 = Tree(tree_list=Tree.tree_list_from_str('00011001'),
-              empty=True,
               name='T2',
               switches=[S0, S1, S2, S3, S4, S5, S6, S7])
     # T2 = Tree(tree_list=Tree.tree_list_from_str('T'),
-    #           empty=True,
+    #           
     #           name='T2',
     #           switches = [Switch(value=1)])
 

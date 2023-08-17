@@ -53,7 +53,6 @@ def level_water_pouring():
                           Tree.tree_list_NOT,
                           Tree.tree_list_from_str('TFT TTTT FFF FFFF')],
                          Tree.tree_list_OR(2), ],
-              empty=True,
               name='T0',
               switches=[
                   S0,
@@ -74,7 +73,6 @@ def level_water_pouring():
     T1 = Tree(tree_list=['AND',
                          [None],
                          Tree.tree_list_from_str('TT TFT FF FFF')],
-              empty=True,
               name='T1',
               switches=[S2,
                         S17, S18,
@@ -83,34 +81,28 @@ def level_water_pouring():
                         S11, S12, S13],
               cut_expression=False)
     T2 = Tree(tree_list=[None],
-              empty=True,
               name='T2',
               switches=[S1])
 
     T3 = Tree(tree_list=[None],
-              empty=True,
               name='T3',
               switches=[S0])
 
     T4 = Tree(tree_list=['AND', [None], tree_list_EQU_plus1_BIN3],
-              empty=True,
               name='T4',
               switches=[S1, S21, S22, S23, S24, S25, S26, SN1])
 
     T5 = Tree(tree_list=[None],
-              empty=True,
               name='T5',
               switches=[S2])
 
     T6 = Tree(tree_list=['AND', Tree.tree_list_OR(2), tree_list_EQU_plus1_BIN3],
-              empty=True,
               name='T6',
               switches=[S0, S2, S21, S22, S23, S24, S25, S26, SN1])
 
     T7 = Tree(tree_list=['AND',
                          ['EQU', ['SUM', Tree.tree_list_BIN(4), Tree.tree_list_BIN(3), Tree.tree_list_BIN(2)], [None]],
                          ['EQU', Tree.tree_list_BIN(9), Tree.tree_list_BIN(9)]],
-              empty=True,
               name='T7',
               switches=[S7, S8, S9, S10,
                         S14, S15, S16,
@@ -125,7 +117,6 @@ def level_water_pouring():
               cut_expression=True,
               cut_expression_separator=')')
     T8 = Tree(tree_list=['EQU', ['SUM', Tree.tree_list_BIN(4), Tree.tree_list_BIN(3), Tree.tree_list_BIN(2)], [None]],
-              empty=True,
               name='T8',
               switches=[S3, S4, S5, S6,
                         S11, S12, S13,
@@ -136,7 +127,6 @@ def level_water_pouring():
     T9 = Tree(tree_list=['EQU',
                          Tree.tree_list_BIN(3),
                          Tree.tree_list_BIN(3)],
-              empty=True,
               name='T9',
               switches=[S21, S22, S23,
                         S24, S25, S26],
@@ -144,7 +134,6 @@ def level_water_pouring():
     T10 = Tree(tree_list=['EQU',
                           Tree.tree_list_BIN(2),
                           Tree.tree_list_BIN(2)],
-               empty=True,
                name='T10',
                switches=[S17, S18,
                          S19, S20],
@@ -152,7 +141,6 @@ def level_water_pouring():
     T11 = Tree(tree_list=['EQU',
                           Tree.tree_list_BIN(3),
                           Tree.tree_list_BIN(3)],
-               empty=True,
                name='T11',
                switches=[S11, S12, S13,
                          S14, S15, S16],
@@ -160,7 +148,6 @@ def level_water_pouring():
     T12 = Tree(tree_list=['EQU',
                           Tree.tree_list_BIN(4),
                           Tree.tree_list_BIN(4)],
-               empty=True,
                name='T12',
                switches=[S3, S4, S5, S6,
                          S7, S8, S9, S10],
@@ -170,7 +157,6 @@ def level_water_pouring():
                                      ['EQU', Tree.tree_list_BIN(3), [None]],
                                      ['EQU', Tree.tree_list_BIN(4), [None]]]] * 2 + [
                              ['EQU', Tree.tree_list_BIN(3), [None]]] * 3,
-               empty=True,
                name='T13',
                switches=[S17, S18,
                          SN0,

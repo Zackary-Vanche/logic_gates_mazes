@@ -19,7 +19,6 @@ def level_pong():
     S9 = Switch(name='S9')
 
     T0 = Tree(tree_list=['EQU', ['SUM'] + [Tree.tree_list_XOR(2)] * 5, [None]],
-              empty=True,
               name='T0',
               switches=[S0, S5,
                         S1, S6,
@@ -28,7 +27,6 @@ def level_pong():
                         S4, S9,
                         Switch(value=3, name='3')])
     T1 = Tree(tree_list=Tree.tree_list_AND(10),
-              empty=True,
               name='T1',
               switches=[S0, S1, S2, S3, S4, S5, S6, S7, S8, S9])
 

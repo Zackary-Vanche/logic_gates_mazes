@@ -15,11 +15,10 @@ def level_backward():
     tree_list_1 = ['AND', ['NOT', [None]], Tree.tree_list_AND(2)]
 
     T0 = Tree(tree_list=tree_list_0,
-              empty=True,
               name='T0',
               switches=[S0, S1])
     T1 = Tree(tree_list=tree_list_1,
-              empty=True, name='T1',
+              name='T1',
               switches=[S0, S1, S2],
               easy_logical_expression_PN="& ¬ S0 ( & S1 S2 )\n= & ( ¬ S0 S1 S2 )")
 

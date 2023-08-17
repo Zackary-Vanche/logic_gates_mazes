@@ -48,95 +48,72 @@ def level_small_panex():
     Slist2 = [S18, S19, S20, S21, S22, S23, S24, S25, S26]
 
     T0 = Tree(tree_list=tree_list_0,
-                empty=True,
                 name='T0',
                 switches=[S0, S1, S2, 0] + Slist0)
     T1 = Tree(tree_list=tree_list_0,
-                empty=True,
                 name='T1',
                 switches=[S3, S4, S5, 0] + Slist0)
     T2 = Tree(tree_list=tree_list_0,
-                empty=True,
                 name='T2',
                 switches=[S6, S7, S8, 0] + Slist0)
     T3 = Tree(tree_list=tree_list_0,
-                empty=True,
                 name='T3',
                 switches=[S9, S10, S11, 0] + Slist1)
     T4 = Tree(tree_list=tree_list_0,
-                empty=True,
                 name='T4',
                 switches=[S12, S13, S14, 0] + Slist1)
     T5 = Tree(tree_list=tree_list_0,
-                empty=True,
                 name='T5',
                 switches=[S15, S16, S17, 0] + Slist1)
     T6 = Tree(tree_list=tree_list_0,
-                empty=True,
                 name='T6',
                 switches=[S18, S19, S20, 0] + Slist2)
     T7 = Tree(tree_list=tree_list_0,
-                empty=True,
                 name='T7',
                 switches=[S21, S22, S23, 0] + Slist2)
     T8 = Tree(tree_list=tree_list_0,
-                empty=True,
                 name='T8',
                 switches=[S24, S25, S26, 0] + Slist2)
     T9 = Tree(tree_list=tree_list_0,
-                empty=True,
                 name='T9',
                 switches=[S9, S10, S11, 0] + Slist1)
     T10 = Tree(tree_list=tree_list_0,
-                empty=True,
                 name='T10',
                 switches=[S12, S13, S14, 0] + Slist1)
     T11 = Tree(tree_list=tree_list_0,
-                empty=True,
                 name='T11',
                 switches=[S15, S16, S17, 0] + Slist1)
     T12 = Tree(tree_list=tree_list_12,
-                empty=True,
                 name='T12',
                 switches=[S0, S1, S2, S3, S4, S5])
     T13 = Tree(tree_list=tree_list_12,
-                empty=True,
                 name='T13',
                 switches=[S3, S4, S5, S6, S7, S8])
     T14 = Tree(tree_list=tree_list_12,
-                empty=True,
                 name='T14',
                 switches=[S6, S7, S8, S15, S16, S17])
     T15 = Tree(tree_list=tree_list_12,
-                empty=True,
                 name='T15',
                 switches=[S9, S10, S11, S12, S13, S14])
     T16 = Tree(tree_list=tree_list_12,
-                empty=True,
                 name='T16',
                 switches=[S12, S13, S14, S15, S16, S17])
     T17 = Tree(tree_list=tree_list_12,
-                empty=True,
                 name='T17',
                 switches=[S6, S7, S8, S24, S25, S26])
     T18 = Tree(tree_list=tree_list_12,
-                empty=True,
                 name='T18',
                 switches=[S18, S19, S20, S21, S22, S23])
     T19 = Tree(tree_list=tree_list_12,
-                empty=True,
                 name='T19',
                 switches=[S21, S22, S23, S24, S25, S26])
     T20 = Tree(tree_list=tree_list_12,
-                empty=True,
                 name='T20',
                 switches=[S15, S16, S17, S24, S25, S26])
     T21 = Tree(tree_list=[None],
-                empty=True,
                 name='T21',
                 switches=[1])
     T22 = Tree(tree_list=Tree.tree_list_from_str('101011100010'),
-                empty=True,
                 name='T22',
                 switches=[S0, S1, S2,
                           S3, S4, S5,

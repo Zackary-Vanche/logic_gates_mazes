@@ -46,7 +46,6 @@ def level_tetris():
                          ['SUM', [None], Tree.tree_list_BIN(4), ],
                          ['SUM', [None], Tree.tree_list_BIN(4), ],
                          ['SUM', [None], Tree.tree_list_BIN(4), ]] + [[None]] * 12,
-              empty=True,
               name='T0',
               switches=[S0, S1, S2, S3,
                         SN1, S0, S1, S2, S3,

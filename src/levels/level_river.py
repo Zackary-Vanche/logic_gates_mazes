@@ -21,23 +21,19 @@ def level_river():
     T0 = Tree(tree_list=['AND',
                          Tree.tree_list_NAND(2),
                          Tree.tree_list_NAND(2)],
-                empty=True,
                 name='T0',
                 switches = [S6, S7,
                             S7, S8])
     T1 = Tree(tree_list=['AND',
                          Tree.tree_list_NAND(2),
                          Tree.tree_list_NAND(2)],
-                empty=True,
                 name='T1',
                 switches = [S0, S1,
                             S1, S2])
     T2 = Tree(tree_list=[None],
-                empty=True,
                 name='T2',
                 switches = [SN])
     T3 = Tree(tree_list=[None],
-                empty=True,
                 name='T3',
                 switches = [SN])
     
@@ -45,7 +41,6 @@ def level_river():
                          Tree.tree_list_XOR(3), 
                          Tree.tree_list_XOR(3), 
                          Tree.tree_list_XOR(3)],
-                empty=True,
                 name='T4',
                 switches = [S0, S3, S6,
                             S1, S4, S7,
@@ -53,13 +48,11 @@ def level_river():
     T5 = Tree(tree_list=['OR',
                          Tree.tree_list_XOR(3),
                          Tree.tree_list_from_str('FFF')],
-                empty=True,
                 name='T5',
                 switches = [S3, S4, S5,
                             S3, S4, S5])
     
     T6 = Tree(tree_list=Tree.tree_list_AND(3),
-                empty=True,
                 name='T6',
                 switches = [S6, S7, S8])
     

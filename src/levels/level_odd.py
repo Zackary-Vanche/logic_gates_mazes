@@ -21,13 +21,13 @@ def level_odd():
     tree_list_2 = Tree.tree_list_from_str('FFT')
     tree_list_3 = Tree.tree_list_from_str('TTTF')
 
-    T0 = Tree(tree_list=tree_list_0, empty=True, name='T0', switches=[S0, S1, S2, S3, S4])
-    T1 = Tree(tree_list=tree_list_1, empty=True, name='T1', switches=[S0, S1, S4])
-    T2 = Tree(tree_list=tree_list_2, empty=True, name='T2', switches=[S0, S2, S4])
-    T3 = Tree(tree_list=tree_list_3, empty=True, name='T3', switches=[S0, S1, S3, S4])
-    T4 = Tree(tree_list=tree_list_4, empty=True, name='T4', switches=[S0, S4])
-    T5 = Tree(tree_list=tree_list_5, empty=True, name='T5', switches=[S0, S4])
-    T6 = Tree(tree_list=tree_list_6, empty=True, name='T6', switches=[S0, S4])
+    T0 = Tree(tree_list=tree_list_0,  name='T0', switches=[S0, S1, S2, S3, S4])
+    T1 = Tree(tree_list=tree_list_1,  name='T1', switches=[S0, S1, S4])
+    T2 = Tree(tree_list=tree_list_2,  name='T2', switches=[S0, S2, S4])
+    T3 = Tree(tree_list=tree_list_3,  name='T3', switches=[S0, S1, S3, S4])
+    T4 = Tree(tree_list=tree_list_4,  name='T4', switches=[S0, S4])
+    T5 = Tree(tree_list=tree_list_5,  name='T5', switches=[S0, S4])
+    T6 = Tree(tree_list=tree_list_6,  name='T6', switches=[S0, S4])
 
     position_R0 = [3, 3, 2, 2]
     position_R1 = [3, 0, 2, 2]

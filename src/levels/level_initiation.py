@@ -11,15 +11,12 @@ def level_initiation():
     S1 = Switch(name='S1')
 
     T0 = Tree(tree_list=[None],
-              empty=True,
               name='T0',
               switches=[S0])
     T1 = Tree(tree_list=[None],
-              empty=True,
               name='T1',
               switches=[S1])
     T2 = Tree(tree_list=Tree.tree_list_OR(2),
-              empty=True,
               name='T2',
               switches=[S0, S1])
     # easy_logical_expression_PN = 'OR S0 S1\n= | S0 S1')

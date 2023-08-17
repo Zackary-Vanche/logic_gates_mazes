@@ -44,7 +44,6 @@ def level_hitting_set():
     tree_list_1 = ["INFOREQU", Tree.tree_list_SUM(8), [None]]
 
     T0 = Tree(tree_list=tree_list_0,
-              empty=True,
               name='T0',
               switches=[S0, S2, S6,
                         S1, S4,
@@ -55,7 +54,6 @@ def level_hitting_set():
                         S4, S5,
                         S5, S7])
     T1 = Tree(tree_list=tree_list_1,
-              empty=True,
               name='T1',
               switches=[S0, S1, S2, S3, S4, S5, S6, S7, SN3])
 

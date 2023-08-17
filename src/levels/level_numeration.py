@@ -21,7 +21,6 @@ def level_numeration():
     Slist = [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9]
 
     T0 = Tree(tree_list=['EQU', Tree.tree_list_BIN(10), [None]],
-              empty=True,
               name='T0',
               switches = Slist + [666])
 

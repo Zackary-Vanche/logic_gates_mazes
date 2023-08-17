@@ -29,78 +29,62 @@ def level_entropy():
                 Tree.tree_list_from_str(' '.join(['T']*n))]
 
     T0 = Tree(tree_list=['EQU'] + [Tree.tree_list_BIN(2)]*2,
-                empty=True,
                 name='T0',
                 switches=[S0, S1,
                           S8, S9])
     T1 = Tree(tree_list=tnot,
-                empty=True,
                 name='T1',
                 switches=[S2])
     T2 = Tree(tree_list=tl(3),
-                empty=True,
                 name='T2',
                 switches=[S3,
                           S2, S4, S5])
     T3 = Tree(tree_list=tl(2),
-                empty=True,
                 name='T3',
                 switches=[S4,
                           S2, S3])
     T4 = Tree(tree_list=tl(3),
-                empty=True,
                 name='T4',
                 switches=[S5,
                           S3, S4, S6])
     T5 = Tree(tree_list=tl(3),
-                empty=True,
                 name='T5',
                 switches=[S6,
                           S4, S5, S7])
     T6 = Tree(tree_list=tl(2),
-                empty=True,
                 name='T6',
                 switches=[S7,
                           S5, S6])
     T7 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T7',
                 switches=[S2])
     T8 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T8',
                 switches=[S3])
     T9 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T9',
                 switches=[S4])
     T10 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T10',
                 switches=[S5])
     T11 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T11',
                 switches=[S6])
     T12 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T12',
                 switches=[S7])
     T13 = Tree(tree_list=[None],
-                empty=True,
                 name='T13',
                 switches=[1])
     T14 = Tree(tree_list=['EQU',
                           ['SUM', [None], Tree.tree_list_BIN(2)],
                           Tree.tree_list_BIN(2),
                           ],
-                empty=True,
                 name='T14',
                 switches=[1, S0, S1, S8, S9])
     T15 = Tree(tree_list=['AND',
                           Tree.tree_list_OR(2),
                           Tree.tree_list_from_str('FT')],
-                empty=True,
                 name='T15',
                 switches=[S6, S7, S0, S1])
     ax = 0.3

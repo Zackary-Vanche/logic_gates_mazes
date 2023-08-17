@@ -26,13 +26,11 @@ for i in range(nv):
 
 for i in range(nv):
     print(f'''V{i} = Tree(tree_list=Tree.tree_list_BIN(len(Slist_{i})),
-          empty=True,
           name='V{i}',
           switches=Slist_{i})''')
     
 for i in range(nd):
     print(f'''    T{i} = Tree(tree_list=[None],
-                empty=True,
                 name='T{i}',
                 switches=[1])''')
     

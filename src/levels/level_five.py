@@ -117,27 +117,21 @@ def level_five():
                  ['MOD', Tree.tree_list_BIN(n), [None]]]
 
     T0 = Tree(tree_list=tree_list,
-              empty=True,
               name='T0',
               switches=[EQU_list[0]] + Slist0 + [MOD_list[0]])
     T1 = Tree(tree_list=tree_list,
-              empty=True,
               name='T1',
               switches=[EQU_list[1]] + Slist1 + [MOD_list[1]])
     T2 = Tree(tree_list=tree_list,
-              empty=True,
               name='T2',
               switches=[EQU_list[2]] + Slist2 + [MOD_list[2]])
     T3 = Tree(tree_list=tree_list,
-              empty=True,
               name='T3',
               switches=[EQU_list[3]] + Slist3 + [MOD_list[3]])
     T4 = Tree(tree_list=tree_list,
-              empty=True,
               name='T4',
               switches=[EQU_list[4]] + Slist4 + [MOD_list[4]])
     T5 = Tree(tree_list=['AND'] + [tree_list] * (n + 2),
-              empty=True,
               name='T5',
               switches=Slist5,
               cut_expression=True,

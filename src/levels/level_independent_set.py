@@ -21,25 +21,21 @@ def level_independent_set():
     tree_list_6 = ['AND'] + [Tree.tree_list_NAND(2)] * 6
 
     T0 = Tree(tree_list=tree_list_6,
-              empty=True,
               name='T0',
               switches=[S0, S1, S1, S2,
                         S3, S4, S4, S5,
                         S6, S7, S7, S8])
     T1 = Tree(tree_list=tree_list_6,
-              empty=True,
               name='T1',
               switches=[S0, S3, S3, S6,
                         S1, S4, S4, S7,
                         S2, S5, S5, S8])
     T2 = Tree(tree_list=tree_list_4,
-              empty=True,
               name='T2',
               switches=[S1, S5,
                         S0, S4, S4, S8,
                         S3, S7])
     T3 = Tree(tree_list=tree_list_4,
-              empty=True,
               name='T3',
               switches=[S1, S3,
                         S2, S4, S4, S6,
@@ -47,7 +43,6 @@ def level_independent_set():
     T4 = Tree(tree_list=['SUP',
                          ['SUM'] + [[None]] * 9,
                          [None]],
-              empty=True,
               name='T4',
               switches=[S0, S1, S2, S3, S4, S5, S6, S7, S8, Switch(value=3, name='3')])
 

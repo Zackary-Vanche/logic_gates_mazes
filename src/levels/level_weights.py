@@ -75,99 +75,76 @@ def level_weights(fast_solution_finding=False):
                  SN2, S10, S18, S19,
                  SN1, S9, S19, ]
         T0 = Tree(tree_list=tree_list_fast_solution_finding,
-                  empty=True,
                   name='T0',
                   switches=[S0] + Slist,
                   cut_expression=True)
         T1 = Tree(tree_list=tree_list_fast_solution_finding,
-                  empty=True,
                   name='T1',
                   switches=[S1] + Slist,
                   cut_expression=True)
         T2 = Tree(tree_list=tree_list_fast_solution_finding,
-                  empty=True,
                   name='T2',
                   switches=[S2] + Slist,
                   cut_expression=True)
     else:
         T0 = Tree(tree_list=[None],
-                  empty=True,
                   name='T0',
                   switches=[S0])
         T1 = Tree(tree_list=[None],
-                  empty=True,
                   name='T1',
                   switches=[S1])
         T2 = Tree(tree_list=[None],
-                  empty=True,
                   name='T2',
                   switches=[S2])
     T3 = Tree(tree_list=[None],
-              empty=True,
               name='T3',
               switches=[S3])
     T4 = Tree(tree_list=[None],
-              empty=True,
               name='T4',
               switches=[S4])
     T5 = Tree(tree_list=[None],
-              empty=True,
               name='T5',
               switches=[S5])
     T6 = Tree(tree_list=[None],
-              empty=True,
               name='T6',
               switches=[S6])
     T7 = Tree(tree_list=[None],
-              empty=True,
               name='T7',
               switches=[S7])
     T8 = Tree(tree_list=[None],
-              empty=True,
               name='T8',
               switches=[S8])
     T9 = Tree(tree_list=[None],
-              empty=True,
               name='T9',
               switches=[S9])
     T10 = Tree(tree_list=[None],
-               empty=True,
                name='T10',
                switches=[S10])
     T11 = Tree(tree_list=[None],
-               empty=True,
                name='T11',
                switches=[S11])
     T12 = Tree(tree_list=[None],
-               empty=True,
                name='T12',
                switches=[S12])
     T13 = Tree(tree_list=[None],
-               empty=True,
                name='T13',
                switches=[S13])
     T14 = Tree(tree_list=[None],
-               empty=True,
                name='T14',
                switches=[S14])
     T15 = Tree(tree_list=[None],
-               empty=True,
                name='T15',
                switches=[S15])
     T16 = Tree(tree_list=[None],
-               empty=True,
                name='T16',
                switches=[S16])
     T17 = Tree(tree_list=[None],
-               empty=True,
                name='T17',
                switches=[S17])
     T18 = Tree(tree_list=[None],
-               empty=True,
                name='T18',
                switches=[S18])
     T19 = Tree(tree_list=[None],
-               empty=True,
                name='T19',
                switches=[S19])
     T20 = Tree(tree_list=['AND',
@@ -185,7 +162,6 @@ def level_weights(fast_solution_finding=False):
                           tree_list_EQU_SUM(3),
                           tree_list_EQU_SUM(2),
                           ],
-               empty=True,
                name='T20',
                switches=[S20, S21, S22, S23, S24, S25, S26, S27, S28, S29, S30, S31,
                          SN1, S0, S3, S12,

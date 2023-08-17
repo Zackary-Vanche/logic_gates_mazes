@@ -15,7 +15,6 @@ def level_congruence():
     S5 = Switch(name='S5')
     
     V0 = Tree(tree_list=Tree.tree_list_BIN(6),
-              empty=True,
               name='V0',
               switches=[S0, S1, S2, S3, S4, S5])
 
@@ -26,7 +25,6 @@ def level_congruence():
                    [None]]
 
     T0 = Tree(tree_list=['AND', tree_list_0, tree_list_0],
-              empty=True,
               name='T0',
               switches=[V0,
                         7,
@@ -43,7 +41,7 @@ def level_congruence():
     #                [None]]
 
     # T0 = Tree(tree_list=['AND', tree_list_0, tree_list_0],
-    #           empty=True,
+    #           
     #           name='T0',
     #           switches=[S0, S1, S2, S3, S4, S5,
     #                     7,

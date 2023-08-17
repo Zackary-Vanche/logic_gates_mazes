@@ -52,7 +52,6 @@ def level_the_4_queens(fast_solution_finding=False):
                              tree_list_diag,
                              tree_list_diag,
                              ['INF', ["SUM"] + [[None]] * 4, [None]]],
-                  empty=True,
                   name='T0',
                   switches=[S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15,
                             SN3,
@@ -110,26 +109,22 @@ def level_the_4_queens(fast_solution_finding=False):
         return level
     else:
         T0 = Tree(tree_list=['SUP', ["SUM"] + [[None]] * 16, [None]],
-                  empty=True,
                   name='T0',
                   switches=[S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15,
                             SN3])
         T1 = Tree(tree_list=tree_list_line,
-                  empty=True,
                   name='T1',
                   switches=[S0, S1, S2, S3, SN2,
                             S4, S5, S6, S7, SN2,
                             S8, S9, S10, S11, SN2,
                             S12, S13, S14, S15, SN2])
         T2 = Tree(tree_list=tree_list_line,
-                  empty=True,
                   name='T2',
                   switches=[S0, S4, S8, S12, SN2,
                             S1, S5, S9, S13, SN2,
                             S2, S6, S10, S14, SN2,
                             S3, S7, S11, S15, SN2])
         T3 = Tree(tree_list=tree_list_diag,
-                  empty=True,
                   name='T3',
                   switches=[S8, S13, SN2,
                             S4, S9, S14, SN2,
@@ -137,7 +132,6 @@ def level_the_4_queens(fast_solution_finding=False):
                             S1, S6, S11, SN2,
                             S2, S7, SN2])
         T4 = Tree(tree_list=tree_list_diag,
-                  empty=True,
                   name='T4',
                   switches=[S4, S1, SN2,
                             S8, S5, S2, SN2,
@@ -145,7 +139,6 @@ def level_the_4_queens(fast_solution_finding=False):
                             S13, S10, S7, SN2,
                             S14, S11, SN2])
         T5 = Tree(tree_list=['INF', ["SUM"] + [[None]] * 4, [None]],
-                  empty=True,
                   name='T5',
                   switches=[S1, S7, S8, S14, SN4])
 

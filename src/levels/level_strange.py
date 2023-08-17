@@ -23,7 +23,6 @@ def level_strange(a=1, b=1, c=1, d=1):
     a, b, c, d = 5, 2, 3, 0
 
     T0 = Tree(tree_list=tree_list_0,
-              empty=True,
               name='T0',
               switches = [S0, S1, S2, S3, S4, S5, S6, S7,
                           Switch(value=a),

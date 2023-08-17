@@ -25,23 +25,18 @@ def level_sorted():
     S14 = Switch(name='S14')
     
     V0 = Tree(tree_list=Tree.tree_list_BIN(3),
-                empty=True,
                 name='V0',
                 switches=[S0, S1, S2])
     V1 = Tree(tree_list=Tree.tree_list_BIN(3),
-                empty=True,
                 name='V1',
                 switches=[S3, S4, S5])
     V2 = Tree(tree_list=Tree.tree_list_BIN(3),
-                empty=True,
                 name='V2',
                 switches=[S6, S7, S8])
     V3 = Tree(tree_list=Tree.tree_list_BIN(3),
-                empty=True,
                 name='V3',
                 switches=[S9, S10, S11])
     V4 = Tree(tree_list=Tree.tree_list_BIN(3),
-                empty=True,
                 name='V4',
                 switches=[S12, S13, S14])
     
@@ -63,11 +58,9 @@ def level_sorted():
     rd_shuffle(i_list)
     
     T0 = Tree(tree_list=['EQUSET'] + [[None]]*5 + [[None]]*5,
-                empty=True,
                 name='T0',
                 switches=Vlist + i_list)
     T1 = Tree(tree_list=['INF'] + [[None]]*5,
-                empty=True,
                 name='T1',
                 switches=Vlist)
 

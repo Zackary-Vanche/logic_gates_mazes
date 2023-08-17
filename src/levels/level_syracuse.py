@@ -48,18 +48,15 @@ def level_syracuse(test_solution=False):
     tree_list_3 = ['EQU', Tree.tree_list_BIN(8), Tree.tree_list_BIN(8), [None]]
 
     T0 = Tree(tree_list=tree_list_0,
-              empty=True,
               name='T0',
               switches = [S0, S1, S2, S3, S4, S5, S6, S7,
                           S8, S9, S10, S11, S12, S13, S14, S15])
     T1 = Tree(tree_list=tree_list_1,
-              empty=True,
               name='T1',
               switches = [S0, S1, S2, S3, S4, S5, S6, S7,
                           S8, S9, S10, S11, S12, S13, S14, S15,
                           SN2])
     T2 = Tree(tree_list=tree_list_2,
-              empty=True,
               name='T2',
               switches = [S8,
                           SN1,
@@ -70,7 +67,6 @@ def level_syracuse(test_solution=False):
               cut_expression=True,
               cut_expression_separator=']')
     T3 = Tree(tree_list=tree_list_3,
-              empty=True,
               name='T3',
               switches = [S0, S1, S2, S3, S4, S5, S6, S7,
                           S8, S9, S10, S11, S12, S13, S14, S15,

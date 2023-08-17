@@ -40,31 +40,26 @@ def level_takuzu():
                    tree_list_EQU_SUM]
 
     T0 = Tree(tree_list=tree_list_1,
-              empty=True,
               name='T0',
               switches = [S0, S1, S2,
                           S1, S2, S3,
                           S0, S1, S2, S3, SN2])
     T1 = Tree(tree_list=tree_list_1,
-              empty=True,
               name='T1',
               switches = [S4, S5, S6,
                           S5, S6, S7,
                           S4, S5, S6, S7, SN2])
     T2 = Tree(tree_list=tree_list_1,
-              empty=True,
               name='T2',
               switches = [S8, S9, S10,
                           S9, S10, S11,
                           S8, S9, S10, S11, SN2])
     T3 = Tree(tree_list=tree_list_1,
-              empty=True,
               name='T3',
               switches = [S12, S13, S14,
                           S13, S14, S15,
                           S12, S13, S14, S15, SN2])
     T4 = Tree(tree_list=['AND'] + [Tree.tree_list_NAND(3)]*8 + [tree_list_EQU_SUM]*4 + [tree_list_DIFF]*2,
-              empty=True,
               name='T4',
               switches = [S0, S4, S8,
                           S4, S8, S12,
@@ -94,7 +89,6 @@ def level_takuzu():
                          Tree.tree_list_XOR(2),
                          Tree.tree_list_OR(2)
                          ],
-              empty=True,
               name='T5',
               switches = [S1, S7, S8, S14,
                           S2, S4, S11, S13,

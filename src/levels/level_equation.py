@@ -27,11 +27,9 @@ def level_equation():
     assert 0 <= b < 2**4
     
     V0 = Tree(tree_list=Tree.tree_list_BIN(4),
-              empty=True,
               name='V0',
               switches=[S0, S1, S2, S3])
     V1 = Tree(tree_list=Tree.tree_list_BIN(4),
-              empty=True,
               name='V1',
               switches=[S4, S5, S6, S7])
     
@@ -41,7 +39,6 @@ def level_equation():
     T0 = Tree(tree_list=['AND',
                          ['EQU', tree_list_SUM, [None]],
                          ['EQU', tree_list_MINUS, [None]]],
-                empty=True,
                 name='T0',
                 switches=[V0, V1, a+b, V0, V1, a-b])
 

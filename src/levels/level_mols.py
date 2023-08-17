@@ -120,53 +120,41 @@ def level_mols():
     tree_list4 = ['AND', tree_list0, ['INF', Tree.tree_list_BIN(2), Tree.tree_list_BIN(2)]]
 
     T0 = Tree(tree_list=tree_list0,
-              empty=True,
               name='T0',
               switches=Slist_i(0) + [0])
     T1 = Tree(tree_list=tree_list0,
-              empty=True,
               name='T1',
               switches=Slist_i(1) + [1])
     T2 = Tree(tree_list=tree_list0,
-              empty=True,
               name='T2',
               switches=Slist_i(2) + [2])
     T3 = Tree(tree_list=tree_list3,
-              empty=True,
               name='T3',
               switches=Slist_transverse(0) + Slist_i(3) + [3],
               cut_expression=True)
     T4 = Tree(tree_list=tree_list4,
-              empty=True,
               name='T4',
               switches=Slist_i(4) + [0] + [S0, S1, S24, S25])
     T5 = Tree(tree_list=tree_list0,
-              empty=True,
               name='T5',
               switches=Slist_i(5) + [1])
     T6 = Tree(tree_list=tree_list0,
-              empty=True,
               name='T6',
               switches=Slist_i(6) + [2])
     T7 = Tree(tree_list=tree_list3,
-              empty=True,
               name='T7',
               switches=Slist_transverse(1) + Slist_i(7) + [3],
               cut_expression=True)
     T8 = Tree(tree_list=tree_list4,
-              empty=True,
               name='T8',
               switches=Slist_i(8) + [0] + [S24, S25, S48, S49])
     T9 = Tree(tree_list=tree_list0,
-              empty=True,
               name='T9',
               switches=Slist_i(9) + [1])
     T10 = Tree(tree_list=tree_list0,
-               empty=True,
                name='T10',
                switches=Slist_i(10) + [2])
     T11 = Tree(tree_list=tree_list3,
-               empty=True,
                name='T11',
                switches=Slist_transverse(2) + Slist_i(11) + [3],
                cut_expression=True)
@@ -175,7 +163,6 @@ def level_mols():
     T12 = Tree(tree_list=['AND',
                           tree_list,
                           ['EQU', [None], ['MOD', Tree.tree_list_BIN(20), [None]]]],
-               empty=True,
                name='T12',
                switches=Slist12 + [7] + Slistp + [11],
                cut_expression=True)

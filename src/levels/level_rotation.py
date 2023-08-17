@@ -28,7 +28,6 @@ def level_rotation():
     Slist = [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11]
 
     T0 = Tree(tree_list=['IN'] + [Tree.tree_list_BIN(6)]*4,
-                empty=True,
                 name='T0',
                 switches=[S0, S1, S2, S3, S4,  S5,
                          #S6   S7   S8   S9  S10  S11
@@ -37,7 +36,6 @@ def level_rotation():
                           S10, S6,  S8,  S7,  S9, S11],  # 6 7  9 10 6
                 cut_expression=True)
     T1 = Tree(tree_list=['EQU'] + [Tree.tree_list_BIN(6)]*2,
-                empty=True,
                 name='T1',
                 switches=Slist)
     filename = 'levels/Rotation_random_exits.txt'
@@ -46,12 +44,10 @@ def level_rotation():
             lines = fr.readlines()
             l = rd_choice(lines)
         T2 = Tree(tree_list=Tree.tree_list_from_str(l),
-                    empty=True,
                     name='T2',
                     switches=Slist)
     else:
         T2 = Tree(tree_list=['EQU'] + [Tree.tree_list_BIN(6)]*2,
-                    empty=True,
                     name='T2',
                     switches=Slist)
 

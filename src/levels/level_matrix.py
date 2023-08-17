@@ -81,7 +81,6 @@ def level_matrix():
                    [None]]
 
     T0 = Tree(tree_list=tree_list_0,
-              empty=True,
               name='T0',
               switches=[SN2, S0, SN4, S1,
                         SN13, S2, SN26, S3,
@@ -90,7 +89,6 @@ def level_matrix():
                         SN73, S8, SN146, S9,
                         SN347])
     T1 = Tree(tree_list=tree_list_0,
-              empty=True,
               name='T1',
               switches=[SN3, S0, SN6, S1,
                         SN17, S2, SN34, S3,
@@ -99,7 +97,6 @@ def level_matrix():
                         SN79, S8, SN158, S9,
                         SN387])
     T2 = Tree(tree_list=tree_list_0,
-              empty=True,
               name='T2',
               switches=[SN5, S0, SN10, S1,
                         SN19, S2, SN38, S3,
@@ -108,7 +105,6 @@ def level_matrix():
                         SN83, S8, SN166, S9,
                         SN411])
     T3 = Tree(tree_list=tree_list_0,
-              empty=True,
               name='T3',
               switches=[SN7, S0, SN14, S1,
                         SN23, S2, SN46, S3,
@@ -117,7 +113,6 @@ def level_matrix():
                         SN89, S8, SN178, S9,
                         SN443])
     T4 = Tree(tree_list=tree_list_0,
-              empty=True,
               name='T4',
               switches=[SN11, S0, SN22, S1,
                         SN29, S2, SN58, S3,

@@ -43,18 +43,15 @@ def level_no_three_in_line(fast_solution_finding=False):
     tree_list_SUP_5 = ['SUP', [None], ['SUM'] + [[None]] * 5]
 
     T0 = Tree(tree_list=tree_list_SUP_5,
-              empty=True,
               name='T0',
               switches=[SN3, S0, S1, S2, S3, S4])
     T1 = Tree(tree_list=tree_list_SUP_5,
-              empty=True,
               name='T1',
               switches=[SN3, S5, S6, S7, S8, S9])
     T2 = Tree(tree_list=['AND',
                          tree_list_SUP_5,
                          tree_list_SUP_3,
                          tree_list_SUP_3],
-              empty=True,
               name='T2',
               switches=[SN3, S10, S11, S12, S13, S14,
                         SN3, S0, S7, S14,
@@ -63,7 +60,6 @@ def level_no_three_in_line(fast_solution_finding=False):
                          tree_list_SUP_5,
                          tree_list_SUP_3,
                          tree_list_SUP_3],
-              empty=True,
               name='T3',
               switches=[SN3, S15, S16, S17, S18, S19,
                         SN3, S9, S12, S15,
@@ -87,7 +83,6 @@ def level_no_three_in_line(fast_solution_finding=False):
                             ['INF', [None], ['SUM'] + [[None]] * 25]] + [
                             ['INF', Tree.tree_list_BIN(4), Tree.tree_list_BIN(4)]] + [
                             Tree.tree_list_NONO(34)],
-              empty=True,
               name='T4',
               switches=[SN3, S20, S21, S22, S23, S24,
 

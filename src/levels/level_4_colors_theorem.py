@@ -47,7 +47,6 @@ def level_4_colors_theorem(fast_solution_finding=False):
     if fast_solution_finding:
         T0 = Tree(
             tree_list=['AND'] + [tree_list_0] * 2 + [tree_list_1] * 17 + [['SUPOREQU', Tree.tree_list_SUM(16), [None]]],
-            empty=True,
             name='T0',
             switches=[S0, SN2, S1, S4, SN2, S5, SN2,
                       S0, SN2, S1, S8, SN2, S9, SN3,
@@ -96,83 +95,63 @@ def level_4_colors_theorem(fast_solution_finding=False):
         return level
     else:
         T0 = Tree(tree_list=tree_list_0,
-                  empty=True,
                   name='T0',
                   switches=[S0, SN2, S1, S4, SN2, S5, SN2])
         T1 = Tree(tree_list=tree_list_0,
-                  empty=True,
                   name='T1',
                   switches=[S0, SN2, S1, S8, SN2, S9, SN3])
         T2 = Tree(tree_list=tree_list_1,
-                  empty=True,
                   name='T2',
                   switches=[S0, S2, S1, S3])
         T3 = Tree(tree_list=tree_list_1,
-                  empty=True,
                   name='T3',
                   switches=[S0, S4, S1, S5])
         T4 = Tree(tree_list=tree_list_1,
-                  empty=True,
                   name='T4',
                   switches=[S0, S8, S1, S9])
         T5 = Tree(tree_list=tree_list_1,
-                  empty=True,
                   name='T5',
                   switches=[S0, S10, S1, S11])
         T6 = Tree(tree_list=tree_list_1,
-                  empty=True,
                   name='T6',
                   switches=[S0, S12, S1, S13])
         T7 = Tree(tree_list=tree_list_1,
-                  empty=True,
                   name='T7',
                   switches=[S0, S14, S1, S15])
         T8 = Tree(tree_list=tree_list_1,
-                  empty=True,
                   name='T8',
                   switches=[S2, S4, S3, S5])
         T9 = Tree(tree_list=tree_list_1,
-                  empty=True,
                   name='T9',
                   switches=[S2, S12, S3, S13])
         T10 = Tree(tree_list=tree_list_1,
-                   empty=True,
                    name='T10',
                    switches=[S4, S6, S5, S7])
         T11 = Tree(tree_list=tree_list_1,
-                   empty=True,
                    name='T11',
                    switches=[S4, S12, S5, S13])
         T12 = Tree(tree_list=tree_list_1,
-                   empty=True,
                    name='T12',
                    switches=[S4, S14, S5, S15])
         T13 = Tree(tree_list=tree_list_1,
-                   empty=True,
                    name='T13',
                    switches=[S6, S8, S7, S9])
         T14 = Tree(tree_list=tree_list_1,
-                   empty=True,
                    name='T14',
                    switches=[S6, S12, S7, S13])
         T15 = Tree(tree_list=tree_list_1,
-                   empty=True,
                    name='T15',
                    switches=[S6, S14, S7, S15])
         T16 = Tree(tree_list=tree_list_1,
-                   empty=True,
                    name='T16',
                    switches=[S8, S10, S9, S11])
         T17 = Tree(tree_list=tree_list_1,
-                   empty=True,
                    name='T17',
                    switches=[S8, S12, S9, S13])
         T18 = Tree(tree_list=tree_list_1,
-                   empty=True,
                    name='T18',
                    switches=[S10, S12, S11, S13])
         T19 = Tree(tree_list=['SUPOREQU', Tree.tree_list_SUM(16), [None]],
-                   empty=True,
                    name='T19',
                    switches=[S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, SN9])
         R0 = Room(name='R0',

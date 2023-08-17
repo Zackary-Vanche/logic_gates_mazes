@@ -24,13 +24,13 @@ def level_recurrence():
     # tree_list_6 = ['BNA', Tree.tree_list_or_3, Tree.tree_list_and_4]
     tree_list_6 = Tree.tree_list_from_str('F'*7)
     
-    T0 = Tree(tree_list=tree_list_0, empty=True, name='T0', switches = [S0, S2, S4, S6])
-    T1 = Tree(tree_list=tree_list_1, empty=True, name='T1', switches = [S1])
-    T2 = Tree(tree_list=tree_list_2, empty=True, name='T2', switches = [S0, S2, S4, S6])
-    T3 = Tree(tree_list=tree_list_3, empty=True, name='T3', switches = [S3])
-    T4 = Tree(tree_list=tree_list_4, empty=True, name='T4', switches = [S0, S2, S4, S6])
-    T5 = Tree(tree_list=tree_list_5, empty=True, name='T5', switches = [S5])
-    T6 = Tree(tree_list=tree_list_6, empty=True, name='T6', switches = [S0, S1, S2, S3, S4, S5, S6])
+    T0 = Tree(tree_list=tree_list_0,  name='T0', switches = [S0, S2, S4, S6])
+    T1 = Tree(tree_list=tree_list_1,  name='T1', switches = [S1])
+    T2 = Tree(tree_list=tree_list_2,  name='T2', switches = [S0, S2, S4, S6])
+    T3 = Tree(tree_list=tree_list_3,  name='T3', switches = [S3])
+    T4 = Tree(tree_list=tree_list_4,  name='T4', switches = [S0, S2, S4, S6])
+    T5 = Tree(tree_list=tree_list_5,  name='T5', switches = [S5])
+    T6 = Tree(tree_list=tree_list_6,  name='T6', switches = [S0, S1, S2, S3, S4, S5, S6])
     
     position_R0 = [0,4,2,2]
     position_R1 = [0,0,2,2]

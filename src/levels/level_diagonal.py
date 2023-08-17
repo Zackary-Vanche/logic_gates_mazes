@@ -62,22 +62,18 @@ def level_diagonal(fast_solution_finding=False):
         return ['EQUSET'] + [Tree.tree_list_BIN(2)] * n + [[None]] * 4
 
     T0 = Tree(tree_list=tree_list(4),
-              empty=True,
               name='T0',
               switches=Slist0 + SNlist)
     T1 = Tree(tree_list=tree_list(4),
-              empty=True,
               name='T1',
               switches=Slist1 + SNlist)
     T2 = Tree(tree_list=tree_list(4),
-              empty=True,
               name='T2',
               switches=[S0, S1,
                         S2, S3,
                         S4, S5,
                         S6, S7] + SNlist)
     T3 = Tree(tree_list=['AND'] + [tree_list(4)] * 3,
-              empty=True,
               name='T3',
               switches=[S2, S3,
                         S10, S11,
@@ -91,14 +87,12 @@ def level_diagonal(fast_solution_finding=False):
                                                                     S30, S31] + SNlist,
               cut_expression=True)
     T4 = Tree(tree_list=tree_list(4),
-              empty=True,
               name='T4',
               switches=[S0, S1,
                         S8, S9,
                         S16, S17,
                         S24, S25] + SNlist)
     T5 = Tree(tree_list=['AND'] + [tree_list(4)] * 3,
-              empty=True,
               name='T5',
               switches=[S8, S9,
                         S10, S11,
@@ -118,7 +112,6 @@ def level_diagonal(fast_solution_finding=False):
                            [None]],
                           [None]],
                          Tree.tree_list_XOR(2)],
-              empty=True,
               name='T6',
               switches=[S2, S3, S5, S7, S11, S13, S17, S19, S23, S29, S31, a, b, S0, S31])
 

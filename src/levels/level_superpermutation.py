@@ -23,27 +23,21 @@ def level_superpermutation():
     S11 = Switch(name='S11')
     
     V0 = Tree(tree_list=Tree.tree_list_BIN(2),
-              empty=True,
               name='V0',
               switches=[S0, S1])
     V1 = Tree(tree_list=Tree.tree_list_BIN(2),
-              empty=True,
               name='V1',
               switches=[S2, S3])
     V2 = Tree(tree_list=Tree.tree_list_BIN(2),
-              empty=True,
               name='V2',
               switches=[S4, S5])
     V3 = Tree(tree_list=Tree.tree_list_BIN(2),
-              empty=True,
               name='V3',
               switches=[S6, S7])
     V4 = Tree(tree_list=Tree.tree_list_BIN(2),
-              empty=True,
               name='V4',
               switches=[S8, S9])
     V5 = Tree(tree_list=Tree.tree_list_BIN(2),
-              empty=True,
               name='V5',
               switches=[S10, S11])
     
@@ -52,27 +46,21 @@ def level_superpermutation():
     tree_list = ['INLIST'] + [[None]]*13
     
     T0 = Tree(tree_list=tree_list,
-              empty=True,
               name='T0',
               switches = [3, 1, 2, 3] + Slist)
     T1 = Tree(tree_list=tree_list,
-              empty=True,
               name='T1',
               switches = [3, 1, 3, 2] + Slist)
     T2 = Tree(tree_list=tree_list,
-              empty=True,
               name='T2',
               switches = [3, 2, 1, 3] + Slist)
     T3 = Tree(tree_list=tree_list,
-              empty=True,
               name='T3',
               switches = [3, 2, 3, 1] + Slist)
     T4 = Tree(tree_list=tree_list,
-              empty=True,
               name='T4',
               switches = [3, 3, 1, 2] + Slist)
     T5 = Tree(tree_list=tree_list,
-              empty=True,
               name='T5',
               switches = [3, 3, 2, 1] + Slist)
     

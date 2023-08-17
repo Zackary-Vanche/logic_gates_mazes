@@ -15,14 +15,13 @@ def level_binary():
     S5 = Switch(name='S5')
     S6 = Switch(name='S6')
 
-    T0 = Tree(tree_list=[None], empty=True, name='T0', switches=[S6])
-    T1 = Tree(tree_list=[None], empty=True, name='T1', switches=[S3])
-    T2 = Tree(tree_list=[None], empty=True, name='T2', switches=[S4])
-    T3 = Tree(tree_list=[None], empty=True, name='T3', switches=[S0])
-    T4 = Tree(tree_list=[None], empty=True, name='T4', switches=[S1])
-    T5 = Tree(tree_list=[None], empty=True, name='T5', switches=[S2])
+    T0 = Tree(tree_list=[None], name='T0', switches=[S6])
+    T1 = Tree(tree_list=[None], name='T1', switches=[S3])
+    T2 = Tree(tree_list=[None], name='T2', switches=[S4])
+    T3 = Tree(tree_list=[None], name='T3', switches=[S0])
+    T4 = Tree(tree_list=[None], name='T4', switches=[S1])
+    T5 = Tree(tree_list=[None], name='T5', switches=[S2])
     T6 = Tree(tree_list=Tree.tree_list_AND(7),
-              empty=True,
               name='T6',
               switches=[S0, S1, S2, S3, S4, S5, S6])
 

@@ -28,19 +28,15 @@ def level_taxicab_number():
     SN3 = Switch(name='3', value=3)
     
     V0 = Tree(tree_list=Tree.tree_list_BIN(4),
-              empty=True,
               name='V0',
               switches=[S0, S1, S2, S3])
     V1 = Tree(tree_list=Tree.tree_list_BIN(4),
-              empty=True,
               name='V1',
               switches=[S4, S5, S6, S7])
     V2 = Tree(tree_list=Tree.tree_list_BIN(4),
-              empty=True,
               name='V2',
               switches=[S8, S9, S10, S11])
     V3 = Tree(tree_list=Tree.tree_list_BIN(4),
-              empty=True,
               name='V3',
               switches=[S12, S13, S14, S15])
     
@@ -50,21 +46,17 @@ def level_taxicab_number():
     tree_list_EQU = ['EQU', tree_list_SUM, tree_list_SUM]
 
     T0 = Tree(tree_list=[None],
-              empty=True,
               name='T0',
               switches = [SN1])
     T1 = Tree(tree_list=tree_list_INF,
-              empty=True,
               name='T1',
               switches = [V0, V1])
     T2 = Tree(tree_list=tree_list_INF,
-              empty=True,
               name='T2',
               switches = [V0, V2])
     T3 = Tree(tree_list=['AND',
                              tree_list_INF,
                              tree_list_EQU],
-              empty=True,
               name='T3',
               switches = [V2,
                           V3,

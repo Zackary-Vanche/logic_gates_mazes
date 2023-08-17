@@ -25,12 +25,10 @@ def level_doppelganger():
     # Slist0 = sorted(Slist0)
 
     T0 = Tree(tree_list=['IN', Tree.tree_list_BIN(4)] + [[None]]*len(Slist0),
-              empty=True,
               name='T0',
               switches = Slist + Slist0,
               cut_expression=True)
     T1 = Tree(tree_list=['EQU', Tree.tree_list_BIN(4), [None]],
-              empty=True,
               name='T1',
               switches = Slist + [Slist0[-1]])
 

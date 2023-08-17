@@ -39,39 +39,30 @@ def level_mastermind():
     Sa7 = Switch(name='?7', value=a7)
     
     V0 = Tree(tree_list=Tree.tree_list_BIN(2),
-              empty=True,
               name='V0',
               switches=[S0, S1])
     V1 = Tree(tree_list=Tree.tree_list_BIN(2),
-              empty=True,
               name='V1',
               switches=[S2, S3])
     V2 = Tree(tree_list=Tree.tree_list_BIN(2),
-              empty=True,
               name='V2',
               switches=[S4, S5])
     V3 = Tree(tree_list=Tree.tree_list_BIN(2),
-              empty=True,
               name='V3',
               switches=[S6, S7])
     V4 = Tree(tree_list=Tree.tree_list_BIN(2),
-              empty=True,
               name='V4',
               switches=[Sa0, Sa1])
     V5 = Tree(tree_list=Tree.tree_list_BIN(2),
-              empty=True,
               name='V5',
               switches=[Sa2, Sa3])
     V6 = Tree(tree_list=Tree.tree_list_BIN(2),
-              empty=True,
               name='V6',
               switches=[Sa4, Sa5])
     V7 = Tree(tree_list=Tree.tree_list_BIN(2),
-              empty=True,
               name='V7',
               switches=[Sa6, Sa7])
     V8 = Tree(tree_list=Tree.tree_list_XOR(2),
-              empty=True,
               name='V8',
               switches=[S8, S9])
 
@@ -96,59 +87,45 @@ def level_mastermind():
                    [None]]]
 
     T0 = Tree(tree_list=[None],
-              empty=True,
               name='T0',
               switches=[1])
     T1 = Tree(tree_list=tree_list1,
-              empty=True,
               name='T1',
               switches=Slist_1 + [0])
     T2 = Tree(tree_list=tree_list1,
-              empty=True,
               name='T2',
               switches=Slist_1 + [1])
     T3 = Tree(tree_list=tree_list1,
-              empty=True,
               name='T3',
               switches=Slist_1 + [2])
     T4 = Tree(tree_list=tree_list1,
-              empty=True,
               name='T4',
               switches=Slist_1 + [3])
     T5 = Tree(tree_list=tree_list1,
-              empty=True,
               name='T5',
               switches=Slist_1 + [4])
     T6 = Tree(tree_list=tree_list2,
-              empty=True,
               name='T6',
               switches=Slist_2 + [0])
     T7 = Tree(tree_list=tree_list2,
-              empty=True,
               name='T7',
               switches=Slist_2 + [1])
     T8 = Tree(tree_list=tree_list2,
-              empty=True,
               name='T8',
               switches=Slist_2 + [2])
     T11 = Tree(tree_list=tree_list2,
-               empty=True,
                name='T11',
                switches=Slist_2 + [3])
     T12 = Tree(tree_list=tree_list2,
-               empty=True,
                name='T12',
                switches=Slist_2 + [4])
     T13 = Tree(tree_list=Tree.tree_list_not,
-               empty=True,
                name='T13',
                switches=[V8])
     T14 = Tree(tree_list=[None],
-               empty=True,
                name='T14',
                switches=[1])
     T15 = Tree(tree_list=['AND'] + [['EQU', [None], [None]]] * 9,
-               empty=True,
                name='T15',
                switches=[S0, Sa0,
                          S1, Sa1,

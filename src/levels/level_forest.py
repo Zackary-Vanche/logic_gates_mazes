@@ -16,31 +16,24 @@ def level_forest():
     S5 = Switch(name='S5')
 
     T0 = Tree(tree_list=Tree.tree_list_XOR(2),
-                empty=True,
                 name='T0',
                 switches=[S0, S1])
     T1 = Tree(tree_list=Tree.tree_list_XNOR(2),
-                empty=True,
                 name='T1',
                 switches=[S0, S1])
     T2 = Tree(tree_list=[None],
-                empty=True,
                 name='T2',
                 switches=[S0])
     T3 = Tree(tree_list=Tree.tree_list_NOT,
-                empty=True,
                 name='T3',
                 switches=[S0])
     T4 = Tree(tree_list=[None],
-                empty=True,
                 name='T4',
                 switches=[S0])
     T5 = Tree(tree_list=Tree.tree_list_NOT,
-                empty=True,
                 name='T5',
                 switches=[S0])
     T6 = Tree(tree_list=Tree.tree_list_AND(6),
-                empty=True,
                 name='T6',
                 switches=[S0, S1, S2, S3, S4, S5])
     

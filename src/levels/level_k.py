@@ -47,7 +47,6 @@ def level_k(fast_solution_finding=False):
 
         T0 = Tree(tree_list=['AND'] + [Tree.tree_list_NAND(2)]*34 + [['SUPOREQU', ['SUM'] + [[None]] * 16, [None]],
                                                                      ['NOT', ['EQU', Tree.tree_list_BIN(16), [None]]]],
-                    empty=True,
                     name='T0',
                     switches=Slisttree + Slist + [8] + Slist + [43690])
         R0 = Room(name='R0',
@@ -90,7 +89,6 @@ def level_k(fast_solution_finding=False):
 
         def get_tree(i):
             return Tree(tree_list=tree_list,
-                        empty=True,
                         name=f'T{i}',
                         switches=Slist_i(i))
 
@@ -243,7 +241,6 @@ def level_k(fast_solution_finding=False):
                   relative_position=rp)
         D17 = Door(two_way=False,
                   tree=Tree(tree_list=['SUPOREQU', ['SUM'] + [[None]] * 16, [None]],
-                            empty=True,
                             name='T17',
                             switches=Slist + [8]),
                   room_departure=R17,
@@ -251,7 +248,6 @@ def level_k(fast_solution_finding=False):
                   relative_position=rp)
         D18 = Door(two_way=False,
                   tree=Tree(tree_list=['NOT', ['EQU', Tree.tree_list_BIN(16), [None]]],
-                            empty=True,
                             name='T18',
                             switches=Slist + [43690]),  # TODO
                   room_departure=R18,

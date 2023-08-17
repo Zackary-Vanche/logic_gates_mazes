@@ -30,15 +30,12 @@ def level_second():
     rd_shuffle(lint)
     
     V0 = Tree(tree_list=Tree.tree_list_BIN(4),
-              empty=True,
               name='V0',
               switches=[S0, S1, S2, S3])
     V1 = Tree(tree_list=Tree.tree_list_BIN(4),
-              empty=True,
               name='V1',
               switches=[S4, S5, S6, S7])
     V2 = Tree(tree_list=Tree.tree_list_BIN(4),
-              empty=True,
               name='V2',
               switches=[S8, S9, S10, S11])
 
@@ -56,7 +53,6 @@ def level_second():
                    V2,
                    a * x ** 2 + b * x + c,]
         return Tree(tree_list=tree_list,
-                    empty=True,
                     name=f'T{i}',
                     switches=Slist_i)
 

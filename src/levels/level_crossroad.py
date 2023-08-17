@@ -21,12 +21,12 @@ def level_crossroad():
     tree_list_4 = [None]  # S4
     tree_list_5 = Tree.tree_list_AND(6)
 
-    T0 = Tree(tree_list=tree_list_0, empty=True, name='T0', switches=[S0])
-    T1 = Tree(tree_list=tree_list_1, empty=True, name='T1', switches=[S1])
-    T2 = Tree(tree_list=tree_list_2, empty=True, name='T2', switches=[S2])
-    T3 = Tree(tree_list=tree_list_3, empty=True, name='T3', switches=[S3])
-    T4 = Tree(tree_list=tree_list_4, empty=True, name='T4', switches=[S4])
-    T5 = Tree(tree_list=tree_list_5, empty=True, name='T5', switches=[S0, S1, S2, S3, S4, S5])
+    T0 = Tree(tree_list=tree_list_0,  name='T0', switches=[S0])
+    T1 = Tree(tree_list=tree_list_1,  name='T1', switches=[S1])
+    T2 = Tree(tree_list=tree_list_2,  name='T2', switches=[S2])
+    T3 = Tree(tree_list=tree_list_3,  name='T3', switches=[S3])
+    T4 = Tree(tree_list=tree_list_4,  name='T4', switches=[S4])
+    T5 = Tree(tree_list=tree_list_5,  name='T5', switches=[S0, S1, S2, S3, S4, S5])
 
     position_R0 = [2.5, 5, 1.75, 1.75]
     position_R1 = [0, 2.5, 1.75, 1.75]

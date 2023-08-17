@@ -61,78 +61,63 @@ def level_error():
     tree_list_8 = ['AND', tree_list_IN_BIN(1), tree_list_EQU_BIN]
 
     T0 = Tree(tree_list=tree_list_0,
-                empty=True,
                 name='T0',
                 switches=[S24, S25, S26, 1, 2, 3] + Slist,
                 cut_expression=False)
     T1 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T1',
                 switches=[S24, S25, S26, 1, 2, 3,
                           S0, S1, S2, S3, S4, S5])
     T2 = Tree(tree_list=tree_list_0,
-                empty=True,
                 name='T2',
                 switches=[S24, S25, S26, 1, 4, 5] + Slist,
                 cut_expression=False,
                 cut_expression_separator='~')
     T3 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T3',
                 switches=[S24, S25, S26, 1, 4, 5,
                           S6, S7, S8, S9, S10, S11])
     T4 = Tree(tree_list=tree_list_0,
-                empty=True,
                 name='T4',
                 switches=[S24, S25, S26, 2, 4, 6] + Slist,
                 cut_expression=False)
     T5 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T5',
                 switches=[S24, S25, S26, 2, 4, 6,
                           S12, S13, S14, S15, S16, S17])
     T6 = Tree(tree_list=tree_list_0,
-                empty=True,
                 name='T6',
                 switches=[S24, S25, S26, 3, 5, 6] + Slist,
                 cut_expression=False)
     T7 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T7',
                 switches=[S24, S25, S26, 3, 5, 6,
                           S18, S19, S20, S21, S22, S23])
     T8 = Tree(tree_list=tree_list_8,
-                empty=True,
                 name='T8',
                 switches=[S24, S25, S26, 1,
                           S3, S4, S5, S9, S10, S11])
     T9 = Tree(tree_list=tree_list_8,
-                empty=True,
                 name='T9',
                 switches=[S24, S25, S26, 2,
                           S3, S4, S5, S15, S16, S17])
     T10 = Tree(tree_list=tree_list_8,
-                empty=True,
                 name='T10',
                 switches=[S24, S25, S26, 3,
                           S3, S4, S5, S21, S22, S23])
     T11 = Tree(tree_list=tree_list_8,
-                empty=True,
                 name='T11',
                 switches=[S24, S25, S26, 4,
                           S9, S10, S11, S15, S16, S17])
     T12 = Tree(tree_list=tree_list_8,
-                empty=True,
                 name='T12',
                 switches=[S24, S25, S26, 5,
                           S9, S10, S11, S21, S22, S23])
     T13 = Tree(tree_list=tree_list_8,
-                empty=True,
                 name='T13',
                 switches=[S24, S25, S26, 6,
                           S15, S16, S17, S21, S22, S23])
     T14 = Tree(tree_list=[None],
-                empty=True,
                 name='T14',
                 switches=[1])
     filename = 'levels/Error_random_exits.txt'
@@ -141,7 +126,6 @@ def level_error():
             lines = fr.readlines()
             l = rd_choice(lines)
         T15 = Tree(tree_list=Tree.tree_list_from_str(l),
-                    empty=True,
                     name='T15',
                     switches=[S0, S1, S2,
                               S3, S4, S5,
@@ -154,7 +138,6 @@ def level_error():
                               S24, S25, S26])
     else:
         T15 = Tree(tree_list=Tree.tree_list_from_str('TTT'),
-                    empty=True,
                     name='T15',
                     switches=[S24, S25, S26])
     

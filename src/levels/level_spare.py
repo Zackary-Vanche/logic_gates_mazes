@@ -46,70 +46,55 @@ def level_spare():
     Slist2 = [S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, 0, 0, 0, 1, 1, 2,]
 
     T0 = Tree(tree_list=tree_list_0,
-              empty=True,
               name='T0',
               switches=SR1 + [0] + SR2 + [0] + SR0 + [1])
     T1 = Tree(tree_list=tree_list_1,
-              empty=True,
               name='T1',
               switches=SR1 + SR2 + SR0 + [1])
     T2 = Tree(tree_list=tree_list_2,
-              empty=True,
               name='T2',
               switches=Slist2 + SR0 + [1])
 
     T3 = Tree(tree_list=tree_list_0,
-              empty=True,
               name='T3',
               switches=SR2 + [0] + SR3 + [0] + SR0 + [2])
     T4 = Tree(tree_list=tree_list_1,
-              empty=True,
               name='T4',
               switches=SR2 + SR3 + SR0 + [2])
     T5 = Tree(tree_list=['AND',
                          ['EQUSET'] + [Tree.tree_list_BIN(2)]*6 + [[None]]*6,
                          ['IN', Tree.tree_list_BIN(3), [None], [None]]],
-              empty=True,
               name='T5',
               switches=Slist2 + SR0 + [2, 5])
 
     T6 = Tree(tree_list=tree_list_0,
-              empty=True,
               name='T6',
               switches=SR3 + [0] + SR4 + [0] + SR0 + [3])
     T7 = Tree(tree_list=tree_list_1,
-              empty=True,
               name='T7',
               switches=SR3 + SR4 + SR0 + [3])
     T8 = Tree(tree_list=tree_list_2,
-              empty=True,
               name='T8',
               switches=Slist2 + SR0 + [3])
 
     T9 = Tree(tree_list=tree_list_0,
-              empty=True,
               name='T9',
               switches=SR4 + [0] + SR5 + [0] + SR0 + [4])
     T10 = Tree(tree_list=tree_list_1,
-              empty=True,
               name='T10',
               switches=SR4 + SR5 + SR0 + [4])
     T11 = Tree(tree_list=tree_list_2,
-              empty=True,
               name='T11',
               switches=Slist2 + SR0 + [4])
 
     T12 = Tree(tree_list=tree_list_0,
-               empty=True,
                name='T12',
                switches=SR6 + [0] + SR3 + [0] + SR0 + [5])
     T13 = Tree(tree_list=tree_list_1,
-               empty=True,
                name='T13',
                switches=SR6 + SR3 + SR0 + [5])
 
     T14 = Tree(tree_list=Tree.tree_list_from_str('TTTFTFFFFTFTFFF'),
-               empty=True,
                name='T14',
                switches=Slist)
 

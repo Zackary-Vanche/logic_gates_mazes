@@ -33,34 +33,27 @@ def level_permutations():
     S18 = Switch(name='S18', value=1)
     
     V0 = Tree(tree_list=Tree.tree_list_BIN(4),
-              empty=True,
               name='V0',
               switches=[S0, S1, S2, S3,])
     V1 = Tree(tree_list=Tree.tree_list_BIN(3),
-              empty=True,
               name='V1',
               switches=[S4, S5, S6])
     V2 = Tree(tree_list=Tree.tree_list_BIN(3),
-              empty=True,
               name='V2',
               switches=[S7, S8, S9])
     V3 = Tree(tree_list=Tree.tree_list_BIN(3),
-              empty=True,
               name='V3',
               switches=[S10, S11, S12])
     V4 = Tree(tree_list=Tree.tree_list_BIN(3),
-              empty=True,
               name='V4',
               switches=[S13, S14, S15])
     V5 = Tree(tree_list=Tree.tree_list_BIN(3),
-              empty=True,
               name='V5',
               switches=[S16, S17, S18])
 
     tree_list_OR_BIN4 = ['OR'] + [['EQU', [None], [None]]] * 4
 
     T0 = Tree(tree_list=tree_list_OR_BIN4,
-              empty=True,
               name='T0',
               switches=[V0, 0,
                         V0, 1,
@@ -69,7 +62,6 @@ def level_permutations():
               cut_expression=True,
               cut_expression_separator=']')
     T1 = Tree(tree_list=tree_list_OR_BIN4,
-              empty=True,
               name='T1',
               switches=[V0, 0,
                         V0, 4,
@@ -78,21 +70,18 @@ def level_permutations():
               cut_expression=True,
               cut_expression_separator=']')
     T2 = Tree(tree_list=tree_list_OR_BIN4,
-              empty=True,
               name='T2',
               switches=[V0, 1,
                         V0, 4,
                         V0, 7,
                         V0, 8])
     T3 = Tree(tree_list=tree_list_OR_BIN4,
-              empty=True,
               name='T3',
               switches=[V0, 2,
                         V0, 5,
                         V0, 7,
                         V0, 9])
     T4 = Tree(tree_list=tree_list_OR_BIN4,
-              empty=True,
               name='T4',
               switches=[V0, 3,
                         V0, 6,
@@ -100,35 +89,30 @@ def level_permutations():
                         V0, 9])
 
     T5 = Tree(tree_list=tree_list_OR_BIN4,
-              empty=True,
               name='T5',
               switches=[V0, 0,
                         V0, 1,
                         V0, 2,
                         V0, 3])
     T6 = Tree(tree_list=tree_list_OR_BIN4,
-              empty=True,
               name='T6',
               switches=[V0, 0,
                         V0, 4,
                         V0, 5,
                         V0, 6])
     T7 = Tree(tree_list=tree_list_OR_BIN4,
-              empty=True,
               name='T7',
               switches=[V0, 1,
                         V0, 4,
                         V0, 7,
                         V0, 8])
     T8 = Tree(tree_list=tree_list_OR_BIN4,
-              empty=True,
               name='T8',
               switches=[V0, 2,
                         V0, 5,
                         V0, 7,
                         V0, 9])
     T9 = Tree(tree_list=tree_list_OR_BIN4,
-              empty=True,
               name='T9',
               switches=[V0, 3,
                         V0, 6,
@@ -136,42 +120,36 @@ def level_permutations():
                         V0, 9])
 
     T10 = Tree(tree_list=tree_list_OR_BIN4,
-               empty=True,
                name='T10',
                switches=[V0, 0,
                          V0, 1,
                          V0, 2,
                          V0, 3])
     T11 = Tree(tree_list=tree_list_OR_BIN4,
-               empty=True,
                name='T11',
                switches=[V0, 0,
                          V0, 4,
                          V0, 5,
                          V0, 6])
     T12 = Tree(tree_list=tree_list_OR_BIN4,
-               empty=True,
                name='T12',
                switches=[V0, 1,
                          V0, 4,
                          V0, 7,
                          V0, 8])
     T13 = Tree(tree_list=tree_list_OR_BIN4,
-               empty=True,
                name='T13',
                switches=[V0, 2,
                          V0, 5,
                          V0, 7,
                          V0, 9])
     T14 = Tree(tree_list=tree_list_OR_BIN4,
-               empty=True,
                name='T14',
                switches=[V0, 3,
                          V0, 6,
                          V0, 8,
                          V0, 9])
     T15 = Tree(tree_list=['EQUSET'] + [[None]] * 10,
-               empty=True,
                name='T15',
                switches=[V1, V2, V3, V4, V5, 0, 1, 2, 3, 4])
     # ['AND',
@@ -182,7 +160,6 @@ def level_permutations():
     #                       Tree.tree_list_from_str('TFF'),
     #                       Tree.tree_list_from_str('TTF'),],
     T16 = Tree(tree_list=['AND'] + [['EQU', [None], [None]]] * 6,
-               empty=True,
                name='T16',
                switches=[0, V0,
                          2, V1,

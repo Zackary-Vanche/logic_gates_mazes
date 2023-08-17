@@ -56,7 +56,6 @@ def level_exact_cover():
                    Tree.tree_list_XOR(2)]
 
     T0 = Tree(tree_list=tree_list_0,
-              empty=True,
               name='T0',
               switches = [S0, S1,
                           S0, S2, S3,

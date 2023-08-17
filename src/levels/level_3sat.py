@@ -40,7 +40,6 @@ def level_3sat():
                 S3, S0, S2, S4, S5, S0, S5, S2]
 
     T0 = Tree(tree_list=Tree.tree_list_from_str(CNF_expression, CNF=True),
-              empty=True,
               name='T0',
               switches=Slist_T0,
               cut_expression=True)

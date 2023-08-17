@@ -31,7 +31,6 @@ def level_wasted():
                          
                          #['BIN', tl0, tl1, tl1],
                          ['BIN', tl1, tl0, tl1]],
-                empty=True,
                 name='T0',
                 switches=[S0, S1, S2,
                           #S3, S5, S4,
@@ -42,7 +41,6 @@ def level_wasted():
                           S4, S3, S5],
                 cut_expression=True)
     T1 = Tree(tree_list=['EQU'] + [Tree.tree_list_BIN(3)]*2,
-                empty=True,
                 name='T1',
                 switches=[S0, S1, S2, S3, S4, S5])
     filename = 'levels/Wasted_random_exits.txt'
@@ -51,12 +49,10 @@ def level_wasted():
             lines = fr.readlines()
             l = rd_choice(lines)
         T2 = Tree(tree_list=Tree.tree_list_from_str(l),
-                    empty=True,
                     name='T2',
                     switches=[S0, S1, S2, S3, S4, S5])
     else:
         T2 = Tree(tree_list=['EQU'] + [Tree.tree_list_BIN(3)]*2,
-                    empty=True,
                     name='T2',
                     switches=[S0, S1, S2, S3, S4, S5])
 

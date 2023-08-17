@@ -24,29 +24,29 @@ def level_eulerian():
     S14 = Switch(name='S14')
     
     T0   = Tree(tree_list=['AND', [None], [None], [None], [None], Tree.tree_list_NAND(2), Tree.tree_list_XNOR(2)],  
-            empty=True, name='T0',  switches = [S3, S11, S13, S14, S1, S10, S6, S12])
-    T5  = Tree(tree_list=[None],  empty=True, name='T5', switches = [S2])
-    T7   = Tree(tree_list=[None],  empty=True, name='T7',  switches = [S4])
-    T11  = Tree(tree_list=[None],  empty=True, name='T11', switches = [S8])
-    T14  = Tree(tree_list=[None],  empty=True, name='T14', switches = [S9])
-    T17  = Tree(tree_list=[None],  empty=True, name='T17', switches = [S13])
+             name='T0',  switches = [S3, S11, S13, S14, S1, S10, S6, S12])
+    T5  = Tree(tree_list=[None],   name='T5', switches = [S2])
+    T7   = Tree(tree_list=[None],   name='T7',  switches = [S4])
+    T11  = Tree(tree_list=[None],   name='T11', switches = [S8])
+    T14  = Tree(tree_list=[None],   name='T14', switches = [S9])
+    T17  = Tree(tree_list=[None],   name='T17', switches = [S13])
 
-    T4   = Tree(tree_list=Tree.tree_list_not,  empty=True, name='T4',  switches = [S2])
+    T4   = Tree(tree_list=Tree.tree_list_not,   name='T4',  switches = [S2])
     T6   = Tree(tree_list=['AND', Tree.tree_list_not, Tree.tree_list_XOR(2), Tree.tree_list_XOR(2), Tree.tree_list_XOR(2)],
-                 empty=True, name='T6',  switches = [S3, S1, S6, S7, S10, S10, S12])
-    T8   = Tree(tree_list=Tree.tree_list_not,  empty=True, name='T8',  switches = [S4])
-    T9   = Tree(tree_list=Tree.tree_list_not,  empty=True, name='T9',  switches = [S9])
-    T13  = Tree(tree_list=Tree.tree_list_not,  empty=True, name='T13', switches = [S8])
-    T18  = Tree(tree_list=Tree.tree_list_not,  empty=True, name='T18', switches = [S13])
+                  name='T6',  switches = [S3, S1, S6, S7, S10, S10, S12])
+    T8   = Tree(tree_list=Tree.tree_list_not,   name='T8',  switches = [S4])
+    T9   = Tree(tree_list=Tree.tree_list_not,   name='T9',  switches = [S9])
+    T13  = Tree(tree_list=Tree.tree_list_not,   name='T13', switches = [S8])
+    T18  = Tree(tree_list=Tree.tree_list_not,   name='T18', switches = [S13])
     
-    T1   = Tree(tree_list=Tree.tree_list_from_str('TF'),  empty=True, name='T1',  switches = [S0, S1])
-    T3   = Tree(tree_list=[None],  empty=True, name='T3',  switches = [S0])
-    T15  = Tree(tree_list=Tree.tree_list_XOR(2),  empty=True, name='T15', switches = [S5, S9])
-    T10  = Tree(tree_list=Tree.tree_list_not,  empty=True, name='T10', switches = [S5])
-    T16  = Tree(tree_list=Tree.tree_list_NAND(2),  empty=True, name='T16', switches = [S8, S14])
-    T12  = Tree(tree_list=Tree.tree_list_XNOR(2),  empty=True, name='T12', switches = [S8, S14])
+    T1   = Tree(tree_list=Tree.tree_list_from_str('TF'),   name='T1',  switches = [S0, S1])
+    T3   = Tree(tree_list=[None],   name='T3',  switches = [S0])
+    T15  = Tree(tree_list=Tree.tree_list_XOR(2),   name='T15', switches = [S5, S9])
+    T10  = Tree(tree_list=Tree.tree_list_not,   name='T10', switches = [S5])
+    T16  = Tree(tree_list=Tree.tree_list_NAND(2),   name='T16', switches = [S8, S14])
+    T12  = Tree(tree_list=Tree.tree_list_XNOR(2),   name='T12', switches = [S8, S14])
     
-    T2   = Tree(tree_list=Tree.tree_list_from_str('T'*6),  empty=True, name='T2',  
+    T2   = Tree(tree_list=Tree.tree_list_from_str('T'*6),   name='T2',  
             switches = [S0, S2, S3, S4, S8, S9])
     
     c = 2

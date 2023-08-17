@@ -21,71 +21,54 @@ def level_hamiltonian():
     S11 = Switch(name='S11')
 
     T0 = Tree(tree_list=Tree.tree_list_from_str('FT'),
-              empty=True,
               name='T0',
               switches=[S1, S2])
     T1 = Tree(tree_list=Tree.tree_list_from_str('FT'),
-              empty=True,
               name='T1',
               switches=[S2, S4])
     T2 = Tree(tree_list=Tree.tree_list_from_str('FT'),
-              empty=True,
               name='T2',
               switches=[S4, S5])
     T3 = Tree(tree_list=Tree.tree_list_from_str('FT'),
-              empty=True,
               name='T3',
               switches=[S5, S7])
     T4 = Tree(tree_list=Tree.tree_list_from_str('FT'),
-              empty=True,
               name='T4',
               switches=[S7, S8])
     T5 = Tree(tree_list=Tree.tree_list_from_str('FT'),
-              empty=True,
               name='T5',
               switches=[S8, S10])
     T6 = Tree(tree_list=Tree.tree_list_from_str('FT'),
-              empty=True,
               name='T6',
               switches=[S10, S11])
     T7 = Tree(tree_list=Tree.tree_list_from_str('TF'),
-              empty=True,
               name='T7',
               switches=[S1, S11])
     T8 = Tree(tree_list=Tree.tree_list_from_str('TTFF'),
-              empty=True,
               name='T8',
               switches=[S0, S1, S3, S4])
     T9 = Tree(tree_list=Tree.tree_list_from_str('TTFF'),
-              empty=True,
               name='T9',
               switches=[S3, S4, S6, S7])
     T10 = Tree(tree_list=Tree.tree_list_from_str('TTFF'),
-               empty=True,
                name='T10',
                switches=[S6, S7, S9, S10])
     T11 = Tree(tree_list=Tree.tree_list_from_str('FFTT'),
-               empty=True,
                name='T11',
                switches=[S0, S1, S9, S10])
     T12 = Tree(tree_list=Tree.tree_list_from_str('TF'),
-               empty=True,
                name='T12',
                switches=[S2, S5])
     T13 = Tree(tree_list=Tree.tree_list_from_str('TF'),
-               empty=True,
                name='T13',
                switches=[S5, S8])
     T14 = Tree(tree_list=Tree.tree_list_from_str('TF'),
-               empty=True,
                name='T14',
                switches=[S8, S11])
     T15 = Tree(tree_list=Tree.tree_list_from_str('FT'),
-               empty=True,
                name='T15',
                switches=[S2, S11])
     T16 = Tree(tree_list=Tree.tree_list_AND(12),
-               empty=True,
                name='T16',
                switches=[S0, S1, S2,
                          S3, S4, S5,

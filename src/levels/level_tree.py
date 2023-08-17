@@ -20,11 +20,9 @@ def level_tree():
     Slist1 = [S1, S3, S5, S7]
     
     V0 = Tree(tree_list=Tree.tree_list_BIN(4),
-              empty=True,
               name='V0',
               switches=Slist0)
     V1 = Tree(tree_list=Tree.tree_list_BIN(4),
-              empty=True,
               name='V1',
               switches=Slist1)
 
@@ -35,104 +33,83 @@ def level_tree():
     ln = [[0]] + ln
 
     T0 = Tree(tree_list=[None],
-              empty=True,
               name='T0',
               switches=[1])
     T1 = Tree(tree_list=[None],
-              empty=True,
               name='T1',
               switches=[1])
     T2 = Tree(tree_list=[None],
-              empty=True,
               name='T2',
               switches=[1])
     T3 = Tree(tree_list=[None],
-              empty=True,
               name='T3',
               switches=[1])
     T4 = Tree(tree_list=Tlist,
-              empty=True,
               name='T4',
               switches=ln[0] + [V0] + ln[1] + [V1],
               cut_expression=False)
     T5 = Tree(tree_list=Tlist,
-              empty=True,
               name='T5',
               switches=ln[1] + [V0] + ln[2] + [V1],
               cut_expression=False)
     T6 = Tree(tree_list=Tlist,
-              empty=True,
               name='T6',
               switches=ln[1] + [V0] + ln[3] + [V1],
               cut_expression=False)
     T7 = Tree(tree_list=Tlist,
-              empty=True,
               name='T7',
               switches=ln[2] + [V0] + ln[4] + [V1],
               cut_expression=False)
     T8 = Tree(tree_list=Tlist,
-              empty=True,
               name='T8',
               switches=ln[2] + [V0] + ln[5] + [V1],
               cut_expression=False)
     T9 = Tree(tree_list=Tlist,
-              empty=True,
               name='T9',
               switches=ln[3] + [V0] + ln[6] + [V1],
               cut_expression=False)
     T10 = Tree(tree_list=Tlist,
-               empty=True,
                name='T10',
                switches=ln[3] + [V0] + ln[7] + [V1],
                cut_expression=False)
     T11 = Tree(tree_list=Tlist,
-               empty=True,
                name='T11',
                switches=ln[4] + [V0] + ln[8] + [V1],
                cut_expression=False)
     T12 = Tree(tree_list=Tlist,
-               empty=True,
                name='T12',
                switches=ln[4] + [V0] + ln[9] + [V1],
                cut_expression=False)
     T13 = Tree(tree_list=Tlist,
-               empty=True,
                name='T13',
                switches=ln[5] + [V0] + ln[10] + [V1],
                cut_expression=False)
     T14 = Tree(tree_list=Tlist,
-               empty=True,
                name='T14',
                switches=ln[5] + [V0] + ln[11] + [V1],
                cut_expression=False)
     T15 = Tree(tree_list=Tlist,
-               empty=True,
                name='T15',
                switches=ln[6] + [V0] + ln[12] + [V1],
                cut_expression=False)
     T16 = Tree(tree_list=Tlist,
-               empty=True,
                name='T16',
                switches=ln[6] + [V0] + ln[13] + [V1],
                cut_expression=False)
     T17 = Tree(tree_list=Tlist,
-               empty=True,
                name='T17',
                switches=ln[7] + [V0] + ln[14] + [V1],
                cut_expression=False)
     T18 = Tree(tree_list=Tlist,
-               empty=True,
                name='T18',
                switches=ln[7] + [V0] + ln[15] + [V1],
                cut_expression=False)
     T19 = Tree(tree_list=['EQU',
                           [None],
                           [None]],
-               empty=True,
                name='T19',
                switches=[V0, V1])
     T20 = Tree(tree_list=Tlist,
-               empty=True,
                name='T20',
                switches=ln[15] + [V0] + ln[15] + [V1],
                cut_expression=False)

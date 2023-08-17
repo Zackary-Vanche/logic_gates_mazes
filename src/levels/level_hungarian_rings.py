@@ -58,52 +58,40 @@ def level_hungarian_rings():
     tree_list_6 = ['AND', Tree.tree_list_not, tree_list_EQU_BIN]
 
     T0 = Tree(tree_list=[None],
-                empty=True,
                 name='T0',
                 switches=[S0])
     T1 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T1',
                 switches=[S0, S1, S2, S3, S4, S5, S6])
     T2 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T2',
                 switches=[S0, S4, S5, S6, S7, S8, S9])
     T3 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T3',
                 switches=[S0, S7, S8, S9, S19, S20, S21])
     T4 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T4',
                 switches=[S0, S19, S20, S21, S22, S23, S24])
     T5 = Tree(tree_list=Tree.tree_list_not,
-                empty=True,
                 name='T5',
                 switches=[S0])
     T6 = Tree(tree_list=tree_list_6,
-                empty=True,
                 name='T6',
                 switches=[S0, S13, S14, S15, S10, S11, S12])
     T7 = Tree(tree_list=tree_list_6,
-                empty=True,
                 name='T7',
                 switches=[S0, S10, S11, S12, S7, S8, S9])
     T8 = Tree(tree_list=tree_list_6,
-                empty=True,
                 name='T8',
                 switches=[S0, S7, S8, S9, S16, S17, S18])
     T9 = Tree(tree_list=tree_list_6,
-                empty=True,
                 name='T9',
                 switches=[S0, S16, S17, S18, S22, S23, S24])
     T10 = Tree(tree_list=['DIFF'] + [Tree.tree_list_BIN(3)]*8,
-                empty=True,
                 name='T10',
                 switches=[S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, S23, S24],
                 cut_expression=True)
     T11 = Tree(tree_list=['AND', [None]] + [['EQU', [None], Tree.tree_list_BIN(3)]]*8,
-                empty=True,
                 name='T11',
                 switches=[S0,
                           0, S1, S2, S3,

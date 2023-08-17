@@ -26,7 +26,6 @@ def level_partition():
     T0 = Tree(tree_list=['EQU',
                          ['SUM'] + [['PROD', [None], [None]]] * 9,
                          ['SUM'] + [['PROD', [None], Tree.tree_list_not]] * 9],
-              empty=True,
               name='T0',
               switches=[w_list[0], S0, w_list[1], S1, w_list[2], S2, w_list[3], S3, w_list[4], S4, w_list[5], S5,
                         w_list[6], S6, w_list[7], S7, w_list[8], S8,
@@ -36,7 +35,6 @@ def level_partition():
     T1 = Tree(tree_list=['SUP',
                          ['SUM'] + [[None]] * 8,
                          [None]],
-              empty=True,
               name='T1',
               switches=[S0, S1, S2, S3, S4, S5, S6, S7, Switch(name='5', value=5)])
     R0 = Room(name='R0',

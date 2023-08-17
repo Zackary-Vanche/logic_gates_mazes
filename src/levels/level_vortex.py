@@ -19,19 +19,15 @@ def level_vortex():
     SN3 = Switch(value=3)
 
     T0 = Tree(tree_list=[None],
-              empty=True,
               name='T0',
               switches = [S0])
     T1 = Tree(tree_list=Tree.tree_list_XNOR(2),
-              empty=True,
               name='T1',
               switches = [S1, S2])
     T2 = Tree(tree_list=Tree.tree_list_XNOR(2),
-              empty=True,
               name='T2',
               switches = [S2, S3])
     T3 = Tree(tree_list=Tree.tree_list_XNOR(2),
-              empty=True,
               name='T3',
               switches = [S3, S4])
     T4 = Tree(tree_list=['AND',
@@ -39,24 +35,19 @@ def level_vortex():
                           ['SUM'] + [[None]]*7,
                           [None]],
                          [None]],
-              empty=True,
               name='T4',
               switches = [S1, S2, S3, S4, S5, S6, S7, SN3,
                           S0])
     T5 = Tree(tree_list=Tree.tree_list_NOT,
-              empty=True,
               name='T5',
               switches = [S0])
     T6 = Tree(tree_list=Tree.tree_list_XNOR(2),
-              empty=True,
               name='T6',
               switches = [S4, S5])
     T7 = Tree(tree_list=Tree.tree_list_XNOR(2),
-              empty=True,
               name='T7',
               switches = [S5, S6])
     T8 = Tree(tree_list=Tree.tree_list_XNOR(2),
-              empty=True,
               name='T8',
               switches = [S6, S7])
     T9 = Tree(tree_list=['AND',
@@ -64,12 +55,10 @@ def level_vortex():
                           ['SUM'] + [[None]]*7,
                           [None]],
                          Tree.tree_list_NOT],
-              empty=True,
               name='T9',
               switches = [S1, S2, S3, S4, S5, S6, S7, SN3,
                           S0])
     T10 = Tree(tree_list=Tree.tree_list_from_str('TFFFFTTT'),
-               empty=True,
                name='T10',
                switches = [S0, S1, S2, S3, S4, S5, S6, S7])
 

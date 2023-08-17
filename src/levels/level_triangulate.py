@@ -21,11 +21,9 @@ def level_triangulate():
     S9 = Switch(name='S9')
     
     V0 = Tree(tree_list=Tree.tree_list_BIN(5),
-              empty=True,
               name='V0',
               switches=[S0, S1, S2, S3, S4])
     V1 = Tree(tree_list=Tree.tree_list_BIN(5),
-              empty=True,
               name='V1',
               switches=[S5, S6, S7, S8, S9])
     
@@ -35,7 +33,6 @@ def level_triangulate():
                          ['SUPOREQU', [None], t_aux],
                          ['SUPOREQU', [None], t_aux],
                          ['SUP', [None], t_aux]],
-              empty=True,
               name='T0',
               switches=[Switch(value=2),
                         V0,

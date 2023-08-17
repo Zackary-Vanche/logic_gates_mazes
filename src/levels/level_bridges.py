@@ -62,7 +62,6 @@ def level_bridges():
     T0 = Tree(tree_list=['AND'] + [['NAND',
                                     Tree.tree_list_NOT,
                                     ['EQU', [None], Tree.tree_list_BIN(4)],]]*7,
-                empty=True,
                 name='T0',
                 switches=[S18, 1, S0, S1, S2, S3,
                           S19, 2, S0, S1, S2, S3,
@@ -98,14 +97,12 @@ def level_bridges():
     #                      1])
     
     T1 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T1',
                 switches=Slist_tree_1,
                 cut_expression_depth_1=True)
     T2 = Tree(tree_list=['EQU',
                          Tree.tree_list_BIN(5),
                          ['SUM', Tree.tree_list_BIN(5), [None]]],
-                empty=True,
                 name='T2',
                 switches=[S4, S5, S6, S7, S8,
                           S13, S14, S15, S16, S17,
@@ -113,52 +110,43 @@ def level_bridges():
     # T2 = Tree(tree_list=['EQU',
     #                       Tree.tree_list_BIN(5),
     #                       Tree.tree_list_BIN(5),],
-    #             empty=True,
+    #             
     #             name='T2',
     #             switches=[S4, S5, S6, S7, S8,
     #                       S13, S14, S15, S16, S17])
     T3 = Tree(tree_list=['EQU'] + [Tree.tree_list_BIN(9)]*2,
-                empty=True,
                 name='T3',
                 switches=Slist1+SlisT3)
     T4 = Tree(tree_list=tree_list_3,
-                empty=True,
                 name='T4',
                 switches=SlisT4 + [1])
     T5 = Tree(tree_list=tree_list_3,
-                empty=True,
                 name='T5',
                 switches=SlisT4 + [2])
     T6 = Tree(tree_list=tree_list_3,
-                empty=True,
                 name='T6',
                 switches=SlisT4 + [3])
     T7 = Tree(tree_list=tree_list_3,
-                empty=True,
                 name='T7',
                 switches=SlisT4 + [4])
     T8 = Tree(tree_list=tree_list_3,
-                empty=True,
                 name='T8',
                 switches=SlisT4 + [5])
     T9 = Tree(tree_list=tree_list_3,
-                empty=True,
                 name='T9',
                 switches=SlisT4 + [7])
     T10 = Tree(tree_list=tree_list_3,
-                empty=True,
                 name='T10',
                 switches=SlisT4 + [9])
     T11 = Tree(tree_list=['AND',
                           Tree.tree_list_from_str('F'*4+'T'*7),
                           ['INFOREQU', Tree.tree_list_BIN(5), [None]]],
-                empty=True,
                 name='T11',
                 switches=[S0, S1, S2, S3,
                           S18, S19, S20, S21, S22, S23, S24,
                           S4, S5, S6, S7, S8, 14])
     # T11 = Tree(tree_list=Tree.tree_list_from_str('T'*7),
-    #             empty=True,
+    #             
     #             name='T11',
     #             switches=[S18, S19, S20, S21, S22, S23, S24])
     

@@ -64,136 +64,107 @@ def level_sign(fast_solution_finding=False):
 
     if fast_solution_finding:
         T0 = Tree(tree_list=[None],
-                  empty=True,
                   name='T0',
                   switches=[1],
                    cut_expression=True)
         T1 = Tree(tree_list=tree_list(1),
-                  empty=True,
                   name='T1',
                   switches=Slist_tree_n(1),
                    cut_expression=True)
         T2 = Tree(tree_list=tree_list(2),
-                  empty=True,
                   name='T2',
                   switches=Slist_tree_n(2),
                    cut_expression=True)
         T3 = Tree(tree_list=tree_list(3),
-                  empty=True,
                   name='T3',
                   switches=Slist_tree_n(3),
                    cut_expression=True)
         T4 = Tree(tree_list=tree_list(4),
-                  empty=True,
                   name='T4',
                   switches=Slist_tree_n(4),
                    cut_expression=True)
         T5 = Tree(tree_list=tree_list(5),
-                  empty=True,
                   name='T5',
                   switches=Slist_tree_n(5),
                    cut_expression=True)
         T6 = Tree(tree_list=tree_list(6),
-                  empty=True,
                   name='T6',
                   switches=Slist_tree_n(6),
                    cut_expression=True)
         T7 = Tree(tree_list=tree_list(7),
-                  empty=True,
                   name='T7',
                   switches=Slist_tree_n(7),
                    cut_expression=True)
         T8 = Tree(tree_list=tree_list(8),
-                  empty=True,
                   name='T8',
                   switches=Slist_tree_n(8),
                    cut_expression=True)
         T9 = Tree(tree_list=tree_list(9),
-                  empty=True,
                   name='T9',
                   switches=Slist_tree_n(9),
                    cut_expression=True)
         T10 = Tree(tree_list=tree_list(10),
-                   empty=True,
                    name='T10',
                    switches=Slist_tree_n(10),
                    cut_expression=True)
         T11 = Tree(tree_list=tree_list(11),
-                   empty=True,
                    name='T11',
                    switches=Slist_tree_n(11),
                    cut_expression=True)
         T12 = Tree(tree_list=tree_list(12),
-                   empty=True,
                    name='T12',
                    switches=Slist_tree_n(12),
                    cut_expression=True)
         T13 = Tree(tree_list=tree_list(13),
-                   empty=True,
                    name='T13',
                    switches=Slist_tree_n(13),
                    cut_expression=True)
     else:
         T0 = Tree(tree_list=[None],
-                  empty=True,
                   name='T0',
                   switches=[1])
         T1 = Tree(tree_list=[None],
-                  empty=True,
                   name='T1',
                   switches=[1])
         T2 = Tree(tree_list=[None],
-                  empty=True,
                   name='T2',
                   switches=[1])
         T3 = Tree(tree_list=[None],
-                  empty=True,
                   name='T3',
                   switches=[1])
         T4 = Tree(tree_list=[None],
-                  empty=True,
                   name='T4',
                   switches=[1])
         T5 = Tree(tree_list=[None],
-                  empty=True,
                   name='T5',
                   switches=[1])
         T6 = Tree(tree_list=[None],
-                  empty=True,
                   name='T6',
                   switches=[1])
         T7 = Tree(tree_list=[None],
-                  empty=True,
                   name='T7',
                   switches=[1])
         T8 = Tree(tree_list=[None],
-                  empty=True,
                   name='T8',
                   switches=[1])
         T9 = Tree(tree_list=[None],
-                  empty=True,
                   name='T9',
                   switches=[1])
         T10 = Tree(tree_list=[None],
-                   empty=True,
                    name='T10',
                    switches=[1])
         T11 = Tree(tree_list=[None],
-                   empty=True,
                    name='T11',
                    switches=[1])
         T12 = Tree(tree_list=[None],
-                   empty=True,
                    name='T12',
                    switches=[1])
         T13 = Tree(tree_list=[None],
-                   empty=True,
                    name='T13',
                    switches=[1])
     T14 = Tree(tree_list=['AND',
                           ['DIFF'] + [Tree.tree_list_BIN(4)]*16,
                           ['EQU', ['MOD', Tree.tree_list_BIN(24), [None]], [None]]],
-               empty=True,
                name='T14',
                switches=Slisttree + Slist + [89, 24],
                cut_expression=True)

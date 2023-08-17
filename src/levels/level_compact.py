@@ -16,31 +16,24 @@ def level_compact():
     SN5 = Switch(value=5)
 
     T0 = Tree(tree_list=['OR', [None], Tree.tree_list_XOR(2)],
-              empty=True,
               name='T0',
               switches=[S0, S1, S2])
     T1 = Tree(tree_list=['NAND', [None], Tree.tree_list_XOR(2)],
-              empty=True,
               name='T1',
               switches=[S0, S1, S2])
     T2 = Tree(tree_list=['SUP', Tree.tree_list_SUM(3), [None]],
-              empty=True,
               name='T2',
               switches=[S0, S1, S2, SN2])
     T3 = Tree(tree_list=Tree.tree_list_NAND(3),
-              empty=True,
               name='T3',
               switches=[S0, S1, S2])
     T4 = Tree(tree_list=['SUP', Tree.tree_list_BIN(3), [None]],
-              empty=True,
               name='T4',
               switches=[S0, S1, S2, SN1])
     T5 = Tree(tree_list=['INF', Tree.tree_list_BIN(3), [None]],
-              empty=True,
               name='T5',
               switches=[S0, S1, S2, SN5])
     T6 = Tree(tree_list=Tree.tree_list_NOR(3),
-              empty=True,
               name='T6',
               switches=[S0, S1, S2])
 

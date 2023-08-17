@@ -16,11 +16,9 @@ def level_flash_back():
     S5 = Switch(name='S5')
     
     V0 = Tree(tree_list=Tree.tree_list_BIN(3),
-              empty=True,
               name='V0',
               switches=[S0, S1, S2])
     V1 = Tree(tree_list=Tree.tree_list_BIN(3),
-              empty=True,
               name='V1',
               switches=[S3, S4, S5])
 
@@ -43,17 +41,14 @@ def level_flash_back():
         Slist_tree1.extend([V0, vlist[i], V1] + sorted(vlist[:i+2]))
 
     T0 = Tree(tree_list=['EQU'] + [[None]]*2,
-              empty=True,
               name='T0',
               switches=[V0, V1])
     T1 = Tree(tree_list=tree_list_1,
-              empty=True,
               name='T1',
               switches=Slist_tree1,
               cut_expression=True,
               cut_expression_separator=']')
     T2 = Tree(tree_list=['AND', tree_list_IN(1), tree_list_IN(1)],
-              empty=True,
               name='T2',
               switches=[V0, vlist[-1], V1, vlist[-1]])
 

@@ -63,7 +63,6 @@ def level_postman(fast_solution_finding=False):
     T0 = Tree(tree_list=['AND'] + [['NAND',
                                     Tree.tree_list_NOT,
                                     ['EQU', [None], Tree.tree_list_BIN(4)],]]*6,
-                empty=True,
                 name='T0',
                 switches=[S18, 5, S0, S1, S2, S3,
                           S19, 7, S0, S1, S2, S3,
@@ -98,99 +97,80 @@ def level_postman(fast_solution_finding=False):
     #                      1])
     
     T1 = Tree(tree_list=tree_list_1,
-                empty=True,
                 name='T1',
                 switches=Slist_tree_1,
                 cut_expression_depth_1=True)
     T2 = Tree(tree_list=[None],
-                empty=True,
                 name='T2',
                 switches=[int(not fast_solution_finding)])
     # T2 = Tree(tree_list=['EQU',
     #                       Tree.tree_list_BIN(5),
     #                       Tree.tree_list_BIN(5),],
-    #             empty=True,
+    #             
     #             name='T2',
     #             switches=[S4, S5, S6, S7, S8,
     #                       S13, S14, S15, S16, S17])
     T3 = Tree(tree_list=['EQU',
                          Tree.tree_list_BIN(5),
                          ['SUM', Tree.tree_list_BIN(5), [None]]],
-                empty=True,
                 name='T3',
                 switches=[S4, S5, S6, S7, S8,
                           S13, S14, S15, S16, S17,
                           1])
     T4 = Tree(tree_list=Tree.tree_list_XNOR(2),
-                empty=True,
                 name='T4',
                 switches=[S0, S9])
     T5 = Tree(tree_list=Tree.tree_list_XNOR(2),
-                empty=True,
                 name='T5',
                 switches=[S1, S10])
     T6 = Tree(tree_list=Tree.tree_list_XNOR(2),
-                empty=True,
                 name='T6',
                 switches=[S2, S11])
     T7 = Tree(tree_list=Tree.tree_list_XNOR(2),
-                empty=True,
                 name='T7',
                 switches=[S3, S12])
     T8 = Tree(tree_list=Tree.tree_list_XNOR(2),
-                empty=True,
                 name='T8',
                 switches=[S4, S13])
     T9 = Tree(tree_list=Tree.tree_list_XNOR(2),
-                empty=True,
                 name='T9',
                 switches=[S5, S14])
     T10 = Tree(tree_list=Tree.tree_list_XNOR(2),
-                empty=True,
                 name='T10',
                 switches=[S6, S15])
     T11 = Tree(tree_list=Tree.tree_list_XNOR(2),
-                empty=True,
                 name='T11',
                 switches=[S7, S16])
     T12 = Tree(tree_list=Tree.tree_list_XNOR(2),
-                empty=True,
                 name='T12',
                 switches=[S8, S17])
     T13 = Tree(tree_list=tree_list_3,
-                empty=True,
                 name='T13',
                 switches=SlisT13 + [5])
     T14 = Tree(tree_list=tree_list_3,
-                empty=True,
                 name='T14',
                 switches=SlisT13 + [7])
     T15 = Tree(tree_list=tree_list_3,
-                empty=True,
                 name='T15',
                 switches=SlisT13 + [9])
     T16 = Tree(tree_list=tree_list_3,
-                empty=True,
                 name='T16',
                 switches=SlisT13 + [11])
     T17 = Tree(tree_list=tree_list_3,
-                empty=True,
                 name='T17',
                 switches=SlisT13 + [13])
     T18 = Tree(tree_list=tree_list_3,
-                empty=True,
                 name='T18',
                 switches=SlisT13 + [15])
     T19 = Tree(tree_list=['AND',
                           Tree.tree_list_from_str('F'*4+'T'*7),
                           ['INFOREQU', Tree.tree_list_BIN(5), [None]]],
-                empty=True,
                 name='T19',
                 switches=[S0, S1, S2, S3,
                           S18, S19, S20, S21, S22, S23, S24,
                           S4, S5, S6, S7, S8, 30])
     # T11 = Tree(tree_list=Tree.tree_list_from_str('T'*7),
-    #             empty=True,
+    #             
     #             name='T11',
     #             switches=[S18, S19, S20, S21, S22, S23, S24])
     

@@ -23,23 +23,18 @@ def level_elementary():
     S9 = Switch(name='S9', value=1)
     
     V0 = Tree(tree_list=Tree.tree_list_BIN(2),
-              empty=True,
               name='V0',
               switches=[S0, S1])
     V1 = Tree(tree_list=Tree.tree_list_BIN(2),
-              empty=True,
               name='V1',
               switches=[S2, S3])
     V2 = Tree(tree_list=Tree.tree_list_BIN(2),
-              empty=True,
               name='V2',
               switches=[S4, S5])
     V3 = Tree(tree_list=Tree.tree_list_BIN(2),
-              empty=True,
               name='V3',
               switches=[S6, S7])
     V4 = Tree(tree_list=Tree.tree_list_BIN(2),
-              empty=True,
               name='V4',
               switches=[S8, S9])
 
@@ -52,43 +47,33 @@ def level_elementary():
     switches_list_258 = [V1, V2, V3, V4, 0, 1, 2, 3]
 
     T0 = Tree(tree_list=tree_list_036,
-              empty=True,
               name='T0',
               switches=[V0, 1])
     T1 = Tree(tree_list=tree_list_147,
-              empty=True,
               name='T1',
               switches=[V1, V2])
     T2 = Tree(tree_list=tree_list_258,
-              empty=True,
               name='T2',
               switches=switches_list_258)
     T3 = Tree(tree_list=tree_list_036,
-              empty=True,
               name='T3',
               switches=[V0, 2])
     T4 = Tree(tree_list=tree_list_147,
-              empty=True,
               name='T4',
               switches=[V2, V3])
     T5 = Tree(tree_list=tree_list_258,
-              empty=True,
               name='T5',
               switches=switches_list_258)
     T6 = Tree(tree_list=tree_list_036,
-              empty=True,
               name='T6',
               switches=[V0, 3])
     T7 = Tree(tree_list=tree_list_147,
-              empty=True,
               name='T7',
               switches=[V3, V4])
     T8 = Tree(tree_list=tree_list_258,
-              empty=True,
               name='T8',
               switches=switches_list_258)
     T9 = Tree(tree_list=['EQU', Tree.tree_list_BIN(10), [None]],
-              empty=True,
               name='T9',
               switches=[S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, 110])
 

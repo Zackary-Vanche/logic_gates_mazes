@@ -82,7 +82,6 @@ def level_solitaire(fast_solution_finding=False):
                           Tree.tree_list_JUMP(5 * 2),
                           Tree.tree_list_JUMP(4 * 2),
                           Tree.tree_list_JUMP(3 * 2)]],
-              empty=True,
               name='T0',
               switches=Slist1 + [S0, S15,
                                  S1, S16,
@@ -125,7 +124,6 @@ def level_solitaire(fast_solution_finding=False):
               cut_expression=True,
               cut_expression_separator=')')
     T1 = Tree(tree_list=['EQU', Tree.tree_list_BIN(15), Tree.tree_list_BIN(15)],
-              empty=True,
               name='T1',
               switches=[S0, S1, S2, S3, S4,
                         S5, S6, S7, S8,
@@ -142,7 +140,6 @@ def level_solitaire(fast_solution_finding=False):
     T2 = Tree(tree_list=['AND',
                          ['EQU', [None], Tree.tree_list_BIN(15)],
                          ['EQU', [None], Tree.tree_list_BIN(15)]],
-              empty=True,
               name='T2',
               switches=[SN1,
                         S0, S1, S2, S3, S4,
@@ -160,7 +157,7 @@ def level_solitaire(fast_solution_finding=False):
               cut_expression_separator=')')
 
     # T2 = Tree(tree_list=['EQU', Tree.tree_list_BIN(15), Tree.tree_list_BIN(15)],
-    #           empty=True,
+    #           
     #           name='T2',
     #           switches=[S0, S1, S2, S3, S4,
     #                     S5, S6, S7, S8,

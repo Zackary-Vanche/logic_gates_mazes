@@ -23,7 +23,6 @@ def level_sum():
     assert len(Slist) == n_switches
     
     V0 = Tree(tree_list=['SUM'] + [[None]] * 4,
-              empty=True,
               name='V0',
               switches=Slist_sum)
     
@@ -31,7 +30,6 @@ def level_sum():
         return Tree(['EQU',
                      [None],
                      [None]],
-                     empty=True,
                      name=name,
                      switches = [V0, i],
                      cut_expression=True,
@@ -39,7 +37,6 @@ def level_sum():
     
     def tree_open(name='T'):
         return Tree(tree_list=[None],
-                    empty=True,
                     name=name,
                     switches = [1])
     
@@ -120,7 +117,6 @@ def level_sum():
                room_arrival=R0,
                relative_position=rp)
     T11=Tree(['IN', Tree.tree_list_BIN(len(Slist)), [None]],
-             empty=True,
              name='T11',
              switches = Slist + [rd_randint(0, 2**4-1)],
              cut_expression=True)

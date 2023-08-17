@@ -17,13 +17,13 @@ def level_parallel():
     tree_list = Tree.tree_list_from_str('TF')
     tree_list_4 = Tree.tree_list_from_str('FTT')
 
-    T0 = Tree(tree_list=tree_list, empty=True, name='T0', switches=[S0, S3])
-    T1 = Tree(tree_list=tree_list, empty=True, name='T1', switches=[S1, S4])
-    T2 = Tree(tree_list=tree_list, empty=True, name='T2', switches=[S2, S5])
-    T3 = Tree(tree_list=tree_list, empty=True, name='T3', switches=[S0, S3])
-    T4 = Tree(tree_list=tree_list_4, empty=True, name='T4', switches=[S1, S4, S5])
-    T5 = Tree(tree_list=tree_list, empty=True, name='T5', switches=[S2, S5])
-    T6 = Tree(tree_list=Tree.tree_list_AND(6), empty=True, name='T6', switches=[S0, S1, S2, S3, S4, S5])
+    T0 = Tree(tree_list=tree_list,  name='T0', switches=[S0, S3])
+    T1 = Tree(tree_list=tree_list,  name='T1', switches=[S1, S4])
+    T2 = Tree(tree_list=tree_list,  name='T2', switches=[S2, S5])
+    T3 = Tree(tree_list=tree_list,  name='T3', switches=[S0, S3])
+    T4 = Tree(tree_list=tree_list_4,  name='T4', switches=[S1, S4, S5])
+    T5 = Tree(tree_list=tree_list,  name='T5', switches=[S2, S5])
+    T6 = Tree(tree_list=Tree.tree_list_AND(6),  name='T6', switches=[S0, S1, S2, S3, S4, S5])
 
     position_R0 = [0, 0, 6, 1]
     position_R1 = [3, 2, 2, 1]

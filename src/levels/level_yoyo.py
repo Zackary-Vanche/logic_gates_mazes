@@ -12,15 +12,12 @@ def level_yoyo():
     S2 = Switch(name='S2')
 
     T0 = Tree(tree_list=Tree.tree_list_OR(2),
-              empty=True,
               name='T0',
               switches=[S0, S1])
     T1 = Tree(tree_list=Tree.tree_list_OR(2),
-              empty=True,
               name='T1',
               switches=[S1, S2])
     T2 = Tree(tree_list=Tree.tree_list_from_str('FFF'),
-              empty=True,
               name='T2',
               switches=[S0, S1, S2])
 

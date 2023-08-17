@@ -50,7 +50,6 @@ def level_chinese_postman_problem():
     T0 = Tree(tree_list=['OR'] + [['AND',
                                    tree_list_EQU_BIN2,
                                    tree_list_IN_BIN]]*4,
-                empty=True,
                 name='T0',
                 switches=[S5, S6, 0, S0, S1, S2, 0, 1, 2,
                           S5, S6, 1, S0, S1, S2, 0, 3, 4,
@@ -64,7 +63,6 @@ def level_chinese_postman_problem():
                                     Tree.tree_list_BIN(2),
                                     [None],
                                     [None]]]]*6,
-                empty=True,
                 name='T1',
                 switches=[S0, S1, S2, 0, S3, S4, S5, S6, 0, 1, 
                           S0, S1, S2, 1, S3, S4, S5, S6, 0, 2,
@@ -74,23 +72,19 @@ def level_chinese_postman_problem():
                           S0, S1, S2, 5, S3, S4, S5, S6, 2, 3,],
                 cut_expression_depth_1=True)
     T2 = Tree(tree_list=['EQU', Tree.tree_list_BIN(2), Tree.tree_list_BIN(2)],
-                empty=True,
                 name='T2',
                 switches=Slist1+Slist2)
     T3 = Tree(tree_list=['EQU',
                          Tree.tree_list_BIN(4),
                          ['SUM', Tree.tree_list_BIN(4), [None]]],
-                empty=True,
                 name='T3',
                 switches=Slist3+Slist4+[1])
     T4 = Tree(tree_list=['EQU'] + [Tree.tree_list_BIN(4)]*2,
-                empty=True,
                 name='T4',
                 switches=Slist3+Slist4)
     T5 = Tree(tree_list=['AND'] + [['NAND',
                                     Tree.tree_list_NOT,
                                     ['EQU', [None], Tree.tree_list_BIN(3)],]]*6,
-                empty=True,
                 name='T5',
                 switches=[S15, 0, S0, S1, S2,
                           S16, 1, S0, S1, S2,
@@ -100,33 +94,26 @@ def level_chinese_postman_problem():
                           S20, 5, S0, S1, S2],
                 cut_expression=True)
     T6 = Tree(tree_list=tree_list_6,
-                empty=True,
                 name='T6',
                 switches=Slist0+[0])
     T7 = Tree(tree_list=tree_list_6,
-                empty=True,
                 name='T7',
                 switches=Slist0+[1])
     T8 = Tree(tree_list=tree_list_6,
-                empty=True,
                 name='T8',
                 switches=Slist0+[2])
     T9 = Tree(tree_list=tree_list_6,
-                empty=True,
                 name='T9',
                 switches=Slist0+[3])
     T10 = Tree(tree_list=tree_list_6,
-                empty=True,
                 name='T10',
                 switches=Slist0+[4])
     T11 = Tree(tree_list=tree_list_6,
-                empty=True,
                 name='T11',
                 switches=Slist0+[5])
     T12 = Tree(tree_list=['AND',
                           Tree.tree_list_from_str('F'*5+'T'*6),
                           ['INF', Tree.tree_list_BIN(4), [None]]],
-                empty=True,
                 name='T12',
                 switches=Slist0+Slist1+SlistE+Slist3+[16],
                 cut_expression=True)

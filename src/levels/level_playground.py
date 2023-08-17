@@ -9,7 +9,6 @@ def level_playground():
     S0 = Switch(name='S0', value=1)
 
     T0 = Tree(tree_list=Tree.tree_list_NOT,
-              empty=True,
               name='T0',
               switches=[S0])
 

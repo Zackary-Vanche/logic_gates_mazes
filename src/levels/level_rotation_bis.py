@@ -43,7 +43,6 @@ def level_rotation_bis():
     
 
     T0 = Tree(tree_list=['IN'] + [Tree.tree_list_BIN(12)]*4,
-                empty=True,
                 name='T0',
                 switches=[S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11,
                           S12, S13, S22, S23, S14, S15, S18, S19, S16, S17, S20, S21,
@@ -51,12 +50,10 @@ def level_rotation_bis():
                           S20, S21, S12, S13, S16, S17, S14, S15, S18, S19, S22, S23],
                 cut_expression=True)
     T1 = Tree(tree_list=['EQU'] + [Tree.tree_list_BIN(12)]*2,
-                empty=True,
                 name='T1',
                 switches=Slist,
                 cut_expression=True)
     T2 = Tree(tree_list=[None],
-                empty=True,
                 name='T2',
                 switches=[1])
     filename = 'levels/Rotation_bis_random_exits.txt'
@@ -65,12 +62,10 @@ def level_rotation_bis():
             lines = fr.readlines()
             l = rd_choice(lines)
         T3 = Tree(tree_list=Tree.tree_list_from_str(l)[:12],
-                    empty=True,
                     name='T3',
                     switches=Slist[:12])
     else:
         T3 = Tree(tree_list=[None],
-                    empty=True,
                     name='T3',
                     switches=[1])
 

@@ -47,39 +47,30 @@ def level_sujiko():
     Slist_8 = [S24, S25, S26, S27]
     
     V0 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_0)),
-              empty=True,
               name='V0',
               switches=Slist_0)
     V1 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_1)),
-              empty=True,
               name='V1',
               switches=Slist_1)
     V2 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_2)),
-              empty=True,
               name='V2',
               switches=Slist_2)
     V3 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_3)),
-              empty=True,
               name='V3',
               switches=Slist_3)
     V4 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_4)),
-              empty=True,
               name='V4',
               switches=Slist_4)
     V5 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_5)),
-              empty=True,
               name='V5',
               switches=Slist_5)
     V6 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_6)),
-              empty=True,
               name='V6',
               switches=Slist_6)
     V7 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_7)),
-              empty=True,
               name='V7',
               switches=Slist_7)
     V8 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_8)),
-              empty=True,
               name='V8',
               switches=Slist_8)
     
@@ -87,49 +78,32 @@ def level_sujiko():
 
     
     T0 = Tree(tree_list=[None],
-              empty=True,
               name='T0',
               switches = [1])
     T1 = Tree(tree_list=[None],
-              empty=True,
               name='T1',
               switches = [1])
     T2 = Tree(tree_list=[None],
-              empty=True,
               name='T2',
               switches = [1])
     T3 = Tree(tree_list=[None],
-              empty=True,
               name='T3',
               switches = [1])
     T4 = Tree(tree_list=tree_list_EQU,
-              empty=True,
               name='T4',
-              switches = [V0, V1, V3, V4, 14],
-                cut_expression=True,
-                cut_expression_separator=']')
+              switches = [V0, V1, V3, V4, 14])
     T5 = Tree(tree_list=tree_list_EQU,
-              empty=True,
               name='T5',
-              switches = [V1, V2, V4, V5, 13],
-                cut_expression=True,
-                cut_expression_separator=']')
+              switches = [V1, V2, V4, V5, 13])
     T6 = Tree(tree_list=Tree.tree_list_OR(2),
-                empty=True,
                 name='T6',
-                switches = [S12, S16],
-                cut_expression=False,
-                cut_expression_separator=')')
+                switches = [S12, S16])
     T7 = Tree(tree_list=tree_list_EQU,
-                empty=True,
                 name='T7',
-                switches = [V3, V4, V6, V7, 12],
-                cut_expression=True,
-                cut_expression_separator=']')
+                switches = [V3, V4, V6, V7, 12])
     T8 = Tree(tree_list=['AND',
                             ['EQU', ['SUM'] + [[None]]*3 + [[None]], [None]],
                             ['DIFF'] + [[None]]*8 + [[None]]],
-                empty=True,
                 name='T8',
                 switches = [V4, V5, V7, V8, 11,
                             V0, V1, V2, V3, V4, V5, V6, V7, V8])

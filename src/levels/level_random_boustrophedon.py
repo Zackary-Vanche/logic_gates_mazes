@@ -32,7 +32,6 @@ def aux_level_random_boustrophedon(door_trees_list = [[i for i in range(2**8)] f
             if bin_j not in tree_list:
                 tree_list.append(bin_j)
         return Tree(['IN', Tree.tree_list_BIN(len(Slist_i))] + [[None]]*len(tree_list),
-                     empty=True,
                      name=f'T{i}',
                      switches = Slist_i + tree_list,
                      cut_expression=True,

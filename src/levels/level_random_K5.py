@@ -24,13 +24,11 @@ def aux_level_random_K5(door_trees_list = [[i for i in range(2**n_switches)] for
     assert len(Slist) == n_switches
     
     V0 = Tree(tree_list=Tree.tree_list_BIN(len(Slist)),
-              empty=True,
               name='V0',
               switches = Slist)
     
     def get_tree(i):
         return Tree(['IN', [None]] + [[None]]*len(door_trees_list[i]),
-                     empty=True,
                      name=f'T{i}',
                      switches = [V0] + door_trees_list[i],
                      cut_expression=True,
@@ -180,27 +178,22 @@ def aux_level_random_K5(door_trees_list = [[i for i in range(2**n_switches)] for
     else:
         assert exit_door != None
         T20 = Tree([None],
-                   empty=True,
                    name='T20',
                    switches = [exit_door==20],
                    cut_expression=True)
         T21 = Tree([None],
-                   empty=True,
                    name='T21',
                    switches = [exit_door==21],
                    cut_expression=True)
         T22 = Tree([None],
-                   empty=True,
                    name='T22',
                    switches = [exit_door==22],
                    cut_expression=True)
         T23 = Tree([None],
-                   empty=True,
                    name='T23',
                    switches = [exit_door==23],
                    cut_expression=True)
         T24 = Tree([None],
-                   empty=True,
                    name='T24',
                    switches = [exit_door==24],
                    cut_expression=True)

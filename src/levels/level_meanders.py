@@ -22,89 +22,70 @@ def level_meanders():
     tree_list_1 = Tree.tree_list_from_str('TF')
     
     T0 = Tree(tree_list=tree_list_1,
-              empty=True,
               name='T0',
               switches=[S0, S1])
 
     T1 = Tree(tree_list=tree_list_1,
-              empty=True,
               name='T1',
               switches=[S0, S2])
 
     T2 = Tree(tree_list=tree_list_1,
-              empty=True,
               name='T2',
               switches=[S1, S3])
     T3 = Tree(tree_list=tree_list_1,
-              empty=True,
               name='T3',
               switches=[S3, S1])
     
     T4 = Tree(tree_list=tree_list_1,
-              empty=True,
               name='T4',
               switches=[S1, S4])
     T5 = Tree(tree_list=tree_list_1,
-              empty=True,
               name='T5',
               switches=[S4, S1])
 
     T6 = Tree(tree_list=tree_list_1,
-              empty=True,
               name='T6',
               switches=[S2, S4])
     T7 = Tree(tree_list=tree_list_1,
-              empty=True,
               name='T7',
               switches=[S4, S2])
 
     T8 = Tree(tree_list=tree_list_1,
-              empty=True,
               name='T8',
               switches=[S2, S5])
     T9 = Tree(tree_list=tree_list_1,
-              empty=True,
               name='T9',
               switches=[S5, S2])
 
     T10 = Tree(tree_list=tree_list_1,
-               empty=True,
                name='T10',
                switches=[S3, S6])
     T11 = Tree(tree_list=tree_list_1,
-               empty=True,
                name='T11',
                switches=[S6, S3])
 
     T12 = Tree(tree_list=tree_list_1,
-               empty=True,
                name='T12',
                switches=[S4, S6])
     T13 = Tree(tree_list=tree_list_1,
-               empty=True,
                name='T13',
                switches=[S6, S4])
 
     T14 = Tree(tree_list=tree_list_1,
-               empty=True,
                name='T14',
                switches=[S4, S7])
     T15 = Tree(tree_list=tree_list_1,
-               empty=True,
                name='T15',
                switches=[S7, S4])
 
     T16 = Tree(tree_list=tree_list_1,
-               empty=True,
                name='T16',
                switches=[S5, S7])
     T17 = Tree(tree_list=tree_list_1,
-               empty=True,
                name='T17',
                switches=[S7, S5])
 
     T18 = Tree(tree_list=Tree.tree_list_AND(3),
-               empty=True,
                name='T18',
                switches=[S3, S5, S6])
 

@@ -31,39 +31,38 @@ def level_infinity():
     tree_list_10 = Tree.tree_list_AND(10)
 
     T0 = Tree(tree_list=tree_list_0,
-              empty=True, name='T0',
+               name='T0',
               switches=[S0, S5])
     T8 = Tree(tree_list=tree_list_8,
-              empty=True, name='T8',
+               name='T8',
               switches=[S1, S6])
     T3 = Tree(tree_list=tree_list_3,
-              empty=True, name='T3',
+               name='T3',
               switches=[S3, S8])
     T9 = Tree(tree_list=tree_list_9,
-              empty=True, name='T9',
+               name='T9',
               switches=[S4, S9])
     T7 = Tree(tree_list=tree_list_7,
-              empty=True, name='T7',
+               name='T7',
               switches=[S2, S7])
 
     T4 = Tree(tree_list=tree_list_4,
-              empty=True, name='T4',
+               name='T4',
               switches=[S0, S2])
     T6 = Tree(tree_list=tree_list_6,
-              empty=True, name='T6',
+               name='T6',
               switches=[S0, S2])
     T1 = Tree(tree_list=tree_list_1,
-              empty=True, name='T1',
+               name='T1',
               switches=[S0, S2])
     T2 = Tree(tree_list=tree_list_2,
-              empty=True, name='T2',
+               name='T2',
               switches=[S0, S2])
     T5 = Tree(tree_list=tree_list_5,
-              empty=True, name='T5',
+               name='T5',
               switches=[S0, S2, S5])
 
     T10 = Tree(tree_list=tree_list_10,
-               empty=True,
                name='T10',
                switches=[S0, S1, S2, S3, S4, S5, S6, S7, S8, S9])
 

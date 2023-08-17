@@ -85,7 +85,6 @@ def level_separation():
                    tree_list_OR_EQU_BIN(6),]
 
     T0 = Tree(tree_list=tree_list_0,
-              empty=True,
               name='T0',
               switches=[S0, S1, S2, S3, S4, S5, S6, S7, 0,
               S8, S9, S10, S11, S12, S13, S14, S15, 0,
@@ -111,103 +110,78 @@ def level_separation():
               S12, S13, S20, S21, S22, S23, S28, S29, 3,],
               cut_expression=True)
     T1 = Tree(tree_list=tree_list_1,
-                      empty=True,
                       name='T1',
                       switches=[S0, S1, S2, S3])
     T2 = Tree(tree_list=tree_list_1,
-                      empty=True,
                       name='T2',
                       switches=[S2, S3, S4, S5])
     T3 = Tree(tree_list=tree_list_1,
-                      empty=True,
                       name='T3',
                       switches=[S4, S5, S6, S7])
     T4 = Tree(tree_list=tree_list_1,
-                      empty=True,
                       name='T4',
                       switches=[S8, S9, S10, S11])
     T5 = Tree(tree_list=tree_list_1,
-                      empty=True,
                       name='T5',
                       switches=[S10, S11, S12, S13])
     T6 = Tree(tree_list=tree_list_1,
-                      empty=True,
                       name='T6',
                       switches=[S12, S13, S14, S15])
     T7 = Tree(tree_list=tree_list_1,
-                      empty=True,
                       name='T7',
                       switches=[S16, S17, S18, S19])
     T8 = Tree(tree_list=tree_list_1,
-                      empty=True,
                       name='T8',
                       switches=[S18, S19, S20, S21])
     T9 = Tree(tree_list=tree_list_1,
-                      empty=True,
                       name='T9',
                       switches=[S20, S21, S22, S23])
     T10 = Tree(tree_list=tree_list_1,
-                      empty=True,
                       name='T10',
                       switches=[S24, S25, S26, S27])
     T11 = Tree(tree_list=tree_list_1,
-                      empty=True,
                       name='T11',
                       switches=[S26, S27, S28, S29])
     T12 = Tree(tree_list=tree_list_1,
-                      empty=True,
                       name='T12',
                       switches=[S28, S29, S30, S31])
     T13 = Tree(tree_list=tree_list_1,
-                      empty=True,
                       name='T13',
                       switches=[S0, S1, S8, S9])
     T14 = Tree(tree_list=tree_list_1,
-                      empty=True,
                       name='T14',
                       switches=[S8, S9, S16, S17])
     T15 = Tree(tree_list=tree_list_1,
-                      empty=True,
                       name='T15',
                       switches=[S16, S17, S24, S25])
     T16 = Tree(tree_list=tree_list_1,
-                      empty=True,
                       name='T16',
                       switches=[S2, S3, S10, S11])
     T17 = Tree(tree_list=tree_list_1,
-                      empty=True,
                       name='T17',
                       switches=[S10, S11, S18, S19])
     T18 = Tree(tree_list=tree_list_1,
-                      empty=True,
                       name='T18',
                       switches=[S18, S19, S26, S27])
     T19 = Tree(tree_list=tree_list_1,
-                      empty=True,
                       name='T19',
                       switches=[S4, S5, S12, S13])
     T20 = Tree(tree_list=tree_list_1,
-                      empty=True,
                       name='T20',
                       switches=[S12, S13, S20, S21])
     T21 = Tree(tree_list=tree_list_1,
-                      empty=True,
                       name='T21',
                       switches=[S20, S21, S28, S29])
     T22 = Tree(tree_list=tree_list_1,
-                      empty=True,
                       name='T22',
                       switches=[S6, S7, S14, S15])
     T23 = Tree(tree_list=tree_list_1,
-                      empty=True,
                       name='T23',
                       switches=[S14, S15, S22, S23])
     T24 = Tree(tree_list=tree_list_1,
-                      empty=True,
                       name='T24',
                       switches=[S22, S23, S30, S31])
     T25 = Tree(tree_list=Tree.tree_list_AND(3),
-                empty=True,
                 name='T25',
                 switches=[S30, S32, S33])
     

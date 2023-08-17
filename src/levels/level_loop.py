@@ -14,19 +14,15 @@ def level_loop():
     S3 = Switch(name='S3')
 
     T0 = Tree(tree_list=[None],
-              empty=True,
               name='T0',
               switches=[S0])
     T1 = Tree(tree_list=[None],
-              empty=True,
               name='T1',
               switches=[S1])
     T2 = Tree(tree_list=[None],
-              empty=True,
               name='T2',
               switches=[S2])
     T3 = Tree(tree_list=Tree.tree_list_from_str('FT'),
-              empty=True,
               name='T3',
               switches=[S0, S3])
 

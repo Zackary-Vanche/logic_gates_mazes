@@ -14,23 +14,18 @@ def level_square():
     S3 = Switch(name='S3')
 
     T0 = Tree(tree_list=Tree.tree_list_from_str('TFTT'),
-              empty=True,
               name='T0',
               switches=[S0, S1, S2, S3])
     T1 = Tree(tree_list=Tree.tree_list_from_str('TFFT'),
-              empty=True,
               name='T1',
               switches=[S0, S1, S2, S3])
     T2 = Tree(tree_list=Tree.tree_list_from_str('TFFF'),
-              empty=True,
               name='T2',
               switches=[S0, S1, S2, S3])
     T3 = Tree(tree_list=Tree.tree_list_from_str('TTTT'),
-              empty=True,
               name='T3',
               switches=[S0, S1, S2, S3])
     T4 = Tree(tree_list=Tree.tree_list_from_str('TTTT'),
-              empty=True,
               name='T4',
               switches=[S0, S1, S2, S3])
 

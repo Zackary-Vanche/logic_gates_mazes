@@ -18,67 +18,51 @@ def level_tesseract():
     SN = Switch(name='1', value=1)
     
     T0 = Tree(tree_list=[None],
-                empty=True,
                 name='T0',
                 switches = [SN])
     T1 = Tree(tree_list=[None],
-                empty=True,
                 name='T1',
                 switches = [SN])
     T2 = Tree(tree_list=[None],
-                empty=True,
                 name='T2',
                 switches = [SN])
     T3 = Tree(tree_list=[None],
-                empty=True,
                 name='T3',
                 switches = [SN])
     T4 = Tree(tree_list=[None],
-                empty=True,
                 name='T4',
                 switches = [SN])
     T5 = Tree(tree_list=[None],
-                empty=True,
                 name='T5',
                 switches = [SN])
     T6 = Tree(tree_list=[None],
-                empty=True,
                 name='T6',
                 switches = [SN])
     T7 = Tree(tree_list=[None],
-                empty=True,
                 name='T7',
                 switches = [SN])
     T8 = Tree(tree_list=[None],
-                empty=True,
                 name='T8',
                 switches = [SN])
     T9 = Tree(tree_list=[None],
-                empty=True,
                 name='T9',
                 switches = [SN])
     T10 = Tree(tree_list=[None],
-                empty=True,
                 name='T10',
                 switches = [SN])
     T11 = Tree(tree_list=[None],
-                empty=True,
                 name='T11',
                 switches = [SN])
     T12 = Tree(tree_list=[None],
-                empty=True,
                 name='T12',
                 switches = [SN])
     T13 = Tree(tree_list=[None],
-                empty=True,
                 name='T13',
                 switches = [SN])
     T14 = Tree(tree_list=[None],
-                empty=True,
                 name='T14',
                 switches = [SN])
     T15 = Tree(tree_list=[None],
-                empty=True,
                 name='T15',
                 switches = [SN])
     T16 = Tree(tree_list=['NOR',
@@ -86,7 +70,6 @@ def level_tesseract():
                          Tree.tree_list_not,
                          Tree.tree_list_from_str('TTF FT')],
                          ['AND', [None], Tree.tree_list_XOR(2)]],
-                empty=True,
                 name='T16',
                 switches = [S0, S1, S2, S3, S2, S3, S0, S2, S3])
     T17 = Tree(tree_list=['NOR',
@@ -94,39 +77,33 @@ def level_tesseract():
                           Tree.tree_list_not,
                           Tree.tree_list_from_str('TTF FT')],
                           ['AND', [None], Tree.tree_list_XOR(2)]],
-                empty=True,
                 name='T17',
                 switches = [S4, S5, S6, S7, S6, S7, S4, S6, S7])
     T18 = Tree(tree_list=['AND',
                          Tree.tree_list_XNOR(2),
                          Tree.tree_list_XNOR(2),
                          Tree.tree_list_XNOR(2)],
-                empty=True,
                 name='T18',
                 switches = [S1, S5, S2, S6, S3, S7])
     T19 = Tree(tree_list=['AND',
                          Tree.tree_list_XNOR(2),
                          Tree.tree_list_XNOR(2),
                          Tree.tree_list_XNOR(2)],
-                empty=True,
                 name='T19',
                 switches = [S0, S4, S2, S6, S3, S7])
     T20 = Tree(tree_list=['AND',
                          Tree.tree_list_XNOR(2),
                          Tree.tree_list_XNOR(2),
                          Tree.tree_list_XNOR(2)],
-                empty=True,
                 name='T20',
                 switches = [S0, S4, S1, S5, S3, S7])
     T21 = Tree(tree_list=['AND',
                          Tree.tree_list_XNOR(2),
                          Tree.tree_list_XNOR(2),
                          Tree.tree_list_XNOR(2)],
-                empty=True,
                 name='T21',
                 switches = [S0, S4, S1, S5, S2, S6])
     T22 = Tree(tree_list=Tree.tree_list_from_str('T'*8),
-                empty=True,
                 name='T22',
                 switches = [S0, S1, S2, S3, S4, S5, S6, S7])
     

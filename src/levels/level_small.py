@@ -15,7 +15,6 @@ def level_small():
     Slist = [S0, S1, S2, S3]
     
     V0 = Tree(tree_list=Tree.tree_list_BIN(len(Slist)),
-              empty=True,
               name='V0',
               switches = Slist)
     
@@ -28,7 +27,6 @@ def level_small():
     def get_tree(i):
         try:
             return Tree(tree_list_IN(len(door_trees_list[i])),
-                        empty=True,
                         name=f'T{i}',
                         switches = [V0] + door_trees_list[i],
                         cut_expression=True)

@@ -41,63 +41,48 @@ def level_dead_ends():
     tree_list_14 = tree_list_10[:]
 
     T0 = Tree(tree_list=tree_list_0,
-              empty=True,
               name='T0',
               switches=[S0, S5, S6, S7, S8])
     T1 = Tree(tree_list=tree_list_1,
-              empty=True,
               name='T1',
               switches=[S0, S1, S2])
     T2 = Tree(tree_list=tree_list_2,
-              empty=True,
               name='T2',
               switches=[S3, S4])
     T3 = Tree(tree_list=tree_list_3,
-              empty=True,
               name='T3',
               switches=[S0, S3, S4])
     T4 = Tree(tree_list=tree_list_4,
-              empty=True,
               name='T4',
               switches=[S2, S8])
     T5 = Tree(tree_list=tree_list_5,
-              empty=True,
               name='T5',
               switches=[S0, S5])
     T6 = Tree(tree_list=tree_list_6,
-              empty=True,
               name='T6',
               switches=[S7, S10])
     T7 = Tree(tree_list=tree_list_7,
-              empty=True,
               name='T7',
               switches=[S0, S6])
     T8 = Tree(tree_list=tree_list_8,
-              empty=True,
               name='T8',
               switches=[S9, S11, S10])
     T9 = Tree(tree_list=tree_list_9,
-              empty=True,
               name='T9',
               switches=[S0, S7])
     T10 = Tree(tree_list=tree_list_10,
-               empty=True,
                name='T10',
                switches=[S1, S2, S3, S4, S6])
     T11 = Tree(tree_list=tree_list_11,
-               empty=True,
                name='T11',
                switches=[S0, S8])
     T12 = Tree(tree_list=tree_list_12,
-               empty=True,
                name='T12',
                switches=[S9])
     T13 = Tree(tree_list=tree_list_13,
-               empty=True,
                name='T13',
                switches=[S9, S10, S11])
     T14 = Tree(tree_list=tree_list_14,
-               empty=True,
                name='T14',
                switches=[S1, S3, S2, S4, S5])
 

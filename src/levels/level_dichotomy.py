@@ -31,52 +31,42 @@ def level_dichotomy():
     Slist2 = [S11, S12, S13]
     
     V0 = Tree(tree_list=Tree.tree_list_BIN(len(Slist0)),
-              empty=True,
               name='V0',
               switches = Slist0)
     V1 = Tree(tree_list=Tree.tree_list_BIN(len(Slist1)),
-              empty=True,
               name='V1',
               switches = Slist1)
     V2 = Tree(tree_list=Tree.tree_list_BIN(len(Slist2)),
-              empty=True,
               name='V2',
               switches = Slist2)
 
     T0 = Tree(tree_list=[None],
-              empty=True,
               name='T0',
               switches=[1])
     T1 = Tree(tree_list=['AND',
                          ['INF', [None], [None]],
                          ['EQU', [None], ['SUM', [None], [None]]]],
-              empty=True,
               name='T1',
               switches=[Sa, V0, V1, 1, V2])
     T2 = Tree(tree_list=['AND',
                          ['EQU', [None], [None]],
                          ['EQU', [None], ['SUM', [None], [None]]]],
-              empty=True,
               name='T2',
               switches=[Sa, V0, V1, 1, V2])
     T3 = Tree(tree_list=['AND',
                          ['SUP', [None], [None]],
                          ['EQU', [None], ['SUM', [None], [None]]]],
-              empty=True,
               name='T3',
               switches=[Sa, V0, V1, 1, V2])
     T4 = Tree(tree_list=['EQU', [None], [None]],
-              empty=True,
               name='T4',
               switches=[V1, V2])
     T5 = Tree(tree_list=['DIFF', [None], [None]],
-              empty=True,
               name='T5',
               switches=[Sa, 0])
     T6 = Tree(tree_list=['AND',
                          [None],
                          ['EQU', [None], [None]]],
-              empty=True,
               name='T6',
               switches=[S14, V0, Sa])
 

@@ -37,39 +37,30 @@ def level_magic_square(fast_solution_finding=False):
     S27 = Switch(name='S27')
     
     V0 = Tree(tree_list=Tree.tree_list_BIN(3),
-              empty=True,
               name='V0',
               switches=[S0, S1, S2])
     V1 = Tree(tree_list=Tree.tree_list_BIN(3),
-              empty=True,
               name='V1',
               switches=[S3, S4, S5])
     V2 = Tree(tree_list=Tree.tree_list_BIN(3),
-              empty=True,
               name='V2',
               switches=[S6, S7, S8])
     V3 = Tree(tree_list=Tree.tree_list_BIN(3),
-              empty=True,
               name='V3',
               switches=[S9, S10, S11])
     V4 = Tree(tree_list=Tree.tree_list_BIN(3),
-              empty=True,
               name='V4',
               switches=[S12, S13, S14])
     V5 = Tree(tree_list=Tree.tree_list_BIN(3),
-              empty=True,
               name='V5',
               switches=[S15, S16, S17])
     V6 = Tree(tree_list=Tree.tree_list_BIN(3),
-              empty=True,
               name='V6',
               switches=[S18, S19, S20])
     V7 = Tree(tree_list=Tree.tree_list_BIN(4),
-              empty=True,
               name='V7',
               switches=[S21, S22, S23, S24])
     V8 = Tree(tree_list=Tree.tree_list_BIN(3),
-              empty=True,
               name='V8',
               switches=[S25, S26, S27])
 
@@ -99,11 +90,9 @@ def level_magic_square(fast_solution_finding=False):
                        [None]]
 
     T0 = Tree(tree_list=tree_list_0,
-              empty=True,
               name='T0',
               switches=[V0, V1, V2, SN12] + [V0, V1, S6, S7, S8] * fast_solution_finding)
     T1 = Tree(tree_list=tree_list_1,
-              empty=True,
               name='T1',
               switches=[V3, V4, V5, SN12] + [V0, V1, V2, S9,
                                                                              S10, S11, V4, S15, S16,
@@ -111,7 +100,6 @@ def level_magic_square(fast_solution_finding=False):
               cut_expression=True,
               cut_expression_separator=']')
     T2 = Tree(tree_list=tree_list_2,
-              empty=True,
               name='T2',
               switches=[V6, V7, V8, SN12] + [V0, V1, V2,
                                                                                    V3, V4, S15,
@@ -121,7 +109,6 @@ def level_magic_square(fast_solution_finding=False):
               cut_expression=True,
               cut_expression_separator=']')
     T3 = Tree(tree_list=['EQU'] + [tree_list_SUM]*3,
-              empty=True,
               name='T3',
               switches=[V0,
                         V3,
@@ -138,7 +125,6 @@ def level_magic_square(fast_solution_finding=False):
               cut_expression=True,
               cut_expression_separator=']')
     T4 = Tree(tree_list=['EQU'] + [tree_list_SUM]*2,
-              empty=True,
               name='T4',
               switches=[V0,
                         V4,
@@ -152,7 +138,6 @@ def level_magic_square(fast_solution_finding=False):
     T5 = Tree(tree_list=['AND',
                          ['DIFF'] + [[None]]*9,
                          ['INF', [None], [None]]],
-              empty=True,
               name='T5',
               switches=[V0,
                         V1,

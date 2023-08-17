@@ -24,57 +24,44 @@ def level_longest_path():
     SN5 = Switch(name='5', value=5)
 
     T0 = Tree(tree_list=[None],
-              empty=True,
               name='T0',
               switches=[S0])
     T1 = Tree(tree_list=[None],
-              empty=True,
               name='T1',
               switches=[S0])
     T2 = Tree(tree_list=[None],
-              empty=True,
               name='T2',
               switches=[S1])
     T3 = Tree(tree_list=[None],
-              empty=True,
               name='T3',
               switches=[S1])
     T4 = Tree(tree_list=[None],
-              empty=True,
               name='T4',
               switches=[S2])
     T5 = Tree(tree_list=[None],
-              empty=True,
               name='T5',
               switches=[S2])
     T6 = Tree(tree_list=[None],
-              empty=True,
               name='T6',
               switches=[S3])
     T7 = Tree(tree_list=[None],
-              empty=True,
               name='T7',
               switches=[S4])
     T8 = Tree(tree_list=[None],
-              empty=True,
               name='T8',
               switches=[S4])
     T9 = Tree(tree_list=[None],
-              empty=True,
               name='T9',
               switches=[S5])
     T10 = Tree(tree_list=[None],
-               empty=True,
                name='T10',
                switches=[S6])
     T11 = Tree(tree_list=[None],
-               empty=True,
                name='T11',
                switches=[S7])
     T12 = Tree(tree_list=['SUP',
                           ['SUM'] + [['PROD', [None], [None]]] * 9,
                           [None]],
-               empty=True,
                name='T12',
                switches=[
                    SN1, S0,

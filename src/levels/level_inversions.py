@@ -48,70 +48,54 @@ def level_inversions():
     tree_list_EQU_BIN = ['EQU', Tree.tree_list_BIN(3), [None]]
 
     T0 = Tree(tree_list=tree_list_EQU_BIN,
-              empty=True,
               name='T0',
               switches=[S0, S1, S2, SN0])
     T1 = Tree(tree_list=tree_list_EQU_BIN,
-              empty=True,
               name='T1',
               switches=[S0, S1, S2, SN1])
     T2 = Tree(tree_list=tree_list_EQU_BIN,
-              empty=True,
               name='T2',
               switches=[S0, S1, S2, SN2])
     T3 = Tree(tree_list=tree_list_EQU_BIN,
-              empty=True,
               name='T3',
               switches=[S0, S1, S2, SN3])
     T4 = Tree(tree_list=tree_list_EQU_BIN,
-              empty=True,
               name='T4',
               switches=[S0, S1, S2, SN4])
 
     T5 = Tree(tree_list=tree_list_EQU_BIN,
-              empty=True,
               name='T5',
               switches=[S0, S1, S2, SN0])
     T6 = Tree(tree_list=tree_list_EQU_BIN,
-              empty=True,
               name='T6',
               switches=[S0, S1, S2, SN1])
     T7 = Tree(tree_list=tree_list_EQU_BIN,
-              empty=True,
               name='T7',
               switches=[S0, S1, S2, SN2])
     T8 = Tree(tree_list=tree_list_EQU_BIN,
-              empty=True,
               name='T8',
               switches=[S0, S1, S2, SN3])
     T9 = Tree(tree_list=tree_list_EQU_BIN,
-              empty=True,
               name='T9',
               switches=[S0, S1, S2, SN4])
 
     T10 = Tree(tree_list=tree_list_EQU_BIN,
-               empty=True,
                name='T10',
                switches=[S0, S1, S2, SN0])
     T11 = Tree(tree_list=tree_list_EQU_BIN,
-               empty=True,
                name='T11',
                switches=[S0, S1, S2, SN1])
     T12 = Tree(tree_list=tree_list_EQU_BIN,
-               empty=True,
                name='T12',
                switches=[S0, S1, S2, SN2])
     T13 = Tree(tree_list=tree_list_EQU_BIN,
-               empty=True,
                name='T13',
                switches=[S0, S1, S2, SN3])
     T14 = Tree(tree_list=tree_list_EQU_BIN,
-               empty=True,
                name='T14',
                switches=[S0, S1, S2, SN4])
 
     T15 = Tree(tree_list=['EQUSET'] + [Tree.tree_list_BIN(3)] * 6 + [[None]] * 6,
-               empty=True,
                name='T15',
                switches=[S3, S4, S5,
                          S6, S7, S8,
@@ -128,7 +112,6 @@ def level_inversions():
                cut_expression=True)
 
     T16 = Tree(tree_list=['EQU', Tree.tree_list_BIN(3 * 7), [None]],
-               empty=True,
                name='T16',
                switches=[S0, S1, S2,
                          S3, S4, S5,

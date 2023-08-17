@@ -15,88 +15,67 @@ def level_spider():
     S5 = Switch(name='S5')
 
     T0 = Tree(tree_list=Tree.tree_list_not,
-                     empty=True,
                      name='T0',
                      switches=[S0])
     T1 = Tree(tree_list=[None],
-                     empty=True,
                      name='T1',
                      switches=[S0])
     T2 = Tree(tree_list=Tree.tree_list_not,
-                     empty=True,
                      name='T2',
                      switches=[S1])
     T3 = Tree(tree_list=[None],
-                     empty=True,
                      name='T3',
                      switches=[S1])
     T4 = Tree(tree_list=[None],
-                     empty=True,
                      name='T4',
                      switches=[S0])
     T5 = Tree(tree_list=Tree.tree_list_not,
-                     empty=True,
                      name='T5',
                      switches=[S0])
     T6 = Tree(tree_list=[None],
-                     empty=True,
                      name='T6',
                      switches=[S1])
     T7 = Tree(tree_list=Tree.tree_list_not,
-                     empty=True,
                      name='T7',
                      switches=[S1])
     T8 = Tree(tree_list=Tree.tree_list_not,
-                     empty=True,
                      name='T8',
                      switches=[S2])
     T9 = Tree(tree_list=[None],
-                     empty=True,
                      name='T9',
                      switches=[S5])
     T10 = Tree(tree_list=Tree.tree_list_not,
-                     empty=True,
                      name='T10',
                      switches=[S3])
     T11 = Tree(tree_list=[None],
-                     empty=True,
                      name='T11',
                      switches=[S3])
     T12 = Tree(tree_list=Tree.tree_list_not,
-                     empty=True,
                      name='T12',
                      switches=[S5])
     T13 = Tree(tree_list=[None],
-                     empty=True,
                      name='T13',
                      switches=[S2])
     T14 = Tree(tree_list=Tree.tree_list_not,
-                     empty=True,
                      name='T14',
                      switches=[S4])
     T15 = Tree(tree_list=[None],
-                     empty=True,
                      name='T15',
                      switches=[S4])
     T16 = Tree(tree_list=[None],
-                     empty=True,
                      name='T16',
                      switches=[S3])
     T17 = Tree(tree_list=Tree.tree_list_not,
-                     empty=True,
                      name='T17',
                      switches=[S3])
     T18 = Tree(tree_list=[None],
-                     empty=True,
                      name='T18',
                      switches=[S4])
     T19 = Tree(tree_list=Tree.tree_list_not,
-                     empty=True,
                      name='T19',
                      switches=[S4])
 
     T20 = Tree(tree_list=Tree.tree_list_AND(6),
-                empty=True,
                 name='T20',
                 switches=[S0, S1, S2, S3, S4, S5])
     

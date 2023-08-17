@@ -35,83 +35,63 @@ def level_manhattan_distance():
     S26 = Switch(name='S26')
 
     T0 = Tree(tree_list=Tree.tree_list_from_str('FTFF'),
-              empty=True,
               name='T0',
               switches=[S0, S1, S2, S13])
     T1 = Tree(tree_list=Tree.tree_list_from_str('FTTT'),
-              empty=True,
               name='T1',
               switches=[S3, S4, S5, S16])
     T2 = Tree(tree_list=Tree.tree_list_from_str('TFFFFT'),
-              empty=True,
               name='T2',
               switches=[S0, S1, S2, S3, S4, S5])
     T3 = Tree(tree_list=Tree.tree_list_from_str('FTFFFT'),
-              empty=True,
               name='T3',
               switches=[S6, S7, S8, S9, S15, S18])
     T4 = Tree(tree_list=Tree.tree_list_from_str('FTFT'),
-              empty=True,
               name='T4',
               switches=[S3, S4, S5, S20])
     T5 = Tree(tree_list=Tree.tree_list_from_str('FFTTTT'),
-              empty=True,
               name='T5',
               switches=[S6, S7, S8, S9, S15, S21])
     T6 = Tree(tree_list=Tree.tree_list_from_str('TFTFT'),
-              empty=True,
               name='T6',
               switches=[S10, S11, S12, S21, S22])
     T7 = Tree(tree_list=Tree.tree_list_from_str('FTTFTT'),
-              empty=True,
               name='T7',
               switches=[S6, S7, S8, S9, S13, S24])
     T8 = Tree(tree_list=Tree.tree_list_from_str('FTTTT'),
-              empty=True,
               name='T8',
               switches=[S3, S10, S11, S12, S25])
     T9 = Tree(tree_list=['AND', Tree.tree_list_XOR(3), [None]],
-              empty=True,
               name='T9',
               switches=[S13, S14, S15, S26])
     T10 = Tree(tree_list=Tree.tree_list_from_str('FFTT'),
-               empty=True,
                name='T10',
                switches=[S0, S1, S2, S14])
     T11 = Tree(tree_list=Tree.tree_list_from_str('TFFT'),
-               empty=True,
                name='T11',
                switches=[S3, S4, S5, S20])
     T12 = Tree(tree_list=Tree.tree_list_from_str('FTFTTF'),
-               empty=True,
                name='T12',
                switches=[S0, S1, S2, S3, S4, S5])
     T13 = Tree(tree_list=Tree.tree_list_from_str('TFTTT'),
-               empty=True,
                name='T13',
                switches=[S6, S7, S8, S9, S21])
     T14 = Tree(tree_list=Tree.tree_list_from_str('TFTT'),
-               empty=True,
                name='T14',
                switches=[S3, S4, S5, S16])
     T15 = Tree(tree_list=Tree.tree_list_from_str('TTTFFFT'),
-               empty=True,
                name='T15',
                switches=[S4, S6, S7, S8, S9, S14, S18])
     T16 = Tree(tree_list=Tree.tree_list_from_str('FTTFT'),
-               empty=True,
                name='T16',
                switches=[S10, S11, S12, S21, S22])
     T17 = Tree(tree_list=Tree.tree_list_from_str('TFFTFT'),
-               empty=True,
                name='T17',
                switches=[S6, S7, S8, S9, S15, S17])
     T18 = Tree(tree_list=Tree.tree_list_from_str('TTFFT'),
-               empty=True,
                name='T18',
                switches=[S10, S11, S12, S18, S19])
     T19 = Tree(tree_list=['AND', Tree.tree_list_XORN(3), [None]],
-               empty=True,
                name='T19',
                switches=[S13, S14, S15, S23])
 

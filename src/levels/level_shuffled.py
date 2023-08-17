@@ -58,7 +58,6 @@ def level_shuffled():
         Slist0.append(mod)
         
     T0 = Tree(tree_list=tree_list,
-              empty=True,
               name='T0',
               switches = Slist0,
               cut_expression=True,

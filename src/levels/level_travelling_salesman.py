@@ -70,18 +70,15 @@ def level_travelling_salesman(fast_solution_finding=False):
 
     if fast_solution_finding:
         T0 = Tree(tree_list=[None],
-                  empty=True,
                   name='T0',
                   switches=[SN1])
         T1 = Tree(tree_list=['DIFF'] + [Tree.tree_list_BIN(6)] * 2,
-                  empty=True,
                   name='T1',
                   switches=[S0, S1, S2, S3, S4, S5,
                             S6, S7, S8, S9, S10, S11],
                   cut_expression=True,
                   cut_expression_separator=']')
         T2 = Tree(tree_list=['DIFF'] + [Tree.tree_list_BIN(6)] * 3,
-                  empty=True,
                   name='T2',
                   switches=[S0, S1, S2, S3, S4, S5,
                             S6, S7, S8, S9, S10, S11,
@@ -89,7 +86,6 @@ def level_travelling_salesman(fast_solution_finding=False):
                   cut_expression=True,
                   cut_expression_separator=')')
         T3 = Tree(tree_list=['DIFF'] + [Tree.tree_list_BIN(6)] * 4,
-                  empty=True,
                   name='T3',
                   switches=[S0, S1, S2, S3, S4, S5,
                             S6, S7, S8, S9, S10, S11,
@@ -98,7 +94,6 @@ def level_travelling_salesman(fast_solution_finding=False):
                   cut_expression=True,
                   cut_expression_separator=')')
         T4 = Tree(tree_list=['DIFF'] + [Tree.tree_list_BIN(6)] * 5,
-                  empty=True,
                   name='T4',
                   switches=[S0, S1, S2, S3, S4, S5,
                             S6, S7, S8, S9, S10, S11,
@@ -108,7 +103,6 @@ def level_travelling_salesman(fast_solution_finding=False):
                   cut_expression=True,
                   cut_expression_separator=')')
         T5 = Tree(tree_list=['DIFF'] + [Tree.tree_list_BIN(6)] * 6,
-                  empty=True,
                   name='T5',
                   switches=[S0, S1, S2, S3, S4, S5,
                             S6, S7, S8, S9, S10, S11,
@@ -119,7 +113,6 @@ def level_travelling_salesman(fast_solution_finding=False):
                   cut_expression=True,
                   cut_expression_separator=')')
         T6 = Tree(tree_list=['DIFF'] + [Tree.tree_list_BIN(6)] * 7,
-                  empty=True,
                   name='T6',
                   switches=[S0, S1, S2, S3, S4, S5,
                             S6, S7, S8, S9, S10, S11,
@@ -134,7 +127,6 @@ def level_travelling_salesman(fast_solution_finding=False):
                              tree_list_INF,
                              Tree.tree_list_OR(2),
                              Tree.tree_list_OR(2)],
-                  empty=True,
                   name='T7',
                   switches=[S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11,
                             S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17,
@@ -149,31 +141,24 @@ def level_travelling_salesman(fast_solution_finding=False):
                   cut_expression_separator=']')
     else:
         T0 = Tree(tree_list=[None],
-                  empty=True,
                   name='T0',
                   switches=[SN1])
         T1 = Tree(tree_list=[None],
-                  empty=True,
                   name='T1',
                   switches=[SN1])
         T2 = Tree(tree_list=[None],
-                  empty=True,
                   name='T2',
                   switches=[SN1])
         T3 = Tree(tree_list=[None],
-                  empty=True,
                   name='T3',
                   switches=[SN1])
         T4 = Tree(tree_list=[None],
-                  empty=True,
                   name='T4',
                   switches=[SN1])
         T5 = Tree(tree_list=[None],
-                  empty=True,
                   name='T5',
                   switches=[SN1])
         T6 = Tree(tree_list=['EQUSET'] + [Tree.tree_list_BIN(6)] * 7 + [[None]] * 7,
-                  empty=True,
                   name='T6',
                   switches=[S0, S1, S2, S3, S4, S5,
                             S6, S7, S8, S9, S10, S11,
@@ -189,7 +174,6 @@ def level_travelling_salesman(fast_solution_finding=False):
                              tree_list_INF,
                              Tree.tree_list_OR(2),
                              Tree.tree_list_OR(2)],
-                  empty=True,
                   name='T7',
                   switches=[S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11,
                             S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17,
