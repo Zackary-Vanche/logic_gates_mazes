@@ -16,7 +16,10 @@ def level_house():
     S6 = Switch(name='S6')
     
     Slist = [S0, S1, S2, S3, S4, S5, S6]
-    tree_list_AND = Tree.tree_list_AND(len(Slist))
+    
+    V0 = Tree(tree_list=Tree.tree_list_AND(len(Slist)),
+              name='V0',
+              switches=Slist)
 
     T0 = Tree(tree_list=[None],
                       name='T0',
@@ -24,33 +27,33 @@ def level_house():
     T1 = Tree(tree_list=[None],
                       name='T1',
                       switches=[1])
-    T2 = Tree(tree_list=tree_list_AND,
+    T2 = Tree(tree_list=[None],
                       name='T2',
-                      switches=Slist)
+                      switches=[V0])
     T3 = Tree(tree_list=[None],
                       name='T3',
                       switches=[1])
-    T4 = Tree(tree_list=tree_list_AND,
+    T4 = Tree(tree_list=[None],
                       name='T4',
-                      switches=Slist)
+                      switches=[V0])
     T5 = Tree(tree_list=[None],
                       name='T5',
                       switches=[1])
-    T6 = Tree(tree_list=tree_list_AND,
+    T6 = Tree(tree_list=[None],
                       name='T6',
-                      switches=Slist)
+                      switches=[V0])
     T7 = Tree(tree_list=[None],
                       name='T7',
                       switches=[1])
-    T8 = Tree(tree_list=tree_list_AND,
+    T8 = Tree(tree_list=[None],
                       name='T8',
-                      switches=Slist)
+                      switches=[V0])
     T9 = Tree(tree_list=[None],
                       name='T9',
                       switches=[1])
-    T10 = Tree(tree_list=tree_list_AND,
+    T10 = Tree(tree_list=[None],
                       name='T10',
-                      switches=Slist)
+                      switches=[V0])
     T11 = Tree(tree_list=Tree.tree_list_NOT,
                       name='T11',
                       switches=[S0])
@@ -135,9 +138,9 @@ def level_house():
     T38 = Tree(tree_list=Tree.tree_list_NOT,
                       name='T38',
                       switches=[S6])
-    T39 = Tree(tree_list=tree_list_AND,
+    T39 = Tree(tree_list=[None],
                 name='T39',
-                switches=Slist)
+                switches=[V0])
     
     ex = 1
     ey = 1
