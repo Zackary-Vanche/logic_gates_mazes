@@ -9,8 +9,6 @@ if __name__ == "__main__":
     # You need that line.
     # If you don't put it, the pixel of the game
     # will be too big after compilation
-    
-    # 144 147 
 
     Game(show_help=1,
          index_current_level=0, 

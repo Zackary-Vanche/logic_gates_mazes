@@ -131,38 +131,90 @@ def level_zebra():
     horse = [2]
     Snails = [3]
     Zebra = [4]
+    
+    V0 = Tree(tree_list=Tree.tree_list_BIN(3),
+              name='V0',
+              switches=[S0, S1, S2])
+    V1 = Tree(tree_list=Tree.tree_list_BIN(3),
+              name='V1',
+              switches=[S3, S4, S5])
+    V2 = Tree(tree_list=Tree.tree_list_BIN(3),
+              name='V2',
+              switches=[S6, S7, S8])
+    V3 = Tree(tree_list=Tree.tree_list_BIN(3),
+              name='V3',
+              switches=[S9, S10, S11])
+    V4 = Tree(tree_list=Tree.tree_list_BIN(3),
+              name='V4',
+              switches=[S12, S13, S14])
+    V5 = Tree(tree_list=Tree.tree_list_BIN(3),
+              name='V5',
+              switches=[S15, S16, S17])
+    V6 = Tree(tree_list=Tree.tree_list_BIN(3),
+              name='V6',
+              switches=[S18, S19, S20])
+    V7 = Tree(tree_list=Tree.tree_list_BIN(3),
+              name='V7',
+              switches=[S21, S22, S23])
+    V8 = Tree(tree_list=Tree.tree_list_BIN(3),
+              name='V8',
+              switches=[S24, S25, S26])
+    V9 = Tree(tree_list=Tree.tree_list_BIN(3),
+              name='V9',
+              switches=[S27, S28, S29])
+    V10 = Tree(tree_list=Tree.tree_list_BIN(3),
+              name='V10',
+              switches=[S30, S31, S32])
+    V11 = Tree(tree_list=Tree.tree_list_BIN(3),
+              name='V11',
+              switches=[S33, S34, S35])
+    V12 = Tree(tree_list=Tree.tree_list_BIN(3),
+              name='V12',
+              switches=[S36, S37, S38])
+    V13 = Tree(tree_list=Tree.tree_list_BIN(3),
+              name='V13',
+              switches=[S39, S40, S41])
+    V14 = Tree(tree_list=Tree.tree_list_BIN(3),
+              name='V14',
+              switches=[S42, S43, S44])
+    V15 = Tree(tree_list=Tree.tree_list_BIN(3),
+              name='V15',
+              switches=[S45, S46, S47])
+    V16 = Tree(tree_list=Tree.tree_list_BIN(3),
+              name='V16',
+              switches=[S48, S49, S50])
+    V17 = Tree(tree_list=Tree.tree_list_BIN(3),
+              name='V17',
+              switches=[S51, S52, S53])
+    V18 = Tree(tree_list=Tree.tree_list_BIN(3),
+              name='V18',
+              switches=[S54, S55, S56])
+    V19 = Tree(tree_list=Tree.tree_list_BIN(3),
+              name='V19',
+              switches=[S57, S58, S59])
+    V20 = Tree(tree_list=Tree.tree_list_BIN(3),
+              name='V20',
+              switches=[S60, S61, S62])
+    V21 = Tree(tree_list=Tree.tree_list_BIN(3),
+              name='V21',
+              switches=[S63, S64, S65])
+    V22 = Tree(tree_list=Tree.tree_list_BIN(3),
+              name='V22',
+              switches=[S66, S67, S68])
+    V23 = Tree(tree_list=Tree.tree_list_BIN(3),
+              name='V23',
+              switches=[S69, S70, S71])
+    V24 = Tree(tree_list=Tree.tree_list_BIN(3),
+              name='V24',
+              switches=[S72, S73, S74])
+    
+    Vlist = [V0, V1, V2, V3, V4,
+             V5, V6, V7, V8, V9,
+             V10, V11, V12, V13, V14,
+             V15, V16, V17, V18, V19,
+             V20, V21, V22, V23, V24]
 
-    Slist = [S0, S1, S2,
-             S3, S4, S5,
-             S6, S7, S8,
-             S9, S10, S11,
-             S12, S13, S14,
-
-             S15, S16, S17,
-             S18, S19, S20,
-             S21, S22, S23,
-             S24, S25, S26,
-             S27, S28, S29,
-
-             S30, S31, S32,
-             S33, S34, S35,
-             S36, S37, S38,
-             S39, S40, S41,
-             S42, S43, S44,
-
-             S45, S46, S47,
-             S48, S49, S50,
-             S51, S52, S53,
-             S54, S55, S56,
-             S57, S58, S59,
-
-             S60, S61, S62,
-             S63, S64, S65,
-             S66, S67, S68,
-             S69, S70, S71,
-             S72, S73, S74, ]
-
-    tree_list_equ = ['EQU', [None], Tree.tree_list_BIN(3)]
+    tree_list_equ = ['EQU', [None], [None]]
     tree_list_XNOR_equ = ['XNOR', tree_list_equ, tree_list_equ]
 
     color_S = []
@@ -171,12 +223,12 @@ def level_zebra():
     smoke_S = []
     pet_S = []
     for i_door in range(5):
-        Slist_room = Slist[15 * i_door:15 * i_door + 15]
-        color = Slist_room[0:3]
-        nationality = Slist_room[3:6]
-        drink = Slist_room[6:9]
-        smoke = Slist_room[9:12]
-        pet = Slist_room[12:15]
+        Slist_room = Vlist[5 * i_door:5 * i_door + 5]
+        color = Slist_room[0]
+        nationality = Slist_room[1]
+        drink = Slist_room[2]
+        smoke = Slist_room[3]
+        pet = Slist_room[4]
         color_S.append(color)
         nationality_S.append(nationality)
         drink_S.append(drink)
@@ -190,11 +242,11 @@ def level_zebra():
         # drink = Slist_room[6:9]
         # smoke = Slist_room[9:12]
         # pet = Slist_room[12:15]
-        color = color_S[i_door]
-        nationality = nationality_S[i_door]
-        drink = drink_S[i_door]
-        smoke = smoke_S[i_door]
-        pet = pet_S[i_door]
+        color = [color_S[i_door]]
+        nationality = [nationality_S[i_door]]
+        drink = [drink_S[i_door]]
+        smoke = [smoke_S[i_door]]
+        pet = [pet_S[i_door]]
         Slist_tree = []
         # The Englishman lives in the red house.
         Slist_tree = Slist_tree + Englishman + nationality + red + color
@@ -218,71 +270,101 @@ def level_zebra():
         return Tree(tree_list=['AND'] + [tree_list_XNOR_equ] * 8,
                     name=f'T{i_door}',
                     switches=get_S(i_door),
-                    cut_expression=True)
+                    cut_expression=False)
 
     # The Norwegian lives in the first house.
     T0 = Tree(tree_list=['AND',
-                         ['EQU', [None], Tree.tree_list_BIN(3)]] + [tree_list_XNOR_equ] * 8,
+                         ['EQU', [None], [None]]] + [tree_list_XNOR_equ] * 8,
               name='T0',
-              switches=Norwegian + Slist[0:15][3:6] + get_S(0),
-              cut_expression=True)
+              switches=Norwegian + [Vlist[0:5][1]] + get_S(0),
+              cut_expression=False)
     T1 = get_tree(1)
     # Milk is drunk in the middle house.
     T2 = Tree(tree_list=['AND',
-                         ['EQU', [None], Tree.tree_list_BIN(3)]] + [tree_list_XNOR_equ] * 8,
+                         ['EQU', [None], [None]]] + [tree_list_XNOR_equ] * 8,
               name='T2',
-              switches=Milk + Slist[15 * 2:15 * 3][6:9] + get_S(2),
-              cut_expression=True)
+              switches=Milk + [Vlist[5 * 2:5 * 3][2]] + get_S(2),
+              cut_expression=False)
     T3 = get_tree(3)
     T4 = get_tree(4)
     S_type_list = [[] for i in range(5)]
     for i_door in range(5):
-        Slist_room = Slist[15 * i_door:15 * i_door + 15]
+        Slist_room = Vlist[5 * i_door:5 * i_door + 5]
         for i_type in range(5):
-            S_type_list[i_type].extend(Slist_room[3 * i_type:3 * i_type + 3])
+            S_type_list[i_type].extend(Slist_room[i_type:i_type + 1])
     Slist5 = []
     for i in range(5):
         Slist5.extend(S_type_list[i] + [0, 1, 2, 3, 4])
-    tree_list_EQUSET = ['EQUSET'] + [Tree.tree_list_BIN(3)] * 5 + [[None]] * 5
+    tree_list_EQUSET = ['EQUSET'] + [[None]] * 5 + [[None]] * 5
     T5 = Tree(tree_list=['AND'] + [tree_list_EQUSET] * 5,
               name='T5',
               switches=Slist5,
-              cut_expression=True,
+              cut_expression=False,
               cut_expression_separator=')')
     tree_list_AND_equ = ['AND', tree_list_equ, tree_list_equ]
     Slist6 = []
     # The green house is immediately to the right of the ivory house.
     tree_list_right_of = ['OR'] + [tree_list_AND_equ] * 4
     for i in range(4):
-        Slist6 += ivory + color_S[i] + green + color_S[i + 1]
+        Slist6 += ivory + [color_S[i]] + green + [color_S[i + 1]]
     # The man who smokes chesterfields lives in the house next to the man with the fox.
     tree_list_next_t0 = ['OR'] + [tree_list_AND_equ] * 8
     for i in range(4):
-        Slist6 += chesterfield + smoke_S[i] + fox + pet_S[i + 1]
-        Slist6 += chesterfield + smoke_S[i + 1] + fox + pet_S[i]
+        Slist6 += chesterfield + [smoke_S[i]] + fox + [pet_S[i + 1]]
+        Slist6 += chesterfield + [smoke_S[i + 1]] + fox + [pet_S[i]]
     T6 = Tree(tree_list=['AND'] + [tree_list_right_of] + [tree_list_next_t0],
               name='T6',
               switches=Slist6,
-              cut_expression=True,
+              cut_expression=False,
               cut_expression_separator=')')
     Slist7 = []
     # kools are smoked in the house next to the house where the horse is kept.
     for i in range(4):
-        Slist7 += kools + smoke_S[i] + horse + pet_S[i + 1]
-        Slist7 += kools + smoke_S[i + 1] + horse + pet_S[i]
+        Slist7 += kools + [smoke_S[i]] + horse + [pet_S[i + 1]]
+        Slist7 += kools + [smoke_S[i + 1]] + horse + [pet_S[i]]
     # The Norwegian lives next to the blue house.
     for i in range(4):
-        Slist7 += Norwegian + nationality_S[i] + blue + color_S[i + 1]
-        Slist7 += Norwegian + nationality_S[i + 1] + blue + color_S[i]
+        Slist7 += Norwegian + [nationality_S[i]] + blue + [color_S[i + 1]]
+        Slist7 += Norwegian + [nationality_S[i + 1]] + blue + [color_S[i]]
     T7 = Tree(tree_list=['AND'] + [tree_list_next_t0] * 2,
               name='T7',
               switches=Slist7,
-              cut_expression=True,
+              cut_expression=False,
               cut_expression_separator=')')
 
     ex = 0.25
     ey = 4
-    dx = 1
+    dx = 0.8
+    
+    Slist = [S0, S1, S2,
+              S3, S4, S5,
+              S6, S7, S8,
+              S9, S10, S11,
+              S12, S13, S14,
+
+              S15, S16, S17,
+              S18, S19, S20,
+              S21, S22, S23,
+              S24, S25, S26,
+              S27, S28, S29,
+
+              S30, S31, S32,
+              S33, S34, S35,
+              S36, S37, S38,
+              S39, S40, S41,
+              S42, S43, S44,
+
+              S45, S46, S47,
+              S48, S49, S50,
+              S51, S52, S53,
+              S54, S55, S56,
+              S57, S58, S59,
+
+              S60, S61, S62,
+              S63, S64, S65,
+              S66, S67, S68,
+              S69, S70, S71,
+              S72, S73, S74, ]
 
     # There are five houses.
     R0 = Room(name='R0',

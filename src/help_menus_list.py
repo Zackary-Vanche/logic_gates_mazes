@@ -373,9 +373,6 @@ if you want to turn on S0, S1 and then use the door D0."""
 help_menus_list['leave the game'] = """
 To leave the game, you can click an the cross but also press [ESCAPE]."""
 
-help_menus_list['see other doors'] = """
-By pressing [P] or [M], you can see the values of the other doors."""
-
 help_menus_list['random'] = """
 By pressing [N], you get a new random level.
 
@@ -652,7 +649,7 @@ help_menus_list['levels']["Separation"] = """Good luck !"""
 
 help_menus_list['levels']["Small panex"] = help_menus_list['INF0']
 
-help_menus_list['levels']["Zebra"] = """There are five houses.\n\n""" + help_menus_list['see other doors']
+help_menus_list['levels']["Zebra"] = """There are five houses.\n\n"""
 
 help_menus_list['levels']["Bridges"] = """There are seven bridges in Königsberg."""
 
@@ -664,7 +661,7 @@ help_menus_list['levels']["Parking"] = """There are cars everywhere."""
 
 help_menus_list['levels']["Panex"] = """You are on your own."""
 
-help_menus_list['levels']["Superflip"] = help_menus_list['see other doors']
+help_menus_list['levels']["Superflip"] = "No help here."
 
 help_menus_list['levels']["Doppelganger"] = help_menus_list['random']
 
