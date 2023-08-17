@@ -369,36 +369,6 @@ class Game:
             return None
         if self.print_tree_polygon:
             pass  # deprecated
-        # elif self.maze.door_multipages:
-        #     door = self.doors_list[self.maze.current_door_page]
-        #     tree = door.tree
-        #     logical_expression = tree.get_easy_logical_expression_PN()
-        #     logical_expression = logical_expression.split('\n')
-        #     self.n_lines_door_printing = len(logical_expression)
-        #     self.gap_between_lines = min(
-        #         (self.WINDOW_HEIGHT - self.maze.y_separation - 50) / (self.n_lines_door_printing), 30)
-        #     tree = door.tree
-        #     str_logical_expression = tree.get_easy_logical_expression_PN()
-        #     str_logical_expression = str_logical_expression.split('\n')
-        #     gap = self.y_separation + 10
-        #     self.WINDOW.blit(self.font.render('DOORS :',
-        #                                       True,
-        #                                       self.inside_room_color),
-        #                       (self.x_separation + 10, gap))
-        #     gap = self.y_separation + 35
-        #     for i in range(len(str_logical_expression)):
-        #         string = str_logical_expression[i]
-        #         if i == 0:
-        #             logical_expression_render = self.font.render(door.name + ' = ' + string,
-        #                                                           True,
-        #                                                           self.inside_room_color)
-        #             self.WINDOW.blit(logical_expression_render, (self.x_separation + 10, gap))
-        #         else:
-        #             logical_expression_render = self.font.render(' ' * (len(door.name) + 3) + string,
-        #                                                           True,
-        #                                                           self.inside_room_color)
-        #             self.WINDOW.blit(logical_expression_render, (self.x_separation + 10, gap))
-        #         gap += self.gap_between_lines
         else:
             self.gap_between_lines = min(
                 (self.WINDOW_HEIGHT - self.maze.y_separation - 50) / (self.n_lines_door_printing), 25)
@@ -418,7 +388,7 @@ class Game:
                 all_trees_expressions = ' \n '.join(all_trees_expressions)
                 xmax, gap = self.blit_text(all_trees_expressions,
                                            pos=((self.x_separation + 10, gap)),
-                                           max_width=self.door_window_size - 40)
+                                           max_width=self.door_window_size - 20)
 
     def draw_rooms(self):
         # Affichage des pieces

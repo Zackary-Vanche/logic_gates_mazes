@@ -44,31 +44,37 @@ def level_pancake_sorting():
     SN2 = Switch(name='2', value=2)
     SN3 = Switch(name='3', value=3)
 
-    def tree_list_EQU_BIN(nequ, nbin):
-        return ['EQU'] + [Tree.tree_list_BIN(nbin)] * nequ
+    # def tree_list_EQU_BIN(nequ, nbin):
+    #     return ['EQU'] + [Tree.tree_list_BIN(nbin)] * nequ
+    
+    tree_list_0 = ['EQU', [None], Tree.tree_list_BIN(8)]
 
     nbin = 2
 
-    Slist1 = [S0, S1, S2, S3, S4, S5, S6, S7]
-    Slist2 = [S16, S17, S14, S15, S12, S13, S10, S11]
+    Slist0 = [S0, S1, S2, S3, S4, S5, S6, S7]
+    Slist1 = [S16, S17, S14, S15, S12, S13, S10, S11]
+    
+    V0 = Tree(tree_list=Tree.tree_list_BIN(len(Slist0)),
+              name='V0',
+              switches=Slist0)
 
-    T0 = Tree(tree_list=tree_list_EQU_BIN(2, 8),
+    T0 = Tree(tree_list=tree_list_0,
               name='T0',
-              switches=[S0, S1, S2, S3, S4, S5, S6, S7,
+              switches=[V0,
                         S12, S13, S10, S11,
                         S14, S15, S16, S17],
               cut_expression=True,
               cut_expression_separator=']')
-    T1 = Tree(tree_list=tree_list_EQU_BIN(2, 8),
+    T1 = Tree(tree_list=tree_list_0,
               name='T1',
-              switches=[S0, S1, S2, S3, S4, S5, S6, S7,
+              switches=[V0,
                         S14, S15, S12, S13, S10, S11,
                         S16, S17],
               cut_expression=True,
               cut_expression_separator=']')
-    T2 = Tree(tree_list=tree_list_EQU_BIN(2, 8),
+    T2 = Tree(tree_list=tree_list_0,
               name='T2',
-              switches=Slist1 + Slist2,
+              switches=[V0] + Slist1,
               cut_expression=True,
               cut_expression_separator=']')
 
@@ -179,7 +185,7 @@ def level_pancake_sorting():
                  fastest_solution='S0 S1 S3 S4 S9 D2 D3 S10 S11 S12 S13 S14 S15 S16 S17 S18 D4 D5 S1 S5 S8 S9 D1 D3 S11 S15 S18 S19 D4 D5 S0 S2 S4 S6 S8 D2 D3 S10 S12 S14 S16 S18 D4 D6',
                  level_color=Levels_colors_list.FROM_HUE(0.05, sa=0.4, li=0.4),
                  name='Pancake sorting',
-                 door_window_size=250,
-                 keep_proportions=False)
+                 door_window_size=300,
+                 keep_proportions=True)
 
     return level
