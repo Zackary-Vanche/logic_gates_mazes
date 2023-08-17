@@ -572,7 +572,7 @@ if __name__ == "__main__":
     if os.path.exists('temp.txt'):
         os.remove('temp.txt')
 
-    # test_levels()
+    test_levels()
     
     # level = level_bridges()
     # sol = "D0 S0 D1"

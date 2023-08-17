@@ -43,6 +43,72 @@ def level_diagonal(fast_solution_finding=False):
     S29 = Switch(name='S29')
     S30 = Switch(name='S30')
     S31 = Switch(name='S31')
+    
+    Slist_0 = [S0, S1]
+    Slist_1 = [S2, S3]
+    Slist_2 = [S4, S5]
+    Slist_3 = [S6, S7]
+    Slist_4 = [S8, S9]
+    Slist_5 = [S10, S11]
+    Slist_6 = [S12, S13]
+    Slist_7 = [S14, S15]
+    Slist_8 = [S16, S17]
+    Slist_9 = [S18, S19]
+    Slist_10 = [S20, S21]
+    Slist_11 = [S22, S23]
+    Slist_12 = [S24, S25]
+    Slist_13 = [S26, S27]
+    Slist_14 = [S28, S29]
+    Slist_15 = [S30, S31]
+
+    V0 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_0)),
+              name='V0',
+              switches=Slist_0)
+    V1 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_1)),
+              name='V1',
+              switches=Slist_1)
+    V2 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_2)),
+              name='V2',
+              switches=Slist_2)
+    V3 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_3)),
+              name='V3',
+              switches=Slist_3)
+    V4 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_4)),
+              name='V4',
+              switches=Slist_4)
+    V5 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_5)),
+              name='V5',
+              switches=Slist_5)
+    V6 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_6)),
+              name='V6',
+              switches=Slist_6)
+    V7 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_7)),
+              name='V7',
+              switches=Slist_7)
+    V8 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_8)),
+              name='V8',
+              switches=Slist_8)
+    V9 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_9)),
+              name='V9',
+              switches=Slist_9)
+    V10 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_10)),
+              name='V10',
+              switches=Slist_10)
+    V11 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_11)),
+              name='V11',
+              switches=Slist_11)
+    V12 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_12)),
+              name='V12',
+              switches=Slist_12)
+    V13 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_13)),
+              name='V13',
+              switches=Slist_13)
+    V14 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_14)),
+              name='V14',
+              switches=Slist_14)
+    V15 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_15)),
+              name='V15',
+              switches=Slist_15)
 
     SNlist = [0, 1, 2, 3]
     Slist0 = [S0, S1,
@@ -59,51 +125,27 @@ def level_diagonal(fast_solution_finding=False):
     Slist5 = [S14, S15, S22, S23]
 
     def tree_list(n):
-        return ['EQUSET'] + [Tree.tree_list_BIN(2)] * n + [[None]] * 4
+        return ['EQUSET'] + [[None]] * n + [[None]] * 4
 
     T0 = Tree(tree_list=tree_list(4),
               name='T0',
-              switches=Slist0 + SNlist)
+              switches=[V0, V5, V10, V15] + SNlist)
     T1 = Tree(tree_list=tree_list(4),
               name='T1',
-              switches=Slist1 + SNlist)
+              switches=[V3, V6, V9, V12] + SNlist)
     T2 = Tree(tree_list=tree_list(4),
               name='T2',
-              switches=[S0, S1,
-                        S2, S3,
-                        S4, S5,
-                        S6, S7] + SNlist)
+              switches=[V0, V1, V2, V3] + SNlist)
     T3 = Tree(tree_list=['AND'] + [tree_list(4)] * 3,
               name='T3',
-              switches=[S2, S3,
-                        S10, S11,
-                        S18, S19,
-                        S26, S27] + SNlist + [S4, S5,
-                                              S12, S13,
-                                              S20, S21,
-                                              S28, S29] + SNlist + [S24, S25,
-                                                                    S26, S27,
-                                                                    S28, S29,
-                                                                    S30, S31] + SNlist,
+              switches=[V1, V5, V9, V13] + SNlist + [V2, V6, V10, V14] + SNlist + [V12, V13, V14, V15] + SNlist,
               cut_expression=True)
     T4 = Tree(tree_list=tree_list(4),
               name='T4',
-              switches=[S0, S1,
-                        S8, S9,
-                        S16, S17,
-                        S24, S25] + SNlist)
+              switches=[V0, V4, V8, V12] + SNlist)
     T5 = Tree(tree_list=['AND'] + [tree_list(4)] * 3,
               name='T5',
-              switches=[S8, S9,
-                        S10, S11,
-                        S12, S13,
-                        S14, S15] + SNlist + [S6, S7,
-                                              S14, S15,
-                                              S22, S23,
-                                              S30, S31] + SNlist + [S16, S17,
-                                                                    S18, S19,
-                                                                    S20, S21,
-                                                                    S22, S23] + SNlist,
+              switches=[V4, V5, V6, V7] + SNlist + [V3, V7, V11, V15] + SNlist + [V8, V9, V10, V11] + SNlist,
               cut_expression=True)
     T6 = Tree(tree_list=['AND',
                          ['EQU',
