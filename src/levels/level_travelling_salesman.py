@@ -49,20 +49,67 @@ def level_travelling_salesman(fast_solution_finding=False):
     S40 = Switch(name='S40')
     S41 = Switch(name='S41')
 
-    SN1 = Switch(name='1', value=1)
-    SN4 = Switch(name='4', value=4)
-    SN6 = Switch(name='6', value=6)
-    SN12 = Switch(name='12', value=12)
-    SN18 = Switch(name='18', value=18)
-    SN30 = Switch(name='30', value=30)
-    SN42 = Switch(name='42', value=42)
-    SN60 = Switch(name='60', value=60)
-
-    SNlist = [SN4, SN6, SN12, SN18, SN30, SN42, SN60]
+    Slist_0 = [S0, S1, S2]
+    Slist_1 = [S3, S4, S5]
+    Slist_2 = [S6, S7, S8]
+    Slist_3 = [S9, S10, S11]
+    Slist_4 = [S12, S13, S14]
+    Slist_5 = [S15, S16, S17]
+    Slist_6 = [S18, S19, S20]
+    Slist_7 = [S21, S22, S23]
+    Slist_8 = [S24, S25, S26]
+    Slist_9 = [S27, S28, S29]
+    Slist_10 = [S30, S31, S32]
+    Slist_11 = [S33, S34, S35]
+    Slist_12 = [S36, S37, S38]
+    Slist_13 = [S39, S40, S41]
+    
+    V0 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_0)),
+              name='V0',
+              switches=Slist_0)
+    V1 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_1)),
+              name='V1',
+              switches=Slist_1)
+    V2 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_2)),
+              name='V2',
+              switches=Slist_2)
+    V3 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_3)),
+              name='V3',
+              switches=Slist_3)
+    V4 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_4)),
+              name='V4',
+              switches=Slist_4)
+    V5 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_5)),
+              name='V5',
+              switches=Slist_5)
+    V6 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_6)),
+              name='V6',
+              switches=Slist_6)
+    V7 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_7)),
+              name='V7',
+              switches=Slist_7)
+    V8 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_8)),
+              name='V8',
+              switches=Slist_8)
+    V9 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_9)),
+              name='V9',
+              switches=Slist_9)
+    V10 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_10)),
+              name='V10',
+              switches=Slist_10)
+    V11 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_11)),
+              name='V11',
+              switches=Slist_11)
+    V12 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_12)),
+              name='V12',
+              switches=Slist_12)
+    V13 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_13)),
+              name='V13',
+              switches=Slist_13)
 
     tree_list_IN = ['IN', Tree.tree_list_BIN(6)] + [[None]] * 7
 
-    tree_list_DIST = ['DIST'] + [Tree.tree_list_BIN(3)] * 4  # 12
+    tree_list_DIST = ['DIST'] + [[None]] * 4  # 12
 
     tree_list_SUM = ['SUM'] + [tree_list_DIST] * 7  # 72
 
@@ -71,7 +118,7 @@ def level_travelling_salesman(fast_solution_finding=False):
     if fast_solution_finding:
         T0 = Tree(tree_list=[None],
                   name='T0',
-                  switches=[SN1])
+                  switches=[1])
         T1 = Tree(tree_list=['DIFF'] + [Tree.tree_list_BIN(6)] * 2,
                   name='T1',
                   switches=[S0, S1, S2, S3, S4, S5,
@@ -123,41 +170,25 @@ def level_travelling_salesman(fast_solution_finding=False):
                             S36, S37, S38, S39, S40, S41],
                   cut_expression=True,
                   cut_expression_separator=')')
-        T7 = Tree(tree_list=['AND',
-                             tree_list_INF,
-                             Tree.tree_list_OR(2),
-                             Tree.tree_list_OR(2)],
-                  name='T7',
-                  switches=[S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11,
-                            S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17,
-                            S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, S23,
-                            S18, S19, S20, S21, S22, S23, S24, S25, S26, S27, S28, S29,
-                            S24, S25, S26, S27, S28, S29, S30, S31, S32, S33, S34, S35,
-                            S30, S31, S32, S33, S34, S35, S36, S37, S38, S39, S40, S41,
-                            S36, S37, S38, S39, S40, S41, S0, S1, S2, S3, S4, S5,
-                            Switch(name='19', value=19),
-                            S23, S30, S3, S36],
-                  cut_expression=True,
-                  cut_expression_separator=']')
     else:
         T0 = Tree(tree_list=[None],
                   name='T0',
-                  switches=[SN1])
+                  switches=[1])
         T1 = Tree(tree_list=[None],
                   name='T1',
-                  switches=[SN1])
+                  switches=[1])
         T2 = Tree(tree_list=[None],
                   name='T2',
-                  switches=[SN1])
+                  switches=[1])
         T3 = Tree(tree_list=[None],
                   name='T3',
-                  switches=[SN1])
+                  switches=[1])
         T4 = Tree(tree_list=[None],
                   name='T4',
-                  switches=[SN1])
+                  switches=[1])
         T5 = Tree(tree_list=[None],
                   name='T5',
-                  switches=[SN1])
+                  switches=[1])
         T6 = Tree(tree_list=['EQUSET'] + [Tree.tree_list_BIN(6)] * 7 + [[None]] * 7,
                   name='T6',
                   switches=[S0, S1, S2, S3, S4, S5,
@@ -167,25 +198,25 @@ def level_travelling_salesman(fast_solution_finding=False):
                             S24, S25, S26, S27, S28, S29,
                             S30, S31, S32, S33, S34, S35,
                             S36, S37, S38, S39, S40, S41,
-                            SN4, SN6, SN12, SN18, SN30, SN42, SN60],
+                            4, 6, 12, 18, 30, 42, 60],
                   cut_expression=True,
                   cut_expression_separator=')')
-        T7 = Tree(tree_list=['AND',
-                             tree_list_INF,
-                             Tree.tree_list_OR(2),
-                             Tree.tree_list_OR(2)],
-                  name='T7',
-                  switches=[S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11,
-                            S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17,
-                            S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, S23,
-                            S18, S19, S20, S21, S22, S23, S24, S25, S26, S27, S28, S29,
-                            S24, S25, S26, S27, S28, S29, S30, S31, S32, S33, S34, S35,
-                            S30, S31, S32, S33, S34, S35, S36, S37, S38, S39, S40, S41,
-                            S36, S37, S38, S39, S40, S41, S0, S1, S2, S3, S4, S5,
-                            Switch(name='19', value=19),
-                            S23, S30, S3, S36],
-                  cut_expression=True,
-                  cut_expression_separator=']')
+    T7 = Tree(tree_list=['AND',
+                         tree_list_INF,
+                         Tree.tree_list_OR(2),
+                         Tree.tree_list_OR(2)],
+              name='T7',
+              switches=[V0, V1, V2, V3,
+                        V2, V3, V4, V5,
+                        V4, V5, V6, V7,
+                        V6, V7, V8, V9,
+                        V8, V9, V10, V11,
+                        V10, V11, V12, V13,
+                        V12, V13, V0, V1,
+                        Switch(name='19', value=19),
+                        S23, S30, S3, S36],
+              cut_expression=True,
+              cut_expression_separator=']')
 
     a = 3
     e = 1 / 100
@@ -293,7 +324,7 @@ def level_travelling_salesman(fast_solution_finding=False):
                  fastest_solution='S2 S3 D0 S7 S10 D1 S13 S15 S17 D2 S20 S21 S22 S23 D3 S25 S26 S27 S28 D4 S31 S32 D5 S38 D6 D7',
                  level_color=Levels_colors_list.FROM_HUE(0.2, sa=0.5, li=0.4),
                  name='Travelling salesman',
-                 door_window_size=650,
+                 door_window_size=425,
                  keep_proportions=False)
 
     return level

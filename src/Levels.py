@@ -589,7 +589,7 @@ if __name__ == "__main__":
     # for sol in solutions[0]:
     #     print(' '.join(sol))
 
-    solutions = level_the_4th_dimension().find_all_solutions(verbose=2,
+    solutions = level_cartesian().find_all_solutions(verbose=2,
                                                     nb_iterations_print=10**4,
                                                     stop_at_first_solution=False)
     for sol in solutions[0]:
