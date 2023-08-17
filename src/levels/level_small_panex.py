@@ -38,78 +38,106 @@ def level_small_panex():
     S25 = Switch(name='S25')
     S26 = Switch(name='S26')
     
+    V0 = Tree(tree_list=Tree.tree_list_BIN(3),
+              name='V0',
+              switches=[S0, S1, S2])
+    V1 = Tree(tree_list=Tree.tree_list_BIN(3),
+              name='V1',
+              switches=[S3, S4, S5])
+    V2 = Tree(tree_list=Tree.tree_list_BIN(3),
+              name='V2',
+              switches=[S6, S7, S8])
+    V3 = Tree(tree_list=Tree.tree_list_BIN(3),
+              name='V3',
+              switches=[S9, S10, S11])
+    V4 = Tree(tree_list=Tree.tree_list_BIN(3),
+              name='V4',
+              switches=[S12, S13, S14])
+    V5 = Tree(tree_list=Tree.tree_list_BIN(3),
+              name='V5',
+              switches=[S15, S16, S17])
+    V6 = Tree(tree_list=Tree.tree_list_BIN(3),
+              name='V6',
+              switches=[S18, S19, S20])
+    V7 = Tree(tree_list=Tree.tree_list_BIN(3),
+              name='V7',
+              switches=[S21, S22, S23])
+    V8 = Tree(tree_list=Tree.tree_list_BIN(3),
+              name='V8',
+              switches=[S24, S25, S26])
+
     tree_list_0 = ['AND',
-                   ['EQU', Tree.tree_list_BIN(3), [None]],
-                   ['INF0'] + [Tree.tree_list_BIN(3)]*3]
-    tree_list_12 = ['EQU', Tree.tree_list_BIN(3), Tree.tree_list_BIN(3)]
+                   ['EQU', [None], [None]],
+                   ['INF0'] + [[None]]*3]
+    tree_list_12 = ['EQU', [None], [None]]
     
-    Slist0 = [S0, S1, S2, S3, S4, S5, S6, S7, S8]
-    Slist1 = [S9, S10, S11, S12, S13, S14, S15, S16, S17]
-    Slist2 = [S18, S19, S20, S21, S22, S23, S24, S25, S26]
+    Slist0 = [V0, V1, V2]
+    Slist1 = [V3, V4, V5]
+    Slist2 = [V6, V7, V8]
 
     T0 = Tree(tree_list=tree_list_0,
                 name='T0',
-                switches=[S0, S1, S2, 0] + Slist0)
+                switches=[V0, 0] + Slist0)
     T1 = Tree(tree_list=tree_list_0,
                 name='T1',
-                switches=[S3, S4, S5, 0] + Slist0)
+                switches=[V1, 0] + Slist0)
     T2 = Tree(tree_list=tree_list_0,
                 name='T2',
-                switches=[S6, S7, S8, 0] + Slist0)
+                switches=[V2, 0] + Slist0)
     T3 = Tree(tree_list=tree_list_0,
                 name='T3',
-                switches=[S9, S10, S11, 0] + Slist1)
+                switches=[V3, 0] + Slist1)
     T4 = Tree(tree_list=tree_list_0,
                 name='T4',
-                switches=[S12, S13, S14, 0] + Slist1)
+                switches=[V4, 0] + Slist1)
     T5 = Tree(tree_list=tree_list_0,
                 name='T5',
-                switches=[S15, S16, S17, 0] + Slist1)
+                switches=[V5, 0] + Slist1)
     T6 = Tree(tree_list=tree_list_0,
                 name='T6',
-                switches=[S18, S19, S20, 0] + Slist2)
+                switches=[V6, 0] + Slist2)
     T7 = Tree(tree_list=tree_list_0,
                 name='T7',
-                switches=[S21, S22, S23, 0] + Slist2)
+                switches=[V7, 0] + Slist2)
     T8 = Tree(tree_list=tree_list_0,
                 name='T8',
-                switches=[S24, S25, S26, 0] + Slist2)
+                switches=[V8, 0] + Slist2)
     T9 = Tree(tree_list=tree_list_0,
                 name='T9',
-                switches=[S9, S10, S11, 0] + Slist1)
+                switches=[V3, 0] + Slist1)
     T10 = Tree(tree_list=tree_list_0,
                 name='T10',
-                switches=[S12, S13, S14, 0] + Slist1)
+                switches=[V4, 0] + Slist1)
     T11 = Tree(tree_list=tree_list_0,
                 name='T11',
-                switches=[S15, S16, S17, 0] + Slist1)
+                switches=[V5, 0] + Slist1)
     T12 = Tree(tree_list=tree_list_12,
                 name='T12',
-                switches=[S0, S1, S2, S3, S4, S5])
+                switches=[V0, V1])
     T13 = Tree(tree_list=tree_list_12,
                 name='T13',
-                switches=[S3, S4, S5, S6, S7, S8])
+                switches=[V1, V2])
     T14 = Tree(tree_list=tree_list_12,
                 name='T14',
-                switches=[S6, S7, S8, S15, S16, S17])
+                switches=[V2, V5])
     T15 = Tree(tree_list=tree_list_12,
                 name='T15',
-                switches=[S9, S10, S11, S12, S13, S14])
+                switches=[V3, V4])
     T16 = Tree(tree_list=tree_list_12,
                 name='T16',
-                switches=[S12, S13, S14, S15, S16, S17])
+                switches=[V4, V5])
     T17 = Tree(tree_list=tree_list_12,
                 name='T17',
-                switches=[S6, S7, S8, S24, S25, S26])
+                switches=[V2, V8])
     T18 = Tree(tree_list=tree_list_12,
                 name='T18',
-                switches=[S18, S19, S20, S21, S22, S23])
+                switches=[V6, V7])
     T19 = Tree(tree_list=tree_list_12,
                 name='T19',
-                switches=[S21, S22, S23, S24, S25, S26])
+                switches=[V7, V8])
     T20 = Tree(tree_list=tree_list_12,
                 name='T20',
-                switches=[S15, S16, S17, S24, S25, S26])
+                switches=[V5, V8])
     T21 = Tree(tree_list=[None],
                 name='T21',
                 switches=[1])
@@ -340,6 +368,6 @@ def level_small_panex():
                  level_color=lcolor,
                  name='Small panex',
                  keep_proportions=True,
-                 door_window_size=525)
+                 door_window_size=325)
     
     return level
