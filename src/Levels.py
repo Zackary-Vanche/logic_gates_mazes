@@ -521,7 +521,8 @@ def test_levels(test_random_levels=False):
     plt.scatter(x_list, solutions_lenghts, lw=0.1, color='r')
     plt.xlabel('Level number')
     plt.ylabel('Number of actions in the solution')
-    plt.close()
+    plt.grid()
+    plt.show()
 
     if test_random_levels:
         print('Testing random levels')
