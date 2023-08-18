@@ -79,6 +79,7 @@ from levels.level_min_cut import level_min_cut
 from levels.level_minimum_spanning_tree import level_minimum_spanning_tree
 from levels.level_mols import level_mols
 from levels.level_naturals import level_naturals
+from levels.level_network import level_network
 from levels.level_nonogram import level_nonogram
 from levels.level_no_three_in_line import level_no_three_in_line
 from levels.level_numeration import level_numeration
@@ -251,6 +252,7 @@ class Levels:
         level_random_butterfly,
         level_elementary,
         level_circuit,
+        level_network,
         level_rotation,
         level_superpermutation,
         level_singleton,

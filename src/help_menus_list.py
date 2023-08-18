@@ -488,6 +488,8 @@ help_menus_list['levels']["Pythagorean"] = help_menus_list['POW']
 help_menus_list['levels']["Elementary"] = """An elementary permutation is a swap of two adjacent elements.\n""" + help_menus_list['EQUSET']
            
 help_menus_list['levels']["Circuit"] = help_menus_list['random']  
+
+help_menus_list['levels']["Network"] = help_menus_list['random'] 
                                
 help_menus_list['levels']["Rotation"] = help_menus_list['random exit']                                          
 

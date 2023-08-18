@@ -24,15 +24,6 @@ def level_circuit():
     B1 = Switch(name='S5', value = rd_choice([0, 1]))
     B2 = Switch(name='S6', value = rd_choice([0, 1]))
     B3 = Switch(name='S7', value = rd_choice([0, 1]))
-    
-    A0 = Switch(name='A0', value = rd_choice([0, 1]))
-    A1 = Switch(name='A1', value = rd_choice([0, 1]))
-    A2 = Switch(name='A2', value = rd_choice([0, 1]))
-    A3 = Switch(name='A3', value = rd_choice([0, 1]))
-    B0 = Switch(name='B0', value = rd_choice([0, 1]))
-    B1 = Switch(name='B1', value = rd_choice([0, 1]))
-    B2 = Switch(name='B2', value = rd_choice([0, 1]))
-    B3 = Switch(name='B3', value = rd_choice([0, 1]))
 
     a = A0.value + A1.value*2 + A2.value*4 + A3.value*8
     b = B0.value + B1.value*2 + B2.value*4 + B3.value*8
