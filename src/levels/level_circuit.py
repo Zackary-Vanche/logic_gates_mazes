@@ -136,7 +136,9 @@ def level_circuit():
               tree=T0,
               name='D0',
               room_departure=R1,
-              room_arrival=RE)
+              room_arrival=RE,
+              relative_departure_coordinates=[2/6, 1/2],
+              relative_arrival_coordinates=[1/2, 3/4])
     
     sol = 'S8 ' * bin_c[0] + 'S9 ' * bin_c[1] + 'S10 ' * bin_c[2] + 'S11 ' * bin_c[3] + 'S12 ' * bin_c[4]
     sol = sol + 'D0'
