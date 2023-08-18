@@ -141,7 +141,7 @@ def level_water_lily():
                 cut_expression=True)
     
     
-    dx = 0.8
+    dx = 0.9
     dy = 1
     ex = 0.5
     ey = 0.5
