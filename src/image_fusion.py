@@ -47,7 +47,8 @@ if __name__ == "__main__":
     m = divisor_closest_to_sqrt(n_levels)
     n = n_levels // m
     for size in [[1920, 1200],
-                 [1920, 1080]]:  # [1346, 668], [1920, 1001], [1920, 1055],
+                 [1920, 1080],
+                 [1366, 768]]:  # [1346, 668], [1920, 1001], [1920, 1055],
         try:
             WIDTH, HEIGHT = size
             string = "WIDTH_{}_HEIGHT_{}".format(WIDTH, HEIGHT)
