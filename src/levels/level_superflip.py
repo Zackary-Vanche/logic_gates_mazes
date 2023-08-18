@@ -82,31 +82,31 @@ def level_superflip():
     T0 = Tree(tree_list=tree_list,
               name='T0',
               switches = l_switches[0],
-              cut_expression=True)
+              cut_expression=False)
     T1 = Tree(tree_list=tree_list,
               name='T1',
               switches = l_switches[1],
-              cut_expression=True)
+              cut_expression=False)
     T2 = Tree(tree_list=tree_list,
               name='T2',
               switches = l_switches[2],
-              cut_expression=True)
+              cut_expression=False)
     T3 = Tree(tree_list=tree_list,
               name='T3',
               switches = l_switches[3],
-              cut_expression=True)
+              cut_expression=False)
     T4 = Tree(tree_list=tree_list,
               name='T4',
               switches = l_switches[4],
-              cut_expression=True)
+              cut_expression=False)
     T5 = Tree(tree_list=tree_list,
               name='T5',
               switches = l_switches[5],
-              cut_expression=True)
+              cut_expression=False)
     T6 = Tree(tree_list=tree_list,
               name='T6',
               switches = l_switches[6],
-              cut_expression=True)
+              cut_expression=False)
     
     switches_D7 = []
     for i in range(24):
@@ -119,7 +119,7 @@ def level_superflip():
     T7 = Tree(tree_list=['AND'] + [['EQU', Tree.tree_list_BIN(12), Tree.tree_list_BIN(12)]]*24,
               name='T7',
               switches = switches_D7,
-              cut_expression=True)
+              cut_expression=False)
     
     x = 90
     y = 160
@@ -203,7 +203,7 @@ def level_superflip():
                  fastest_solution=None,
                  level_color=Levels_colors_list.FROM_HUE(hu=0.1, li=0.5, sa=0.6),
                  name='Superflip',
-                 door_window_size=350,
+                 door_window_size=420,
                  keep_proportions=True,
                  y_separation=40,
                  border=15,

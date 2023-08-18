@@ -854,7 +854,7 @@ def level_panex():
                  fastest_solution=None,
                  level_color=color,
                  name='Panex',
-                 door_window_size=600,
+                 door_window_size=500,
                  keep_proportions=False,
                  y_separation=30,
                  border=30)

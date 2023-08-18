@@ -87,7 +87,7 @@ from levels.level_odd import level_odd
 from levels.level_yoyo import level_yoyo
 from levels.level_oval_track_puzzle import level_oval_track_puzzle
 from levels.level_pancake_sorting import level_pancake_sorting
-# from levels.level_panex import level_panex
+from levels.level_panex import level_panex
 from levels.level_parallel import level_parallel
 from levels.level_parking import level_parking
 from levels.level_partition import level_partition
@@ -141,7 +141,7 @@ from levels.level_spaceship import level_spaceship
 from levels.level_strange import level_strange
 from levels.level_sudoku import level_sudoku
 from levels.level_sujiko import level_sujiko
-# from levels.level_superflip import level_superflip
+from levels.level_superflip import level_superflip
 from levels.level_superpermutation import level_superpermutation
 from levels.level_syracuse import level_syracuse
 from levels.level_takuzu import level_takuzu
@@ -353,8 +353,8 @@ class Levels:
         level_bridges,
         level_chinese_postman_problem,
         level_parking,
-        # level_panex,
-        # level_superflip,
+        level_panex,
+        level_superflip,
     ]
 
     aux_level_function_list = [
