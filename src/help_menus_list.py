@@ -339,11 +339,11 @@ There are differents elements in this game :
         If a door is open, it is surrounded, and you say it is equal to 1. If it is closed, it is equal to 0.
         Diamond-shape doors are two-way while triangle-shaped doors are one-way only.
 
-To go in a room, use a switch or travel by a door, write its name and press enter.
+To go in a room, use a switch or travel by a door, write its name and press [Enter].
 You can only use switches of your current room, and travel by open doors.
 You can always erase what you wrote with the backspace key.
 
-To start the level again from the beginning, press [B] and then enter.
+To start the level again from the beginning, press [B] and then [Enter].
 To go to the next (previous) page, press the right (left) arrow key."""
 
 help_menus_list['directions keys'] = """
@@ -353,7 +353,7 @@ To change level, you can use :
     the left arrow key to go to the previous page
 
     L and the number of the level you want to go to.
-    For instance, if you write L12 and then press enter you will go to the level 12.
+    For instance, if you write L12 and then press [Enter] you will go to the level 12.
 
 Instead of taping the action you want to do, you can see the possibles actions by using the ALT keys.
 """
@@ -362,7 +362,7 @@ help_menus_list['go in a room'] = """
 To go directly in a room, you can type its name (if it is possible for you to go there). The exit room is called "EXIT" or "RE"."""
 
 help_menus_list['reminder B'] = """
-[Reminder] : To start the level again from the beginning, press [B]."""
+[Reminder] : To start the level again from the beginning, press [B] and then [Enter]."""
 
 help_menus_list['write several actions'] = """
 Instead of writing actions one by one, one can write several at a time, separated by spaces.
@@ -374,14 +374,14 @@ help_menus_list['leave the game'] = """
 To leave the game, you can click an the cross but also press [ESCAPE]."""
 
 help_menus_list['random'] = """
-By pressing [N], you get a new random level."""
+Press [N] and then [Enter] to get new random level."""
 # Door's expression and solutions of the random levels have all been calculated by computer only."""
 
 help_menus_list['random exit'] = """The configuration you have to reach to open the exit gate is chosen randomly in a file.
-Press [N] to get a new exit gate."""
+Press [N] and then [Enter] to get a new exit gate."""
 
 help_menus_list['random configuration'] = """The initial configuration is chosen randomly in a file.
-Press [N] to get a new configuration."""
+Press [N] and then [Enter] to get a new configuration."""
 
 help_menus_list['UP DOWN'] = 'Use the UP and DOWN keys to see all the equations.'
 
