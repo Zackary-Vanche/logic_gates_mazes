@@ -89,6 +89,7 @@ from levels.level_panex import level_panex
 from levels.level_parallel import level_parallel
 from levels.level_parking import level_parking
 from levels.level_partition import level_partition
+from levels.level_peirce_s_arrow import level_peirce_s_arrow
 from levels.level_playground import level_playground
 from levels.level_permutations import level_permutations
 from levels.level_point_of_no_return import level_point_of_no_return
@@ -124,6 +125,7 @@ from levels.level_recurrence import level_recurrence
 from levels.level_river import level_river
 from levels.level_second import level_second
 from levels.level_separation import level_separation
+from levels.level_sheffer_stroke import level_sheffer_stroke
 from levels.level_shuffled import level_shuffled
 from levels.level_singleton import level_singleton
 from levels.level_small import level_small
@@ -220,6 +222,8 @@ class Levels:
         level_point_of_no_return,
         level_bipartite,
         level_hamiltonian,
+        level_sheffer_stroke,
+        level_peirce_s_arrow,
         level_pong,
         level_longest_path,
         level_hitting_set,
@@ -585,12 +589,14 @@ if __name__ == "__main__":
     # sol = 'S0 S1 S2 S4 S5 S7 S10 S13 S16 D0 S18 D1 S19 D3 S20 D6 S21 D6 D8 S24 D8 D3 D5 S23 D14 S26 D14 D5 D1 D2 S22 D11 S25 D17 S27 D19'
     # level_minimum_spanning_tree().try_solution(sol, verbose=2)
     
-    # solutions = level_honeycomb().find_all_solutions(verbose=2,
-    #                                                 nb_iterations_print=10**4,
-    #                                                 stop_at_first_solution=False)
-    # for sol in solutions[0]:
-    #     print(' '.join(sol))
-    #     print('')
+    # for level in [level_peirce_s_arrow,
+    #               level_sheffer_stroke]:
+    #     solutions = level().find_all_solutions(verbose=2,
+    #                                           nb_iterations_print=10**4,
+    #                                           stop_at_first_solution=False)
+    #     for sol in solutions[0]:
+    #         print(' '.join(sol))
+    #         print('')
 
     # solutions = level_cartesian().find_all_solutions(verbose=2,
     #                                                 nb_iterations_print=10**4,

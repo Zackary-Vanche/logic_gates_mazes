@@ -445,6 +445,10 @@ help_menus_list['levels']["Bipartite"] = """Several paths lead to the exit."""
 
 help_menus_list['levels']["Hamiltonian"] = """Don't look for something too complicated."""
 
+help_menus_list['levels']["Sheffer stroke"] = """This level has several solutions.."""
+
+help_menus_list['levels']["Peirce's arrow"] = """This level has several solutions.."""
+
 help_menus_list['levels']["Pong"] = '\n'.join([help_menus_list['numerical value'], help_menus_list['SUM'], help_menus_list['EQU']])
 
 help_menus_list['levels']["Longest path"] = "The longest path problem is NP-complete."

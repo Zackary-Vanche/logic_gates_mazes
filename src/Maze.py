@@ -240,6 +240,7 @@ class Maze:
                 list_to_visit.extend(x.tree.all_switches_list)
             if type(x) == Tree:
                 self.intermediate_values_list.append(x)
+                list_to_visit.extend(x.all_switches_list)
         self.intermediate_values_list = list(set(self.intermediate_values_list))
         
         self.intermediate_values_list.sort(key = lambda x : int(x.name[1:]))
