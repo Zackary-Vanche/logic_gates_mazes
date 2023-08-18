@@ -374,9 +374,8 @@ help_menus_list['leave the game'] = """
 To leave the game, you can click an the cross but also press [ESCAPE]."""
 
 help_menus_list['random'] = """
-By pressing [N], you get a new random level.
-
-Door's expression and solutions of the random levels have all been calculated by computer only."""
+By pressing [N], you get a new random level."""
+# Door's expression and solutions of the random levels have all been calculated by computer only."""
 
 help_menus_list['random exit'] = """The configuration you have to reach to open the exit gate is chosen randomly in a file.
 Press [N] to get a new exit gate."""
@@ -487,7 +486,9 @@ help_menus_list['levels']["Parallel"] = """The "Guess and check" method works we
 help_menus_list['levels']["Pythagorean"] = help_menus_list['POW']
 
 help_menus_list['levels']["Elementary"] = """An elementary permutation is a swap of two adjacent elements.\n""" + help_menus_list['EQUSET']
-                                          
+           
+help_menus_list['levels']["Circuit"] = help_menus_list['random']  
+                               
 help_menus_list['levels']["Rotation"] = help_menus_list['random exit']                                          
 
 help_menus_list['levels']["Superpermutation"] = help_menus_list['INLIST']

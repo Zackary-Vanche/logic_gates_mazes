@@ -246,7 +246,7 @@ class Maze:
         self.intermediate_values_list.sort(key = lambda x : int(x.name[1:]))
         
         intermediate_values_names = [t.name for t in self.intermediate_values_list]
-        assert len(intermediate_values_names) == len(set(intermediate_values_names))
+        assert len(intermediate_values_names) == len(set(intermediate_values_names)), str(intermediate_values_names)
 
     def __str__(self):
         len_line = 100
