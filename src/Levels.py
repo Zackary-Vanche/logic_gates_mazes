@@ -24,8 +24,9 @@ from levels.level_chinese_postman_problem import level_chinese_postman_problem
 from levels.level_code import level_code
 from levels.level_combinatorics import level_combinatorics
 from levels.level_compact import level_compact
-from levels.level_connect_the_dots import level_connect_the_dots
+from levels.level_conjunctive_normal_form import level_conjunctive_normal_form
 from levels.level_congruence import level_congruence
+from levels.level_connect_the_dots import level_connect_the_dots
 from levels.level_crossroad import level_crossroad
 from levels.level_circuit import level_circuit
 from levels.level_crystal import level_crystal
@@ -305,6 +306,7 @@ class Levels:
         level_vortex,
         level_tree,
         level_dead_ends,
+        level_conjunctive_normal_form,
         level_betweenness,
         level_fractal,
         level_tesseract,
