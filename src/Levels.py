@@ -204,7 +204,7 @@ class Levels:
         Trouver un sous-ensemble de nombres donnés dont la somme est égale à un nombre cible donné.
     """
 
-    levels_functions_list = [level_branches,
+    levels_functions_list = [
         level_hello_world,
         level_playground,
         level_initiation,
