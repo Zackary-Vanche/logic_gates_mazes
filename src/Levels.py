@@ -15,6 +15,7 @@ from levels.level_binary import level_binary
 from levels.level_bipartite import level_bipartite
 from levels.level_bis_repetita import level_bis_repetita
 from levels.level_boolean import level_boolean
+from levels.level_branches import level_branches
 from levels.level_bridges import level_bridges
 from levels.level_cartesian import level_cartesian
 from levels.level_central_symmetry import level_central_symmetry
@@ -203,7 +204,7 @@ class Levels:
         Trouver un sous-ensemble de nombres donnés dont la somme est égale à un nombre cible donné.
     """
 
-    levels_functions_list = [
+    levels_functions_list = [level_branches,
         level_hello_world,
         level_playground,
         level_initiation,
@@ -311,6 +312,7 @@ class Levels:
         level_fractal,
         level_tesseract,
         level_random_turning,
+        level_branches,
         level_oval_track_puzzle,
         level_cartesian,
         level_random_line,
@@ -623,7 +625,7 @@ if __name__ == "__main__":
     #         print(' '.join(sol))
     #         print('')7
     
-    # solutions = level_walk().find_all_solutions(verbose=2,
+    # solutions = level_branches().find_all_solutions(verbose=2,
     #                                           nb_iterations_print=10**4,
     #                                           stop_at_first_solution=False)
     # for sol in solutions[0]:

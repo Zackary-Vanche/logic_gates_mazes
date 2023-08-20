@@ -583,13 +583,15 @@ help_menus_list['levels']["Tree"] = """The tree is hidden in the equations.\n\n"
 
 help_menus_list['levels']["Dead_ends"] = """Even if it is the first level that actually looks like a printed circuit board, you have been in a computer all this time."""
 
-help_menus_list['levels']["Conjunctive normal form"] = "This level is the same than the level named 3 SAT, but it is random."
+help_menus_list['levels']["Conjunctive normal form"] = "This level is the same than the level named '3 SAT', but it is random."
 
 help_menus_list['levels']["Betweenness"] = help_menus_list['BETWEEN']
 
 help_menus_list['levels']["Fractal"] = """As you see, several doors lead to the exit.\nThere is only one that can be opened."""
 
 help_menus_list['levels']["Tesseract"] = """The tesseract is hidden in the equations."""
+
+help_menus_list['levels']["Branches"] = "This level is the same than the level named 'Point of no return', but it is random."
 
 help_menus_list['levels']["Oval_track_puzzle"] = help_menus_list["cheat code"]
 
