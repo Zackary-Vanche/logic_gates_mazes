@@ -91,6 +91,7 @@ from levels.level_panex import level_panex
 from levels.level_parallel import level_parallel
 from levels.level_parking import level_parking
 from levels.level_partition import level_partition
+from levels.level_path import level_path
 from levels.level_peirce_s_arrow import level_peirce_s_arrow
 from levels.level_playground import level_playground
 from levels.level_permutations import level_permutations
@@ -150,10 +151,12 @@ from levels.level_temple import level_temple
 from levels.level_tesseract import level_tesseract
 from levels.level_tetrahedron import level_tetrahedron
 from levels.level_tetris import level_tetris
+from levels.level_trail import level_trail
 from levels.level_travelling_salesman import level_travelling_salesman
 from levels.level_tree import level_tree
 from levels.level_triangulate import level_triangulate
 from levels.level_vortex import level_vortex
+from levels.level_walk import level_walk
 from levels.level_wasted import level_wasted
 from levels.level_water_lily import level_water_lily
 from levels.level_water_pouring import level_water_pouring
@@ -257,7 +260,9 @@ class Levels:
         level_superpermutation,
         level_singleton,
         level_chessboard,
-        level_water_lily,
+        level_path,
+        level_trail,
+        level_walk,
         level_entropy,
         level_dichotomy,
         level_random_star,
@@ -273,6 +278,7 @@ class Levels:
         level_tetrahedron,
         level_small,
         level_strange,
+        level_water_lily,
         level_k,
         level_the_4_queens,
         level_mansion,
@@ -356,6 +362,13 @@ class Levels:
         level_panex,
         level_superflip,
     ]
+    
+    # levels_names_dico = {}
+    # for i in range(len(levels_functions_list)):
+    #     level = levels_functions_list[i]()
+    #     name = level.name
+    #     levels_names_dico[name] = i
+    # print(levels_names_dico)
 
     aux_level_function_list = [
         aux_level_random_simple,
@@ -550,6 +563,14 @@ def test_levels(test_random_levels=False):
             plt.xticks(bins_list)
             plt.show()
             print('')
+    
+    print('Testing level cartesian')
+    solutions = level_cartesian().find_all_solutions(verbose=2,
+                                                    nb_iterations_print=10**4,
+                                                    stop_at_first_solution=False)
+    assert len(solutions[0]) == 1
+    sol = solutions[0][0]
+    assert level_cartesian().fastest_solution == ' '.join(sol)
 
 def calculates_random_level_solution_length(aux_level_function):
     from os import listdir as os_listdir
@@ -581,8 +602,6 @@ if __name__ == "__main__":
 
     if os.path.exists('temp.txt'):
         os.remove('temp.txt')
-
-    test_levels()
     
     # level = level_bridges()
     # sol = "D0 S0 D1"
@@ -600,15 +619,17 @@ if __name__ == "__main__":
     #                                           stop_at_first_solution=False)
     #     for sol in solutions[0]:
     #         print(' '.join(sol))
-    #         print('')
-
-    # solutions = level_cartesian().find_all_solutions(verbose=2,
-    #                                                 nb_iterations_print=10**4,
-    #                                                 stop_at_first_solution=False)
+    #         print('')7
+    
+    # solutions = level_walk().find_all_solutions(verbose=2,
+    #                                           nb_iterations_print=10**4,
+    #                                           stop_at_first_solution=False)
     # for sol in solutions[0]:
     #     print(' '.join(sol))
     #     print('')
     
+    test_levels()
+
     # dico = {}
     # k = 0
     # for door in level_honeycomb().doors_list:

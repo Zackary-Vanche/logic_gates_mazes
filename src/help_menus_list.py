@@ -501,7 +501,11 @@ help_menus_list['levels']["Taxicab number"] = """Taxicab numbers are also called
 
 help_menus_list['levels']["Chessboard"] = """If you remove the exit, the graph of this level is the graph of the possible moves of a knight in a 3*4 rectangle.\nHowever, sometimes here doors are one-way only."""
 
-help_menus_list['levels']["Water lily"] = """A water lily is a floating aquatic plant with round, flat leaves and beautiful flowers that bloom on or above the water's surface."""
+help_menus_list['levels']["Path"] = """There is nothing to help you here."""
+
+help_menus_list['levels']["Trail"] = """There is nothing to help you here."""
+
+help_menus_list['levels']["Walk"] = """There is nothing to help you here."""
 
 help_menus_list['levels']["Entropy"] = """You have a limited number of moves."""
 
@@ -526,6 +530,8 @@ help_menus_list['levels']["Small"] = """The solution and the door's expressions 
 help_menus_list['levels']["The 4 queens"] = """This level is inspired from the 8 queens problem."""
 
 help_menus_list['levels']["Mansion"] = """You might get lost in this mansion."""
+
+help_menus_list['levels']["Water lily"] = """A water lily is a floating aquatic plant with round, flat leaves and beautiful flowers that bloom on or above the water's surface."""
 
 help_menus_list['levels']["K"] = """You have to locate as many knights in a chessboard as possible."""
 
