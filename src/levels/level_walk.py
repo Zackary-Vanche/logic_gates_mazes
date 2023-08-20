@@ -111,8 +111,8 @@ def level_walk():
                           ['INFOREQU', [None], [None]]
                           ],
                 name='T14',
-                switches=[S4, S5, S6, S7, S8, S9, S10, S11, V0, V1, V2, V3, 8,
-                          V2, V3])
+                switches=[S4, S5, S6, S7, S8, S9, S10, S11, V0, V1, V2, V3, 4,
+                          V0, V1])
 
     dx = 1
     dy = 1
@@ -238,10 +238,10 @@ def level_walk():
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14],
-                 fastest_solution="S2 D0 S4 S6 S7 S8 S9 S10 D1 D2 D4 D8 D12 D14",
-                 level_color=Levels_colors_list.FROM_HUE(hu=1/6, sa=0.3, li=0.5),
+                 fastest_solution="S2 D0 S5 S11 D1 D3 D6 D10 D13 D14",
+                 level_color=Levels_colors_list.FROM_HUE(hu=5/6, sa=0.3, li=0.5),
                  name='Walk',
                  keep_proportions=True,
-                 door_window_size=315)
+                 door_window_size=300)
     
     return level
