@@ -5,10 +5,7 @@ from inspect import signature
 
 from levels.level_3sat import level_3sat
 from levels.level_4_colors_theorem import level_4_colors_theorem
-from levels.level_the_4_queens import level_the_4_queens
-from levels.level_the_4th_dimension import level_the_4th_dimension
 from levels.level_alice_and_bob import level_alice_and_bob
-# from levels.level_ariadne_s_string import level_ariadne_s_string
 from levels.level_backward import level_backward
 from levels.level_baguenaudier import level_baguenaudier
 from levels.level_betweenness import level_betweenness
@@ -22,19 +19,17 @@ from levels.level_cartesian import level_cartesian
 from levels.level_central_symmetry import level_central_symmetry
 from levels.level_chessboard import level_chessboard
 from levels.level_chinese_postman_problem import level_chinese_postman_problem
-# from levels.level_circonvolution import level_circonvolution
+from levels.level_circuit import level_circuit
 from levels.level_code import level_code
 from levels.level_combinatorics import level_combinatorics
 from levels.level_compact import level_compact
-from levels.level_conjunctive_normal_form import level_conjunctive_normal_form
 from levels.level_congruence import level_congruence
+from levels.level_conjunctive_normal_form import level_conjunctive_normal_form
 from levels.level_connect_the_dots import level_connect_the_dots
 from levels.level_crossroad import level_crossroad
-from levels.level_circuit import level_circuit
 from levels.level_crystal import level_crystal
 from levels.level_cube import level_cube
 from levels.level_dead_ends import level_dead_ends
-# from levels.level_desert_crossing import level_desert_crossing
 from levels.level_diagonal import level_diagonal
 from levels.level_dichotomy import level_dichotomy
 from levels.level_dominating_set import level_dominating_set
@@ -71,11 +66,11 @@ from levels.level_lights_out import level_lights_out
 from levels.level_linear import level_linear
 from levels.level_longest_path import level_longest_path
 from levels.level_loop import level_loop
+from levels.level_magic_square import level_magic_square  # kakuro
 from levels.level_manhattan_distance import level_manhattan_distance
 from levels.level_mansion import level_mansion
-from levels.level_matrix import level_matrix
-from levels.level_magic_square import level_magic_square  # kakuro
 from levels.level_mastermind import level_mastermind
+from levels.level_matrix import level_matrix
 from levels.level_max_cut import level_max_cut
 from levels.level_meanders import level_meanders
 from levels.level_min_cut import level_min_cut
@@ -83,11 +78,10 @@ from levels.level_minimum_spanning_tree import level_minimum_spanning_tree
 from levels.level_mols import level_mols
 from levels.level_naturals import level_naturals
 from levels.level_network import level_network
-from levels.level_nonogram import level_nonogram
 from levels.level_no_three_in_line import level_no_three_in_line
+from levels.level_nonogram import level_nonogram
 from levels.level_numeration import level_numeration
 from levels.level_odd import level_odd
-from levels.level_yoyo import level_yoyo
 from levels.level_oval_track_puzzle import level_oval_track_puzzle
 from levels.level_pancake_sorting import level_pancake_sorting
 from levels.level_panex import level_panex
@@ -96,14 +90,16 @@ from levels.level_parking import level_parking
 from levels.level_partition import level_partition
 from levels.level_path import level_path
 from levels.level_peirce_s_arrow import level_peirce_s_arrow
-from levels.level_playground import level_playground
 from levels.level_permutations import level_permutations
+from levels.level_playground import level_playground
 from levels.level_point_of_no_return import level_point_of_no_return
 from levels.level_pong import level_pong
-# from levels.level_postman import level_postman
 from levels.level_product import level_product
 from levels.level_puzzle import level_puzzle
 from levels.level_pythagorean import level_pythagorean
+from levels.level_random_K2 import level_random_K2
+from levels.level_random_K33 import level_random_K33
+from levels.level_random_K5 import level_random_K5
 from levels.level_random_binary_tree import level_random_binary_tree
 from levels.level_random_boustrophedon import level_random_boustrophedon
 from levels.level_random_bull import level_random_bull
@@ -111,41 +107,38 @@ from levels.level_random_butterfly import level_random_butterfly
 from levels.level_random_come_back import level_random_come_back
 from levels.level_random_cuboctahedron import level_random_cuboctahedron
 from levels.level_random_gemini import level_random_gemini
-from levels.level_random_K2 import level_random_K2
-from levels.level_random_K5 import level_random_K5
-from levels.level_random_K33 import level_random_K33
-from levels.level_random_turning import level_random_turning
 from levels.level_random_ladder import level_random_ladder
 from levels.level_random_line import level_random_line
 from levels.level_random_petersen import level_random_petersen
-# from levels.level_random_tetractys import level_random_tetractys
 from levels.level_random_simple import level_random_simple
 from levels.level_random_star import level_random_star
-from levels.level_sign import level_sign
 from levels.level_random_starting_point import level_random_starting_point
-from levels.level_sum import level_sum
+from levels.level_random_turning import level_random_turning
 from levels.level_random_wheel import level_random_wheel
-from levels.level_rotation import level_rotation
-from levels.level_rotation_bis import level_rotation_bis
 from levels.level_recurrence import level_recurrence
 from levels.level_river import level_river
+from levels.level_rotation import level_rotation
+from levels.level_rotation_bis import level_rotation_bis
 from levels.level_second import level_second
 from levels.level_separation import level_separation
 from levels.level_sheffer_stroke import level_sheffer_stroke
 from levels.level_shuffled import level_shuffled
+from levels.level_sign import level_sign
 from levels.level_singleton import level_singleton
 from levels.level_small import level_small
 from levels.level_small_honeycomb import level_small_honeycomb
 from levels.level_small_panex import level_small_panex
-from levels.level_spider import level_spider
-from levels.level_square import level_square
 from levels.level_solitaire import level_solitaire
 from levels.level_sorted import level_sorted
-from levels.level_spare import level_spare
 from levels.level_spaceship import level_spaceship
+from levels.level_spare import level_spare
+from levels.level_spider import level_spider
+from levels.level_square import level_square
+from levels.level_stairs import level_stairs
 from levels.level_strange import level_strange
 from levels.level_sudoku import level_sudoku
 from levels.level_sujiko import level_sujiko
+from levels.level_sum import level_sum
 from levels.level_superflip import level_superflip
 from levels.level_superpermutation import level_superpermutation
 from levels.level_syracuse import level_syracuse
@@ -155,6 +148,8 @@ from levels.level_temple import level_temple
 from levels.level_tesseract import level_tesseract
 from levels.level_tetrahedron import level_tetrahedron
 from levels.level_tetris import level_tetris
+from levels.level_the_4_queens import level_the_4_queens
+from levels.level_the_4th_dimension import level_the_4th_dimension
 from levels.level_trail import level_trail
 from levels.level_travelling_salesman import level_travelling_salesman
 from levels.level_tree import level_tree
@@ -167,7 +162,7 @@ from levels.level_water_pouring import level_water_pouring
 from levels.level_wave import level_wave
 from levels.level_weights import level_weights
 from levels.level_wind_compass import level_wind_compass
-from levels.level_stairs import level_stairs
+from levels.level_yoyo import level_yoyo
 from levels.level_zebra import level_zebra
 
 from levels.level_random_K2 import aux_level_random_K2
@@ -629,14 +624,14 @@ if __name__ == "__main__":
     #         print(' '.join(sol))
     #         print('')7
     
-    solutions = level_path().find_all_solutions(verbose=2,
-                                                           nb_iterations_print=10**5,
-                                                           stop_at_first_solution=False)
-    for sol in solutions[0]:
-        print(' '.join(sol))
-        print('')
+    # solutions = level_path().find_all_solutions(verbose=2,
+    #                                                        nb_iterations_print=10**5,
+    #                                                        stop_at_first_solution=False)
+    # for sol in solutions[0]:
+    #     print(' '.join(sol))
+    #     print('')
     
-    # test_levels()
+    test_levels()
 
     # dico = {}
     # k = 0
