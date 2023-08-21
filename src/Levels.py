@@ -625,12 +625,12 @@ if __name__ == "__main__":
     #         print(' '.join(sol))
     #         print('')7
     
-    # solutions = level_branches().find_all_solutions(verbose=2,
-    #                                           nb_iterations_print=10**4,
-    #                                           stop_at_first_solution=False)
-    # for sol in solutions[0]:
-    #     print(' '.join(sol))
-    #     print('')
+    solutions = level_minimum_spanning_tree().find_all_solutions(verbose=2,
+                                                                 nb_iterations_print=10**4,
+                                                                 stop_at_first_solution=False)
+    for sol in solutions[0]:
+        print(' '.join(sol))
+        print('')
     
     test_levels()
 

@@ -53,7 +53,7 @@ def level_minimum_spanning_tree():
     tree_list_SUM = ['SUM'] + [tree_list_SUM_aux]*(len(Slist)//n)
     tree_list_0 = ['INFOREQU', tree_list_SUM, [None]]
     
-    ln = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
+    ln = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 42, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
 
     T0 = Tree(tree_list=tree_list_0,
               name='T0',
@@ -75,7 +75,7 @@ def level_minimum_spanning_tree():
                         ln[15], S15,
                         ln[16], S16,
                         ln[17], S17,
-                        184],
+                        183],
               cut_expression=True)
     T1 = Tree(tree_list=[None],
                 name='T1',
