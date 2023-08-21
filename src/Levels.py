@@ -206,7 +206,7 @@ class Levels:
         Trouver un sous-ensemble de nombres donnés dont la somme est égale à un nombre cible donné.
     """
 
-    levels_functions_list = [level_small_honeycomb,
+    levels_functions_list = [
         level_hello_world,
         level_playground,
         level_initiation,
@@ -342,7 +342,8 @@ class Levels:
         level_no_three_in_line,
         level_manhattan_distance,
         level_minimum_spanning_tree,
-        # level_honeycomb,
+        level_small_honeycomb,
+        level_honeycomb,
         level_random_gemini,
         level_random_cuboctahedron,
         level_diagonal,

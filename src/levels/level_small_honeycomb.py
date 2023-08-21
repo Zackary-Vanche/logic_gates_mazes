@@ -6,90 +6,7 @@ from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 from Color import Color
 from random import shuffle as rd_shuffle
-
-class Graph:
-    def __init__(self, num_of_nodes=0):
-        self.m_num_of_nodes = num_of_nodes
-        self.m_graph = []
-        self.node_set = set()
-
-    def add_edge(self, node1, node2, weight):
-        if type(node1) == str:
-            node1 = int(node1.replace('R', ''))
-        if type(node2) == str:
-            node2 = int(node2.replace('R', ''))
-        self.node_set.add(node1)
-        self.node_set.add(node2)
-        self.m_num_of_nodes = len(self.node_set)
-        self.m_graph.append([node1, node2, weight])
-        
-    def add_edge_list(self, edge_list):
-        for edge in edge_list:
-            node1, node2, weight = edge
-            self.add_edge(node1, node2, weight)
-        
-    # Finds the root node of a subtree containing node `i`
-    def find_subtree(self, parent, i):
-        if parent[i] == i:
-            return i
-        return self.find_subtree(parent, parent[i])
-    
-    # Connects subtrees containing nodes `x` and `y`
-    def connect_subtrees(self, parent, subtree_sizes, x, y):
-        xroot = self.find_subtree(parent, x)
-        yroot = self.find_subtree(parent, y)
-        if subtree_sizes[xroot] < subtree_sizes[yroot]:
-            parent[xroot] = yroot
-        elif subtree_sizes[xroot] > subtree_sizes[yroot]:
-            parent[yroot] = xroot
-        else:
-            parent[yroot] = xroot
-            subtree_sizes[xroot] += 1
-    
-    def kruskals_mst(self):
-        # Resulting tree
-        mst = []
-        
-        # Iterator
-        i = 0
-        # Number of edges in MST
-        e = 0
-    
-        # Sort edges by their weight
-        self.m_graph = sorted(self.m_graph, key=lambda item: item[2])
-        
-        # Auxiliary arrays
-        parent = {}
-        subtree_sizes = {}
-    
-        # Initialize `parent` and `subtree_sizes` arrays
-        for node in self.node_set:
-            parent[node] = node
-            subtree_sizes[node] = 0
-    
-        # Important property of MSTs
-        # number of egdes in a MST is 
-        # equal to (m_num_of_nodes - 1)
-        while e < (self.m_num_of_nodes - 1):
-            # Pick an edge with the minimal weight
-            node1, node2, weight = self.m_graph[i]
-            i = i + 1
-    
-            x = self.find_subtree(parent, node1)
-            y = self.find_subtree(parent, node2)
-    
-            if x != y:
-                e = e + 1
-                mst.append([node1, node2, weight])
-                self.connect_subtrees(parent, subtree_sizes, x, y)
-        
-        # total weight
-        total_weight = 0
-        for node1, node2, weight in mst:
-            total_weight += weight
-            
-        return {'mst':mst,
-                'total_weight':total_weight}
+from Graph import Graph
 
 def level_small_honeycomb(): 
 
@@ -105,15 +22,14 @@ def level_small_honeycomb():
     S9 = Switch(name='S9')
     S10 = Switch(name='S10')
     S11 = Switch(name='S11')
-    S12 = Switch(name='S12')
     
+    S12 = Switch(name='S12')
     S13 = Switch(name='S13')
     S14 = Switch(name='S14')
     S15 = Switch(name='S15')
     S16 = Switch(name='S16')
     S17 = Switch(name='S17')
     S18 = Switch(name='S18')
-    S19 = Switch(name='S19')
     
     l_weights = [i+1 for i in range(127)]
     rd_shuffle(l_weights)
@@ -197,7 +113,7 @@ def level_small_honeycomb():
                 switches=[S11])
     T13 = Tree(tree_list=Tree.tree_list_AND(7),
                 name='T13',
-                switches=[S13, S14, S15, S16, S17, S18, S19])
+                switches=[S12, S13, S14, S15, S16, S17, S18])
 
     dx = 0.5
     dy = (3)**0.5 / 2
@@ -209,29 +125,29 @@ def level_small_honeycomb():
 
     R0 = Room(name='R0',
                 position=[1*dx-nx*ex, 1*dy-ny*ey, nx*ex, ny*ey],
-                switches_list=[S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12])
+                switches_list=[S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11])
 
     R1 = Room(name='R1',
                 position=[2*dx, 0*dy, ex, ey],
-                switches_list=[S13])
+                switches_list=[S12])
     R2 = Room(name='R2',
                 position=[4*dx, 0*dy, ex, ey],
-                switches_list=[S14])
+                switches_list=[S13])
     R3 = Room(name='R3',
                 position=[1*dx, 1*dy, ex, ey],
-                switches_list=[S15])
+                switches_list=[S14])
     R4 = Room(name='R4',
                 position=[3*dx, 1*dy, ex, ey],
-                switches_list=[S16])
+                switches_list=[S15])
     R5 = Room(name='R5',
                 position=[5*dx, 1*dy, ex, ey],
-                switches_list=[S17])
+                switches_list=[S16])
     R6 = Room(name='R6',
                 position=[2*dx, 2*dy, ex, ey],
-                switches_list=[S18])
+                switches_list=[S17])
     R7 = Room(name='R7',
                 position=[4*dx, 2*dy, ex, ey],
-                switches_list=[S19])
+                switches_list=[S18])
     RE = Room(name='RE',
               position=[1*dx-nx*ex, 2*dy, ex, ey],
               is_exit=True)
@@ -319,9 +235,9 @@ def level_small_honeycomb():
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13],
                  fastest_solution=None,
                  level_color=lcolor,
-                 name='Honeycomb',
+                 name='Small honeycomb',
                  keep_proportions=True,
-                 door_window_size=300,
+                 door_window_size=325,
                  random=True)
     
     return level

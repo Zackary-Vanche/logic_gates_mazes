@@ -6,52 +6,7 @@ from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 from Color import Color
 from random import shuffle as rd_shuffle
-
-def find(parents, node):
-    if parents[node] == -1:
-        return node
-    parents[node] = find(parents, parents[node])
-    return parents[node]
-
-def union(parents, ranks, node1, node2):
-    root1 = find(parents, node1)
-    root2 = find(parents, node2)
-    
-    if root1 != root2:
-        if ranks[root1] > ranks[root2]:
-            root1, root2 = root2, root1
-        parents[root1] = root2
-        if ranks[root1] == ranks[root2]:
-            ranks[root2] += 1
-
-def kruskal(edges):
-    node_indices = {}  # Dictionnaire pour mapper les noms de nœuds à des indices numériques
-    num_nodes = 0
-    parents = []
-    ranks = []
-    total_weight = 0
-
-    for node1, node2, weight in edges:
-        if node1 not in node_indices:
-            node_indices[node1] = num_nodes
-            num_nodes += 1
-            parents.append(-1)
-            ranks.append(0)
-        if node2 not in node_indices:
-            node_indices[node2] = num_nodes
-            num_nodes += 1
-            parents.append(-1)
-            ranks.append(0)
-
-    edges_with_indices = [(node_indices[node1], node_indices[node2], weight) for node1, node2, weight in edges]
-    edges_with_indices.sort()
-
-    for node1, node2, weight in edges_with_indices:
-        if find(parents, node1) != find(parents, node2):
-            union(parents, ranks, node1, node2)
-            total_weight += weight
-
-    return total_weight
+from Graph import Graph
 
 def level_honeycomb(): 
 
@@ -121,7 +76,10 @@ def level_honeycomb():
              ('R10', 'R11', l_weights[22]),
              ('R11', 'R12', l_weights[23])]
     
-    a = kruskal(edges)
+    g = Graph()
+    g.add_edge_list(edges)
+    dico = g.kruskals_mst()
+    a = dico['total_weight']
     
     Slist = [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, S23]
     

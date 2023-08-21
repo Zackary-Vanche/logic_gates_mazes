@@ -632,7 +632,9 @@ help_menus_list['levels']["Manhattan_distance"] = """The cheat code might be ver
 
 help_menus_list['levels']["Minimum spanning tree"] = """A Minimum spanning tree is the subset of edges in a graph that connects all the vertices together\nwith the minimum total edge weight possible, without forming any cycles."""
 
-help_menus_list['levels']["Honeycomb"] = """Honeycombs are supposed to be hexagonal...\nThe method of resolution you should use for this level is the same as for the level "minimum spanning tree".\n""" + help_menus_list['random']
+help_menus_list['levels']["Small honeycomb"] = """Honeycombs are supposed to be hexagonal...\nThe method of resolution you should use for this level is the same as for the level "minimum spanning tree".\n""" + help_menus_list['random']
+
+help_menus_list['levels']["Honeycomb"] = """Same, but bigger...""" + help_menus_list['random']
 
 help_menus_list['levels']["Diagonal"] = """To solve this level you need to solve a 4*4 sudoku grid."""
 
