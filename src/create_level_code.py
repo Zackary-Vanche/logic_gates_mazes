@@ -1,6 +1,6 @@
-ns = 15
-nd = 1
-nr = 1
+ns = 4*2+3*3+2
+nd = ns+5
+nr = 12+4
 nv = 0
 
 print('''
@@ -32,7 +32,7 @@ for i in range(nv):
 for i in range(nd):
     print(f'''    T{i} = Tree(tree_list=[None],
                 name='T{i}',
-                switches=[1])''')
+                switches=[S{i-4}])''')
     
 print('')
 
@@ -46,7 +46,7 @@ for i in range(nr):
     y = (i)%4
     print(f'''    R{i} = Room(name='R{i}',
                 position=[{x}*dx, {y}*dy, ex, ey],
-                switches_list=[S{i-1}])''')
+                switches_list=[])''')
     
 print('''    RE = Room(name='RE',
               position=[0, 0, ex, ey],

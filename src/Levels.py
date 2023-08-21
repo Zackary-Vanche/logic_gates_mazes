@@ -8,6 +8,7 @@ from levels.level_4_colors_theorem import level_4_colors_theorem
 from levels.level_the_4_queens import level_the_4_queens
 from levels.level_the_4th_dimension import level_the_4th_dimension
 from levels.level_alice_and_bob import level_alice_and_bob
+# from levels.level_ariadne_s_string import level_ariadne_s_string
 from levels.level_backward import level_backward
 from levels.level_baguenaudier import level_baguenaudier
 from levels.level_betweenness import level_betweenness
@@ -134,6 +135,7 @@ from levels.level_sheffer_stroke import level_sheffer_stroke
 from levels.level_shuffled import level_shuffled
 from levels.level_singleton import level_singleton
 from levels.level_small import level_small
+from levels.level_small_honeycomb import level_small_honeycomb
 from levels.level_small_panex import level_small_panex
 from levels.level_spider import level_spider
 from levels.level_square import level_square
@@ -204,7 +206,7 @@ class Levels:
         Trouver un sous-ensemble de nombres donnés dont la somme est égale à un nombre cible donné.
     """
 
-    levels_functions_list = [
+    levels_functions_list = [level_small_honeycomb,
         level_hello_world,
         level_playground,
         level_initiation,
@@ -340,7 +342,7 @@ class Levels:
         level_no_three_in_line,
         level_manhattan_distance,
         level_minimum_spanning_tree,
-        level_honeycomb,
+        # level_honeycomb,
         level_random_gemini,
         level_random_cuboctahedron,
         level_diagonal,
@@ -625,18 +627,18 @@ if __name__ == "__main__":
     #         print(' '.join(sol))
     #         print('')7
     
-    solutions = level_minimum_spanning_tree().find_all_solutions(verbose=2,
-                                                                 nb_iterations_print=10**4,
-                                                                 stop_at_first_solution=False)
+    solutions = level_small_honeycomb().find_all_solutions(verbose=2,
+                                                           nb_iterations_print=10**5,
+                                                           stop_at_first_solution=False)
     for sol in solutions[0]:
         print(' '.join(sol))
         print('')
     
-    test_levels()
+    # test_levels()
 
     # dico = {}
     # k = 0
-    # for door in level_honeycomb().doors_list:
+    # for door in level_small_honeycomb().doors_list:
     #     if door.name in ['D0', 'D25']:
     #         continue
     #     # print(door.name)
