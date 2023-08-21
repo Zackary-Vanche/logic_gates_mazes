@@ -501,11 +501,11 @@ help_menus_list['levels']["Taxicab number"] = """Taxicab numbers are also called
 
 help_menus_list['levels']["Chessboard"] = """If you remove the exit, the graph of this level is the graph of the possible moves of a knight in a 3*4 rectangle.\nHowever, sometimes here doors are one-way only."""
 
-help_menus_list['levels']["Path"] = """There is nothing to help you here."""
+help_menus_list['levels']["Walk"] = """In graph theory, a walk is a sequential sequence of vertices and edges in a graph that represents a path through the graph, allowing for revisiting vertices and edges.\nHere, you cannot revisit vertices and edges."""
 
-help_menus_list['levels']["Trail"] = """There is nothing to help you here."""
+help_menus_list['levels']["Path"] = """A path is a trail in which all vertices (and therefore also all edges) are distinct."""
 
-help_menus_list['levels']["Walk"] = """There is nothing to help you here."""
+help_menus_list['levels']["Trail"] = """A trail is a walk in which all edges are distinct."""
 
 help_menus_list['levels']["Entropy"] = """You have a limited number of moves."""
 
