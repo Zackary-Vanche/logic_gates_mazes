@@ -45,7 +45,7 @@ def level_sorted():
 
     R0 = Room(name='R0',
                 position=[0, 0, 2, 4],
-                switches_list=Slist)
+                switches_list=[S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14])
     R1 = Room(name='R1',
                 position=[3, 0, 1, 1],
                 switches_list=[])
