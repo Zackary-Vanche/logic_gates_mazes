@@ -614,7 +614,7 @@ class Game:
             y0 = p * self.WINDOW_HEIGHT + c
             p, c = linear_function(1366 - self.X_marge, 50, 1920 - self.X_marge, 50)
             x0 = p * self.WINDOW_WIDTH + c
-            self.blit_text(text=' \n '.join(help_list),
+            self.blit_text(text='\n'.join(help_list),
                            pos=(x0, y0 + gap),
                            max_width=self.WINDOW_WIDTH-20-x0,
                            color=self.letters_color)
