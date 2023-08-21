@@ -108,11 +108,11 @@ def level_path():
                 switches=[S11])
     T14 = Tree(tree_list=['AND',
                           ['EQU', Tree.tree_list_SUM(12), [None]],
-                          ['INFOREQU', [None], [None]]
+                          ['SUPOREQU', [None], [None]]
                           ],
                 name='T14',
                 switches=[S4, S5, S6, S7, S8, S9, S10, S11, V0, V1, V2, V3, 8,
-                          V2, V3])
+                          S10, S11])
 
     dx = 1
     dy = 1

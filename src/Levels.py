@@ -192,18 +192,19 @@ from levels.level_random_cuboctahedron import aux_level_random_cuboctahedron
 
 class Levels:
 
-    """
-    Problème du problème du postier chinois (Chinese Postman Problem) :
-        Trouver le chemin le plus court pour visiter toutes les arêtes d'un graphe au moins une fois et revenir au point de départ.
-    
-    Problème du voyageur de commerce asynchrone (Asymmetric TSP) :
-        Une variante du TSP où la distance entre deux villes peut être différente en fonction de la direction du déplacement.
-    
+    """    
     Problème du couplage maximal (Maximum Matching Problem) :
         Trouver un couplage (ensemble d'arêtes non adjacentes) de taille maximale dans un graphe.
+
+    k_center
     
-    Problème du sous-ensemble somme (Subset Sum Problem) :
-        Trouver un sous-ensemble de nombres donnés dont la somme est égale à un nombre cible donné.
+    k-mean
+    
+    Domatic partition
+    
+    bin packing
+    
+    Maximum coverage problem
     """
 
     levels_functions_list = [
@@ -628,7 +629,7 @@ if __name__ == "__main__":
     #         print(' '.join(sol))
     #         print('')7
     
-    solutions = level_small_honeycomb().find_all_solutions(verbose=2,
+    solutions = level_path().find_all_solutions(verbose=2,
                                                            nb_iterations_print=10**5,
                                                            stop_at_first_solution=False)
     for sol in solutions[0]:
