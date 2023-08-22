@@ -120,6 +120,7 @@ from levels.level_random_turning import level_random_turning
 from levels.level_random_wheel import level_random_wheel
 from levels.level_recurrence import level_recurrence
 from levels.level_river import level_river
+from levels.level_roadblocks import level_roadblocks
 from levels.level_rotation import level_rotation
 from levels.level_rotation_bis import level_rotation_bis
 from levels.level_route import level_route
@@ -269,6 +270,7 @@ class Levels:
                              level_walk,
                              level_trail,
                              level_path,
+                             level_roadblocks,
                              level_passage,
                              level_impasse,
                              level_route,
@@ -676,12 +678,12 @@ if __name__ == "__main__":
 #         if level.try_solution(sol) == 2:
 #             print(sol)
 
-    solutions = level_passage().find_all_solutions(verbose=2,
-                                                    nb_iterations_print=10**4,
-                                                    stop_at_first_solution=False)
-    for sol in solutions[0]:
-        print(' '.join(sol))
-        print('')
+    # solutions = level_roadblocks().find_all_solutions(verbose=2,
+    #                                                 nb_iterations_print=10**4,
+    #                                                 stop_at_first_solution=False)
+    # for sol in solutions[0]:
+    #     print(' '.join(sol))
+    #     print('')
 
     test_levels()
 
