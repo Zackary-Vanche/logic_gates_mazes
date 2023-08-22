@@ -359,6 +359,7 @@ def level_tetractys(fast_solution_finding=False):
                  level_color=lcolor,
                  name='Tetractys',
                  keep_proportions=True,
-                 door_window_size=300)
+                 door_window_size=300,
+                 random=True)
     
     return level

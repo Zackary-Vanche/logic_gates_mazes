@@ -5,7 +5,7 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
-def level_path(): 
+def level_route(): 
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -38,32 +38,26 @@ def level_path():
     tree_list_1 = ['AND',
                    ['EQU', Tree.tree_list_SUM(2), [None]],
                    ['IN', Tree.tree_list_SUM(3), [None], [None]],
-                   ['IN', Tree.tree_list_SUM(3), [None], [None]],
                    ['IN', Tree.tree_list_SUM(2), [None], [None]],
                    ['IN', Tree.tree_list_SUM(4), [None], [None]],
                    ['IN', Tree.tree_list_SUM(2), [None], [None]],
                    ['IN', Tree.tree_list_SUM(3), [None], [None]],
-                   ['IN', Tree.tree_list_SUM(3), [None], [None]],
-                   ['EQU', Tree.tree_list_SUM(2), [None]],]
+                   ['EQU', Tree.tree_list_SUM(2), [None]],
+                   ['SUP', Tree.tree_list_SUM(6), [None]],]
 
-    T0 = Tree(tree_list=['AND',
-                         ['EQU', ['MOD', Tree.tree_list_SUM(4), [None]], [None]],
-                         ['SUPOREQU', [None], [None]]],
+    T0 = Tree(tree_list=['INF', Tree.tree_list_BIN(2), Tree.tree_list_BIN(2)],
                 name='T0',
-                switches=[S0, S1, S2, S3, 2, 0,
-                          S0, S3],
-                cut_expression_depth_1=True)
+                switches=[S0, S1, S2, S3])
     T1 = Tree(tree_list=tree_list_1,
                 name='T1',
-                switches=[S4, S5, 1,
+                switches=[S4, S5, 2,
                           S4, S6, V0, 0, 2,
-                          S5, S7, V1, 0, 2,
                           S6, S8, 0, 2,
                           V0, V1, V2, V3, 0, 2,
                           S7, S9, 0, 2,
-                          S8, S10, V2, 0, 2,
                           S9, S11, V3, 0, 2,
-                          S10, S11, 1,
+                          S10, S11, 2,
+                          S5, S7, V1, S8, S10, V2, 5,
                           ],
                 cut_expression_depth_1=True)
     T2 = Tree(tree_list=[None],
@@ -102,13 +96,9 @@ def level_path():
     T13 = Tree(tree_list=[None],
                 name='T13',
                 switches=[S11])
-    T14 = Tree(tree_list=['AND',
-                          ['EQU', Tree.tree_list_SUM(12), [None]],
-                          Tree.tree_list_OR(2)
-                          ],
+    T14 = Tree(tree_list=[None],
                 name='T14',
-                switches=[S4, S5, S6, S7, S8, S9, S10, S11, V0, V1, V2, V3, 8,
-                          S5, S10])
+                switches=[1])
 
     dx = 1
     dy = 1
@@ -234,10 +224,10 @@ def level_path():
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14],
-                 fastest_solution="S0 S2 D0 S5 S6 S7 S8 S9 S10 D1 D3 D7 D11 D10 D5 D4 D8 D12 D14",
-                 level_color=Levels_colors_list.FROM_HUE(hu=1/6, sa=0.3, li=0.5),
-                 name='Path',
+                 fastest_solution="S2 S3 D0 S4 S5 S6 S7 S8 S9 S10 S11 D1 D2 D4 D8 D12 D14",
+                 level_color=Levels_colors_list.FROM_HUE(hu=0, sa=0.3, li=0.5),
+                 name='Route',
                  keep_proportions=True,
-                 door_window_size=350)
+                 door_window_size=315)
     
     return level

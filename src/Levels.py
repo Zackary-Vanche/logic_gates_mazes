@@ -56,6 +56,7 @@ from levels.level_hitting_set import level_hitting_set
 from levels.level_honeycomb import level_honeycomb
 from levels.level_house import level_house
 from levels.level_hungarian_rings import level_hungarian_rings
+from levels.level_impasse import level_impasse
 from levels.level_independent_set import level_independent_set
 from levels.level_infinity import level_infinity
 from levels.level_initiation import level_initiation
@@ -89,6 +90,7 @@ from levels.level_panex import level_panex
 from levels.level_parallel import level_parallel
 from levels.level_parking import level_parking
 from levels.level_partition import level_partition
+from levels.level_passage import level_passage
 from levels.level_path import level_path
 from levels.level_peirce_s_arrow import level_peirce_s_arrow
 from levels.level_permutations import level_permutations
@@ -120,6 +122,7 @@ from levels.level_recurrence import level_recurrence
 from levels.level_river import level_river
 from levels.level_rotation import level_rotation
 from levels.level_rotation_bis import level_rotation_bis
+from levels.level_route import level_route
 from levels.level_second import level_second
 from levels.level_separation import level_separation
 from levels.level_sheffer_stroke import level_sheffer_stroke
@@ -154,6 +157,7 @@ from levels.level_the_4_queens import level_the_4_queens
 from levels.level_the_4th_dimension import level_the_4th_dimension
 from levels.level_trail import level_trail
 from levels.level_travelling_salesman import level_travelling_salesman
+from levels.level_traversal import level_traversal
 from levels.level_tree import level_tree
 from levels.level_triangulate import level_triangulate
 from levels.level_vortex import level_vortex
@@ -204,7 +208,8 @@ class Levels:
     Maximum coverage problem
     """
 
-    levels_functions_list = [level_hello_world,
+    levels_functions_list = [
+                             level_hello_world,
                              level_playground,
                              level_initiation,
                              level_linear,
@@ -264,6 +269,10 @@ class Levels:
                              level_walk,
                              level_trail,
                              level_path,
+                             level_passage,
+                             level_impasse,
+                             level_route,
+                             level_traversal,
                              level_entropy,
                              level_dichotomy,
                              level_random_star,
@@ -667,14 +676,14 @@ if __name__ == "__main__":
 #         if level.try_solution(sol) == 2:
 #             print(sol)
 
-    # solutions = level_harmony().find_all_solutions(verbose=2,
-    #                                                 nb_iterations_print=10**4,
-    #                                                 stop_at_first_solution=False)
-    # for sol in solutions[0]:
-    #     print(' '.join(sol))
-    #     print('')
+    solutions = level_passage().find_all_solutions(verbose=2,
+                                                    nb_iterations_print=10**4,
+                                                    stop_at_first_solution=False)
+    for sol in solutions[0]:
+        print(' '.join(sol))
+        print('')
 
-    # test_levels()
+    test_levels()
 
     # level = level_harmony()
     # for room in level.rooms_list:

@@ -5,7 +5,7 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
-def level_path(): 
+def level_traversal(): 
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -19,6 +19,10 @@ def level_path():
     S9 = Switch(name='S9')
     S10 = Switch(name='S10')
     S11 = Switch(name='S11')
+    S12 = Switch(name='S12')
+    S13 = Switch(name='S13')
+    S14 = Switch(name='S14')
+    S15 = Switch(name='S15')
     
     tx = Tree.tree_list_XOR(2)
 
@@ -40,26 +44,20 @@ def level_path():
                    ['IN', Tree.tree_list_SUM(3), [None], [None]],
                    ['IN', Tree.tree_list_SUM(3), [None], [None]],
                    ['IN', Tree.tree_list_SUM(2), [None], [None]],
-                   ['IN', Tree.tree_list_SUM(4), [None], [None]],
                    ['IN', Tree.tree_list_SUM(2), [None], [None]],
                    ['IN', Tree.tree_list_SUM(3), [None], [None]],
                    ['IN', Tree.tree_list_SUM(3), [None], [None]],
                    ['EQU', Tree.tree_list_SUM(2), [None]],]
 
-    T0 = Tree(tree_list=['AND',
-                         ['EQU', ['MOD', Tree.tree_list_SUM(4), [None]], [None]],
-                         ['SUPOREQU', [None], [None]]],
+    T0 = Tree(tree_list=['INF', Tree.tree_list_BIN(2), Tree.tree_list_BIN(2)],
                 name='T0',
-                switches=[S0, S1, S2, S3, 2, 0,
-                          S0, S3],
-                cut_expression_depth_1=True)
+                switches=[S0, S1, S2, S3])
     T1 = Tree(tree_list=tree_list_1,
                 name='T1',
                 switches=[S4, S5, 1,
                           S4, S6, V0, 0, 2,
                           S5, S7, V1, 0, 2,
                           S6, S8, 0, 2,
-                          V0, V1, V2, V3, 0, 2,
                           S7, S9, 0, 2,
                           S8, S10, V2, 0, 2,
                           S9, S11, V3, 0, 2,
@@ -102,13 +100,24 @@ def level_path():
     T13 = Tree(tree_list=[None],
                 name='T13',
                 switches=[S11])
-    T14 = Tree(tree_list=['AND',
-                          ['EQU', Tree.tree_list_SUM(12), [None]],
-                          Tree.tree_list_OR(2)
-                          ],
+    T14 = Tree(tree_list=['INF', [None], [None]],
                 name='T14',
-                switches=[S4, S5, S6, S7, S8, S9, S10, S11, V0, V1, V2, V3, 8,
-                          S5, S10])
+                switches=[S8, S9])
+    T15 = Tree(tree_list=[None],
+                name='T15',
+                switches=[V0])
+    T16 = Tree(tree_list=[None],
+                name='T16',
+                switches=[V1])
+    T17 = Tree(tree_list=[None],
+                name='T17',
+                switches=[V2])
+    T18 = Tree(tree_list=[None],
+                name='T18',
+                switches=[V3])
+    T19 = Tree(tree_list=Tree.tree_list_AND(4),
+                name='T19',
+                switches=[S12, S13, S14, S15])
 
     dx = 1
     dy = 1
@@ -148,8 +157,20 @@ def level_path():
     R10 = Room(name='R10',
                 position=[7*dx, 2*dy, ex, ey],
                 switches_list=[])
+    R11 = Room(name='R11',
+                position=[5*dx, 0*dy, ex, ey],
+                switches_list=[S12])
+    R12 = Room(name='R12',
+                position=[5*dx, -2*dy, ex, ey],
+                switches_list=[S13])
+    R13 = Room(name='R13',
+                position=[7*dx, 0*dy, ex, ey],
+                switches_list=[S14])
+    R14 = Room(name='R14',
+                position=[7*dx, -2*dy, ex, ey],
+                switches_list=[S15])
     RE = Room(name='RE',
-              position=[5*dx, 0*dy, ex, ey],
+              position=[3*dx, -2*dy, ex, ey],
               is_exit=True)
 
     D0 = Door(two_way=False,
@@ -228,16 +249,41 @@ def level_path():
                 tree=T14,
                 name='D14',
                 room_departure=R10,
+                room_arrival=R11)
+    D15 = Door(two_way=True,
+                tree=T15,
+                name='D15',
+                room_departure=R11,
+                room_arrival=R12)
+    D16 = Door(two_way=True,
+                tree=T16,
+                name='D16',
+                room_departure=R11,
+                room_arrival=R13)
+    D17 = Door(two_way=True,
+                tree=T17,
+                name='D17',
+                room_departure=R12,
+                room_arrival=R14)
+    D18 = Door(two_way=True,
+                tree=T18,
+                name='D18',
+                room_departure=R13,
+                room_arrival=R14)
+    D19 = Door(two_way=False,
+                tree=T19,
+                name='D19',
+                room_departure=R12,
                 room_arrival=RE)
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
-                 rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, RE],
-                 doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14],
-                 fastest_solution="S0 S2 D0 S5 S6 S7 S8 S9 S10 D1 D3 D7 D11 D10 D5 D4 D8 D12 D14",
-                 level_color=Levels_colors_list.FROM_HUE(hu=1/6, sa=0.3, li=0.5),
-                 name='Path',
+                 rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, RE],
+                 doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19],
+                 fastest_solution="S0 S3 D0 S4 S7 S9 S10 D1 D2 D5 D9 D12 D14 S12 D16 S14 D18 S15 D17 S13 D19",
+                 level_color=Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.49),
+                 name='Traversal',
                  keep_proportions=True,
-                 door_window_size=350)
+                 door_window_size=315)
     
     return level
