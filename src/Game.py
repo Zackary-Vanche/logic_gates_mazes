@@ -775,7 +775,7 @@ class Game:
             out.release()
             
     def show_all_solutions(self, save_videos=False, dt=0.2):
-        for i_level in range(Levels.number_of_levels):
+        for i_level in range(self.index_current_level, Levels.number_of_levels):
             t0 = time()
             self.index_current_level = i_level
             self.level_changed = True
