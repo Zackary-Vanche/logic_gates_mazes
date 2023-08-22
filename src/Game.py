@@ -653,7 +653,6 @@ class Game:
             self.uniform_surrounding_colors = self.maze.uniform_surrounding_colors
             self.uniform_inside_room_color = self.maze.uniform_inside_room_color
             self.draw_right_window()
-            self.draw_exterior_lines()
             self.draw_windows_separation()
             self.print_level_name()
             self.print_trees()
@@ -665,6 +664,7 @@ class Game:
             self.print_doors_names()
             self.print_current_action()
             self.draw_rooms_names()
+            self.draw_exterior_lines()
             pygame_display_update()
         except ZeroDivisionError:
             maze_name = Levels.get_level(self.index_current_level, get_new_level=self.get_new_level).name

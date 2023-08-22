@@ -5,10 +5,6 @@ class Graph:
         self.node_set = set()
 
     def add_edge(self, node1, node2, weight):
-        if type(node1) == str:
-            node1 = int(node1.replace('R', ''))
-        if type(node2) == str:
-            node2 = int(node2.replace('R', ''))
         self.node_set.add(node1)
         self.node_set.add(node2)
         self.m_num_of_nodes = len(self.node_set)

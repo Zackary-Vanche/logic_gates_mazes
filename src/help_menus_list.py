@@ -533,6 +533,8 @@ help_menus_list['levels']["Mansion"] = """You might get lost in this mansion."""
 
 help_menus_list['levels']["Water lily"] = """A water lily is a floating aquatic plant with round, flat leaves and beautiful flowers that bloom on or above the water's surface."""
 
+help_menus_list['levels']["Harmony"] = """This level has several solutions."""
+
 help_menus_list['levels']["K"] = """You have to locate as many knights in a chessboard as possible."""
 
 help_menus_list['levels']["Strange"] = "You can always try exhaustive testing..."
@@ -550,6 +552,8 @@ help_menus_list['levels']["Stairs"] = help_menus_list['NAND']
 help_menus_list['levels']["Lights_out"] = help_menus_list['random configuration']
 
 help_menus_list['levels']["Weights"] = '''You must find the good weights in order to reach the exit.'''
+
+help_menus_list['levels']["Tetractys"] = '''The principle of the level is identical to that of the level named 'Weight,' but this level is generated randomly.''' + help_menus_list['random']
 
 help_menus_list['levels']["Tetris"] = """Each number can represent a position in the plane.\n"""
 

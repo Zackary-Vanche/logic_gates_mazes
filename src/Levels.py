@@ -50,6 +50,7 @@ from levels.level_forest import level_forest
 from levels.level_fractal import level_fractal
 from levels.level_grid import level_grid
 from levels.level_hamiltonian import level_hamiltonian
+from levels.level_harmony import level_harmony
 from levels.level_hello_world import level_hello_world
 from levels.level_hitting_set import level_hitting_set
 from levels.level_honeycomb import level_honeycomb
@@ -146,6 +147,7 @@ from levels.level_takuzu import level_takuzu
 from levels.level_taxicab_number import level_taxicab_number
 from levels.level_temple import level_temple
 from levels.level_tesseract import level_tesseract
+from levels.level_tetractys import level_tetractys
 from levels.level_tetrahedron import level_tetrahedron
 from levels.level_tetris import level_tetris
 from levels.level_the_4_queens import level_the_4_queens
@@ -192,180 +194,181 @@ class Levels:
         Trouver un couplage (ensemble d'arêtes non adjacentes) de taille maximale dans un graphe.
 
     k_center
-    
+
     k-mean
-    
+
     Domatic partition
-    
+
     bin packing
-    
+
     Maximum coverage problem
     """
 
-    levels_functions_list = [
-        level_hello_world,
-        level_playground,
-        level_initiation,
-        level_linear,
-        level_loop,
-        level_boolean,
-        level_backward,
-        level_bis_repetita,
-        level_binary,
-        level_yoyo,
-        level_crossroad,
-        level_forest,
-        level_square,
-        level_fluid,
-        level_numeration,
-        level_sum,
-        level_equation,
-        level_product,
-        level_congruence,
-        level_infinity,
-        level_3sat,
-        level_point_of_no_return,
-        level_bipartite,
-        level_hamiltonian,
-        level_sheffer_stroke,
-        level_peirce_s_arrow,
-        level_pong,
-        level_longest_path,
-        level_hitting_set,
-        level_independent_set,
-        level_dominating_set,
-        level_exact_cover,
-        level_odd,
-        level_min_cut,
-        level_max_cut,
-        level_triangulate,
-        level_recurrence,
-        level_naturals,
-        level_wasted,
-        level_doppelganger,
-        level_sorted,
-        level_meanders,
-        level_wind_compass,
-        level_compact,
-        level_random_simple,
-        level_random_boustrophedon,
-        level_parallel,
-        level_random_bull,
-        level_pythagorean,
-        level_random_butterfly,
-        level_elementary,
-        level_circuit,
-        level_network,
-        level_rotation,
-        level_superpermutation,
-        level_singleton,
-        level_chessboard,
-        level_walk,
-        level_trail,
-        level_path,
-        level_entropy,
-        level_dichotomy,
-        level_random_star,
-        level_partition,
-        level_second,
-        level_knapsack,
-        level_random_K2,
-        level_egyptian_fractions,
-        level_code,
-        level_random_binary_tree,
-        level_spider,
-        level_taxicab_number,
-        level_tetrahedron,
-        level_small,
-        level_strange,
-        level_water_lily,
-        level_k,
-        level_the_4_queens,
-        level_mansion,
-        level_alice_and_bob,
-        level_rotation_bis,
-        level_nonogram,
-        level_crystal,
-        level_mastermind,
-        level_tetris,
-        level_central_symmetry,
-        level_stairs,
-        level_lights_out,
-        level_weights,
-        level_baguenaudier,
-        level_spare,
-        level_4_colors_theorem,
-        level_grid,
-        level_flash_back,
-        level_spaceship,
-        level_connect_the_dots,
-        level_magic_square,
-        level_matrix,
-        level_river,
-        level_vortex,
-        level_tree,
-        level_dead_ends,
-        level_conjunctive_normal_form,
-        level_betweenness,
-        level_fractal,
-        level_tesseract,
-        level_random_turning,
-        level_branches,
-        level_oval_track_puzzle,
-        level_cartesian,
-        level_random_line,
-        level_eulerian,
-        level_random_starting_point,
-        level_sujiko,
-        level_electricity,
-        level_random_wheel,
-        level_pancake_sorting,
-        level_random_ladder,
-        level_wave,
-        level_cube,
-        level_error,
-        level_house,
-        level_the_4th_dimension,
-        level_draw,
-        level_random_come_back,
-        level_permutations,
-        level_inversions,
-        level_random_K5,
-        level_takuzu,
-        level_random_K33,
-        level_travelling_salesman,
-        level_random_petersen,
-        level_no_three_in_line,
-        level_manhattan_distance,
-        level_minimum_spanning_tree,
-        level_small_honeycomb,
-        level_honeycomb,
-        level_random_gemini,
-        level_random_cuboctahedron,
-        level_diagonal,
-        level_sudoku,
-        level_knight,
-        level_temple,
-        level_syracuse,
-        level_five,
-        level_shuffled,
-        level_sign,
-        level_combinatorics,
-        level_hungarian_rings,
-        level_water_pouring,
-        level_puzzle,
-        level_solitaire,
-        level_mols,
-        level_separation,
-        level_small_panex,
-        level_zebra,
-        level_bridges,
-        level_chinese_postman_problem,
-        level_parking,
-        level_panex,
-        level_superflip,
-    ]
-    
+    levels_functions_list = [level_hello_world,
+                             level_playground,
+                             level_initiation,
+                             level_linear,
+                             level_loop,
+                             level_boolean,
+                             level_backward,
+                             level_bis_repetita,
+                             level_binary,
+                             level_yoyo,
+                             level_crossroad,
+                             level_forest,
+                             level_square,
+                             level_fluid,
+                             level_numeration,
+                             level_sum,
+                             level_equation,
+                             level_product,
+                             level_congruence,
+                             level_infinity,
+                             level_3sat,
+                             level_point_of_no_return,
+                             level_bipartite,
+                             level_hamiltonian,
+                             level_sheffer_stroke,
+                             level_peirce_s_arrow,
+                             level_pong,
+                             level_longest_path,
+                             level_hitting_set,
+                             level_independent_set,
+                             level_dominating_set,
+                             level_exact_cover,
+                             level_odd,
+                             level_min_cut,
+                             level_max_cut,
+                             level_triangulate,
+                             level_recurrence,
+                             level_naturals,
+                             level_wasted,
+                             level_doppelganger,
+                             level_sorted,
+                             level_meanders,
+                             level_wind_compass,
+                             level_compact,
+                             level_random_simple,
+                             level_random_boustrophedon,
+                             level_parallel,
+                             level_random_bull,
+                             level_pythagorean,
+                             level_random_butterfly,
+                             level_elementary,
+                             level_circuit,
+                             level_network,
+                             level_rotation,
+                             level_superpermutation,
+                             level_singleton,
+                             level_chessboard,
+                             level_walk,
+                             level_trail,
+                             level_path,
+                             level_entropy,
+                             level_dichotomy,
+                             level_random_star,
+                             level_partition,
+                             level_second,
+                             level_knapsack,
+                             level_random_K2,
+                             level_egyptian_fractions,
+                             level_code,
+                             level_random_binary_tree,
+                             level_spider,
+                             level_taxicab_number,
+                             level_tetrahedron,
+                             level_small,
+                             level_strange,
+                             level_water_lily,
+                             level_harmony,
+                             level_k,
+                             level_the_4_queens,
+                             level_mansion,
+                             level_alice_and_bob,
+                             level_rotation_bis,
+                             level_nonogram,
+                             level_crystal,
+                             level_mastermind,
+                             level_tetris,
+                             level_central_symmetry,
+                             level_stairs,
+                             level_lights_out,
+                             level_weights,
+                             level_tetractys,
+                             level_baguenaudier,
+                             level_spare,
+                             level_4_colors_theorem,
+                             level_grid,
+                             level_flash_back,
+                             level_spaceship,
+                             level_connect_the_dots,
+                             level_magic_square,
+                             level_matrix,
+                             level_river,
+                             level_vortex,
+                             level_tree,
+                             level_dead_ends,
+                             level_conjunctive_normal_form,
+                             level_betweenness,
+                             level_fractal,
+                             level_tesseract,
+                             level_random_turning,
+                             level_branches,
+                             level_oval_track_puzzle,
+                             level_cartesian,
+                             level_random_line,
+                             level_eulerian,
+                             level_random_starting_point,
+                             level_sujiko,
+                             level_electricity,
+                             level_random_wheel,
+                             level_pancake_sorting,
+                             level_random_ladder,
+                             level_wave,
+                             level_cube,
+                             level_error,
+                             level_house,
+                             level_the_4th_dimension,
+                             level_draw,
+                             level_random_come_back,
+                             level_permutations,
+                             level_inversions,
+                             level_random_K5,
+                             level_takuzu,
+                             level_random_K33,
+                             level_travelling_salesman,
+                             level_random_petersen,
+                             level_no_three_in_line,
+                             level_manhattan_distance,
+                             level_minimum_spanning_tree,
+                             level_small_honeycomb,
+                             level_honeycomb,
+                             level_random_gemini,
+                             level_random_cuboctahedron,
+                             level_diagonal,
+                             level_sudoku,
+                             level_knight,
+                             level_temple,
+                             level_syracuse,
+                             level_five,
+                             level_shuffled,
+                             level_sign,
+                             level_combinatorics,
+                             level_hungarian_rings,
+                             level_water_pouring,
+                             level_puzzle,
+                             level_solitaire,
+                             level_mols,
+                             level_separation,
+                             level_small_panex,
+                             level_zebra,
+                             level_bridges,
+                             level_chinese_postman_problem,
+                             level_parking,
+                             level_panex,
+                             level_superflip,
+                             ]
+
     # levels_names_dico = {}
     # for i in range(len(levels_functions_list)):
     #     level = levels_functions_list[i]()
@@ -401,13 +404,16 @@ class Levels:
 
     def get_level(level_number, fast_solution_finding=False, get_new_level=False):
         if get_new_level:
-            Levels.levels_list[level_number] = Levels.levels_functions_list[level_number]()
+            Levels.levels_list[level_number] = Levels.levels_functions_list[level_number](
+            )
         else:
             if Levels.levels_list[level_number] is None:
                 if fast_solution_finding and len(signature(Levels.levels_functions_list[level_number]).parameters) > 0:
-                    Levels.levels_list[level_number] = Levels.levels_functions_list[level_number](True)
+                    Levels.levels_list[level_number] = Levels.levels_functions_list[level_number](
+                        True)
                 else:
-                    Levels.levels_list[level_number] = Levels.levels_functions_list[level_number]()
+                    Levels.levels_list[level_number] = Levels.levels_functions_list[level_number](
+                    )
             else:
                 Levels.levels_list[level_number].reboot_solution()
         return Levels.levels_list[level_number]
@@ -449,7 +455,8 @@ class Levels:
                     txt = ' '.join(['Level', str(k), ':', level.name, '\n'])
                 t2 = time()
                 solutions, nb_iterations, nb_operations = level.find_all_solutions(stop_at_first_solution=False,
-                                                                                   verbose=verbose * (not multithreads),
+                                                                                   verbose=verbose *
+                                                                                   (not multithreads),
                                                                                    max_calculation_time=max_calculation_time,
                                                                                    level_number=k,
                                                                                    save_solutions_txt=True,
@@ -494,7 +501,8 @@ class Levels:
                 print(txt, ('Level ', str(k), ' : ', name, '\n'))
                 raise
         if save_as_txt:
-            with open('solutions/solutions.txt', 'w') as f:  # solutions/ directory is ignored when pushed on github
+            # solutions/ directory is ignored when pushed on github
+            with open('solutions/solutions.txt', 'w') as f:
                 f.write(txt)
         if verbose == 1 and multithreads:
             t1 = time()
@@ -545,7 +553,8 @@ def test_levels(test_random_levels=False):
         from numpy import array, median
         for aux_level in Levels.aux_level_function_list:
             print(aux_level().name)
-            solution_length, number_of_solutions = calculates_random_level_solution_length(aux_level)
+            solution_length, number_of_solutions = calculates_random_level_solution_length(
+                aux_level)
             if solution_length == []:
                 print('*')
                 continue
@@ -566,14 +575,15 @@ def test_levels(test_random_levels=False):
             plt.xticks(bins_list)
             plt.show()
             print('')
-    
+
     print('Testing level cartesian')
     solutions = level_cartesian().find_all_solutions(verbose=2,
-                                                    nb_iterations_print=10**4,
-                                                    stop_at_first_solution=False)
+                                                     nb_iterations_print=10**4,
+                                                     stop_at_first_solution=False)
     assert len(solutions[0]) == 1
     sol = solutions[0][0]
     assert level_cartesian().fastest_solution == ' '.join(sol)
+
 
 def calculates_random_level_solution_length(aux_level_function):
     from os import listdir as os_listdir
@@ -584,13 +594,16 @@ def calculates_random_level_solution_length(aux_level_function):
     number_of_solutions = []
     if os_path_exists(folder):
         for file_name in os_listdir(folder):
-            level = Maze.get_random_level_from_file(aux_level_function, file_name)
-            solutions = level.find_all_solutions(verbose=0, stop_at_first_solution=False)[0]
+            level = Maze.get_random_level_from_file(
+                aux_level_function, file_name)
+            solutions = level.find_all_solutions(
+                verbose=0, stop_at_first_solution=False)[0]
             try:
                 solution_length.append(len(solutions[0]))
                 number_of_solutions.append(len(solutions))
             except IndexError:
-                level.find_all_solutions(verbose=1, stop_at_first_solution=False, nb_iterations_print=1)
+                level.find_all_solutions(
+                    verbose=1, stop_at_first_solution=False, nb_iterations_print=1)
                 print(file_name)
                 raise
     return solution_length, number_of_solutions
@@ -605,16 +618,16 @@ if __name__ == "__main__":
 
     if os.path.exists('temp.txt'):
         os.remove('temp.txt')
-    
+
     # level = level_bridges()
     # sol = "D0 S0 D1"
     # level.try_solution(sol)
     # for S in level.switches_list:
     #     print(S.name, S.value)
-    
+
     # sol = 'S0 S1 S2 S4 S5 S7 S10 S13 S16 D0 S18 D1 S19 D3 S20 D6 S21 D6 D8 S24 D8 D3 D5 S23 D14 S26 D14 D5 D1 D2 S22 D11 S25 D17 S27 D19'
     # level_minimum_spanning_tree().try_solution(sol, verbose=2)
-    
+
     # for level in [level_peirce_s_arrow,
     #               level_sheffer_stroke]:
     #     solutions = level().find_all_solutions(verbose=2,
@@ -622,28 +635,91 @@ if __name__ == "__main__":
     #                                           stop_at_first_solution=False)
     #     for sol in solutions[0]:
     #         print(' '.join(sol))
-    #         print('')7
-    
-    # solutions = level_path().find_all_solutions(verbose=2,
-    #                                                        nb_iterations_print=10**5,
-    #                                                        stop_at_first_solution=False)
+    #         print('')
+
+#     solutions = """S0 S2 S3 S5 D0 S10 S11 S12 S13 S14 S15 S18 S19 S20 D1 D3 D7 D13 D26
+# S1 S6 S7 S8 D0 S10 S11 S12 S13 S14 S15 S18 S19 S20 D1 D3 D7 D13 D26
+# S4 S6 S7 S8 D0 S10 S11 S12 S13 S14 S15 S17 S18 S19 S20 D1 D3 D7 D13 D26
+# S0 S2 S3 S8 D0 S10 S11 S12 S13 S15 S16 S19 S20 D1 D3 D7 D12 D18 D19 D26
+# S0 S2 S5 S6 D0 S9 S12 S13 S14 S15 S18 S19 S20 D1 D2 D5 D6 D7 D13 D26
+# S3 S4 S7 S8 D0 S9 S12 S13 S14 S15 S17 S18 S19 S20 D1 D2 D5 D6 D7 D13 D26
+# S4 S5 S6 S7 D0 S10 S11 S12 S13 S15 S16 S17 S19 S20 D1 D3 D7 D12 D18 D19 D26
+# S0 S2 S6 S8 D0 S9 S12 S13 S15 S16 S19 S20 D1 D2 D5 D6 D7 D12 D18 D19 D26
+# S3 S4 S5 S7 D0 S9 S12 S13 S15 S16 S17 S19 S20 D1 D2 D5 D6 D7 D12 D18 D19 D26
+# S4 S7 D0 S9 S11 S12 S13 S15 S16 S17 S18 S19 S20 D1 D2 D4 D8 D14 D20 D24 D25 D23 D19 D26
+# S1 S4 S6 S7 D0 S10 S11 S12 S13 S15 S16 S18 S19 S20 D1 D3 D7 D12 D17 D21 D24 D25 D23 D19 D26
+# S1 S4 S7 S8 D0 S9 S11 S12 S13 S14 S15 S18 S19 S20 D1 D2 D4 D8 D14 D15 D10 D6 D7 D13 D26
+# S1 S7 D0 S9 S11 S12 S13 S15 S16 S18 S19 S20 D1 D2 D4 D8 D14 D15 D16 D21 D24 D25 D23 D19 D26
+# S1 S3 S4 S7 D0 S9 S12 S13 S15 S16 S18 S19 S20 D1 D2 D5 D6 D7 D12 D17 D21 D24 D25 D23 D19 D26
+# S1 S4 S5 S7 D0 S9 S11 S12 S13 S15 S16 S19 S20 D1 D2 D4 D8 D14 D15 D10 D6 D7 D12 D18 D19 D26
+# S1 S6 S8 D0 S10 S11 S13 S14 S15 S18 S19 S20 D1 D3 D6 D5 D4 D8 D14 D15 D16 D21 D24 D25 D23 D18 D12 D13 D26
+# S1 S4 S7 D0 S9 S11 S12 S13 S15 S16 S18 S19 S20 D1 D2 D4 D8 D14 D15 D10 D6 D7 D12 D17 D21 D24 D25 D23 D19 D26
+# S1 S6 S7 D0 S10 S11 S12 S13 S15 S16 S18 S19 S20 D1 D3 D7 D12 D11 D5 D4 D8 D14 D15 D16 D21 D24 D25 D23 D19 D26
+# S1 S7 S8 D0 S9 S11 S12 S13 S14 S15 S18 S19 S20 D1 D2 D4 D8 D14 D15 D16 D21 D24 D25 D23 D18 D11 D6 D7 D13 D26
+# S3 S4 S7 D0 S9 S12 S13 S15 S16 S17 S18 S19 S20 D1 D2 D5 D6 D7 D12 D17 D16 D9 D8 D14 D20 D24 D25 D23 D19 D26
+# S4 S5 S7 D0 S9 S11 S12 S13 S15 S16 S17 S19 S20 D1 D2 D4 D8 D14 D20 D24 D25 D22 D16 D10 D6 D7 D12 D18 D19 D26
+# S4 S6 S7 D0 S10 S11 S12 S13 S15 S16 S17 S18 S19 S20 D1 D3 D7 D12 D17 D16 D10 D5 D4 D8 D14 D20 D24 D25 D23 D19 D26
+# S4 S7 S8 D0 S9 S11 S12 S13 S14 S15 S17 S18 S19 S20 D1 D2 D4 D8 D14 D20 D24 D25 D23 D18 D17 D16 D10 D6 D7 D13 D26"""
+
+#     solutions = solutions.split('\n')
+#     level = level_harmony()
+#     for sol in solutions:
+#         if level.try_solution(sol) == 2:
+#             print(sol)
+
+    # solutions = level_harmony().find_all_solutions(verbose=2,
+    #                                                 nb_iterations_print=10**4,
+    #                                                 stop_at_first_solution=False)
     # for sol in solutions[0]:
     #     print(' '.join(sol))
     #     print('')
-    
-    test_levels()
+
+    # test_levels()
+
+    # level = level_harmony()
+    # for room in level.rooms_list:
+    #     if room.name == 'RE':
+    #         continue
+    #     i = int(room.name.replace('R', ''))
+    #     if i in [0, 1]:
+    #         continue
+    #     # print(room.name)
+    #     doors_list = room.two_way_doors_list
+    #     doors_names = [door.name for door in doors_list]
+    #     switches_names = []
+    #     for door in doors_list:
+    #         tree = door.tree
+    #         switch = tree.switches_list[0]
+    #         switches_names.append(switch.name)
+    #     # n_switches = len(switches_names)
+    #     # print(f"""['IN', Tree.tree_list_SUM({n_switches}), [None], [None]]""")
+    #     switches_names.extend(['0', '2'])
+    #     print(', '.join(switches_names))
+    #     # print(doors_list)
 
     # dico = {}
     # k = 0
-    # for door in level_small_honeycomb().doors_list:
+    # for door in level_tetractys().doors_list:
     #     if door.name in ['D0', 'D25']:
     #         continue
     #     # print(door.name)
     #     rd = door.room_departure
     #     ra = door.room_arrival
-    #     print(f'''('{rd.name}', '{ra.name}', l_weights[{k}]),''')
+    #     # print(f'''('{rd.name}', '{ra.name}', l_weights[{k}]),''')
+    #     a = int(ra.name.replace('R', ''))
+    #     d = int(rd.name.replace('R', ''))
+    #     print(f'''('{a}', '{d}') : '{door.name}',''')
     #     k += 1
-        
+
+    # for room in level_tetractys().rooms_list:
+    #     doors_list = room.two_way_doors_list
+    #     doors_names = [f'"{door.name}"' for door in doors_list]
+    #     # print('[' + ', '.join(doors_names) + '],')
+    #     tree_list = [door.tree for door in doors_list]
+    #     switches_list = [tree.switches_list[0] for tree in tree_list]
+    #     switches_names = [switch.name for switch in switches_list]
+    #     print(', '.join(switches_names))
+
     # for sol in solutions[0]:
     #     l_s = []
     #     for action in sol:
@@ -653,7 +729,7 @@ if __name__ == "__main__":
 
     # import cProfile
     # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=float('inf'), save_as_txt=False)''', sort=1)
-    
+
     # door_list = level_connect_the_dots().doors_list
     # door_list = sorted(door_list, key = lambda x : int(x.name.replace('D', '')))
     # for i in range(len(door_list)):
@@ -684,8 +760,7 @@ if __name__ == "__main__":
     #               empty=True,
     #               name='T{i}',
     #               switches=[1])""")
-                
-            
+
         #     print(f"""T{i} = Tree(tree_list=tree_list_0,
         #           empty=True,
         #           name='T{i}',
@@ -707,10 +782,9 @@ if __name__ == "__main__":
         #          empty=True,
         #          name='{T0}',
         #          switches=[{S}])""")
-            
-            
+
         # S0 = room_departure.switches_list[0].name
-        
+
         # print(f"""{T0} = Tree(tree_list=tree_list_0,
         #           empty=True,
         #           name='{T0}',
@@ -727,62 +801,3 @@ if __name__ == "__main__":
     #     Slist = [f'S{i}' for i in int_list if i != 0]
     #     print('2, ' + ', '.join(Slist) + ',')# + ',\n' + room.switches_list[0].name)
     #     # print(f'tree_list_EQU_SUM({len(Slist)}),')
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

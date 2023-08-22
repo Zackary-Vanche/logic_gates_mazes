@@ -1,6 +1,6 @@
-ns = 4*2+3*3+2
-nd = ns+5
-nr = 12+4
+ns = 28
+nd = 18+2
+nr = 11
 nv = 0
 
 print('''
@@ -25,14 +25,18 @@ for i in range(nv):
     print(f'    Slist_{i} = []')#'[S{3*i}, S{3*i+1}, S{3*i+2}]')
 
 for i in range(nv):
-    print(f'''    V{i} = Tree(tree_list=[None],
+    print(f'''    V{i} = Tree(tree_list=Tree.tree_list_XOR(2),
           name='V{i}',
           switches=[1])''')
+    
+print('')
+print(f'''    Vlist = [{', '.join([f'V{i}' for i in range(nv)])}]''')
+print('')
     
 for i in range(nd):
     print(f'''    T{i} = Tree(tree_list=[None],
                 name='T{i}',
-                switches=[S{i-4}])''')
+                switches=[S{i-1}])''')
     
 print('')
 
@@ -110,6 +114,6 @@ print(f'''
                  level_color=Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.5),
                  name='TODO',
                  keep_proportions=True,
-                 door_window_size=500)
+                 door_window_size=300)
     
     return level''')
