@@ -469,6 +469,8 @@ help_menus_list['levels']["Min-cut"] = """A cut is a partition of the vertices o
 
 help_menus_list['levels']["Max-cut"] = """You must cut as many edges as possible."""
 
+help_menus_list['levels']["Leafs"] = help_menus_list['random']
+
 help_menus_list['levels']["Triangulate"] = help_menus_list['DIST']
 
 help_menus_list['levels']["Recurrence"] = help_menus_list['brackets']
@@ -605,7 +607,7 @@ help_menus_list['levels']["Fractal"] = """As you see, several doors lead to the 
 
 help_menus_list['levels']["Tesseract"] = """The tesseract is hidden in the equations."""
 
-help_menus_list['levels']["Branches"] = "This level is the same than the level named 'Point of no return', but it is random."
+help_menus_list['levels']["Branches"] = "This level is the same than the level named 'Point of no return', but it is random.\n" + help_menus_list['random']
 
 help_menus_list['levels']["Oval_track_puzzle"] = help_menus_list["cheat code"]
 

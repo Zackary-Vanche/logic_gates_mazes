@@ -64,6 +64,7 @@ from levels.level_inversions import level_inversions
 from levels.level_k import level_k
 from levels.level_knapsack import level_knapsack
 from levels.level_knight import level_knight
+from levels.level_leafs import level_leafs
 from levels.level_lights_out import level_lights_out
 from levels.level_linear import level_linear
 from levels.level_longest_path import level_longest_path
@@ -245,6 +246,7 @@ class Levels:
                              level_odd,
                              level_min_cut,
                              level_max_cut,
+                             level_leafs,
                              level_triangulate,
                              level_recurrence,
                              level_naturals,
@@ -678,7 +680,7 @@ if __name__ == "__main__":
 #         if level.try_solution(sol) == 2:
 #             print(sol)
 
-    # solutions = level_roadblocks().find_all_solutions(verbose=2,
+    # solutions = level_leafs().find_all_solutions(verbose=2,
     #                                                 nb_iterations_print=10**4,
     #                                                 stop_at_first_solution=False)
     # for sol in solutions[0]:

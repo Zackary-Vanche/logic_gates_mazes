@@ -1,5 +1,5 @@
-ns = 0
-nd = 20
+ns = 12
+nd = 37
 nr = 0
 nv = 0
 
@@ -36,7 +36,7 @@ print('')
 for i in range(nd):
     print(f'''    T{i} = Tree(tree_list=[None],
                 name='T{i}',
-                switches=[S{i-1}])''')
+                switches=[1])''')
     
 print('')
 
@@ -117,3 +117,14 @@ print(f'''
                  door_window_size=300)
     
     return level''')
+
+# k = 0
+# for i in range(1, 7):
+#     for j in range(1, i):
+#         print(f"""D{k} = Door(two_way=True,
+#               tree=T{k},
+#               name='D{k}',
+#               room_departure=R{i},
+#               room_arrival=R{j},
+#               relative_position=rp)""")
+#         k += 1
