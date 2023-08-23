@@ -443,6 +443,7 @@ class Levels:
                              level_harmony,
                              level_central_symmetry,
                              level_weights,
+                             level_tetractys,
                              level_connect_the_dots,
                              level_eulerian,
                              level_separation,
@@ -516,12 +517,14 @@ class Levels:
                               ],
               "The Choices":[level_3sat,
                              level_point_of_no_return,
+                             level_longest_path,
                              level_shorter_path,
                              level_tetris,
                              level_stairs,
                              level_knapsack,
                              level_betweenness,
                              level_4_colors_theorem,
+                             level_nonogram,
                              level_no_three_in_line,
                              level_superpermutation,
                              level_conjunctive_normal_form,
@@ -537,28 +540,42 @@ class Levels:
                                   level_k,
                                   level_knight,
                                   ],
-              "The Bright Kingdom":[level_loop,
-                                    level_yoyo,
-                                    level_bis_repetita,
-                                    level_odd,
-                                    level_parallel,
-                                    level_recurrence,
-                                    level_alice_and_bob,
-                                    level_river,
-                                    level_small,
-                                    level_tetrahedron,
-                                    level_baguenaudier,
-                                    level_lights_out,
-                                    level_cartesian,
-                                    level_compact,
-                                    level_temple,
-                                    level_water_pouring,
-                                    level_solitaire,
-                                    level_syracuse,
-                                    ],
+              "The Nature":[level_loop,
+                            level_yoyo,
+                            level_bis_repetita,
+                            level_odd,
+                            level_parallel,
+                            level_recurrence,
+                            level_alice_and_bob,
+                            level_river,
+                            level_small,
+                            level_tetrahedron,
+                            level_baguenaudier,
+                            level_lights_out,
+                            level_cartesian,
+                            level_compact,
+                            level_temple,
+                            level_water_pouring,
+                            level_solitaire,
+                            level_syracuse,
+                            ],
+              "The Traps":[level_crossroad,
+                           level_infinity,
+                           level_spider,
+                           level_mansion,
+                           level_crystal,
+                           level_dead_ends,
+                           level_fractal,
+                           level_house,
+                           level_draw,],
+              "The Zigzags":[level_pong,
+                             level_bipartite,
+                             level_doppelganger,
+                             level_flash_back,
+                             ]
               }
     
-    # levels_functions_list = Worlds['The Accidental Realm']
+    # levels_functions_list = Worlds['The Numerals']
 
     # levels_names_dico = {}
     # for i in range(len(levels_functions_list)):
@@ -586,7 +603,6 @@ class Levels:
         aux_level_random_petersen,
         aux_level_random_cuboctahedron,
         aux_level_random_gemini,
-        # aux_level_random_tetractys
     ]
 
     number_of_levels = len(levels_functions_list)
@@ -813,20 +829,24 @@ if __name__ == "__main__":
     all_level_set = set()
     for level_function in Levels.levels_functions_list:
         all_level_set.add(level_function().name)
-        
-    worlds_level_set = set()
+    
+    worlds_level_list = []
     for world_name in Levels.Worlds.keys():
         for level_function in Levels.Worlds[world_name]:
-            worlds_level_set.add(level_function().name)
+            worlds_level_list.append(level_function().name)
             
     for level_function in Levels.levels_functions_list:
         name = level_function().name
-        if not name in worlds_level_set:
+        if not name in worlds_level_list:
             print(name)
             
-    # print(all_level_set - worlds_level_set)
-    # print('')
-    # print(worlds_level_set - all_level_set)
+    duplicates = set([item for item in worlds_level_list if worlds_level_list.count(item) > 1])
+    print(duplicates)
+    print('')
+    worlds_level_set = set(worlds_level_list)
+    print(all_level_set - worlds_level_set)
+    print('')
+    print(worlds_level_set - all_level_set)
         
     # test_levels()
 
