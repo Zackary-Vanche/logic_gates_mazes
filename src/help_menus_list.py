@@ -395,11 +395,10 @@ help_menus_list['levels']["Arithmetic"] ='\n'.join([help_menus_list['V'],
                                                      help_menus_list['ABS'],
                                                      help_menus_list['POW'],
                                                      help_menus_list['DIST'],
-                                                     help_menus_list["cheat code"],
                                                      help_menus_list['UP DOWN'],
                                                      ])
 
-help_menus_list['levels']["Inside out"] = help_menus_list['IN']
+help_menus_list['levels']["Inside out"] = '\n'.join([help_menus_list['IN'], help_menus_list["cheat code"]])
 
 help_menus_list['levels']["Superpermutation"] = help_menus_list['INLIST']
 
