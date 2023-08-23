@@ -109,7 +109,7 @@ if __name__ == "__main__":
         except TypeError:
             pass
     
-    lx = [i for i in range(140, 170)]
+    lx = [i for i in range(170, 201)]
     ly = []
     for i in lx:
         a = divisor_closest_to_sqrt(i)
@@ -118,4 +118,4 @@ if __name__ == "__main__":
         ly.append(a/b)
     plt.plot(lx, ly)
     plt.scatter(lx, ly)
-    plt.grid()
+    plt.grid(True)
