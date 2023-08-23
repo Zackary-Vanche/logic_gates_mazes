@@ -452,6 +452,8 @@ help_menus_list['levels']["Pong"] = '\n'.join([help_menus_list['numerical value'
 
 help_menus_list['levels']["Longest path"] = "The longest path problem is NP-complete."
 
+help_menus_list['levels']["Shorter path"] = help_menus_list['random']
+
 help_menus_list['levels']["Hitting set"] = """The hitting set is one of the Karp's 21 NP-complete problems.\nIt is equivalent to the set cover problem\n""" + '\n'.join([help_menus_list['INF'],
                                                                                                                                                                          help_menus_list['SUP'],
                                                                                                                                                                          help_menus_list['INFOREQU'],

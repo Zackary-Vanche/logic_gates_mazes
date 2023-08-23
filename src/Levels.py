@@ -128,6 +128,7 @@ from levels.level_route import level_route
 from levels.level_second import level_second
 from levels.level_separation import level_separation
 from levels.level_sheffer_stroke import level_sheffer_stroke
+from levels.level_shorter_path import level_shorter_path
 from levels.level_shuffled import level_shuffled
 from levels.level_sign import level_sign
 from levels.level_singleton import level_singleton
@@ -239,6 +240,7 @@ class Levels:
                              level_peirce_s_arrow,
                              level_pong,
                              level_longest_path,
+                             level_shorter_path,
                              level_hitting_set,
                              level_independent_set,
                              level_dominating_set,
@@ -680,8 +682,8 @@ if __name__ == "__main__":
 #         if level.try_solution(sol) == 2:
 #             print(sol)
 
-    # solutions = level_leafs().find_all_solutions(verbose=2,
-    #                                                 nb_iterations_print=10**4,
+    # solutions = level_shorter_path().find_all_solutions(verbose=2,
+    #                                                 nb_iterations_print=10**5,
     #                                                 stop_at_first_solution=False)
     # for sol in solutions[0]:
     #     print(' '.join(sol))

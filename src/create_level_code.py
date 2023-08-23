@@ -1,6 +1,6 @@
-ns = 12
-nd = 37
-nr = 0
+ns = 15
+nd = 3*3+3+3
+nr = 8
 nv = 0
 
 print('''
@@ -36,7 +36,7 @@ print('')
 for i in range(nd):
     print(f'''    T{i} = Tree(tree_list=[None],
                 name='T{i}',
-                switches=[1])''')
+                switches=[S{i}])''')
     
 print('')
 
