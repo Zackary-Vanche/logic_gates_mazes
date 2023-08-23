@@ -100,6 +100,7 @@ from levels.level_point_of_no_return import level_point_of_no_return
 from levels.level_pong import level_pong
 from levels.level_product import level_product
 from levels.level_puzzle import level_puzzle
+from levels.level_pyramid import level_pyramid
 from levels.level_pythagorean import level_pythagorean
 from levels.level_random_K2 import level_random_K2
 from levels.level_random_K33 import level_random_K33
@@ -270,6 +271,7 @@ class Levels:
                              level_rotation,
                              level_superpermutation,
                              level_singleton,
+                             level_pyramid,
                              level_chessboard,
                              level_walk,
                              level_trail,
