@@ -513,15 +513,15 @@ help_menus_list['levels']["Trail"] = """A trail is a walk in which all edges are
 
 help_menus_list['levels']["Path"] = """A path is a trail in which all vertices (and therefore also all edges) are distinct."""
 
-help_menus_list['levels']["Roadblocks"] = """Look at the differences between this level and the previous ones."""
+help_menus_list['levels']["Roadblocks"] = """There are two roadbloacks."""
 
-help_menus_list['levels']["Passage"] = """Look at the differences between this level and the previous ones."""
+help_menus_list['levels']["Passage"] = """Think outside of the box."""
 
-help_menus_list['levels']["Impasse"] = """Look at the differences between this level and the previous ones."""
+help_menus_list['levels']["Impasse"] = """If a street is an impasse, maybe you should avoid it."""
 
-help_menus_list['levels']["Route"] = """Look at the differences between this level and the previous ones."""
+help_menus_list['levels']["Route"] = """The solution is far from beeing a path."""
 
-help_menus_list['levels']["Traversal"] = """Look at the differences between this level and the previous ones."""
+help_menus_list['levels']["Traversal"] = """The solution is far from beeing a path."""
 
 help_menus_list['levels']["Entropy"] = """You have a limited number of moves."""
 
