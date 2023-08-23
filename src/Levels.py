@@ -212,8 +212,7 @@ class Levels:
     Maximum coverage problem
     """
 
-    levels_functions_list = [
-                             level_hello_world,
+    levels_functions_list = [level_hello_world,
                              level_playground,
                              level_initiation,
                              level_linear,
@@ -385,6 +384,12 @@ class Levels:
                              level_panex,
                              level_superflip,
                              ]
+    
+    # Worlds = {'Initial world':[],
+    #           'Hidden palace':[],
+    #           'The journey':[]}
+    
+    # levels_functions_list = Worlds['Initial world']
 
     # levels_names_dico = {}
     # for i in range(len(levels_functions_list)):
