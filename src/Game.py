@@ -886,7 +886,7 @@ class Game:
                 self.current_action = self.current_action[:-1]
                 self.last_key_BACKSPACE_pressed_time = time()
 
-    def change_level(self):
+    def change_level(self): # TODO
         self.pressed = pygame_key_get_pressed()
         # Changement de niveau
         if time() - self.last_level_change_time > self.time_between_level_changing:
@@ -897,6 +897,9 @@ class Game:
                     self.index_current_level += 1
                     self.show_help = True
                 self.level_changed = True
+                new_level = Levels.get_level(self.index_current_level, get_new_level=False)
+                if self.show_help and ''.join(new_level.help_txt) == '':
+                    self.show_help = False
             if (self.pressed[K_LEFT]):
                 if not self.show_help:
                     self.show_help = True
@@ -904,6 +907,9 @@ class Game:
                     self.index_current_level -= 1
                     self.show_help = False
                 self.level_changed = True
+                if self.show_help and ''.join(self.maze.help_txt) == '':
+                    self.show_help = False
+                    self.index_current_level -= 1
         if self.level_changed:
             self.last_level_change_time = time()
         if self.index_current_level == -1:

@@ -6,6 +6,7 @@ from inspect import signature
 from levels.level_3sat import level_3sat
 from levels.level_4_colors_theorem import level_4_colors_theorem
 from levels.level_alice_and_bob import level_alice_and_bob
+from levels.level_arithmetic import level_arithmetic
 from levels.level_backward import level_backward
 from levels.level_baguenaudier import level_baguenaudier
 from levels.level_betweenness import level_betweenness
@@ -60,6 +61,7 @@ from levels.level_impasse import level_impasse
 from levels.level_independent_set import level_independent_set
 from levels.level_infinity import level_infinity
 from levels.level_initiation import level_initiation
+from levels.level_inside_out import level_inside_out
 from levels.level_inversions import level_inversions
 from levels.level_k import level_k
 from levels.level_knapsack import level_knapsack
@@ -212,33 +214,37 @@ class Levels:
     Maximum coverage problem
     """
 
-    levels_functions_list = [level_hello_world,
+    levels_functions_list = [
+                             level_hello_world,
                              level_playground,
                              level_initiation,
                              level_linear,
                              level_loop,
-                             level_boolean,
-                             level_backward,
-                             level_bis_repetita,
-                             level_binary,
-                             level_yoyo,
-                             level_crossroad,
                              level_forest,
+                             level_backward,
+                             level_numeration,
+                             level_sorted,
+                             level_arithmetic,
+                             level_inside_out,
+                             level_sum,
+                             level_bis_repetita,
+                             level_equation,
+                             level_binary,
+                             level_product,
+                             level_yoyo,
+                             level_congruence,
+                             level_crossroad,
+                             level_boolean,
                              level_square,
                              level_fluid,
-                             level_numeration,
-                             level_sum,
-                             level_equation,
-                             level_product,
-                             level_congruence,
                              level_infinity,
+                             level_pong,
                              level_3sat,
                              level_point_of_no_return,
                              level_bipartite,
                              level_hamiltonian,
                              level_sheffer_stroke,
                              level_peirce_s_arrow,
-                             level_pong,
                              level_longest_path,
                              level_shorter_path,
                              level_hitting_set,
@@ -254,7 +260,6 @@ class Levels:
                              level_naturals,
                              level_wasted,
                              level_doppelganger,
-                             level_sorted,
                              level_meanders,
                              level_wind_compass,
                              level_compact,
@@ -783,13 +788,15 @@ def test_levels(test_random_levels=False):
             plt.show()
             print('')
 
-    print('Testing level cartesian')
+    print('Testing some chosen levels')
     solutions = level_cartesian().find_all_solutions(verbose=2,
                                                      nb_iterations_print=10**4,
                                                      stop_at_first_solution=False)
     assert len(solutions[0]) == 1
     sol = solutions[0][0]
     assert level_cartesian().fastest_solution == ' '.join(sol)
+    
+    assert level_arithmetic().find_all_solutions()[0] != 0
 
 
 def calculates_random_level_solution_length(aux_level_function):
@@ -826,27 +833,27 @@ if __name__ == "__main__":
     if os.path.exists('temp.txt'):
         os.remove('temp.txt')
         
-    all_level_set = set()
-    for level_function in Levels.levels_functions_list:
-        all_level_set.add(level_function().name)
+    # all_level_set = set()
+    # for level_function in Levels.levels_functions_list:
+    #     all_level_set.add(level_function().name)
     
-    worlds_level_list = []
-    for world_name in Levels.Worlds.keys():
-        for level_function in Levels.Worlds[world_name]:
-            worlds_level_list.append(level_function().name)
+    # worlds_level_list = []
+    # for world_name in Levels.Worlds.keys():
+    #     for level_function in Levels.Worlds[world_name]:
+    #         worlds_level_list.append(level_function().name)
             
-    for level_function in Levels.levels_functions_list:
-        name = level_function().name
-        if not name in worlds_level_list:
-            print(name)
+    # for level_function in Levels.levels_functions_list:
+    #     name = level_function().name
+    #     if not name in worlds_level_list:
+    #         print(name)
             
-    duplicates = set([item for item in worlds_level_list if worlds_level_list.count(item) > 1])
-    print(duplicates)
-    print('')
-    worlds_level_set = set(worlds_level_list)
-    print(all_level_set - worlds_level_set)
-    print('')
-    print(worlds_level_set - all_level_set)
+    # duplicates = set([item for item in worlds_level_list if worlds_level_list.count(item) > 1])
+    # print(duplicates)
+    # print('')
+    # worlds_level_set = set(worlds_level_list)
+    # print(all_level_set - worlds_level_set)
+    # print('')
+    # print(worlds_level_set - all_level_set)
         
     # test_levels()
 

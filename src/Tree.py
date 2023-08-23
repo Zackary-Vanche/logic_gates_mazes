@@ -124,7 +124,8 @@ class Tree:
                  cut_expression_separator=')',
                  cut_expression_depth_1=False,
                  random_switches_bin_list=[],
-                 min_size_cut=6):
+                 min_size_cut=6,
+                 is_int=False):
 
         # assert not (root_depth == 0 and switches == []), name
 
@@ -191,6 +192,8 @@ class Tree:
         self.min_size_cut = min_size_cut
         
         self.cut_expression_depth_1 = cut_expression_depth_1
+        
+        self.is_int = is_int
             
 
     def update_leafs_switches(self, switches=None):
@@ -344,7 +347,7 @@ class Tree:
                             'OR ': '| ',
                             'SUM ': '+ ',
                             'PROD ': '* ',
-                            'DIFF ': '≠ ',
+                            'DIFF ': '¬= ', # ≠
                             'SUPOREQU ': '>= ',
                             'INFOREQU ': '<= ',
                             'EQU ': '= ',
@@ -400,6 +403,8 @@ class Tree:
             value = self.root
         else:
             value = self.root.func(self.sons_list)
+        if self.is_int:
+            value = int(value)
         # print(self.easy_logical_expression_PN, '=', value)
         return value
 

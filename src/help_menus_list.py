@@ -22,34 +22,12 @@ Be carefull with the negation, because :
     ¬ 0 = 1"""
 
 help_menus_list['MINUS'] = """
-- means 'MINUS'.
--S0 is the opposite of S0."""
+- means 'MINUS'. -S0 is the opposite of S0."""
 
 help_menus_list['AND'] = """
 & means 'AND'.
 D0 = & S0 S1 means :
     D0 is open only if (S0, S1) = (1,1)"""
-
-help_menus_list['NAND'] = """
-NAND truth table (D0 = ¬& S0 S1):
-S0  S1  D0
-  0    0    1
-  0    1    1
-  1    0    1
-  1    1    0"""
-
-help_menus_list['NAND 3'] = """NAND can also apply to 3 parameters instead of 2:
-
-    NAND truth table [D0 = NAND ( S0 S1 S2 ) = ¬& ( S0 S1 S2 )]:
-    S0  S1  S2  D0
-      0    0    0     1
-      0    1    0     1
-      1    0    0     1
-      1    1    0     1
-      0    0    1     1
-      0    1    1     1
-      1    0    1     1
-      1    1    1     0"""
 
 help_menus_list['OR'] = '''
 | means 'OR'.
@@ -77,7 +55,7 @@ Their definitions are :
     XNOR S0 S1 = | & S0 S1 & ¬ S0 ¬ S1
     XNOR S0 S1 = ¬ XOR S0 S1"""
 
-help_menus_list['XNOR'] = """
+help_menus_list['XOR XNOR'] = """
 XOR means exclusive or. XNOR is its opposite.
 
 XOR truth table (D0 = ^ S0 S1):
@@ -102,9 +80,7 @@ You can write :
     XNOR S0 S1 = ¬ XOR S0 S1"""
 
 help_menus_list['SUM'] = """
-+ S0 S1 is the sum of S0 and S1.
-With parenthesis, the operator + can be used with more than 2 operands:
-    + (S0 S1 S2) is the sum of S0, S1 and S2."""
++ S0 S1 is the sum of S0 and S1."""
 
 help_menus_list['DIV'] = """
 / S0 S1 is equal to S0 divided by S1."""
@@ -124,7 +100,6 @@ help_menus_list['ABS'] = """
 help_menus_list['EQU'] = '''
 D0 = = S0 S1 means :
     D0 is open if S0 is equal to S1.
-It is similar to XNOR with two operands.
 Used with more than 2 operands, it means that all its operands are equal to each other.'''
 
 help_menus_list['EQUSET'] = '''
@@ -132,10 +107,6 @@ D0 = ~  ( S0 ; S2 ; ...) ( S1 ; S3 ; ...) means :
     D0 is open if the two sets ( S0 ; S2 ; ...) and ( S1 ; S3 ; ...) contain the same elements, but not obligatorily in the same order.
 D0 = ~  ( S0 ; S2 ) ( S1 ; S3) means :
     D0 = | & = S0 S1 = S2 S3 & = S0 S3 = S2 S1'''
-
-help_menus_list['DIFF'] = '''
-D0 = ≠ (S0 S1 ...) means :
-    D0 is open if every elements of (S0 S1 ...) are two by two differents.'''
 
 help_menus_list['INF'] = """
 D0 = < S0 S1 means :
@@ -278,7 +249,7 @@ you can write :
     D0 = & S0 ( & S1 S2 )
 or :
     D0 = & ( S0 S1 S2 )
-You can use this notation with more than 3 switches.
+You can use this notation with more than 3 switches, and with very operand.
 You can also use it with | instead of &.
 
 You can use this notation with negations :
@@ -375,15 +346,8 @@ To leave the game, you can click an the cross but also press [ESCAPE]."""
 
 help_menus_list['random'] = """
 Press [N] and then [Enter] to get new random level."""
-# Door's expression and solutions of the random levels have all been calculated by computer only."""
 
-help_menus_list['random exit'] = """The configuration you have to reach to open the exit gate is chosen randomly in a file.
-Press [N] and then [Enter] to get a new exit gate."""
-
-help_menus_list['random configuration'] = """The initial configuration is chosen randomly in a file.
-Press [N] and then [Enter] to get a new configuration."""
-
-help_menus_list['UP DOWN'] = 'Use the UP and DOWN keys to see all the equations.'
+help_menus_list['UP DOWN'] = 'If you use the [UP] and [DOWN] keys, you can switch which equation appears first.'
 
 ############
 ## LEVELS ##
@@ -393,119 +357,77 @@ help_menus_list['levels'] = {}
 
 help_menus_list['levels']["Hello world"] = '\n'.join([help_menus_list['introduction'], help_menus_list['basis']])
 
-help_menus_list['levels']["Playground"] = help_menus_list['NOT']
+help_menus_list['levels']["Playground"] = '\n'.join([help_menus_list['NOT'],
+                                                     help_menus_list['write several actions']])
 
-help_menus_list['levels']["Initiation"] = help_menus_list['OR']
+help_menus_list['levels']["Initiation"] = '\n'.join([help_menus_list['OR']])
 
-help_menus_list['levels']["Linear"] = '\n'.join([help_menus_list['AND'], help_menus_list['NOT'], help_menus_list['AND and NOT']])
+help_menus_list['levels']["Linear"] = '\n'.join([help_menus_list['AND'],
+                                                  help_menus_list['AND and NOT'],
+                                                  help_menus_list['directions keys'],])
 
-help_menus_list['levels']['Loop'] = help_menus_list['directions keys']
+help_menus_list['levels']['Loop'] = '\n'.join([help_menus_list['go in a room'],
+                                               help_menus_list['Introduction thuth table']])
 
-help_menus_list['levels']['Boolean'] = help_menus_list['XOR']
+help_menus_list['levels']["Forest"] = '\n'.join([help_menus_list['XOR XNOR'],
+                                                 help_menus_list['leave the game']])
 
-help_menus_list['levels']["Backward"] = help_menus_list['parenthesis']
+help_menus_list['levels']["Backward"] = '\n'.join([help_menus_list['parenthesis'],
+                                                   help_menus_list['brackets'],
+                                                   ])
 
-help_menus_list['levels']["Bis repetita"] = """You might have to repeat twice the same actions."""
+help_menus_list['levels']["Numeration"] = '\n'.join([help_menus_list['EQU'],
+                                                     help_menus_list['BIN'],
+                                                     help_menus_list['numerical value']])
 
-help_menus_list['levels']["Binary"] = help_menus_list['go in a room']
+help_menus_list['levels']["Sorted"] = '\n'.join([help_menus_list['INF'],
+                                                 help_menus_list['SUP'],
+                                                 help_menus_list['INFOREQU'],
+                                                 help_menus_list['SUPOREQU'],
+                                                 help_menus_list['EQUSET']])
 
-help_menus_list['levels']["Yoyo"] = '''Enjoy the game while it is still easy.'''
+help_menus_list['levels']["Arithmetic"] ='\n'.join([help_menus_list['V'],
+                                                     help_menus_list['SUM'],
+                                                     help_menus_list['MINUS'],
+                                                     help_menus_list['PROD'],
+                                                     help_menus_list['DIV'],
+                                                     help_menus_list['MOD'],
+                                                     help_menus_list['ABS'],
+                                                     help_menus_list['POW'],
+                                                     help_menus_list['DIST'],
+                                                     help_menus_list["cheat code"],
+                                                     help_menus_list['UP DOWN'],
+                                                     ])
 
-help_menus_list['levels']["Crossroad"] = help_menus_list['reminder B']
+help_menus_list['levels']["Inside out"] = help_menus_list['IN']
 
-help_menus_list['levels']["Forest"] = help_menus_list['XNOR']
+help_menus_list['levels']["Superpermutation"] = help_menus_list['INLIST']
 
-help_menus_list['levels']["Square"] = help_menus_list['write several actions']
+help_menus_list['levels']["3 SAT"] = """The 3 SAT problem is NP complete."""
 
-help_menus_list['levels']["Fluid"] = help_menus_list['Introduction thuth table']
+help_menus_list['levels']["Longest path"] = "The longest path problem is NP-complete."
 
-help_menus_list['levels']["Numeration"] = '\n'.join([help_menus_list['EQU'], help_menus_list['BIN']])
-
-help_menus_list['levels']["Sum"] ='\n'.join([help_menus_list['random'], help_menus_list['V'], help_menus_list['IN'], help_menus_list['SUM']])
-                                   
-help_menus_list['levels']["Equation"] = help_menus_list['MINUS']
-
-help_menus_list['levels']["Product"] = help_menus_list['PROD']
-
-help_menus_list['levels']["Congruence"] = help_menus_list['MOD']
-
-help_menus_list['levels']["Sorted"] = '\n'.join([help_menus_list['random'], help_menus_list['EQUSET']])
-
-help_menus_list['levels']["Meanders"] = """You have to go inside every room."""
-
-help_menus_list['levels']["Infinity"] = help_menus_list["cheat code"]
-
-help_menus_list['levels'][
-    "3 SAT"] = """The 3 SAT problem is NP complete.\n\nThe door expression has been randomly chosen by computer."""
-
-help_menus_list['levels']["Point of no return"] = help_menus_list['XNOR']
-
-help_menus_list['levels']["Bipartite"] = """Several paths lead to the exit."""
-
-help_menus_list['levels']["Hamiltonian"] = """Don't look for something too complicated."""
+help_menus_list['levels']["Hitting set"] = """The hitting set is one of the Karp's 21 NP-complete problems.\nIt is equivalent to the set cover problem\n"""
 
 help_menus_list['levels']["Sheffer stroke"] = """This level has several solutions..."""
 
 help_menus_list['levels']["Peirce's arrow"] = """This level has several solutions..."""
 
-help_menus_list['levels']["Pong"] = '\n'.join([help_menus_list['numerical value'], help_menus_list['SUM'], help_menus_list['EQU']])
-
-help_menus_list['levels']["Longest path"] = "The longest path problem is NP-complete."
-
-help_menus_list['levels']["Shorter path"] = help_menus_list['random']
-
-help_menus_list['levels']["Hitting set"] = """The hitting set is one of the Karp's 21 NP-complete problems.\nIt is equivalent to the set cover problem\n""" + '\n'.join([help_menus_list['INF'],
-                                                                                                                                                                         help_menus_list['SUP'],
-                                                                                                                                                                         help_menus_list['INFOREQU'],
-                                                                                                                                                                         help_menus_list['SUPOREQU']])
-
 help_menus_list['levels']["Independent set"] = "The independent set is one of the Karp's 21 NP-complete problems."
 
 help_menus_list['levels']["Dominating set"] = """Finding dominating set is a NP-Complete problem."""
 
-help_menus_list['levels']["Exact cover"] = """The exact cover is one of the Karp's 21 NP-complete problems.\n""" + help_menus_list['XOR 3']
-
-help_menus_list['levels']["Odd"] = help_menus_list['leave the game']
+help_menus_list['levels']["Exact cover"] = """The exact cover is one of the Karp's 21 NP-complete problems.\n"""
 
 help_menus_list['levels']["Min-cut"] = """A cut is a partition of the vertices of a graph into two disjoint subsets.\nYou must cut as few edges as possible."""
 
 help_menus_list['levels']["Max-cut"] = """You must cut as many edges as possible."""
 
-help_menus_list['levels']["Leafs"] = help_menus_list['random']
-
-help_menus_list['levels']["Triangulate"] = help_menus_list['DIST']
-
-help_menus_list['levels']["Recurrence"] = help_menus_list['brackets']
-
-help_menus_list['levels']["Naturals"] = '\n'.join([help_menus_list['ABS'], help_menus_list['MINUS'], help_menus_list['BIN']])
-
-help_menus_list['levels']["Wasted"] = """It looks easy, and it is easy."""
-
-help_menus_list['levels']["Wind compass"] = """It is not more complicated than the level named "meanders".\n""" + help_menus_list['UP DOWN']
-
-help_menus_list['levels']["Compact"] = """It looks easy, but it is maybe just an impression."""
-
-help_menus_list['levels']["Parallel"] = """The "Guess and check" method works well here."""
-
-help_menus_list['levels']["Pythagorean"] = help_menus_list['POW']
-
-help_menus_list['levels']["Elementary"] = """An elementary permutation is a swap of two adjacent elements.\n""" + help_menus_list['EQUSET']
-           
-help_menus_list['levels']["Circuit"] = help_menus_list['random']  
-
-help_menus_list['levels']["Network"] = help_menus_list['random'] 
-                               
-help_menus_list['levels']["Rotation"] = help_menus_list['random exit']                                          
-
-help_menus_list['levels']["Superpermutation"] = help_menus_list['INLIST']
+help_menus_list['levels']["Elementary"] = """An elementary permutation is a swap of two adjacent elements.\n"""
 
 help_menus_list['levels']["Singleton"] = """A singleton is a set with exactly one element."""
 
 help_menus_list['levels']["Taxicab number"] = """Taxicab numbers are also called Hardy–Ramanujan numbers."""
-
-help_menus_list['levels']["Pyramid"] = help_menus_list['random'] 
-
-help_menus_list['levels']["Chessboard"] = """If you remove the exit, the graph of this level is the graph of the possible moves of a knight in a 3*4 rectangle.\nHowever, sometimes here doors are one-way only."""
 
 help_menus_list['levels']["Walk"] = """In graph theory, a walk is a finite or infinite sequence of edges which joins a sequence of vertices.\nHere, you cannot revisit vertices and edges."""
 
@@ -513,134 +435,49 @@ help_menus_list['levels']["Trail"] = """A trail is a walk in which all edges are
 
 help_menus_list['levels']["Path"] = """A path is a trail in which all vertices (and therefore also all edges) are distinct."""
 
-help_menus_list['levels']["Roadblocks"] = """There are two roadbloacks."""
+help_menus_list['levels']["Dichotomy"] = """? is a random integer.\n\nOnce you found the value of ?, the level is over.\n\n"""
 
-help_menus_list['levels']["Passage"] = """Think outside of the box."""
-
-help_menus_list['levels']["Impasse"] = """If a street is an impasse, maybe you should avoid it."""
-
-help_menus_list['levels']["Route"] = """The solution is far from beeing a path."""
-
-help_menus_list['levels']["Traversal"] = """The solution is far from beeing a path."""
-
-help_menus_list['levels']["Entropy"] = """You have a limited number of moves."""
-
-help_menus_list['levels']["Dichotomy"] = """? is a random integer.\n\nOnce you found the value of ?, the level is over.\n\n""" + help_menus_list['random']
-
-help_menus_list['levels']["Partition"] = """The partition is one of the Karp's 21 NP-complete problems.\n""" + help_menus_list["PROD"]
-
-help_menus_list['levels']["Second"] = """You need to solve a second order polynomial equation."""
+help_menus_list['levels']["Partition"] = """The partition is one of the Karp's 21 NP-complete problems.\n"""
 
 help_menus_list['levels']["Knapsack"] = """The knapsack is one of the Karp's 21 NP-complete problems."""
 
-help_menus_list['levels']["Egyptian fractions"] = help_menus_list['DIV']
-
 help_menus_list['levels']["Code"] = "You may want to learn what the Gray code is."
 
-help_menus_list['levels']["Spider"] = "Walk on the spider web."
-
-help_menus_list['levels']["Tetrahedron"] = """The logic expressions of the doors of this level have been calculated by computer.\nThe program that calculated it already knew all the rest of the level.\n\nThis level looks complicated, but you do only need to let the game lead you to the exit."""
-
-help_menus_list['levels']["Small"] = """The solution and the door's expressions of this level have been chosen randomly and calculated by the computer only."""
-
 help_menus_list['levels']["The 4 queens"] = """This level is inspired from the 8 queens problem."""
-
-help_menus_list['levels']["Mansion"] = """You might get lost in this mansion."""
-
-help_menus_list['levels']["Water lily"] = """A water lily is a floating aquatic plant with round, flat leaves and beautiful flowers that bloom on or above the water's surface."""
 
 help_menus_list['levels']["Harmony"] = """This level has several solutions."""
 
 help_menus_list['levels']["K"] = """You have to locate as many knights in a chessboard as possible."""
 
-help_menus_list['levels']["Strange"] = "You can always try exhaustive testing..."
-
 help_menus_list['levels']["Alice and Bob"] = """Alice wants to send a package to Bob."""
-
-help_menus_list['levels']["Rotation_bis"] = help_menus_list['random exit'] 
 
 help_menus_list['levels']["Nonogram"] = help_menus_list['NONO']
 
-help_menus_list['levels']["Crystal"] = """If you make a mistake, you have to start all over again."""
-
-help_menus_list['levels']["Stairs"] = help_menus_list['NAND']
-
-help_menus_list['levels']["Lights_out"] = help_menus_list['random configuration']
-
-help_menus_list['levels']["Weights"] = '''You must find the good weights in order to reach the exit.'''
-
-help_menus_list['levels']["Tetractys"] = '''The principle of the level is identical to that of the level named 'Weight,' but this level is generated randomly.''' + help_menus_list['random']
-
 help_menus_list['levels']["Tetris"] = """Each number can represent a position in the plane.\n"""
-
-help_menus_list['levels']["Central symmetry"] = """The name of the level is a hint."""
 
 help_menus_list['levels']["Mastermind"] = help_menus_list['MAS'] + """\n\n?0 ?1 ?2 ?3 ?4 ?5 ?6 ?7 are switches.\n\nYou have to guess their values."""
 
 help_menus_list['levels']["Baguenaudier"] = '''The baguenaudier is an old puzzle game.'''
 
-help_menus_list['levels']["Spare"] = '''Use the spare room.'''
-
 help_menus_list['levels']["4 colors theorem"] = """Each couple of switches represent a color.\n"""
-
-help_menus_list['levels']["Grid"] = help_menus_list['random exit']
-
-help_menus_list['levels']["Flash-back"] = """Be careful not to come back in a state you already visited."""
-
-help_menus_list['levels']["Spaceship"] = 'You have to find the order in the chaos.'
-
-help_menus_list['levels']["Connect the dots"] = "I don't think you need help for this one."
-
-help_menus_list['levels']["Magic square"] = help_menus_list['DIFF']
 
 help_menus_list['levels']["Matrix"] = """To solve this level you need to do a 5*5 matrix inversion."""
 
 help_menus_list['levels']["River"] = """You want to cross the river with a wolf, a goat and a cabbage."""
 
-help_menus_list['levels']["Vortex"] = """You might feel dizzy."""
-
-help_menus_list['levels']["Tree"] = """The tree is hidden in the equations.\n\n""" + help_menus_list['random']
-
-help_menus_list['levels']["Dead_ends"] = """Even if it is the first level that actually looks like a printed circuit board, you have been in a computer all this time."""
-
 help_menus_list['levels']["Conjunctive normal form"] = "This level is the same than the level named '3 SAT', but it is random."
 
 help_menus_list['levels']["Betweenness"] = help_menus_list['BETWEEN']
 
-help_menus_list['levels']["Fractal"] = """As you see, several doors lead to the exit.\nThere is only one that can be opened."""
-
-help_menus_list['levels']["Tesseract"] = """The tesseract is hidden in the equations."""
-
-help_menus_list['levels']["Branches"] = "This level is the same than the level named 'Point of no return', but it is random.\n" + help_menus_list['random']
-
-help_menus_list['levels']["Oval_track_puzzle"] = help_menus_list["cheat code"]
-
-help_menus_list['levels']["Cartesian"] = """Sorry, there is nothing to help you here."""
-
-help_menus_list['levels'][
-    "Eulerian"] = """This level was initially inspired by the seven bridges of Königsberg problem.\nThe difference is that here there is a solution."""
+help_menus_list['levels']["Eulerian"] = """This level was initially inspired by the seven bridges of Königsberg problem.\nThe difference is that here there is a solution."""
 
 help_menus_list['levels']["Sujiko"] = """Sujiko is a logic-based, combinatorial number-placement puzzle."""
 
-help_menus_list['levels']["Electricity"] = help_menus_list['NAND 3']
-
 help_menus_list['levels']["Permutations"] = """Every permutation can be writen as a product of 2-cycles.\n\nYou can try to find not only one solution, but the fastest one."""
-
-help_menus_list['levels']["Inversions"] = """This level looks a lot like the level "Permutations"."""
 
 help_menus_list['levels']["Pancake sorting"] = """Pancake sorting is a real computational problem."""
 
-help_menus_list['levels']["Wave"] = """The path to the exit is not so long."""
-
-help_menus_list['levels']["Cube"] = help_menus_list['random exit']
-
 help_menus_list['levels']["Error"] = help_menus_list['E']
-
-help_menus_list['levels']["House"] = """Does your house have forty doors?"""
-
-help_menus_list['levels']["The_4th_dimension"] = """More rotations..."""
-
-help_menus_list['levels']["Draw"] = """You have to draw a house."""
 
 help_menus_list['levels']["Takuzu"] = """Takuzu is a logic puzzle involving placement of two symbols, often 1s and 0s, on a rectangular grid."""
 
@@ -648,13 +485,9 @@ help_menus_list['levels']["Travelling salesman"] = "The travelling salesman is a
 
 help_menus_list['levels']["No three in line"] = """The no three in line problem is a discrete geometry problem."""
 
-help_menus_list['levels']["Manhattan_distance"] = """The cheat code might be very useful here."""
-
 help_menus_list['levels']["Minimum spanning tree"] = """A Minimum spanning tree is the subset of edges in a graph that connects all the vertices together\nwith the minimum total edge weight possible, without forming any cycles."""
 
-help_menus_list['levels']["Small honeycomb"] = """Honeycombs are supposed to be hexagonal...\nThe method of resolution you should use for this level is the same as for the level "minimum spanning tree".\n""" + help_menus_list['random']
-
-help_menus_list['levels']["Honeycomb"] = """Same, but bigger...""" + help_menus_list['random']
+help_menus_list['levels']["Small honeycomb"] = """Honeycombs are supposed to be hexagonal...\nThe method of resolution you should use for this level is the same as for the level "minimum spanning tree".\n"""
 
 help_menus_list['levels']["Diagonal"] = """To solve this level you need to solve a 4*4 sudoku grid."""
 
@@ -662,17 +495,13 @@ help_menus_list['levels']["Sudoku"] = """It looks a lot like the level diagonal.
 
 help_menus_list['levels']["Knight"] = """To solve this level you need to find a knight's tour."""
 
-help_menus_list['levels']["Hungarian_rings"] = help_menus_list['random configuration']
-
 help_menus_list['levels']["Water pouring"] = """You have 3 jugs of liquid, and you need to pour water from one to another."""
 
 help_menus_list['levels']["Syracuse"] = """The solution is pretty long."""
 
-help_menus_list['levels']["Five"] = help_menus_list['random'] + """\n\nThere might be several solutions."""
+help_menus_list['levels']["Five"] = """There might be several solutions."""
 
-help_menus_list['levels']["Shuffled"] = help_menus_list['random'] + """\n\nThere might be several solutions."""
-
-help_menus_list['levels']["Sign"] = 'You might need the help of a computer to solve this one.'
+help_menus_list['levels']["Shuffled"] = """There might be several solutions."""
 
 help_menus_list['levels']["Combinatorics"] = help_menus_list['N3L']
 
@@ -684,8 +513,6 @@ help_menus_list['levels']["Solitaire"] = help_menus_list['JUMP']
 
 help_menus_list['levels']["MOLS"] = 'MOLS stands for "Mutually Orthogonal Latin Squares".'
 
-help_menus_list['levels']["Separation"] = """Good luck !"""
-
 help_menus_list['levels']["Small panex"] = help_menus_list['INF0']
 
 help_menus_list['levels']["Zebra"] = """There are five houses.\n\n"""
@@ -694,52 +521,6 @@ help_menus_list['levels']["Bridges"] = """There are seven bridges in Königsberg
 
 help_menus_list['levels']["Chinese postman problem"] = """In graph theory the Chinese postman problem is to find a shortest closed path that visits every edge of a connected undirected graph at least once."""
 
-help_menus_list['levels']["Postman"] = """You need to visit every house.\nThis level looks a lot like the level named "bridges"."""
+help_menus_list['levels']["Panex"] = ""
 
-help_menus_list['levels']["Parking"] = """There are cars everywhere."""
-
-help_menus_list['levels']["Panex"] = """You are on your own."""
-
-help_menus_list['levels']["Superflip"] = "No help here."
-
-help_menus_list['levels']["Doppelganger"] = help_menus_list['random']
-
-help_menus_list['levels']["Random - Binary Tree"] = help_menus_list['random']
-
-help_menus_list['levels']["Random - Blind alley"] = """The doors form a bull graph.\n\n""" + help_menus_list['random']
-
-help_menus_list['levels']["Random - Boustrophedon"] = """The doors form a Butterfly graph.\n\n""" + help_menus_list['random']
-
-help_menus_list['levels']["Random - Bull"] = """The doors form a bull graph.\n\n""" + help_menus_list['random']
-
-help_menus_list['levels']["Random - Butterfly"] = """The doors form a Butterfly graph.\n\n""" + help_menus_list['random']
-
-help_menus_list['levels']["Random - Come back"] = help_menus_list['random']
-
-help_menus_list['levels']["Random - Cuboctahedron"] = help_menus_list['random']
-
-help_menus_list['levels']["Random - Gemini"] = help_menus_list['random']
-
-help_menus_list['levels']["Random - K2"] = help_menus_list['random']
-
-help_menus_list['levels']["Random - K5"] = """Welcome to hell.\n\n""" + help_menus_list['random']
-
-help_menus_list['levels']["Random - K3,3"] = help_menus_list['random']
-
-help_menus_list['levels']["Random - Ladder"] = help_menus_list['random']
-
-help_menus_list['levels']["Random - Line"] = help_menus_list['random']
-
-help_menus_list['levels']["Random - Turning"] = help_menus_list['random']
-
-help_menus_list['levels']["Random - Petersen"] = help_menus_list['random']
-
-help_menus_list['levels']["Random - Simple"] = help_menus_list['random']
-
-help_menus_list['levels']["Random - Star"] = help_menus_list['random']
-
-help_menus_list['levels']["Random - Starting point"] = help_menus_list['random']
-
-help_menus_list['levels']["Random - Tetractys"] = help_menus_list['random']
-
-help_menus_list['levels']["Random - Wheel"] = help_menus_list['random']
+help_menus_list['levels']["Superflip"] = ""

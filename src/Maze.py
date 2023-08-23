@@ -212,10 +212,9 @@ class Maze:
         if len(self.help_txt[0]) > 0:
             if self.help_txt[0][0] == '\n':
                 self.help_txt[0] = self.help_txt[0][1:]
+        if self.random:
+            self.help_txt[0] = self.help_txt[0] + '\n' + help_menus_list['random']
         self.n_help_pages = len(self.help_txt)
-        if ' '.join(self.help_txt).replace(' ', '') == '':
-            print(self.name, 'empty help')
-            pass
         self.current_page = current_page
         self.number_of_pages = 0
         for room in self.rooms_list:
