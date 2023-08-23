@@ -385,11 +385,180 @@ class Levels:
                              level_superflip,
                              ]
     
-    # Worlds = {'Initial world':[],
-    #           'Hidden palace':[],
-    #           'The journey':[]}
+    Worlds = {'The Initial World':[level_hello_world, # BASIS
+                                   level_playground,  # NOT
+                                   level_initiation,  # OR
+                                   level_linear,      # AND
+                                   level_boolean,     # XOR
+                                   level_backward,    # Parenthesis
+                                   level_binary,      # R
+                                   level_forest,      # XOR XNOR
+                                   level_square,      # Spaces
+                                   level_fluid,       # Truth table
+                                   level_numeration,  # BIN
+                                   level_sum,         # SUM
+                                   level_equation,    # MINUS
+                                   level_product,     # PROD
+                                   level_congruence,  # MOD
+                                   level_pong,        # EQU
+                                   level_hitting_set, # INF SUP INFOREQU SUPOREQU
+                                   level_exact_cover, # XOR 3
+                                   level_triangulate, # DIST
+                                   level_naturals,    # ABS
+                                   level_sorted,      # EQUSET
+                                   ],    
+              'The Hidden Palace':[level_hitting_set,
+                                   level_independent_set,
+                                   level_dominating_set,
+                                   level_min_cut,
+                                   level_max_cut,
+                                   level_entropy,
+                                   level_branches,
+                                   level_tree,
+                                   level_tesseract,
+                                   level_electricity,
+                                   level_wave,
+                                   level_travelling_salesman,
+                                   level_bridges,
+                                   level_chinese_postman_problem,
+                                   ],
+              'The Orchard':[level_minimum_spanning_tree,
+                             level_small_honeycomb,
+                             level_honeycomb,
+                             ],
+              'The Journey':[level_meanders,
+                             level_leafs,
+                             level_hamiltonian,
+                             level_wind_compass,
+                             level_singleton,
+                             level_walk,
+                             level_trail,
+                             level_path,
+                             level_roadblocks,
+                             level_passage,
+                             level_impasse,
+                             level_route,
+                             level_traversal,
+                             level_water_lily,
+                             level_harmony,
+                             level_central_symmetry,
+                             level_weights,
+                             level_connect_the_dots,
+                             level_eulerian,
+                             level_separation,
+                             ],
+              'The Accidental Realm':[level_random_simple,
+                                      level_random_boustrophedon,
+                                      level_random_bull,
+                                      level_random_butterfly,
+                                      level_random_star,
+                                      level_random_K2,
+                                      level_random_binary_tree,
+                                      level_random_turning,
+                                      level_random_line,
+                                      level_random_starting_point,
+                                      level_random_wheel,
+                                      level_random_ladder,
+                                      level_random_come_back,
+                                      level_random_K5,
+                                      level_random_K33,
+                                      level_random_petersen,
+                                      level_random_gemini,
+                                      level_random_cuboctahedron,
+                                      ],
+              'The Digital Maze':[level_sheffer_stroke,
+                                  level_peirce_s_arrow,
+                                  level_circuit,
+                                  level_network,
+                                  level_pyramid,
+                                  level_code,
+                                  ],
+              'The Permutation Universe':[level_elementary,
+                                          level_spare,
+                                          level_grid,
+                                          level_spaceship,
+                                          level_vortex,
+                                          level_pancake_sorting,
+                                          level_oval_track_puzzle,
+                                          level_cube,
+                                          level_error,
+                                          level_permutations,
+                                          level_inversions,
+                                          level_puzzle,
+                                          level_small_panex,
+                                          level_hungarian_rings,
+                                          level_parking,
+                                          level_panex,
+                                          level_superflip,
+                                          ],
+              'The Rotations Village':[level_wasted,
+                                       level_rotation,
+                                       level_rotation_bis,
+                                       level_the_4th_dimension,
+                                       ],
+              'The Deduction Course':[level_dichotomy,
+                                      level_mastermind,
+                                      ],
+              'The Numerals':[level_equation,
+                              level_pythagorean,
+                              level_partition,
+                              level_second,
+                              level_egyptian_fractions,
+                              level_strange,
+                              level_taxicab_number,
+                              level_magic_square,
+                              level_matrix,
+                              level_takuzu,
+                              level_sujiko,
+                              level_diagonal,
+                              level_sudoku,
+                              level_mols,
+                              ],
+              "The Choices":[level_3sat,
+                             level_point_of_no_return,
+                             level_shorter_path,
+                             level_tetris,
+                             level_stairs,
+                             level_knapsack,
+                             level_betweenness,
+                             level_4_colors_theorem,
+                             level_no_three_in_line,
+                             level_superpermutation,
+                             level_conjunctive_normal_form,
+                             level_manhattan_distance,
+                             level_zebra,
+                             level_five,
+                             level_shuffled,
+                             level_sign,
+                             level_combinatorics,
+                             ],
+              "The Chess Expert":[level_chessboard,
+                                  level_the_4_queens,
+                                  level_k,
+                                  level_knight,
+                                  ],
+              "The Bright Kingdom":[level_loop,
+                                    level_yoyo,
+                                    level_bis_repetita,
+                                    level_odd,
+                                    level_parallel,
+                                    level_recurrence,
+                                    level_alice_and_bob,
+                                    level_river,
+                                    level_small,
+                                    level_tetrahedron,
+                                    level_baguenaudier,
+                                    level_lights_out,
+                                    level_cartesian,
+                                    level_compact,
+                                    level_temple,
+                                    level_water_pouring,
+                                    level_solitaire,
+                                    level_syracuse,
+                                    ],
+              }
     
-    # levels_functions_list = Worlds['Initial world']
+    # levels_functions_list = Worlds['The Accidental Realm']
 
     # levels_names_dico = {}
     # for i in range(len(levels_functions_list)):
@@ -640,6 +809,26 @@ if __name__ == "__main__":
 
     if os.path.exists('temp.txt'):
         os.remove('temp.txt')
+        
+    all_level_set = set()
+    for level_function in Levels.levels_functions_list:
+        all_level_set.add(level_function().name)
+        
+    worlds_level_set = set()
+    for world_name in Levels.Worlds.keys():
+        for level_function in Levels.Worlds[world_name]:
+            worlds_level_set.add(level_function().name)
+            
+    for level_function in Levels.levels_functions_list:
+        name = level_function().name
+        if not name in worlds_level_set:
+            print(name)
+            
+    # print(all_level_set - worlds_level_set)
+    # print('')
+    # print(worlds_level_set - all_level_set)
+        
+    # test_levels()
 
     # level = level_bridges()
     # sol = "D0 S0 D1"
@@ -695,8 +884,6 @@ if __name__ == "__main__":
     # for sol in solutions[0]:
     #     print(' '.join(sol))
     #     print('')
-
-    test_levels()
 
     # level = level_harmony()
     # for room in level.rooms_list:
