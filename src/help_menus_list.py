@@ -91,7 +91,7 @@ help_menus_list['B'] = """
 To start the level again from the beginning, press [B] and then [ENTER]."""
 
 help_menus_list['write several actions'] = """
-You can write several at a time, separated by spaces.
+You can write several actions at a time, separated by spaces.
 For instance, if you want to turn on S0 and then use the door D0, you write :
     S0 D0
 and then press [ENTER]."""
