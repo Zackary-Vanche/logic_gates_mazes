@@ -134,7 +134,21 @@ D0 = >= S0 S1 means :
 help_menus_list['BIN'] = """
 b (S0 S1 ...) is the number whose binary little endian code is S0 S1 etc.
 For example:
-    b (S0 S1 S2) = + (S0 * 2 S1 * 4 S2)"""
+    b 0 = 0
+    b 1 = 1
+    b 0 0 = 0
+    b 1 0 = 1
+    b 0 1 = 2
+    b 1 1 = 3
+    b 0 0 0 = 0
+    b 1 0 0 = 1
+    b 0 1 0 = 2
+    b 1 1 0 = 3
+    b 0 0 1 = 4
+    b 1 0 1 = 5
+    b 0 1 1 = 6
+    b 1 1 1 = 7
+    """
 
 help_menus_list['IN'] = """
 The operator i takes two arguments : one switch and a switch list.
@@ -360,11 +374,11 @@ help_menus_list['levels']["Hello world"] = '\n'.join([help_menus_list['introduct
 help_menus_list['levels']["Playground"] = '\n'.join([help_menus_list['NOT'],
                                                      help_menus_list['write several actions']])
 
-help_menus_list['levels']["Initiation"] = '\n'.join([help_menus_list['OR']])
+help_menus_list['levels']["Initiation"] = '\n'.join([help_menus_list['OR'],])
 
 help_menus_list['levels']["Linear"] = '\n'.join([help_menus_list['AND'],
-                                                  help_menus_list['AND and NOT'],
-                                                  help_menus_list['directions keys'],])
+                                                 #help_menus_list['AND and NOT'],
+                                                 help_menus_list['directions keys'],])
 
 help_menus_list['levels']['Loop'] = '\n'.join([help_menus_list['go in a room'],
                                                help_menus_list['Introduction thuth table']])
