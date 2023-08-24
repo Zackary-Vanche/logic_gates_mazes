@@ -315,13 +315,13 @@ You can only use switches of your current room, and travel by open doors.
 You can always erase what you wrote with the backspace key.
 
 To start the level again from the beginning, press [B] and then [Enter].
-To go to the next (previous) page, press the right (left) arrow key."""
+To go to the next (previous) page, press the [RIGHT] ([LEFT]) arrow key."""
 
 help_menus_list['directions keys'] = """
 To change level, you can use :
 
-    the right arrow key to go to the next page
-    the left arrow key to go to the previous page
+    the [RIGHT] arrow key to go to the next page
+    the [LEFT] arrow key to go to the previous page
 
     L and the number of the level you want to go to.
     For instance, if you write L12 and then press [Enter] you will go to the level 12.

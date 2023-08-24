@@ -390,44 +390,37 @@ class Levels:
                              level_superflip,
                              ]
     
-    Worlds = {'The Initial World':[level_hello_world, # BASIS
-                                   level_playground,  # NOT
-                                   level_initiation,  # OR
-                                   level_linear,      # AND
-                                   level_boolean,     # XOR
-                                   level_backward,    # Parenthesis
-                                   level_binary,      # R
-                                   level_forest,      # XOR XNOR
-                                   level_square,      # Spaces
-                                   level_fluid,       # Truth table
-                                   level_numeration,  # BIN
-                                   level_sum,         # SUM
-                                   level_equation,    # MINUS
-                                   level_product,     # PROD
-                                   level_congruence,  # MOD
-                                   level_pong,        # EQU
-                                   level_hitting_set, # INF SUP INFOREQU SUPOREQU
-                                   level_exact_cover, # XOR 3
-                                   level_triangulate, # DIST
-                                   level_naturals,    # ABS
-                                   level_sorted,      # EQUSET
+    Worlds = {'The Initial World':[level_hello_world,
+                                   level_playground,
+                                   level_initiation,
+                                   level_linear,
+                                   level_loop,
+                                   level_forest,
+                                   level_backward,
+                                   level_numeration,
+                                   level_sorted,
+                                   level_arithmetic,
+                                   level_inside_out,
                                    ],    
-              'The Hidden Palace':[level_hitting_set,
-                                   level_independent_set,
-                                   level_dominating_set,
-                                   level_min_cut,
-                                   level_max_cut,
-                                   level_entropy,
-                                   level_branches,
-                                   level_tree,
-                                   level_tesseract,
-                                   level_electricity,
-                                   level_wave,
-                                   level_travelling_salesman,
-                                   level_bridges,
-                                   level_chinese_postman_problem,
+              'The Hidden Country':[level_hitting_set,
+                                    level_independent_set,
+                                    level_dominating_set,
+                                    level_exact_cover,
+                                    level_triangulate,
+                                    level_min_cut,
+                                    level_max_cut,
+                                    level_entropy,
+                                    level_branches,
+                                    level_tree,
+                                    level_tesseract,
+                                    level_electricity,
+                                    level_wave,
+                                    level_travelling_salesman,
+                                    level_bridges,
+                                    level_chinese_postman_problem,
                                    ],
-              'The Orchard':[level_minimum_spanning_tree,
+              'The Orchard':[level_binary,
+                             level_minimum_spanning_tree,
                              level_small_honeycomb,
                              level_honeycomb,
                              ],
@@ -477,7 +470,6 @@ class Levels:
                                   level_circuit,
                                   level_network,
                                   level_pyramid,
-                                  level_code,
                                   ],
               'The Permutation Universe':[level_elementary,
                                           level_spare,
@@ -497,15 +489,18 @@ class Levels:
                                           level_panex,
                                           level_superflip,
                                           ],
-              'The Rotations Village':[level_wasted,
-                                       level_rotation,
-                                       level_rotation_bis,
-                                       level_the_4th_dimension,
-                                       ],
+              'The Rotations Dimension':[level_wasted,
+                                         level_rotation,
+                                         level_rotation_bis,
+                                         level_the_4th_dimension,
+                                        ],
               'The Deduction Course':[level_dichotomy,
                                       level_mastermind,
                                       ],
-              'The Numerals':[level_equation,
+              'The Numerals':[level_sum,
+                              level_equation,
+                              level_product,
+                              level_congruence,
                               level_pythagorean,
                               level_partition,
                               level_second,
@@ -520,33 +515,33 @@ class Levels:
                               level_sudoku,
                               level_mols,
                               ],
-              "The Choices":[level_3sat,
-                             level_point_of_no_return,
-                             level_longest_path,
-                             level_shorter_path,
-                             level_tetris,
-                             level_stairs,
-                             level_knapsack,
-                             level_betweenness,
-                             level_4_colors_theorem,
-                             level_nonogram,
-                             level_no_three_in_line,
-                             level_superpermutation,
-                             level_conjunctive_normal_form,
-                             level_manhattan_distance,
-                             level_zebra,
-                             level_five,
-                             level_shuffled,
-                             level_sign,
-                             level_combinatorics,
+              "The Alternatives":[level_boolean,
+                                  level_3sat,
+                                  level_point_of_no_return,
+                                  level_longest_path,
+                                  level_shorter_path,
+                                  level_tetris,
+                                  level_stairs,
+                                  level_knapsack,
+                                  level_betweenness,
+                                  level_4_colors_theorem,
+                                  level_nonogram,
+                                  level_no_three_in_line,
+                                  level_superpermutation,
+                                  level_conjunctive_normal_form,
+                                  level_manhattan_distance,
+                                  level_zebra,
+                                  level_five,
+                                  level_shuffled,
+                                  level_sign,
+                                  level_combinatorics,
                              ],
-              "The Chess Expert":[level_chessboard,
-                                  level_the_4_queens,
-                                  level_k,
-                                  level_knight,
-                                  ],
-              "The Nature":[level_loop,
-                            level_yoyo,
+              "The Chess Experts":[level_chessboard,
+                                   level_the_4_queens,
+                                   level_k,
+                                   level_knight,
+                                   ],
+              "The Nature":[level_yoyo,
                             level_bis_repetita,
                             level_odd,
                             level_parallel,
@@ -564,7 +559,9 @@ class Levels:
                             level_solitaire,
                             level_syracuse,
                             ],
-              "The Traps":[level_crossroad,
+              "The Ruins":[level_square,
+                           level_fluid,
+                           level_crossroad,
                            level_infinity,
                            level_spider,
                            level_mansion,
@@ -574,13 +571,15 @@ class Levels:
                            level_house,
                            level_draw,],
               "The Zigzags":[level_pong,
+                             level_naturals,
                              level_bipartite,
                              level_doppelganger,
                              level_flash_back,
+                             level_code,
                              ]
               }
     
-    # levels_functions_list = Worlds['The Numerals']
+    # levels_functions_list = Worlds['The Nature']
 
     # levels_names_dico = {}
     # for i in range(len(levels_functions_list)):
@@ -838,27 +837,27 @@ if __name__ == "__main__":
     if os.path.exists('temp.txt'):
         os.remove('temp.txt')
         
-    # all_level_set = set()
-    # for level_function in Levels.levels_functions_list:
-    #     all_level_set.add(level_function().name)
+    all_level_set = set()
+    for level_function in Levels.levels_functions_list:
+        all_level_set.add(level_function().name)
     
-    # worlds_level_list = []
-    # for world_name in Levels.Worlds.keys():
-    #     for level_function in Levels.Worlds[world_name]:
-    #         worlds_level_list.append(level_function().name)
+    worlds_level_list = []
+    for world_name in Levels.Worlds.keys():
+        for level_function in Levels.Worlds[world_name]:
+            worlds_level_list.append(level_function().name)
             
-    # for level_function in Levels.levels_functions_list:
-    #     name = level_function().name
-    #     if not name in worlds_level_list:
-    #         print(name)
+    for level_function in Levels.levels_functions_list:
+        name = level_function().name
+        if not name in worlds_level_list:
+            print(name)
             
-    # duplicates = set([item for item in worlds_level_list if worlds_level_list.count(item) > 1])
-    # print(duplicates)
-    # print('')
-    # worlds_level_set = set(worlds_level_list)
-    # print(all_level_set - worlds_level_set)
-    # print('')
-    # print(worlds_level_set - all_level_set)
+    duplicates = set([item for item in worlds_level_list if worlds_level_list.count(item) > 1])
+    print(duplicates)
+    print('')
+    worlds_level_set = set(worlds_level_list)
+    print(all_level_set - worlds_level_set)
+    print('')
+    print(worlds_level_set - all_level_set)
         
     # test_levels()
 
