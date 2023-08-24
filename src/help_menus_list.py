@@ -16,10 +16,7 @@ The elements named V0, V1, etc. are intermediate values.'''
 help_menus_list['NOT'] = """
 ¬ means 'NOT'.
 ¬S0 = 1 if S0 = 0
-¬S0 = 0 if S0 = 1
-Be carefull with the negation, because :
-    ¬ 1 = 0
-    ¬ 0 = 1"""
+¬S0 = 0 if S0 = 1"""
 
 help_menus_list['MINUS'] = """
 - means 'MINUS'. -S0 is the opposite of S0."""
@@ -27,12 +24,12 @@ help_menus_list['MINUS'] = """
 help_menus_list['AND'] = """
 & means 'AND'.
 D0 = & S0 S1 means :
-    D0 is open only if (S0, S1) = (1,1)"""
+    D0 is open only if S0 and S1 are turned on."""
 
 help_menus_list['OR'] = '''
 | means 'OR'.
 D2 = | S1 S2 means :
-    D1 is open if S1 or S2 is turned on (i.e. if (S0, S1) = (0,1) or (S0, S1) = (1,0) or (S0, S1) = (1,1))'''
+    D1 is open if S1 or S2 is turned on i.e. if they are not both turned off.'''
 
 help_menus_list['XOR'] = """
 ^ means exclusive or ('XOR').
@@ -56,61 +53,60 @@ Their definitions are :
     XNOR S0 S1 = ¬ XOR S0 S1"""
 
 help_menus_list['XOR XNOR'] = """
-XOR means exclusive or. XNOR is its opposite.
+XOR (^) means exclusive or.
 
-XOR truth table (D0 = ^ S0 S1):
-S0  S1  D0
-  0    0    0
-  0    1    1
-  1    0    1
-  1    1    0  
-In other words, D0 is open if S0 is different from S1.
+D0 = ^ (S0, S1, ...) means :
+    D0 is open if there is exactly one switch among its parameters that is turned on.
 
-XNOR truth table (D0 = ¬^ S0 S1):
-S0  S1  D0
-  0    0    1
-  0    1    0
-  1    0    0
-  1    1    1    
-In other words, D0 is open if S0 = S1.
+XNOR (¬^) is the opposite of XOR."""
 
-You can write :
-    XOR S0 S1 = | & S0 ¬ S1 & ¬ S0 S1 
-    XNOR S0 S1 = | & S0 S1 & ¬ S0 ¬ S1
-    XNOR S0 S1 = ¬ XOR S0 S1"""
+# ^ S0 S1 = | & S0 ¬ S1 & ¬ S0 S1
+# ¬^ S0 S1 = | & S0 S1 & ¬ S0 ¬ S1
+
+# XOR truth table (D0 = ^ S0 S1):
+# S0  S1  D0
+#   0    0    0
+#   0    1    1
+#   1    0    1
+#   1    1    0  
+# In other words, D0 is open if S0 is different from S1.
+
+# XNOR truth table (D0 = ¬^ S0 S1):
+# S0  S1  D0
+#   0    0    1
+#   0    1    0
+#   1    0    0
+#   1    1    1    
+# In other words, D0 is open if S0 is equal to S1.
 
 help_menus_list['SUM'] = """
 + S0 S1 is the sum of S0 and S1."""
 
 help_menus_list['DIV'] = """
-/ S0 S1 is equal to S0 divided by S1."""
+/ S0 S1 equals S0 divided by S1."""
 
 help_menus_list['PROD'] = """
-* S0 S1 is equal to the product of S0 and S1."""
+* S0 S1 equals the product of S0 and S1."""
 
 help_menus_list['POW'] = """
-** S0 S1 is equal to S0 raised to the power of S1."""
+** S0 S1 equals S0 raised to the power of S1."""
 
 help_menus_list['MOD'] = """
-% S0 S1 is equal to S0 modulo S1."""
+% S0 S1 equals S0 modulo S1."""
 
 help_menus_list['ABS'] = """
 @ S0 is the absolute value of S0."""
 
 help_menus_list['EQU'] = '''
 D0 = = S0 S1 means :
-    D0 is open if S0 is equal to S1.
-Used with more than 2 operands, it means that all its operands are equal to each other.'''
+    D0 is open if S0 equals S1.
+Used with more than 2 switches, it means that all the switches are equal to each other.'''
 
 help_menus_list['EQUSET'] = '''
-D0 = ~  ( S0 ; S2 ; ...) ( S1 ; S3 ; ...) means :
-    D0 is open if the two sets ( S0 ; S2 ; ...) and ( S1 ; S3 ; ...) contain the same elements, but not obligatorily in the same order.
-D0 = ~  ( S0 ; S2 ) ( S1 ; S3) means :
-    D0 = | & = S0 S1 = S2 S3 & = S0 S3 = S2 S1'''
+~ ( S0 ; S2 ; ...) ( S1 ; S3 ; ...) equals 1 if the two sets ( S0 ; S2 ; ...) and ( S1 ; S3 ; ...) contain the same elements, but not obligatorily in the same order.'''
 
 help_menus_list['INF'] = """
-D0 = < S0 S1 means :
-    D0 is open if S0 is inferior to S1"""
+< S0 S1 equals 1 if S0 is inferior to S1."""
     
 help_menus_list['INF0'] = """
 D0 = <0 a b means :
@@ -120,16 +116,13 @@ D0 = <0 a b c means :
 """
 
 help_menus_list['SUP'] = """
-D0 = > S0 S1 means :
-    D0 is open if S0 is superior to S1"""
+> S0 S1 equals 1 if S0 is superior to S1."""
 
 help_menus_list['INFOREQU'] = """
-D0 = <= S0 S1 means :
-    D0 is open if S0 is inferior or equal to S1"""
+<= S0 S1 equals 1 if S0 is inferior or equal to S1."""
 
 help_menus_list['SUPOREQU'] = """
-D0 = >= S0 S1 means :
-    D0 is open if S0 is superior or equal to S1"""
+>= S0 S1 equals 1 if S0 is superior or equal to S1."""
 
 help_menus_list['BIN'] = """
 b (S0 S1 ...) is the number whose binary little endian code is S0 S1 etc.
@@ -259,16 +252,9 @@ To simplify notations, parentheses are used.
 
 Instead of writing :
     D0 = & S0 & S1 S2
-you can write :
-    D0 = & S0 ( & S1 S2 )
-or :
+you write :
     D0 = & ( S0 S1 S2 )
-You can use this notation with more than 3 switches, and with very operand.
-You can also use it with | instead of &.
-
-You can use this notation with negations :
-    D0 = & ¬ S0 ( & S1 S2 )
-       = & ( ¬ S0 S1 S2 )"""
+You can use this notation with more than 3 switches, and with every operand."""
 
 help_menus_list['brackets'] = """
 Sometime, square brackets can be used instead of parentheses."""
@@ -324,44 +310,42 @@ There are differents elements in this game :
         If a door is open, it is surrounded, and you say it is equal to 1. If it is closed, it is equal to 0.
         Diamond-shape doors are two-way while triangle-shaped doors are one-way only.
 
-To go in a room, use a switch or travel by a door, write its name and press [Enter].
+To go in a room, use a switch or travel by a door, write its name and press [ENTER].
 You can only use switches of your current room, and travel by open doors.
-You can always erase what you wrote with the backspace key.
+You can always erase what you wrote with the [BACKSPACE] key.
 
-To start the level again from the beginning, press [B] and then [Enter].
+To start the level again from the beginning, press [B] and then [ENTER].
 To go to the next (previous) page, press the [RIGHT] ([LEFT]) arrow key."""
 
 help_menus_list['directions keys'] = """
 To change level, you can use :
 
-    the [RIGHT] arrow key to go to the next page
-    the [LEFT] arrow key to go to the previous page
-
     L and the number of the level you want to go to.
-    For instance, if you write L12 and then press [Enter] you will go to the level 12.
+    For instance, if you write L12 and then press [ENTER] you will go to the level 12.
 
-Instead of taping the action you want to do, you can see the possibles actions by using the ALT keys.
+You can see the possibles actions by using the ALT keys.
 """
 
 help_menus_list['go in a room'] = """
 To go directly in a room, you can type its name (if it is possible for you to go there). The exit room is called "EXIT" or "RE"."""
 
 help_menus_list['reminder B'] = """
-[Reminder] : To start the level again from the beginning, press [B] and then [Enter]."""
+[Reminder] : To start the level again from the beginning, press [B] and then [ENTER]."""
 
 help_menus_list['write several actions'] = """
-Instead of writing actions one by one, one can write several at a time, separated by spaces.
-For instance, you can write :
-    S0 S1 D0
-if you want to turn on S0, S1 and then use the door D0."""
+You can write several at a time, separated by spaces.
+For instance, if you want to turn on S0 and then use the door D0, you write :
+    S0 D0
+and then press [ENTER]."""
 
 help_menus_list['leave the game'] = """
-To leave the game, you can click an the cross but also press [ESCAPE]."""
+To leave the game, you can click on the cross but also press [ESCAPE]."""
 
 help_menus_list['random'] = """
-Press [N] and then [Enter] to get new random level."""
+Press [N] and then [ENTER] to get new random level."""
 
-help_menus_list['UP DOWN'] = 'If you use the [UP] and [DOWN] keys, you can switch which equation appears first.'
+help_menus_list['UP DOWN'] = """
+If you use the [UP] and [DOWN] keys, you can switch which equation appears first."""
 
 ############
 ## LEVELS ##
@@ -374,21 +358,16 @@ help_menus_list['levels']["Hello world"] = '\n'.join([help_menus_list['introduct
 help_menus_list['levels']["Playground"] = '\n'.join([help_menus_list['NOT'],
                                                      help_menus_list['write several actions']])
 
-help_menus_list['levels']["Initiation"] = '\n'.join([help_menus_list['OR'],])
+help_menus_list['levels']["Initiation"] = '\n'.join([help_menus_list['OR'],
+                                                     help_menus_list['leave the game']])
 
 help_menus_list['levels']["Linear"] = '\n'.join([help_menus_list['AND'],
                                                  #help_menus_list['AND and NOT'],
                                                  help_menus_list['directions keys'],])
 
-help_menus_list['levels']['Loop'] = '\n'.join([help_menus_list['go in a room'],
-                                               help_menus_list['Introduction thuth table']])
-
 help_menus_list['levels']["Forest"] = '\n'.join([help_menus_list['XOR XNOR'],
-                                                 help_menus_list['leave the game']])
-
-help_menus_list['levels']["Backward"] = '\n'.join([help_menus_list['parenthesis'],
-                                                   help_menus_list['brackets'],
-                                                   ])
+                                                 help_menus_list['parenthesis'],
+                                                 help_menus_list['brackets'],])
 
 help_menus_list['levels']["Numeration"] = '\n'.join([help_menus_list['EQU'],
                                                      help_menus_list['BIN'],
@@ -412,13 +391,17 @@ help_menus_list['levels']["Arithmetic"] ='\n'.join([help_menus_list['SUM'],
                                                     help_menus_list['UP DOWN'],
                                                     ])
 
-help_menus_list['levels']["Inside out"] = '\n'.join([help_menus_list['IN'], help_menus_list["cheat code"]])
+help_menus_list['levels']["Inside out"] = '\n'.join([help_menus_list['IN'],
+                                                     # help_menus_list["cheat code"]
+                                                     ])
 
 help_menus_list['levels']["Superpermutation"] = help_menus_list['INLIST']
 
 help_menus_list['levels']["3 SAT"] = """The 3 SAT problem is NP complete."""
 
 help_menus_list['levels']["Longest path"] = "The longest path problem is NP-complete."
+
+help_menus_list['levels']["Shortest path"] = "The shortest path problem is NP-complete."
 
 help_menus_list['levels']["Hitting set"] = """The hitting set is one of the Karp's 21 NP-complete problems.\nIt is equivalent to the set cover problem\n"""
 

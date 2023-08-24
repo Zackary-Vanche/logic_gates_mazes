@@ -71,6 +71,7 @@ def level_inside_out():
                  level_color=Levels_colors_list.FROM_HUE(hu=0.6, sa=0.1, li=0.7),
                  name='Inside out',
                  keep_proportions=True,
-                 door_window_size=300)
+                 door_window_size=300,
+                 random=True)
     
     return level

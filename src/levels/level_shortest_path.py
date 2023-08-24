@@ -6,7 +6,7 @@ from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 from random import shuffle as rd_shuffle
 
-def level_shorter_path(): 
+def level_shortest_path(): 
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -271,7 +271,7 @@ def level_shorter_path():
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15],
                  fastest_solution=solution,
                  level_color=Levels_colors_list.FROM_HUE(hu=0.875, sa=0.4, li=0.4),
-                 name='Shorter path',
+                 name='Shortest path',
                  keep_proportions=True,
                  door_window_size=300)
     
