@@ -380,23 +380,23 @@ help_menus_list['levels']["Numeration"] = '\n'.join([help_menus_list['EQU'],
                                                      help_menus_list['BIN'],
                                                      help_menus_list['numerical value']])
 
-help_menus_list['levels']["Sorted"] = '\n'.join([help_menus_list['INF'],
+help_menus_list['levels']["Sorted"] = '\n'.join([help_menus_list['V'],
+                                                 help_menus_list['INF'],
                                                  help_menus_list['SUP'],
                                                  help_menus_list['INFOREQU'],
                                                  help_menus_list['SUPOREQU'],
                                                  help_menus_list['EQUSET']])
 
-help_menus_list['levels']["Arithmetic"] ='\n'.join([help_menus_list['V'],
-                                                     help_menus_list['SUM'],
-                                                     help_menus_list['MINUS'],
-                                                     help_menus_list['PROD'],
-                                                     help_menus_list['DIV'],
-                                                     help_menus_list['MOD'],
-                                                     help_menus_list['ABS'],
-                                                     help_menus_list['POW'],
-                                                     help_menus_list['DIST'],
-                                                     help_menus_list['UP DOWN'],
-                                                     ])
+help_menus_list['levels']["Arithmetic"] ='\n'.join([help_menus_list['SUM'],
+                                                    help_menus_list['MINUS'],
+                                                    help_menus_list['PROD'],
+                                                    help_menus_list['DIV'],
+                                                    help_menus_list['MOD'],
+                                                    help_menus_list['ABS'],
+                                                    help_menus_list['POW'],
+                                                    help_menus_list['DIST'],
+                                                    help_menus_list['UP DOWN'],
+                                                    ])
 
 help_menus_list['levels']["Inside out"] = '\n'.join([help_menus_list['IN'], help_menus_list["cheat code"]])
 
