@@ -851,15 +851,16 @@ if __name__ == "__main__":
         if not name in worlds_level_list:
             print(name)
             
-    duplicates = set([item for item in worlds_level_list if worlds_level_list.count(item) > 1])
-    print(duplicates)
-    print('')
     worlds_level_set = set(worlds_level_list)
-    print(all_level_set - worlds_level_set)
-    print('')
-    print(worlds_level_set - all_level_set)
+    duplicates = set([item for item in worlds_level_list if worlds_level_list.count(item) > 1])
+    if all_level_set != worlds_level_set or duplicates != set():
+        print(duplicates)
+        print('')
+        print(all_level_set - worlds_level_set)
+        print('')
+        print(worlds_level_set - all_level_set)
         
-    # test_levels()
+    test_levels()
 
     # level = level_bridges()
     # sol = "D0 S0 D1"
