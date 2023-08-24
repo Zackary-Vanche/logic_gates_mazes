@@ -457,80 +457,6 @@ class Game:
                                             door.surrounding_color,
                                             arrow_coordinates,
                                             width=3)
-        # TODO
-        # for door in self.maze.doors_set:
-        #     word_surface = self.font.render(door.name, 1, self.inside_room_color)
-        #     word_width, word_height = word_surface.get_size()
-        #     real_middle_coordinates = array(door.real_middle_coordinates)
-        #     center_point = array(real_middle_coordinates) + array([word_width, word_height])/2
-        #     # arrow_coordinates = door.arrow_coordinates
-        #     p1 = door.real_departure_coordinates
-        #     p2 = door.real_arrival_coordinates
-        #     epsilon = 2
-    
-        #     # Bounding box of the text in the native coordinates
-        #     a = real_middle_coordinates + array([-epsilon, -epsilon])
-        #     b = real_middle_coordinates + array([word_width+epsilon, -epsilon])
-        #     c = real_middle_coordinates + array([word_width+epsilon, word_height+epsilon])
-        #     d = real_middle_coordinates + array([-epsilon, word_height+epsilon])
-
-        #     # Calculate the direction vector of the line
-        #     line_direction = array([p2[0] - p1[0], p2[1] - p1[1]])
-        #     line_direction /= norm(line_direction)
-            
-        #     # Create an orthogonal vector to the line direction
-        #     orthogonal_vector = array([-line_direction[1], line_direction[0]])
-        #     orthogonal_vector /= norm(orthogonal_vector)  # Normalize the orthogonal vector
-            
-        #     # Calculate the coordinates of a, b, c, d in the new coordinate system
-        #     a_new = array([a[0] - center_point[0], a[1] - center_point[1]])
-        #     b_new = array([b[0] - center_point[0], b[1] - center_point[1]])
-        #     c_new = array([c[0] - center_point[0], c[1] - center_point[1]])
-        #     d_new = array([d[0] - center_point[0], d[1] - center_point[1]])
-            
-        #     # Calculate the coordinates of the bounding box corners in the new coordinate system
-        #     x_min = min(a_new.dot(orthogonal_vector),
-        #                 b_new.dot(orthogonal_vector),
-        #                 c_new.dot(orthogonal_vector),
-        #                 d_new.dot(orthogonal_vector))
-        #     x_max = max(a_new.dot(orthogonal_vector),
-        #                 b_new.dot(orthogonal_vector),
-        #                 c_new.dot(orthogonal_vector),
-        #                 d_new.dot(orthogonal_vector))
-        #     y_min = min(a_new.dot(line_direction),
-        #                 b_new.dot(line_direction),
-        #                 c_new.dot(line_direction),
-        #                 d_new.dot(line_direction))
-        #     y_max = max(a_new.dot(line_direction),
-        #                 b_new.dot(line_direction),
-        #                 c_new.dot(line_direction),
-        #                 d_new.dot(line_direction))
-            
-        #     # Calculate new arrow coordinates
-        #     a_final = center_point + x_min * orthogonal_vector + y_min * line_direction
-        #     b_final = center_point + x_max * orthogonal_vector + y_min * line_direction
-        #     c_final = center_point + x_max * orthogonal_vector + y_max * line_direction
-        #     d_final = center_point + x_min * orthogonal_vector + y_max * line_direction
-        #     if door.two_way:
-        #         arrow_coordinates = [a_final,
-        #                              center_point + (y_min-15) * line_direction,
-        #                              b_final,
-        #                              c_final,
-        #                              center_point + (y_max+15) * line_direction,
-        #                              d_final]
-        #     else:
-        #         arrow_coordinates = [a_final,
-        #                              b_final,
-        #                              c_final,
-        #                              center_point + (y_max+15) * line_direction,
-        #                              d_final]
-        #     for i in range(len(arrow_coordinates)):
-        #         line_size = self.maze.line_size
-        #         arrow_coordinates[i] = arrow_coordinates[i] + line_size/2*orthogonal_vector
-        #     print(arrow_coordinates)
-        #     pygame_draw_polygon(self.WINDOW,
-        #                         self.room_color,
-        #                         arrow_coordinates)
 
     def print_doors_names(self):
         # Affichage des portes
@@ -618,16 +544,6 @@ class Game:
                            pos=(x0, y0 + gap),
                            max_width=self.WINDOW_WIDTH-20-x0,
                            color=self.letters_color)
-            # for line in help_list:
-            #     self.WINDOW.blit(self.font.render(line,
-            #                                       True,
-            #                                       self.letters_color),
-            #                      (x0, y0 + gap))
-            #     if line.replace(' ', '') == '':
-            #         gap += 12
-            #     else:
-            #         gap += 25
-    
             pygame_display_update()
     
             if self.save_image:
@@ -799,11 +715,6 @@ class Game:
 
     def handle_interractions(self):
         self.pressed = pygame_key_get_pressed()
-        # Gestion des actions
-        # if self.maze.current_room_index == self.maze.exit_room_index and self.current_action != 'YOU WON !':
-        #     self.current_action = 'YOU WON !'
-        #     self.change_in_display = True
-        #     self.update_possible_actions()
         if time() - self.last_key_pressed_time > self.time_between_actions:
             self.pressed = pygame_key_get_pressed()
             for key in Game.keys_dict.keys():
@@ -886,7 +797,7 @@ class Game:
                 self.current_action = self.current_action[:-1]
                 self.last_key_BACKSPACE_pressed_time = time()
 
-    def change_level(self): # TODO
+    def change_level(self):
         self.pressed = pygame_key_get_pressed()
         # Changement de niveau
         if time() - self.last_level_change_time > self.time_between_level_changing:
@@ -912,46 +823,7 @@ class Game:
                     self.index_current_level -= 1
         if self.level_changed:
             self.last_level_change_time = time()
-        # if self.index_current_level == -1:
-        #     self.index_current_level = Levels.number_of_levels - 1
-        # print(self.index_current_level, Levels.number_of_levels)
-        # if self.index_current_level == Levels.number_of_levels:
-        #     self.index_current_level = 0
         self.index_current_level = self.index_current_level % Levels.number_of_levels
-        # self.index_current_level = min(self.index_current_level,
-        #                                Levels.number_of_levels - 1)
-        # self.index_current_level = max(self.index_current_level,
-        #                                0)
-
-    # def goto_or_leave_help(self):
-    #     self.pressed = pygame_key_get_pressed()
-    #     # Passage au menu d'aide / quitter le menu aide
-    #     if time() - self.last_key_pressed_time > self.time_between_actions:
-    #         if self.pressed[K_h]:
-    #             self.show_help = not self.show_help
-    #             self.last_key_pressed_time = time()
-    #             self.change_in_display = True
-    #             self.update_possible_actions()
-
-    # def change_door_page(self):
-    #     self.pressed = pygame_key_get_pressed()
-    #     # Changement de page du jeu
-    #     if time() - self.last_key_pressed_time > self.time_between_actions:
-    #         if self.pressed[K_m]:
-    #             self.last_key_pressed_time = time()
-    #             self.maze.current_door_page += -1
-    #             self.maze.current_door_page = self.maze.current_door_page % len(self.maze.doors_set)
-    #             self.change_in_display = True
-    #         # if self.pressed[K_n]:
-    #         #     self.last_key_pressed_time = time()
-    #         #     self.get_new_level = True
-    #         #     self.get_level()
-    #         #     self.change_in_display = True
-    #         if self.pressed[K_p]:
-    #             self.last_key_pressed_time = time()
-    #             self.maze.current_door_page += 1
-    #             self.maze.current_door_page = self.maze.current_door_page % len(self.maze.doors_set)
-    #             self.change_in_display = True
 
     def save_image_as_file(self,
                            fname=None):
