@@ -273,6 +273,7 @@ def level_shortest_path():
                  level_color=Levels_colors_list.FROM_HUE(hu=0.875, sa=0.4, li=0.4),
                  name='Shortest path',
                  keep_proportions=True,
-                 door_window_size=300)
+                 door_window_size=300,
+                 random=True)
     
     return level

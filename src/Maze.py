@@ -266,8 +266,10 @@ class Maze:
             help_menus_list[root]
             if root in self.roots_names_set:
                 help_menu.append(help_menus_list[root])
-        if self.random:
-            help_menu.append(help_menus_list['random'])
+        help_menu.append(help_menus_list['B'])
+        help_menu.append(help_menus_list['N'])
+        if len(self.intermediate_values_list + self.doors_list) > 1:
+            help_menu.append(help_menus_list['UP DOWN'])
         self.help_txt[0] = '\n'.join(help_menu)
 
     def __str__(self):

@@ -79,6 +79,7 @@ def level_conjunctive_normal_form():
                  level_color=Levels_colors_list.FROM_HUE(hu=0, sa=0.4, li=0.3),
                  name='Conjunctive normal form',
                  keep_proportions=True,
-                 door_window_size=222)
+                 door_window_size=222,
+                 random=True)
     
     return level

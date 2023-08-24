@@ -74,7 +74,6 @@ To go in a room, use a switch or travel by a door, write its name and press [ENT
 You can only use switches of your current room, and travel by open doors.
 You can always erase what you wrote with the [BACKSPACE] key.
 
-To start the level again from the beginning, press [B] and then [ENTER].
 To go to the next (previous) page, press the [RIGHT] ([LEFT]) arrow key."""
 
 help_menus_list['directions keys'] = """
@@ -88,8 +87,8 @@ You can see the possibles actions by using the ALT keys."""
 help_menus_list['go in a room'] = """
 To go directly in a room, you can type its name (if it is possible for you to go there). The exit room is called "EXIT" or "RE"."""
 
-help_menus_list['reminder B'] = """
-[Reminder] : To start the level again from the beginning, press [B] and then [ENTER]."""
+help_menus_list['B'] = """
+To start the level again from the beginning, press [B] and then [ENTER]."""
 
 help_menus_list['write several actions'] = """
 You can write several at a time, separated by spaces.
@@ -100,8 +99,8 @@ and then press [ENTER]."""
 help_menus_list['leave the game'] = """
 To leave the game, you can click on the cross but also press [ESCAPE]."""
 
-help_menus_list['random'] = """
-Press [N] and then [ENTER] to get new random level."""
+help_menus_list['N'] = """
+Press [N] and then [ENTER] to get new level. If the level is random, it will change. If it is not, [N] is equivalent to [B]."""
 
 help_menus_list['UP DOWN'] = """
 If you use the [UP] and [DOWN] keys, you can switch which equation appears first."""
@@ -120,12 +119,10 @@ help_menus_list['levels']["Initiation"] = help_menus_list['leave the game']
 
 help_menus_list['levels']["Linear"] = help_menus_list['directions keys']
 
-help_menus_list['levels']["Forest"] = '\n'.join([help_menus_list['parenthesis'],
+help_menus_list['levels']["Backward"] = '\n'.join([help_menus_list['parenthesis'],
                                                  help_menus_list['brackets'],])
 
 help_menus_list['levels']["Numeration"] = '\n'.join([help_menus_list['numerical value']])
-
-help_menus_list['levels']["Arithmetic"] = help_menus_list['UP DOWN']
 
 help_menus_list['levels']["3 SAT"] = """The 3 SAT problem is NP complete."""
 
@@ -133,7 +130,7 @@ help_menus_list['levels']["Longest path"] = "The longest path problem is NP-comp
 
 help_menus_list['levels']["Shortest path"] = "The shortest path problem is NP-complete."
 
-help_menus_list['levels']["Hitting set"] = """The hitting set is one of the Karp's 21 NP-complete problems.\nIt is equivalent to the set cover problem."""
+help_menus_list['levels']["Hitting set"] = """The hitting set is one of the Karp's 21 NP-complete problems. It is equivalent to the set cover problem."""
 
 help_menus_list['levels']["Sheffer stroke"] = """This level has several solutions..."""
 
@@ -145,7 +142,7 @@ help_menus_list['levels']["Dominating set"] = """Finding dominating set is a NP-
 
 help_menus_list['levels']["Exact cover"] = """The exact cover is one of the Karp's 21 NP-complete problems."""
 
-help_menus_list['levels']["Min-cut"] = """A cut is a partition of the vertices of a graph into two disjoint subsets.\nYou must cut as few edges as possible."""
+help_menus_list['levels']["Min-cut"] = """A cut is a partition of the vertices of a graph into two disjoint subsets. You must cut as few edges as possible."""
 
 help_menus_list['levels']["Max-cut"] = """You must cut as many edges as possible."""
 
@@ -155,13 +152,13 @@ help_menus_list['levels']["Singleton"] = """A singleton is a set with exactly on
 
 help_menus_list['levels']["Taxicab number"] = """Taxicab numbers are also called Hardy–Ramanujan numbers."""
 
-help_menus_list['levels']["Walk"] = """In graph theory, a walk is a finite or infinite sequence of edges which joins a sequence of vertices.\nHere, you cannot revisit vertices and edges."""
+help_menus_list['levels']["Walk"] = """In graph theory, a walk is a finite or infinite sequence of edges which joins a sequence of vertices. Here, you cannot revisit vertices and edges."""
 
 help_menus_list['levels']["Trail"] = """A trail is a walk in which all edges are distinct."""
 
 help_menus_list['levels']["Path"] = """A path is a trail in which all vertices (and therefore also all edges) are distinct."""
 
-help_menus_list['levels']["Dichotomy"] = """? is a random integer.\n\nOnce you found the value of ?, the level is over."""
+help_menus_list['levels']["Dichotomy"] = """? is a random integer. Once you found the value of ?, the level is over."""
 
 help_menus_list['levels']["Partition"] = """The partition is one of the Karp's 21 NP-complete problems."""
 
@@ -179,7 +176,7 @@ help_menus_list['levels']["Alice and Bob"] = """Alice wants to send a package to
 
 help_menus_list['levels']["Tetris"] = """Each number can represent a position in the plane."""
 
-help_menus_list['levels']["Mastermind"] = """\n\n?0 ?1 ?2 ?3 ?4 ?5 ?6 ?7 are switches.\n\nYou have to guess their values."""
+help_menus_list['levels']["Mastermind"] = """?0 ?1 ?2 ?3 ?4 ?5 ?6 ?7 are switches. You have to guess their values."""
 
 help_menus_list['levels']["Baguenaudier"] = '''The baguenaudier is an old puzzle game.'''
 
@@ -191,11 +188,11 @@ help_menus_list['levels']["River"] = """You want to cross the river with a wolf,
 
 help_menus_list['levels']["Conjunctive normal form"] = "This level is the same than the level named '3 SAT', but it is random."
 
-help_menus_list['levels']["Eulerian"] = """This level was initially inspired by the seven bridges of Königsberg problem.\nThe difference is that here there is a solution."""
+help_menus_list['levels']["Eulerian"] = """This level was initially inspired by the seven bridges of Königsberg problem. The difference is that here there is a solution."""
 
 help_menus_list['levels']["Sujiko"] = """Sujiko is a logic-based, combinatorial number-placement puzzle."""
 
-help_menus_list['levels']["Permutations"] = """Every permutation can be writen as a product of 2-cycles.\n\nYou can try to find not only one solution, but the fastest one."""
+help_menus_list['levels']["Permutations"] = """Every permutation can be writen as a product of 2-cycles. You can try to find not only one solution, but the fastest one."""
 
 help_menus_list['levels']["Pancake sorting"] = """Pancake sorting is a real computational problem."""
 
@@ -205,9 +202,9 @@ help_menus_list['levels']["Travelling salesman"] = "The travelling salesman is a
 
 help_menus_list['levels']["No three in line"] = """The no three in line problem is a discrete geometry problem."""
 
-help_menus_list['levels']["Minimum spanning tree"] = """A Minimum spanning tree is the subset of edges in a graph that connects all the vertices together\nwith the minimum total edge weight possible, without forming any cycles."""
+help_menus_list['levels']["Minimum spanning tree"] = """A Minimum spanning tree is the subset of edges in a graph that connects all the vertices together with the minimum total edge weight possible, without forming any cycles."""
 
-help_menus_list['levels']["Small honeycomb"] = """Honeycombs are supposed to be hexagonal...\nThe method of resolution you should use for this level is the same as for the level "minimum spanning tree"."""
+help_menus_list['levels']["Small honeycomb"] = """Honeycombs are supposed to be hexagonal... The method of resolution you should use for this level is the same as for the level "minimum spanning tree"."""
 
 help_menus_list['levels']["Diagonal"] = """To solve this level you need to solve a 4*4 sudoku grid."""
 
@@ -223,7 +220,7 @@ help_menus_list['levels']["Five"] = """There might be several solutions."""
 
 help_menus_list['levels']["Shuffled"] = """There might be several solutions."""
 
-help_menus_list['levels']["Temple"] = """This level is the retranscription of a really known puzzle game.\nOnce you find which game it is, the level is over."""
+help_menus_list['levels']["Temple"] = """This level is the retranscription of a really known puzzle game. Once you find which game it is, the level is over."""
 
 help_menus_list['levels']["Puzzle"] = """This level is inspired from the 15-puzzle."""
 
