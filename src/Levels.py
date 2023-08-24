@@ -124,7 +124,7 @@ from levels.level_random_turning import level_random_turning
 from levels.level_random_wheel import level_random_wheel
 from levels.level_recurrence import level_recurrence
 from levels.level_river import level_river
-from levels.level_roadblocks import level_roadblocks
+from levels.level_roadblock import level_roadblock
 from levels.level_rotation import level_rotation
 from levels.level_rotation_bis import level_rotation_bis
 from levels.level_route import level_route
@@ -280,7 +280,7 @@ class Levels:
                              level_walk,
                              level_trail,
                              level_path,
-                             level_roadblocks,
+                             level_roadblock,
                              level_passage,
                              level_impasse,
                              level_route,
@@ -430,7 +430,7 @@ class Levels:
                              level_walk,
                              level_trail,
                              level_path,
-                             level_roadblocks,
+                             level_roadblock,
                              level_passage,
                              level_impasse,
                              level_route,

@@ -5,7 +5,7 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
-def level_roadblocks(): 
+def level_roadblock(): 
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -214,7 +214,7 @@ def level_roadblocks():
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14],
                  fastest_solution="S0 D0 S5 S6 S7 S8 S9 S10 S11 D1 D3 D7 D11 D13 D14",
                  level_color=Levels_colors_list.FROM_HUE(hu=0.14, sa=0.2, li=0.5),
-                 name='Roadblocks',
+                 name='Roadblock',
                  keep_proportions=True,
                  door_window_size=325)
     
