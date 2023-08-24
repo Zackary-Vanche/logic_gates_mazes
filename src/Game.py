@@ -912,14 +912,16 @@ class Game:
                     self.index_current_level -= 1
         if self.level_changed:
             self.last_level_change_time = time()
-        if self.index_current_level == -1:
-            self.index_current_level = Levels.number_of_levels - 1
-        if self.index_current_level == Levels.number_of_levels:
-            self.index_current_level = 0
-        self.index_current_level = min(self.index_current_level,
-                                       Levels.number_of_levels - 1)
-        self.index_current_level = max(self.index_current_level,
-                                       0)
+        # if self.index_current_level == -1:
+        #     self.index_current_level = Levels.number_of_levels - 1
+        # print(self.index_current_level, Levels.number_of_levels)
+        # if self.index_current_level == Levels.number_of_levels:
+        #     self.index_current_level = 0
+        self.index_current_level = self.index_current_level % Levels.number_of_levels
+        # self.index_current_level = min(self.index_current_level,
+        #                                Levels.number_of_levels - 1)
+        # self.index_current_level = max(self.index_current_level,
+        #                                0)
 
     # def goto_or_leave_help(self):
     #     self.pressed = pygame_key_get_pressed()

@@ -619,15 +619,20 @@ class Levels:
             Levels.levels_list[level_number] = Levels.levels_functions_list[level_number](
             )
         else:
-            if Levels.levels_list[level_number] is None:
-                if fast_solution_finding and len(signature(Levels.levels_functions_list[level_number]).parameters) > 0:
-                    Levels.levels_list[level_number] = Levels.levels_functions_list[level_number](
-                        True)
+            try:
+                level_number = level_number % Levels.number_of_levels
+                if Levels.levels_list[level_number] is None:
+                    if fast_solution_finding and len(signature(Levels.levels_functions_list[level_number]).parameters) > 0:
+                        Levels.levels_list[level_number] = Levels.levels_functions_list[level_number](
+                            True)
+                    else:
+                        Levels.levels_list[level_number] = Levels.levels_functions_list[level_number](
+                        )
                 else:
-                    Levels.levels_list[level_number] = Levels.levels_functions_list[level_number](
-                    )
-            else:
-                Levels.levels_list[level_number].reboot_solution()
+                    Levels.levels_list[level_number].reboot_solution()
+            except IndexError:
+                print(level_number)
+                raise
         return Levels.levels_list[level_number]
 
     def save_solutions_txt(verbose=0,
