@@ -4,7 +4,6 @@ from Door import Door
 from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
-from random import choice as rd_choice
 
 def level_separation(): 
     
@@ -120,7 +119,6 @@ def level_separation():
     for S in Slist:
         if S.value:
             Slist1.append(S.name)
-    print(' '.join(Slist1))
 
     tree_list_1 = ['NOT', ['EQU', [None], [None]]]
     
