@@ -817,6 +817,7 @@ def test_levels(test_random_levels=False):
     assert level_cartesian().fastest_solution == ' '.join(sol)
     
     assert level_arithmetic().find_all_solutions()[0] != 0
+    assert level_numeration().find_all_solutions()[0] != 0
 
 
 def calculates_random_level_solution_length(aux_level_function):
