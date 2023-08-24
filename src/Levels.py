@@ -866,7 +866,7 @@ if __name__ == "__main__":
     for level_function in Levels.levels_functions_list:
         name = level_function().name
         if not name in worlds_level_list:
-            print('*', name)
+            print(name)
             
     worlds_level_set = set(worlds_level_list)
     duplicates = set([item for item in worlds_level_list if worlds_level_list.count(item) > 1])
