@@ -1,5 +1,5 @@
 from numpy import array
-from numpy import cumsum
+# from numpy import cumsum
 from numpy import zeros as np_zeros
 from Logic_Gate import Logic_Gate
 from Switch import Switch

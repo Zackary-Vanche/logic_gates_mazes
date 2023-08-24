@@ -227,7 +227,7 @@ class Logic_Gate:
                  'BIN': aux_func_BIN,
                  'POW': aux_func_POW,
                  'DIV': aux_func_DIV,
-                 'DIVINT': aux_func_DIVINT,
+                 # 'DIVINT': aux_func_DIVINT,
                  'MOD': aux_func_MOD,
                  'NONO': aux_func_NONO,
                  'DIST': aux_func_DIST,

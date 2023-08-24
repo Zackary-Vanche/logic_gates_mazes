@@ -18,6 +18,7 @@ from os import mkdir as os_mkdir
 from os import remove as os_remove
 from os import listdir as os_listdir
 
+from Logic_Gate import Logic_Gate
 from Tree import Tree
 from Door import Door
 from Switch import Switch
@@ -212,8 +213,6 @@ class Maze:
         if len(self.help_txt[0]) > 0:
             if self.help_txt[0][0] == '\n':
                 self.help_txt[0] = self.help_txt[0][1:]
-        if self.random:
-            self.help_txt[0] = self.help_txt[0] + '\n' + help_menus_list['random']
         self.n_help_pages = len(self.help_txt)
         self.current_page = current_page
         self.number_of_pages = 0
@@ -246,6 +245,30 @@ class Maze:
         
         intermediate_values_names = [t.name for t in self.intermediate_values_list]
         assert len(intermediate_values_names) == len(set(intermediate_values_names)), str(intermediate_values_names)
+        
+        # ROOTS SET
+        self.roots_names_set = set()
+        for door in self.doors_list:
+            tree_list = [door.tree]
+            while len(tree_list) != 0:
+                tree = tree_list.pop(0)
+                if type(tree.root) == Logic_Gate:
+                    root_name = tree.root.name
+                    self.roots_names_set.add(root_name)
+                    tree_list.extend(tree.sons_list)
+        
+        help_menu = []
+        if self.help_txt[0].replace(' ', '').replace('\n', '') != '':
+            help_menu.append(self.help_txt[0])
+        if len(self.intermediate_values_list) != 0:
+            help_menu.append(help_menus_list['V'])
+        for root in Logic_Gate.func_dict.keys():
+            help_menus_list[root]
+            if root in self.roots_names_set:
+                help_menu.append(help_menus_list[root])
+        if self.random:
+            help_menu.append(help_menus_list['random'])
+        self.help_txt[0] = '\n'.join(help_menu)
 
     def __str__(self):
         len_line = 100
