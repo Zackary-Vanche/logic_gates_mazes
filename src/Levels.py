@@ -751,7 +751,7 @@ def test_levels(test_random_levels=False):
     import matplotlib.pyplot as plt
     plt.rcParams.update({'font.size': 15})
 
-    print('\nTrying all solutions')
+    print('Trying all solutions')
     for level_function in Levels.levels_functions_list:
         level = level_function()
         if level.fastest_solution is not None:
@@ -762,10 +762,10 @@ def test_levels(test_random_levels=False):
             if level.name not in ['Panex', 'Superflip']:
                 print(level.name, 'no solution')
 
-    print('\nSaving solutions')
+    print('Saving solutions')
     Levels.save_solutions_txt(do_it_fast=True, verbose=0)
 
-    print('\nCalculating solutions lenghts')
+    print('Calculating solutions lenghts')
     solutions_lenghts = []
     for level_function in Levels.levels_functions_list:
         level = level_function()
