@@ -205,24 +205,28 @@ class Logic_Gate:
         lbin = [Logic_Gate.aux_func_BIN(branches_list[3*i:3*i+3]) for i in range(8)]
         return Logic_Gate.aux_func_EQUSET(lbin + [0, 0, 0, 0, 3, 5, 6, 7,])
 
-    func_dict = {'NOT': aux_func_NOT,
+    func_dict = {# BOOLEAN LOGIC
+                 'NOT': aux_func_NOT,
                  'AND': aux_func_AND,
                  'NAND': aux_func_NAND,
                  'OR': aux_func_OR,
                  'NOR': aux_func_NOR,
                  'XOR': aux_func_XOR,
                  'XNOR': aux_func_XNOR,
+                 # BINARY
                  'BIN': aux_func_BIN,
+                 # NUMBERS COMPARISON
                  'EQU': aux_func_EQU,
                  'DIFF': aux_func_DIFF,
                  'EQUSET': aux_func_EQUSET,
                  'IN': aux_func_IN,
-                 'INLIST': aux_func_INLIST,
+                 'INLIST': aux_func_INLIST, # Rarely used
                  'INF': aux_func_INF,
                  'INFOREQU': aux_func_INFOREQU,
                  'SUP': aux_func_SUP,
                  'SUPOREQU': aux_func_SUPOREQU,
-                 'INF0': aux_func_INF0,
+                 'INF0': aux_func_INF0, # Rarely used
+                 # ARITHMETIC
                  'SUM': aux_func_SUM,
                  'MINUS': aux_func_MINUS,
                  'PROD': aux_func_PROD,
@@ -231,6 +235,7 @@ class Logic_Gate:
                  'ABS': aux_func_ABS,
                  'MOD': aux_func_MOD,
                  'DIST': aux_func_DIST,
+                 # SPECIAL FUNCTIONS (rarely used)
                  'NONO': aux_func_NONO,
                  'BETWEEN': aux_func_BETWEEN,
                  'JUMP': aux_func_JUMP,
