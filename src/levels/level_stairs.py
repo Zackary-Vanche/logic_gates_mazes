@@ -159,6 +159,6 @@ def level_stairs():
                  fastest_solution='S1 S3 S5 D0 S8 D1 D2 D3 D4 D5 D6 D7 D8',
                  level_color=Levels_colors_list.RED_AND_ORANGE,
                  name='Stairs',
-                 door_window_size=550)
+                 door_window_size=300)
 
     return level
