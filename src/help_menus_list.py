@@ -250,25 +250,25 @@ help_menus_list['AND'] = """
 & means 'AND'. & S0 S1 equals 1 if S0 and S1 are turned on."""
 
 help_menus_list['NAND'] = """
-& means 'AND'. & S0 S1 equals 1 if S0 and S1 are turned on."""
+& means 'NAND'. & S0 S1 equals 1 if S0 and S1 are turned on."""
 
 help_menus_list['OR'] = '''
 | means 'OR'. | S1 S2 equals 1 if S1 or S2 is turned on i.e. if they are not both turned off.'''
 
 help_menus_list['NOR'] = '''
-¬| means 'OR'. ¬| S1 S2 equals 1 if S1 and S2 are turned off.'''
+¬| means 'NOR'. ¬| S1 S2 equals 1 if S1 and S2 are turned off.'''
 
 help_menus_list['XOR'] = """
 XOR (^) means exclusive or. ^ (S0, S1, ...) equals 1 if there is exactly one switch among its parameters that is turned on."""
         
 help_menus_list['XNOR'] = """
-XOR (¬^) is the opposite of exclusive or. ¬^ (S0, S1, ...) equals 0 if there is exactly one switch among its parameters that is turned on."""
+XNOR (¬^) is the opposite of exclusive or. ¬^ (S0, S1, ...) equals 0 if there is exactly one switch among its parameters that is turned on."""
 
 help_menus_list['SUM'] = """
 + S0 S1 is the sum of S0 and S1."""
 
 help_menus_list['MINUS'] = """
-- means 'MINUS'. -S0 is the opposite of S0."""
+-S0 is the opposite of S0."""
 
 help_menus_list['PROD'] = """
 * S0 S1 equals the product of S0 and S1."""
