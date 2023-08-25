@@ -612,7 +612,6 @@ def level_central_symmetry():
                  level_color=Levels_colors_list.FROM_HUE(hu=0.6, sa=0.4, li=0.3),
                  name='Central symmetry',
                  keep_proportions=True,
-                 y_separation=27,
                  door_window_size=250)
     
     return level

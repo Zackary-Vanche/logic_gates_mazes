@@ -409,9 +409,9 @@ class Levels:
                                     level_bridges,
                                     level_chinese_postman_problem,
                                    ],
-              'The Tree-House':[level_forest,
+              'The Tree-House':[level_orchard,
                                 level_binary,
-                                level_orchard,
+                                level_forest,
                                 level_minimum_spanning_tree,
                                 level_small_honeycomb,
                                 level_honeycomb,
@@ -582,9 +582,8 @@ class Levels:
               }
     
     worlds_names = list(Worlds.keys())
-    # ['The Initial World',
-    #  'The Hidden Country',
-    #  'The Orchard',
+    # ['The Hidden Country',
+    #  'The Tree-house',
     #  'The Journey',
     #  'The Accidental Realm',
     #  'The Digital Maze',
@@ -597,7 +596,7 @@ class Levels:
     #  'The Nature',
     #  'The Ruins',
     #  'The Zigzags']
-    # levels_functions_list = Worlds[worlds_names[14]]
+    levels_functions_list = Worlds[worlds_names[2]]
 
     # levels_names_dico = {}
     # for i in range(len(levels_functions_list)):
