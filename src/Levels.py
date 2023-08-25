@@ -893,38 +893,14 @@ if __name__ == "__main__":
     # sol = 'S0 S1 S2 S4 S5 S7 S10 S13 S16 D0 S18 D1 S19 D3 S20 D6 S21 D6 D8 S24 D8 D3 D5 S23 D14 S26 D14 D5 D1 D2 S22 D11 S25 D17 S27 D19'
     # level_minimum_spanning_tree().try_solution(sol, verbose=2)
 
-    # for level in [level_peirce_s_arrow,
-    #               level_sheffer_stroke]:
-    #     solutions = level().find_all_solutions(verbose=2,
-    #                                           nb_iterations_print=10**4,
-    #                                           stop_at_first_solution=False)
-    #     for sol in solutions[0]:
-    #         print(' '.join(sol))
-    #         print('')
-
-#     solutions = """S0 S2 S3 S5 D0 S10 S11 S12 S13 S14 S15 S18 S19 S20 D1 D3 D7 D13 D26
-# S1 S6 S7 S8 D0 S10 S11 S12 S13 S14 S15 S18 S19 S20 D1 D3 D7 D13 D26
-# S4 S6 S7 S8 D0 S10 S11 S12 S13 S14 S15 S17 S18 S19 S20 D1 D3 D7 D13 D26
-# S0 S2 S3 S8 D0 S10 S11 S12 S13 S15 S16 S19 S20 D1 D3 D7 D12 D18 D19 D26
-# S0 S2 S5 S6 D0 S9 S12 S13 S14 S15 S18 S19 S20 D1 D2 D5 D6 D7 D13 D26
-# S3 S4 S7 S8 D0 S9 S12 S13 S14 S15 S17 S18 S19 S20 D1 D2 D5 D6 D7 D13 D26
-# S4 S5 S6 S7 D0 S10 S11 S12 S13 S15 S16 S17 S19 S20 D1 D3 D7 D12 D18 D19 D26
-# S0 S2 S6 S8 D0 S9 S12 S13 S15 S16 S19 S20 D1 D2 D5 D6 D7 D12 D18 D19 D26
-# S3 S4 S5 S7 D0 S9 S12 S13 S15 S16 S17 S19 S20 D1 D2 D5 D6 D7 D12 D18 D19 D26
-# S4 S7 D0 S9 S11 S12 S13 S15 S16 S17 S18 S19 S20 D1 D2 D4 D8 D14 D20 D24 D25 D23 D19 D26
-# S1 S4 S6 S7 D0 S10 S11 S12 S13 S15 S16 S18 S19 S20 D1 D3 D7 D12 D17 D21 D24 D25 D23 D19 D26
-# S1 S4 S7 S8 D0 S9 S11 S12 S13 S14 S15 S18 S19 S20 D1 D2 D4 D8 D14 D15 D10 D6 D7 D13 D26
-# S1 S7 D0 S9 S11 S12 S13 S15 S16 S18 S19 S20 D1 D2 D4 D8 D14 D15 D16 D21 D24 D25 D23 D19 D26
-# S1 S3 S4 S7 D0 S9 S12 S13 S15 S16 S18 S19 S20 D1 D2 D5 D6 D7 D12 D17 D21 D24 D25 D23 D19 D26
-# S1 S4 S5 S7 D0 S9 S11 S12 S13 S15 S16 S19 S20 D1 D2 D4 D8 D14 D15 D10 D6 D7 D12 D18 D19 D26
-# S1 S6 S8 D0 S10 S11 S13 S14 S15 S18 S19 S20 D1 D3 D6 D5 D4 D8 D14 D15 D16 D21 D24 D25 D23 D18 D12 D13 D26
-# S1 S4 S7 D0 S9 S11 S12 S13 S15 S16 S18 S19 S20 D1 D2 D4 D8 D14 D15 D10 D6 D7 D12 D17 D21 D24 D25 D23 D19 D26
-# S1 S6 S7 D0 S10 S11 S12 S13 S15 S16 S18 S19 S20 D1 D3 D7 D12 D11 D5 D4 D8 D14 D15 D16 D21 D24 D25 D23 D19 D26
-# S1 S7 S8 D0 S9 S11 S12 S13 S14 S15 S18 S19 S20 D1 D2 D4 D8 D14 D15 D16 D21 D24 D25 D23 D18 D11 D6 D7 D13 D26
-# S3 S4 S7 D0 S9 S12 S13 S15 S16 S17 S18 S19 S20 D1 D2 D5 D6 D7 D12 D17 D16 D9 D8 D14 D20 D24 D25 D23 D19 D26
-# S4 S5 S7 D0 S9 S11 S12 S13 S15 S16 S17 S19 S20 D1 D2 D4 D8 D14 D20 D24 D25 D22 D16 D10 D6 D7 D12 D18 D19 D26
-# S4 S6 S7 D0 S10 S11 S12 S13 S15 S16 S17 S18 S19 S20 D1 D3 D7 D12 D17 D16 D10 D5 D4 D8 D14 D20 D24 D25 D23 D19 D26
-# S4 S7 S8 D0 S9 S11 S12 S13 S14 S15 S17 S18 S19 S20 D1 D2 D4 D8 D14 D20 D24 D25 D23 D18 D17 D16 D10 D6 D7 D13 D26"""
+    for level in [level_peirce_s_arrow,
+                  level_sheffer_stroke]:
+        solutions = level().find_all_solutions(verbose=2,
+                                              nb_iterations_print=10**4,
+                                              stop_at_first_solution=False)
+        for sol in solutions[0]:
+            print(' '.join(sol))
+            print('')
 
 #     solutions = solutions.split('\n')
 #     level = level_harmony()
