@@ -68,7 +68,7 @@ There are differents elements in this game :
         If a switch is turned on, it is surrounded, and you say it is equal to 1. If it is turned off, it is equal to 0.
     Doors (D0, D1, D2, ...) :    
         If a door is open, it is surrounded, and you say it is equal to 1. If it is closed, it is equal to 0.
-        Diamond-shape doors are two-way while triangle-shaped doors are one-way only.
+        Diamond-shape doors are two-way while arrow-shaped doors are one-way only.
 
 To go in a room, use a switch or travel by a door, write its name and press [ENTER].
 You can only use switches of your current room, and travel by open doors.
