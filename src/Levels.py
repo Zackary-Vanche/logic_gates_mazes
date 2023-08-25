@@ -596,7 +596,7 @@ class Levels:
     #  'The Nature',
     #  'The Ruins',
     #  'The Zigzags']
-    levels_functions_list = Worlds[worlds_names[2]]
+    # levels_functions_list = Worlds[worlds_names[2]]
 
     # levels_names_dico = {}
     # for i in range(len(levels_functions_list)):
