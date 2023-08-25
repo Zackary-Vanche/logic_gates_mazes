@@ -30,7 +30,7 @@ def level_strange(a=1, b=1, c=1, d=1):
                           S1, S3, S5, S7, S0, S2, S4, S6,
                           Switch(value=c),
                           Switch(value=d),],
-              cut_expression=True)
+              cut_expression_depth_1=True)
 
     R0 = Room(name='R0',
               position = [0, 2, 2, 4],
