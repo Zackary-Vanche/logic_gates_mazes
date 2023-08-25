@@ -133,7 +133,7 @@ class Game:
             self.WINDOW = pygame_display_set_mode((self.WINDOW_WIDTH, self.WINDOW_HEIGHT),
                                                   pygame_RESIZABLE,
                                                   pygame_SCALED)
-        pygame_display_set_caption('Logic gates maze')
+        pygame_display_set_caption('Logic Gates Mazes')
         self.WINDOW_SIZE_changed = False
 
         self.font = pygame_font_SysFont(None, self.font_size)
