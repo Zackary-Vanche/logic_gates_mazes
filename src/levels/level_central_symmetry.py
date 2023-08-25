@@ -228,66 +228,68 @@ def level_central_symmetry():
                       switches=[S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, S23, S24, S25, S26, S27, S28],
                       cut_expression=True)
     
-    ex = 0.38
+    dx = 1.2
+    dy = 1
+    ex = 0.5
     ey = 0.38
     
     R0 = Room(name='R0',
-              position=[0, -1+ey, 3+ex, ey/2],
+              position=[0*dx, -0.3, 3+ex, ey/2],
               switches_list=[S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11])
 
     R1 = Room(name='R1',
-              position=[3, 0, ex, ey],
+              position=[3*dx, 0*dy, ex, ey],
               switches_list=[S12])
     R2 = Room(name='R2',
-              position=[3, 1, ex, ey],
+              position=[3*dx, 1*dy, ex, ey],
               switches_list=[S13])
     R3 = Room(name='R3',
-              position=[3, 2, ex, ey],
+              position=[3*dx, 2*dy, ex, ey],
               switches_list=[S14])
     R4 = Room(name='R4',
-              position=[3, 3, ex, ey],
+              position=[3*dx, 3*dy, ex, ey],
               switches_list=[S15])
     R5 = Room(name='R5',
-              position=[2, 0, ex, ey],
+              position=[2*dx, 0*dy, ex, ey],
               switches_list=[S16])
     R6 = Room(name='R6',
-              position=[2, 1, ex, ey],
+              position=[2*dx, 1*dy, ex, ey],
               switches_list=[S17])
     R7 = Room(name='R7',
-              position=[2, 2, ex, ey],
+              position=[2*dx, 2*dy, ex, ey],
               switches_list=[S18])
     R8 = Room(name='R8',
-              position=[2, 3, ex, ey],
+              position=[2*dx, 3*dy, ex, ey],
               switches_list=[S19])
     R9 = Room(name='R9',
-              position=[1, 0, ex, ey],
+              position=[1*dx, 0*dy, ex, ey],
               switches_list=[S20])
     R10 = Room(name='R10',
-              position=[1, 1, ex, ey],
+              position=[1*dx, 1*dy, ex, ey],
               switches_list=[S21])
     R11 = Room(name='R11',
-               position=[1, 2, ex, ey],
+               position=[1*dx, 2*dy, ex, ey],
                switches_list=[S22])
     R12 = Room(name='R12',
-               position=[1, 3, ex, ey],
+               position=[1*dx, 3*dy, ex, ey],
                switches_list=[S23])
     R13 = Room(name='R13',
-               position=[0, 0, ex, ey],
+               position=[0*dx, 0*dy, ex, ey],
                switches_list=[S24])
     R14 = Room(name='R14',
-               position=[0, 1, ex, ey],
+               position=[0*dx, 1*dy, ex, ey],
                switches_list=[S25])
     R15 = Room(name='R15',
-               position=[0, 2, ex, ey],
+               position=[0*dx, 2*dy, ex, ey],
                switches_list=[S26])
     R16 = Room(name='R16',
-               position=[0, 3, ex, ey],
+               position=[0*dx, 3*dy, ex, ey],
                switches_list=[S27])
     R17 = Room(name='R17',
-               position=[-1+2*ex/3, 2+ey, ex, 1-ey],
+               position=[-1*dx+2*ex/3, 2*dy+ey, ex, 1-ey],
                switches_list=[S28])
     RE = Room(name='RE',
-              position=[4-3*ex/4, 1, ex, ey],
+              position=[3.75*dx, 1*dy, ex, ey],
               is_exit=True)
     
     rp = 0.375
@@ -297,8 +299,8 @@ def level_central_symmetry():
                 name='D0',
                 room_departure=R0,
                 room_arrival=R1,
-                relative_departure_coordinates=[(3+ex/2)/(3+ex), 1],
-                relative_arrival_coordinates=[1/2, 0])
+                relative_departure_coordinates=[1, 0],
+                relative_arrival_coordinates=[1, 0])
     D1 = Door(two_way=False,
                 tree=T1,
                 name='D1',
