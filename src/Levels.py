@@ -213,6 +213,8 @@ class Levels:
     bin packing
 
     Maximum coverage problem
+    
+    Random Knapsack
     """
 
     levels_functions_list = [

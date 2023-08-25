@@ -203,7 +203,7 @@ def level_crystal():
                  fastest_solution='S0 S6 D1 D3 S3 S9 D5 S5 D12 S4 D10 D8 S0 S6 D2 D4 D6 S11 D11 D9 S1 S7 D7 S0 S6 D0',
                  level_color=Levels_colors_list.SALMON_AND_GREY,
                  name='Crystal',
-                 door_window_size=500,
+                 door_window_size=325,
                  border=25)
 
     return level
