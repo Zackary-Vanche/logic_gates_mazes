@@ -66,6 +66,8 @@ class Maze:
         self.name = name
         self.start_room_index = start_room_index
         self.exit_room_index = exit_room_index
+        self.door_multipages = door_multipages
+        self.current_door_page = current_door_page
 
         # ROOMS LIST
 
@@ -186,7 +188,6 @@ class Maze:
             if self.all_solutions is not None:
                 assert self.all_solutions[0] == fastest_solution
         else:
-            # print(self.name, 'fastest_solution is None -> TO CHANGE')
             self.fastest_solution = None
         self.extreme_coordinates = None
         self.border = border
@@ -225,11 +226,9 @@ class Maze:
             for ipage in range(self.number_of_pages):
                 if ipage in Rd.pages_list and ipage in Ra.pages_list:
                     door.pages_list.append(ipage)
-        self.door_multipages = door_multipages
-        self.current_door_page = current_door_page
         
+        # INTERMEDIATE VALUES
         self.intermediate_values_list = []
-        
         list_to_visit = self.doors_list[:]
         while len(list_to_visit) != 0:
             # print(list_to_visit)
@@ -240,9 +239,7 @@ class Maze:
                 self.intermediate_values_list.append(x)
                 list_to_visit.extend(x.all_switches_list)
         self.intermediate_values_list = list(set(self.intermediate_values_list))
-        
         self.intermediate_values_list.sort(key = lambda x : int(x.name[1:]))
-        
         intermediate_values_names = [t.name for t in self.intermediate_values_list]
         assert len(intermediate_values_names) == len(set(intermediate_values_names)), str(intermediate_values_names)
         
@@ -276,89 +273,11 @@ class Maze:
             help_menu.append(help_menus_list['UP DOWN'])
         self.help_txt[0] = '\n'.join(help_menu)
 
-    def __str__(self):
-        len_line = 100
-        txt = ''
-        separateur = '\n' + "-" * len_line
-        txt += "-" * len_line
-        txt += '\n|'
-        txt += '\n|   Maze {} :'.format(self.name)
-        txt += '\n|   Start room index : {}'.format(self.start_room_index)
-        txt += '\n|   Current room index : {}'.format(self.current_room_index)
-        if self.all_solutions is not None:
-            txt += '\n|   Solution(s) :'
-            for sol in self.all_solutions:
-                txt += '\n|      {}'.format(sol)
-        elif self.fastest_solution is not None:
-            txt += '\n|   Fastest solution :'
-            txt += '\n|      {}'.format(self.fastest_solution)
-        txt += '\n|'
-        txt += separateur
-        for room in self.rooms_list:
-            txt += '\n|'
-            txt += str(room)
-            txt += '\n|'
-            txt += separateur
-        for door in self.doors_list:
-            txt += '\n|'
-            txt += str(door)
-            txt += '\n|'
-            txt += separateur
-        for switch in self.switches_list:
-            txt += '\n|'
-            txt += str(switch)
-            txt += '\n|'
-            txt += separateur
-        txt = txt.split('\n')
-        for i in range(len(txt)):
-            line = txt[i]
-            if len(line) < len_line:
-                while len(line) < len_line - 1:
-                    line += ' '
-                line += '|'
-            txt[i] = line
-        return '\n'.join(txt)
-
     def current_room(self):
         return self.rooms_list[self.current_room_index]
 
     def current_room_name(self):
         return self.current_room().name
-
-    def save_txt(self, title_header=''):
-        if Maze.calculates_solutions and self.all_solutions is None:
-            self.all_solutions = self.find_all_solutions()
-        with open('{}_{}.txt'.format(title_header,
-                                     self.name.replace(' ', '_')), 'w') as f:
-            f.write(str(self))
-
-    def save_txt_short(self, title_header=''):
-        self.reboot_solution()
-        with open('{}_{}.txt'.format(title_header,
-                                     self.name.replace(' ', '_')), 'w') as f:
-            for switch in self.switches_list:
-                f.write('{} : {}; '.format(switch.name, switch.value))
-            f.write('\n')
-            for room in self.rooms_list:
-                if room.is_exit:
-                    txt_exit = '(EXIT)'
-                else:
-                    txt_exit = ''
-                f.write("{} {}: ".format(room.name, txt_exit))
-                for switch in room.switches_list:
-                    f.write(switch.name)
-                    f.write(' ')
-                f.write('\n')
-            for door in self.doors_list:
-                f.write("{} : ".format(door.name))
-                tree = door.tree
-                f.write("{}; ".format(tree.get_raw_logical_expression_RPN()))
-                if door.two_way:
-                    f.write("{} <-> {}\n".format(door.room_departure.name,
-                                                 door.room_arrival.name))
-                else:
-                    f.write("{} --> {}\n".format(door.room_departure.name,
-                                                 door.room_arrival.name))
 
     def change_switch(self, switch_name, update_doors=True):
         assert switch_name[0] == 'S'
@@ -1006,7 +925,7 @@ class Maze:
                                                ipage)
         self.calculate_doors_coordinates()
 
-    def calculate_doors_coordinates(self): # DEPRECATED
+    def calculate_doors_coordinates(self):
         for door in self.doors_set:
             # for ipage in range(self.number_of_pages): # TODO
             Rd = door.room_departure
