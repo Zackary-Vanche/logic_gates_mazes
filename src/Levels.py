@@ -210,11 +210,11 @@ class Levels:
 
     Domatic partition
 
-    bin packing
-
     Maximum coverage problem
     
     Random Knapsack
+    
+    Random bin packing
     """
 
     levels_functions_list = [
