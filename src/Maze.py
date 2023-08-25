@@ -52,7 +52,8 @@ class Maze:
                  random_several_exit=False,
                  exit_doors_indexes=[],
                  group='',
-                 unique_solution=True):
+                 unique_solution=False,
+                 additionnal_roots_in_help=set()):
 
         self.group = group
         self.unique_solution = unique_solution
@@ -265,10 +266,10 @@ class Maze:
             help_menu.append(help_menus_list['V'])
         for root in Logic_Gate.func_dict.keys():
             help_menus_list[root]
-            if root in self.roots_names_set:
+            if root in self.roots_names_set or root in additionnal_roots_in_help:
                 help_menu.append(help_menus_list[root])
-                if root == 'BIN' and self.name == 'Numeration':
-                    help_menu[-1] = help_menu[-1] + help_menus_list['BIN examples']
+                # if root == 'BIN' and self.name == 'Numeration':
+                #     help_menu[-1] = help_menu[-1] + help_menus_list['BIN examples']
         help_menu.append(help_menus_list['B'])
         help_menu.append(help_menus_list['N'])
         if len(self.intermediate_values_list + self.doors_list) > 1:

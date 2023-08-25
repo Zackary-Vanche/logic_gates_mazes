@@ -19,7 +19,6 @@ def level_initiation():
     T2 = Tree(tree_list=Tree.tree_list_OR(2),
               name='T2',
               switches=[S0, S1])
-    # easy_logical_expression_PN = 'OR S0 S1\n= | S0 S1')
 
     c = 1
     e = 0.6

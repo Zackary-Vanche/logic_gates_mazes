@@ -35,8 +35,7 @@ def level_electricity():
 
     T0 = Tree(tree_list=tree_list_0,
               name='T0',
-              switches=[S0, S1, S2, S3, S4, S5, S6, S7, S8, S9],
-              easy_logical_expression_PN="& S0 ¬& [ & ( ¬S1 ¬S2 S3 ) & ( S4 ¬S5 ¬S6 ) & ( ¬S7 ¬S8 S9 ) ]")
+              switches=[S0, S1, S2, S3, S4, S5, S6, S7, S8, S9])
     T1 = Tree(tree_list=Tree.tree_list_from_str('FFTTT'),
               name='T1',
               switches=[S1, S2, S3, S10, S11])

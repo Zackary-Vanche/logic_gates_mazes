@@ -213,6 +213,15 @@ class Logic_Gate:
                  'NOR': aux_func_NOR,
                  'XOR': aux_func_XOR,
                  'XNOR': aux_func_XNOR,
+                 # ARITHMETIC
+                 'SUM': aux_func_SUM,
+                 'MINUS': aux_func_MINUS,
+                 'PROD': aux_func_PROD,
+                 'DIV': aux_func_DIV,
+                 'POW': aux_func_POW,
+                 'ABS': aux_func_ABS,
+                 'MOD': aux_func_MOD,
+                 'DIST': aux_func_DIST,
                  # BINARY
                  'BIN': aux_func_BIN,
                  # NUMBERS COMPARISON
@@ -226,15 +235,6 @@ class Logic_Gate:
                  'SUP': aux_func_SUP,
                  'SUPOREQU': aux_func_SUPOREQU,
                  'INF0': aux_func_INF0, # Rarely used
-                 # ARITHMETIC
-                 'SUM': aux_func_SUM,
-                 'MINUS': aux_func_MINUS,
-                 'PROD': aux_func_PROD,
-                 'DIV': aux_func_DIV,
-                 'POW': aux_func_POW,
-                 'ABS': aux_func_ABS,
-                 'MOD': aux_func_MOD,
-                 'DIST': aux_func_DIST,
                  # SPECIAL FUNCTIONS (rarely used)
                  'NONO': aux_func_NONO,
                  'BETWEEN': aux_func_BETWEEN,

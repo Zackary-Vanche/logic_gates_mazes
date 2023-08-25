@@ -776,7 +776,7 @@ def test_levels(test_random_levels=False):
         level = level_function()
         if level.fastest_solution is not None:
             solutions_lenghts.append(len(level.fastest_solution.split(' ')))
-    plt.figure(figsize=(15, 5))
+    plt.figure(figsize=(15, 15))
     x_list = [i for i in range(len(solutions_lenghts))]
     plt.plot(x_list, solutions_lenghts, lw=0.3, color='k')
     plt.scatter(x_list, solutions_lenghts, lw=0.1, color='r')
@@ -823,6 +823,7 @@ def test_levels(test_random_levels=False):
     
     assert level_arithmetic().find_all_solutions()[0] != 0
     assert level_numeration().find_all_solutions()[0] != 0
+    print('End of the tests')
 
 
 def calculates_random_level_solution_length(aux_level_function):

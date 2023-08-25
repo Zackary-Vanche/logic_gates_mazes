@@ -24,12 +24,10 @@ def level_wave():
     S14 = Switch(name='S14')
     S15 = Switch(name='S15')
     S16 = Switch(name='S16')
-    SN = Switch(name='SN')
 
-    T0 = Tree(tree_list=Tree.tree_list_not,
+    T0 = Tree(tree_list=[None],
               name='T0',
-              switches=[SN],
-              easy_logical_expression_PN='1')
+              switches=[1])
     T1 = Tree(tree_list=Tree.tree_list_from_str('TF'),
               name='T1',
               switches=[S4, S5])

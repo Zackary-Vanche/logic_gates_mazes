@@ -3,6 +3,10 @@ help_menus_list = {}
 help_menus_list['basis'] = '''
 D0 = S0 means : 
     D0 is open if S0 is turned on.'''
+    
+help_menus_list['Polish notation'] = """
+In this game, the Polish notation, aka the prefix notation, is in use.
+It means that operators precede their operands."""
 
 help_menus_list['numerical value'] = """
 Sometimes, a switch can be replaced by a numerical value."""
@@ -115,7 +119,8 @@ help_menus_list['levels']["Hello world"] = '\n'.join([help_menus_list['introduct
 
 help_menus_list['levels']["Playground"] = help_menus_list['write several actions']
 
-help_menus_list['levels']["Initiation"] = help_menus_list['leave the game']
+help_menus_list['levels']["Initiation"] = '\n'.join([help_menus_list['leave the game'],
+                                                     help_menus_list['Polish notation']])
 
 help_menus_list['levels']["Linear"] = help_menus_list['directions keys']
 

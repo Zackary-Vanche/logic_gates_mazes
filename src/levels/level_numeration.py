@@ -16,9 +16,12 @@ def level_numeration():
 
     Slist = [S0, S1, S2, S3, S4]
 
+    a = rd_randint(0, 31)
+
     T0 = Tree(tree_list=['EQU', Tree.tree_list_BIN(len(Slist)), [None]],
               name='T0',
-              switches = Slist + [rd_randint(0, 31)])
+              switches = Slist + [a],
+              easy_logical_expression_PN=f"= + (S0 * 2 S1 * 4 S2 * 8 S3 * 16 S4) {a}\n= b (S0 S1 S2 S3 S4) {a}")
 
     R0 = Room(name='R0',
               position = [0, 0, 5, 1],
@@ -32,6 +35,10 @@ def level_numeration():
               room_arrival=RE,
               relative_departure_coordinates=[1/2, 1],
               relative_arrival_coordinates=[1/2, 0])
+    
+    additionnal_roots_in_help = set()
+    additionnal_roots_in_help.add('SUM')
+    additionnal_roots_in_help.add('PROD')
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
@@ -44,6 +51,7 @@ def level_numeration():
                  keep_proportions=True,
                  y_separation=40,
                  border=40,
-                 random=True)
+                 random=True,
+                 additionnal_roots_in_help=additionnal_roots_in_help)
 
     return level

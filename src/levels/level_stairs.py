@@ -5,7 +5,6 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
-
 def level_stairs():
 
     S0 = Switch(name='S0')
@@ -45,7 +44,6 @@ def level_stairs():
     T0 = Tree(tree_list=tree_list_0,
               name='T0',
               switches=[S6, S7])
-              # easy_logical_expression_PN="NAND S6 S7\n= ¬& S6 S7")
     T1 = Tree(tree_list=tree_list_1,
                name='T1',
               switches=[S6, S7, S8])

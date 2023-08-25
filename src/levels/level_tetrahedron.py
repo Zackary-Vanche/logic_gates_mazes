@@ -28,10 +28,7 @@ def level_tetrahedron():
     
     T0 = Tree(tree_list=tree_list_0,  name='T0', switches = ls[:]*2, cut_expression = True)
     T1 = Tree(tree_list=tree_list_1,  name='T1', switches = ls[:]*2, cut_expression = True)
-    T2 = Tree(tree_list=tree_list_2,  name='T2', switches = ls[:]*3, cut_expression = True,
-          easy_logical_expression_PN = """| [ & ( - S0 - S1 S2 S3 S4 - S5 - S6 - S7 )
-& ( S0 - S1 S2 - S3 - S4 - S5 - S6 S7 )
-& ( S0 S1 S2 - S3 S4 S5 S6 S7 )  ]""")
+    T2 = Tree(tree_list=tree_list_2,  name='T2', switches = ls[:]*3, cut_expression = True)
     T3 = Tree(tree_list=tree_list_3,  name='T3', switches = ls[:]*2, cut_expression = True)
     T4 = Tree(tree_list=tree_list_4,  name='T4', switches = ls[:]*2, cut_expression = True)
     T5 = Tree(tree_list=tree_list_5,  name='T5', switches = ls[:]*2, cut_expression = True)

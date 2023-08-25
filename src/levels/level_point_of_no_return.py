@@ -27,12 +27,9 @@ def level_point_of_no_return():
 
     T0 = Tree(tree_list=tree_list_0,  name='T0', switches=[S0])
     T1 = Tree(tree_list=tree_list_1,  name='T1', switches=[S5, S7, S9])
-    # easy_logical_expression_PN = "& S9 XNOR S5 S7\n= & S9 ¬^ S5 S7")
     T2 = Tree(tree_list=tree_list_2,  name='T2', switches=[S6, S7, S9])
-    # easy_logical_expression_PN = "& S9 XOR S6 S7\n= & S9 ^ S6 S7")
     T3 = Tree(tree_list=tree_list_3,  name='T3', switches=[S5, S8, S9])
     T4 = Tree(tree_list=tree_list_4,  name='T4', switches=[S6, S8, S9])
-    # easy_logical_expression_PN = "& S9 XOR S6 S8\n= & S9 ^ S6 S8")
     T5 = Tree(tree_list=tree_list_5,  name='T5', switches=[S1, S2, S3, S4, S9])
 
     position_R0 = [0, 2, 3, 4]
