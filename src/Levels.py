@@ -213,9 +213,9 @@ class Levels:
 
     Maximum coverage problem
     
-    Random Knapsack
-    
     Random bin packing
+    
+    relay
     """
 
     levels_functions_list = [

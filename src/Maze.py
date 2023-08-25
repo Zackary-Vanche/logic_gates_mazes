@@ -267,6 +267,8 @@ class Maze:
             help_menus_list[root]
             if root in self.roots_names_set:
                 help_menu.append(help_menus_list[root])
+                if root == 'BIN' and self.name == 'Numeration':
+                    help_menu[-1] = help_menu[-1] + help_menus_list['BIN examples']
         help_menu.append(help_menus_list['B'])
         help_menu.append(help_menus_list['N'])
         if len(self.intermediate_values_list + self.doors_list) > 1:

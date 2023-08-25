@@ -204,7 +204,7 @@ help_menus_list['levels']["No three in line"] = """The no three in line problem 
 
 help_menus_list['levels']["Minimum spanning tree"] = """A Minimum spanning tree is the subset of edges in a graph that connects all the vertices together with the minimum total edge weight possible, without forming any cycles."""
 
-help_menus_list['levels']["Small honeycomb"] = """Honeycombs are supposed to be hexagonal... The method of resolution you should use for this level is the same as for the level "minimum spanning tree"."""
+help_menus_list['levels']["Small honeycomb"] = """The method of resolution you should use for this level is the same as for the level "minimum spanning tree"."""
 
 help_menus_list['levels']["Diagonal"] = """To solve this level you need to solve a 4*4 sudoku grid."""
 
@@ -328,7 +328,8 @@ For example:
     b 0 0 1 = 4
     b 1 0 1 = 5
     b 0 1 1 = 6
-    b 1 1 1 = 7"""
+    b 1 1 1 = 7
+    etc"""
 
 help_menus_list['IN'] = """
 The operator i takes two arguments : one switch and a switch list. It returns the value 1 if the switch is included in the list, 0 if not."""
