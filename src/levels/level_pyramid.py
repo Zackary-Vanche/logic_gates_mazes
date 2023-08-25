@@ -9,12 +9,11 @@ from Color import Color
 
 def level_pyramid(): 
 
-    S0 = Switch(name='S0')
-    S1 = Switch(name='S1')
-    S2 = Switch(name='S2')
-    S3 = Switch(name='S3')
-    S4 = Switch(name='S4')
-    S5 = Switch(name='S5')
+    S0 = Switch(name='S0', value=rd_choice([0, 1]))
+    S1 = Switch(name='S1', value=rd_choice([0, 1]))
+    S2 = Switch(name='S2', value=rd_choice([0, 1]))
+    S3 = Switch(name='S3', value=rd_choice([0, 1]))
+    S4 = Switch(name='S4', value=rd_choice([0, 1]))
     
     tree_list_list = [Tree.tree_list_AND(2),
                       Tree.tree_list_OR(2),
@@ -57,6 +56,7 @@ def level_pyramid():
     #           name='V10',
     #           switches=[S12, S13])
     
+    S5 = Switch(name='S5')
     S6 = Switch(name='S6')
     S7 = Switch(name='S7')
     S8 = Switch(name='S8')

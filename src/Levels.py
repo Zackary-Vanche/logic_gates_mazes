@@ -87,6 +87,7 @@ from levels.level_no_three_in_line import level_no_three_in_line
 from levels.level_nonogram import level_nonogram
 from levels.level_numeration import level_numeration
 from levels.level_odd import level_odd
+from levels.level_orchard import level_orchard
 from levels.level_oval_track_puzzle import level_oval_track_puzzle
 from levels.level_pancake_sorting import level_pancake_sorting
 from levels.level_panex import level_panex
@@ -223,7 +224,7 @@ class Levels:
                              level_loop,
                              level_boolean,
                              level_binary,
-                             level_forest,
+                             level_orchard,
                              level_yoyo,
                              level_crossroad,
                              level_bis_repetita,
@@ -237,6 +238,7 @@ class Levels:
                              level_fluid,
                              level_congruence,
                              level_infinity,
+                             level_forest,
                              level_equation,
                              level_pong,
                              level_bipartite,
@@ -390,17 +392,7 @@ class Levels:
                              level_superflip,
                              ]
     
-    Worlds = {'The Initial World':[level_hello_world,
-                                   level_playground,
-                                   level_initiation,
-                                   level_linear,
-                                   level_forest,
-                                   level_numeration,
-                                   level_sorted,
-                                   level_arithmetic,
-                                   level_inside_out,
-                                   ],    
-              'The Hidden Country':[level_hitting_set,
+    Worlds = {'The Hidden Country':[level_hitting_set,
                                     level_independent_set,
                                     level_dominating_set,
                                     level_exact_cover,
@@ -417,13 +409,14 @@ class Levels:
                                     level_bridges,
                                     level_chinese_postman_problem,
                                    ],
-              'The Orchard':[level_binary,
-                             level_minimum_spanning_tree,
-                             level_small_honeycomb,
-                             level_honeycomb,
+              'The Tree-House':[level_forest,
+                                level_binary,
+                                level_orchard,
+                                level_minimum_spanning_tree,
+                                level_small_honeycomb,
+                                level_honeycomb,
                              ],
               'The Journey':[level_meanders,
-                             level_leafs,
                              level_hamiltonian,
                              level_wind_compass,
                              level_singleton,
@@ -496,10 +489,14 @@ class Levels:
                                       level_mastermind,
                                       ],
               'The Numerals':[level_sum,
+                              level_numeration,
+                              level_inside_out,
                               level_equation,
+                              level_arithmetic,
                               level_product,
                               level_congruence,
                               level_pythagorean,
+                              level_sorted,
                               level_partition,
                               level_second,
                               level_egyptian_fractions,
@@ -539,11 +536,16 @@ class Levels:
                                    level_k,
                                    level_knight,
                                    ],
-              "The Nature":[level_loop,
+              "The Nature":[level_hello_world,
+                            level_playground,
+                            level_initiation,
+                            level_linear,
+                            level_loop,
                             level_yoyo,
                             level_bis_repetita,
                             level_odd,
                             level_parallel,
+                            level_leafs,
                             level_recurrence,
                             level_alice_and_bob,
                             level_river,
@@ -854,6 +856,8 @@ if __name__ == "__main__":
     if os.path.exists('temp.txt'):
         os.remove('temp.txt')
         
+    test_levels()
+    
     all_level_set = set()
     for level_function in Levels.levels_functions_list:
         all_level_set.add(level_function().name)
@@ -877,7 +881,7 @@ if __name__ == "__main__":
         print('')
         print(worlds_level_set - all_level_set)
         
-    test_levels()
+    
 
     # level = level_bridges()
     # sol = "D0 S0 D1"
@@ -927,12 +931,12 @@ if __name__ == "__main__":
 #         if level.try_solution(sol) == 2:
 #             print(sol)
 
-    # solutions = level_shortest_path().find_all_solutions(verbose=2,
-    #                                                 nb_iterations_print=10**5,
-    #                                                 stop_at_first_solution=False)
-    # for sol in solutions[0]:
-    #     print(' '.join(sol))
-    #     print('')
+    solutions = level_forest().find_all_solutions(verbose=2,
+                                                    nb_iterations_print=10**5,
+                                                    stop_at_first_solution=False)
+    for sol in solutions[0]:
+        print(' '.join(sol))
+        print('')
 
     # level = level_harmony()
     # for room in level.rooms_list:

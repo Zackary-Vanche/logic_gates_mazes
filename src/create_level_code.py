@@ -1,7 +1,7 @@
-ns = 5
-nd = 1
-nr = 1
-nv = 1
+ns = 9
+nd = 11
+nr = 11
+nv = 0
 
 print('''
 from Switch import Switch
@@ -36,12 +36,12 @@ print('')
 for i in range(nd):
     print(f'''    T{i} = Tree(tree_list=[None],
                 name='T{i}',
-                switches=[S{i}])''')
+                switches=[1])''')
     
-for i in range(nd):
-    print(f'''    T{i} = Tree(tree_list=tre_list_EQU,
-                name='T{i}',
-                switches=[V{i}, S{i}])''')
+# for i in range(nd):
+#     print(f'''    T{i} = Tree(tree_list=tre_list_EQU,
+#                 name='T{i}',
+#                 switches=[V{i}, S{i}])''')
     
 print('')
 
