@@ -256,15 +256,11 @@ class Maze:
                     root_name = tree.root.name
                     self.roots_names_set.add(root_name)
                     tree_list.extend(tree.sons_list)
-        for tree in self.intermediate_values_list:
-            tree_list = [tree]
-            while len(tree_list) != 0:
-                tree = tree_list.pop(0)
-                if type(tree.root) == Logic_Gate:
-                    root_name = tree.root.name
-                    self.roots_names_set.add(root_name)
-                    tree_list.extend(tree.sons_list)
+                for x in tree.switches_list:
+                    if type(x) == Tree:
+                        tree_list.append(x)
         
+        # AUTOMATIC HELP GENERATION
         help_menu = []
         if self.help_txt[0].replace(' ', '').replace('\n', '') != '':
             help_menu.append(self.help_txt[0])
