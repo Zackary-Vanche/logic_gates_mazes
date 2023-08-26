@@ -65,6 +65,7 @@ from levels.level_inside_out import level_inside_out
 from levels.level_inversions import level_inversions
 from levels.level_jungle import level_jungle
 from levels.level_k import level_k
+from levels.level_king import level_king
 from levels.level_knapsack import level_knapsack
 from levels.level_knight import level_knight
 from levels.level_leafs import level_leafs
@@ -243,6 +244,7 @@ class Levels:
                              level_infinity,
                              level_forest,
                              level_equation,
+                             level_king,
                              level_pong,
                              level_bipartite,
                              level_hamiltonian,
@@ -857,7 +859,7 @@ if __name__ == "__main__":
     # import collections
     # import numpy as np
     
-    solutions = level_jungle().find_all_solutions(verbose=2,
+    solutions = level_king().find_all_solutions(verbose=2,
                                                   nb_iterations_print=10**3,
                                                   stop_at_first_solution=False)
     for sol in solutions[0]:
