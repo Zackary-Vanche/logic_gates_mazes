@@ -1,8 +1,4 @@
 help_menus_list = {}
-
-help_menus_list['basis'] = '''
-D0 = S0 means : 
-    D0 is open if S0 is turned on.'''
     
 help_menus_list['Polish notation'] = """
 In this game, the Polish notation, aka the prefix notation, is in use.
@@ -74,9 +70,9 @@ There are differents elements in this game :
         If a door is open, it is surrounded, and you say it is equal to 1. If it is closed, it is equal to 0.
         Diamond-shape doors are two-way while arrow-shaped doors are one-way only.
 
-To go in a room, use a switch or travel by a door, write its name and press [ENTER].
-You can only use switches of your current room, and travel by open doors.
-You can always erase what you wrote with the [BACKSPACE] key.
+To go in a room, use a switch or travel by a door, write its name and press [ENTER]. You can only use switches of your current room, and travel by open doors. You can always erase what you wrote with the [BACKSPACE] key.
+
+D0 = S0 means D0 equals S0 i.e. D0 is open if S0 is turned on.
 
 To go to the next (previous) page, press the [RIGHT] ([LEFT]) arrow key."""
 
@@ -115,7 +111,7 @@ If you use the [UP] and [DOWN] keys, you can switch which equation appears first
 
 help_menus_list['levels'] = {}
 
-help_menus_list['levels']["Hello world"] = '\n'.join([help_menus_list['introduction'], help_menus_list['basis']])
+help_menus_list['levels']["Hello world"] = help_menus_list['introduction']
 
 help_menus_list['levels']["Playground"] = help_menus_list['write several actions']
 
