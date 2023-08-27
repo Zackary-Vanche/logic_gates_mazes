@@ -65,7 +65,6 @@ from levels.level_inside_out import level_inside_out
 from levels.level_inversions import level_inversions
 from levels.level_jungle import level_jungle
 from levels.level_k import level_k
-from levels.level_king import level_king
 from levels.level_knapsack import level_knapsack
 from levels.level_knight import level_knight
 from levels.level_leafs import level_leafs
@@ -169,6 +168,7 @@ from levels.level_travelling_salesman import level_travelling_salesman
 from levels.level_traversal import level_traversal
 from levels.level_tree import level_tree
 from levels.level_triangulate import level_triangulate
+from levels.level_von_neumann_neighborhood import level_von_neumann_neighborhood
 from levels.level_vortex import level_vortex
 from levels.level_walk import level_walk
 from levels.level_wasted import level_wasted
@@ -244,7 +244,7 @@ class Levels:
                              level_infinity,
                              level_forest,
                              level_equation,
-                             level_king,
+                             level_von_neumann_neighborhood,
                              level_pong,
                              level_bipartite,
                              level_hamiltonian,
@@ -860,11 +860,13 @@ if __name__ == "__main__":
     # import numpy as np
     
     solutions = level_king().find_all_solutions(verbose=2,
-                                                  nb_iterations_print=10**3,
-                                                  stop_at_first_solution=False)
+                                                nb_iterations_print=10**3,
+                                                stop_at_first_solution=False)
     for sol in solutions[0]:
         print(' '.join(sol))
         print('')
+        
+    assert False
 
     if os.path.exists('temp.txt'):
         os.remove('temp.txt')

@@ -6,7 +6,7 @@ from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 from Color import Color
 
-def level_king(): 
+def level_von_neumann_neighborhood(): 
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -64,7 +64,7 @@ def level_king():
                  doors_list=[D0],
                  fastest_solution='S1 S3 S5 S7 D0',
                  level_color=lcolor,
-                 name='King',
+                 name='von Neumann neighborhood',
                  keep_proportions=True,
                  door_window_size=380)
     
