@@ -165,6 +165,7 @@ from levels.level_tetrahedron import level_tetrahedron
 from levels.level_tetris import level_tetris
 from levels.level_the_4_queens import level_the_4_queens
 from levels.level_the_4th_dimension import level_the_4th_dimension
+from levels.level_towers import level_towers
 from levels.level_trail import level_trail
 from levels.level_travelling_salesman import level_travelling_salesman
 from levels.level_traversal import level_traversal
@@ -221,7 +222,7 @@ class Levels:
     relay
     """
 
-    levels_functions_list = [
+    levels_functions_list = [#level_towers,
                              level_hello_world,
                              level_playground,
                              level_initiation,
