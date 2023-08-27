@@ -1,7 +1,7 @@
-ns = 9*2
-nd = 1
-nr = 9
-nv = 9
+ns = 0
+nd = 0
+nr = 0
+nv = 50
 
 print('''
 from Switch import Switch
@@ -25,9 +25,12 @@ for i in range(nv):
     print(f'    Slist_{i} = []')#'[S{3*i}, S{3*i+1}, S{3*i+2}]')
 
 for i in range(nv):
-    print(f'''    V{i} = Tree(tree_list=Tree.tree_list_BIN(len(Slist_{i})),
+    # print(f'''    V{i} = Tree(tree_list=Tree.tree_list_BIN(len(Slist_{i})),
+    #       name='V{i}',
+    #       switches=Slist_{i})''')
+    print(f'''    V{i} = Tree(tree_list=[None],
           name='V{i}',
-          switches=Slist_{i})''')
+          switches=[1])''')
     
 print('')
 print(f'''    Vlist = [{', '.join([f'V{i}' for i in range(nv)])}]''')
@@ -53,8 +56,11 @@ print('''    dx = 1
 for i in range(nr):
     x = (i)//4
     y = (i)%4
+    # print(f'''    R{i} = Room(name='R{i}',
+    #             position=[{x}*dx, {y}*dy, ex, ey],
+    #             switches_list=[])''')
     print(f'''    R{i} = Room(name='R{i}',
-                position=[{x}*dx, {y}*dy, ex, ey],
+                position=[{x}, {y}, ex, ey],
                 switches_list=[])''')
     
 print('''    RE = Room(name='RE',
@@ -107,8 +113,8 @@ for i in range(nd):
     print(f'''    D{i} = Door(two_way=False,
                 tree=T{i},
                 name='D{i}',
-                room_departure=R{i},
-                room_arrival=R{i+1})''')
+                room_departure=R0,
+                room_arrival=RE)''')
 
 print(f'''
     level = Maze(start_room_index=0,

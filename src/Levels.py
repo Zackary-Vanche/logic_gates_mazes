@@ -21,6 +21,7 @@ from levels.level_central_symmetry import level_central_symmetry
 from levels.level_chessboard import level_chessboard
 from levels.level_chinese_postman_problem import level_chinese_postman_problem
 from levels.level_circuit import level_circuit
+from levels.level_classified import level_classified
 from levels.level_code import level_code
 from levels.level_combinatorics import level_combinatorics
 from levels.level_compact import level_compact
@@ -392,6 +393,7 @@ class Levels:
                              level_mols,
                              level_separation,
                              level_small_panex,
+                             level_classified,
                              level_zebra,
                              level_bridges,
                              level_chinese_postman_problem,
@@ -861,40 +863,41 @@ if __name__ == "__main__":
     # import collections
     # import numpy as np
     
-    # solutions = level_moore_neighborhood().find_all_solutions(verbose=2,
-    #                                                           nb_iterations_print=10**3,
-    #                                                           stop_at_first_solution=False)
-    # for sol in solutions[0]:
-    #     print(' '.join(sol))
-    #     print('')
+    print(len(level_classified().fastest_solution.split(' ')))
+    
+    solutions = level_classified().find_all_solutions(verbose=2,
+                                                      nb_iterations_print=10**3,
+                                                      stop_at_first_solution=False)
+    for sol in solutions[0]:
+        print(' '.join(sol))
 
-    if os.path.exists('temp.txt'):
-        os.remove('temp.txt')
+    # if os.path.exists('temp.txt'):
+    #     os.remove('temp.txt')
         
-    test_levels()
+    # test_levels()
     
-    all_level_set = set()
-    for level_function in Levels.levels_functions_list:
-        all_level_set.add(level_function().name)
+    # all_level_set = set()
+    # for level_function in Levels.levels_functions_list:
+    #     all_level_set.add(level_function().name)
     
-    worlds_level_list = []
-    for world_name in Levels.Worlds.keys():
-        for level_function in Levels.Worlds[world_name]:
-            worlds_level_list.append(level_function().name)
+    # worlds_level_list = []
+    # for world_name in Levels.Worlds.keys():
+    #     for level_function in Levels.Worlds[world_name]:
+    #         worlds_level_list.append(level_function().name)
             
-    for level_function in Levels.levels_functions_list:
-        name = level_function().name
-        if not name in worlds_level_list:
-            print(name)
+    # for level_function in Levels.levels_functions_list:
+    #     name = level_function().name
+    #     if not name in worlds_level_list:
+    #         print(name)
             
-    worlds_level_set = set(worlds_level_list)
-    duplicates = set([item for item in worlds_level_list if worlds_level_list.count(item) > 1])
-    if all_level_set != worlds_level_set or duplicates != set():
-        print(duplicates)
-        print('')
-        print(all_level_set - worlds_level_set)
-        print('')
-        print(worlds_level_set - all_level_set)
+    # worlds_level_set = set(worlds_level_list)
+    # duplicates = set([item for item in worlds_level_list if worlds_level_list.count(item) > 1])
+    # if all_level_set != worlds_level_set or duplicates != set():
+    #     print(duplicates)
+    #     print('')
+    #     print(all_level_set - worlds_level_set)
+    #     print('')
+    #     print(worlds_level_set - all_level_set)
         
     
 
