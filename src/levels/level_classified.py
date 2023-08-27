@@ -75,7 +75,7 @@ def level_classified():
     V1 = Tree(tree_list=Tree.tree_list_BIN(4),
               name='V1',
               switches=[S4, S5, S6, S7])
-    V2 = Tree(tree_list=tree_list_DIFF2,
+    V2 = Tree(tree_list=['INF', [None], [None]],
               name='V2',
               switches=[V0, V1])
 
@@ -440,10 +440,10 @@ def level_classified():
 S2 S7 D4 S16 D13 D17 S24 D8
 S1 S2 S4 S5 S7 D2 S13 D11 D12 S15 D3
 S0 S4 S5 S7 D3 S14 D12 D17 S24 D8
-S2 S6 S7 D4 S16 D13 D16 S22 D7
-S5 S6 D2 S13 D11 D16 S23 D7
-S1 S4 S5 D1 S10 D10 D14 S18 D5
-S0 S2 S4 S7 D0 S9 D9 D17 S25 D8
+S0 S1 S2 S4 S5 S6 S7 D4 S16 D13 D16 S22 D7
+S1 S2 D2 S13 D11 D16 S23 D7
+S0 S1 S5 D1 S10 D10 D14 S18 D5
+S0 S4 S6 S7 D0 S9 D9 D17 S25 D8
 S4 S7 D0 D9 D18
 """.replace('\n', ' '),
                  level_color=Levels_colors_list.FROM_HUE(hu=0.275, sa=0.4, li=0.5),
