@@ -740,9 +740,9 @@ class Game:
                         self.get_new_level = True
                         self.get_level()
                         self.change_in_display = True
-                    elif self.current_action == 'SOLUTION':
+                    elif self.current_action in ['SOL', 'SOLUTION']:
                         self.show_solution()
-                    elif self.current_action == 'SOLUTIONS':
+                    elif self.current_action in ['SOLS', 'SOLUTIONS']:
                         self.show_all_solutions()
                     elif self.current_action == 'VIDEO':
                         self.save_videos()
