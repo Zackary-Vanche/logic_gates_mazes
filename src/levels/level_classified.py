@@ -269,17 +269,17 @@ def level_classified():
     e = 1
 
     R0 = Room(name='R0',
-                position=[0-2*e, d+5*e + 1.5, 2*d+11*e, e],
+                position=[-1.5*e, d+5*e + 1.5, 2*d+10*e, e],
                 switches_list=[S0, S1, S2, S3,
                                S4, S5, S6, S7])
     R1 = Room(name='R1',
-                position=[0, 0, d, e],
+                position=[0.5*e, 0, d, e],
                 switches_list=[S8, S9,])
     R2 = Room(name='R2',
-                position=[0-e, 2*e, d, e],
+                position=[-0.5*e, 2*e, d, e],
                 switches_list=[S10, S11,])
     R3 = Room(name='R3',
-                position=[0-2*e, 4*e, d, e],
+                position=[-1.5*e, 4*e, d, e],
                 switches_list=[S12, S13,])
     R4 = Room(name='R4',
                 position=[d+1*e, 5*e, e, d],
@@ -291,13 +291,13 @@ def level_classified():
                 position=[d+5*e, 5*e, e, d],
                 switches_list=[S18, S19,])
     R7 = Room(name='R7',
-                position=[d+9*e, 4*e, d, e],
+                position=[d+8.5*e, 4*e, d, e],
                 switches_list=[S20, S21,])
     R8 = Room(name='R8',
-                position=[d+8*e, 2*e, d, e],
+                position=[d+7.5*e, 2*e, d, e],
                 switches_list=[S22, S23,])
     R9 = Room(name='R9',
-                position=[d+7*e, 0, d, e],
+                position=[d+6.5*e, 0, d, e],
                 switches_list=[S24, S25])
     R10 = Room(name='R10',
                 position=[d+3*e, 2*e, e, e],
@@ -307,7 +307,8 @@ def level_classified():
               is_exit=True)
     
     def rd_r0(k):
-        return [(1+k)/10, 0]
+        a = 0.25
+        return [(k+a)/(8+2*a), 0]
 
     D0 = Door(two_way=True,
                 tree=T0,
