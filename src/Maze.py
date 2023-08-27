@@ -273,7 +273,8 @@ class Maze:
                 # if root == 'BIN' and self.name == 'Numeration':
                 #     help_menu[-1] = help_menu[-1] + help_menus_list['BIN examples']
         help_menu.append(help_menus_list['B'])
-        help_menu.append(help_menus_list['N'])
+        if self.random:
+            help_menu.append(help_menus_list['N'])
         if len(self.intermediate_values_list + self.doors_list) > 1:
             help_menu.append(help_menus_list['UP DOWN'])
         self.help_txt[0] = '\n'.join(help_menu)

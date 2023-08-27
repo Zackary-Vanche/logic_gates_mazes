@@ -82,6 +82,7 @@ from levels.level_meanders import level_meanders
 from levels.level_min_cut import level_min_cut
 from levels.level_minimum_spanning_tree import level_minimum_spanning_tree
 from levels.level_mols import level_mols
+from levels.level_moore_neighborhood import level_moore_neighborhood
 from levels.level_naturals import level_naturals
 from levels.level_network import level_network
 from levels.level_no_three_in_line import level_no_three_in_line
@@ -245,6 +246,7 @@ class Levels:
                              level_forest,
                              level_equation,
                              level_von_neumann_neighborhood,
+                             level_moore_neighborhood,
                              level_pong,
                              level_bipartite,
                              level_hamiltonian,
@@ -859,14 +861,12 @@ if __name__ == "__main__":
     # import collections
     # import numpy as np
     
-    solutions = level_king().find_all_solutions(verbose=2,
-                                                nb_iterations_print=10**3,
-                                                stop_at_first_solution=False)
-    for sol in solutions[0]:
-        print(' '.join(sol))
-        print('')
-        
-    assert False
+    # solutions = level_moore_neighborhood().find_all_solutions(verbose=2,
+    #                                                           nb_iterations_print=10**3,
+    #                                                           stop_at_first_solution=False)
+    # for sol in solutions[0]:
+    #     print(' '.join(sol))
+    #     print('')
 
     if os.path.exists('temp.txt'):
         os.remove('temp.txt')

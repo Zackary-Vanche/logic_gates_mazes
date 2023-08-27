@@ -33,7 +33,8 @@ def level_von_neumann_neighborhood():
                 S5, S8,
                 S7, S8]
 
-    T0 = Tree(tree_list=['AND', ['INF', Tree.tree_list_SUM(9), [None]]] + [Tree.tree_list_XOR(2)]*(len(Slist_T0)//2),
+    T0 = Tree(tree_list=['AND',
+                         ['INF', Tree.tree_list_SUM(9), [None]]] + [Tree.tree_list_XOR(2)]*(len(Slist_T0)//2),
                 name='T0',
                 switches=Slist + [5] + Slist_T0,
                 cut_expression_depth_1=True)
@@ -52,7 +53,7 @@ def level_von_neumann_neighborhood():
               room_arrival=RE,
               relative_departure_coordinates=[1/2, 2.5/3])
 
-    lcolor = Levels_colors_list.FROM_HUE(hu=0.3, sa=0.4, li=0.7)
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.2, sa=0.4, li=0.8)
     lcolor.background_color = Color.GREY_100
     lcolor.surrounding_color = Color.WHITE
     lcolor.contour_color = Color.WHITE

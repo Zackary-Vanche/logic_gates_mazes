@@ -74,7 +74,7 @@ To go in a room, use a switch or travel by a door, write its name and press [ENT
 
 D0 = S0 means D0 equals S0 i.e. D0 is open if S0 is turned on.
 
-To go to the next (previous) page, press the [RIGHT] ([LEFT]) arrow key."""
+Press the [RIGHT] ([LEFT]) arrow key to go to the next (previous) page."""
 
 help_menus_list['directions keys'] = """
 To change level, you can use :
@@ -88,7 +88,7 @@ help_menus_list['go in a room'] = """
 To go directly in a room, you can type its name (if it is possible for you to go there). The exit room is called "EXIT" or "RE"."""
 
 help_menus_list['B'] = """
-To start the level again from the beginning, press [B] and then [ENTER]."""
+Press [B] and then [ENTER] to start the level again from the beginning."""
 
 help_menus_list['write several actions'] = """
 You can write several actions at a time, separated by spaces.
@@ -100,7 +100,7 @@ help_menus_list['leave the game'] = """
 To leave the game, you can click on the cross but also press [ESCAPE]."""
 
 help_menus_list['N'] = """
-Press [N] and then [ENTER] to get new level. If the level is random, it will change. If it is not, [N] is equivalent to [B]."""
+Press [N] and then [ENTER] to get a new random level."""
 
 help_menus_list['UP DOWN'] = """
 If you use the [UP] and [DOWN] keys, you can switch which equation appears first."""

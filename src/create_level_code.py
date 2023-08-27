@@ -1,7 +1,7 @@
-ns = 9
+ns = 9*2
 nd = 1
-nr = 1
-nv = 0
+nr = 9
+nv = 9
 
 print('''
 from Switch import Switch
@@ -107,8 +107,8 @@ for i in range(nd):
     print(f'''    D{i} = Door(two_way=False,
                 tree=T{i},
                 name='D{i}',
-                room_departure=R0,
-                room_arrival=RE)''')
+                room_departure=R{i},
+                room_arrival=R{i+1})''')
 
 print(f'''
     level = Maze(start_room_index=0,
