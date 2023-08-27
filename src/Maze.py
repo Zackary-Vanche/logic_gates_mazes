@@ -65,6 +65,8 @@ class Maze:
         self.random_several_exit = random_several_exit
         self.exit_doors_indexes = exit_doors_indexes
         self.name = name
+        if self.random:
+            self.name = self.name + " (random)"
         self.start_room_index = start_room_index
         self.exit_room_index = exit_room_index
         self.door_multipages = door_multipages
