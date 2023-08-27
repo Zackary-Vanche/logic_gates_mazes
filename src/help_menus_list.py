@@ -221,8 +221,6 @@ help_menus_list['levels']["Five"] = """There might be several solutions."""
 
 help_menus_list['levels']["Shuffled"] = """There might be several solutions."""
 
-help_menus_list['levels']["Temple"] = """This level is the retranscription of a really known puzzle game. Once you find which game it is, the level is over."""
-
 help_menus_list['levels']["Puzzle"] = """This level is inspired from the 15-puzzle."""
 
 help_menus_list['levels']["MOLS"] = 'MOLS stands for "Mutually Orthogonal Latin Squares".'
