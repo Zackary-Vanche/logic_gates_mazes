@@ -66,9 +66,7 @@ def level_water_pouring():
                   S11, S12, S13,
                   S3, S4, S5, S6,
                   S0, S1,
-              ],
-              cut_expression=True,
-              cut_expression_separator=')')
+              ])
 
     T1 = Tree(tree_list=['AND',
                          [None],
@@ -78,8 +76,7 @@ def level_water_pouring():
                         S17, S18,
                         S11, S12, S13,
                         S17, S18,
-                        S11, S12, S13],
-              cut_expression=False)
+                        S11, S12, S13])
     T2 = Tree(tree_list=[None],
               name='T2',
               switches=[S1])
@@ -113,45 +110,37 @@ def level_water_pouring():
                         S3, S4, S5, S6,
                         S19, S20,
                         S14, S15, S16,
-                        S7, S8, S9, S10],
-              cut_expression=True,
-              cut_expression_separator=')')
+                        S7, S8, S9, S10])
     T8 = Tree(tree_list=['EQU', ['SUM', Tree.tree_list_BIN(4), Tree.tree_list_BIN(3), Tree.tree_list_BIN(2)], [None]],
               name='T8',
               switches=[S3, S4, S5, S6,
                         S11, S12, S13,
                         S17, S18,
-                        SN8],
-              cut_expression=False,
-              cut_expression_separator=')')
+                        SN8])
     T9 = Tree(tree_list=['EQU',
                          Tree.tree_list_BIN(3),
                          Tree.tree_list_BIN(3)],
               name='T9',
               switches=[S21, S22, S23,
-                        S24, S25, S26],
-              cut_expression=False)
+                        S24, S25, S26])
     T10 = Tree(tree_list=['EQU',
                           Tree.tree_list_BIN(2),
                           Tree.tree_list_BIN(2)],
                name='T10',
                switches=[S17, S18,
-                         S19, S20],
-               cut_expression=False)
+                         S19, S20])
     T11 = Tree(tree_list=['EQU',
                           Tree.tree_list_BIN(3),
                           Tree.tree_list_BIN(3)],
                name='T11',
                switches=[S11, S12, S13,
-                         S14, S15, S16],
-               cut_expression=False)
+                         S14, S15, S16])
     T12 = Tree(tree_list=['EQU',
                           Tree.tree_list_BIN(4),
                           Tree.tree_list_BIN(4)],
                name='T12',
                switches=[S3, S4, S5, S6,
-                         S7, S8, S9, S10],
-               cut_expression=False)
+                         S7, S8, S9, S10])
     T13 = Tree(tree_list=['AND'] + [['AND',
                                      ['EQU', Tree.tree_list_BIN(2), [None]],
                                      ['EQU', Tree.tree_list_BIN(3), [None]],
@@ -179,9 +168,7 @@ def level_water_pouring():
                          SN7,
                          S24, S25, S26,
                          SN7,
-                         ],
-               cut_expression=True,
-               cut_expression_separator=']')
+                         ])
 
     ex = 0.9
     ey = 1.5
@@ -501,7 +488,7 @@ S0 S2 D13'''.replace('\n', ' ')
                  fastest_solution='S1 S2 D8 D9 D10 D11 S10 D12 D7 S21 D4 D1 D8 S24 D9 D10 D11 D12 D7 S21 S22 D4 D1 D8 S24 S25 D9 D10 D11 D12 D7 S21 D4 D1 D8 S24 D9 D10 D11 D12 D7 S21 S22 S23 D4 D1 D8 S24 S25 S26 D9 D10 D11 D12 D7 S21 D6 S18 D5 S11 S13 D2 S3 S6 D0 S0 S1 D8 S24 D9 S20 D10 S14 S16 D11 S7 S10 D12 D7 S21 S22 D6 S17 D5 S11 D1 D8 S24 S25 D9 S19 D10 S14 D11 D12 D7 S21 D6 S17 S18 D3 S3 S5 D0 S0 S2 D8 S24 D9 S19 S20 D10 D11 S7 S9 D12 D13',
                  level_color=Levels_colors_list.FROM_HUE(0.58, sa=0.8, li=0.49),
                  name='Water pouring',
-                 door_window_size=500,
+                 door_window_size=350,
                  keep_proportions=True)
 
     return level
