@@ -177,6 +177,7 @@ from levels.level_tree import level_tree
 from levels.level_triangulate import level_triangulate
 from levels.level_von_neumann_neighborhood import level_von_neumann_neighborhood
 from levels.level_vortex import level_vortex
+from levels.level_voyage import level_voyage
 from levels.level_walk import level_walk
 from levels.level_wasted import level_wasted
 from levels.level_water_lily import level_water_lily
@@ -316,6 +317,7 @@ class Levels:
                              level_traversal,
                              level_journey,
                              level_expedition,
+                             level_voyage,
                              level_taxicab_number,
                              level_tetrahedron,
                              level_small,
@@ -453,6 +455,7 @@ class Levels:
                             level_traversal,
                             level_journey,
                             level_expedition,
+                            level_voyage,
                             level_water_lily,
                             level_harmony,
                             level_tour,
@@ -885,13 +888,13 @@ if __name__ == "__main__":
     # print(len(level_classified().fastest_solution.split(' ')))
     # print(len(level_towers().fastest_solution.split(' ')))
     
-    solutions = level_expedition().find_all_solutions(verbose=2,
-                                                      nb_iterations_print=10**3,
-                                                      stop_at_first_solution=False)
-    for sol in solutions[0]:
-        print(' '.join(sol))
+    # solutions = level_voyage().find_all_solutions(verbose=2,
+    #                                                   nb_iterations_print=10**3,
+    #                                                   stop_at_first_solution=False)
+    # for sol in solutions[0]:
+    #     print(' '.join(sol))
         
-    assert False
+    # assert False
 
     if os.path.exists('temp.txt'):
         os.remove('temp.txt')

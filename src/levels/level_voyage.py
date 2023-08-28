@@ -5,7 +5,7 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
-def level_expedition(): 
+def level_voyage(): 
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -55,32 +55,28 @@ def level_expedition():
                          ['EQU', Tree.tree_list_SUM(3), [None]],
                          ['EQU', Tree.tree_list_SUM(3), [None]],
                          ['EQU', Tree.tree_list_SUM(3), [None]],
-                         ['EQU', Tree.tree_list_SUM(4), [None]],
                          ['EQU', Tree.tree_list_SUM(2), [None]],
                          ['EQU', Tree.tree_list_SUM(2), [None]],
-                         ['EQU', Tree.tree_list_SUM(4), [None]],
                          ['EQU', Tree.tree_list_SUM(3), [None]],
                          ['EQU', Tree.tree_list_SUM(3), [None]],
                          ['EQU', Tree.tree_list_SUM(3), [None]],
                          ['EQU', Tree.tree_list_SUM(2), [None]],
-                         ['EQU', Tree.tree_list_SUM(6), [None]],
-                         ['SUP', Tree.tree_list_SUM(8), [None]],
+                         ['INF', Tree.tree_list_SUM(3), Tree.tree_list_SUM(3)],
+                         ['SUP', Tree.tree_list_SUM(17), [None]],
                          ],
                 name='T0',
                 switches=[S6, S7, 1,
                           S6, S8, V0, 2,
                           S7, S9, V1, 2,
                           S8, S10, V2, 2,
-                          V0, V1, V3, V4, 2,
                           S9, S11, 2,
-                          S10, S12, 1,
-                          V2, V3, V5, V6, 2,
+                          S10, S12, 2,
                           S11, S13, V4, 2,
                           S12, S14, V5, 2,
                           S13, S15, V6, 2,
-                          S14, S15, 2,
-                          S0, S1, S2, S3, S4, S5, 2,
-                          S7, S9, S12, S14, V0, V2, V4, V6, 4,
+                          S14, S15, 1,
+                          S0, S1, S3, S2, S4, S5,
+                          S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, V0, V1, V2, V3, V4, V5, V6, 12,
                           ],
                 cut_expression_depth_1=True)
     T1 = Tree(tree_list=[None],
@@ -283,16 +279,16 @@ def level_expedition():
     D18 = Door(two_way=False,
                 tree=T18,
                 name='D18',
-                room_departure=R7,
+                room_departure=R12,
                 room_arrival=RE)
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18],
-                 fastest_solution="S1 S4 S7 S8 S9 S11 S12 S14 S15 D0 D2 D6 D11 D10 D4 D3 D8 D14 D17 D16 D12 D18",
-                 level_color=Levels_colors_list.FROM_HUE(hu=0.7, sa=0.3, li=0.5),
-                 name='Expedition',
+                 fastest_solution="S1 S2 S5 S6 S9 S10 S11 S12 S15 D0 D1 D4 D9 D14 D17 D18",
+                 level_color=Levels_colors_list.FROM_HUE(hu=0.45, sa=0.3, li=0.5),
+                 name='Voyage',
                  keep_proportions=True,
                  door_window_size=300)
     
