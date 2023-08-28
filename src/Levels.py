@@ -165,6 +165,7 @@ from levels.level_tetrahedron import level_tetrahedron
 from levels.level_tetris import level_tetris
 from levels.level_the_4_queens import level_the_4_queens
 from levels.level_the_4th_dimension import level_the_4th_dimension
+from levels.level_tour import level_tour
 from levels.level_towers import level_towers
 from levels.level_trail import level_trail
 from levels.level_travelling_salesman import level_travelling_salesman
@@ -373,14 +374,15 @@ class Levels:
                              level_random_petersen,
                              level_no_three_in_line,
                              level_manhattan_distance,
+                             level_tour,
                              level_minimum_spanning_tree,
                              level_small_honeycomb,
                              level_honeycomb,
                              level_random_gemini,
                              level_random_cuboctahedron,
+                             level_knight,
                              level_diagonal,
                              level_sudoku,
-                             level_knight,
                              level_temple,
                              level_syracuse,
                              level_five,
@@ -868,16 +870,16 @@ if __name__ == "__main__":
     # print(len(level_classified().fastest_solution.split(' ')))
     # print(len(level_towers().fastest_solution.split(' ')))
     
-    # solutions = level_classified().find_all_solutions(verbose=2,
-    #                                                   nb_iterations_print=10**3,
-    #                                                   stop_at_first_solution=False)
-    # for sol in solutions[0]:
-    #     print(' '.join(sol))
+    solutions = level_tour().find_all_solutions(verbose=2,
+                                                      nb_iterations_print=10**3,
+                                                      stop_at_first_solution=False)
+    for sol in solutions[0]:
+        print(' '.join(sol))
 
     # if os.path.exists('temp.txt'):
     #     os.remove('temp.txt')
         
-    test_levels()
+    # test_levels()
     
     # all_level_set = set()
     # for level_function in Levels.levels_functions_list:
@@ -975,7 +977,7 @@ if __name__ == "__main__":
     # import cProfile
     # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=float('inf'), save_as_txt=False)''', sort=1)
 
-    # door_list = level_connect_the_dots().doors_list
+    # door_list = level_tour().doors_list
     # door_list = sorted(door_list, key = lambda x : int(x.name.replace('D', '')))
     # for i in range(len(door_list)):
     #     door = door_list[i]
@@ -989,7 +991,7 @@ if __name__ == "__main__":
     #     Slist_a = ra.switches_list
     #     Slist = ['S1', 'S2', 'S4', 'S6', 'S7', 'S8', 'S10']
     #     if len(Slist_d) == 1 and len(Slist_a) == 1:
-    #         print(f"""T{i} = Tree(tree_list=tree_list_1,
+    #         print(f"""T{i} = Tree(tree_list=tree_list,
     #               empty=True,
     #               name='T{i}',
     #               switches=[{Slist_d[0].name}, {Slist_a[0].name}])""")
