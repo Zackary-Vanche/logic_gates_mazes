@@ -322,8 +322,11 @@ class Game:
 
     def print_level_name(self):
         # Affichage du nom du niveau courant
+        maze_name = self.maze.name
+        if self.maze.random:
+            maze_name = maze_name + " (random)"
         level_name_render = self.font.render(
-            'Level ' + str(self.index_current_level) + ' : ' + self.maze.name.replace('_', ' '),
+            'Level ' + str(self.index_current_level) + ' : ' + maze_name.replace('_', ' '),
             True,
             self.letters_color)
         self.WINDOW.blit(level_name_render, (10, 10))
@@ -527,8 +530,11 @@ class Game:
     
             self.draw_exterior_lines()
             # Affichage du nom du niveau courant
+            maze_name = self.maze.name
+            if self.maze.random:
+                maze_name = maze_name + " (random)"
             level_name_render = self.font.render(
-                'HELP - Level ' + str(self.index_current_level) + ' : ' + self.maze.name.replace('_', ' '),
+                'HELP - Level ' + str(self.index_current_level) + ' : ' + maze_name.replace('_', ' '),
                 True,
                 self.letters_color)
             self.WINDOW.blit(level_name_render, (10, 10))

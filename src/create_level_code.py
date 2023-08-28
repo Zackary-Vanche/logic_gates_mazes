@@ -1,7 +1,7 @@
 ns = 0
-nd = 0
+nd = 168
 nr = 0
-nv = 50
+nv = 0
 
 print('''
 from Switch import Switch
@@ -54,13 +54,13 @@ print('''    dx = 1
     ey = 0.5\n''')
     
 for i in range(nr):
-    x = (i)//4
-    y = (i)%4
+    x = (i+1)//5
+    y = (i+1)%5
     # print(f'''    R{i} = Room(name='R{i}',
     #             position=[{x}*dx, {y}*dy, ex, ey],
     #             switches_list=[])''')
     print(f'''    R{i} = Room(name='R{i}',
-                position=[{x}, {y}, ex, ey],
+                position=[{x}*dx, {y}*dy, ex, ey],
                 switches_list=[])''')
     
 print('''    RE = Room(name='RE',

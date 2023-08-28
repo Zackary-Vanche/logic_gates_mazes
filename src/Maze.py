@@ -65,8 +65,6 @@ class Maze:
         self.random_several_exit = random_several_exit
         self.exit_doors_indexes = exit_doors_indexes
         self.name = name
-        if self.random:
-            self.name = self.name + " (random)"
         self.start_room_index = start_room_index
         self.exit_room_index = exit_room_index
         self.door_multipages = door_multipages
@@ -574,7 +572,11 @@ class Maze:
 
     def get_random_level_from_file(aux_level_function, file_name=None):
         folder = f'levels/{aux_level_function().name}'
-        if not os_path_exists(folder) or os_listdir(folder) == []:
+        if not os_path_exists(folder):
+            print(folder, "doesn't exist")
+            return aux_level_function()
+        if os_listdir(folder) == []:
+            print(folder, "is empty")
             return aux_level_function()
         if file_name is None:
             file_name = rd_choice(os_listdir(folder))
