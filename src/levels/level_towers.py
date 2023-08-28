@@ -261,12 +261,12 @@ def level_towers():
                switches=[0, VR0,
                          0, VR1,
                          0, VR2,
-                         1, VR3,
-                         1, VR4,
-                         1, VR5,
-                         2, VR6,
+                         0, VR3,
+                         0, VR4,
+                         0, VR5,
+                         3, VR6,
                          2, VR7,
-                         2, VR8,
+                         1, VR8,
                          V0, 0,
                          V1, 1])
 
@@ -312,7 +312,6 @@ def level_towers():
     R10 = Room(name='R10',
                 position=[4*d, pos(1)[1]-2*e, e, e],
                 switches_list=[])
-    nRE = 7
     RE = Room(name='RE',
               position=[4*d, pos(1)[1]-4.5*e, e, e],
               is_exit=True)
@@ -448,7 +447,15 @@ def level_towers():
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18],
-                 fastest_solution=None,
+                 fastest_solution="""
+S1 S5 S6 D2 S12 D11 D15 S20 D6
+S0 S1 S4 S6 D1 S11 D10 D12 S15 D3
+S0 S2 S4 S6 D4 S16 D13 D15 S20 D6
+S2 D0 S8 S9 D9 D15 S20 S21 D6
+S5 D0 S8 D9 D13 S16 D4
+S0 S1 S4 S5 D3 S15 D12 D16 S23 D7
+S0 S1 S4 S5 S6 S7 D0 S8 D9 D17 S24 D8
+S4 S7 D0 D9 D18""".replace('\n', ' '),
                  level_color=Levels_colors_list.FROM_HUE(hu=0.06, sa=0.35, li=0.5),
                  name='Towers',
                  keep_proportions=True,

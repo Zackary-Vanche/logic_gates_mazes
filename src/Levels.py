@@ -222,7 +222,7 @@ class Levels:
     relay
     """
 
-    levels_functions_list = [#level_towers,
+    levels_functions_list = [
                              level_hello_world,
                              level_playground,
                              level_initiation,
@@ -395,6 +395,7 @@ class Levels:
                              level_separation,
                              level_small_panex,
                              level_classified,
+                             level_towers,
                              level_zebra,
                              level_bridges,
                              level_chinese_postman_problem,
@@ -864,18 +865,19 @@ if __name__ == "__main__":
     # import collections
     # import numpy as np
     
-    print(len(level_classified().fastest_solution.split(' ')))
+    # print(len(level_classified().fastest_solution.split(' ')))
+    # print(len(level_towers().fastest_solution.split(' ')))
     
-    solutions = level_classified().find_all_solutions(verbose=2,
-                                                      nb_iterations_print=10**3,
-                                                      stop_at_first_solution=False)
-    for sol in solutions[0]:
-        print(' '.join(sol))
+    # solutions = level_classified().find_all_solutions(verbose=2,
+    #                                                   nb_iterations_print=10**3,
+    #                                                   stop_at_first_solution=False)
+    # for sol in solutions[0]:
+    #     print(' '.join(sol))
 
     # if os.path.exists('temp.txt'):
     #     os.remove('temp.txt')
         
-    # test_levels()
+    test_levels()
     
     # all_level_set = set()
     # for level_function in Levels.levels_functions_list:
