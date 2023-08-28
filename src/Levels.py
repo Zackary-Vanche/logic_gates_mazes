@@ -141,7 +141,7 @@ from levels.level_sheffer_stroke import level_sheffer_stroke
 from levels.level_shortest_path import level_shortest_path
 from levels.level_shuffled import level_shuffled
 from levels.level_sign import level_sign
-from levels.level_singleton import level_singleton
+from levels.level_singletons import level_singletons
 from levels.level_small import level_small
 from levels.level_small_honeycomb import level_small_honeycomb
 from levels.level_small_panex import level_small_panex
@@ -289,7 +289,7 @@ class Levels:
                              level_elementary,
                              level_rotation,
                              level_superpermutation,
-                             level_singleton,
+                             level_singletons,
                              level_relay,
                              level_circuit,
                              level_network,
@@ -442,7 +442,7 @@ class Levels:
               'The Travel':[level_meanders,
                             level_hamiltonian,
                             level_wind_compass,
-                            level_singleton,
+                            level_singletons,
                             level_walk,
                             level_trail,
                             level_path,

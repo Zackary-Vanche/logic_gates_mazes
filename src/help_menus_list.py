@@ -149,7 +149,7 @@ help_menus_list['levels']["Max-cut"] = """You must cut as many edges as possible
 
 help_menus_list['levels']["Elementary"] = """An elementary permutation is a swap of two adjacent elements."""
 
-help_menus_list['levels']["Singleton"] = """A singleton is a set with exactly one element."""
+help_menus_list['levels']["Singletons"] = """A singleton is a set with exactly one element."""
 
 help_menus_list['levels']["Taxicab number"] = """Taxicab numbers are also called Hardy–Ramanujan numbers."""
 
