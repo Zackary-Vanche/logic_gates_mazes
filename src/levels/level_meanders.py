@@ -262,8 +262,7 @@ def level_meanders():
                  level_color=lcolor,
                  name='Meanders',
                  keep_proportions=True,
-                 door_window_size=400,
-                 random=True)
+                 door_window_size=400)
     
     return level
 
