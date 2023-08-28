@@ -225,6 +225,8 @@ help_menus_list['levels']["Puzzle"] = """This level is inspired from the 15-puzz
 
 help_menus_list['levels']["MOLS"] = 'MOLS stands for "Mutually Orthogonal Latin Squares".'
 
+help_menus_list['levels']["Towers"] = """You have to solve the game named "Towers of Hanoi"."""
+
 help_menus_list['levels']["Zebra"] = """There are five houses."""
 
 help_menus_list['levels']["Bridges"] = """There are seven bridges in Königsberg."""
