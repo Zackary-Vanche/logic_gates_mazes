@@ -45,6 +45,7 @@ from levels.level_equation import level_equation
 from levels.level_error import level_error
 from levels.level_eulerian import level_eulerian
 from levels.level_exact_cover import level_exact_cover
+from levels.level_expedition import level_expedition
 from levels.level_five import level_five
 from levels.level_flash_back import level_flash_back
 from levels.level_fluid import level_fluid
@@ -64,6 +65,7 @@ from levels.level_infinity import level_infinity
 from levels.level_initiation import level_initiation
 from levels.level_inside_out import level_inside_out
 from levels.level_inversions import level_inversions
+from levels.level_journey import level_journey
 from levels.level_jungle import level_jungle
 from levels.level_k import level_k
 from levels.level_knapsack import level_knapsack
@@ -301,6 +303,8 @@ class Levels:
                              level_impasse,
                              level_route,
                              level_traversal,
+                             level_journey,
+                             level_expedition,
                              level_entropy,
                              level_dichotomy,
                              level_random_star,
@@ -435,28 +439,30 @@ class Levels:
                                 level_small_honeycomb,
                                 level_honeycomb,
                              ],
-              'The Journey':[level_meanders,
-                             level_hamiltonian,
-                             level_wind_compass,
-                             level_singleton,
-                             level_walk,
-                             level_trail,
-                             level_path,
-                             level_roadblock,
-                             level_passage,
-                             level_impasse,
-                             level_route,
-                             level_traversal,
-                             level_water_lily,
-                             level_harmony,
-                             level_tour,
-                             level_central_symmetry,
-                             level_weights,
-                             level_tetractys,
-                             level_connect_the_dots,
-                             level_eulerian,
-                             level_separation,
-                             ],
+              'The Travel':[level_meanders,
+                            level_hamiltonian,
+                            level_wind_compass,
+                            level_singleton,
+                            level_walk,
+                            level_trail,
+                            level_path,
+                            level_roadblock,
+                            level_passage,
+                            level_impasse,
+                            level_route,
+                            level_traversal,
+                            level_journey,
+                            level_expedition,
+                            level_water_lily,
+                            level_harmony,
+                            level_tour,
+                            level_central_symmetry,
+                            level_weights,
+                            level_tetractys,
+                            level_connect_the_dots,
+                            level_eulerian,
+                            level_separation,
+                            ],
               'The Accidental Realm':[level_random_simple,
                                       level_random_boustrophedon,
                                       level_random_bull,
@@ -879,11 +885,13 @@ if __name__ == "__main__":
     # print(len(level_classified().fastest_solution.split(' ')))
     # print(len(level_towers().fastest_solution.split(' ')))
     
-    solutions = level_tour().find_all_solutions(verbose=2,
+    solutions = level_expedition().find_all_solutions(verbose=2,
                                                       nb_iterations_print=10**3,
                                                       stop_at_first_solution=False)
     for sol in solutions[0]:
         print(' '.join(sol))
+        
+    assert False
 
     if os.path.exists('temp.txt'):
         os.remove('temp.txt')
