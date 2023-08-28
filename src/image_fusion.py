@@ -36,7 +36,7 @@ if __name__ == "__main__":
     game_color = Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.4)
     game_color = None
     Game(is_fullscreen=0, save_image=1, game_color=game_color).play()
-    Game(is_fullscreen=1, save_image=1, game_color=game_color).play()
+    # Game(is_fullscreen=1, save_image=1, game_color=game_color).play()
 
     if not os.path.exists('images'):
         os.mkdir('images')
@@ -110,7 +110,8 @@ if __name__ == "__main__":
         except TypeError:
             pass
     
-    lx = [i for i in range(170, 201)]
+    n_levels = len(Levels.levels_list)
+    lx = [i for i in range(n_levels, n_levels+30)]
     ly = []
     for i in lx:
         a = divisor_closest_to_sqrt(i)

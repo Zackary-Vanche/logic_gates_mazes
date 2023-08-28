@@ -127,6 +127,7 @@ from levels.level_random_starting_point import level_random_starting_point
 from levels.level_random_turning import level_random_turning
 from levels.level_random_wheel import level_random_wheel
 from levels.level_recurrence import level_recurrence
+from levels.level_relay import level_relay
 from levels.level_river import level_river
 from levels.level_roadblock import level_roadblock
 from levels.level_rotation import level_rotation
@@ -284,11 +285,12 @@ class Levels:
                              level_pythagorean,
                              level_random_butterfly,
                              level_elementary,
-                             level_circuit,
-                             level_network,
                              level_rotation,
                              level_superpermutation,
                              level_singleton,
+                             level_relay,
+                             level_circuit,
+                             level_network,
                              level_pyramid,
                              level_chessboard,
                              level_walk,
@@ -406,10 +408,12 @@ class Levels:
                              level_superflip,
                              ]
     
-    Worlds = {'The Hidden Country':[level_hitting_set,
+    Worlds = {'The Hidden Country':[level_von_neumann_neighborhood,
+                                    level_hitting_set,
                                     level_independent_set,
                                     level_dominating_set,
                                     level_exact_cover,
+                                    level_moore_neighborhood,
                                     level_triangulate,
                                     level_min_cut,
                                     level_max_cut,
@@ -426,6 +430,7 @@ class Levels:
               'The Tree-House':[level_orchard,
                                 level_binary,
                                 level_forest,
+                                level_jungle,
                                 level_minimum_spanning_tree,
                                 level_small_honeycomb,
                                 level_honeycomb,
@@ -444,6 +449,7 @@ class Levels:
                              level_traversal,
                              level_water_lily,
                              level_harmony,
+                             level_tour,
                              level_central_symmetry,
                              level_weights,
                              level_tetractys,
@@ -472,6 +478,7 @@ class Levels:
                                       ],
               'The Digital Maze':[level_sheffer_stroke,
                                   level_peirce_s_arrow,
+                                  level_relay,
                                   level_circuit,
                                   level_network,
                                   level_pyramid,
@@ -573,6 +580,8 @@ class Levels:
                             level_water_pouring,
                             level_solitaire,
                             level_syracuse,
+                            level_classified,
+                            level_towers,
                             ],
               "The Ruins":[level_backward,
                            level_square,
@@ -876,33 +885,33 @@ if __name__ == "__main__":
     for sol in solutions[0]:
         print(' '.join(sol))
 
-    # if os.path.exists('temp.txt'):
-    #     os.remove('temp.txt')
+    if os.path.exists('temp.txt'):
+        os.remove('temp.txt')
         
-    # test_levels()
+    test_levels()
     
-    # all_level_set = set()
-    # for level_function in Levels.levels_functions_list:
-    #     all_level_set.add(level_function().name)
+    all_level_set = set()
+    for level_function in Levels.levels_functions_list:
+        all_level_set.add(level_function().name)
     
-    # worlds_level_list = []
-    # for world_name in Levels.Worlds.keys():
-    #     for level_function in Levels.Worlds[world_name]:
-    #         worlds_level_list.append(level_function().name)
+    worlds_level_list = []
+    for world_name in Levels.Worlds.keys():
+        for level_function in Levels.Worlds[world_name]:
+            worlds_level_list.append(level_function().name)
             
-    # for level_function in Levels.levels_functions_list:
-    #     name = level_function().name
-    #     if not name in worlds_level_list:
-    #         print(name)
+    for level_function in Levels.levels_functions_list:
+        name = level_function().name
+        if not name in worlds_level_list:
+            print(name)
             
-    # worlds_level_set = set(worlds_level_list)
-    # duplicates = set([item for item in worlds_level_list if worlds_level_list.count(item) > 1])
-    # if all_level_set != worlds_level_set or duplicates != set():
-    #     print(duplicates)
-    #     print('')
-    #     print(all_level_set - worlds_level_set)
-    #     print('')
-    #     print(worlds_level_set - all_level_set)
+    worlds_level_set = set(worlds_level_list)
+    duplicates = set([item for item in worlds_level_list if worlds_level_list.count(item) > 1])
+    if all_level_set != worlds_level_set or duplicates != set():
+        print(duplicates)
+        print('')
+        print(all_level_set - worlds_level_set)
+        print('')
+        print(worlds_level_set - all_level_set)
         
     
 
