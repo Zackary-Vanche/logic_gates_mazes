@@ -1,10 +1,15 @@
-import os
-import cv2
+from os import mkdir as os_mkdir
+from os import listdir as os_listdir
+from os.path import exists as os_path_exists
+from os import remove as os_remove
+from cv2 import imread as cv2_imread
+from cv2 import hconcat as cv2_hconcat
+from cv2 import vconcat as cv2_vconcat
+from cv2 import imwrite as cv2_imwrite
 from Game import Game
 from Levels import Levels
 from pyautogui import size as pyautogui_size
 import matplotlib.pyplot as plt
-import random as rd
 from Levels_colors_list import Levels_colors_list 
 
 def divisor_closest_to_sqrt(n):
@@ -16,33 +21,32 @@ def divisor_closest_to_sqrt(n):
     return min(n // d, d)
 
 if __name__ == "__main__":
-    rd.seed(42)
     
     racine = __file__
     racine = racine.split('\\')
     del racine[-1]
     racine.append('images')
     racine = '/'.join(racine)
-    if not os.path.exists(racine):
-        os.mkdir(racine)
-    for file in os.listdir(racine):
+    if not os_path_exists(racine):
+        os_mkdir(racine)
+    for file in os_listdir(racine):
         file = racine + '/' + file
         if 'level' in file:
-            os.remove(file)
+            os_remove(file)
 
     # TOTAL_SIZE = pyautogui_size()
     # Game(save_image=1, time_between_level_changing=0, show_help=0).play()
     # TOTAL_SIZE = [1920, 1055]
     game_color = Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.4)
     game_color = None
-    Game(is_fullscreen=0, save_image=1, game_color=game_color).play()
+    # Game(is_fullscreen=0, save_image=1, game_color=game_color).play()
     # Game(is_fullscreen=1, save_image=1, game_color=game_color).play()
 
-    if not os.path.exists('images'):
-        os.mkdir('images')
+    if not os_path_exists('images'):
+        os_mkdir('images')
 
-    if not os.path.exists('images/concat'):
-        os.mkdir('images/concat')
+    if not os_path_exists('images/concat'):
+        os_mkdir('images/concat')
     
     n_levels = Levels.number_of_levels
     n = divisor_closest_to_sqrt(n_levels)
@@ -54,7 +58,7 @@ if __name__ == "__main__":
             WIDTH, HEIGHT = size
             string = "WIDTH_{}_HEIGHT_{}".format(WIDTH, HEIGHT)
             dico = {}
-            for file in os.listdir(racine):
+            for file in os_listdir(racine):
                 if string in file and not "HELP" in file:# and not "concat" in file:
                     k = int(file.split('_')[1])
                     dico[k] = '/'.join([racine, file])
@@ -70,20 +74,20 @@ if __name__ == "__main__":
                 if len(l) == 1:
                     l_img_h.append(l[0])
                 else:
-                    l = [cv2.imread(file) for file in l]
-                    im_h = cv2.hconcat(l)
+                    l = [cv2_imread(file) for file in l]
+                    im_h = cv2_hconcat(l)
                     l_img_h.append(im_h)
-            img = cv2.vconcat(l_img_h)
+            img = cv2_vconcat(l_img_h)
             plt.imshow(img)
             plt.close()
             filename = r'images/concat/concat_levels_{}.jpg'.format(string)
-            cv2.imwrite(filename, img)
+            cv2_imwrite(filename, img)
             print(filename)
     
             WIDTH, HEIGHT = size
             string = "WIDTH_{}_HEIGHT_{}".format(WIDTH, HEIGHT)
             dico = {}
-            for file in os.listdir(racine):
+            for file in os_listdir(racine):
                 if string in file and "HELP" in file and not "concat" in file:
                     k = int(file.split('_')[2])
                     dico[k] = '/'.join([racine, file])
@@ -99,14 +103,14 @@ if __name__ == "__main__":
                 if len(l) == 1:
                     l_img_h.append(l[0])
                 else:
-                    l = [cv2.imread(file) for file in l]
-                    im_h = cv2.hconcat(l)
+                    l = [cv2_imread(file) for file in l]
+                    im_h = cv2_hconcat(l)
                     l_img_h.append(im_h)
-            img_h = cv2.vconcat(l_img_h)
+            img_h = cv2_vconcat(l_img_h)
             plt.imshow(img_h)
             plt.close()
             filename = r'images/concat/concat_levels_HELP_{}.jpg'.format(string)
-            cv2.imwrite(filename, img_h)
+            cv2_imwrite(filename, img_h)
         except TypeError:
             pass
     
