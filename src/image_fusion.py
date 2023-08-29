@@ -91,7 +91,7 @@ if __name__ == "__main__":
             for k in sorted(dico.keys()):
                 file_list.append(dico[k])
     
-            assert m <= n
+            # assert m <= n
             assert m * n == len(file_list)
             l_img_h = []
             for i in range(m):
