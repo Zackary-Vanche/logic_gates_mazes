@@ -45,8 +45,8 @@ if __name__ == "__main__":
         os.mkdir('images/concat')
     
     n_levels = Levels.number_of_levels
-    m = divisor_closest_to_sqrt(n_levels)
-    n = n_levels // m
+    n = divisor_closest_to_sqrt(n_levels)
+    m = n_levels // n
     for size in [[1920, 1200],
                  [1920, 1080],
                  [1366, 768]]:  # [1346, 668], [1920, 1001], [1920, 1055],
@@ -62,7 +62,7 @@ if __name__ == "__main__":
             for k in sorted(dico.keys()):
                 file_list.append(dico[k])
     
-            assert m <= n, f'~ {m} <= {n}'
+            assert m >= n, f'~ {m} <= {n}'
             # assert m * n == len(file_list), """{0}, {1}, {2}""".format(m, n, len(file_list))
             l_img_h = []
             for i in range(m):
