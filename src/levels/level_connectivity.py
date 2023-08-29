@@ -66,6 +66,12 @@ def level_connectivity():
                 relative_departure_coordinates=[1/2, 0],
                 relative_arrival_coordinates=[1/2, 1])
     
+    solution_list = []
+    for S in Slist:
+        if S.value:
+            solution_list.append(S.name)
+    solution_list.append("D0")
+    
     for S in Slist:
         S.value = 0
 
@@ -73,7 +79,7 @@ def level_connectivity():
                  exit_room_index=-1,
                  rooms_list=[R0, RE],
                  doors_list=[D0],
-                 fastest_solution=None,
+                 fastest_solution=" ".join(solution_list),
                  level_color=Levels_colors_list.FROM_HUE(hu=0.16, sa=0.4, li=0.5),
                  name='Connectivity',
                  keep_proportions=True,
