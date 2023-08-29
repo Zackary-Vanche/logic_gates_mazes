@@ -1,6 +1,6 @@
-ns = 16+12
-nd = 0
-nr = 0
+ns = 15
+nd = 1
+nr = 1
 nv = 0
 
 print('''

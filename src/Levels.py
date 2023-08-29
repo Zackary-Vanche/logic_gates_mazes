@@ -28,6 +28,7 @@ from levels.level_compact import level_compact
 from levels.level_congruence import level_congruence
 from levels.level_conjunctive_normal_form import level_conjunctive_normal_form
 from levels.level_connect_the_dots import level_connect_the_dots
+from levels.level_connectivity import level_connectivity
 from levels.level_crossroad import level_crossroad
 from levels.level_crystal import level_crystal
 from levels.level_cube import level_cube
@@ -267,6 +268,7 @@ class Levels:
                              level_independent_set,
                              level_dominating_set,
                              level_exact_cover,
+                             level_connectivity,
                              level_odd,
                              level_min_cut,
                              level_max_cut,
@@ -419,6 +421,7 @@ class Levels:
                                     level_independent_set,
                                     level_dominating_set,
                                     level_exact_cover,
+                                    level_connectivity,
                                     level_moore_neighborhood,
                                     level_triangulate,
                                     level_min_cut,
