@@ -783,7 +783,7 @@ class Levels:
             return a, a, a
 
 
-def test_levels(test_random_levels=False):
+def test_levels(test_random_levels=True):
     import matplotlib.pyplot as plt
     plt.rcParams.update({'font.size': 15})
 
