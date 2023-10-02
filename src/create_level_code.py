@@ -1,6 +1,6 @@
-ns = 15
-nd = 1
-nr = 1
+ns = 5*2+5+1
+nd = 10+2
+nr = 1+5+1
 nv = 0
 
 print('''
@@ -54,8 +54,8 @@ print('''    dx = 1
     ey = 0.5\n''')
     
 for i in range(nr):
-    y = (i-1)//4
-    x = (i-1)%4
+    y = (i-1)//3
+    x = (i-1)%3
     # print(f'''    R{i} = Room(name='R{i}',
     #             position=[{x}*dx, {y}*dy, ex, ey],
     #             switches_list=[])''')

@@ -38,6 +38,7 @@ from levels.level_dichotomy import level_dichotomy
 from levels.level_dominating_set import level_dominating_set
 from levels.level_doppelganger import level_doppelganger
 from levels.level_draw import level_draw
+from levels.level_edelweiss import level_edelweiss
 from levels.level_egyptian_fractions import level_egyptian_fractions
 from levels.level_electricity import level_electricity
 from levels.level_elementary import level_elementary
@@ -76,6 +77,7 @@ from levels.level_lights_out import level_lights_out
 from levels.level_linear import level_linear
 from levels.level_longest_path import level_longest_path
 from levels.level_loop import level_loop
+from levels.level_love import level_love
 from levels.level_magic_square import level_magic_square  # kakuro
 from levels.level_manhattan_distance import level_manhattan_distance
 from levels.level_mansion import level_mansion
@@ -95,6 +97,7 @@ from levels.level_numeration import level_numeration
 from levels.level_odd import level_odd
 from levels.level_orchard import level_orchard
 from levels.level_oval_track_puzzle import level_oval_track_puzzle
+from levels.level_palm_tree import level_palm_tree
 from levels.level_pancake_sorting import level_pancake_sorting
 from levels.level_panex import level_panex
 from levels.level_parallel import level_parallel
@@ -105,6 +108,7 @@ from levels.level_path import level_path
 from levels.level_peirce_s_arrow import level_peirce_s_arrow
 from levels.level_permutations import level_permutations
 from levels.level_playground import level_playground
+from levels.level_podium import level_podium
 from levels.level_point_of_no_return import level_point_of_no_return
 from levels.level_pong import level_pong
 from levels.level_product import level_product
@@ -298,6 +302,7 @@ class Levels:
                              level_network,
                              level_pyramid,
                              level_chessboard,
+                             level_edelweiss,
                              level_walk,
                              level_trail,
                              level_path,
@@ -307,6 +312,9 @@ class Levels:
                              level_partition,
                              level_second,
                              level_knapsack,
+                             level_love,
+                             level_palm_tree,
+                             level_podium,
                              level_random_K2,
                              level_egyptian_fractions,
                              level_roadblock,
@@ -891,41 +899,41 @@ if __name__ == "__main__":
     # print(len(level_classified().fastest_solution.split(' ')))
     # print(len(level_towers().fastest_solution.split(' ')))
     
-    # solutions = level_voyage().find_all_solutions(verbose=2,
-    #                                                   nb_iterations_print=10**3,
-    #                                                   stop_at_first_solution=False)
-    # for sol in solutions[0]:
-    #     print(' '.join(sol))
+    solutions = level_edelweiss().find_all_solutions(verbose=2,
+                                                      nb_iterations_print=10**3,
+                                                      stop_at_first_solution=False)
+    for sol in solutions[0]:
+        print(' '.join(sol))
         
     # assert False
 
-    if os.path.exists('temp.txt'):
-        os.remove('temp.txt')
+    # if os.path.exists('temp.txt'):
+    #     os.remove('temp.txt')
         
-    test_levels()
+    # test_levels()
     
-    all_level_set = set()
-    for level_function in Levels.levels_functions_list:
-        all_level_set.add(level_function().name)
+    # all_level_set = set()
+    # for level_function in Levels.levels_functions_list:
+    #     all_level_set.add(level_function().name)
     
-    worlds_level_list = []
-    for world_name in Levels.Worlds.keys():
-        for level_function in Levels.Worlds[world_name]:
-            worlds_level_list.append(level_function().name)
+    # worlds_level_list = []
+    # for world_name in Levels.Worlds.keys():
+    #     for level_function in Levels.Worlds[world_name]:
+    #         worlds_level_list.append(level_function().name)
             
-    for level_function in Levels.levels_functions_list:
-        name = level_function().name
-        if not name in worlds_level_list:
-            print(name)
+    # for level_function in Levels.levels_functions_list:
+    #     name = level_function().name
+    #     if not name in worlds_level_list:
+    #         print(name)
             
-    worlds_level_set = set(worlds_level_list)
-    duplicates = set([item for item in worlds_level_list if worlds_level_list.count(item) > 1])
-    if all_level_set != worlds_level_set or duplicates != set():
-        print(duplicates)
-        print('')
-        print(all_level_set - worlds_level_set)
-        print('')
-        print(worlds_level_set - all_level_set)
+    # worlds_level_set = set(worlds_level_list)
+    # duplicates = set([item for item in worlds_level_list if worlds_level_list.count(item) > 1])
+    # if all_level_set != worlds_level_set or duplicates != set():
+    #     print(duplicates)
+    #     print('')
+    #     print(all_level_set - worlds_level_set)
+    #     print('')
+    #     print(worlds_level_set - all_level_set)
         
     
 
@@ -946,7 +954,7 @@ if __name__ == "__main__":
 
     
 
-    # level = level_harmony()
+    # level = level_podium()
     # for room in level.rooms_list:
     #     if room.name == 'RE':
     #         continue
@@ -1000,7 +1008,7 @@ if __name__ == "__main__":
     # import cProfile
     # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=float('inf'), save_as_txt=False)''', sort=1)
 
-    # door_list = level_tour().doors_list
+    # door_list = level_podium().doors_list
     # door_list = sorted(door_list, key = lambda x : int(x.name.replace('D', '')))
     # for i in range(len(door_list)):
     #     door = door_list[i]
