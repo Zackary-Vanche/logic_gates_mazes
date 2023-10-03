@@ -137,6 +137,7 @@ from levels.level_recurrence import level_recurrence
 from levels.level_relay import level_relay
 from levels.level_river import level_river
 from levels.level_roadblock import level_roadblock
+from levels.level_roses_are_red import level_roses_are_red
 from levels.level_rotation import level_rotation
 from levels.level_rotation_bis import level_rotation_bis
 from levels.level_route import level_route
@@ -180,6 +181,7 @@ from levels.level_travelling_salesman import level_travelling_salesman
 from levels.level_traversal import level_traversal
 from levels.level_tree import level_tree
 from levels.level_triangulate import level_triangulate
+from levels.level_violets_are_blue import level_violets_are_blue
 from levels.level_von_neumann_neighborhood import level_von_neumann_neighborhood
 from levels.level_vortex import level_vortex
 from levels.level_voyage import level_voyage
@@ -229,7 +231,32 @@ class Levels:
     
     Random bin packing
     
-    relay
+    roses are red (212121)
+    violet are blue (22222)
+    poppy
+    tulip
+    orchid
+    iris
+    
+    Trees :
+    maple
+    pine
+    cedar
+    willow
+    elm
+    Birch
+    
+    oak
+    sycamore
+    magnolia
+    fir
+    tulip
+    Hackberry
+    Beech
+    baobab
+    Hickory
+    ginko biloba
+    
     """
 
     levels_functions_list = [
@@ -302,7 +329,9 @@ class Levels:
                              level_network,
                              level_pyramid,
                              level_chessboard,
+                             level_roses_are_red,
                              level_edelweiss,
+                             level_violets_are_blue,
                              level_walk,
                              level_trail,
                              level_path,
@@ -899,7 +928,7 @@ if __name__ == "__main__":
     # print(len(level_classified().fastest_solution.split(' ')))
     # print(len(level_towers().fastest_solution.split(' ')))
     
-    solutions = level_edelweiss().find_all_solutions(verbose=2,
+    solutions = level_violets_are_blue().find_all_solutions(verbose=2,
                                                       nb_iterations_print=10**3,
                                                       stop_at_first_solution=False)
     for sol in solutions[0]:
