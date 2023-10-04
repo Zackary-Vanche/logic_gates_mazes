@@ -9,10 +9,12 @@ from levels.level_alice_and_bob import level_alice_and_bob
 from levels.level_arithmetic import level_arithmetic
 from levels.level_backward import level_backward
 from levels.level_baguenaudier import level_baguenaudier
+from levels.level_beech import level_beech
 from levels.level_betweenness import level_betweenness
 from levels.level_binary import level_binary
 from levels.level_bipartite import level_bipartite
 from levels.level_bis_repetita import level_bis_repetita
+from levels.level_birch import level_birch
 from levels.level_boolean import level_boolean
 from levels.level_branches import level_branches
 from levels.level_bridges import level_bridges
@@ -42,6 +44,7 @@ from levels.level_edelweiss import level_edelweiss
 from levels.level_egyptian_fractions import level_egyptian_fractions
 from levels.level_electricity import level_electricity
 from levels.level_elementary import level_elementary
+from levels.level_elm import level_elm
 from levels.level_entropy import level_entropy
 from levels.level_equation import level_equation
 from levels.level_error import level_error
@@ -72,7 +75,7 @@ from levels.level_jungle import level_jungle
 from levels.level_k import level_k
 from levels.level_knapsack import level_knapsack
 from levels.level_knight import level_knight
-from levels.level_leafs import level_leafs
+from levels.level_leaves import level_leaves
 from levels.level_lights_out import level_lights_out
 from levels.level_linear import level_linear
 from levels.level_longest_path import level_longest_path
@@ -81,6 +84,7 @@ from levels.level_love import level_love
 from levels.level_magic_square import level_magic_square  # kakuro
 from levels.level_manhattan_distance import level_manhattan_distance
 from levels.level_mansion import level_mansion
+from levels.level_maple import level_maple
 from levels.level_mastermind import level_mastermind
 from levels.level_matrix import level_matrix
 from levels.level_max_cut import level_max_cut
@@ -107,6 +111,7 @@ from levels.level_passage import level_passage
 from levels.level_path import level_path
 from levels.level_peirce_s_arrow import level_peirce_s_arrow
 from levels.level_permutations import level_permutations
+from levels.level_pine import level_pine
 from levels.level_playground import level_playground
 from levels.level_podium import level_podium
 from levels.level_point_of_no_return import level_point_of_no_return
@@ -191,6 +196,7 @@ from levels.level_water_lily import level_water_lily
 from levels.level_water_pouring import level_water_pouring
 from levels.level_wave import level_wave
 from levels.level_weights import level_weights
+from levels.level_willow import level_willow
 from levels.level_wind_compass import level_wind_compass
 from levels.level_yoyo import level_yoyo
 from levels.level_zebra import level_zebra
@@ -214,7 +220,6 @@ from levels.level_random_simple import aux_level_random_simple
 from levels.level_random_petersen import aux_level_random_petersen
 from levels.level_random_cuboctahedron import aux_level_random_cuboctahedron
 
-
 class Levels:
 
     """    
@@ -230,9 +235,7 @@ class Levels:
     Maximum coverage problem
     
     Random bin packing
-    
-    roses are red (212121)
-    violet are blue (22222)
+
     poppy
     tulip
     orchid
@@ -242,9 +245,6 @@ class Levels:
     maple
     pine
     cedar
-    willow
-    elm
-    Birch
     
     oak
     sycamore
@@ -252,7 +252,7 @@ class Levels:
     fir
     tulip
     Hackberry
-    Beech
+    Beech (Hetre)
     baobab
     Hickory
     ginko biloba
@@ -303,7 +303,7 @@ class Levels:
                              level_odd,
                              level_min_cut,
                              level_max_cut,
-                             level_leafs,
+                             level_leaves,
                              level_arithmetic,
                              level_triangulate,
                              level_recurrence,
@@ -344,6 +344,12 @@ class Levels:
                              level_love,
                              level_palm_tree,
                              level_podium,
+                             level_willow,
+                             level_beech,
+                             level_birch,
+                             level_elm,
+                             level_maple,
+                             level_pine,
                              level_random_K2,
                              level_egyptian_fractions,
                              level_roadblock,
@@ -615,7 +621,7 @@ class Levels:
                             level_bis_repetita,
                             level_odd,
                             level_parallel,
-                            level_leafs,
+                            level_leaves,
                             level_recurrence,
                             level_alice_and_bob,
                             level_river,
@@ -928,18 +934,18 @@ if __name__ == "__main__":
     # print(len(level_classified().fastest_solution.split(' ')))
     # print(len(level_towers().fastest_solution.split(' ')))
     
-    solutions = level_violets_are_blue().find_all_solutions(verbose=2,
-                                                      nb_iterations_print=10**3,
-                                                      stop_at_first_solution=False)
-    for sol in solutions[0]:
-        print(' '.join(sol))
+    # solutions = level_maple().find_all_solutions(verbose=2,
+    #                                                   nb_iterations_print=10**3,
+    #                                                   stop_at_first_solution=False)
+    # for sol in solutions[0]:
+    #     print(' '.join(sol))
         
     # assert False
 
     # if os.path.exists('temp.txt'):
     #     os.remove('temp.txt')
         
-    # test_levels()
+    test_levels()
     
     # all_level_set = set()
     # for level_function in Levels.levels_functions_list:

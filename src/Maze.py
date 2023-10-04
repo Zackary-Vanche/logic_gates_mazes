@@ -691,6 +691,7 @@ class Maze:
         nb_iterations_tot = None
         nb_operations_tot = None
         solutions_from_file = None
+        
         if os_path_exists(nb_iterations_file):
             try:
                 with open(nb_iterations_file, 'r') as fr:

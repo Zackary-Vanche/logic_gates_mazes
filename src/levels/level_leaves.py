@@ -7,7 +7,7 @@ from Levels_colors_list import Levels_colors_list
 from random import choice as rd_choice
 from random import shuffle as rd_shuffle
 
-def level_leafs(): 
+def level_leaves(): 
 
     S0 = Switch(name='S0', value = rd_choice([0, 1]))
     S1 = Switch(name='S1', value = rd_choice([0, 1]))
@@ -163,7 +163,7 @@ def level_leafs():
                  doors_list=[D0, D1, D2, D3, D4, D5, D6],
                  fastest_solution=None,
                  level_color=Levels_colors_list.FROM_HUE(hu=0.4, sa=0.25, li=0.5),
-                 name='Leafs',
+                 name='Leaves',
                  keep_proportions=True,
                  door_window_size=450,
                  random=True)
