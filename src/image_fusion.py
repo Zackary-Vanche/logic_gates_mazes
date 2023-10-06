@@ -71,12 +71,9 @@ if __name__ == "__main__":
             l_img_h = []
             for i in range(m):
                 l = file_list[n * i:n * i + n]
-                if len(l) == 1:
-                    l_img_h.append(l[0])
-                else:
-                    l = [cv2_imread(file) for file in l]
-                    im_h = cv2_hconcat(l)
-                    l_img_h.append(im_h)
+                l = [cv2_imread(file) for file in l]
+                im_h = cv2_hconcat(l)
+                l_img_h.append(im_h)
             img = cv2_vconcat(l_img_h)
             plt.imshow(img)
             plt.close()
@@ -100,12 +97,9 @@ if __name__ == "__main__":
             l_img_h = []
             for i in range(m):
                 l = file_list[n * i:n * i + n]
-                if len(l) == 1:
-                    l_img_h.append(l[0])
-                else:
-                    l = [cv2_imread(file) for file in l]
-                    im_h = cv2_hconcat(l)
-                    l_img_h.append(im_h)
+                l = [cv2_imread(file) for file in l]
+                im_h = cv2_hconcat(l)
+                l_img_h.append(im_h)
             img_h = cv2_vconcat(l_img_h)
             plt.imshow(img_h)
             plt.close()
