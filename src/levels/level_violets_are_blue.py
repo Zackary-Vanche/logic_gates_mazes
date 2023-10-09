@@ -7,7 +7,7 @@ from Levels_colors_list import Levels_colors_list
 from numpy import cos, sin, pi
 from Color import Color
 
-def level_violets_are_blue(): 
+def level_violets_are_blue(fast_solution_finding=False): 
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -122,6 +122,10 @@ def level_violets_are_blue():
     RE = Room(name='RE',
               position=[0.25*dx, -1.5*dy, ex, ey],
               is_exit=True)
+    
+    if fast_solution_finding:
+        for room in [R1, R2, R3, R4, R5, R6, R7]:
+            room.possible_switches_values = [[1]]
 
     D0 = Door(two_way=False,
                 tree=T0,

@@ -30,12 +30,12 @@ if __name__ == "__main__":
     #                                                                                        multithreads=False,
     #                                                                                        do_it_fast=True,
     #                                                                                        max_calculation_time=1)
+    # Levels.levels_functions_list.reverse()
     only_if_not_yet_calculated = True
     calculations_times, nb_iterations_list, nb_operations_list = Levels.save_solutions_txt(verbose=1,
                                                                                            multithreads=False,
                                                                                            do_it_fast=False,
-                                                                                           max_calculation_time=float(
-                                                                                               'inf'),
+                                                                                           max_calculation_time=float('inf'),
                                                                                            only_if_not_yet_calculated=only_if_not_yet_calculated)
     calculations_times = list(filter(lambda item: item is not None, calculations_times))
     # Cette fonction calcule les solutions,

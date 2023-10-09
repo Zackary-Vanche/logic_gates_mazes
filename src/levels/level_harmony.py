@@ -6,7 +6,7 @@ from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 from Color import Color
 
-def level_harmony(): 
+def level_harmony(fast_solution_finding=False): 
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -281,6 +281,13 @@ def level_harmony():
     RE = Room(name='RE',
               position=[8*dx, 6*dy, ex, ey],
               is_exit=True)
+    
+    if fast_solution_finding:
+        for room in [R2, R3, R4, R5,
+                     R6, R7, R8, R9,
+                     R10, R11, R12, R13,
+                     R14, R15, R16, R17]:
+            room.possible_switches_values = [[1]]
 
     D0 = Door(two_way=False,
                 tree=T0,

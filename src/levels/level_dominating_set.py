@@ -6,7 +6,7 @@ from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
 
-def level_dominating_set():
+def level_dominating_set(fast_solution_finding=False):
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
     S2 = Switch(name='S2')
@@ -113,6 +113,9 @@ def level_dominating_set():
     RE = Room(name='RE',
               position=[5.5, 2.375, 0.6, 0.6],
               is_exit=True)  # E pour exit ou end
+    if fast_solution_finding:
+        for room in [R1, R2, R3, R4, R5, R6, R7, R8, R9]:
+            room.possible_switches_values = [[1]]
 
     D0 = Door(two_way=False,
               tree=T0,

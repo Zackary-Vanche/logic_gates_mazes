@@ -56,6 +56,7 @@ from levels.level_flash_back import level_flash_back
 from levels.level_fluid import level_fluid
 from levels.level_forest import level_forest
 from levels.level_fractal import level_fractal
+from levels.level_gingko_biloba import level_gingko_biloba
 from levels.level_grid import level_grid
 from levels.level_hamiltonian import level_hamiltonian
 from levels.level_harmony import level_harmony
@@ -249,13 +250,13 @@ class Levels:
     oak
     sycamore
     magnolia
-    fir
+    fir (sapin)
     tulip
     Hackberry
-    Beech (Hetre)
     baobab
     Hickory
-    ginko biloba
+    
+    Magix square no solution !!!!!
     
     """
 
@@ -308,6 +309,7 @@ class Levels:
                              level_triangulate,
                              level_recurrence,
                              level_stairs,
+                             level_small_honeycomb,
                              level_naturals,
                              level_wasted,
                              level_doppelganger,
@@ -385,6 +387,7 @@ class Levels:
                              level_baguenaudier,
                              level_spare,
                              level_4_colors_theorem,
+                             level_gingko_biloba,
                              level_grid,
                              level_flash_back,
                              level_spaceship,
@@ -429,7 +432,6 @@ class Levels:
                              level_manhattan_distance,
                              level_tour,
                              level_minimum_spanning_tree,
-                             level_small_honeycomb,
                              level_honeycomb,
                              level_random_gemini,
                              level_random_cuboctahedron,
@@ -487,6 +489,20 @@ class Levels:
                                 level_small_honeycomb,
                                 level_honeycomb,
                              ],
+              'The Wooden World':[level_roses_are_red,
+                                  level_edelweiss,
+                                  level_violets_are_blue,
+                                  level_love,
+                                  level_palm_tree,
+                                  level_podium,
+                                  level_willow,
+                                  level_beech,
+                                  level_birch,
+                                  level_elm,
+                                  level_maple,
+                                  level_pine,
+                                  level_weights,
+                                  level_gingko_biloba],
               'The Travel':[level_meanders,
                             level_hamiltonian,
                             level_wind_compass,
@@ -506,7 +522,6 @@ class Levels:
                             level_harmony,
                             level_tour,
                             level_central_symmetry,
-                            level_weights,
                             level_tetractys,
                             level_connect_the_dots,
                             level_eulerian,
@@ -754,6 +769,8 @@ class Levels:
                     print(f'\nLevel {k} : {level.name}')
                 if level.name in ['Dichotomy',
                                   'Mastermind',
+                                  'Harmony',
+                                  'Honeycomb',
                                   'Zebra',
                                   'Separation',
                                   'Minimum spanning tree',
@@ -766,12 +783,15 @@ class Levels:
                     txt = ' '.join(['Level', str(k), ':', level.name, '\n'])
                 t2 = time()
                 solutions, nb_iterations, nb_operations = level.find_all_solutions(stop_at_first_solution=False,
-                                                                                   verbose=verbose *
-                                                                                   (not multithreads),
+                                                                                   verbose=verbose * (not multithreads),
                                                                                    max_calculation_time=max_calculation_time,
                                                                                    level_number=k,
                                                                                    save_solutions_txt=True,
                                                                                    only_if_not_yet_calculated=only_if_not_yet_calculated)
+                if len(solutions) == 0:
+                    print('*'*100)
+                    print(level.name, 'no solution')
+                    print('*'*100)
                 t3 = time()
                 nb_iterations_list.append(nb_iterations)
                 nb_operations_list.append(nb_operations)
@@ -813,7 +833,11 @@ class Levels:
                 raise
         if save_as_txt:
             # solutions/ directory is ignored when pushed on github
-            with open('solutions/solutions.txt', 'w') as f:
+            if do_it_fast:
+                sol_file_name = 'solutions/solutions.txt'
+            else:
+                sol_file_name = 'solutions/calculated_solutions.txt'
+            with open(sol_file_name, 'w') as f:
                 f.write(txt)
         if verbose == 1 and multithreads:
             t1 = time()
@@ -933,42 +957,45 @@ if __name__ == "__main__":
     
     # print(len(level_classified().fastest_solution.split(' ')))
     # print(len(level_towers().fastest_solution.split(' ')))
-    
-    # solutions = level_maple().find_all_solutions(verbose=2,
+    # level_gingko_biloba
+    # solutions = level_gingko_biloba(fast_solution_finding=True).find_all_solutions(verbose=2,
     #                                                   nb_iterations_print=10**3,
     #                                                   stop_at_first_solution=False)
-    # for sol in solutions[0]:
-    #     print(' '.join(sol))
-        
+    # with open(f'temp/temp{str(int(time()))}.txt', 'w') as fw:
+    #     for sol in solutions[0]:
+    #         sol = ' '.join(sol)
+    #         print(sol)
+    #         fw.write(sol)
+
     # assert False
 
     # if os.path.exists('temp.txt'):
     #     os.remove('temp.txt')
         
-    test_levels()
+    # test_levels()
     
-    # all_level_set = set()
-    # for level_function in Levels.levels_functions_list:
-    #     all_level_set.add(level_function().name)
+    all_level_set = set()
+    for level_function in Levels.levels_functions_list:
+        all_level_set.add(level_function().name)
     
-    # worlds_level_list = []
-    # for world_name in Levels.Worlds.keys():
-    #     for level_function in Levels.Worlds[world_name]:
-    #         worlds_level_list.append(level_function().name)
+    worlds_level_list = []
+    for world_name in Levels.Worlds.keys():
+        for level_function in Levels.Worlds[world_name]:
+            worlds_level_list.append(level_function().name)
             
-    # for level_function in Levels.levels_functions_list:
-    #     name = level_function().name
-    #     if not name in worlds_level_list:
-    #         print(name)
+    for level_function in Levels.levels_functions_list:
+        name = level_function().name
+        if not name in worlds_level_list:
+            print(name)
             
-    # worlds_level_set = set(worlds_level_list)
-    # duplicates = set([item for item in worlds_level_list if worlds_level_list.count(item) > 1])
-    # if all_level_set != worlds_level_set or duplicates != set():
-    #     print(duplicates)
-    #     print('')
-    #     print(all_level_set - worlds_level_set)
-    #     print('')
-    #     print(worlds_level_set - all_level_set)
+    worlds_level_set = set(worlds_level_list)
+    duplicates = set([item for item in worlds_level_list if worlds_level_list.count(item) > 1])
+    if all_level_set != worlds_level_set or duplicates != set():
+        print(duplicates)
+        print('')
+        print(all_level_set - worlds_level_set)
+        print('')
+        print(worlds_level_set - all_level_set)
         
     
 

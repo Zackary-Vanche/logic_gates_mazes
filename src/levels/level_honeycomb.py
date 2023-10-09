@@ -8,7 +8,7 @@ from Color import Color
 from random import shuffle as rd_shuffle
 from Graph import Graph
 
-def level_honeycomb(): 
+def level_honeycomb(fast_solution_finding=False): 
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -226,6 +226,10 @@ def level_honeycomb():
     RE = Room(name='RE',
               position=[1*dx-n*ex, 3*dy, ex, ey],
               is_exit=True)
+    
+    if fast_solution_finding:
+        for room in [R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12]:
+            room.possible_switches_values = [[1]]
 
     D0 = Door(two_way=False,
                 tree=T0,

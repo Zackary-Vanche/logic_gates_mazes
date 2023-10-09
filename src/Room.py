@@ -17,7 +17,8 @@ class Room:
                  # longueur en x
                  name='R',
                  surrounding_color=[255, 255, 255],
-                 possible_switches_values=None):
+                 possible_switches_values=None,
+                 possible_switches_updating=None):
         self.name = name
         self.is_exit = is_exit
         if self.is_exit:
@@ -41,16 +42,9 @@ class Room:
         self.switches_positions = None
         self.surrounding_color = surrounding_color
         self.possible_switches_values = possible_switches_values
-        if type(possible_switches_values) == type([]):
-            self.possible_switches_actions = []
-            for switches_values in self.possible_switches_values:
-                Slist = []
-                for i in range(len(self.switches_list)):
-                    if switches_values[i]:
-                        Slist.append(self.switches_list[i].name)
-                self.possible_switches_actions.append(Slist)
-        else:
-            self.possible_switches_actions = None
+        self.possible_switches_updating = possible_switches_updating
+        assert possible_switches_values is None or possible_switches_updating is None
+        self.possible_switches_actions = None
 
     def get_name_position(self):
         [x_gap, y_gap, x, y] = self.position[self.maze.current_page]
@@ -106,7 +100,23 @@ class Room:
         return self.switches_positions
 
     def get_possible_switches_actions(self):
-        if self.possible_switches_actions is None:
+        if not self.possible_switches_values is None:
+            self.possible_switches_actions = []
+            for possible_values in self.possible_switches_values:
+                Slist = []
+                for i in range(len(self.switches_list)):
+                    if possible_values[i] != self.switches_list[i].value:
+                        Slist.append(self.switches_list[i].name)
+                self.possible_switches_actions.append(Slist)
+        elif not self.possible_switches_updating is None:
+            self.possible_switches_actions = []
+            for possible_values in self.possible_switches_updating:
+                Slist = []
+                for i in range(len(self.switches_list)):
+                    if possible_values[i]:
+                        Slist.append(self.switches_list[i].name)
+                self.possible_switches_actions.append(Slist)
+        else:
             self.possible_switches_actions = powerset([s.name for s in self.switches_list])
         return self.possible_switches_actions
 

@@ -6,7 +6,7 @@ from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 from Color import Color
 
-def level_water_lily():
+def level_water_lily(fast_solution_finding=False):
     
     v = 0
 
@@ -193,6 +193,10 @@ def level_water_lily():
     RE = Room(name='RE',
               position=[2*dx, -1*dy, ex, ey],
               is_exit=True)
+    
+    if fast_solution_finding:
+        for room in [R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12]:
+            room.possible_switches_values = [[1]]
 
     D0 = Door(two_way=False,
                 tree=T0,

@@ -6,7 +6,7 @@ from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 from Color import Color
 
-def level_elm(): 
+def level_elm(fast_solution_finding=False): 
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -94,6 +94,10 @@ def level_elm():
     RE = Room(name='RE',
               position=[0*dx-a, 2*dy, ex, ey],
               is_exit=True)
+    
+    if fast_solution_finding:
+        for room in [R1, R2, R3, R4, R5, R6]:
+            room.possible_switches_values = [[1]]
 
     D0 = Door(two_way=False,
                 tree=T0,

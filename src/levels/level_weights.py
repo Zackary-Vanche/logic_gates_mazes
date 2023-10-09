@@ -224,6 +224,9 @@ def level_weights(fast_solution_finding=False):
     RE = Room(name='RE',
               position=[5 * ex, -0.5, ex, 0.4],
               is_exit=True)  # E pour exit ou end
+    if fast_solution_finding:
+        for room in [R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12]:
+            room.possible_switches_values = [[1]]
 
     rp = 1 / 2
     rdc = [1 / 2, 1 / 2]

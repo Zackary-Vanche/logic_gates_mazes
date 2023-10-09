@@ -6,7 +6,7 @@ from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 from Color import Color
 
-def level_love(): 
+def level_love(fast_solution_finding=False): 
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -81,7 +81,7 @@ def level_love():
     ay = 0.3
 
     R0 = Room(name='R0',
-                position=[-1*dx, 0*dy-2*ay, ex, 2*dy+ey+2*ay],
+                position=[2.775*dx, 0*dy-2*ay, ex, 2*dy+ey+2*ay],
                 switches_list=[S0, S1, S2, S3, S4, S5])
     R1 = Room(name='R1',
                 position=[0*dx, 0*dy, ex, ey],
@@ -113,12 +113,18 @@ def level_love():
     RE = Room(name='RE',
               position=[2*dx, 2*dy, ex, ey],
               is_exit=True)
+    
+    if fast_solution_finding:
+        for room in [R1, R2, R3, R4, R5, R6, R7, R8, R9]:
+            room.possible_switches_values = [[1]]
 
     D0 = Door(two_way=False,
                 tree=T0,
                 name='D0',
                 room_departure=R0,
-                room_arrival=R4)
+                room_arrival=R6,
+                relative_departure_coordinates=[1/2, 3/4],
+                relative_position=0.54)
     D1 = Door(two_way=True,
                 tree=T1,
                 name='D1',
@@ -192,7 +198,7 @@ def level_love():
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13],
-                 fastest_solution="S1 S2 S4 S5 D0 S9 D3 S10 D9 S7 D2 S8 D11 S11 D11 D2 D9 D3 D8 S12 D5 S13 D13",
+                 fastest_solution="S1 S2 S4 S5 D0 S11 D11 S8 D2 S7 D9 S10 D3 S9 D8 S12 D5 S13 D13",
                  level_color=lcolor,
                  name='Love',
                  keep_proportions=True,

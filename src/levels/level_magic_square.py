@@ -91,21 +91,18 @@ def level_magic_square(fast_solution_finding=False):
 
     T0 = Tree(tree_list=tree_list_0,
               name='T0',
-              switches=[V0, V1, V2, SN12] + [V0, V1, S6, S7, S8] * fast_solution_finding)
+              switches=[V0, V1, V2, SN12] + [V0, V1, V2] * fast_solution_finding)
     T1 = Tree(tree_list=tree_list_1,
               name='T1',
-              switches=[V3, V4, V5, SN12] + [V0, V1, V2, S9,
-                                                                             S10, S11, V4, S15, S16,
-                                                                             S17] * fast_solution_finding,
+              switches=[V3, V4, V5, SN12] + [V0, V1, V2,
+                                             V3, V4, V5] * fast_solution_finding,
               cut_expression=True,
               cut_expression_separator=']')
     T2 = Tree(tree_list=tree_list_2,
               name='T2',
               switches=[V6, V7, V8, SN12] + [V0, V1, V2,
-                                                                                   V3, V4, S15,
-                                                                                   S16, S17, V6, S21, S22,
-                                                                                   S23, S24, S25, S26,
-                                                                                   S27] * fast_solution_finding,
+                                             V3, V4, V5,
+                                             V6, V7, V8] * fast_solution_finding,
               cut_expression=True,
               cut_expression_separator=']')
     T3 = Tree(tree_list=['EQU'] + [tree_list_SUM]*3,

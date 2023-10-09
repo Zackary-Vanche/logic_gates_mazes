@@ -6,7 +6,7 @@ from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
 
-def level_solitaire(fast_solution_finding=False):
+def level_solitaire(fast_solution_finding=True):
     S0 = Switch(name='S0')
     S1 = Switch(name='S1', value=1)
     S2 = Switch(name='S2', value=1)
@@ -74,6 +74,14 @@ def level_solitaire(fast_solution_finding=False):
 
     # tree_list_1 = [None]
     # Slist1 = [SN1]
+    # for l in [[0, 3, 9, 11],
+    #           [1, 4, 11, 13],
+    #           [2, 5, 13, 15],
+    #           [3, 6, 10, 12],
+    #           [4, 7, 12, 14],
+    #           [5, 8, 14, 16],]:
+    #     [a, b, c, d] = l
+    #     print(f'S{a}, S{b}, S{c}, S{d}, x{a} + x{b} + x{c} + x{d}')
 
     T0 = Tree(tree_list=['AND',
                          tree_list_1,
@@ -161,7 +169,7 @@ def level_solitaire(fast_solution_finding=False):
     #           cut_expression_separator=')')
 
     if fast_solution_finding:
-        possible_switches_values = [[1, 1, 1, 0, 0,
+        possible_switches_updating = [[1, 1, 1, 0, 0,
                                      0, 0, 0, 0,
                                      0, 0, 0,
                                      0, 0,
@@ -253,20 +261,20 @@ def level_solitaire(fast_solution_finding=False):
                                      1, 0, 0,
                                      0, 0,
                                      0], ]
-        for l in possible_switches_values:
+        for l in possible_switches_updating:
             assert sum(l) == 3, l
-        assert len(possible_switches_values) == 18
+        assert len(possible_switches_updating) == 18
     else:
-        possible_switches_values = None
+        possible_switches_updating = None
 
     R0 = Room(name='R0',
               position=[0, 4, 3, 5],
               switches_list=[S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14],
-              possible_switches_values=possible_switches_values)
+              possible_switches_updating=possible_switches_updating)
     R1 = Room(name='R1',
               position=[4.15, 4, 3, 5],
               switches_list=[S15, S16, S17, S18, S19, S20, S21, S22, S23, S24, S25, S26, S27, S28, S29],
-              possible_switches_values=possible_switches_values)
+              possible_switches_updating=possible_switches_updating)
     RE = Room(name='RE',
               position=[4.15, 2.2, 3, 0.75],
               is_exit=True)  # E pour exit ou end
