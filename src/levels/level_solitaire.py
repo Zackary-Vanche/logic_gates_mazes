@@ -6,7 +6,7 @@ from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
 
-def level_solitaire(fast_solution_finding=True):
+def level_solitaire(fast_solution_finding=False):
     S0 = Switch(name='S0')
     S1 = Switch(name='S1', value=1)
     S2 = Switch(name='S2', value=1)

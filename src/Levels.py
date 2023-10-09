@@ -71,6 +71,7 @@ from levels.level_infinity import level_infinity
 from levels.level_initiation import level_initiation
 from levels.level_inside_out import level_inside_out
 from levels.level_inversions import level_inversions
+from levels.level_invert import level_invert
 from levels.level_journey import level_journey
 from levels.level_jungle import level_jungle
 from levels.level_k import level_k
@@ -111,6 +112,7 @@ from levels.level_partition import level_partition
 from levels.level_passage import level_passage
 from levels.level_path import level_path
 from levels.level_peirce_s_arrow import level_peirce_s_arrow
+from levels.level_permutate import level_permutate
 from levels.level_permutations import level_permutations
 from levels.level_pine import level_pine
 from levels.level_playground import level_playground
@@ -243,24 +245,20 @@ class Levels:
     iris
     
     Trees :
-    maple
-    pine
     cedar
-    
     oak
+    fir
+    
     sycamore
     magnolia
-    fir (sapin)
     tulip
     Hackberry
     baobab
     Hickory
     
-    Magix square no solution !!!!!
-    
     """
 
-    levels_functions_list = [
+    levels_functions_list = [level_invert,
                              level_hello_world,
                              level_playground,
                              level_initiation,
@@ -330,6 +328,8 @@ class Levels:
                              level_circuit,
                              level_network,
                              level_pyramid,
+                             level_invert,
+                             level_permutate,
                              level_chessboard,
                              level_roses_are_red,
                              level_edelweiss,
@@ -554,6 +554,8 @@ class Levels:
                                   level_pyramid,
                                   ],
               'The Permutation Universe':[level_elementary,
+                                          level_invert,
+                                          level_permutate,
                                           level_spare,
                                           level_grid,
                                           level_spaceship,
@@ -958,7 +960,7 @@ if __name__ == "__main__":
     # print(len(level_classified().fastest_solution.split(' ')))
     # print(len(level_towers().fastest_solution.split(' ')))
     # level_gingko_biloba
-    # solutions = level_gingko_biloba(fast_solution_finding=True).find_all_solutions(verbose=2,
+    # solutions = level_invert().find_all_solutions(verbose=2,
     #                                                   nb_iterations_print=10**3,
     #                                                   stop_at_first_solution=False)
     # with open(f'temp/temp{str(int(time()))}.txt', 'w') as fw:

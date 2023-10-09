@@ -1,7 +1,7 @@
-ns = 3*4*2+16
-nd = 0
-nr = 13
-nv = 0
+ns = 3*2+2+6
+nd = 1+3+6+1
+nr = 1+1+3+6
+nv = 4
 
 print('''
 from Switch import Switch
@@ -31,10 +31,11 @@ for i in range(nv):
     # print(f'''    V{i} = Tree(tree_list=[None],
     #       name='V{i}',
     #       switches=[1])''')
-    
-print('')
-print(f'''    Vlist = [{', '.join([f'V{i}' for i in range(nv)])}]''')
-print('')
+
+if nv != 0:
+    print('')
+    print(f'''    Vlist = [{', '.join([f'V{i}' for i in range(nv)])}]''')
+    print('')
     
 for i in range(nd):
     print(f'''    T{i} = Tree(tree_list=[None],
@@ -61,7 +62,7 @@ for i in range(nr):
     #             switches_list=[])''')
     print(f'''    R{i} = Room(name='R{i}',
                 position=[{x}*dx, {y}*dy, ex, ey],
-                switches_list=[S{i+16}])''')
+                switches_list=[])''')
     
 print('''    RE = Room(name='RE',
               position=[0, 0, ex, ey],
