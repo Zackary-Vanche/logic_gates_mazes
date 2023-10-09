@@ -65,6 +65,7 @@ from levels.level_hitting_set import level_hitting_set
 from levels.level_honeycomb import level_honeycomb
 from levels.level_house import level_house
 from levels.level_hungarian_rings import level_hungarian_rings
+from levels.level_hut import level_hut
 from levels.level_impasse import level_impasse
 from levels.level_independent_set import level_independent_set
 from levels.level_infinity import level_infinity
@@ -258,7 +259,7 @@ class Levels:
     
     """
 
-    levels_functions_list = [level_invert,
+    levels_functions_list = [
                              level_hello_world,
                              level_playground,
                              level_initiation,
@@ -303,6 +304,7 @@ class Levels:
                              level_min_cut,
                              level_max_cut,
                              level_leaves,
+                             level_hut,
                              level_arithmetic,
                              level_triangulate,
                              level_recurrence,
@@ -960,14 +962,14 @@ if __name__ == "__main__":
     # print(len(level_classified().fastest_solution.split(' ')))
     # print(len(level_towers().fastest_solution.split(' ')))
     # level_gingko_biloba
-    # solutions = level_invert().find_all_solutions(verbose=2,
-    #                                                   nb_iterations_print=10**3,
-    #                                                   stop_at_first_solution=False)
-    # with open(f'temp/temp{str(int(time()))}.txt', 'w') as fw:
-    #     for sol in solutions[0]:
-    #         sol = ' '.join(sol)
-    #         print(sol)
-    #         fw.write(sol)
+    solutions = level_hut().find_all_solutions(verbose=2,
+                                                      nb_iterations_print=10**3,
+                                                      stop_at_first_solution=False)
+    with open(f'temp/temp{str(int(time()))}.txt', 'w') as fw:
+        for sol in solutions[0]:
+            sol = ' '.join(sol)
+            print(sol)
+            fw.write(sol)
 
     # assert False
 
@@ -976,28 +978,28 @@ if __name__ == "__main__":
         
     # test_levels()
     
-    all_level_set = set()
-    for level_function in Levels.levels_functions_list:
-        all_level_set.add(level_function().name)
+    # all_level_set = set()
+    # for level_function in Levels.levels_functions_list:
+    #     all_level_set.add(level_function().name)
     
-    worlds_level_list = []
-    for world_name in Levels.Worlds.keys():
-        for level_function in Levels.Worlds[world_name]:
-            worlds_level_list.append(level_function().name)
+    # worlds_level_list = []
+    # for world_name in Levels.Worlds.keys():
+    #     for level_function in Levels.Worlds[world_name]:
+    #         worlds_level_list.append(level_function().name)
             
-    for level_function in Levels.levels_functions_list:
-        name = level_function().name
-        if not name in worlds_level_list:
-            print(name)
+    # for level_function in Levels.levels_functions_list:
+    #     name = level_function().name
+    #     if not name in worlds_level_list:
+    #         print(name)
             
-    worlds_level_set = set(worlds_level_list)
-    duplicates = set([item for item in worlds_level_list if worlds_level_list.count(item) > 1])
-    if all_level_set != worlds_level_set or duplicates != set():
-        print(duplicates)
-        print('')
-        print(all_level_set - worlds_level_set)
-        print('')
-        print(worlds_level_set - all_level_set)
+    # worlds_level_set = set(worlds_level_list)
+    # duplicates = set([item for item in worlds_level_list if worlds_level_list.count(item) > 1])
+    # if all_level_set != worlds_level_set or duplicates != set():
+    #     print(duplicates)
+    #     print('')
+    #     print(all_level_set - worlds_level_set)
+    #     print('')
+    #     print(worlds_level_set - all_level_set)
         
     
 
