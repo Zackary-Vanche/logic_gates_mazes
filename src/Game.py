@@ -637,6 +637,9 @@ class Game:
     def show_solution(self,
                       save_videos=False,
                       dt=0.1):
+        video_name = f"videos/level_{self.maze.name}.avi"
+        if save_videos and os_path_exists(video_name):
+            return
         maze = self.maze
         maze.reboot_solution()
         solution = maze.fastest_solution
@@ -649,7 +652,7 @@ class Game:
             if not os_path_exists(folder):
                 os_mkdir(folder)
             def fname(i):
-                fname = folder + f"level_{self.index_current_level}_{self.maze.name}_WIDTH_{int(self.WINDOW_WIDTH)}_HEIGHT_{int(self.WINDOW_HEIGHT)}_frame_{i}.jpg"
+                fname = folder + f"level_{self.maze.name}_WIDTH_{int(self.WINDOW_WIDTH)}_HEIGHT_{int(self.WINDOW_HEIGHT)}_frame_{i}.jpg"
                 return fname
             self.save_image_as_file(fname(0))
             self.save_image_as_file()
@@ -673,15 +676,11 @@ class Game:
             from cv2 import VideoWriter, VideoWriter_fourcc, resize, cvtColor, COLOR_BGR2RGB #, imread#
             from PIL import Image
             size = (int(self.WINDOW_WIDTH), int(self.WINDOW_HEIGHT))
-            video_name = f"videos/level_{self.index_current_level}_{self.maze.name}.avi"
             out = VideoWriter(video_name,
                               VideoWriter_fourcc(*'DIVX'),
                               24,
                               size)
             name = self.maze.name.replace(' ', '_')
-            def fname(i):
-                fname = folder + f"level_{self.index_current_level}_{self.maze.name}_WIDTH_{int(self.WINDOW_WIDTH)}_HEIGHT_{int(self.WINDOW_HEIGHT)}_frame_{i}.jpg"
-                return fname
             i = 0
             while os_path_exists(fname(i)):
                 img = Image.open(fname(i))
@@ -750,7 +749,7 @@ class Game:
                         self.show_solution()
                     elif self.current_action in ['SOLS', 'SOLUTIONS']:
                         self.show_all_solutions()
-                    elif self.current_action == 'VIDEO':
+                    elif self.current_action in ['VIDEO', 'VIDEOS']:
                         self.save_videos()
                     elif self.current_action == 'COLOR':
                         self.game_color = None

@@ -190,6 +190,7 @@ from levels.level_travelling_salesman import level_travelling_salesman
 from levels.level_traversal import level_traversal
 from levels.level_tree import level_tree
 from levels.level_triangulate import level_triangulate
+from levels.level_village import level_village
 from levels.level_violets_are_blue import level_violets_are_blue
 from levels.level_von_neumann_neighborhood import level_von_neumann_neighborhood
 from levels.level_vortex import level_vortex
@@ -316,6 +317,7 @@ class Levels:
                              level_meanders,
                              level_wind_compass,
                              level_compact,
+                             level_village,
                              level_random_simple,
                              level_random_boustrophedon,
                              level_parallel,
@@ -663,6 +665,8 @@ class Levels:
                            level_crossroad,
                            level_infinity,
                            level_spider,
+                           level_hut,
+                           level_village,
                            level_mansion,
                            level_crystal,
                            level_dead_ends,
@@ -854,7 +858,7 @@ class Levels:
             return a, a, a
 
 
-def test_levels(test_random_levels=True):
+def test_levels(test_random_levels=False):
     import matplotlib.pyplot as plt
     plt.rcParams.update({'font.size': 15})
 
@@ -925,6 +929,33 @@ def test_levels(test_random_levels=True):
     
     assert level_arithmetic().find_all_solutions()[0] != 0
     assert level_numeration().find_all_solutions()[0] != 0
+    
+    print('Check levels duplications')
+    all_level_set = set()
+    for level_function in Levels.levels_functions_list:
+        all_level_set.add(level_function().name)
+    if len(all_level_set) != len(Levels.levels_functions_list):
+        print("Some leels are duplicated in the list Levels.levels_functions_list")
+    
+    worlds_level_list = []
+    for world_name in Levels.Worlds.keys():
+        for level_function in Levels.Worlds[world_name]:
+            worlds_level_list.append(level_function().name)
+            
+    for level_function in Levels.levels_functions_list:
+        name = level_function().name
+        if not name in worlds_level_list:
+            print(name)
+            
+    worlds_level_set = set(worlds_level_list)
+    duplicates = set([item for item in worlds_level_list if worlds_level_list.count(item) > 1])
+    if all_level_set != worlds_level_set or duplicates != set():
+        print(duplicates)
+        print('')
+        print(all_level_set - worlds_level_set)
+        print('')
+        print(worlds_level_set - all_level_set)
+    
     print('End of the tests')
 
 
@@ -962,44 +993,21 @@ if __name__ == "__main__":
     # print(len(level_classified().fastest_solution.split(' ')))
     # print(len(level_towers().fastest_solution.split(' ')))
     # level_gingko_biloba
-    solutions = level_hut().find_all_solutions(verbose=2,
-                                                      nb_iterations_print=10**3,
-                                                      stop_at_first_solution=False)
-    with open(f'temp/temp{str(int(time()))}.txt', 'w') as fw:
-        for sol in solutions[0]:
-            sol = ' '.join(sol)
-            print(sol)
-            fw.write(sol)
+    # solutions = level_village().find_all_solutions(verbose=2,
+    #                                                   nb_iterations_print=10**3,
+    #                                                   stop_at_first_solution=False)
+    # with open(f'temp/temp{str(int(time()))}.txt', 'w') as fw:
+    #     for sol in solutions[0]:
+    #         sol = ' '.join(sol)
+    #         print(sol)
+    #         fw.write(sol)
 
     # assert False
 
     # if os.path.exists('temp.txt'):
     #     os.remove('temp.txt')
         
-    # test_levels()
-    
-    # all_level_set = set()
-    # for level_function in Levels.levels_functions_list:
-    #     all_level_set.add(level_function().name)
-    
-    # worlds_level_list = []
-    # for world_name in Levels.Worlds.keys():
-    #     for level_function in Levels.Worlds[world_name]:
-    #         worlds_level_list.append(level_function().name)
-            
-    # for level_function in Levels.levels_functions_list:
-    #     name = level_function().name
-    #     if not name in worlds_level_list:
-    #         print(name)
-            
-    # worlds_level_set = set(worlds_level_list)
-    # duplicates = set([item for item in worlds_level_list if worlds_level_list.count(item) > 1])
-    # if all_level_set != worlds_level_set or duplicates != set():
-    #     print(duplicates)
-    #     print('')
-    #     print(all_level_set - worlds_level_set)
-    #     print('')
-    #     print(worlds_level_set - all_level_set)
+    test_levels()
         
     
 
@@ -1018,7 +1026,17 @@ if __name__ == "__main__":
 #         if level.try_solution(sol) == 2:
 #             print(sol)
 
-    
+    # for door in level_village().doors_list:
+    #     ra = door.room_arrival
+    #     rd = door.room_departure
+    #     # print(door.name, ra.name, rd.name)
+    #     i = door.name.replace('D', '')
+    #     a = ra.name.replace('R', '')
+    #     d = rd.name.replace('R', '')
+    #     print(f'''T{i} = Tree(tree_list=tree_list_XOR_2,
+    #                 name='T{i}',
+    #                 switches=[S{d}, S{a}])''')
+        
 
     # level = level_podium()
     # for room in level.rooms_list:
