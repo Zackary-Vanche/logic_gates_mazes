@@ -37,6 +37,7 @@ class Maze:
                  uniform_surrounding_colors=True,
                  uniform_inside_room_color=True,
                  fastest_solution=None,
+                 partial_solution=None,
                  name='L',
                  y_separation=50,
                  door_window_size=500,
@@ -190,6 +191,7 @@ class Maze:
                 assert self.all_solutions[0] == fastest_solution
         else:
             self.fastest_solution = None
+        self.partial_solution = partial_solution
         self.extreme_coordinates = None
         self.border = border
         self.y_separation = y_separation

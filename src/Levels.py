@@ -34,6 +34,7 @@ from levels.level_connectivity import level_connectivity
 from levels.level_crossroad import level_crossroad
 from levels.level_crystal import level_crystal
 from levels.level_cube import level_cube
+from levels.level_cypress import level_cypress
 from levels.level_dead_ends import level_dead_ends
 from levels.level_diagonal import level_diagonal
 from levels.level_dichotomy import level_dichotomy
@@ -104,6 +105,7 @@ from levels.level_numeration import level_numeration
 from levels.level_odd import level_odd
 from levels.level_orchard import level_orchard
 from levels.level_oval_track_puzzle import level_oval_track_puzzle
+from levels.level_palace import level_palace
 from levels.level_palm_tree import level_palm_tree
 from levels.level_pancake_sorting import level_pancake_sorting
 from levels.level_panex import level_panex
@@ -318,6 +320,7 @@ class Levels:
                              level_wind_compass,
                              level_compact,
                              level_village,
+                             level_palace,
                              level_random_simple,
                              level_random_boustrophedon,
                              level_parallel,
@@ -392,6 +395,7 @@ class Levels:
                              level_spare,
                              level_4_colors_theorem,
                              level_gingko_biloba,
+                             level_cypress,
                              level_grid,
                              level_flash_back,
                              level_spaceship,
@@ -667,6 +671,7 @@ class Levels:
                            level_spider,
                            level_hut,
                            level_village,
+                           level_palace,
                            level_mansion,
                            level_crystal,
                            level_dead_ends,
@@ -993,7 +998,7 @@ if __name__ == "__main__":
     # print(len(level_classified().fastest_solution.split(' ')))
     # print(len(level_towers().fastest_solution.split(' ')))
     # level_gingko_biloba
-    # solutions = level_village().find_all_solutions(verbose=2,
+    # solutions = level_palace().find_all_solutions(verbose=2,
     #                                                   nb_iterations_print=10**3,
     #                                                   stop_at_first_solution=False)
     # with open(f'temp/temp{str(int(time()))}.txt', 'w') as fw:
@@ -1007,7 +1012,7 @@ if __name__ == "__main__":
     # if os.path.exists('temp.txt'):
     #     os.remove('temp.txt')
         
-    test_levels()
+    # test_levels()
         
     
 
@@ -1026,7 +1031,7 @@ if __name__ == "__main__":
 #         if level.try_solution(sol) == 2:
 #             print(sol)
 
-    # for door in level_village().doors_list:
+    # for door in level_palace().doors_list:
     #     ra = door.room_arrival
     #     rd = door.room_departure
     #     # print(door.name, ra.name, rd.name)
@@ -1036,8 +1041,18 @@ if __name__ == "__main__":
     #     print(f'''T{i} = Tree(tree_list=tree_list_XOR_2,
     #                 name='T{i}',
     #                 switches=[S{d}, S{a}])''')
-        
-
+    
+    # for R in level_cypress().rooms_list:
+    #     # print(R.name)
+    #     ld = [D.tree.switches_list[0].name for D in R.two_way_doors_list if not D.tree.switches_list[0].get_value()]
+    #     print(', '.join(ld) + ', ' + '+'.join(ld).replace('S', 'x') + ',')
+    
+    i = 0
+    for D in level_cypress().doors_list:
+        ra = D.room_arrival
+        rd = D.room_departure
+        print(f"""['{ra.name}', '{rd.name}', l_weights[{i}]],""")
+        i += 1
     # level = level_podium()
     # for room in level.rooms_list:
     #     if room.name == 'RE':
