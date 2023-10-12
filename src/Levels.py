@@ -510,7 +510,8 @@ class Levels:
                                   level_maple,
                                   level_pine,
                                   level_weights,
-                                  level_gingko_biloba],
+                                  level_gingko_biloba,
+                                  level_cypress],
               'The Travel':[level_meanders,
                             level_hamiltonian,
                             level_wind_compass,
@@ -931,7 +932,6 @@ def test_levels(test_random_levels=False):
     assert len(solutions[0]) == 1
     sol = solutions[0][0]
     assert level_cartesian().fastest_solution == ' '.join(sol)
-    
     assert level_arithmetic().find_all_solutions()[0] != 0
     assert level_numeration().find_all_solutions()[0] != 0
     
@@ -995,8 +995,6 @@ if __name__ == "__main__":
     # import collections
     # import numpy as np
     
-    # print(len(level_classified().fastest_solution.split(' ')))
-    # print(len(level_towers().fastest_solution.split(' ')))
     # level_gingko_biloba
     # solutions = level_palace().find_all_solutions(verbose=2,
     #                                                   nb_iterations_print=10**3,
@@ -1012,24 +1010,7 @@ if __name__ == "__main__":
     # if os.path.exists('temp.txt'):
     #     os.remove('temp.txt')
         
-    # test_levels()
-        
-    
-
-    # level = level_bridges()
-    # sol = "D0 S0 D1"
-    # level.try_solution(sol)
-    # for S in level.switches_list:
-    #     print(S.name, S.value)
-
-    # sol = 'S0 S1 S2 S4 S5 S7 S10 S13 S16 D0 S18 D1 S19 D3 S20 D6 S21 D6 D8 S24 D8 D3 D5 S23 D14 S26 D14 D5 D1 D2 S22 D11 S25 D17 S27 D19'
-    # level_minimum_spanning_tree().try_solution(sol, verbose=2)
-
-#     solutions = solutions.split('\n')
-#     level = level_harmony()
-#     for sol in solutions:
-#         if level.try_solution(sol) == 2:
-#             print(sol)
+    test_levels()
 
     # for door in level_palace().doors_list:
     #     ra = door.room_arrival
@@ -1047,12 +1028,12 @@ if __name__ == "__main__":
     #     ld = [D.tree.switches_list[0].name for D in R.two_way_doors_list if not D.tree.switches_list[0].get_value()]
     #     print(', '.join(ld) + ', ' + '+'.join(ld).replace('S', 'x') + ',')
     
-    i = 0
-    for D in level_cypress().doors_list:
-        ra = D.room_arrival
-        rd = D.room_departure
-        print(f"""['{ra.name}', '{rd.name}', l_weights[{i}]],""")
-        i += 1
+    # i = 0
+    # for D in level_cypress().doors_list:
+    #     ra = D.room_arrival
+    #     rd = D.room_departure
+    #     print(f"""['{ra.name}', '{rd.name}', l_weights[{i}]],""")
+    #     i += 1
     # level = level_podium()
     # for room in level.rooms_list:
     #     if room.name == 'RE':
