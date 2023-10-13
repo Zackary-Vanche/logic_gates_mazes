@@ -9,10 +9,10 @@ from Color import Color
 
 def level_network(): 
 
-    A0 = Switch(name='S0')
-    A1 = Switch(name='S1')
-    B0 = Switch(name='S2')
-    B1 = Switch(name='S3')
+    A0 = Switch(name='S0', value = rd_choice([0, 1]))
+    A1 = Switch(name='S1', value = rd_choice([0, 1]))
+    B0 = Switch(name='S2', value = rd_choice([0, 1]))
+    B1 = Switch(name='S3', value = rd_choice([0, 1]))
     C0 = Switch(name='S4')
     C1 = Switch(name='S5')
     C2 = Switch(name='S6')
@@ -20,7 +20,7 @@ def level_network():
     
     a = A0.value + A1.value*2
     b = B0.value + B1.value*2
-    c = a+b
+    c = a*b
     str_c = bin(c)[2:]
     while len(str_c) < 5:
         str_c = '0' + str_c
