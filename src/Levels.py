@@ -52,6 +52,7 @@ from levels.level_error import level_error
 from levels.level_eulerian import level_eulerian
 from levels.level_exact_cover import level_exact_cover
 from levels.level_expedition import level_expedition
+from levels.level_fir import level_fir
 from levels.level_five import level_five
 from levels.level_flash_back import level_flash_back
 from levels.level_fluid import level_fluid
@@ -102,6 +103,7 @@ from levels.level_network import level_network
 from levels.level_no_three_in_line import level_no_three_in_line
 from levels.level_nonogram import level_nonogram
 from levels.level_numeration import level_numeration
+from levels.level_oak import level_oak
 from levels.level_odd import level_odd
 from levels.level_orchard import level_orchard
 from levels.level_oval_track_puzzle import level_oval_track_puzzle
@@ -251,7 +253,6 @@ class Levels:
     Trees :
     cedar
     oak
-    fir
     
     sycamore
     magnolia
@@ -368,6 +369,8 @@ class Levels:
                              level_code,
                              level_random_binary_tree,
                              level_spider,
+                             level_fir,
+                             level_oak,
                              level_traversal,
                              level_journey,
                              level_expedition,
@@ -996,14 +999,14 @@ if __name__ == "__main__":
     # import numpy as np
     
     # level_gingko_biloba
-    # solutions = level_palace().find_all_solutions(verbose=2,
-    #                                                   nb_iterations_print=10**3,
-    #                                                   stop_at_first_solution=False)
-    # with open(f'temp/temp{str(int(time()))}.txt', 'w') as fw:
-    #     for sol in solutions[0]:
-    #         sol = ' '.join(sol)
-    #         print(sol)
-    #         fw.write(sol)
+    solutions = level_oak().find_all_solutions(verbose=2,
+                                                      nb_iterations_print=10**3,
+                                                      stop_at_first_solution=False)
+    with open(f'temp/temp{str(int(time()))}.txt', 'w') as fw:
+        for sol in solutions[0]:
+            sol = ' '.join(sol)
+            print(sol)
+            fw.write(sol)
 
     # assert False
 

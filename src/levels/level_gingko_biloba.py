@@ -321,7 +321,7 @@ def level_gingko_biloba(fast_solution_finding=False):
                  level_color=lcolor,
                  name='Gingko biloba',
                  keep_proportions=True,
-                 door_window_size=300,
+                 door_window_size=280,
                  random=True)
     
     return level
