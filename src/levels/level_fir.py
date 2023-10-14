@@ -6,7 +6,7 @@ from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 from Color import Color
 
-def level_fir():
+def level_fir(fast_solution_finding=False):
     
     v = 0
 
@@ -167,6 +167,10 @@ def level_fir():
 
     lcolor = Levels_colors_list.FROM_HUE(hu=0.4, sa=0.5, li=0.175)
     lcolor.background_color = Color.color_hls(hu=0.16, sa=0.5, li=0.075)
+    
+    if fast_solution_finding:
+        for room in [R1, R2, R3, R4, R5, R6]:
+            room.possible_switches_values = [[1]]
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,

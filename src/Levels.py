@@ -19,6 +19,7 @@ from levels.level_boolean import level_boolean
 from levels.level_branches import level_branches
 from levels.level_bridges import level_bridges
 from levels.level_cartesian import level_cartesian
+from levels.level_cedar import level_cedar
 from levels.level_central_symmetry import level_central_symmetry
 from levels.level_chessboard import level_chessboard
 from levels.level_chinese_postman_problem import level_chinese_postman_problem
@@ -251,14 +252,12 @@ class Levels:
     iris
     
     Trees :
-    cedar
-    oak
+    baobab
     
     sycamore
     magnolia
     tulip
     Hackberry
-    baobab
     Hickory
     
     """
@@ -369,8 +368,9 @@ class Levels:
                              level_code,
                              level_random_binary_tree,
                              level_spider,
-                             level_fir,
+                             level_cedar,
                              level_oak,
+                             level_fir,
                              level_traversal,
                              level_journey,
                              level_expedition,
@@ -513,6 +513,9 @@ class Levels:
                                   level_maple,
                                   level_pine,
                                   level_weights,
+                                  level_cedar,
+                                  level_oak,
+                                  level_fir,
                                   level_gingko_biloba,
                                   level_cypress],
               'The Travel':[level_meanders,
@@ -999,14 +1002,15 @@ if __name__ == "__main__":
     # import numpy as np
     
     # level_gingko_biloba
-    solutions = level_oak().find_all_solutions(verbose=2,
-                                                      nb_iterations_print=10**3,
-                                                      stop_at_first_solution=False)
-    with open(f'temp/temp{str(int(time()))}.txt', 'w') as fw:
-        for sol in solutions[0]:
-            sol = ' '.join(sol)
-            print(sol)
-            fw.write(sol)
+    # solutions = level_cedar(fast_solution_finding=True).find_all_solutions(verbose=2,
+    #                                                   nb_iterations_print=10**3,
+    #                                                   stop_at_first_solution=False)
+    # with open(f'temp/temp{str(int(time()))}.txt', 'w') as fw:
+    #     for sol in solutions[0]:
+    #         sol = ' '.join(sol)
+    #         print(sol)
+    #         fw.write(sol)
+    #         fw.write('\n')
 
     # assert False
 
