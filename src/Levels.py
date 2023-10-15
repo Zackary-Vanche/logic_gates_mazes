@@ -17,6 +17,7 @@ from levels.level_binary import level_binary
 from levels.level_bipartite import level_bipartite
 from levels.level_bis_repetita import level_bis_repetita
 from levels.level_birch import level_birch
+from levels.level_bonsai import level_bonsai
 from levels.level_boolean import level_boolean
 from levels.level_branches import level_branches
 from levels.level_bridges import level_bridges
@@ -305,6 +306,7 @@ class Levels:
                              level_exact_cover,
                              level_connectivity,
                              level_odd,
+                             level_bonsai,
                              level_min_cut,
                              level_max_cut,
                              level_leaves,
@@ -499,24 +501,25 @@ class Levels:
                                 level_binary,
                                 level_forest,
                                 level_jungle,
-                                level_minimum_spanning_tree,
-                                level_sunflower,
-                                level_honeycomb,
                              ],
-              'The Wooden World':[level_roses_are_red,
+              'The Wooden World':[level_bonsai,
+                                  level_roses_are_red,
                                   level_edelweiss,
                                   level_violets_are_blue,
                                   level_love,
                                   level_palm_tree,
                                   level_podium,
+                                  level_sunflower,
                                   level_willow,
                                   level_beech,
                                   level_birch,
                                   level_elm,
                                   level_maple,
                                   level_pine,
-                                  level_weights,
                                   level_baobab,
+                                  level_minimum_spanning_tree,
+                                  level_weights,
+                                  level_honeycomb,
                                   level_cedar,
                                   level_oak,
                                   level_fir,
@@ -1007,7 +1010,7 @@ if __name__ == "__main__":
     # import numpy as np
     
     # level_gingko_biloba
-    # solutions = level_baobab(fast_solution_finding=True).find_all_solutions(verbose=2,
+    # solutions = level_bonsai().find_all_solutions(verbose=2,
     #                                                   nb_iterations_print=10**3,
     #                                                   stop_at_first_solution=False)
     # with open(f'temp/temp{str(int(time()))}.txt', 'w') as fw:
