@@ -8,7 +8,7 @@ from Color import Color
 from random import shuffle as rd_shuffle
 from Graph import Graph
 
-def level_small_honeycomb(fast_solution_finding=False): 
+def level_sunflower(fast_solution_finding=False): 
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -239,7 +239,7 @@ def level_small_honeycomb(fast_solution_finding=False):
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13],
                  fastest_solution=None,
                  level_color=lcolor,
-                 name='Small honeycomb',
+                 name='Sunflower',
                  keep_proportions=True,
                  door_window_size=325,
                  random=True)

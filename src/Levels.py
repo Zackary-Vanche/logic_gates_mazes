@@ -165,7 +165,7 @@ from levels.level_shuffled import level_shuffled
 from levels.level_sign import level_sign
 from levels.level_singletons import level_singletons
 from levels.level_small import level_small
-from levels.level_small_honeycomb import level_small_honeycomb
+from levels.level_sunflower import level_sunflower
 from levels.level_small_panex import level_small_panex
 from levels.level_solitaire import level_solitaire
 from levels.level_sorted import level_sorted
@@ -313,7 +313,7 @@ class Levels:
                              level_triangulate,
                              level_recurrence,
                              level_stairs,
-                             level_small_honeycomb,
+                             level_sunflower,
                              level_naturals,
                              level_wasted,
                              level_doppelganger,
@@ -500,7 +500,7 @@ class Levels:
                                 level_forest,
                                 level_jungle,
                                 level_minimum_spanning_tree,
-                                level_small_honeycomb,
+                                level_sunflower,
                                 level_honeycomb,
                              ],
               'The Wooden World':[level_roses_are_red,
