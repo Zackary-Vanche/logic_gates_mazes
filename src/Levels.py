@@ -9,6 +9,8 @@ from levels.level_alice_and_bob import level_alice_and_bob
 from levels.level_arithmetic import level_arithmetic
 from levels.level_backward import level_backward
 from levels.level_baguenaudier import level_baguenaudier
+from levels.level_bamboos import level_bamboos
+from levels.level_baobab import level_baobab
 from levels.level_beech import level_beech
 from levels.level_betweenness import level_betweenness
 from levels.level_binary import level_binary
@@ -252,7 +254,6 @@ class Levels:
     iris
     
     Trees :
-    baobab
     
     sycamore
     magnolia
@@ -365,6 +366,7 @@ class Levels:
                              level_passage,
                              level_impasse,
                              level_route,
+                             level_baobab,
                              level_code,
                              level_random_binary_tree,
                              level_spider,
@@ -397,6 +399,7 @@ class Levels:
                              level_baguenaudier,
                              level_spare,
                              level_4_colors_theorem,
+                             level_bamboos,
                              level_gingko_biloba,
                              level_cypress,
                              level_grid,
@@ -513,9 +516,11 @@ class Levels:
                                   level_maple,
                                   level_pine,
                                   level_weights,
+                                  level_baobab,
                                   level_cedar,
                                   level_oak,
                                   level_fir,
+                                  level_bamboos,
                                   level_gingko_biloba,
                                   level_cypress],
               'The Travel':[level_meanders,
@@ -1002,7 +1007,7 @@ if __name__ == "__main__":
     # import numpy as np
     
     # level_gingko_biloba
-    # solutions = level_cedar(fast_solution_finding=True).find_all_solutions(verbose=2,
+    # solutions = level_baobab(fast_solution_finding=True).find_all_solutions(verbose=2,
     #                                                   nb_iterations_print=10**3,
     #                                                   stop_at_first_solution=False)
     # with open(f'temp/temp{str(int(time()))}.txt', 'w') as fw:
