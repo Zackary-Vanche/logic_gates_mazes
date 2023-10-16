@@ -39,6 +39,8 @@ from Levels import Levels
 
 from Levels_colors_list import Levels_colors_list
 
+from random import choice as rd_choice
+
 class Game:
     keys_dict = {K_KP0: '0',
                  K_KP1: '1',
@@ -749,6 +751,10 @@ class Game:
                         self.show_solution()
                     elif self.current_action in ['SOLS', 'SOLUTIONS']:
                         self.show_all_solutions()
+                    elif self.current_action in ['LR', 'LRANDOM']:
+                        level_number_list = [i for i in range(Levels.number_of_levels)]
+                        self.index_current_level = rd_choice(level_number_list)
+                        self.level_changed = True
                     elif self.current_action in ['VIDEO', 'VIDEOS']:
                         self.save_videos()
                     elif self.current_action == 'COLOR':
