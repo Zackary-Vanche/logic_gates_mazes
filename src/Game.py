@@ -158,7 +158,7 @@ class Game:
         self.last_space_pressed_time = time()
         self.last_key_BACKSPACE_pressed_time = time()
 
-    def get_level(self):
+    def get_level(self, fast_solution_finding=False):
 
         if self.level_changed or self.get_new_level:
             try:
@@ -167,7 +167,9 @@ class Game:
                 self.level_changed = False
     
                 # self.maze = Levels.levels_functions_list[self.index_current_level]()
-                self.maze = Levels.get_level(self.index_current_level, get_new_level=self.get_new_level)
+                self.maze = Levels.get_level(self.index_current_level,
+                                             get_new_level=self.get_new_level,
+                                             fast_solution_finding=False)
                 self.get_new_level = False
                 # if self.maze.random:
                 #     self.maze = level_random()
@@ -564,11 +566,15 @@ class Game:
             print('Your screen is too small.')
 
     def print_current_action(self):
-        current_action_render = self.font.render(self.current_action,
-                                                 True,
-                                                 self.inside_room_color)
-        self.WINDOW.blit(current_action_render,
-                         (self.x_separation + self.y_separation / 3, self.y_separation / 2 - 7))
+        try:
+            current_action_render = self.font.render(self.current_action,
+                                                     True,
+                                                     self.inside_room_color)
+            self.WINDOW.blit(current_action_render,
+                             (self.x_separation + self.y_separation / 3, self.y_separation / 2 - 7))
+        except TypeError:
+            print(self.current_action)
+            raise
 
     def display_game_window(self):
         try:
@@ -639,7 +645,7 @@ class Game:
     def show_solution(self,
                       save_videos=False,
                       dt=0.1):
-        video_name = f"videos/level_{self.maze.name}.avi"
+        video_name = f"videos/level_{self.index_current_level}_{self.maze.name}.avi"
         if save_videos and os_path_exists(video_name):
             return
         maze = self.maze
@@ -648,6 +654,7 @@ class Game:
         if solution is None:
             return
         solution_actions_list = solution.split(' ')
+        assert type(solution_actions_list) == list
         if save_videos:
             name = self.maze.name.replace(' ', '_')
             folder = f"videos/frames/{name}/"
@@ -748,6 +755,19 @@ class Game:
                         self.get_level()
                         self.change_in_display = True
                     elif self.current_action in ['SOL', 'SOLUTION']:
+                        self.show_solution()
+                    elif self.current_action in ['FIND',
+                                                 'FINDSOL',
+                                                 'FINDSOLUTION',
+                                                 'FIND SOL',
+                                                 'FIND SOLUTION']:
+                        maze = Levels.get_level(self.index_current_level,
+                                                get_new_level=True,
+                                                fast_solution_finding=True)
+                        sol_list = maze.find_all_solutions(stop_at_first_solution=True,
+                                                           verbose=1,)[0]
+                        assert len(sol_list) != 0
+                        self.maze.fastest_solution=' '.join(sol_list[0])
                         self.show_solution()
                     elif self.current_action in ['SOLS', 'SOLUTIONS']:
                         self.show_all_solutions()

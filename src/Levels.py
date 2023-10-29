@@ -87,6 +87,7 @@ from levels.level_knight import level_knight
 from levels.level_leaves import level_leaves
 from levels.level_lights_out import level_lights_out
 from levels.level_linear import level_linear
+from levels.level_line_and_columns import level_line_and_columns
 from levels.level_longest_path import level_longest_path
 from levels.level_loop import level_loop
 from levels.level_love import level_love
@@ -398,6 +399,7 @@ class Levels:
                              level_lights_out,
                              level_weights,
                              level_tetractys,
+                             level_line_and_columns,
                              level_baguenaudier,
                              level_spare,
                              level_4_colors_theorem,
@@ -583,12 +585,13 @@ class Levels:
                                           level_grid,
                                           level_spaceship,
                                           level_vortex,
+                                          level_line_and_columns,
+                                          level_permutations,
+                                          level_inversions,
                                           level_pancake_sorting,
                                           level_oval_track_puzzle,
                                           level_cube,
                                           level_error,
-                                          level_permutations,
-                                          level_inversions,
                                           level_puzzle,
                                           level_small_panex,
                                           level_hungarian_rings,
@@ -1008,35 +1011,51 @@ if __name__ == "__main__":
     import os
     # import collections
     # import numpy as np
+
+    level = level_line_and_columns()
+    solutions = level.find_all_solutions(verbose=2,
+                                         nb_iterations_print=10**3,
+                                         stop_at_first_solution=False)
+    with open(f'temp/temp{str(int(time()))}.txt', 'w') as fw:
+        for sol in solutions[0]:
+            sol = ' '.join(sol)
+            fw.write(sol)
+            fw.write('\n')
+    with open(f'temp/temp{str(int(time()))}.txt', 'w') as fw:
+        for sol in solutions[0]:
+            sol = ' '.join(sol)
+            level.try_solution(sol)
+            for S in level.switches_list:
+                fw.write(str(S.value))
+            fw.write('\n')
     
-    # level_gingko_biloba
-    # solutions = level_bonsai().find_all_solutions(verbose=2,
-    #                                                   nb_iterations_print=10**3,
-    #                                                   stop_at_first_solution=False)
-    # with open(f'temp/temp{str(int(time()))}.txt', 'w') as fw:
-    #     for sol in solutions[0]:
-    #         sol = ' '.join(sol)
-    #         print(sol)
-    #         fw.write(sol)
-    #         fw.write('\n')
 
     # assert False
 
     # if os.path.exists('temp.txt'):
     #     os.remove('temp.txt')
         
-    test_levels()
-
-    # for door in level_palace().doors_list:
-    #     ra = door.room_arrival
+    # test_levels()
+    
+    # door_list = level_line_and_columns().doors_list
+    # for i in range(len(door_list)):
+    #     door = door_list[i]
     #     rd = door.room_departure
-    #     # print(door.name, ra.name, rd.name)
-    #     i = door.name.replace('D', '')
-    #     a = ra.name.replace('R', '')
-    #     d = rd.name.replace('R', '')
-    #     print(f'''T{i} = Tree(tree_list=tree_list_XOR_2,
+    #     S_list = rd.switches_list
+    #     if len(S_list) == 1 and S_list[0].name != 'S0':
+    #         D_int = int(door.name.replace('D', ''))
+    #         if D_int <= 22:
+    #             print(f'''T{i} = Tree(tree_list=Tree.tree_list_AND(2),
     #                 name='T{i}',
-    #                 switches=[S{d}, S{a}])''')
+    #                 switches=[{S_list[0].name}, S0])''')
+    #         else:
+    #             print(f'''T{i} = Tree(tree_list=Tree.tree_list_from_str('TF'),
+    #                 name='T{i}',
+    #                 switches=[{S_list[0].name}, S0])''')
+    #     else:
+    #         print(f'''T{i} = Tree(tree_list=[None],
+    #                 name='T{i}',
+    #                 switches=[1])''')
     
     # for R in level_cypress().rooms_list:
     #     # print(R.name)
