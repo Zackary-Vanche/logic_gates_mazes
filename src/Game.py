@@ -761,9 +761,12 @@ class Game:
                                                  'FINDSOLUTION',
                                                  'FIND SOL',
                                                  'FIND SOLUTION']:
-                        maze = Levels.get_level(self.index_current_level,
-                                                get_new_level=True,
-                                                fast_solution_finding=True)
+                        if self.maze.random:
+                            maze = self.maze
+                        else:
+                            maze = Levels.get_level(self.index_current_level,
+                                                    get_new_level=True,
+                                                    fast_solution_finding=True)
                         sol_list = maze.find_all_solutions(stop_at_first_solution=True,
                                                            verbose=1,)[0]
                         assert len(sol_list) != 0
