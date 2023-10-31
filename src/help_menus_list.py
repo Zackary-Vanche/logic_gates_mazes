@@ -361,7 +361,7 @@ For example:
     # (2 1) [1 0 0 1 1] = 0"""
 
 help_menus_list['BETWEEN'] = """
-The operator BETWEEN takes several arguments:
+The operator BETWEEN (<<) takes several arguments:
     A list of triplets of switches
     A list or switches. Let be L that ast list.
 For every triplet:
