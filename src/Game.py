@@ -644,7 +644,8 @@ class Game:
     
     def show_solution(self,
                       save_videos=False,
-                      dt=0.1):
+                      dt=0.15):
+        dt = min(dt, 1)
         video_name = f"videos/level_{self.index_current_level}_{self.maze.name}.avi"
         if save_videos and os_path_exists(video_name):
             return
@@ -754,13 +755,21 @@ class Game:
                         self.get_new_level = True
                         self.get_level()
                         self.change_in_display = True
-                    elif self.current_action in ['SOL', 'SOLUTION']:
-                        self.show_solution()
-                    elif self.current_action in ['FIND',
-                                                 'FINDSOL',
-                                                 'FINDSOLUTION',
-                                                 'FIND SOL',
-                                                 'FIND SOLUTION']:
+                    elif self.current_action.split(' ')[0] in ['SOL', 'SOLUTION']:
+                        if len(self.current_action.split(' ')) == 1:
+                            self.show_solution()
+                        else:
+                            try:
+                                dt = float(self.current_action.split(' ')[1])
+                                print(dt)
+                                self.show_solution(dt=dt)
+                            except ValueError:
+                                self.show_solution()
+                    elif self.current_action.split(' ')[0] in ['FIND',
+                                                               'FINDSOL',
+                                                               'FINDSOLUTION',
+                                                               'FIND SOL',
+                                                               'FIND SOLUTION']:
                         if self.maze.random:
                             maze = self.maze
                         else:
@@ -771,7 +780,14 @@ class Game:
                                                            verbose=1,)[0]
                         assert len(sol_list) != 0
                         self.maze.fastest_solution=' '.join(sol_list[0])
-                        self.show_solution()
+                        if len(self.current_action.split(' ')) == 1:
+                            self.show_solution()
+                        else:
+                            try:
+                                dt = float(self.current_action.split(' ')[1])
+                                self.show_solution(dt=dt)
+                            except ValueError:
+                                self.show_solution()
                     elif self.current_action in ['SOLS', 'SOLUTIONS']:
                         self.show_all_solutions()
                     elif self.current_action in ['LR', 'LRANDOM']:
