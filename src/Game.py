@@ -778,7 +778,6 @@ class Game:
                                                     fast_solution_finding=True)
                         sol_list = maze.find_all_solutions(stop_at_first_solution=True,
                                                            verbose=1,)[0]
-                        assert len(sol_list) != 0
                         self.maze.fastest_solution=' '.join(sol_list[0])
                         if len(self.current_action.split(' ')) == 1:
                             self.show_solution()

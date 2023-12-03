@@ -79,6 +79,7 @@ from levels.level_initiation import level_initiation
 from levels.level_inside_out import level_inside_out
 from levels.level_inversions import level_inversions
 from levels.level_invert import level_invert
+from levels.level_iris import level_iris
 from levels.level_journey import level_journey
 from levels.level_jungle import level_jungle
 from levels.level_k import level_k
@@ -92,6 +93,7 @@ from levels.level_longest_path import level_longest_path
 from levels.level_loop import level_loop
 from levels.level_love import level_love
 from levels.level_magic_square import level_magic_square  # kakuro
+from levels.level_magnolia import level_magnolia
 from levels.level_manhattan_distance import level_manhattan_distance
 from levels.level_mansion import level_mansion
 from levels.level_maple import level_maple
@@ -111,6 +113,7 @@ from levels.level_numeration import level_numeration
 from levels.level_oak import level_oak
 from levels.level_odd import level_odd
 from levels.level_orchard import level_orchard
+from levels.level_orchid import level_orchid
 from levels.level_oval_track_puzzle import level_oval_track_puzzle
 from levels.level_palace import level_palace
 from levels.level_palm_tree import level_palm_tree
@@ -122,6 +125,7 @@ from levels.level_partition import level_partition
 from levels.level_passage import level_passage
 from levels.level_path import level_path
 from levels.level_peirce_s_arrow import level_peirce_s_arrow
+from levels.level_peony import level_peony
 from levels.level_permutate import level_permutate
 from levels.level_permutations import level_permutations
 from levels.level_pine import level_pine
@@ -129,6 +133,7 @@ from levels.level_playground import level_playground
 from levels.level_podium import level_podium
 from levels.level_point_of_no_return import level_point_of_no_return
 from levels.level_pong import level_pong
+from levels.level_poppy import level_poppy
 from levels.level_product import level_product
 from levels.level_puzzle import level_puzzle
 from levels.level_pyramid import level_pyramid
@@ -199,6 +204,7 @@ from levels.level_travelling_salesman import level_travelling_salesman
 from levels.level_traversal import level_traversal
 from levels.level_tree import level_tree
 from levels.level_triangulate import level_triangulate
+from levels.level_tulip import level_tulip
 from levels.level_village import level_village
 from levels.level_violets_are_blue import level_violets_are_blue
 from levels.level_von_neumann_neighborhood import level_von_neumann_neighborhood
@@ -249,24 +255,19 @@ class Levels:
     Maximum coverage problem
     
     Random bin packing
-
-    poppy
-    tulip
-    orchid
-    iris
     
     Trees :
     
     sycamore
     magnolia
-    tulip
     Hackberry
     Hickory
     
+    gladiolus
+    
     """
 
-    levels_functions_list = [
-                             level_hello_world,
+    levels_functions_list = [level_hello_world,
                              level_playground,
                              level_initiation,
                              level_linear,
@@ -365,6 +366,11 @@ class Levels:
                              level_pine,
                              level_random_K2,
                              level_egyptian_fractions,
+                             level_poppy,
+                             level_peony,
+                             level_magnolia,
+                             level_orchid,
+                             level_tulip,
                              level_roadblock,
                              level_passage,
                              level_impasse,
@@ -505,6 +511,11 @@ class Levels:
                                 level_jungle,
                              ],
               'The Wooden World':[level_bonsai,
+                                  level_poppy,
+                                  level_peony,
+                                  level_magnolia,
+                                  level_orchid,
+                                  level_tulip,
                                   level_roses_are_red,
                                   level_edelweiss,
                                   level_violets_are_blue,
@@ -1011,8 +1022,14 @@ if __name__ == "__main__":
     import os
     # import collections
     # import numpy as np
+    
+    # level_poppy,
+    # level_peony,
+    # level_magnolia,
+    # level_orchid,
+    # level_tulip,
 
-    level = level_line_and_columns()
+    level = level_tulip()
     solutions = level.find_all_solutions(verbose=2,
                                          nb_iterations_print=10**3,
                                          stop_at_first_solution=False)
@@ -1021,6 +1038,7 @@ if __name__ == "__main__":
             sol = ' '.join(sol)
             fw.write(sol)
             fw.write('\n')
+            print(sol)
     with open(f'temp/temp{str(int(time()))}.txt', 'w') as fw:
         for sol in solutions[0]:
             sol = ' '.join(sol)
@@ -1028,7 +1046,6 @@ if __name__ == "__main__":
             for S in level.switches_list:
                 fw.write(str(S.value))
             fw.write('\n')
-    
 
     # assert False
 
