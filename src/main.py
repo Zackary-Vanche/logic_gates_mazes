@@ -1,12 +1,12 @@
 from Game import Game
-from pyautogui import size as pyautogui_size
+#from pyautogui import size as pyautogui_size
 from Color import Color
 from Levels_colors_list import Levels_colors_list
 
 if __name__ == "__main__":
 
-    TOTAL_SIZE = pyautogui_size()
-    # You need that line.
+    #TOTAL_SIZE = pyautogui_size()
+    # You need that line if you compile the game.
     # If you don't put it, the pixel of the game
     # will be too big after compilation
 
