@@ -12,6 +12,7 @@ from levels.level_baguenaudier import level_baguenaudier
 from levels.level_bamboos import level_bamboos
 from levels.level_baobab import level_baobab
 from levels.level_beech import level_beech
+from levels.level_beginning import level_beginning
 from levels.level_betweenness import level_betweenness
 from levels.level_binary import level_binary
 from levels.level_bipartite import level_bipartite
@@ -181,6 +182,7 @@ from levels.level_spare import level_spare
 from levels.level_spider import level_spider
 from levels.level_square import level_square
 from levels.level_stairs import level_stairs
+from levels.level_start import level_start
 from levels.level_strange import level_strange
 from levels.level_sudoku import level_sudoku
 from levels.level_sujiko import level_sujiko
@@ -267,7 +269,9 @@ class Levels:
     
     """
 
-    levels_functions_list = [level_hello_world,
+    levels_functions_list = [level_start,
+                             level_beginning,
+                             level_hello_world,
                              level_playground,
                              level_initiation,
                              level_linear,

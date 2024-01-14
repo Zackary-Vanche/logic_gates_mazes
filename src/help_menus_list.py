@@ -61,20 +61,25 @@ The name of the exit room is RE."""
 
 help_menus_list['introduction'] = """You are trapped in the inside of a computer and want to reach the exit.
 
-There are differents elements in this game :
-    Rooms (R0, R1, R2, ..., EXIT) :  
-        The room inside which you are is surrounded.
-    Switches (S0, S1, S2, ...) : 
-        If a switch is turned on, it is surrounded, and you say it is equal to 1. If it is turned off, it is equal to 0.
-    Doors (D0, D1, D2, ...) :    
-        If a door is open, it is surrounded, and you say it is equal to 1. If it is closed, it is equal to 0.
-        Diamond-shape doors are two-way while arrow-shaped doors are one-way only.
+Rooms are named R0, R1, R2, ..., EXIT.
+The room inside which you are is surrounded.
 
-To go in a room, use a switch or travel by a door, write its name and press [ENTER]. You can only use switches of your current room, and travel by open doors. You can always erase what you wrote with the [BACKSPACE] key.
+Doors are named D0, D1, D2, ...    
+If a door is equal to 1, it is open and surrounded. If it is equal to 0, it is closed.
+Diamond-shape doors are two-way while arrow-shaped doors are one-way only.
 
-D0 = S0 means D0 equals S0 i.e. D0 is open if S0 is turned on.
+To go in a room, or travel by a door, write its name and press [ENTER].
+You can only travel by open doors.
+You can always erase what you wrote with the [BACKSPACE] key.
 
 Press the [RIGHT] ([LEFT]) arrow key to go to the next (previous) page."""
+
+help_menus_list['switches'] = """Switches are named S0, S1, S2, ...
+If a switch is turned on, it is surrounded, and you say it is equal to 1. If it is turned off, it is equal to 0.
+To use a switch, write its name and press [ENTER].
+You can only use switches of your current room.
+D0 = S0 means D0 equals S0 i.e. D0 is open if S0 is turned on.
+"""
 
 help_menus_list['directions keys'] = """
 To change level, you can use :
@@ -111,7 +116,13 @@ If you use the [UP] and [DOWN] keys, you can switch which equation appears first
 
 help_menus_list['levels'] = {}
 
-help_menus_list['levels']["Hello world"] = help_menus_list['introduction']
+help_menus_list['switches']
+
+help_menus_list['levels']["Start"] = help_menus_list['introduction']
+
+help_menus_list['levels']["Beginning"] = ''
+
+help_menus_list['levels']["Hello world"] = help_menus_list['switches']
 
 help_menus_list['levels']["Playground"] = help_menus_list['write several actions']
 
