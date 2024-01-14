@@ -118,9 +118,9 @@ help_menus_list['levels'] = {}
 
 help_menus_list['switches']
 
-help_menus_list['levels']["Start"] = help_menus_list['introduction']
+help_menus_list['levels']["Trivial"] = help_menus_list['introduction']
 
-help_menus_list['levels']["Beginning"] = ''
+help_menus_list['levels']["Choice"] = ''
 
 help_menus_list['levels']["Hello world"] = help_menus_list['switches']
 

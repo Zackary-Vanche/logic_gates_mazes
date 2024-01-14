@@ -12,7 +12,6 @@ from levels.level_baguenaudier import level_baguenaudier
 from levels.level_bamboos import level_bamboos
 from levels.level_baobab import level_baobab
 from levels.level_beech import level_beech
-from levels.level_beginning import level_beginning
 from levels.level_betweenness import level_betweenness
 from levels.level_binary import level_binary
 from levels.level_bipartite import level_bipartite
@@ -27,6 +26,7 @@ from levels.level_cedar import level_cedar
 from levels.level_central_symmetry import level_central_symmetry
 from levels.level_chessboard import level_chessboard
 from levels.level_chinese_postman_problem import level_chinese_postman_problem
+from levels.level_choice import level_choice
 from levels.level_circuit import level_circuit
 from levels.level_classified import level_classified
 from levels.level_code import level_code
@@ -182,7 +182,6 @@ from levels.level_spare import level_spare
 from levels.level_spider import level_spider
 from levels.level_square import level_square
 from levels.level_stairs import level_stairs
-from levels.level_start import level_start
 from levels.level_strange import level_strange
 from levels.level_sudoku import level_sudoku
 from levels.level_sujiko import level_sujiko
@@ -206,6 +205,7 @@ from levels.level_travelling_salesman import level_travelling_salesman
 from levels.level_traversal import level_traversal
 from levels.level_tree import level_tree
 from levels.level_triangulate import level_triangulate
+from levels.level_trivial import level_trivial
 from levels.level_tulip import level_tulip
 from levels.level_village import level_village
 from levels.level_violets_are_blue import level_violets_are_blue
@@ -269,8 +269,8 @@ class Levels:
     
     """
 
-    levels_functions_list = [level_start,
-                             level_beginning,
+    levels_functions_list = [level_trivial,
+                             level_choice,
                              level_hello_world,
                              level_playground,
                              level_initiation,

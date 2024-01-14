@@ -6,7 +6,7 @@ from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 from Color import Color
 
-def level_start():
+def level_trivial():
 
     T0 = Tree(tree_list=[None],
               name='T0',
@@ -25,8 +25,6 @@ def level_start():
               room_arrival=RE)
     
     lcolor = Levels_colors_list.FROM_HUE(hu=0.6, sa=0.4, li=0.3)
-    lcolor.contour_color = Color.GREY
-    lcolor.surrounding_color = Color.GREY
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
@@ -34,7 +32,7 @@ def level_start():
                  doors_list=[D0],
                  fastest_solution='D0',
                  level_color=lcolor,
-                 name='Start',
+                 name='Trivial',
                  door_window_size=380,
                  keep_proportions=True,
                  y_separation=40,

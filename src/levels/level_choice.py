@@ -6,7 +6,7 @@ from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 from Color import Color
 
-def level_beginning():
+def level_choice():
 
     T0 = Tree(tree_list=[None],
               name='T0',
@@ -43,7 +43,7 @@ def level_beginning():
                  doors_list=[D0, D1],
                  fastest_solution='D1',
                  level_color=lcolor,
-                 name='Beginning',
+                 name='Choice',
                  door_window_size=380,
                  keep_proportions=True,
                  y_separation=40,
