@@ -12,7 +12,7 @@ if __name__ == "__main__":
 
     Game(show_help=1,
          index_current_level=0, 
-         is_fullscreen=0,
+         is_fullscreen=1,
          # WINDOW_SIZE=None,
          # SMALLEST_WINDOW_SIZE=None,
          # game_color=Levels_colors_list.FROM_HUE(hu=0.1, sa=0, li=0.35)

@@ -29,10 +29,10 @@ if __name__ == "__main__":
     racine = '/'.join(racine)
     if not os_path_exists(racine):
         os_mkdir(racine)
-    for file in os_listdir(racine):
-        file = racine + '/' + file
-        if 'level' in file:
-            os_remove(file)
+    # for file in os_listdir(racine):
+    #     file = racine + '/' + file
+    #     if 'level' in file:
+    #         os_remove(file)
 
     # TOTAL_SIZE = pyautogui_size()
     # Game(save_image=1, time_between_level_changing=0, show_help=0).play()
@@ -48,7 +48,7 @@ if __name__ == "__main__":
     if not os_path_exists('images/concat'):
         os_mkdir('images/concat')
     
-    n_levels = Levels.number_of_levels
+    n_levels = 2*Levels.number_of_levels
     n = divisor_closest_to_sqrt(n_levels)
     m = n_levels // n
     for size in [[1920, 1200],
@@ -59,52 +59,37 @@ if __name__ == "__main__":
             string = "WIDTH_{}_HEIGHT_{}".format(WIDTH, HEIGHT)
             dico = {}
             for file in os_listdir(racine):
-                if string in file and not "HELP" in file:# and not "concat" in file:
-                    k = int(file.split('_')[1])
-                    dico[k] = '/'.join([racine, file])
+                if string in file:# and not "concat" in file:
+                    if "HELP" in file:
+                        k = int(file.split('_')[2])
+                        dico[(k, 0)] = '/'.join([racine, file])
+                    else:
+                        k = int(file.split('_')[1])
+                        dico[(k, 1)] = '/'.join([racine, file])
             file_list = []
             for k in sorted(dico.keys()):
                 file_list.append(dico[k])
+            
+            if len(file_list) == 0:
+                print('no images')
+                continue
     
             assert m >= n, f'~ {m} <= {n}'
-            # assert m * n == len(file_list), """{0}, {1}, {2}""".format(m, n, len(file_list))
+            assert m * n == len(file_list), """{0}, {1}, {2}""".format(m, n, len(file_list))
             l_img_h = []
             for i in range(m):
                 l = file_list[n * i:n * i + n]
                 l = [cv2_imread(file) for file in l]
                 im_h = cv2_hconcat(l)
                 l_img_h.append(im_h)
+                # filename = r'images/concat/concat_{}_levels_{}.jpg'.format(i, string)
+                # cv2_imwrite(filename, im_h)
             img = cv2_vconcat(l_img_h)
-            plt.imshow(img)
-            plt.close()
+            #plt.imshow(img)
+            #plt.close()
             filename = r'images/concat/concat_levels_{}.jpg'.format(string)
             cv2_imwrite(filename, img)
             print(filename)
-    
-            WIDTH, HEIGHT = size
-            string = "WIDTH_{}_HEIGHT_{}".format(WIDTH, HEIGHT)
-            dico = {}
-            for file in os_listdir(racine):
-                if string in file and "HELP" in file and not "concat" in file:
-                    k = int(file.split('_')[2])
-                    dico[k] = '/'.join([racine, file])
-            file_list = []
-            for k in sorted(dico.keys()):
-                file_list.append(dico[k])
-    
-            # assert m <= n
-            assert m * n == len(file_list)
-            l_img_h = []
-            for i in range(m):
-                l = file_list[n * i:n * i + n]
-                l = [cv2_imread(file) for file in l]
-                im_h = cv2_hconcat(l)
-                l_img_h.append(im_h)
-            img_h = cv2_vconcat(l_img_h)
-            plt.imshow(img_h)
-            plt.close()
-            filename = r'images/concat/concat_levels_HELP_{}.jpg'.format(string)
-            cv2_imwrite(filename, img_h)
         except TypeError:
             pass
     
