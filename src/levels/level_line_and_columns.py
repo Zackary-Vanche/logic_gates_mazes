@@ -519,6 +519,7 @@ def level_line_and_columns():
                  level_color=Levels_colors_list.FROM_HUE(hu=0.85, sa=0.5, li=0.3),
                  name='Line and columns',
                  keep_proportions=True,
-                 door_window_size=300)
+                 door_window_size=300,
+                 random=True)
     
     return level

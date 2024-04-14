@@ -670,7 +670,9 @@ class Levels:
                                    level_k,
                                    level_knight,
                                    ],
-              "The Nature":[level_hello_world,
+              "The Nature":[level_trivial,
+                            level_choice,
+                            level_hello_world,
                             level_playground,
                             level_initiation,
                             level_linear,
@@ -1024,6 +1026,8 @@ if __name__ == "__main__":
     pass
 
     import os
+    
+    test_levels()
     # import collections
     # import numpy as np
     
@@ -1052,7 +1056,6 @@ if __name__ == "__main__":
                 fw.write(str(S.value))
             fw.write('\n')
     """
-    solutions = level_exact_cover().find_all_solutions()
 
     # assert False
 
