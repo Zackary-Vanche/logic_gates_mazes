@@ -1033,6 +1033,7 @@ if __name__ == "__main__":
     # level_orchid,
     # level_tulip,
 
+    """
     level = level_tulip()
     solutions = level.find_all_solutions(verbose=2,
                                          nb_iterations_print=10**3,
@@ -1050,6 +1051,8 @@ if __name__ == "__main__":
             for S in level.switches_list:
                 fw.write(str(S.value))
             fw.write('\n')
+    """
+    solutions = level_exact_cover().find_all_solutions()
 
     # assert False
 

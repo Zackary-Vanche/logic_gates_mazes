@@ -39,7 +39,7 @@ if __name__ == "__main__":
     # TOTAL_SIZE = [1920, 1055]
     game_color = Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.4)
     game_color = None
-    Game(is_fullscreen=0, save_image=1, game_color=game_color).play()
+    #Game(is_fullscreen=0, save_image=1, game_color=game_color).play()
     # Game(is_fullscreen=1, save_image=1, game_color=game_color).play()
 
     if not os_path_exists('images'):
@@ -51,8 +51,8 @@ if __name__ == "__main__":
     n_levels = 2*Levels.number_of_levels
     n = divisor_closest_to_sqrt(n_levels)
     m = n_levels // n
-    for size in [[1920, 1200],
-                 [1920, 1080],
+    for size in [#[1920, 1200],
+                 #[1920, 1080],
                  [1366, 768]]:  # [1346, 668], [1920, 1001], [1920, 1055],
         try:
             WIDTH, HEIGHT = size
@@ -82,10 +82,10 @@ if __name__ == "__main__":
                 l = [cv2_imread(file) for file in l]
                 im_h = cv2_hconcat(l)
                 l_img_h.append(im_h)
-                # filename = r'images/concat/concat_{}_levels_{}.jpg'.format(i, string)
-                # cv2_imwrite(filename, im_h)
+                filename = r'images/concat/concat_{}_levels_{}.jpg'.format(i, string)
+                cv2_imwrite(filename, im_h)
             img = cv2_vconcat(l_img_h)
-            #plt.imshow(img)
+            plt.imshow(img)
             #plt.close()
             filename = r'images/concat/concat_levels_{}.jpg'.format(string)
             cv2_imwrite(filename, img)

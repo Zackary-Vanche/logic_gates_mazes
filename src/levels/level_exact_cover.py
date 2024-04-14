@@ -68,8 +68,8 @@ def level_exact_cover():
               cut_expression=True)
 
     R0 = Room(name='R0',
-              position = [3, 0, 1, 8],
-              switches_list = [S0, S1, S2, S3, S4, S5, S6, S7])
+              position = [3, 0, 1, 9],
+              switches_list = [S0, S1, S2, S3, S4, S5, S6, S7, S8])
     RE = Room(name='RE',
               position=[0, 7, 1, 1],
               is_exit=True)   # E pour exit ou end
