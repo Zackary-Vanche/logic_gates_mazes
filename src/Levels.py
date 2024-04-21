@@ -78,6 +78,7 @@ from levels.level_independent_set import level_independent_set
 from levels.level_infinity import level_infinity
 from levels.level_initiation import level_initiation
 from levels.level_inside_out import level_inside_out
+from levels.level_intersection import level_intersection
 from levels.level_inversions import level_inversions
 from levels.level_invert import level_invert
 from levels.level_iris import level_iris
@@ -269,7 +270,8 @@ class Levels:
     
     """
 
-    levels_functions_list = [level_trivial,
+    levels_functions_list = [
+                             level_trivial,
                              level_choice,
                              level_hello_world,
                              level_playground,
@@ -361,6 +363,7 @@ class Levels:
                              level_entropy,
                              level_dichotomy,
                              level_random_star,
+                             level_intersection,
                              level_partition,
                              level_second,
                              level_knapsack,
@@ -526,6 +529,7 @@ class Levels:
                                   level_love,
                                   level_palm_tree,
                                   level_podium,
+                                  level_intersection,
                                   level_sunflower,
                                   level_willow,
                                   level_beech,
@@ -1030,6 +1034,7 @@ if __name__ == "__main__":
     if not os.path.exists('temp'):
         os.mkdir('temp')
     
+    """
     dico_i_level_name = {}
     for i, level_funtion in enumerate(Levels.levels_functions_list):
         dico_i_level_name[level_funtion().name] = i
@@ -1038,197 +1043,5 @@ if __name__ == "__main__":
         for name in sorted(dico_i_level_name.keys()):
             i = dico_i_level_name[name]
             fw.write(f'{name: <25} {i}\n')
-        
-    #test_levels()
-    # import collections
-    # import numpy as np
-    
-    # level_poppy,
-    # level_peony,
-    # level_magnolia,
-    # level_orchid,
-    # level_tulip,
-
     """
-    level = level_tulip()
-    solutions = level.find_all_solutions(verbose=2,
-                                         nb_iterations_print=10**3,
-                                         stop_at_first_solution=False)
-    with open(f'temp/temp{str(int(time()))}.txt', 'w') as fw:
-        for sol in solutions[0]:
-            sol = ' '.join(sol)
-            fw.write(sol)
-            fw.write('\n')
-            print(sol)
-    with open(f'temp/temp{str(int(time()))}.txt', 'w') as fw:
-        for sol in solutions[0]:
-            sol = ' '.join(sol)
-            level.try_solution(sol)
-            for S in level.switches_list:
-                fw.write(str(S.value))
-            fw.write('\n')
-    """
-
-    # assert False
-
-    # if os.path.exists('temp.txt'):
-    #     os.remove('temp.txt')
-        
-    # test_levels()
-    
-    # door_list = level_line_and_columns().doors_list
-    # for i in range(len(door_list)):
-    #     door = door_list[i]
-    #     rd = door.room_departure
-    #     S_list = rd.switches_list
-    #     if len(S_list) == 1 and S_list[0].name != 'S0':
-    #         D_int = int(door.name.replace('D', ''))
-    #         if D_int <= 22:
-    #             print(f'''T{i} = Tree(tree_list=Tree.tree_list_AND(2),
-    #                 name='T{i}',
-    #                 switches=[{S_list[0].name}, S0])''')
-    #         else:
-    #             print(f'''T{i} = Tree(tree_list=Tree.tree_list_from_str('TF'),
-    #                 name='T{i}',
-    #                 switches=[{S_list[0].name}, S0])''')
-    #     else:
-    #         print(f'''T{i} = Tree(tree_list=[None],
-    #                 name='T{i}',
-    #                 switches=[1])''')
-    
-    # for R in level_cypress().rooms_list:
-    #     # print(R.name)
-    #     ld = [D.tree.switches_list[0].name for D in R.two_way_doors_list if not D.tree.switches_list[0].get_value()]
-    #     print(', '.join(ld) + ', ' + '+'.join(ld).replace('S', 'x') + ',')
-    
-    # i = 0
-    # for D in level_cypress().doors_list:
-    #     ra = D.room_arrival
-    #     rd = D.room_departure
-    #     print(f"""['{ra.name}', '{rd.name}', l_weights[{i}]],""")
-    #     i += 1
-    # level = level_podium()
-    # for room in level.rooms_list:
-    #     if room.name == 'RE':
-    #         continue
-    #     i = int(room.name.replace('R', ''))
-    #     if i in [0, 1]:
-    #         continue
-    #     # print(room.name)
-    #     doors_list = room.two_way_doors_list
-    #     doors_names = [door.name for door in doors_list]
-    #     switches_names = []
-    #     for door in doors_list:
-    #         tree = door.tree
-    #         switch = tree.switches_list[0]
-    #         switches_names.append(switch.name)
-    #     # n_switches = len(switches_names)
-    #     # print(f"""['IN', Tree.tree_list_SUM({n_switches}), [None], [None]]""")
-    #     switches_names.extend(['0', '2'])
-    #     print(', '.join(switches_names))
-    #     # print(doors_list)
-
-    # dico = {}
-    # k = 0
-    # for door in level_tetractys().doors_list:
-    #     if door.name in ['D0', 'D25']:
-    #         continue
-    #     # print(door.name)
-    #     rd = door.room_departure
-    #     ra = door.room_arrival
-    #     # print(f'''('{rd.name}', '{ra.name}', l_weights[{k}]),''')
-    #     a = int(ra.name.replace('R', ''))
-    #     d = int(rd.name.replace('R', ''))
-    #     print(f'''('{a}', '{d}') : '{door.name}',''')
-    #     k += 1
-
-    # for room in level_tetractys().rooms_list:
-    #     doors_list = room.two_way_doors_list
-    #     doors_names = [f'"{door.name}"' for door in doors_list]
-    #     # print('[' + ', '.join(doors_names) + '],')
-    #     tree_list = [door.tree for door in doors_list]
-    #     switches_list = [tree.switches_list[0] for tree in tree_list]
-    #     switches_names = [switch.name for switch in switches_list]
-    #     print(', '.join(switches_names))
-
-    # for sol in solutions[0]:
-    #     l_s = []
-    #     for action in sol:
-    #         if action in [f'S{i}' for i in range(2, 8)]:
-    #             l_s.append(action)
-    #     print(' '.join(l_s))
-
-    # import cProfile
-    # cProfile.run('''Levels.save_solutions_txt(verbose=1, multithreads=False, max_calculation_time=float('inf'), save_as_txt=False)''', sort=1)
-
-    # door_list = level_podium().doors_list
-    # door_list = sorted(door_list, key = lambda x : int(x.name.replace('D', '')))
-    # for i in range(len(door_list)):
-    #     door = door_list[i]
-    #     rd = door.room_departure
-    #     ra = door.room_arrival
-    #     # T0 = door.name.replace('D', 'T')
-    #     # i0 = int(rd.name.replace('R', ''))
-    #     # i1 = int(ra.name.replace('R', ''))
-    #     # dn = door.name
-    #     Slist_d = rd.switches_list
-    #     Slist_a = ra.switches_list
-    #     Slist = ['S1', 'S2', 'S4', 'S6', 'S7', 'S8', 'S10']
-    #     if len(Slist_d) == 1 and len(Slist_a) == 1:
-    #         print(f"""T{i} = Tree(tree_list=tree_list,
-    #               empty=True,
-    #               name='T{i}',
-    #               switches=[{Slist_d[0].name}, {Slist_a[0].name}])""")
-    #     # # if len(Slist_d) != 0:
-    #     #     S0 = Slist_d[0].name
-    #     #     print(f"""T{i} = Tree(tree_list=[None],
-    #     #           empty=True,
-    #     #           name='T{i}',
-    #     #           switches=[{S0}])""")
-    #     else:
-    #         # S1 = Slist_a[0].name
-    #         print(f"""T{i} = Tree(tree_list=[None],
-    #               empty=True,
-    #               name='T{i}',
-    #               switches=[1])""")
-
-        #     print(f"""T{i} = Tree(tree_list=tree_list_0,
-        #           empty=True,
-        #           name='T{i}',
-        #           switches=[{S0}, {S1}])""")
-        # else:
-        #     print(f'''T{i} = Tree(tree_list=[None],
-        #           empty=True,
-        #           name='T{i}',
-        #           switches=[1])''')
-        # if len(room_arrival.switches_list) == 1:
-        #     S = room_arrival.switches_list[0].name
-        #     print(f"""{T0} = Tree(tree_list=Tree.tree_list_not,
-        #          empty=True,
-        #          name='{T0}',
-        #          switches=[{S}])""")
-        # if len(room_departure.switches_list) == 1:
-        #     S = room_departure.switches_list[0].name
-        #     print(f"""{T0} = Tree(tree_list=[None],
-        #          empty=True,
-        #          name='{T0}',
-        #          switches=[{S}])""")
-
-        # S0 = room_departure.switches_list[0].name
-
-        # print(f"""{T0} = Tree(tree_list=tree_list_0,
-        #           empty=True,
-        #           name='{T0}',
-        #           switches=[{S0}, {S1}])""")
-
-    # level = level_water_lily()
-    # level.find_all_solutions(verbose)
-    # room_list = level.rooms_list
-    # for room in room_list:
-    #     doors_list = room.departure_doors_list + room.two_way_doors_list + room.arrival_doors_list
-    #     doors_name_list = [door.name for door in doors_list]
-    #     int_list = [int(door.replace('D', '')) for door in doors_name_list]
-    #     int_list.sort()
-    #     Slist = [f'S{i}' for i in int_list if i != 0]
-    #     print('2, ' + ', '.join(Slist) + ',')# + ',\n' + room.switches_list[0].name)
-    #     # print(f'tree_list_EQU_SUM({len(Slist)}),')
+    test_levels()

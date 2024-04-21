@@ -1,6 +1,6 @@
-ns = 8+5
-nd = 4+4+2
-nr = 4+1+1
+ns = 9*2
+nd = 12+2+1
+nr = 10
 nv = 4
 
 print('''
@@ -40,7 +40,7 @@ if nv != 0:
 for i in range(nd):
     print(f'''    T{i} = Tree(tree_list=[None],
                 name='T{i}',
-                switches=[S{i-1}])''')
+                switches=[1])''')
     
 # for i in range(nd):
 #     print(f'''    T{i} = Tree(tree_list=tre_list_EQU,
@@ -55,8 +55,8 @@ print('''    dx = 1
     ey = 0.5\n''')
     
 for i in range(nr):
-    y = (i-4)//4
-    x = (i-4)%4
+    y = (i-1)%3
+    x = (i-1)//3
     # print(f'''    R{i} = Room(name='R{i}',
     #             position=[{x}*dx, {y}*dy, ex, ey],
     #             switches_list=[])''')

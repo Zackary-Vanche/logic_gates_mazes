@@ -29,18 +29,20 @@ if __name__ == "__main__":
     racine = '/'.join(racine)
     if not os_path_exists(racine):
         os_mkdir(racine)
-    # for file in os_listdir(racine):
-    #     file = racine + '/' + file
-    #     if 'level' in file:
-    #         os_remove(file)
+    for file in os_listdir(racine):
+        file = racine + '/' + file
+        if 'level' in file:
+            os_remove(file)
 
     # TOTAL_SIZE = pyautogui_size()
     # Game(save_image=1, time_between_level_changing=0, show_help=0).play()
     # TOTAL_SIZE = [1920, 1055]
     game_color = Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.4)
     game_color = None
-    #Game(is_fullscreen=0, save_image=1, game_color=game_color).play()
-    # Game(is_fullscreen=1, save_image=1, game_color=game_color).play()
+    Game(is_fullscreen=0, save_image=1, game_color=game_color).play()
+    #Game(is_fullscreen=1, save_image=1, game_color=game_color).play()
+
+    """
 
     if not os_path_exists('images'):
         os_mkdir('images')
@@ -51,8 +53,8 @@ if __name__ == "__main__":
     n_levels = 2*Levels.number_of_levels
     n = divisor_closest_to_sqrt(n_levels)
     m = n_levels // n
-    for size in [#[1920, 1200],
-                 #[1920, 1080],
+    for size in [[1920, 1200],
+                 [1920, 1080],
                  [1366, 768]]:  # [1346, 668], [1920, 1001], [1920, 1055],
         try:
             WIDTH, HEIGHT = size
@@ -75,7 +77,7 @@ if __name__ == "__main__":
                 continue
     
             assert m >= n, f'~ {m} <= {n}'
-            assert m * n == len(file_list), """{0}, {1}, {2}""".format(m, n, len(file_list))
+            assert m * n == len(file_list), "{0}, {1}, {2}".format(m, n, len(file_list))
             l_img_h = []
             for i in range(m):
                 l = file_list[n * i:n * i + n]
@@ -104,3 +106,5 @@ if __name__ == "__main__":
     plt.plot(lx, ly)
     plt.scatter(lx, ly)
     plt.grid(True)
+    
+    """
