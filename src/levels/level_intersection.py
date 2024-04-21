@@ -30,12 +30,13 @@ def level_intersection():
     tree_list_1 = ['AND', Tree.tree_list_XNOR(2), Tree.tree_list_XOR(2)]
     T0 = Tree(tree_list=['AND',
                          ['EQU',
-                         Tree.tree_list_SUM(9),
-                         [None]],
+                          [None],
+                          Tree.tree_list_SUM(9),],
                          Tree.tree_list_NAND(4)],
                     name='T0',
-                    switches=[S0, S1, S2, S3, S4, S5, S6, S7, S8, 4,
-                              S0, S3, S6, S7])
+                    switches=[4, S0, S1, S2, S3, S4, S5, S6, S7, S8,
+                              S0, S3, S6, S7],
+                    cut_expression=True)
     T1 = Tree(tree_list=tree_list_1,
                     name='T1',
                     switches=[S0, S1, S9, S10])

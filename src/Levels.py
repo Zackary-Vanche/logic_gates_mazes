@@ -1027,14 +1027,14 @@ def calculates_random_level_solution_length(aux_level_function):
 
 
 if __name__ == "__main__":
-    pass
+
+    test_levels()
 
     import os
     
     if not os.path.exists('temp'):
         os.mkdir('temp')
     
-    """
     dico_i_level_name = {}
     for i, level_funtion in enumerate(Levels.levels_functions_list):
         dico_i_level_name[level_funtion().name] = i
@@ -1043,5 +1043,3 @@ if __name__ == "__main__":
         for name in sorted(dico_i_level_name.keys()):
             i = dico_i_level_name[name]
             fw.write(f'{name: <25} {i}\n')
-    """
-    test_levels()
