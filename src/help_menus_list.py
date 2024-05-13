@@ -11,9 +11,9 @@ help_menus_list['parenthesis'] = """
 To simplify notations, parentheses are used.
 
 Instead of writing :
-    D0 = & S0 & S1 S2
+    D0 = | S0 | S1 S2
 you write :
-    D0 = & ( S0 S1 S2 )
+    D0 = | ( S0 S1 S2 )
 You can use this notation with more than 3 switches, and with every operand."""
 
 help_menus_list['brackets'] = """
@@ -129,10 +129,10 @@ help_menus_list['levels']["Playground"] = help_menus_list['write several actions
 help_menus_list['levels']["Initiation"] = '\n'.join([help_menus_list['leave the game'],
                                                      help_menus_list['Polish notation']])
 
-help_menus_list['levels']["Linear"] = help_menus_list['directions keys']
-
-help_menus_list['levels']["Backward"] = '\n'.join([help_menus_list['parenthesis'],
+help_menus_list['levels']["Cardinal directions"] = '\n'.join([help_menus_list['parenthesis'],
                                                  help_menus_list['brackets'],])
+
+help_menus_list['levels']["Linear"] = help_menus_list['directions keys']
 
 help_menus_list['levels']["Numeration"] = '\n'.join([help_menus_list['numerical value']])
 

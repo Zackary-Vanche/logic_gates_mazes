@@ -5,6 +5,7 @@ from pygame.locals import K_KP0, K_KP1, K_KP2, K_KP3, K_KP4
 from pygame.locals import K_KP5, K_KP6, K_KP7, K_KP8, K_KP9
 from pygame.locals import QUIT, K_RIGHT, K_LEFT, K_UP, K_DOWN, K_SPACE, K_LALT, K_RALT, K_KP_PERIOD
 from pygame.locals import K_RETURN, K_BACKSPACE, K_ESCAPE
+from pygame.locals import MOUSEWHEEL
 from pygame.display import set_mode as pygame_display_set_mode
 from pygame.display import set_caption as pygame_display_set_caption
 from pygame.display import update as pygame_display_update
@@ -622,9 +623,9 @@ class Game:
         doors_list.sort(key=sort_func)
         self.possible_current_actions = switches_list + doors_list
         if reset_current_action_index:
-            self.current_action_index = 0
+            self.current_action_index = -1
         
-    def handle_keys_UP_DOWN(self):
+    def handle_keys_ALT(self):
         if time() - self.last_key_pressed_time > self.time_between_actions:
             if self.possible_current_actions in [None, []]:
                 self.update_possible_actions(reset_current_action_index=False)
@@ -729,6 +730,15 @@ class Game:
                                 dt = 0)
 
     def handle_interractions(self):
+        """
+        for event in pygame_event_get():
+            print('event.type', event.type)
+            if event.type == MOUSEWHEEL:
+               print(event)
+               print(event.x, event.y)
+               print(event.flipped)
+               print(event.which)
+        """
         self.pressed = pygame_key_get_pressed()
         if time() - self.last_key_pressed_time > self.time_between_actions:
             self.pressed = pygame_key_get_pressed()
@@ -937,7 +947,7 @@ class Game:
     def draw_wires(self):
         pass
     
-    def handle_ALT(self):
+    def handle_K_UP_DOWN(self):
         # print(time() - self.last_key_pressed_time)
         self.pressed = pygame_key_get_pressed()
         if time() - self.last_key_pressed_time > self.time_between_actions:
@@ -974,13 +984,13 @@ class Game:
                 if self.change_in_display or self.update_display_at_every_loop:
                     self.display_game_window()
                     self.change_in_display = False
-                self.handle_keys_UP_DOWN()
+                self.handle_keys_ALT()
                 self.handle_interractions()
                 if self.save_image:
                     self.save_image_as_file()
             self.change_level()
             # self.goto_or_leave_help()
-            self.handle_ALT()
+            self.handle_K_UP_DOWN()
             # self.change_door_page()
             if self.update_to_save_images():  # It means you quit the game
                 return None

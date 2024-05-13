@@ -21,6 +21,7 @@ from levels.level_bonsai import level_bonsai
 from levels.level_boolean import level_boolean
 from levels.level_branches import level_branches
 from levels.level_bridges import level_bridges
+from levels.level_cardinal_directions import level_cardinal_directions
 from levels.level_cartesian import level_cartesian
 from levels.level_cedar import level_cedar
 from levels.level_central_symmetry import level_central_symmetry
@@ -276,6 +277,7 @@ class Levels:
                              level_hello_world,
                              level_playground,
                              level_initiation,
+                             level_cardinal_directions,
                              level_linear,
                              level_loop,
                              level_backward,
@@ -679,6 +681,7 @@ class Levels:
                             level_hello_world,
                             level_playground,
                             level_initiation,
+                            level_cardinal_directions,
                             level_linear,
                             level_loop,
                             level_yoyo,
