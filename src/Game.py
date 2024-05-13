@@ -602,13 +602,16 @@ class Game:
             print(f'The level {maze_name} cannot be loaded.')
             print('Your screen is too small.')
         
-    def update_possible_actions(self, reset_current_action_index=True):
+    def update_possible_actions(self, reset_current_action_index=True, doors_only=False):
         maze = self.maze
         current_room = maze.current_room()
         # SWITCHES LIST
-        switches_list = []
-        for switch in current_room.switches_list:
-             switches_list.append(switch.name)
+        if doors_only:
+            switches_list = [action for action in self.possible_current_actions if 'S' in action]
+        else:
+            switches_list = []
+            for switch in current_room.switches_list:
+                 switches_list.append(switch.name)
         # DOOR LIST
         doors_list = []
         for door in current_room.departure_doors_list:
@@ -745,26 +748,25 @@ class Game:
             for key in Game.keys_dict.keys():
                 if self.pressed[key]:
                     self.change_in_display = True
-                    self.update_possible_actions()
                     self.current_action = self.current_action + Game.keys_dict[key]
                     self.last_key_pressed_time = time()
             if self.pressed[K_RETURN] and self.current_action != '':# and self.maze.current_room_index != self.maze.exit_room_index:
                 self.change_in_display = True
-                self.update_possible_actions()
                 if len(self.current_action) > 0:
                     # with open('temp.txt', 'a') as fa:
                     #     fa.write(self.current_action + ' ')
                     if self.current_action == 'B':
                         self.change_in_display = True
-                        self.update_possible_actions()
                         self.maze.reboot_solution()
                         self.last_key_pressed_time = time()
                         self.current_action = ''
                         self.maze.current_door_page = 0
+                        self.update_possible_actions()
                     elif self.current_action == 'N':
                         self.get_new_level = True
                         self.get_level()
                         self.change_in_display = True
+                        self.update_possible_actions()
                     elif self.current_action.split(' ')[0] in ['SOL', 'SOLUTION']:
                         if len(self.current_action.split(' ')) == 1:
                             self.show_solution()
@@ -775,6 +777,10 @@ class Game:
                                 self.show_solution(dt=dt)
                             except ValueError:
                                 self.show_solution()
+                        self.update_possible_actions()
+                    elif self.current_action in ['SOLS', 'SOLUTIONS']:
+                        self.show_all_solutions()
+                        self.update_possible_actions()
                     elif self.current_action.split(' ')[0] in ['FIND',
                                                                'FINDSOL',
                                                                'FINDSOLUTION',
@@ -797,12 +803,12 @@ class Game:
                                 self.show_solution(dt=dt)
                             except ValueError:
                                 self.show_solution()
-                    elif self.current_action in ['SOLS', 'SOLUTIONS']:
-                        self.show_all_solutions()
+                        self.update_possible_actions()
                     elif self.current_action in ['LR', 'LRANDOM']:
                         level_number_list = [i for i in range(Levels.number_of_levels)]
                         self.index_current_level = rd_choice(level_number_list)
                         self.level_changed = True
+                        self.update_possible_actions()
                     elif self.current_action in ['VIDEO', 'VIDEOS']:
                         self.save_videos()
                     elif self.current_action == 'COLOR':
@@ -838,6 +844,10 @@ class Game:
                         self.current_action = self.current_action.replace('EXIT', 'RE')
                         if self.current_action[0] in ['D', 'S', 'R']:
                             self.maze.make_actions(self.current_action)
+                            if 'R' in self.current_action or 'D' in self.current_action:
+                                self.update_possible_actions()
+                            else:
+                                self.update_possible_actions(doors_only=True)
                         if self.current_action[0:2] == 'A ':
                             self.maze.make_actions(self.current_action[2:], allow_all=True)
                         if self.current_action[0] == 'A':
@@ -847,12 +857,11 @@ class Game:
                             if self.current_action[1:] in level_number_list:
                                 self.index_current_level = int(self.current_action[1:])
                                 self.level_changed = True
+                            self.update_possible_actions()
                         self.current_action = ''
-                        self.update_possible_actions()
         if time() - self.last_key_BACKSPACE_pressed_time > self.time_between_deletings:
             if self.pressed[K_BACKSPACE]:
                 self.change_in_display = True
-                self.update_possible_actions()
                 self.current_action = self.current_action[:-1]
                 self.last_key_BACKSPACE_pressed_time = time()
 
@@ -933,20 +942,6 @@ class Game:
             self.level_changed = True
         return False
     
-    # def change_draw_wires(self):
-    #     print('change_draw_wires', time())
-    #     self.pressed = pygame_key_get_pressed()
-    #     if time() - self.last_space_pressed_time > self.time_between_actions:
-    #         if self.pressed[K_w]:
-    #             self.show_wires = not self.show_wires
-    #             self.last_space_pressed_time = time()
-    #             self.change_in_display = True
-    #             self.update_possible_actions()
-    #             print('self.show_wires', self.show_wires)
-        
-    def draw_wires(self):
-        pass
-    
     def handle_K_UP_DOWN(self):
         # print(time() - self.last_key_pressed_time)
         self.pressed = pygame_key_get_pressed()
@@ -977,10 +972,6 @@ class Game:
                     self.display_help()
                     self.change_in_display = False
             else:
-                # if self.show_wires:
-                #     if self.change_in_display or self.update_display_at_every_loop:
-                #         self.draw_wires()
-                # else:
                 if self.change_in_display or self.update_display_at_every_loop:
                     self.display_game_window()
                     self.change_in_display = False
@@ -989,12 +980,9 @@ class Game:
                 if self.save_image:
                     self.save_image_as_file()
             self.change_level()
-            # self.goto_or_leave_help()
             self.handle_K_UP_DOWN()
-            # self.change_door_page()
             if self.update_to_save_images():  # It means you quit the game
                 return None
-            # self.change_page()
 
     def save_levels_txt(verbose=0, calculates_solutions=True, short_only=True):
         t0 = time()
@@ -1002,7 +990,6 @@ class Game:
         if not os_path_exists('mazes'):
             os_mkdir('mazes')
         for k in range(Levels.number_of_levels):
-            # level = Levels.levels_functions_list[k]()
             level = Levels.get_level(k)
             if level.fastest_solution is not None:
                 if not short_only:
