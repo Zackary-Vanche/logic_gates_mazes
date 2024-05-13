@@ -602,16 +602,13 @@ class Game:
             print(f'The level {maze_name} cannot be loaded.')
             print('Your screen is too small.')
         
-    def update_possible_actions(self, reset_current_action_index=True, doors_only=False):
+    def update_possible_actions(self, reset_current_action_index=True):
         maze = self.maze
         current_room = maze.current_room()
         # SWITCHES LIST
-        if doors_only:
-            switches_list = [action for action in self.possible_current_actions if 'S' in action]
-        else:
-            switches_list = []
-            for switch in current_room.switches_list:
-                 switches_list.append(switch.name)
+        switches_list = []
+        for switch in current_room.switches_list:
+             switches_list.append(switch.name)
         # DOOR LIST
         doors_list = []
         for door in current_room.departure_doors_list:
@@ -634,14 +631,17 @@ class Game:
                 self.update_possible_actions(reset_current_action_index=False)
             if self.possible_current_actions == []:
                 return
+            n_switches = ' '.join(self.possible_current_actions).count('S')
             if (self.pressed[K_RALT]):
-                self.current_action_index = self.current_action_index - 1
+                self.current_action_index = max(n_switches, (self.current_action_index + 1)% len(self.possible_current_actions))
                 self.current_action_index_changed = True
             if (self.pressed[K_LALT]):
-                self.current_action_index = self.current_action_index + 1
+                self.current_action_index = (self.current_action_index + 1)%n_switches
                 self.current_action_index_changed = True
             if self.current_action_index_changed:
-                self.current_action = self.possible_current_actions[self.current_action_index % len(self.possible_current_actions)]
+                print(self.current_action_index, self.possible_current_actions)
+                self.current_action_index = self.current_action_index % len(self.possible_current_actions)
+                self.current_action = self.possible_current_actions[self.current_action_index]
                 self.change_in_display = True
                 self.last_key_pressed_time = time()
                 self.current_action_index_changed = False
@@ -847,7 +847,7 @@ class Game:
                             if 'R' in self.current_action or 'D' in self.current_action:
                                 self.update_possible_actions()
                             else:
-                                self.update_possible_actions(doors_only=True)
+                                self.update_possible_actions(reset_current_action_index=False)
                         if self.current_action[0:2] == 'A ':
                             self.maze.make_actions(self.current_action[2:], allow_all=True)
                         if self.current_action[0] == 'A':
