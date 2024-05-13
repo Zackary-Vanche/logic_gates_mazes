@@ -639,7 +639,6 @@ class Game:
                 self.current_action_index = (self.current_action_index + 1)%n_switches
                 self.current_action_index_changed = True
             if self.current_action_index_changed:
-                print(self.current_action_index, self.possible_current_actions)
                 self.current_action_index = self.current_action_index % len(self.possible_current_actions)
                 self.current_action = self.possible_current_actions[self.current_action_index]
                 self.change_in_display = True
