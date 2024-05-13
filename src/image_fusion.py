@@ -42,8 +42,6 @@ if __name__ == "__main__":
     Game(is_fullscreen=0, save_image=1, game_color=game_color).play()
     #Game(is_fullscreen=1, save_image=1, game_color=game_color).play()
 
-    """
-
     if not os_path_exists('images'):
         os_mkdir('images')
 
@@ -106,5 +104,3 @@ if __name__ == "__main__":
     plt.plot(lx, ly)
     plt.scatter(lx, ly)
     plt.grid(True)
-    
-    """
