@@ -1,7 +1,7 @@
-ns = 6
-nd = 4
-nr = 4
-nv = 0
+ns = 4*7
+nd = 13
+nr = 7
+nv = 7
 
 print('''
 from Switch import Switch
@@ -22,10 +22,10 @@ print(f'''    Slist = [{', '.join([f'S{i}' for i in range(ns)])}]''')
 print('')
 
 for i in range(nv):
-    print(f'    Slist_{i} = []')#'[S{3*i}, S{3*i+1}, S{3*i+2}]')
+    print(f'    Slist_{i} = [S{4*i}, S{4*i+1}, S{4*i+2}, S{4*i+3}]')
 
 for i in range(nv):
-    print(f'''    V{i} = Tree(tree_list=tree_list_XOR2,
+    print(f'''    V{i} = Tree(tree_list=tree_list_BIN_4,
           name='V{i}',
           switches=Slist_{i})''')
     # print(f'''    V{i} = Tree(tree_list=[None],

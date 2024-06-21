@@ -391,7 +391,6 @@ class Maze:
             if not (action in self.possibles_actions_list or (action in self.rooms_dict.keys() and allow_all)):
                 return None
         for action in actions_list:
-            # print(action)
             action_type = action[0]
             if action_type == 'S' and (self.legit_change_switch(action) or allow_all):
                 self.change_switch(action)
@@ -595,13 +594,25 @@ class Maze:
                           separator=' ',
                           really_fast=False):
         # results : 0 unauthorised, 1 authorised but wrong, 2 you won
-        self.reboot_solution(fast=True)
-        for action in solution[:-1]:
-            action_type = action[0]
-            if action_type == 'S':
-                self.change_switch(action, update_doors=False)
-            if action_type == 'D':
-                self.use_door(action)
+        
+        ns = ' '.join(solution[:-1]).count('S')
+        if ns < len(self.switches_set) or True:
+            self.reboot_solution(fast=True)
+            for action in solution[:-1]:
+                action_type = action[0]
+                if action_type == 'S':
+                    self.change_switch(action, update_doors=False)
+                if action_type == 'D':
+                    self.use_door(action)
+        else:
+            self.reboot_solution(fast=True)
+            for action in solution[:-1]:
+                action_type = action[0]
+                if action_type == 'D':
+                    self.use_door(action)
+            for switch in self.switches_set:
+                if solution[:-1].count(switch.name) % 2 == 1:
+                    self.change_switch(switch.name, update_doors=False)
         if len(solution) > 0:
             action = solution[-1]
             action_type = action[0]
@@ -719,7 +730,7 @@ class Maze:
             visited_situations = set()
             solutions_to_visit = [initial_try]
             solutions_that_work = []
-            if verbose == 1:
+            if verbose in [1, 3]:
                 if level_number is None:
                     pbar_nb_iterations = tqdm(desc=f'{self.name}',
                                               position=0)
@@ -731,11 +742,25 @@ class Maze:
                         pbar_nb_iterations = tqdm(desc=f'Level {level_number}: {self.name}',
                                                   total=nb_iterations_tot,
                                                   position=0)
+            if verbose == 3:
+                max_number_of_door = 0
             while solutions_to_visit != []:
+                if verbose == 3:
+                    sol_str = ' '.join(solutions_to_visit[-1])
+                    new_max_number_of_door = sol_str.count('D')
+                    if new_max_number_of_door > max_number_of_door:
+                        print("\nsolutions_to_visit[-1].count('D') : {}".format(' '.join(solutions_to_visit[-1]).count('D')))
+                        print('len(solutions_to_visit) : {}'.format(len(solutions_to_visit)))
+                        print('len(solutions_to_visit)/nb_iterations : {}'.format(len(solutions_to_visit) / nb_iterations))
+                        print(f'estimated remaining time : {int(round((time() - t0) * len(solutions_to_visit) / nb_iterations, 0))} s')
+                        if len(solutions_to_visit[-1]) < 100:
+                            print('solutions_to_visit[-1] : {}'.format(' '.join(solutions_to_visit[-1])))
+                        print('')
+                        max_number_of_door = new_max_number_of_door
                 if time() - t0 > max_calculation_time:
                     return [], nb_iterations, nb_operations
                 nb_iterations += 1
-                if verbose == 1:
+                if verbose in [1, 3]:
                     pbar_nb_iterations.update(1)
                 if nb_iterations % nb_iterations_print == 0 and verbose == 2:
                     print('nb_iterations : {}'.format(nb_iterations))
@@ -744,8 +769,7 @@ class Maze:
                     print("solutions_to_visit[-1].count('D') : {}".format(' '.join(solutions_to_visit[-1]).count('D')))
                     print('len(solutions_to_visit) : {}'.format(len(solutions_to_visit)))
                     print('len(solutions_to_visit)/nb_iterations : {}'.format(len(solutions_to_visit) / nb_iterations))
-                    print(
-                        f'estimated remaining time : {int(round((time() - t0) * len(solutions_to_visit) / nb_iterations, 0))} s')
+                    print(f'estimated remaining time : {int(round((time() - t0) * len(solutions_to_visit) / nb_iterations, 0))} s')
                     print('len(solutions_that_work) : {}'.format(len(solutions_that_work)))
                     print('')
                 solution = solutions_to_visit.pop(0)
@@ -816,17 +840,6 @@ class Maze:
         else:
             solutions_that_work = self.all_solutions
         solutions_that_work = sorted(solutions_that_work, key=len)
-        try:
-            if not (reverse_actions_order or self.fastest_solution is None or ' '.join(solutions_that_work[0]) == self.fastest_solution) and self.unique_solution:
-                print(self.name, "wrong fastest solution")
-                print("solution found")
-                print(str(' '.join(solutions_that_work[0])))
-                print("solution in memory")
-                print(str(self.fastest_solution))
-                print('')
-                pass
-        except IndexError:
-            print('IndexError')
         self.all_solutions = solutions_that_work
         return solutions_that_work, nb_iterations, nb_operations
 

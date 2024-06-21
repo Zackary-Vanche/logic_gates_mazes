@@ -18,7 +18,9 @@ class Room:
                  name='R',
                  surrounding_color=[255, 255, 255],
                  possible_switches_values=None,
-                 possible_switches_updating=None):
+                 possible_switches_updating=None,
+                 room_of_possible_switches=None,
+                 ):
         self.name = name
         self.is_exit = is_exit
         if self.is_exit:
@@ -45,6 +47,7 @@ class Room:
         self.possible_switches_updating = possible_switches_updating
         assert possible_switches_values is None or possible_switches_updating is None
         self.possible_switches_actions = None
+        self.room_of_possible_switches = room_of_possible_switches
 
     def get_name_position(self):
         [x_gap, y_gap, x, y] = self.position[self.maze.current_page]
@@ -116,6 +119,12 @@ class Room:
                     if possible_values[i]:
                         Slist.append(self.switches_list[i].name)
                 self.possible_switches_actions.append(Slist)
+        elif not self.room_of_possible_switches is None:
+            actions = []
+            for i, S in enumerate(self.room_of_possible_switches.switches_list):
+                if S.value != self.switches_list[i].value:
+                    actions.append(self.switches_list[i].name)
+            self.possible_switches_actions = [actions]
         else:
             self.possible_switches_actions = powerset([s.name for s in self.switches_list])
         return self.possible_switches_actions

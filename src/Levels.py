@@ -17,6 +17,7 @@ from levels.level_binary import level_binary
 from levels.level_bipartite import level_bipartite
 from levels.level_bis_repetita import level_bis_repetita
 from levels.level_birch import level_birch
+from levels.level_black_knight_puzzle import level_black_knight_puzzle
 from levels.level_bonsai import level_bonsai
 from levels.level_boolean import level_boolean
 from levels.level_branches import level_branches
@@ -59,6 +60,7 @@ from levels.level_eulerian import level_eulerian
 from levels.level_exact_cover import level_exact_cover
 from levels.level_expedition import level_expedition
 from levels.level_fir import level_fir
+from levels.level_first_guarini_s_problem import level_first_guarini_s_problem
 from levels.level_five import level_five
 from levels.level_flash_back import level_flash_back
 from levels.level_fluid import level_fluid
@@ -168,6 +170,7 @@ from levels.level_rotation import level_rotation
 from levels.level_rotation_bis import level_rotation_bis
 from levels.level_route import level_route
 from levels.level_second import level_second
+from levels.level_second_guarini_s_problem import level_second_guarini_s_problem
 from levels.level_separation import level_separation
 from levels.level_sheffer_stroke import level_sheffer_stroke
 from levels.level_shortest_path import level_shortest_path
@@ -272,6 +275,7 @@ class Levels:
     """
 
     levels_functions_list = [
+                             #level_black_knight_puzzle,
                              level_trivial,
                              level_choice,
                              level_hello_world,
@@ -469,6 +473,8 @@ class Levels:
                              level_random_gemini,
                              level_random_cuboctahedron,
                              level_knight,
+                             level_first_guarini_s_problem,
+                             level_second_guarini_s_problem,
                              level_diagonal,
                              level_sudoku,
                              level_temple,
@@ -675,6 +681,8 @@ class Levels:
                                    level_the_4_queens,
                                    level_k,
                                    level_knight,
+                                   level_first_guarini_s_problem,
+                                   level_second_guarini_s_problem,
                                    ],
               "The Nature":[level_trivial,
                             level_choice,
@@ -1030,7 +1038,8 @@ def calculates_random_level_solution_length(aux_level_function):
 
 
 if __name__ == "__main__":
-
+    pass
+    
     test_levels()
 
     import os
@@ -1046,3 +1055,9 @@ if __name__ == "__main__":
         for name in sorted(dico_i_level_name.keys()):
             i = dico_i_level_name[name]
             fw.write(f'{name: <25} {i}\n')
+    
+    #level_second_guarini_s_problem
+    
+    #solutions = level_second_guarini_s_problem(fast_solution_finding=True).find_all_solutions(verbose=3, save_solutions_txt=True)
+    
+    #print(solutions)

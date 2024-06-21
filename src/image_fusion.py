@@ -39,8 +39,8 @@ if __name__ == "__main__":
     # TOTAL_SIZE = [1920, 1055]
     game_color = Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.4)
     game_color = None
-    Game(is_fullscreen=0, save_image=1, game_color=game_color).play()
-    #Game(is_fullscreen=1, save_image=1, game_color=game_color).play()
+    Game(is_fullscreen=0, save_image=1, game_color=game_color, time_between_level_changing=0).play()
+    Game(is_fullscreen=1, save_image=1, game_color=game_color, time_between_level_changing=0).play()
 
     if not os_path_exists('images'):
         os_mkdir('images')
