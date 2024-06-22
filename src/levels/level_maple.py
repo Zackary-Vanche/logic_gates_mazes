@@ -156,7 +156,7 @@ def level_maple(fast_solution_finding=False):
                  level_color=lcolor,
                  name='Maple',
                  keep_proportions=True,
-                 door_window_size=400)
+                 door_window_size=420)
     
     return level
 

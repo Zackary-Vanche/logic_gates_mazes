@@ -157,7 +157,7 @@ def level_pine(fast_solution_finding=False):
                  level_color=lcolor,
                  name='Pine',
                  keep_proportions=True,
-                 door_window_size=400)
+                 door_window_size=420)
     
     return level
 

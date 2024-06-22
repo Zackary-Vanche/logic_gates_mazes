@@ -156,7 +156,7 @@ def level_elm(fast_solution_finding=False):
                  level_color=lcolor,
                  name='Elm',
                  keep_proportions=True,
-                 door_window_size=400)
+                 door_window_size=445)
     
     return level
 
