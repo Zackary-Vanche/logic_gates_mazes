@@ -120,6 +120,8 @@ class Game:
         self.current_action_index_changed = False
         self.show_wires = False
         self.element_dict = {}
+        self.upper_right_window_rectangle = None
+        self.lower_right_window_rectangle = None
         self.do_you_quit_game = False
 
     def game_setup(self):
@@ -252,11 +254,18 @@ class Game:
 
     def draw_right_window(self):
         # Affichage de la fenêtre de droite
-        right_window_rectangle = pygame_Rect(self.x_separation,
-                                             0,
-                                             self.door_window_size,
-                                             self.WINDOW_HEIGHT)
-        pygame_draw_rect(self.WINDOW, self.room_color, right_window_rectangle)
+        upper_right_window_rectangle = pygame_Rect(self.x_separation,
+                                                   0,
+                                                   self.door_window_size,
+                                                   self.y_separation)
+        lower_right_window_rectangle = pygame_Rect(self.x_separation,
+                                                   self.y_separation,
+                                                   self.door_window_size,
+                                                   self.WINDOW_HEIGHT)
+        self.upper_right_window_rectangle = upper_right_window_rectangle
+        self.lower_right_window_rectangle = lower_right_window_rectangle
+        pygame_draw_rect(self.WINDOW, self.room_color, upper_right_window_rectangle)
+        pygame_draw_rect(self.WINDOW, self.room_color, lower_right_window_rectangle)
 
     def draw_door_lines(self):
         # Affichage des lignes des portes
@@ -939,9 +948,7 @@ class Game:
             cy = ellipse_rect.y + ellipse_rect.height / 2  # Centre y de l'ellipse
             rx = ellipse_rect.width / 2  # Rayon x de l'ellipse
             ry = ellipse_rect.height / 2  # Rayon y de l'ellipse
-            
             px, py = point  # Point de clic
-            
             # Formule de l'ellipse : ((x - cx)^2 / rx^2) + ((y - cy)^2 / ry^2) <= 1
             return ((px - cx) ** 2) / (rx ** 2) + ((py - cy) ** 2) / (ry ** 2) <= 1
         self.pressed = pygame_key_get_pressed()
@@ -950,32 +957,40 @@ class Game:
                 # print(number_of_loops)
                 self.quit_game()
                 return True
-            if event.type == pygame.MOUSEBUTTONDOWN and not self.show_help:
-                mouse_x, mouse_y = event.pos
-                for room in self.maze.rooms_list:
-                    rect = self.element_dict[room.name]
-                    if room.name == 'RE':
-                        if point_in_ellipse(event.pos, rect):
-                            print('RE')
-                            self.maze.make_actions('RE')
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if self.show_help:
+                    self.show_help = False
+                    self.level_changed = True
+                else:
+                    mouse_x, mouse_y = event.pos
+                    if self.lower_right_window_rectangle.collidepoint(mouse_x, mouse_y):
+                        self.name_tree_list = self.name_tree_list[1:] + self.name_tree_list[:1]
+                        self.last_key_pressed_time = time()
+                        self.change_in_display = True
+                    if self.upper_right_window_rectangle.collidepoint(mouse_x, mouse_y):
+                        self.index_current_level += 1
+                        self.show_help = True
+                        self.change_in_display = True
+                    for room in self.maze.rooms_list:
+                        rect = self.element_dict[room.name]
+                        if room.name == 'RE':
+                            if point_in_ellipse(event.pos, rect):
+                                self.maze.make_actions('RE')
+                                self.change_in_display = True
+                        else:
+                            if rect.collidepoint(mouse_x, mouse_y):
+                                self.maze.make_actions(room.name)
+                                self.change_in_display = True
+                    for door in self.maze.doors_set:
+                        polygon = self.element_dict[door.name]
+                        if point_in_polygon(event.pos, polygon):
+                            self.maze.make_actions(door.name)
                             self.change_in_display = True
-                    else:
+                    for switch in self.maze.switches_set:
+                        rect = self.element_dict[switch.name]
                         if rect.collidepoint(mouse_x, mouse_y):
-                            print(room.name)
-                            self.maze.make_actions(room.name)
+                            self.maze.make_actions(switch.name)
                             self.change_in_display = True
-                for door in self.maze.doors_set:
-                    polygon = self.element_dict[door.name]
-                    if point_in_polygon(event.pos, polygon):
-                        print(door.name)
-                        self.maze.make_actions(door.name)
-                        self.change_in_display = True
-                for switch in self.maze.switches_set:
-                    rect = self.element_dict[switch.name]
-                    if rect.collidepoint(mouse_x, mouse_y):
-                        print(switch.name)
-                        self.maze.make_actions(switch.name)
-                        self.change_in_display = True
         if self.pressed[K_ESCAPE]:
             self.quit_game()
             self.do_you_quit_game = True

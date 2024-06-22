@@ -75,7 +75,10 @@ You can only travel by open doors.
 You can always erase what you wrote with the [BACKSPACE] key.
 Use ALT keys to see all actions you can do.
 
-Press the [RIGHT] ([LEFT]) arrow key to go to the next (previous) page."""
+Press the [RIGHT] ([LEFT]) arrow key to go to the next (previous) page.
+To go to the next page, you can also:
+    - click once if the help panel is displayed
+    - click on the upper right rectangle, where equations that you write are displayed."""
 
 help_menus_list['switches'] = """Switches are named S0, S1, S2, ...
 If a switch is turned on, it is surrounded, and you say it is equal to 1. If it is turned off, it is equal to 0.
@@ -111,7 +114,8 @@ help_menus_list['N'] = """
 Press [N] and then [ENTER] to get a new random level."""
 
 help_menus_list['UP DOWN'] = """
-If you use the [UP] and [DOWN] keys, you can switch which equation appears first."""
+If you use the [UP] and [DOWN] keys, you can switch which equation appears first.
+You can also simply click on the displayed equations."""
 
 ############
 ## LEVELS ##
