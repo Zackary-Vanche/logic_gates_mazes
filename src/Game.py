@@ -950,7 +950,7 @@ class Game:
                 # print(number_of_loops)
                 self.quit_game()
                 return True
-            if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.type == pygame.MOUSEBUTTONDOWN and not self.show_help:
                 mouse_x, mouse_y = event.pos
                 for room in self.maze.rooms_list:
                     rect = self.element_dict[room.name]
