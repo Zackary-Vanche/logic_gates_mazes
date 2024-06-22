@@ -68,7 +68,9 @@ Doors are named D0, D1, D2, ...
 If a door is equal to 1, it is open and surrounded. If it is equal to 0, it is closed.
 Diamond-shape doors are two-way while arrow-shaped doors are one-way only.
 
-To go in a room, or travel by a door, write its name and press [ENTER].
+To go in a room, or travel by a door, you can :
+    - write its name and press [ENTER]
+    - directly click on it.
 You can only travel by open doors.
 You can always erase what you wrote with the [BACKSPACE] key.
 Use ALT keys to see all actions you can do.
