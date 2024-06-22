@@ -16,7 +16,6 @@ from pygame.draw import rect as pygame_draw_rect
 from pygame.draw import line as pygame_draw_line
 from pygame.draw import ellipse as pygame_draw_ellipse
 from pygame.draw import polygon as pygame_draw_polygon
-# from pygame.event import get as pygame_event_get
 from pygame.key import get_pressed as pygame_key_get_pressed
 from pygame.image import save as pygame_image_save
 from pygame import quit as pygame_quit
@@ -120,6 +119,8 @@ class Game:
         self.current_action_index = 0
         self.current_action_index_changed = False
         self.show_wires = False
+        self.element_dict = {}
+        self.do_you_quit_game = False
 
     def game_setup(self):
         # Game Setup
@@ -408,6 +409,7 @@ class Game:
             if self.maze.current_page in room.pages_list:
                 [x_gap, y_gap, x, y] = array(room.position[self.maze.current_page])
                 room_rectangle = pygame_Rect(x_gap, y_gap, x + 2, y + 2)
+                self.element_dict[room.name] = room_rectangle
                 if room.is_exit:
                     pygame_draw_ellipse(self.WINDOW, self.room_color, room_rectangle)
                     if self.maze.current_room() == room:
@@ -448,12 +450,10 @@ class Game:
             if self.maze.current_page in door.pages_list:
                 # real_middle_coordinates = door.real_middle_coordinates
                 arrow_coordinates = door.arrow_coordinates
+                self.element_dict[door.name] = arrow_coordinates
                 pygame_draw_polygon(self.WINDOW,
                                     self.room_color,
                                     arrow_coordinates)
-        for door in self.maze.doors_set:
-            if self.maze.current_page in door.pages_list:
-                arrow_coordinates = door.arrow_coordinates
                 if door.is_open:
                     if self.uniform_surrounding_colors:
                         pygame_draw_polygon(self.WINDOW,
@@ -464,7 +464,7 @@ class Game:
                         pygame_draw_polygon(self.WINDOW,
                                             door.surrounding_color,
                                             arrow_coordinates,
-                                            width=3)
+                                            width=3)                
 
     def print_doors_names(self):
         # Affichage des portes
@@ -491,6 +491,7 @@ class Game:
                                        position[1] - self.click_rect_size_y / 2,
                                        self.click_rect_size_x,
                                        self.click_rect_size_y)
+                    self.element_dict[switch.name] = rect
                     if switch.value:
                         if self.print_click_rects:
                             pygame_draw_rect(self.WINDOW,
@@ -682,7 +683,8 @@ class Game:
             if save_videos:
                 self.save_image_as_file(fname(2+2*i))
             sleep(dt)
-            if self.do_you_quit_game():
+            self.handle_events()
+            if self.do_you_quit_game:
                 return None
         if save_videos:
             import numpy as np
@@ -912,19 +914,71 @@ class Game:
             print("time of execution :\n", round(self.t_tot, 0), 's')
             print("mean time of execution of one loop :\n", self.t_tot / self.n_loops, 's')
         pygame_quit()
-        return None
 
-    def do_you_quit_game(self):
+    def handle_events(self):
+        def point_in_polygon(point, polygon_points):
+            """ Vérifie si un point est à l'intérieur d'un polygone en utilisant l'algorithme du rayon """
+            x, y = point
+            n = len(polygon_points)
+            inside = False
+            p1x, p1y = polygon_points[0]
+            for i in range(n + 1):
+                p2x, p2y = polygon_points[i % n]
+                if y > min(p1y, p2y):
+                    if y <= max(p1y, p2y):
+                        if x <= max(p1x, p2x):
+                            if p1y != p2y:
+                                xinters = (y - p1y) * (p2x - p1x) / (p2y - p1y) + p1x
+                            if p1x == p2x or x <= xinters:
+                                inside = not inside
+                p1x, p1y = p2x, p2y
+            return inside
+        def point_in_ellipse(point, ellipse_rect):
+            """ Vérifie si un point est à l'intérieur d'une ellipse définie par un Rect """
+            cx = ellipse_rect.x + ellipse_rect.width / 2  # Centre x de l'ellipse
+            cy = ellipse_rect.y + ellipse_rect.height / 2  # Centre y de l'ellipse
+            rx = ellipse_rect.width / 2  # Rayon x de l'ellipse
+            ry = ellipse_rect.height / 2  # Rayon y de l'ellipse
+            
+            px, py = point  # Point de clic
+            
+            # Formule de l'ellipse : ((x - cx)^2 / rx^2) + ((y - cy)^2 / ry^2) <= 1
+            return ((px - cx) ** 2) / (rx ** 2) + ((py - cy) ** 2) / (ry ** 2) <= 1
         self.pressed = pygame_key_get_pressed()
         for event in pygame_event_get():
             if event.type == QUIT:
                 # print(number_of_loops)
                 self.quit_game()
                 return True
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                mouse_x, mouse_y = event.pos
+                for room in self.maze.rooms_list:
+                    rect = self.element_dict[room.name]
+                    if room.name == 'RE':
+                        if point_in_ellipse(event.pos, rect):
+                            print('RE')
+                            self.maze.make_actions('RE')
+                            self.change_in_display = True
+                    else:
+                        if rect.collidepoint(mouse_x, mouse_y):
+                            print(room.name)
+                            self.maze.make_actions(room.name)
+                            self.change_in_display = True
+                for door in self.maze.doors_set:
+                    polygon = self.element_dict[door.name]
+                    if point_in_polygon(event.pos, polygon):
+                        print(door.name)
+                        self.maze.make_actions(door.name)
+                        self.change_in_display = True
+                for switch in self.maze.switches_set:
+                    rect = self.element_dict[switch.name]
+                    if rect.collidepoint(mouse_x, mouse_y):
+                        print(switch.name)
+                        self.maze.make_actions(switch.name)
+                        self.change_in_display = True
         if self.pressed[K_ESCAPE]:
             self.quit_game()
-            return True
-        return False
+            self.do_you_quit_game = True
 
     def update_to_save_images(self):
         if self.save_image:
@@ -962,7 +1016,8 @@ class Game:
         while self.looping:
             sleep(self.sleep_time)  # I did that not to use too much CPU
             self.n_loops += 1
-            if self.do_you_quit_game():
+            self.handle_events()
+            if self.do_you_quit_game:
                 return None
             self.get_level()
             self.update_window_size()

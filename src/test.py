@@ -22,14 +22,16 @@ y = [235, 516, 2970, 4590, 16030,
      1184219, 1914891, 2134237, 3300163, 3663726,
      5493120, 6029298, 8664363, 9471658, 13231655,
      14322767, 19282859, 20791695, 27179206, 28992262,
-     36365593, 38514684, 46426706, 48535770]
+     36365593, 38514684, 46426706, 48535770, 55990196,
+     58033273, 64576772, 66235489, 71393006, 72736933]
 
 y = np.array(y)
 x = np.arange(len(y))
 
 plt.figure(figsize=(20, 10))
-plt.loglog(x[::2], y[::2])
-plt.loglog(x[1::2], y[1::2])
+plt.plot(x[::2], y[::2])
+plt.plot(x[1::2], y[1::2])
+plt.yscale('log')
 plt.grid()
 plt.show()
 
@@ -37,8 +39,9 @@ y_diff = y[1:]-y[:-1]
 x_diff = np.arange(len(y_diff))
 
 plt.figure(figsize=(20, 10))
-plt.loglog(x_diff, y_diff, color='r')
-plt.loglog(x_diff[::2], y_diff[::2], color='k')
-plt.loglog(x_diff[1::2], y_diff[1::2], color='k')
+plt.plot(x_diff, y_diff, color='r')
+plt.plot(x_diff[::2], y_diff[::2], color='k')
+plt.plot(x_diff[1::2], y_diff[1::2], color='k')
+#plt.yscale('log')
 plt.grid()
 plt.show()
