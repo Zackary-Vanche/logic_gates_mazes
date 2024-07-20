@@ -143,6 +143,7 @@ from levels.level_product import level_product
 from levels.level_puzzle import level_puzzle
 from levels.level_pyramid import level_pyramid
 from levels.level_pythagorean import level_pythagorean
+from levels.level_rainforest import level_rainforest
 from levels.level_random_K2 import level_random_K2
 from levels.level_random_K33 import level_random_K33
 from levels.level_random_K5 import level_random_K5
@@ -274,7 +275,7 @@ class Levels:
     
     """
 
-    levels_functions_list = [
+    levels_functions_list = [#level_rainforest,
                              #level_black_knight_puzzle,
                              level_trivial,
                              level_choice,
@@ -319,6 +320,7 @@ class Levels:
                              level_dominating_set,
                              level_exact_cover,
                              level_connectivity,
+                             level_rainforest,
                              level_odd,
                              level_bonsai,
                              level_min_cut,
@@ -524,6 +526,7 @@ class Levels:
                                 level_binary,
                                 level_forest,
                                 level_jungle,
+                                level_rainforest,
                              ],
               'The Wooden World':[level_bonsai,
                                   level_poppy,
@@ -1039,6 +1042,7 @@ def calculates_random_level_solution_length(aux_level_function):
 
 if __name__ == "__main__":
     pass
+
     
     test_levels()
 
@@ -1058,6 +1062,6 @@ if __name__ == "__main__":
     
     #level_second_guarini_s_problem
     
-    #solutions = level_second_guarini_s_problem(fast_solution_finding=True).find_all_solutions(verbose=3, save_solutions_txt=True)
+    #solutions = level_rainforest(fast_solution_finding=True).find_all_solutions(verbose=3, save_solutions_txt=True)
     
     #print(solutions)

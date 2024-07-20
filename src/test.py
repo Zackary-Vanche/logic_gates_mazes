@@ -7,7 +7,9 @@ Created on Wed Jun 19 19:56:54 2024
 
 import matplotlib.pyplot as plt
 import numpy as np
+from scipy.special import comb
 
+"""
 y = [152, 246, 824, 1677, 2588,
      5842, 5752, 12176, 10824, 19136,
      20548, 33082, 36934, 54060, 68071,
@@ -46,6 +48,167 @@ plt.figure(figsize=(20, 10))
 plt.plot(x_diff, y_diff, color='r')
 plt.plot(x_diff[::2], y_diff[::2], color='k')
 plt.plot(x_diff[1::2], y_diff[1::2], color='k')
-#Øplt.yscale('log')
+#plt.yscale('log')
 plt.grid()
 plt.show()
+"""
+
+# Valeur de n
+n = 50
+
+# k allant de 1 à 1000
+k = np.arange(1, n+1)
+
+# Calcul des coefficients binomiaux
+binomial_coefficients = comb(n, k)
+
+# Affichage des résultats
+plt.plot(k, binomial_coefficients)
+plt.xlabel('k')
+plt.ylabel('Binomial Coefficient')
+plt.title(f'Binomial Coefficient for n={n}')
+#plt.yscale('log')  # Utiliser une échelle logarithmique pour l'axe y pour mieux visualiser les grands nombres
+plt.grid(True)
+plt.show()
+
+# Affichage des résultats
+plt.plot(k, np.cumsum(binomial_coefficients))
+plt.xlabel('k')
+plt.ylabel('Binomial Coefficient')
+plt.title(f'Binomial Coefficient for n={n}')
+#plt.yscale('log')  # Utiliser une échelle logarithmique pour l'axe y pour mieux visualiser les grands nombres
+plt.grid(True)
+plt.show()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

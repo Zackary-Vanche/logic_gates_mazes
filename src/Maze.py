@@ -386,6 +386,7 @@ class Maze:
                 door.update_open()
 
     def make_actions(self, actions, separator=' ', allow_all=False):
+        #print(actions)
         actions_list = actions.split(separator)
         for action in actions_list:
             if not (action in self.possibles_actions_list or (action in self.rooms_dict.keys() and allow_all)):
