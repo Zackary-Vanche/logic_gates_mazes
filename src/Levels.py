@@ -41,6 +41,7 @@ from levels.level_connectivity import level_connectivity
 from levels.level_crossroad import level_crossroad
 from levels.level_crystal import level_crystal
 from levels.level_cube import level_cube
+from levels.level_cubic import level_cubic
 from levels.level_cypress import level_cypress
 from levels.level_dead_ends import level_dead_ends
 from levels.level_diagonal import level_diagonal
@@ -275,7 +276,7 @@ class Levels:
     
     """
 
-    levels_functions_list = [#level_rainforest,
+    levels_functions_list = [
                              #level_black_knight_puzzle,
                              level_trivial,
                              level_choice,
@@ -296,6 +297,7 @@ class Levels:
                              level_square,
                              level_3sat,
                              level_inside_out,
+                             level_cubic,
                              level_point_of_no_return,
                              level_sum,
                              level_product,
@@ -1043,7 +1045,7 @@ def calculates_random_level_solution_length(aux_level_function):
 if __name__ == "__main__":
     pass
 
-    
+    """
     test_levels()
 
     import os
@@ -1059,9 +1061,11 @@ if __name__ == "__main__":
         for name in sorted(dico_i_level_name.keys()):
             i = dico_i_level_name[name]
             fw.write(f'{name: <25} {i}\n')
+    """
+    #level_second_guarini_s_problem 
     
-    #level_second_guarini_s_problem
+    # fast_solution_finding=True
     
-    #solutions = level_rainforest(fast_solution_finding=True).find_all_solutions(verbose=3, save_solutions_txt=True)
+    solutions = level_cubic().find_all_solutions(verbose=3, save_solutions_txt=True)
     
-    #print(solutions)
+    print(solutions)

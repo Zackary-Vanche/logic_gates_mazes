@@ -8,7 +8,7 @@ from cv2 import vconcat as cv2_vconcat
 from cv2 import imwrite as cv2_imwrite
 from Game import Game
 from Levels import Levels
-#from pyautogui import size as pyautogui_size
+from pyautogui import size as pyautogui_size
 import matplotlib.pyplot as plt
 from Levels_colors_list import Levels_colors_list 
 
