@@ -278,6 +278,24 @@ class Maze:
         if len(self.intermediate_values_list + self.doors_list) > 1:
             help_menu.append(help_menus_list['UP DOWN'])
         self.help_txt[0] = '\n'.join(help_menu)
+        
+        # Assertions
+        for door in doors_list:
+            try:
+                if door.two_way:
+                    assert door in door.room_arrival.two_way_doors_list
+                    assert door in door.room_departure.two_way_doors_list
+                else:
+                    assert door in door.room_arrival.arrival_doors_list
+                    assert door in door.room_departure.departure_doors_list
+            except:
+                print(self.name)
+                print(door)
+                print(door.room_arrival)
+                print(door.room_departure)
+                raise
+        for switch in switches_list:
+            assert switch in switch.room.switches_list
 
     def current_room(self):
         return self.rooms_list[self.current_room_index]

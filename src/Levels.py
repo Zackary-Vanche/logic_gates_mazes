@@ -18,6 +18,7 @@ from levels.level_bipartite import level_bipartite
 from levels.level_bis_repetita import level_bis_repetita
 from levels.level_birch import level_birch
 from levels.level_black_knight_puzzle import level_black_knight_puzzle
+from levels.level_blind_alleys import level_blind_alleys
 from levels.level_bonsai import level_bonsai
 from levels.level_boolean import level_boolean
 from levels.level_branches import level_branches
@@ -335,6 +336,7 @@ class Levels:
                              level_stairs,
                              level_sunflower,
                              level_naturals,
+                             level_blind_alleys,
                              level_wasted,
                              level_doppelganger,
                              level_meanders,
@@ -342,6 +344,7 @@ class Levels:
                              level_poppy,
                              level_peony,
                              level_magnolia,
+                             level_iris,
                              level_orchid,
                              level_tulip,
                              level_compact,
@@ -534,6 +537,7 @@ class Levels:
                                   level_poppy,
                                   level_peony,
                                   level_magnolia,
+                                  level_iris,
                                   level_orchid,
                                   level_tulip,
                                   level_roses_are_red,
@@ -703,6 +707,7 @@ class Levels:
                             level_parallel,
                             level_leaves,
                             level_recurrence,
+                            level_blind_alleys,
                             level_alice_and_bob,
                             level_river,
                             level_small,
@@ -1045,7 +1050,6 @@ def calculates_random_level_solution_length(aux_level_function):
 if __name__ == "__main__":
     pass
 
-    """
     test_levels()
 
     import os
@@ -1061,11 +1065,11 @@ if __name__ == "__main__":
         for name in sorted(dico_i_level_name.keys()):
             i = dico_i_level_name[name]
             fw.write(f'{name: <25} {i}\n')
-    """
+
     #level_second_guarini_s_problem 
     
     # fast_solution_finding=True
     
-    solutions = level_cubic().find_all_solutions(verbose=3, save_solutions_txt=True)
+    level = level_blind_alleys()
     
-    print(solutions)
+    #solutions = level.find_all_solutions(verbose=0, save_solutions_txt=True)

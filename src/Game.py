@@ -814,6 +814,7 @@ class Game:
                             except ValueError:
                                 self.show_solution()
                         self.update_possible_actions()
+                        print(self.maze.fastest_solution)
                     elif self.current_action in ['LR', 'LRANDOM']:
                         level_number_list = [i for i in range(Levels.number_of_levels)]
                         self.index_current_level = rd_choice(level_number_list)

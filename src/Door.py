@@ -22,6 +22,9 @@ class Door:
         Si position == [1,0] l'interrupteur est dans le coin haut droite de la piece.
         Si position == [1,1] l'interrupteur est dans le coin bas droite de la piece.
         """
+        assert not room_departure.is_exit
+        if room_arrival.is_exit:
+            two_way=False
         if name is None:
             self.name = tree.name.replace('T', 'D')
         else:
