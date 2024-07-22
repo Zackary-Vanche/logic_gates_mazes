@@ -179,50 +179,52 @@ def level_weights(fast_solution_finding=False):
                          ],
                cut_expression=True)
 
-    ex = 1.5
+    ex = 1.75
+    dx = 1.5
     ey = 0.75
+    ex0 = 0.7
 
     R0 = Room(name='R0',
-              position=[ex, 9, 9 * ex, 1.8 * ex],
+              position=[dx, 9, 8*dx+ex, ex0],
               switches_list=[S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19])
     R1 = Room(name='R1',
-              position=[ex, 7, ex, ey],
+              position=[dx, 7, ex, ey],
               switches_list=[S20])
     R2 = Room(name='R2',
-              position=[5 * ex, 7, ex, ey],
+              position=[5 * dx, 7, ex, ey],
               switches_list=[S21])
     R3 = Room(name='R3',
-              position=[9 * ex, 7, ex, ey],
+              position=[9 * dx, 7, ex, ey],
               switches_list=[S22])
     R4 = Room(name='R4',
-              position=[(8 + 1 / 3) * ex, 5, ex, ey],
+              position=[(8 + 1 / 3) * dx, 5, ex, ey],
               switches_list=[S23])
     R5 = Room(name='R5',
-              position=[5 * ex, 5, ex, ey],
+              position=[5 * dx, 5, ex, ey],
               switches_list=[S24])
     R6 = Room(name='R6',
-              position=[(1 + 2 / 3) * ex, 5, ex, ey],
+              position=[(1 + 2 / 3) * dx, 5, ex, ey],
               switches_list=[S25])
     R7 = Room(name='R7',
-              position=[(2 + 1 / 3) * ex, 3, ex, ey],
+              position=[(2 + 1 / 3) * dx, 3, ex, ey],
               switches_list=[S26])
     R8 = Room(name='R8',
-              position=[5 * ex, 3, ex, ey],
+              position=[5 * dx, 3, ex, ey],
               switches_list=[S27])
     R9 = Room(name='R9',
-              position=[(7 + 2 / 3) * ex, 3, ex, ey],
+              position=[(7 + 2 / 3) * dx, 3, ex, ey],
               switches_list=[S28])
     R10 = Room(name='R10',
-               position=[7 * ex, 1, ex, ey],
+               position=[7 * dx, 1, ex, ey],
                switches_list=[S29])
     R11 = Room(name='R11',
-               position=[5 * ex, 1, ex, ey],
+               position=[5 * dx, 1, ex, ey],
                switches_list=[S30])
     R12 = Room(name='R12',
-               position=[3 * ex, 1, ex, ey],
+               position=[3 * dx, 1, ex, ey],
                switches_list=[S31])
     RE = Room(name='RE',
-              position=[5 * ex, -0.5, ex, 0.4],
+              position=[5 * dx, -0.5, ex, 0.4],
               is_exit=True)  # E pour exit ou end
     if fast_solution_finding:
         for room in [R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12]:
@@ -389,8 +391,8 @@ def level_weights(fast_solution_finding=False):
                  fastest_solution='S2 S3 S4 S6 S7 S8 S11 S13 S15 S17 S18 S19 D2 S22 D13 S21 D4 S24 D15 S25 D3 S20 D3 D6 S26 D6 D15 D7 S27 D17 S28 D8 S23 D8 D11 S29 D18 S30 D19 S31 D19 D20',
                  level_color=Levels_colors_list.FROM_HUE(hu=0.45, sa=0.2, li=0.5),
                  name='Weights',
-                 door_window_size=450,
-                 keep_proportions=True,
+                 door_window_size=400,
+                 keep_proportions=False,
                  y_separation=40,
                  border=40)
 
