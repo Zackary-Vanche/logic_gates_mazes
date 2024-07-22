@@ -1,5 +1,5 @@
 from Game import Game
-#from pyautogui import size as pyautogui_size
+from pyautogui import size as pyautogui_size
 from Color import Color
 from Levels_colors_list import Levels_colors_list
 
