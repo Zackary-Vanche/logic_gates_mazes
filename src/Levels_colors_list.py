@@ -184,7 +184,7 @@ class Levels_colors_list:
                               inside_room_color=Color.BLACK)
 
     GOLD_AND_SILVER = Level_color(background_color=Color.SILVER,
-                                  room_color=Color.YELLOW,
+                                  room_color=Color.color_hls(hu=0.15, li=0.3, sa=0.6),
                                   contour_color=Color.BLACK,
                                   letters_color=Color.BLACK,
                                   letter_contour_color=Color.DARK_GREY,
