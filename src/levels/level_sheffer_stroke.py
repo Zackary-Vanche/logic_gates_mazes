@@ -188,7 +188,7 @@ def level_sheffer_stroke():
               room_arrival=RE)
     
     lcolor = Levels_colors_list.FROM_HUE(hu=0, sa=0.4, li=0.5)
-    lcolor.background_color = Color.IVORY
+    lcolor.background_color = Color.GREY_170
     lcolor.letters_color = Color.BLACK
     lcolor.surrounding_color = Color.BLACK
     lcolor.contour_color = Color.BLACK

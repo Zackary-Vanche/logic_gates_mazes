@@ -288,7 +288,7 @@ def level_bridges():
                  fastest_solution="""D0 S0 D1 S4 D2 S9 S13 D3 D4 S18 D4 D0 S0 D1 S4 S5 D2 S9 S13 S14 D3 D0 S1 D1 S4 D2 S10 S13 D3 D5 S19 D5 D0 S1 D1 S4 S5 S6 D2 S10 S13 S14 S15 D3 D0 S2 D1 S4 D2 S11 S13 D3 D7 S21 D7 D0 S2 D1 S4 S5 D2 S11 S13 S14 D3 D0 S0 S1 D1 S4 D2 S9 S10 S13 D3 D6 S20 D6 D0 S0 S1 S3 D1 S4 S5 S6 S7 D2 S9 S10 S12 S13 S14 S15 S16 D3 D0 S0 S1 S2 S3 D1 S4 D2 S9 S10 S11 S12 S13 D3 D9 S23 D9 D0 S0 S1 S2 S3 D1 S4 S5 D2 S9 S10 S11 S12 S13 S14 D3 D0 S0 D1 S4 D2 S9 S13 D3 D10 S24 D10 D0 S0 S1 D1 S4 S5 S6 D2 S9 S10 S13 S14 S15 D3 D0 S0 S1 S2 S3 D1 S4 D2 S9 S10 S11 S12 S13 D3 D8 S22 D8 D0 S0 S2 D1 S4 S5 D2 S9 S11 S13 S14 D3 D11""",
                  level_color=lcolor,
                  name='Bridges',
-                 keep_proportions=True,
+                 keep_proportions=False,
                  door_window_size=362)
     
     return level
