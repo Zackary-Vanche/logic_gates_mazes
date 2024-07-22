@@ -148,12 +148,8 @@ class Game:
         # vient de choisir de changer de niveau
         # ou au début du jeu (il faut initialiser le niveau)
         self.last_level_change_time = time()
-        if self.print_click_rects:
-            self.click_rect_size_x = 40
-            self.click_rect_size_y = 30
-        else:
-            self.click_rect_size_x = 40
-            self.click_rect_size_y = 30
+        self.click_rect_size_x = 40
+        self.click_rect_size_y = 30
         if self.save_image:
             if not os_path_exists('images'):
                 os_mkdir('images')
@@ -1024,8 +1020,7 @@ class Game:
                 self.last_key_pressed_time = time()
                 self.change_in_display = True
 
-    # The main function that controls the game
-    def play(self):
+    def play(self): # The main function that controls the game
         self.game_setup()
         self.t0 = time()
         self.n_loops = 0
