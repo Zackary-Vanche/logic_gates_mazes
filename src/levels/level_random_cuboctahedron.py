@@ -213,7 +213,7 @@ def aux_level_random_cuboctahedron(door_trees_list = [[i for i in range(2**n_swi
                  level_color=Levels_colors_list.RANDOM(),
                  name='Random - Cuboctahedron',
                  door_window_size=500,
-                 keep_proportions=True,
+                 keep_proportions=False,
                  y_separation=40,
                  border=40)
     
