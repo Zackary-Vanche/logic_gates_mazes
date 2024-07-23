@@ -508,6 +508,7 @@ class Levels:
                              ]
     
     Worlds = {'The Hidden Country':[level_von_neumann_neighborhood,
+                                    level_cubic,
                                     level_hitting_set,
                                     level_independent_set,
                                     level_dominating_set,
@@ -1050,6 +1051,7 @@ def calculates_random_level_solution_length(aux_level_function):
 if __name__ == "__main__":
     pass
 
+    
     test_levels()
 
     import os
@@ -1065,11 +1067,13 @@ if __name__ == "__main__":
         for name in sorted(dico_i_level_name.keys()):
             i = dico_i_level_name[name]
             fw.write(f'{name: <25} {i}\n')
-
+    
     #level_second_guarini_s_problem 
     
     # fast_solution_finding=True
     
-    level = level_blind_alleys()
+    #level = level_towers()
     
-    #solutions = level.find_all_solutions(verbose=0, save_solutions_txt=True)
+    #print(level.fastest_solution.count('D'))
+    
+    #solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True)
