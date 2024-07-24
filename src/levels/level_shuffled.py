@@ -64,7 +64,7 @@ def level_shuffled():
               cut_expression_separator=' 3')
     
     R0 = Room(name='R0',
-              position = [0, 3, 8, 8],
+              position = [0, 4, 8, 8],
               switches_list = Slist)
     RE = Room(name='RE',
               position=[3, 0, 2, 2],

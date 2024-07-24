@@ -503,8 +503,8 @@ class Levels:
                              level_bridges,
                              level_chinese_postman_problem,
                              level_parking,
-                             level_panex,
-                             level_superflip,
+                             #level_panex,
+                             #level_superflip,
                              ]
     
     Worlds = {'The Hidden Country':[level_von_neumann_neighborhood,
@@ -633,8 +633,8 @@ class Levels:
                                           level_small_panex,
                                           level_hungarian_rings,
                                           level_parking,
-                                          level_panex,
-                                          level_superflip,
+                                          #level_panex,
+                                          #level_superflip,
                                           ],
               'The Rotations Dimension':[level_wasted,
                                          level_rotation,

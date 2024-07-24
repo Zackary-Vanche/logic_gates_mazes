@@ -169,7 +169,12 @@ def level_sign(fast_solution_finding=False):
                switches=Slisttree + Slist + [89, 24],
                cut_expression=True)
     def pos(i):
-        return [(i%2)*7, i+(i%4)*0.55, 3.5, 0.8]
+        pos = [(i%2)*7, i, 5, 1]
+        if i%4 == 3:
+            pos[0] += pos[2]*1.1
+        if i%4 == 0:
+            pos[0] -= pos[2]*1.1
+        return pos
 
     R0 = Room(name='R0',
               position=pos(0),
@@ -220,7 +225,7 @@ def level_sign(fast_solution_finding=False):
               position=pos(15),
     is_exit = True)  # E pour exit ou end
 
-    rp = 0.4
+    rp = 0.5
     rdc = [1/2, 1/2]
     rac = [1/2, 1/2]
 
@@ -337,7 +342,7 @@ def level_sign(fast_solution_finding=False):
                  fastest_solution='D0 S2 S3 D1 S5 D2 S7 D3 S8 S9 D4 S10 S11 D5 D6 S13 S14 D7 S16 D8 S17 D9 S18 D10 D11 S21 D12 S22 D13 S23 D14',
                  level_color=Levels_colors_list.FROM_HUE(hu=0.5, sa=0.4, li=0.4),
                  name='Sign',
-                 door_window_size=400,
+                 door_window_size=300,
                  keep_proportions=True,
                  y_separation=40,
                  border=40,

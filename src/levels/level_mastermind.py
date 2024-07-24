@@ -145,10 +145,10 @@ def level_mastermind():
               position=[2, 0, 0.5, 8],
               switches_list=[S0, S1, S2, S3, S4, S5, S6, S7])
     R1 = Room(name='R1',
-              position=[3.25, 0, 1.25, 0.5],
+              position=[3.5, 0, 1.25, 0.5],
               switches_list=[S8])
     R2 = Room(name='R2',
-              position=[3.25, 7.5, 1.25, 0.5],
+              position=[3.5, 7.5, 1.25, 0.5],
               switches_list=[S9])
     R3 = Room(name='R3',
               position=[0.5, 4.5, 0.5, 1],
@@ -159,7 +159,9 @@ def level_mastermind():
     D0 = Door(two_way=False,
               tree=T0,
               room_departure=R0,
-              room_arrival=R1)
+              room_arrival=R1,
+              relative_departure_coordinates=[1, 1/2],
+              relative_arrival_coordinates=[0, 1])
     D1 = Door(two_way=False,
               tree=T1,
               room_departure=R1,
@@ -233,7 +235,9 @@ def level_mastermind():
     D13 = Door(two_way=False,
                tree=T13,
                room_departure=R2,
-               room_arrival=R0)
+               room_arrival=R0,
+               relative_departure_coordinates=[0, 0],
+               relative_arrival_coordinates=[1, 1/2])
     D14 = Door(two_way=False,
                tree=T14,
                room_departure=R0,
