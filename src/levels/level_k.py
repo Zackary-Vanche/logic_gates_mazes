@@ -32,14 +32,20 @@ def level_k(fast_solution_finding=False):
 
     d = 4
     ex = 1
-    ey = 1
+    ey = 0.9
 
     def y(i):
         return 5 + (i + 1) * 0.525
 
-    def pos(i):
+    def get_pos(i):
         j = i-1
-        return [(j%2)*d, y(j), ex, ey]
+        pos = [(j%2)*d, y(j), ex, ey]
+        epsilon_x = 0.35
+        if j%2 == 0:
+            pos[0] -= epsilon_x*j
+        else:
+            pos[0] += epsilon_x*j
+        return pos
 
     rp = 0.4
 
@@ -93,64 +99,68 @@ def level_k(fast_solution_finding=False):
                         switches=Slist_i(i))
 
         R0 = Room(name='R0',
-                  position = [d, 2, 4, 4],
+                  position = [d, 2, 3.9, 3.9],
                   switches_list = Slist)
         R1 = Room(name='R1',
-                  position=pos(1),
+                  position=get_pos(1),
                   switches_list=[])
         R2 = Room(name='R2',
-                  position=pos(2),
+                  position=get_pos(2),
                   switches_list=[])
         R3 = Room(name='R3',
-                  position=pos(3),
+                  position=get_pos(3),
                   switches_list=[])
         R4 = Room(name='R4',
-                  position=pos(4),
+                  position=get_pos(4),
                   switches_list=[])
         R5 = Room(name='R5',
-                  position=pos(5),
+                  position=get_pos(5),
                   switches_list=[])
         R6 = Room(name='R6',
-                  position=pos(6),
+                  position=get_pos(6),
                   switches_list=[])
         R7 = Room(name='R7',
-                  position=pos(7),
+                  position=get_pos(7),
                   switches_list=[])
         R8 = Room(name='R8',
-                  position=pos(8),
+                  position=get_pos(8),
                   switches_list=[])
         R9 = Room(name='R9',
-                  position=pos(9),
+                  position=get_pos(9),
                   switches_list=[])
         R10 = Room(name='R10',
-                   position=pos(10),
+                   position=get_pos(10),
                    switches_list=[])
         R11 = Room(name='R11',
-                   position=pos(11),
+                   position=get_pos(11),
                    switches_list=[])
         R12 = Room(name='R12',
-                   position=pos(12),
+                   position=get_pos(12),
                    switches_list=[])
         R13 = Room(name='R13',
-                   position=pos(13),
+                   position=get_pos(13),
                    switches_list=[])
         R14 = Room(name='R14',
-                   position=pos(14),
+                   position=get_pos(14),
                    switches_list=[])
         R15 = Room(name='R15',
-                   position=pos(15),
+                   position=get_pos(15),
                    switches_list=[])
         R16 = Room(name='R16',
-                   position=pos(16),
+                   position=get_pos(16),
                    switches_list=[])
         R17 = Room(name='R17',
-                   position=pos(17),
+                   position=get_pos(17),
                    switches_list=[])
         R18 = Room(name='R18',
-                   position=pos(18),
+                   position=get_pos(18),
                    switches_list=[])
+        pos_re = get_pos(19)
+        epsilon_x = 0.2
+        pos_re[0] += -epsilon_x
+        pos_re[2] += epsilon_x*2
         RE = Room(name='RE',
-                  position=pos(19),
+                  position=pos_re,
                   is_exit=True)   # E pour exit ou end
 
         D0 = Door(two_way=False,
@@ -249,7 +259,7 @@ def level_k(fast_solution_finding=False):
         D18 = Door(two_way=False,
                   tree=Tree(tree_list=['NOT', ['EQU', Tree.tree_list_BIN(16), [None]]],
                             name='T18',
-                            switches=Slist + [43690]),  # TODO
+                            switches=Slist + [43690]),
                   room_departure=R18,
                   room_arrival=RE,
                   relative_position=rp)
@@ -263,7 +273,7 @@ def level_k(fast_solution_finding=False):
                      fastest_solution='S0 S2 S4 S6 S8 S10 S12 S14 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18',
                      level_color=Levels_colors_list.FROM_HUE(hu=0.55, sa=0.9, li=0.3),
                      name='K',
-                     door_window_size=600,
+                     door_window_size=300,
                      keep_proportions=True,
                      y_separation=40,
                      border=40)
