@@ -7,21 +7,29 @@ from Levels_colors_list import Levels_colors_list
 from random import shuffle as rd_shuffle
 
 def level_order(): 
+    
+    Snames = ['S0', 'S1', 'S2']
+    rd_shuffle(Snames)
 
-    S0 = Switch(name='S0')
-    S1 = Switch(name='S1')
-    S2 = Switch(name='S2')
+    S0 = Switch(name=Snames[0])
+    S1 = Switch(name=Snames[1])
+    S2 = Switch(name=Snames[2])
 
     Slist = [S0, S1, S2]
+    
+    Tnames = ['T0', 'T1', 'T2']
+    rd_shuffle(Tnames)
+    
+    Dnames = [name.replace('T', 'D') for name in Tnames]
 
     T0 = Tree(tree_list=Tree.tree_list_NOT,
-                name='T0',
+                name=Tnames[0],
                 switches=[S1])
     T1 = Tree(tree_list=Tree.tree_list_NOT,
-                name='T1',
+                name=Tnames[1],
                 switches=[S2])
     T2 = Tree(tree_list=[None],
-                name='T2',
+                name=Tnames[2],
                 switches=[1])
     T3 = Tree(tree_list=Tree.tree_list_AND(3),
                 name='T3',
@@ -55,17 +63,17 @@ def level_order():
 
     D0 = Door(two_way=True,
               tree=T0,
-              name='D0',
+              name=Dnames[0],
               room_departure=R0,
               room_arrival=R1)
     D1 = Door(two_way=True,
               tree=T1,
-              name='D1',
+              name=Dnames[1],
               room_departure=R0,
               room_arrival=R2)
     D2 = Door(two_way=True,
               tree=T2,
-              name='D2',
+              name=Dnames[2],
               room_departure=R3,
               room_arrival=R0)
     D3 = Door(two_way=False,
@@ -73,12 +81,17 @@ def level_order():
               name='D3',
               room_departure=R0,
               room_arrival=RE)
+    
+    sol = ' '.join([Dnames[0], Snames[0], Dnames[0],
+                    Dnames[1], Snames[1], Dnames[1],
+                    Dnames[2], Snames[2], Dnames[2],
+                    'D3'])
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, RE],
                  doors_list=[D0, D1, D2, D3],
-                 fastest_solution='D1 S1 D1 D3',
+                 fastest_solution=sol,
                  level_color=Levels_colors_list.FROM_HUE(hu=0.6, sa=0.55, li=0.5),
                  name='Order',
                  keep_proportions=True,

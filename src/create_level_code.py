@@ -1,6 +1,6 @@
-ns = 11
+ns = 8
 nd = 12*2+1
-nr = 12
+nr = 8
 nv = 0
 
 print('''
@@ -55,14 +55,14 @@ print('''    dx = 1
     ey = 0.5\n''')
     
 for i in range(nr):
-    y = (i-1)%3
-    x = (i-1)//3
+    y = i//5
+    x = i%5
     # print(f'''    R{i} = Room(name='R{i}',
     #             position=[{x}*dx, {y}*dy, ex, ey],
     #             switches_list=[])''')
     print(f'''    R{i} = Room(name='R{i}',
                 position=[{x}*dx, {y}*dy, ex, ey],
-                switches_list=[])''')
+                switches_list=[S{i}])''')
     
 print('''    RE = Room(name='RE',
               position=[0, 0, ex, ey],
@@ -115,7 +115,8 @@ for i in range(nd):
                 tree=T{i},
                 name='D{i}',
                 room_departure=R0,
-                room_arrival=RE)''')
+                room_arrival=RE,
+                relative_position=rp)''')
 
 print(f'''
     level = Maze(start_room_index=0,

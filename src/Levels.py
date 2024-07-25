@@ -17,10 +17,11 @@ from levels.level_binary import level_binary
 from levels.level_bipartite import level_bipartite
 from levels.level_bis_repetita import level_bis_repetita
 from levels.level_birch import level_birch
-from levels.level_black_knight_puzzle import level_black_knight_puzzle
+#from levels.level_black_knight_puzzle import level_black_knight_puzzle
 from levels.level_blind_alleys import level_blind_alleys
 from levels.level_bonsai import level_bonsai
 from levels.level_boolean import level_boolean
+from levels.level_box import level_box
 from levels.level_branches import level_branches
 from levels.level_bridges import level_bridges
 from levels.level_cardinal_directions import level_cardinal_directions
@@ -47,6 +48,7 @@ from levels.level_cypress import level_cypress
 from levels.level_dead_ends import level_dead_ends
 from levels.level_diagonal import level_diagonal
 from levels.level_dichotomy import level_dichotomy
+from levels.level_dijkstra import level_dijkstra
 from levels.level_dominating_set import level_dominating_set
 from levels.level_doppelganger import level_doppelganger
 from levels.level_draw import level_draw
@@ -118,6 +120,7 @@ from levels.level_no_three_in_line import level_no_three_in_line
 from levels.level_nonogram import level_nonogram
 from levels.level_numeration import level_numeration
 from levels.level_oak import level_oak
+from levels.level_octahedron import level_octahedron
 from levels.level_odd import level_odd
 from levels.level_orchard import level_orchard
 from levels.level_orchid import level_orchid
@@ -126,7 +129,7 @@ from levels.level_oval_track_puzzle import level_oval_track_puzzle
 from levels.level_palace import level_palace
 from levels.level_palm_tree import level_palm_tree
 from levels.level_pancake_sorting import level_pancake_sorting
-from levels.level_panex import level_panex
+#from levels.level_panex import level_panex
 from levels.level_parallel import level_parallel
 from levels.level_parking import level_parking
 from levels.level_partition import level_partition
@@ -137,6 +140,7 @@ from levels.level_peony import level_peony
 from levels.level_permutate import level_permutate
 from levels.level_permutations import level_permutations
 from levels.level_pine import level_pine
+from levels.level_platonic import level_platonic
 from levels.level_playground import level_playground
 from levels.level_podium import level_podium
 from levels.level_point_of_no_return import level_point_of_no_return
@@ -195,7 +199,7 @@ from levels.level_strange import level_strange
 from levels.level_sudoku import level_sudoku
 from levels.level_sujiko import level_sujiko
 from levels.level_sum import level_sum
-from levels.level_superflip import level_superflip
+#from levels.level_superflip import level_superflip
 from levels.level_superpermutation import level_superpermutation
 from levels.level_syracuse import level_syracuse
 from levels.level_takuzu import level_takuzu
@@ -296,14 +300,17 @@ class Levels:
                              level_yoyo,
                              level_crossroad,
                              level_bis_repetita,
+                             level_tetrahedron,
                              level_numeration,
                              level_square,
                              level_inside_out,
                              level_cubic,
                              level_point_of_no_return,
+                             level_cube,
                              level_3sat,
                              level_sum,
                              level_product,
+                             level_octahedron,
                              level_fluid,
                              level_congruence,
                              level_infinity,
@@ -367,6 +374,7 @@ class Levels:
                              level_network,
                              level_pyramid,
                              level_invert,
+                             level_dijkstra,
                              level_permutate,
                              level_chessboard,
                              level_roses_are_red,
@@ -409,7 +417,7 @@ class Levels:
                              level_expedition,
                              level_voyage,
                              level_taxicab_number,
-                             level_tetrahedron,
+                             level_platonic,
                              level_small,
                              level_strange,
                              level_water_lily,
@@ -461,7 +469,7 @@ class Levels:
                              level_pancake_sorting,
                              level_random_ladder,
                              level_wave,
-                             level_cube,
+                             level_box,
                              level_error,
                              level_house,
                              level_the_4th_dimension,
@@ -567,7 +575,11 @@ class Levels:
                                   level_bamboos,
                                   level_gingko_biloba,
                                   level_cypress],
-              'The Travel':[level_meanders,
+              'The Travel':[level_tetrahedron,
+                            level_meanders,
+                            level_octahedron,
+                            level_cube,
+                            level_dijkstra,
                             level_hamiltonian,
                             level_wind_compass,
                             level_singletons,
@@ -629,7 +641,7 @@ class Levels:
                                           level_inversions,
                                           level_pancake_sorting,
                                           level_oval_track_puzzle,
-                                          level_cube,
+                                          level_box,
                                           level_error,
                                           level_puzzle,
                                           level_small_panex,
@@ -703,6 +715,7 @@ class Levels:
                             level_initiation,
                             level_cardinal_directions,
                             level_linear,
+                            level_order,
                             level_loop,
                             level_yoyo,
                             level_bis_repetita,
@@ -714,7 +727,7 @@ class Levels:
                             level_alice_and_bob,
                             level_river,
                             level_small,
-                            level_tetrahedron,
+                            level_platonic,
                             level_baguenaudier,
                             level_lights_out,
                             level_cartesian,
@@ -1053,7 +1066,6 @@ def calculates_random_level_solution_length(aux_level_function):
 if __name__ == "__main__":
     pass
 
-    
     test_levels()
 
     import os
