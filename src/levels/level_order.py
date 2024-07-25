@@ -6,7 +6,7 @@ from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 from random import shuffle as rd_shuffle
 
-def level_cardinal_directions(): 
+def level_order(): 
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -23,19 +23,18 @@ def level_cardinal_directions():
     T2 = Tree(tree_list=[None],
                 name='T2',
                 switches=[1])
-    T3 = Tree(tree_list=Tree.tree_list_OR(3),
+    T3 = Tree(tree_list=Tree.tree_list_AND(3),
                 name='T3',
                 switches=Slist,
-                easy_logical_expression_PN="| S0 ( | S1 S2 ) \n= | ( S0 S1 S2 )")
+                easy_logical_expression_PN="& S0 ( & S1 S2 ) \n= & ( S0 S1 S2 )")
 
     ex = 1
     ey = 1
     dx = 2
     dy = 2
-    pos_list = [[-dx, 0, ex, ey],
-                [+dx, 0, ex, ey],
-                [0, -dy, ex, ey],
-                [0, +dy, ex, ey]]
+    pos_list = [[-dx, -dy, ex, ey],
+                [+dx, -dy, ex, ey],
+                [0, -dy, ex, ey]]
     rd_shuffle(pos_list)
 
     R0 = Room(name='R0',
@@ -51,10 +50,10 @@ def level_cardinal_directions():
                 position=pos_list[2],
                 switches_list=[S2])
     RE = Room(name='RE',
-              position=pos_list[3],
+              position=[0, +dy, ex, ey],
               is_exit=True)
 
-    D0 = Door(two_way=False,
+    D0 = Door(two_way=True,
               tree=T0,
               name='D0',
               room_departure=R0,
@@ -64,7 +63,7 @@ def level_cardinal_directions():
               name='D1',
               room_departure=R0,
               room_arrival=R2)
-    D2 = Door(two_way=False,
+    D2 = Door(two_way=True,
               tree=T2,
               name='D2',
               room_departure=R3,
@@ -80,8 +79,8 @@ def level_cardinal_directions():
                  rooms_list=[R0, R1, R2, R3, RE],
                  doors_list=[D0, D1, D2, D3],
                  fastest_solution='D1 S1 D1 D3',
-                 level_color=Levels_colors_list.FROM_HUE(hu=0.12, sa=0.6, li=0.5),
-                 name='Cardinal directions',
+                 level_color=Levels_colors_list.FROM_HUE(hu=0.6, sa=0.55, li=0.5),
+                 name='Order',
                  keep_proportions=True,
                  door_window_size=300)
     

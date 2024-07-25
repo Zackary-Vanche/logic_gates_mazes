@@ -121,6 +121,7 @@ from levels.level_oak import level_oak
 from levels.level_odd import level_odd
 from levels.level_orchard import level_orchard
 from levels.level_orchid import level_orchid
+from levels.level_order import level_order
 from levels.level_oval_track_puzzle import level_oval_track_puzzle
 from levels.level_palace import level_palace
 from levels.level_palm_tree import level_palm_tree
@@ -286,6 +287,7 @@ class Levels:
                              level_initiation,
                              level_cardinal_directions,
                              level_linear,
+                             level_order,
                              level_loop,
                              level_backward,
                              level_boolean,
@@ -296,10 +298,10 @@ class Levels:
                              level_bis_repetita,
                              level_numeration,
                              level_square,
-                             level_3sat,
                              level_inside_out,
                              level_cubic,
                              level_point_of_no_return,
+                             level_3sat,
                              level_sum,
                              level_product,
                              level_fluid,
