@@ -1,7 +1,7 @@
-ns = 8
-nd = 12*2+1
-nr = 8
-nv = 0
+ns = 14+9+14
+nd = 6*2+3+3
+nr = 10
+nv = 1
 
 print('''
 from Switch import Switch
@@ -32,10 +32,10 @@ for i in range(nv):
     #       name='V{i}',
     #       switches=[1])''')
 
-if nv != 0:
-    print('')
-    print(f'''    Vlist = [{', '.join([f'V{i}' for i in range(nv)])}]''')
-    print('')
+# if nv != 0:
+#     print('')
+#     print(f'''    Vlist = [{', '.join([f'V{i}' for i in range(nv)])}]''')
+#     print('')
     
 for i in range(nd):
     print(f'''    T{i} = Tree(tree_list=[None],
@@ -55,8 +55,8 @@ print('''    dx = 1
     ey = 0.5\n''')
     
 for i in range(nr):
-    y = i//5
-    x = i%5
+    y = i//4
+    x = i%4
     # print(f'''    R{i} = Room(name='R{i}',
     #             position=[{x}*dx, {y}*dy, ex, ey],
     #             switches_list=[])''')
@@ -115,8 +115,7 @@ for i in range(nd):
                 tree=T{i},
                 name='D{i}',
                 room_departure=R0,
-                room_arrival=RE,
-                relative_position=rp)''')
+                room_arrival=RE)''')
 
 print(f'''
     level = Maze(start_room_index=0,

@@ -188,6 +188,7 @@ from levels.level_singletons import level_singletons
 from levels.level_small import level_small
 from levels.level_sunflower import level_sunflower
 from levels.level_small_panex import level_small_panex
+from levels.level_sneckdown import level_sneckdown
 from levels.level_solitaire import level_solitaire
 from levels.level_sorted import level_sorted
 from levels.level_spaceship import level_spaceship
@@ -384,6 +385,7 @@ class Levels:
                              level_trail,
                              level_path,
                              level_entropy,
+                             level_sneckdown,
                              level_dichotomy,
                              level_random_star,
                              level_intersection,
@@ -586,6 +588,7 @@ class Levels:
                             level_walk,
                             level_trail,
                             level_path,
+                            level_sneckdown,
                             level_roadblock,
                             level_passage,
                             level_impasse,
@@ -1066,28 +1069,27 @@ def calculates_random_level_solution_length(aux_level_function):
 if __name__ == "__main__":
     pass
 
-    test_levels()
+    # test_levels()
 
-    import os
+    # import os
     
-    if not os.path.exists('temp'):
-        os.mkdir('temp')
+    # if not os.path.exists('temp'):
+    #     os.mkdir('temp')
     
-    dico_i_level_name = {}
-    for i, level_funtion in enumerate(Levels.levels_functions_list):
-        dico_i_level_name[level_funtion().name] = i
+    # dico_i_level_name = {}
+    # for i, level_funtion in enumerate(Levels.levels_functions_list):
+    #     dico_i_level_name[level_funtion().name] = i
     
-    with open('temp/level_numbers.txt', 'w') as fw:
-        for name in sorted(dico_i_level_name.keys()):
-            i = dico_i_level_name[name]
-            fw.write(f'{name: <25} {i}\n')
+    # with open('temp/level_numbers.txt', 'w') as fw:
+    #     for name in sorted(dico_i_level_name.keys()):
+    #         i = dico_i_level_name[name]
+    #         fw.write(f'{name: <25} {i}\n')
     
-    #level_second_guarini_s_problem 
     
     # fast_solution_finding=True
     
-    #level = level_towers()
+    level = level_sneckdown()
     
     #print(level.fastest_solution.count('D'))
     
-    #solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True)
+    solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True)

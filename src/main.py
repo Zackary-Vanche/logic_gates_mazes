@@ -10,7 +10,7 @@ if __name__ == "__main__":
     # If you don't put it, the pixel of the game
     # will be too big after compilation
 
-    Game(show_help=0,
+    Game(show_help=1,
          index_current_level=0, 
          is_fullscreen=0,
          # WINDOW_SIZE=None,
@@ -20,3 +20,5 @@ if __name__ == "__main__":
 
     # import cProfile
     # cProfile.run("Game(show_help=1, index_current_level=0).play()")
+    
+    

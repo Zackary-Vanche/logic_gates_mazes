@@ -317,12 +317,6 @@ class Levels_colors_list:
                                    surrounding_color=Color.BRIGHT_RED)
 
     def FROM_HUE(hu, sa=0.5, li=0.3):
-        from colorsys import hls_to_rgb
-        from numpy import array
-        from numpy import uint8
-        def color_hls(hu, li, sa):
-            return array(255 * array(hls_to_rgb(hu, li, sa)), dtype=uint8).tolist()
-
         if li < 0.5:
             inside_room_color = Color.WHITE
         else:
@@ -333,8 +327,8 @@ class Levels_colors_list:
         else:
             contour_color = Color.BLACK
             surrounding_color = Color.BLACK
-        return Level_color(background_color=color_hls(hu, li / 4, 0.8 * sa),
-                           room_color=color_hls(hu, li, sa),
+        return Level_color(background_color=Color.color_hls(hu, li / 4, 0.8 * sa),
+                           room_color=Color.color_hls(hu, li, sa),
                            letters_color=Color.WHITE,
                            contour_color=contour_color,
                            inside_room_color=inside_room_color,

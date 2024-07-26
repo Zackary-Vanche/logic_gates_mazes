@@ -170,7 +170,7 @@ class Maze:
             room_i = rooms_list[i]
             for j in range(i):
                 room_j = rooms_list[j]
-                assert room_i.name != room_j.name
+                assert room_i.name != room_j.name or room_i.name == ''
         for i in range(len(doors_list)):
             door_i = doors_list[i]
             for j in range(i):
@@ -404,7 +404,9 @@ class Maze:
                 door.update_open()
 
     def make_actions(self, actions, separator=' ', allow_all=False):
-        #print(actions)
+        for a in actions.split(' '):
+            if not 'R' in a:
+                print(a)
         actions_list = actions.split(separator)
         for action in actions_list:
             if not (action in self.possibles_actions_list or (action in self.rooms_dict.keys() and allow_all)):
