@@ -78,7 +78,7 @@ Use ALT keys to see all actions you can do.
 Press the [RIGHT] ([LEFT]) arrow key to go to the next (previous) page.
 To go to the next page, you can also:
     - click once if the help panel is displayed
-    - click on twice on the exit room."""
+    - click on the exit room once you are in it."""
 
 help_menus_list['switches'] = """Switches are named S0, S1, S2, ...
 If a switch is turned on, it is surrounded, and you say it is equal to 1. If it is turned off, it is equal to 0.
