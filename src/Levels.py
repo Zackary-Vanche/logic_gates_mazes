@@ -129,7 +129,7 @@ from levels.level_oval_track_puzzle import level_oval_track_puzzle
 from levels.level_palace import level_palace
 from levels.level_palm_tree import level_palm_tree
 from levels.level_pancake_sorting import level_pancake_sorting
-#from levels.level_panex import level_panex
+from levels.level_panex import level_panex
 from levels.level_parallel import level_parallel
 from levels.level_parking import level_parking
 from levels.level_partition import level_partition
@@ -187,20 +187,19 @@ from levels.level_sign import level_sign
 from levels.level_singletons import level_singletons
 from levels.level_small import level_small
 from levels.level_sunflower import level_sunflower
-from levels.level_small_panex import level_small_panex
 from levels.level_sneckdown import level_sneckdown
 from levels.level_solitaire import level_solitaire
 from levels.level_sorted import level_sorted
 from levels.level_spaceship import level_spaceship
 from levels.level_spare import level_spare
 from levels.level_spider import level_spider
+from levels.level_spy import level_spy
 from levels.level_square import level_square
 from levels.level_stairs import level_stairs
 from levels.level_strange import level_strange
 from levels.level_sudoku import level_sudoku
 from levels.level_sujiko import level_sujiko
 from levels.level_sum import level_sum
-#from levels.level_superflip import level_superflip
 from levels.level_superpermutation import level_superpermutation
 from levels.level_syracuse import level_syracuse
 from levels.level_takuzu import level_takuzu
@@ -296,12 +295,15 @@ class Levels:
                              level_loop,
                              level_backward,
                              level_boolean,
-                             level_binary,
-                             level_orchard,
                              level_yoyo,
+                             level_orchard,
                              level_crossroad,
                              level_bis_repetita,
+                             level_spy,
+                             level_leaves,
+                             level_binary,
                              level_tetrahedron,
+                             level_bonsai,
                              level_numeration,
                              level_square,
                              level_point_of_no_return,
@@ -335,10 +337,8 @@ class Levels:
                              level_connectivity,
                              level_rainforest,
                              level_odd,
-                             level_bonsai,
                              level_min_cut,
                              level_max_cut,
-                             level_leaves,
                              level_hut,
                              level_arithmetic,
                              level_triangulate,
@@ -375,8 +375,8 @@ class Levels:
                              level_network,
                              level_pyramid,
                              level_invert,
-                             level_dijkstra,
                              level_permutate,
+                             level_dijkstra,
                              level_chessboard,
                              level_roses_are_red,
                              level_edelweiss,
@@ -508,7 +508,7 @@ class Levels:
                              level_solitaire,
                              level_mols,
                              level_separation,
-                             level_small_panex,
+                             level_panex,
                              level_classified,
                              level_towers,
                              level_zebra,
@@ -521,6 +521,7 @@ class Levels:
     
     Worlds = {'The Hidden Country':[level_von_neumann_neighborhood,
                                     level_cubic,
+                                    level_spy,
                                     level_hitting_set,
                                     level_independent_set,
                                     level_dominating_set,
@@ -647,7 +648,7 @@ class Levels:
                                           level_box,
                                           level_error,
                                           level_puzzle,
-                                          level_small_panex,
+                                          level_panex,
                                           level_hungarian_rings,
                                           level_parking,
                                           #level_panex,
@@ -1069,27 +1070,27 @@ def calculates_random_level_solution_length(aux_level_function):
 if __name__ == "__main__":
     pass
 
-    # test_levels()
+    test_levels()
 
-    # import os
+    import os
     
-    # if not os.path.exists('temp'):
-    #     os.mkdir('temp')
+    if not os.path.exists('temp'):
+        os.mkdir('temp')
     
-    # dico_i_level_name = {}
-    # for i, level_funtion in enumerate(Levels.levels_functions_list):
-    #     dico_i_level_name[level_funtion().name] = i
+    dico_i_level_name = {}
+    for i, level_funtion in enumerate(Levels.levels_functions_list):
+        dico_i_level_name[level_funtion().name] = i
     
-    # with open('temp/level_numbers.txt', 'w') as fw:
-    #     for name in sorted(dico_i_level_name.keys()):
-    #         i = dico_i_level_name[name]
-    #         fw.write(f'{name: <25} {i}\n')
+    with open('temp/level_numbers.txt', 'w') as fw:
+        for name in sorted(dico_i_level_name.keys()):
+            i = dico_i_level_name[name]
+            fw.write(f'{name: <25} {i}\n')
     
     
     # fast_solution_finding=True
     
-    level = level_sneckdown()
+    # level = level_sneckdown()
     
     #print(level.fastest_solution.count('D'))
     
-    solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True)
+    # solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True)

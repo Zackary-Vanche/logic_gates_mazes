@@ -309,8 +309,7 @@ def level_sneckdown():
                          surrounding_color=Color.PURE_ORANGE)
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
-                 rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, RE,
-                             Ra, Rb],
+                 rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, Ra, Rb, RE,],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17],
                  fastest_solution='''S0 S2 S4 S5 S6 S8 S9 S11 S13 D0 S14 D1 S15 D3 S16 D5 S19 D10 S21 D14 S22 D12 S20 D9 S18 D6 S17 D7 S23 D15 S25 S26 S27 S28 S29 S33 S35 S36 S37 D16 S14 D2 S17 D6 S18 D4 S15 D3 S16 D5 S19 D10 S21 D14 S22 D12 S20 D13 S23 D17''',
                  level_color=lcolor,

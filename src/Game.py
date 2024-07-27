@@ -964,15 +964,19 @@ class Game:
                         self.name_tree_list = self.name_tree_list[1:] + self.name_tree_list[:1]
                         self.last_key_pressed_time = time()
                         self.change_in_display = True
-                    if self.upper_right_window_rectangle.collidepoint(mouse_x, mouse_y):
-                        self.index_current_level += 1
-                        self.show_help = True
-                        self.change_in_display = True
+                    # if self.upper_right_window_rectangle.collidepoint(mouse_x, mouse_y):
+                    #     self.index_current_level += 1
+                    #     self.show_help = True
+                    #     self.change_in_display = True
                     for room in self.maze.rooms_list:
                         rect = self.element_dict[room.name]
                         if room.name == 'RE':
                             if point_in_ellipse(event.pos, rect):
-                                self.maze.make_actions('RE')
+                                if self.maze.current_room().is_exit:
+                                    self.index_current_level += 1
+                                    self.show_help = True
+                                else:
+                                    self.maze.make_actions('RE')
                                 self.change_in_display = True
                         else:
                             if rect.collidepoint(mouse_x, mouse_y):
