@@ -41,10 +41,10 @@ def level_variable():
     dy = 1
 
     R0 = Room(name='R0',
-                position=[0*dx, 0*dy, 0.75, 0.75],
+                position=[1*dx, 1*dy, 0.75, 0.75],
                 switches_list=Slist)
     RE = Room(name='RE',
-              position=[1*dx, 1*dy, 0.5, 0.5],
+              position=[0*dx, 0*dy, 0.5, 0.5],
               is_exit=True)
 
     D0 = Door(two_way=False,
@@ -52,7 +52,7 @@ def level_variable():
                 name='D0',
                 room_departure=R0,
                 room_arrival=RE,
-                relative_departure_coordinates=[2/3, 2/3])
+                relative_departure_coordinates=[1/3, 1/3])
     
     hu = 0.9
     lcolor = Level_color(background_color=Color.color_hls(hu, 0.2, 0.4),
