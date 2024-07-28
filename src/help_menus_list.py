@@ -141,6 +141,8 @@ help_menus_list['levels']["Cardinal directions"] = '\n'.join([help_menus_list['p
 
 help_menus_list['levels']["Linear"] = help_menus_list['directions keys']
 
+# help_menus_list['levels']["Variable"] = help_menus_list['V']
+
 help_menus_list['levels']["Numeration"] = '\n'.join([help_menus_list['numerical value']])
 
 help_menus_list['levels']["3 SAT"] = """The 3 SAT problem is NP complete."""
@@ -256,7 +258,7 @@ help_menus_list['levels']["Superflip"] = ""
 ######################
 ## TREE'S NOTATIONS ##
 ######################
-    
+
 help_menus_list['V'] = '''
 The elements named V0, V1, etc. are intermediate values.'''
 

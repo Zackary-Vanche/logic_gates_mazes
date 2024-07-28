@@ -224,6 +224,7 @@ from levels.level_tree import level_tree
 from levels.level_triangulate import level_triangulate
 from levels.level_trivial import level_trivial
 from levels.level_tulip import level_tulip
+from levels.level_variable import level_variable
 from levels.level_village import level_village
 from levels.level_violets_are_blue import level_violets_are_blue
 from levels.level_von_neumann_neighborhood import level_von_neumann_neighborhood
@@ -297,6 +298,7 @@ class Levels:
                              level_initiation,
                              level_cardinal_directions,
                              level_linear,
+                             level_variable,
                              level_order,
                              level_loop,
                              level_backward,
