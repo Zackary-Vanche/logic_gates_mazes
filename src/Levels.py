@@ -19,6 +19,7 @@ from levels.level_bis_repetita import level_bis_repetita
 from levels.level_birch import level_birch
 #from levels.level_black_knight_puzzle import level_black_knight_puzzle
 from levels.level_blind_alleys import level_blind_alleys
+from levels.level_bloodline import level_bloodline
 from levels.level_bonsai import level_bonsai
 from levels.level_boolean import level_boolean
 from levels.level_box import level_box
@@ -31,6 +32,7 @@ from levels.level_central_symmetry import level_central_symmetry
 from levels.level_chessboard import level_chessboard
 from levels.level_chinese_postman_problem import level_chinese_postman_problem
 from levels.level_choice import level_choice
+from levels.level_circle import level_circle
 from levels.level_circuit import level_circuit
 from levels.level_classified import level_classified
 from levels.level_code import level_code
@@ -233,6 +235,7 @@ from levels.level_wave import level_wave
 from levels.level_weights import level_weights
 from levels.level_willow import level_willow
 from levels.level_wind_compass import level_wind_compass
+from levels.level_worms import level_worms
 from levels.level_yoyo import level_yoyo
 from levels.level_zebra import level_zebra
 
@@ -323,20 +326,22 @@ class Levels:
                              level_moore_neighborhood,
                              level_pong,
                              level_bipartite,
+                             level_bloodline,
                              level_hamiltonian,
                              level_sorted,
                              level_sheffer_stroke,
                              level_peirce_s_arrow,
-                             level_jungle,
                              level_longest_path,
                              level_shortest_path,
                              level_hitting_set,
                              level_independent_set,
                              level_dominating_set,
+                             level_circle,
                              level_exact_cover,
                              level_connectivity,
                              level_rainforest,
                              level_odd,
+                             level_jungle,
                              level_min_cut,
                              level_max_cut,
                              level_hut,
@@ -424,6 +429,7 @@ class Levels:
                              level_strange,
                              level_water_lily,
                              level_harmony,
+                             level_worms,
                              level_k,
                              level_the_4_queens,
                              level_mansion,
@@ -600,6 +606,7 @@ class Levels:
                             level_voyage,
                             level_water_lily,
                             level_harmony,
+                            level_worms,
                             level_tour,
                             level_central_symmetry,
                             level_tetractys,
@@ -633,7 +640,8 @@ class Levels:
                                   level_network,
                                   level_pyramid,
                                   ],
-              'The Permutation Universe':[level_elementary,
+              'The Permutation Universe':[level_circle,
+                                          level_elementary,
                                           level_invert,
                                           level_permutate,
                                           level_spare,
@@ -666,6 +674,7 @@ class Levels:
                               level_numeration,
                               level_inside_out,
                               level_equation,
+                              level_bloodline,
                               level_arithmetic,
                               level_product,
                               level_congruence,
@@ -1087,10 +1096,15 @@ if __name__ == "__main__":
             fw.write(f'{name: <25} {i}\n')
     
     
-    # fast_solution_finding=True
+    # # fast_solution_finding=True
     
-    # level = level_sneckdown()
+    # level = level_bloodline()
     
-    #print(level.fastest_solution.count('D'))
+    # print(level.try_solution(level.fastest_solution, verbose=2))
     
-    # solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True)
+    # #print(level.fastest_solution.count('D'))
+    
+    # solutions = level.find_all_solutions(verbose=0, save_solutions_txt=True)
+    
+    # for sol in solutions[0]:
+    #     print(' '.join(sol))

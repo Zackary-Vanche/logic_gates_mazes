@@ -197,7 +197,7 @@ def level_the_4_queens(fast_solution_finding=False):
                      fastest_solution='S2 S4 S11 S13 D0 D1 D2 D3 D4 D5',
                      level_color=Levels_colors_list.FROM_HUE(0),
                      name='The 4 queens',
-                     door_window_size=800,
+                     door_window_size=300,
                      keep_proportions=True)
 
         return level

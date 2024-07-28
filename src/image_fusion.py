@@ -76,6 +76,7 @@ if __name__ == "__main__":
     
             assert m >= n, f'~ {m} <= {n}'
             assert m * n == len(file_list), "{0}, {1}, {2}".format(m, n, len(file_list))
+            m, n = n, m
             l_img_h = []
             for i in range(m):
                 l = file_list[n * i:n * i + n]
