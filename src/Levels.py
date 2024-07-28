@@ -70,6 +70,7 @@ from levels.level_first_guarini_s_problem import level_first_guarini_s_problem
 from levels.level_five import level_five
 from levels.level_flash_back import level_flash_back
 from levels.level_fluid import level_fluid
+from levels.level_flying import level_flying
 from levels.level_forest import level_forest
 from levels.level_fractal import level_fractal
 from levels.level_gingko_biloba import level_gingko_biloba
@@ -183,6 +184,7 @@ from levels.level_second import level_second
 from levels.level_second_guarini_s_problem import level_second_guarini_s_problem
 from levels.level_separation import level_separation
 from levels.level_sheffer_stroke import level_sheffer_stroke
+from levels.level_shortcut import level_shortcut
 from levels.level_shortest_path import level_shortest_path
 from levels.level_shuffled import level_shuffled
 from levels.level_sign import level_sign
@@ -235,6 +237,7 @@ from levels.level_wave import level_wave
 from levels.level_weights import level_weights
 from levels.level_willow import level_willow
 from levels.level_wind_compass import level_wind_compass
+from levels.level_wander import level_wander
 from levels.level_worms import level_worms
 from levels.level_yoyo import level_yoyo
 from levels.level_zebra import level_zebra
@@ -355,6 +358,7 @@ class Levels:
                              level_wasted,
                              level_doppelganger,
                              level_meanders,
+                             level_shortcut,
                              level_wind_compass,
                              level_poppy,
                              level_peony,
@@ -383,6 +387,7 @@ class Levels:
                              level_permutate,
                              level_dijkstra,
                              level_chessboard,
+                             level_flying,
                              level_roses_are_red,
                              level_edelweiss,
                              level_violets_are_blue,
@@ -430,6 +435,7 @@ class Levels:
                              level_water_lily,
                              level_harmony,
                              level_worms,
+                             level_wander,
                              level_k,
                              level_the_4_queens,
                              level_mansion,
@@ -586,6 +592,7 @@ class Levels:
                                   level_cypress],
               'The Travel':[level_tetrahedron,
                             level_meanders,
+                            level_shortcut,
                             level_octahedron,
                             level_cube,
                             level_dijkstra,
@@ -756,6 +763,7 @@ class Levels:
                            level_square,
                            level_fluid,
                            level_crossroad,
+                           level_flying,
                            level_infinity,
                            level_spider,
                            level_hut,
@@ -1098,13 +1106,15 @@ if __name__ == "__main__":
     
     # # fast_solution_finding=True
     
-    # level = level_bloodline()
+    level = level_shortcut()
+    solutions = level.find_all_solutions(verbose=0, save_solutions_txt=True)
+    for sol in solutions[0]:
+        print(' '.join(sol))
     
     # print(level.try_solution(level.fastest_solution, verbose=2))
     
     # #print(level.fastest_solution.count('D'))
     
-    # solutions = level.find_all_solutions(verbose=0, save_solutions_txt=True)
     
-    # for sol in solutions[0]:
-    #     print(' '.join(sol))
+    
+    

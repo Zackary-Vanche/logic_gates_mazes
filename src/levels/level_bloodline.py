@@ -3,7 +3,6 @@ from Tree import Tree
 from Door import Door
 from Room import Room
 from Maze import Maze
-from Levels_colors_list import Levels_colors_list
 from Level_color import Level_color
 from Color import Color
 
