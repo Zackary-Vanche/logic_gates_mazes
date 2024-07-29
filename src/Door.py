@@ -13,6 +13,7 @@ class Door:
                  relative_position=1/2,
                  name=None,
                  surrounding_color=[255,255,255],
+                 inside_color=[0, 0, 0],
                  is_open=None):
         """
         La position d'une porte est donnee dans le repere de la piece qui le contient.
@@ -65,6 +66,7 @@ class Door:
         self.real_middle_coordinates = None
         self.arrow_coordinates = None
         self.surrounding_color = surrounding_color
+        self.inside_color = inside_color
         self.pages_list = []
 
     def set_rooms(self, room_departure, room_arrival):

@@ -17,6 +17,7 @@ class Room:
                  # longueur en x
                  name='R',
                  surrounding_color=[255, 255, 255],
+                 inside_color=[0, 0, 0],
                  possible_switches_values=None,
                  possible_switches_updating=None,
                  room_of_possible_switches=None,
@@ -43,6 +44,7 @@ class Room:
         self.name_position = None
         self.switches_positions = None
         self.surrounding_color = surrounding_color
+        self.inside_color = inside_color
         self.possible_switches_values = possible_switches_values
         self.possible_switches_updating = possible_switches_updating
         assert possible_switches_values is None or possible_switches_updating is None

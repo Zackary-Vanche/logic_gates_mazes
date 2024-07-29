@@ -1,7 +1,7 @@
-ns = 4
-nd = 1
-nr = 1
-nv = 4
+ns = 10*2
+nd = 3*5+1
+nr = 10
+nv = 3*5
 
 print('''
 from Switch import Switch
@@ -21,13 +21,13 @@ print('')
 print(f'''    Slist = [{', '.join([f'S{i}' for i in range(ns)])}]''')
 print('')
 
-for i in range(nv):
-    print(f'    Slist_{i} = [S{3*i}, S{3*i+1}, S{3*i+2}]')
+# for i in range(nv):
+#     print(f'    Slist_{i} = [S{3*i}, S{3*i+1}, S{3*i+2}]')
 
 for i in range(nv):
-    print(f'''    V{i} = Tree(tree_list=tree_list_BIN_3,
+    print(f'''    V{i} = Tree(tree_list=tree_list_0,
           name='V{i}',
-          switches=Slist_{i})''')
+          switches=[1])''')
     # print(f'''    V{i} = Tree(tree_list=[None],
     #       name='V{i}',
     #       switches=[1])''')
@@ -60,8 +60,11 @@ for i in range(nr):
     # print(f'''    R{i} = Room(name='R{i}',
     #             position=[{x}*dx, {y}*dy, ex, ey],
     #             switches_list=[])''')
+    # print(f'''    R{i} = Room(name='R{i}',
+    #             position=[{x}*dx, {y}*dy, ex, ey],
+    #             switches_list=[S{i}])''')
     print(f'''    R{i} = Room(name='R{i}',
-                position=[{x}*dx, {y}*dy, ex, ey],
+                position=position({i}),
                 switches_list=[S{i}])''')
     
 print('''    RE = Room(name='RE',

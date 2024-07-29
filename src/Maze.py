@@ -296,6 +296,12 @@ class Maze:
                 raise
         for switch in switches_list:
             assert switch in switch.room.switches_list
+        ns = 0
+        for room in self.rooms_list:
+            for switch in room.switches_list:
+                ns += 1
+        assert len(self.switches_set) == ns, self.name
+        
 
     def current_room(self):
         return self.rooms_list[self.current_room_index]

@@ -151,7 +151,7 @@ def level_magic_square(fast_solution_finding=False):
 
     R0 = Room(name='R0',
               position=[8, 4, 6, 6],
-              switches_list=[S0, S1, S2, S0, S4, S5, S6, S7, S8])
+              switches_list=[S0, S1, S2, S3, S4, S5, S6, S7, S8])
     R1 = Room(name='R1',
               position=[8, 12, 6, 6],
               switches_list=[S9, S10, S11, S12, S13, S14, S15, S16, S17])

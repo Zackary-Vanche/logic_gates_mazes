@@ -6,6 +6,7 @@ from inspect import signature
 from levels.level_3sat import level_3sat
 from levels.level_4_colors_theorem import level_4_colors_theorem
 from levels.level_alice_and_bob import level_alice_and_bob
+from levels.level_alternation import level_alternation
 from levels.level_arithmetic import level_arithmetic
 from levels.level_backward import level_backward
 from levels.level_baguenaudier import level_baguenaudier
@@ -36,6 +37,7 @@ from levels.level_circle import level_circle
 from levels.level_circuit import level_circuit
 from levels.level_classified import level_classified
 from levels.level_code import level_code
+from levels.level_coloring import level_coloring
 from levels.level_combinatorics import level_combinatorics
 from levels.level_compact import level_compact
 from levels.level_congruence import level_congruence
@@ -303,6 +305,7 @@ class Levels:
                              level_loop,
                              level_backward,
                              level_boolean,
+                             level_alternation,
                              level_yoyo,
                              level_orchard,
                              level_crossroad,
@@ -506,6 +509,7 @@ class Levels:
                              level_random_gemini,
                              level_random_cuboctahedron,
                              level_knight,
+                             level_coloring,
                              level_first_guarini_s_problem,
                              level_second_guarini_s_problem,
                              level_diagonal,
@@ -616,6 +620,7 @@ class Levels:
                             level_water_lily,
                             level_harmony,
                             level_worms,
+                            level_wander,
                             level_tour,
                             level_central_symmetry,
                             level_tetractys,
@@ -703,6 +708,7 @@ class Levels:
                               level_mols,
                               ],
               "The Decisions":[level_boolean,
+                               level_alternation,
                                level_3sat,
                                level_point_of_no_return,
                                level_stairs,
@@ -717,6 +723,7 @@ class Levels:
                                level_superpermutation,
                                level_conjunctive_normal_form,
                                level_manhattan_distance,
+                               level_coloring,
                                level_zebra,
                                level_five,
                                level_shuffled,
@@ -737,6 +744,7 @@ class Levels:
                             level_initiation,
                             level_cardinal_directions,
                             level_linear,
+                            level_variable,
                             level_order,
                             level_loop,
                             level_yoyo,
@@ -1106,12 +1114,29 @@ if __name__ == "__main__":
             fw.write(f'{name: <25} {i}\n')
     
     
-    # # fast_solution_finding=True
+    # # # fast_solution_finding=True
     
-    level = level_shortcut()
-    solutions = level.find_all_solutions(verbose=0, save_solutions_txt=True)
-    for sol in solutions[0]:
-        print(' '.join(sol))
+    level = level_coloring()
+    # solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True)
+    # for sol in solutions[0]:
+    #     print(' '.join(sol))
+    
+    
+#     sol_list = """S1 D0 S10 D0 D5 S4 D6 S9 D6 D5 D9 S6 D3 S17 D3 D9 S1 D0 D10 S13 D10 D0 D15
+# S1 D0 S10 D0 D5 S4 D6 S9 D6 D5 D9 S6 D3 S17 D3 D9 S1 D0 S10 S11 D10 S12 D10 D0 D15""".split("\n")
+
+#     nsol = 0
+#     for sol in sol_list:
+#         if level.try_solution(sol) == 2:
+#             nsol += 1
+#             print(sol)
+#     print(nsol)
+    
+#     for sol in sol_list:
+#         sol = sol.split(' ')
+#         sol = [a for a in sol if 'S' in a]
+#         sol = ' '.join(sol)
+#         print(sol)
     
     # print(level.try_solution(level.fastest_solution, verbose=2))
     
