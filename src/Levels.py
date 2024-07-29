@@ -72,7 +72,6 @@ from levels.level_first_guarini_s_problem import level_first_guarini_s_problem
 from levels.level_five import level_five
 from levels.level_flash_back import level_flash_back
 from levels.level_fluid import level_fluid
-from levels.level_flying import level_flying
 from levels.level_forest import level_forest
 from levels.level_fractal import level_fractal
 from levels.level_gingko_biloba import level_gingko_biloba
@@ -190,6 +189,7 @@ from levels.level_shortcut import level_shortcut
 from levels.level_shortest_path import level_shortest_path
 from levels.level_shuffled import level_shuffled
 from levels.level_sign import level_sign
+from levels.level_silex import level_silex
 from levels.level_singletons import level_singletons
 from levels.level_small import level_small
 from levels.level_sunflower import level_sunflower
@@ -392,7 +392,7 @@ class Levels:
                              level_permutate,
                              level_dijkstra,
                              level_chessboard,
-                             level_flying,
+                             level_silex,
                              level_roses_are_red,
                              level_edelweiss,
                              level_violets_are_blue,
@@ -773,7 +773,7 @@ class Levels:
                            level_square,
                            level_fluid,
                            level_crossroad,
-                           level_flying,
+                           level_silex,
                            level_infinity,
                            level_spider,
                            level_hut,
