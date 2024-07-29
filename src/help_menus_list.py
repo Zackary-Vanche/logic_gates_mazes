@@ -84,8 +84,7 @@ help_menus_list['switches'] = """Switches are named S0, S1, S2, ...
 If a switch is turned on, it is surrounded, and you say it is equal to 1. If it is turned off, it is equal to 0.
 To use a switch, write its name and press [ENTER].
 You can only use switches of your current room.
-D0 = S0 means D0 equals S0 i.e. D0 is open if S0 is turned on.
-"""
+D0 = S0 means D0 equals S0 i.e. D0 is open if S0 is turned on."""
 
 help_menus_list['directions keys'] = """
 To change level, you can use :
@@ -364,8 +363,7 @@ For example:
     i (1) [1 2] = 1
     i (1 0) [0 1 2] = 0
     i (2 0) [3 2 0] = 1
-    i (3 2) [3 0 2] = 0
-"""
+    i (3 2) [3 0 2] = 0"""
 
 help_menus_list['DIST'] = """
 d (S0 S1 S2 S3) is the euclidian distance between the two points of the plane (S0 S1) and (S2 S3)."""
@@ -407,8 +405,7 @@ w l1 l2 is the number of values of l1 that are in l2 but not at the same index.
     w [1 1 2] [1 1 2] = 0
     w [5 6 2] [5 6 2] = 0
     w [1 1 5] [5 1 1] = 2
-    w [1 1 5] [6 1 1] = 1
-"""
+    w [1 1 5] [6 1 1] = 1"""
 
 help_menus_list['N3L_4'] = """
 N3L stands for 'no three in line'.
@@ -419,8 +416,7 @@ only if there are no three switches aligned in the array :
          S4  S5  S6  S7
          S8  S9  S10 S11
          S12 S13 S14 S15
-and if > SUM (S0 S1 S2 S3 S4 S5 S6 S7 S8 S9 S10 S11 S12 S13 S14 S15) 8
-"""
+and if > SUM (S0 S1 S2 S3 S4 S5 S6 S7 S8 S9 S10 S11 S12 S13 S14 S15) 8"""
 
 help_menus_list['E'] = """
 One notation is used only in this level :
@@ -434,8 +430,7 @@ One notation is used only in this level :
          b (S15 S16 S17);
          b (S18 S19 S20);
          b (S21 S22 S23))
-         (0 ; 0 ; 0 ; 0 ; 3 ; 5 ; 6 ; 7)
-"""
+         (0 ; 0 ; 0 ; 0 ; 3 ; 5 ; 6 ; 7)"""
 
 help_menus_list['AND and NOT'] = """  
 By combining these notations, you can write :

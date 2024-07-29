@@ -553,11 +553,16 @@ class Game:
             string_help = self.maze.help_txt[self.index_help_page]
             gap = 0
             help_list = string_help.split('\n')
-            p, c = linear_function(768 - self.Y_marge, 50, 1080 - self.Y_marge, 50)
+            p, c = linear_function(768-self.Y_marge, 50, 1080-self.Y_marge, 50)
             y0 = p * self.WINDOW_HEIGHT + c
-            p, c = linear_function(1366 - self.X_marge, 50, 1920 - self.X_marge, 50)
+            p, c = linear_function(1366-self.X_marge, 20, 1920-self.X_marge, 20)
             x0 = p * self.WINDOW_WIDTH + c
-            self.blit_text(text='\n'.join(help_list),
+            help_txt = '\n'.join(help_list)
+            help_txt = help_txt.split('\n')
+            if help_txt[0].replace(' ', '') == '':
+                help_txt = help_txt[1:]
+            help_txt = '\n'.join(help_txt)
+            self.blit_text(text=help_txt,
                            pos=(x0, y0 + gap),
                            max_width=self.WINDOW_WIDTH-20-x0,
                            color=self.letters_color)
