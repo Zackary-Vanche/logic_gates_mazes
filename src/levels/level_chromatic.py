@@ -81,7 +81,7 @@ def level_chromatic():
     T10 = Tree(tree_list=['INF', Tree.tree_list_SUM(3), Tree.tree_list_SUM(3)],
                 name='T10',
                 switches=[S0, S1, S2, S3, S4, S5],
-               cut_expression_depth_1=True)
+               cut_expression_depth_1=False)
     
     def position(i):
         n = 8.5
