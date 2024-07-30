@@ -151,6 +151,7 @@ from levels.level_podium import level_podium
 from levels.level_point_of_no_return import level_point_of_no_return
 from levels.level_pong import level_pong
 from levels.level_poppy import level_poppy
+from levels.level_power_down import level_power_down
 from levels.level_product import level_product
 from levels.level_puzzle import level_puzzle
 from levels.level_pyramid import level_pyramid
@@ -308,6 +309,7 @@ class Levels:
                              level_boolean,
                              level_alternation,
                              level_yoyo,
+                             level_power_down,
                              level_orchard,
                              level_crossroad,
                              level_bis_repetita,
@@ -713,6 +715,7 @@ class Levels:
                                level_alternation,
                                level_3sat,
                                level_point_of_no_return,
+                               level_chromatic,
                                level_stairs,
                                level_longest_path,
                                level_shortest_path,
@@ -750,6 +753,7 @@ class Levels:
                             level_order,
                             level_loop,
                             level_yoyo,
+                            level_power_down,
                             level_bis_repetita,
                             level_odd,
                             level_parallel,
@@ -1099,29 +1103,29 @@ def calculates_random_level_solution_length(aux_level_function):
 if __name__ == "__main__":
     pass
 
-    # test_levels()
+    test_levels()
 
-    # import os
+    import os
     
-    # if not os.path.exists('temp'):
-    #     os.mkdir('temp')
+    if not os.path.exists('temp'):
+        os.mkdir('temp')
     
-    # dico_i_level_name = {}
-    # for i, level_funtion in enumerate(Levels.levels_functions_list):
-    #     dico_i_level_name[level_funtion().name] = i
+    dico_i_level_name = {}
+    for i, level_funtion in enumerate(Levels.levels_functions_list):
+        dico_i_level_name[level_funtion().name] = i
     
-    # with open('temp/level_numbers.txt', 'w') as fw:
-    #     for name in sorted(dico_i_level_name.keys()):
-    #         i = dico_i_level_name[name]
-    #         fw.write(f'{name: <25} {i}\n')
+    with open('temp/level_numbers.txt', 'w') as fw:
+        for name in sorted(dico_i_level_name.keys()):
+            i = dico_i_level_name[name]
+            fw.write(f'{name: <25} {i}\n')
     
     
     # # # fast_solution_finding=True
     
-    level = level_chromatic()
-    solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True)
-    for sol in solutions[0]:
-        print(' '.join(sol))
+    # level = level_power_down()
+    # solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True)
+    # for sol in solutions[0]:
+    #     print(' '.join(sol))
     
     
 #     sol_list = """S1 D0 S10 D0 D5 S4 D6 S9 D6 D5 D9 S6 D3 S17 D3 D9 S1 D0 D10 S13 D10 D0 D15
