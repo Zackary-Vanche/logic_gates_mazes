@@ -55,8 +55,8 @@ def level_variable():
                 relative_departure_coordinates=[1/3, 1/3])
     
     hu = 0.9
-    lcolor = Level_color(background_color=Color.color_hls(hu, 0.2, 0.4),
-                         room_color=Color.color_hls(hu, 0.4, 0.4),
+    lcolor = Level_color(background_color=Color.color_hls(hu, 0.3, 0.4),
+                         room_color=Color.color_hls(hu, 0.6, 0.4),
                          letters_color=Color.WHITE,
                          contour_color=Color.IVORY,
                          inside_room_color=Color.BLACK,
