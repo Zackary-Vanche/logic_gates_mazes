@@ -50,7 +50,7 @@ def level_chromatic():
     T0 = Tree(tree_list=Tree.tree_list_AND(9),
                 name='T0',
                 switches=[V0, V1, V2, V3, V4, V5, V6, V7, V8],
-               cut_expression_depth_1=True)
+               cut_expression_depth_1=False)
     T1 = Tree(tree_list=[None],
                     name='T1',
                     switches=[V0])
