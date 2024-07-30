@@ -8,9 +8,9 @@ from Levels_colors_list import Levels_colors_list
 def level_power_down(): 
 
     S0 = Switch(name='S0', value=1)
-    S1 = Switch(name='S1', value=1)
+    S1 = Switch(name='S1', value=0)
     S2 = Switch(name='S2', value=1)
-    S3 = Switch(name='S3', value=1)
+    S3 = Switch(name='S3', value=0)
     S4 = Switch(name='S4', value=1)
 
     Slist = [S0, S1, S2, S3, S4]
@@ -80,7 +80,7 @@ def level_power_down():
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, RE],
                  doors_list=[D0, D1, D2, D3, D4],
-                 fastest_solution="S0 D0 S2 D0 S0 D0 D2 S4 D2 S2 D2 S4 D4",
+                 fastest_solution="S0 D0 S2 D0 S0 D0 D1 S1 D1 D2 S4 D2 S2 D2 D3 S3 D3 S4 D4",
                  level_color=Levels_colors_list.FROM_HUE(hu=0.16, sa=0.4, li=0.5),
                  name='Power down',
                  keep_proportions=True,
