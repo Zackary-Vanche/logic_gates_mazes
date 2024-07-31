@@ -344,7 +344,7 @@ class Game:
         if self.maze.random:
             maze_name = maze_name + " (random)"
         level_name_render = self.font.render(
-            'Level ' + str(self.index_current_level) + ' : ' + maze_name.replace('_', ' '),
+            f'Level {str(self.index_current_level+1)} / {Levels.number_of_levels} : {maze_name.replace('_', ' ')}',
             True,
             self.letters_color)
         self.WINDOW.blit(level_name_render, (10, 10))
@@ -563,7 +563,7 @@ class Game:
             if self.maze.random:
                 maze_name = maze_name + " (random)"
             level_name_render = self.font.render(
-                'HELP - Level ' + str(self.index_current_level) + ' : ' + maze_name.replace('_', ' '),
+                f'Level {str(self.index_current_level+1)} / {Levels.number_of_levels} : {maze_name.replace('_', ' ')}',
                 True,
                 self.letters_color)
             self.WINDOW.blit(level_name_render, (10, 10))

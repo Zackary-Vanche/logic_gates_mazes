@@ -67,6 +67,7 @@ from levels.level_equation import level_equation
 from levels.level_error import level_error
 from levels.level_eulerian import level_eulerian
 from levels.level_exact_cover import level_exact_cover
+from levels.level_expand_and_simplify import level_expand_and_simplify
 from levels.level_expedition import level_expedition
 from levels.level_fir import level_fir
 from levels.level_first_guarini_s_problem import level_first_guarini_s_problem
@@ -302,6 +303,7 @@ class Levels:
                              level_initiation,
                              level_cardinal_directions,
                              level_linear,
+                             level_expand_and_simplify,
                              level_variable,
                              level_order,
                              level_loop,
