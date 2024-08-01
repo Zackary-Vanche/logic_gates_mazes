@@ -270,13 +270,12 @@ class Maze:
             help_menus_list[root]
             if root in self.roots_names_set or root in additionnal_roots_in_help:
                 help_menu.append(help_menus_list[root])
-                # if root == 'BIN' and self.name == 'Numeration':
-                #     help_menu[-1] = help_menu[-1] + help_menus_list['BIN examples']
         help_menu.append(help_menus_list['B'])
         if self.random:
             help_menu.append(help_menus_list['N'])
         if len(self.intermediate_values_list + self.doors_list) > 1:
             help_menu.append(help_menus_list['UP DOWN'])
+        help_menu.append(help_menus_list['RIGHT LEFT'])
         self.help_txt[0] = '\n'.join(help_menu)
         
         # Assertions

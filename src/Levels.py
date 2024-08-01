@@ -175,7 +175,7 @@ from levels.level_random_simple import level_random_simple
 from levels.level_random_star import level_random_star
 from levels.level_random_starting_point import level_random_starting_point
 from levels.level_random_turning import level_random_turning
-from levels.level_random_wheel import level_random_wheel
+from levels.level_random_w6 import level_random_w6
 from levels.level_recurrence import level_recurrence
 from levels.level_relay import level_relay
 from levels.level_river import level_river
@@ -241,6 +241,7 @@ from levels.level_water_lily import level_water_lily
 from levels.level_water_pouring import level_water_pouring
 from levels.level_wave import level_wave
 from levels.level_weights import level_weights
+from levels.level_wheel import level_wheel
 from levels.level_willow import level_willow
 from levels.level_wind_compass import level_wind_compass
 from levels.level_wander import level_wander
@@ -256,7 +257,7 @@ from levels.level_random_starting_point import aux_level_random_starting_point
 from levels.level_random_turning import aux_level_random_turning
 from levels.level_random_line import aux_level_random_line
 from levels.level_random_binary_tree import aux_level_random_binary_tree
-from levels.level_random_wheel import aux_level_random_wheel
+from levels.level_random_w6 import aux_level_random_w6
 from levels.level_random_bull import aux_level_random_bull
 from levels.level_random_butterfly import aux_level_random_butterfly
 from levels.level_random_come_back import aux_level_random_come_back
@@ -407,6 +408,7 @@ class Levels:
                              level_path,
                              level_entropy,
                              level_dichotomy,
+                             level_wheel,
                              level_random_star,
                              level_intersection,
                              level_partition,
@@ -490,7 +492,7 @@ class Levels:
                              level_random_starting_point,
                              level_sujiko,
                              level_electricity,
-                             level_random_wheel,
+                             level_random_w6,
                              level_pancake_sorting,
                              level_random_ladder,
                              level_wave,
@@ -644,7 +646,7 @@ class Levels:
                                       level_random_turning,
                                       level_random_line,
                                       level_random_starting_point,
-                                      level_random_wheel,
+                                      level_random_w6,
                                       level_random_ladder,
                                       level_random_come_back,
                                       level_random_K5,
@@ -723,6 +725,7 @@ class Levels:
                                level_shortest_path,
                                level_tetris,
                                level_knapsack,
+                               level_wheel,
                                level_betweenness,
                                level_4_colors_theorem,
                                level_nonogram,
@@ -751,6 +754,7 @@ class Levels:
                             level_initiation,
                             level_cardinal_directions,
                             level_linear,
+                            level_expand_and_simplify,
                             level_variable,
                             level_order,
                             level_loop,
@@ -835,7 +839,7 @@ class Levels:
         aux_level_random_binary_tree,
         aux_level_random_line,
         aux_level_random_turning,
-        aux_level_random_wheel,
+        aux_level_random_w6,
         aux_level_random_boustrophedon,
         aux_level_random_come_back,
         aux_level_random_starting_point,
@@ -1124,7 +1128,7 @@ if __name__ == "__main__":
     
     # # # fast_solution_finding=True
     
-    # level = level_power_down()
+    # level = level_wheel()
     # solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True)
     # for sol in solutions[0]:
     #     print(' '.join(sol))

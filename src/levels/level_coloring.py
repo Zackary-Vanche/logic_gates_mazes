@@ -175,7 +175,7 @@ def level_coloring():
 
     def get_random_inside_color():
         hu = rd_random()
-        return Color.color_hls(hu, li=0.35, sa=0.35)
+        return Color.color_hls(hu, li=0.35, sa=0.5)
     
     def get_random_surrounding_color():
         hu = rd_random()

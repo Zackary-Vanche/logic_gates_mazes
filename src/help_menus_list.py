@@ -69,20 +69,13 @@ If a door is equal to 1, it is open and surrounded. If it is equal to 0, it is c
 Diamond-shape doors are two-way while arrow-shaped doors are one-way only.
 
 To go in a room, or travel by a door, you can :
-    - write its name and press [ENTER]
     - directly click on it.
-You can only travel by open doors.
-You can always erase what you wrote with the [BACKSPACE] key.
-Use ALT keys to see all actions you can do.
-
-Press the [RIGHT] ([LEFT]) arrow key to go to the next (previous) page.
-To go to the next page, you can also:
-    - click once if the help panel is displayed
-    - click on the exit room once you are in it."""
+    - write its name and press [ENTER]. You can always erase what you wrote with the [BACKSPACE] key.
+You can only travel by open doors."""
 
 help_menus_list['switches'] = """Switches are named S0, S1, S2, ...
 If a switch is turned on, it is surrounded, and you say it is equal to 1. If it is turned off, it is equal to 0.
-To use a switch, write its name and press [ENTER].
+To use a switch, write its name and press [ENTER] or click on it.
 You can only use switches of your current room.
 D0 = S0 means D0 equals S0 i.e. D0 is open if S0 is turned on."""
 
@@ -116,6 +109,13 @@ help_menus_list['UP DOWN'] = """
 If you use the [UP] and [DOWN] keys, you can switch which equation appears first.
 You can also simply click on the displayed equations."""
 
+help_menus_list['RIGHT LEFT'] = """
+Press the [RIGHT] ([LEFT]) arrow key to go to the next (previous) page.
+To go to the next page, you can also click once if the help panel is displayed or click on the exit room once you are in it."""
+
+help_menus_list['ALT'] = """
+Use ALT keys to see all actions you can do."""
+
 ############
 ## LEVELS ##
 ############
@@ -126,8 +126,6 @@ help_menus_list['switches']
 
 help_menus_list['levels']["Trivial"] = help_menus_list['introduction']
 
-help_menus_list['levels']["Choice"] = ''
-
 help_menus_list['levels']["Hello world"] = help_menus_list['switches']
 
 help_menus_list['levels']["Playground"] = help_menus_list['write several actions']
@@ -136,11 +134,9 @@ help_menus_list['levels']["Initiation"] = '\n'.join([help_menus_list['leave the 
                                                      help_menus_list['Polish notation']])
 
 help_menus_list['levels']["Cardinal directions"] = '\n'.join([help_menus_list['parenthesis'],
-                                                 help_menus_list['brackets'],])
+                                                              help_menus_list['brackets'],])
 
 help_menus_list['levels']["Linear"] = help_menus_list['directions keys']
-
-# help_menus_list['levels']["Variable"] = help_menus_list['V']
 
 help_menus_list['levels']["Numeration"] = '\n'.join([help_menus_list['numerical value']])
 
@@ -250,10 +246,6 @@ help_menus_list['levels']["Bridges"] = """There are seven bridges in Königsberg
 
 help_menus_list['levels']["Chinese postman problem"] = """In graph theory the Chinese postman problem is to find a shortest closed path that visits every edge of a connected undirected graph at least once."""
 
-help_menus_list['levels']["Panex"] = ""
-
-help_menus_list['levels']["Superflip"] = ""
-
 ######################
 ## TREE'S NOTATIONS ##
 ######################
@@ -262,7 +254,7 @@ help_menus_list['V'] = '''
 The elements named V0, V1, etc. are intermediate values.'''
 
 help_menus_list['NOT'] = """
-¬ means 'NOT'. ¬S0 equals 1 if S0 = 0. ¬S0 equals 0 if S0 = 1"""
+¬ means 'NOT'. ¬S0 equals 1 if S0 = 0. ¬S0 equals 0 if S0 = 1."""
 
 help_menus_list['AND'] = """
 & means 'AND'. & S0 S1 equals 1 if S0 and S1 are turned on."""
@@ -443,3 +435,15 @@ D3 = & ¬ S6 ¬ S7  S6 S7 means :
     It can also be written :
     D3 = NOR S6 S7
     D3 = ¬| S6 S7"""
+    
+for key in help_menus_list.keys():
+    if key != 'levels':
+        if help_menus_list[key][0] == '\n':
+            help_menus_list[key] = help_menus_list[key][1:]
+        if help_menus_list[key][-1] != '\n':
+            help_menus_list[key] += '\n'
+for key in help_menus_list['levels'].keys():
+    if help_menus_list['levels'][key][0] == '\n':
+        help_menus_list['levels'][key] = help_menus_list['levels'][key][1:]
+    if help_menus_list['levels'][key][-1] != '\n':
+        help_menus_list['levels'][key] += '\n'
