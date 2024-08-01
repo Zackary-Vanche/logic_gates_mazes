@@ -222,6 +222,7 @@ from levels.level_the_4_queens import level_the_4_queens
 from levels.level_the_4th_dimension import level_the_4th_dimension
 from levels.level_tour import level_tour
 from levels.level_towers import level_towers
+from levels.level_town import level_town
 from levels.level_trail import level_trail
 from levels.level_travelling_salesman import level_travelling_salesman
 from levels.level_traversal import level_traversal
@@ -380,6 +381,7 @@ class Levels:
                              level_tulip,
                              level_compact,
                              level_village,
+                             level_town,
                              level_palace,
                              level_random_simple,
                              level_random_boustrophedon,
@@ -789,6 +791,7 @@ class Levels:
                            level_infinity,
                            level_spider,
                            level_hut,
+                           level_town,
                            level_village,
                            level_palace,
                            level_mansion,
@@ -1128,8 +1131,8 @@ if __name__ == "__main__":
     
     # # # fast_solution_finding=True
     
-    # level = level_wheel()
-    # solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True)
+    # level = level_town()
+    # solutions = level.find_all_solutions(verbose=0, save_solutions_txt=True)
     # for sol in solutions[0]:
     #     print(' '.join(sol))
     
