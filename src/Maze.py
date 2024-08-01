@@ -301,6 +301,11 @@ class Maze:
                 ns += 1
         assert len(self.switches_set) == ns, self.name
         
+        if len(self.switches_set) <= 13 and self.fastest_solution is None:
+            [solutions, nb_iterations_tot, nb_operations_tot] = self.find_all_solutions(verbose=0, stop_at_first_solution=True, max_calculation_time=0.1)
+            if len(solutions) != 0:
+                self.fastest_solution = ' '.join(solutions[0])
+        
 
     def current_room(self):
         return self.rooms_list[self.current_room_index]
