@@ -687,6 +687,7 @@ class Game:
         maze.reboot_solution()
         solution = maze.fastest_solution
         if solution is None:
+            sleep(2)
             return
         solution_actions_list = solution.split(' ')
         assert type(solution_actions_list) == list
