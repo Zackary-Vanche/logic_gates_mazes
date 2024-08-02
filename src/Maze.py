@@ -194,7 +194,7 @@ class Maze:
         self.partial_solution = partial_solution
         self.extreme_coordinates = None
         self.border = border
-        self.y_separation = y_separation
+        self.y_separation = max(y_separation, 50)
         self.door_window_size = door_window_size
         self.keep_proportions = keep_proportions
         self.level_color = level_color
