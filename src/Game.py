@@ -1001,6 +1001,7 @@ class Game:
                                 if self.maze.current_room().is_exit:
                                     self.index_current_level += 1
                                     self.show_help = True
+                                    self.level_changed = True
                                 else:
                                     self.maze.make_actions('RE')
                                 self.change_in_display = True
