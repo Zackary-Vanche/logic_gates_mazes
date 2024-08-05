@@ -331,9 +331,9 @@ def level_eratosthenes():
                 room_arrival=RE,
                 relative_departure_coordinates=[(dx+ex/2)/(dx+ex), (ey)/(dy+ey)])
     
-    hu = 0.8
+    hu = 0.05
     sa = 0.6
-    li = 0.8
+    li = 0.6
     lcolor = Level_color(background_color=Color.color_hls(hu, li, sa),
                          room_color=Color.color_hls(hu, li / 4, 0.8 * sa),
                          letters_color=Color.BLACK,
