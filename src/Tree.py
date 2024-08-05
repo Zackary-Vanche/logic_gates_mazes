@@ -319,7 +319,7 @@ class Tree:
                         self.easy_logical_expression_PN = '/ {0} {1}'.format(A, B)
                     elif root_name == 'DIVINT':
                         self.easy_logical_expression_PN = '// {0} {1}'.format(A, B)
-                    elif root_name == 'MOD':
+                    elif root_name in ['MOD', 'MODNAN']:
                         self.easy_logical_expression_PN = '% {0} {1}'.format(A, B)
                     else:
                         self.easy_logical_expression_PN = '{0} {1} {2}'.format(root_name, A, B)

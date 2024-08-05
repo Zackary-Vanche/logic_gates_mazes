@@ -85,6 +85,17 @@ class Logic_Gate:
 
     def aux_func_MOD(branches_values):
         return branches_values[0] % branches_values[1]
+    
+    def aux_func_MODNAN(branches_values):
+        if branches_values[1] == 0:
+            return None
+        else:
+            return branches_values[0] % branches_values[1]
+    
+    def aux_func_ISDIVIDER(branches_values):
+        a = branches_values[0]
+        b = branches_values[1]
+        return a//b==0
 
     def aux_func_NONO(branches_values):
         branches_values = list(branches_values)
@@ -221,6 +232,7 @@ class Logic_Gate:
                  'POW': aux_func_POW,
                  'ABS': aux_func_ABS,
                  'MOD': aux_func_MOD,
+                 'MODNAN': aux_func_MODNAN,
                  'DIST': aux_func_DIST,
                  # BINARY
                  'BIN': aux_func_BIN,

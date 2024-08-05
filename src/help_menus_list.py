@@ -292,6 +292,8 @@ help_menus_list['POW'] = """
 help_menus_list['MOD'] = """
 % S0 S1 equals S0 modulo S1."""
 
+help_menus_list['MODNAN'] = help_menus_list['MOD']
+
 help_menus_list['ABS'] = """
 @ S0 is the absolute value of S0."""
 

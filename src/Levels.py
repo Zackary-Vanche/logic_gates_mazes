@@ -64,6 +64,7 @@ from levels.level_elementary import level_elementary
 from levels.level_elm import level_elm
 from levels.level_entropy import level_entropy
 from levels.level_equation import level_equation
+from levels.level_eratosthenes import level_eratosthenes
 from levels.level_error import level_error
 from levels.level_eulerian import level_eulerian
 from levels.level_exact_cover import level_exact_cover
@@ -153,6 +154,7 @@ from levels.level_point_of_no_return import level_point_of_no_return
 from levels.level_pong import level_pong
 from levels.level_poppy import level_poppy
 from levels.level_power_down import level_power_down
+from levels.level_prime_number import level_prime_number
 from levels.level_product import level_product
 from levels.level_puzzle import level_puzzle
 from levels.level_pyramid import level_pyramid
@@ -373,6 +375,7 @@ class Levels:
                              level_meanders,
                              level_shortcut,
                              level_wind_compass,
+                             level_prime_number,
                              level_poppy,
                              level_peony,
                              level_magnolia,
@@ -386,6 +389,7 @@ class Levels:
                              level_random_simple,
                              level_random_boustrophedon,
                              level_parallel,
+                             level_eratosthenes,
                              level_random_bull,
                              level_pythagorean,
                              level_random_butterfly,
@@ -702,8 +706,10 @@ class Levels:
                               level_arithmetic,
                               level_product,
                               level_congruence,
+                              level_prime_number,
                               level_pythagorean,
                               level_sorted,
+                              level_eratosthenes,
                               level_partition,
                               level_second,
                               level_egyptian_fractions,
@@ -1131,8 +1137,8 @@ if __name__ == "__main__":
     
     # # # fast_solution_finding=True
     
-    # level = level_town()
-    # solutions = level.find_all_solutions(verbose=0, save_solutions_txt=True)
+    # level = level_eratosthenes()
+    # solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True)
     # for sol in solutions[0]:
     #     print(' '.join(sol))
     
