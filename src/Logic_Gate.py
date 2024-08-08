@@ -61,6 +61,12 @@ class Logic_Gate:
             if A != 0 and B != 0 and A >= B:
                 return False
         return True
+    
+    def aux_func_MIN(branches_values):
+        return min(branches_values)
+    
+    def aux_func_MAX(branches_values):
+        return max(branches_values)
 
     def aux_func_INFOREQU(branches_values):
         return all(branches_values[i] <= branches_values[i + 1] for i in range(len(branches_values) - 1))
@@ -247,6 +253,8 @@ class Logic_Gate:
                  'SUP': aux_func_SUP,
                  'SUPOREQU': aux_func_SUPOREQU,
                  'INF0': aux_func_INF0, # Rarely used
+                 'MIN':aux_func_MIN,
+                 'MAX':aux_func_MAX,
                  # SPECIAL FUNCTIONS (rarely used)
                  'NONO': aux_func_NONO,
                  'BETWEEN': aux_func_BETWEEN,

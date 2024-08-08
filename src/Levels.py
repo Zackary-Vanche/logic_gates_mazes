@@ -57,6 +57,7 @@ from levels.level_dijkstra import level_dijkstra
 from levels.level_dominating_set import level_dominating_set
 from levels.level_doppelganger import level_doppelganger
 from levels.level_draw import level_draw
+from levels.level_euclidean_algorithm import level_euclidean_algorithm
 from levels.level_edelweiss import level_edelweiss
 from levels.level_egyptian_fractions import level_egyptian_fractions
 from levels.level_electricity import level_electricity
@@ -488,6 +489,7 @@ class Levels:
                              level_conjunctive_normal_form,
                              level_betweenness,
                              level_fractal,
+                             level_euclidean_algorithm,
                              level_tesseract,
                              level_random_turning,
                              level_branches,
@@ -715,6 +717,7 @@ class Levels:
                               level_egyptian_fractions,
                               level_strange,
                               level_taxicab_number,
+                              level_euclidean_algorithm,
                               level_magic_square,
                               level_matrix,
                               level_takuzu,

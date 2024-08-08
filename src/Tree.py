@@ -356,6 +356,8 @@ class Tree:
                             'INF0 ': '<0 ',
                             'INF ': '< ',
                             'SUP ': '> ',
+                            'MIN':'m',
+                            'MAX':'M',
                             'BIN ': 'b ',
                             'DIST ': 'd ',
                             'BETWEEN ': '<< ',

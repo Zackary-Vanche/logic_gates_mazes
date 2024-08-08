@@ -322,6 +322,12 @@ help_menus_list['INFOREQU'] = """
 help_menus_list['SUPOREQU'] = """
 >= S0 S1 equals 1 if S0 is superior or equal to S1."""
 
+help_menus_list['MIN'] = """
+m (S0 S1 ...) is the minimum of (S0, S1, ...)."""
+
+help_menus_list['MAX'] = """
+M (S0 S1 ...) is the maximum of (S0, S1, ...)."""
+
 help_menus_list['BIN'] = """
 b (S0 S1 ...) is the number whose binary little endian code is S0 S1 etc."""
 
