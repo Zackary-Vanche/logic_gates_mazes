@@ -94,6 +94,7 @@ from levels.level_independent_set import level_independent_set
 from levels.level_infinity import level_infinity
 from levels.level_initiation import level_initiation
 from levels.level_inside_out import level_inside_out
+from levels.level_integer_factorization import level_integer_factorization
 from levels.level_intersection import level_intersection
 from levels.level_inversions import level_inversions
 from levels.level_invert import level_invert
@@ -407,6 +408,7 @@ class Levels:
                              level_invert,
                              level_permutate,
                              level_dijkstra,
+                             level_integer_factorization,
                              level_chessboard,
                              level_silex,
                              level_roses_are_red,
@@ -714,6 +716,7 @@ class Levels:
                               level_pythagorean,
                               level_sorted,
                               level_fibonacci_sequence,
+                              level_integer_factorization,
                               level_eratosthenes,
                               level_partition,
                               level_second,
