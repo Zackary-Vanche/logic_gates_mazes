@@ -71,6 +71,7 @@ from levels.level_eulerian import level_eulerian
 from levels.level_exact_cover import level_exact_cover
 from levels.level_expand_and_simplify import level_expand_and_simplify
 from levels.level_expedition import level_expedition
+from levels.level_fibonacci_sequence import level_fibonacci_sequence
 from levels.level_fir import level_fir
 from levels.level_first_guarini_s_problem import level_first_guarini_s_problem
 from levels.level_five import level_five
@@ -386,6 +387,7 @@ class Levels:
                              level_compact,
                              level_village,
                              level_town,
+                             level_fibonacci_sequence,
                              level_palace,
                              level_random_simple,
                              level_random_boustrophedon,
@@ -711,6 +713,7 @@ class Levels:
                               level_prime_number,
                               level_pythagorean,
                               level_sorted,
+                              level_fibonacci_sequence,
                               level_eratosthenes,
                               level_partition,
                               level_second,
