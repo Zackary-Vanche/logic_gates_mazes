@@ -300,6 +300,12 @@ class Levels:
     
     gladiolus
     
+    selection sort
+    cocktail sort
+    merge sort
+    quick sort
+    insertion sort
+    
     """
 
     levels_functions_list = [
