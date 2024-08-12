@@ -38,6 +38,7 @@ class Room:
             self.position = {0: position}
         else:
             self.position = position
+        self.user_position = {0: position}
         self.pages_list = []
         for ipage in self.position.keys():
             self.pages_list.append(ipage)

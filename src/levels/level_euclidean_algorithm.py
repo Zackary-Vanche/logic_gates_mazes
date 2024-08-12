@@ -23,12 +23,12 @@ def level_euclidean_algorithm():
     S10 = Switch(name='S10')
     S11 = Switch(name='S11')
     
-    S12 = Switch(name='S12', value=rd_choice([0, 1]))
-    S13 = Switch(name='S13', value=rd_choice([0, 1]))
-    S14 = Switch(name='S14', value=rd_choice([0, 1]))
-    S15 = Switch(name='S15', value=rd_choice([0, 1]))
-    S16 = Switch(name='S16', value=rd_choice([0, 1]))
-    S17 = Switch(name='S17', value=1)
+    S12 = Switch(name='S12')
+    S13 = Switch(name='S13')
+    S14 = Switch(name='S14')
+    S15 = Switch(name='S15')
+    S16 = Switch(name='S16')
+    S17 = Switch(name='S17')
     
     S18 = Switch(name='S18', value=rd_choice([0, 1]))
     S19 = Switch(name='S19', value=rd_choice([0, 1]))
@@ -36,16 +36,25 @@ def level_euclidean_algorithm():
     S21 = Switch(name='S21', value=rd_choice([0, 1]))
     S22 = Switch(name='S22', value=rd_choice([0, 1]))
     S23 = Switch(name='S23', value=1)
+    
+    S24 = Switch(name='S24', value=rd_choice([0, 1]))
+    S25 = Switch(name='S25', value=rd_choice([0, 1]))
+    S26 = Switch(name='S26', value=rd_choice([0, 1]))
+    S27 = Switch(name='S27', value=rd_choice([0, 1]))
+    S28 = Switch(name='S28', value=rd_choice([0, 1]))
+    S29 = Switch(name='S29', value=1)
 
     Slist = [S0, S1, S2, S3, S4, S5, S6, S7,
              S8, S9, S10, S11, S12, S13, S14, S15,
-             S16, S17, S18, S19, S20, S21, S22, S23]
+             S16, S17, S18, S19, S20, S21, S22, S23,
+             S24, S25, S26, S27, S28, S29]
     
     n = 6
     Slist0 = Slist[0:n]
     Slist1 = Slist[n:2*n]
     Slist2 = Slist[2*n:3*n]
     Slist3 = Slist[3*n:4*n]
+    Slist4 = Slist[4*n:5*n]
 
     V0 = Tree(tree_list=Tree.tree_list_BIN(n),
           name='V0',
@@ -59,38 +68,44 @@ def level_euclidean_algorithm():
     V3 = Tree(tree_list=Tree.tree_list_BIN(n),
           name='V3',
           switches=Slist3)
-    V4 = Tree(tree_list=['MIN', [None], [None]],
+    V4 = Tree(tree_list=Tree.tree_list_BIN(n),
           name='V4',
-          switches=[V0, V1])
-    V5 = Tree(tree_list=['MAX', [None], [None]],
+          switches=Slist4)
+    V5 = Tree(tree_list=['MIN', [None], [None]],
           name='V5',
-          switches=[V0, V1])
-    V6 = Tree(tree_list=['EQU',
+          switches=[V1, V2])
+    V6 = Tree(tree_list=['MAX', [None], [None]],
+          name='V6',
+          switches=[V1, V2])
+    V7 = Tree(tree_list=['EQU',
                           ['SUM', [None], ['MINUS', [None]]],
                           [None]],
-          name='V6',
-          switches=[V5, V4, V3])
-    # V6 = Tree(tree_list=['EQU',
-    #                      ['MOD', [None], [None]],
-    #                      [None]],
-    #       name='V6',
-    #       switches=[V5, V4, V3])
+          name='V7',
+          switches=[V6, V5, V4])
     
-    T0 = Tree(tree_list=['EQU', [None], [None]],
+    T0 = Tree(tree_list=[None],
                 name='T0',
-                switches=[V0, V2])
+                switches=[1])
     T1 = Tree(tree_list=['EQU', [None], [None]],
                 name='T1',
                 switches=[V1, V3])
     T2 = Tree(tree_list=['EQU', [None], [None]],
                 name='T2',
                 switches=[V2, V4])
-    T3 = Tree(tree_list=[None],
+    T3 = Tree(tree_list=['EQU', [None], [None]],
                 name='T3',
-                switches=[V6])
-    T4 = Tree(tree_list=['AND', [None], ['EQU', [None], [None]]],
+                switches=[V3, V5])
+    T4 = Tree(tree_list=[None],
                 name='T4',
-                switches=[V6, V4, 0])
+                switches=[V7])
+    T5 = Tree(tree_list=['AND',
+                         [None],
+                         ['EQU', [None], [None]],
+                         ['EQU', [None], [None]]],
+                name='T5',
+                switches=[V7,
+                          V5, 0,
+                          V0, V6])
 
     ex = 2
     ey = 3
@@ -100,8 +115,6 @@ def level_euclidean_algorithm():
     dy = ey+ay
     
     hu = 0.55
-    sa = 0.4
-    li = 0.4
     background_color=Color.color_hls(hu, li=0.6, sa=0.4)
     room_color=Color.color_hls(hu, li=0.1, sa=0.3)
     letters_color=Color.BLACK
@@ -125,20 +138,24 @@ def level_euclidean_algorithm():
                 switches_list=[],
                 inside_color=background_color)
     R0 = Room(name='R0',
-                position=[0*dx, 0*dy, ex, ey],
+                position=[-3, 0*dy, ex, ey],
                 switches_list=Slist0,
                 inside_color=room_color)
     R1 = Room(name='R1',
-                position=[1*dx, 0*dy, ex, ey],
+                position=[0*dx, 0*dy, ex, ey],
                 switches_list=Slist1,
                 inside_color=room_color)
     R2 = Room(name='R2',
-                position=[1*dx, 1*dy, ex, ey],
+                position=[1*dx, 0*dy, ex, ey],
                 switches_list=Slist2,
                 inside_color=room_color)
     R3 = Room(name='R3',
-                position=[0*dx, 1*dy, ex, ey],
+                position=[1*dx, 1*dy, ex, ey],
                 switches_list=Slist3,
+                inside_color=room_color)
+    R4 = Room(name='R4',
+                position=[0*dx, 1*dy, ex, ey],
+                switches_list=Slist4,
                 inside_color=room_color)
     RE = Room(name='RE',
               position=[-3, 1*dy, 2, ey],
@@ -167,12 +184,18 @@ def level_euclidean_algorithm():
                 tree=T3,
                 name='D3',
                 room_departure=R3,
-                room_arrival=R0,
+                room_arrival=R4,
                 inside_color=room_color)
     D4 = Door(two_way=False,
                 tree=T4,
                 name='D4',
-                room_departure=R3,
+                room_departure=R4,
+                room_arrival=R1,
+                inside_color=room_color)
+    D5 = Door(two_way=False,
+                tree=T5,
+                name='D5',
+                room_departure=R4,
                 room_arrival=RE,
                 relative_departure_coordinates=[0, 1/2],
                 relative_arrival_coordinates=[1, 1/2],
@@ -180,8 +203,8 @@ def level_euclidean_algorithm():
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
-                 rooms_list=[R0, R1, R2, R3, Ra, Rb, RE],
-                 doors_list=[D0, D1, D2, D3, D4],
+                 rooms_list=[R0, R1, R2, R3, R4, Ra, Rb, RE],
+                 doors_list=[D0, D1, D2, D3, D4, D5],
                  fastest_solution=None,
                  level_color=lcolor,
                  name='Euclidean algorithm',

@@ -305,6 +305,8 @@ class Maze:
             [solutions, nb_iterations_tot, nb_operations_tot] = self.find_all_solutions(verbose=0, stop_at_first_solution=True, max_calculation_time=0.1)
             if len(solutions) != 0:
                 self.fastest_solution = ' '.join(solutions[0])
+                
+        self.coordinates_conversion=None
         
 
     def current_room(self):
@@ -417,6 +419,8 @@ class Maze:
         # for a in actions.split(' '):
         #     if not 'R' in a:
         #         print(a)
+        if len(actions) == 0:
+            return
         actions_list = actions.split(separator)
         for action in actions_list:
             if not (action in self.possibles_actions_list or (action in self.rooms_dict.keys() and allow_all)):
@@ -958,6 +962,9 @@ class Maze:
                     y = pente_y * y
                     room.position[ipage] = [x_gap, y_gap, x, y]
                     self.extreme_coordinates = None
+        
+        if self.coordinates_conversion is None:
+            self.coordinates_conversion = [pente_x, coeff_x, pente_y, coeff_y]
 
     def set_extreme_coordinates(self,
                                 new_x_min,

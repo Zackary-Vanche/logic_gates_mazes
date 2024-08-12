@@ -83,7 +83,8 @@ class Game:
                  show_loop_time=False,
                  update_display_at_every_loop=False,
                  sleep_time=1e-2,
-                 game_color=None): # if game_color is not None, it overwrites the levels colors
+                 game_color=None,
+                 dev_mode=False): # if game_color is not None, it overwrites the levels colors
         if WINDOW_SIZE is None or SMALLEST_WINDOW_SIZE is None:
             from pyautogui import size as pyautogui_size
             TOTAL_SIZE = pyautogui_size()
@@ -123,6 +124,7 @@ class Game:
         self.upper_right_window_rectangle = None
         self.lower_right_window_rectangle = None
         self.do_you_quit_game = False
+        self.dev_mode = dev_mode
 
     def game_setup(self):
         # Game Setup
@@ -461,6 +463,49 @@ class Game:
                                                         self.inside_room_color)
                     if self.print_room_name:
                         self.WINDOW.blit(room_name_render, room.get_name_position())
+                        
+    def draw_cross(self):
+        [pente_x, coeff_x, pente_y, coeff_y] = self.maze.coordinates_conversion
+        if self.maze.rooms_list == []:
+            return
+        xmin = float('inf')
+        ymin = float('inf')
+        xmax = -float('inf')
+        ymax = -float('inf')
+        for room in self.maze.rooms_list:
+            if self.maze.current_page in room.pages_list:
+                [x_gap, y_gap, x, y] = array(room.user_position[self.maze.current_page])
+                xmin = min(xmin, x_gap)
+                ymin = min(ymin, y_gap)
+                xmax = max(xmax, x_gap+x)
+                ymax = max(ymax, y_gap+y)
+        xmin = int(xmin)
+        xmax = int(xmax)
+        ymin = int(ymin)
+        ymax = int(ymax)
+        cross_size = 5
+        for x in range(xmin, xmax+1):
+            for y in range(ymin, ymax+1):
+                x_screen = pente_x*x + coeff_x
+                y_screen = pente_y*y + coeff_y
+                horizontal_start = (x_screen - cross_size, y_screen)
+                horizontal_end = (x_screen + cross_size, y_screen)
+                vertical_start = (x_screen, y_screen - cross_size)
+                vertical_end = (x_screen, y_screen + cross_size)
+                pygame_draw_line(self.WINDOW,
+                                  self.contour_color,
+                                  horizontal_start,
+                                  horizontal_end,
+                                  3)
+                pygame_draw_line(self.WINDOW,
+                                  self.contour_color,
+                                  vertical_start,
+                                  vertical_end,
+                                  3)
+                self.blit_text(text=f'{x} {y}',
+                               pos=(x_screen+4, y_screen+4),
+                               max_width=50,
+                               color=self.contour_color)
 
     def draw_doors_polygons(self):
         # Affichage des polygones des portes
@@ -627,6 +672,8 @@ class Game:
             self.print_current_action()
             self.draw_rooms_names()
             self.draw_exterior_lines()
+            if self.dev_mode:
+                self.draw_cross()
             pygame_display_update()
         except ZeroDivisionError:
             maze_name = Levels.get_level(self.index_current_level, get_new_level=self.get_new_level).name

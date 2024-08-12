@@ -26,6 +26,7 @@ from levels.level_boolean import level_boolean
 from levels.level_box import level_box
 from levels.level_branches import level_branches
 from levels.level_bridges import level_bridges
+from levels.level_bubble_sort import level_bubble_sort
 from levels.level_cardinal_directions import level_cardinal_directions
 from levels.level_cartesian import level_cartesian
 from levels.level_cedar import level_cedar
@@ -301,7 +302,7 @@ class Levels:
     
     """
 
-    levels_functions_list = [
+    levels_functions_list = [#level_bubble_sort,
                              #level_black_knight_puzzle,
                              level_trivial,
                              level_choice,

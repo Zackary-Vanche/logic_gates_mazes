@@ -1,7 +1,7 @@
-ns = 16
-nd = 1
-nr = 1
-nv = 1
+ns = 3*12
+nd = 12+1
+nr = 12
+nv = 12
 
 print('''
 from Switch import Switch
@@ -32,15 +32,15 @@ for i in range(nv):
     #       name='V{i}',
     #       switches=[1])''')
 
-# if nv != 0:
-#     print('')
-#     print(f'''    Vlist = [{', '.join([f'V{i}' for i in range(nv)])}]''')
-#     print('')
+if nv != 0:
+    print('')
+    print(f'''    Vlist = [{', '.join([f'V{i}' for i in range(nv)])}]''')
+    print('')
     
 for i in range(nd):
-    print(f'''    T{i} = Tree(tree_list=tree_list_0,
+    print(f'''    T{i} = Tree(tree_list=tree_list_{i%2},
                 name='T{i}',
-                switches=[V{i-2}, V{i-1}, V{i}])''')
+                switches=[1])''')
     
 # for i in range(nd):
 #     print(f'''    T{i} = Tree(tree_list=tre_list_EQU,
