@@ -302,7 +302,7 @@ class Levels:
     
     """
 
-    levels_functions_list = [#level_bubble_sort,
+    levels_functions_list = [
                              #level_black_knight_puzzle,
                              level_trivial,
                              level_choice,

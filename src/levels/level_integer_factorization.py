@@ -3,7 +3,8 @@ from Tree import Tree
 from Door import Door
 from Room import Room
 from Maze import Maze
-from Levels_colors_list import Levels_colors_list
+from Color import Color
+from Level_color import Level_color
 from random import choice as rd_choice
 
 def level_integer_factorization(): 
@@ -131,13 +132,22 @@ def level_integer_factorization():
                 room_arrival=RE,
                 relative_departure_coordinates=[1, 1/2],
                 relative_arrival_coordinates=[0, 1/2])
+    
+    hu = 0.2
+    sa = 0.6
+    lcolor = Level_color(background_color=Color.color_hls(hu, 0.4, sa),
+                         room_color=Color.color_hls(hu, 0.15, 0.8 * sa),
+                         letters_color=Color.BLACK,
+                         contour_color=Color.color_hls(hu=0.1, li=0.7, sa=1),
+                         inside_room_color=Color.WHITE,
+                         surrounding_color=Color.color_hls(hu=0.1, li=0.8, sa=1))
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, RE],
                  doors_list=[D0, D1, D2, D3],
                  fastest_solution=sol,
-                 level_color=Levels_colors_list.FROM_HUE(hu=0.2, sa=0.5, li=0.5),
+                 level_color=lcolor,
                  name='Integer factorization',
                  keep_proportions=True,
                  door_window_size=300)
