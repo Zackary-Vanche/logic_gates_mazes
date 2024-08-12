@@ -1,7 +1,7 @@
-ns = 3*12
-nd = 12+1
-nr = 12
-nv = 12
+ns = 3*9+6
+nd = 9+3+1
+nr = 9+1+2
+nv = 9+2
 
 print('''
 from Switch import Switch
@@ -38,7 +38,7 @@ if nv != 0:
     print('')
     
 for i in range(nd):
-    print(f'''    T{i} = Tree(tree_list=tree_list_{i%2},
+    print(f'''    T{i} = Tree(tree_list=tree_list_0,
                 name='T{i}',
                 switches=[1])''')
     

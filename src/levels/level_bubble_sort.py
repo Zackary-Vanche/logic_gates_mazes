@@ -3,62 +3,50 @@ from Tree import Tree
 from Door import Door
 from Room import Room
 from Maze import Maze
-from Levels_colors_list import Levels_colors_list
+from Color import Color
+from Level_color import Level_color
+from random import shuffle as rd_shuffle
 from random import choice as rd_choice
 
-def level_bubble_sort(): 
+def level_bubble_sort():
+    
+    ilist = [[0, 0],
+             [0, 1],
+             [1, 0],
+             [1, 1]]
+    ilist.append(rd_choice(ilist))
+    rd_shuffle(ilist)
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
+    
     S2 = Switch(name='S2')
-    S3 = Switch(name='S3', value=rd_choice([0, 1]))
-    S4 = Switch(name='S4', value=rd_choice([0, 1]))
-    S5 = Switch(name='S5', value=rd_choice([0, 1]))
-    S6 = Switch(name='S6')
-    S7 = Switch(name='S7')
-    S8 = Switch(name='S8')
-    S9 = Switch(name='S9', value=rd_choice([0, 1]))
-    S10 = Switch(name='S10', value=rd_choice([0, 1]))
-    S11 = Switch(name='S11', value=rd_choice([0, 1]))
-    S12 = Switch(name='S12')
-    S13 = Switch(name='S13')
-    S14 = Switch(name='S14')
-    S15 = Switch(name='S15', value=rd_choice([0, 1]))
-    S16 = Switch(name='S16', value=rd_choice([0, 1]))
-    S17 = Switch(name='S17', value=rd_choice([0, 1]))
-    S18 = Switch(name='S18')
-    S19 = Switch(name='S19')
-    S20 = Switch(name='S20')
-    S21 = Switch(name='S21', value=rd_choice([0, 1]))
-    S22 = Switch(name='S22', value=rd_choice([0, 1]))
-    S23 = Switch(name='S23', value=rd_choice([0, 1]))
-    S24 = Switch(name='S24')
-    S25 = Switch(name='S25')
-    S26 = Switch(name='S26')
-    S27 = Switch(name='S27', value=rd_choice([0, 1]))
-    S28 = Switch(name='S28', value=rd_choice([0, 1]))
-    S29 = Switch(name='S29', value=rd_choice([0, 1]))
-    S30 = Switch(name='S30')
-    S31 = Switch(name='S31')
-    S32 = Switch(name='S32')
-    S33 = Switch(name='S33', value=rd_choice([0, 1]))
-    S34 = Switch(name='S34', value=rd_choice([0, 1]))
-    S35 = Switch(name='S35', value=rd_choice([0, 1]))
+    S3 = Switch(name='S3')
+    
+    S4 = Switch(name='S4', value=ilist[0][0])
+    S5 = Switch(name='S5', value=ilist[0][1])
+    
+    S6 = Switch(name='S6', value=ilist[1][0])
+    S7 = Switch(name='S7', value=ilist[1][1])
+    
+    S8 = Switch(name='S8', value=ilist[2][0])
+    S9 = Switch(name='S9', value=ilist[2][1])
+    
+    S10 = Switch(name='S10', value=ilist[3][0])
+    S11 = Switch(name='S11', value=ilist[3][1])
+    
+    S12 = Switch(name='S12', value=ilist[4][0])
+    S13 = Switch(name='S13', value=ilist[4][1])
 
-    Slist = [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, S23, S24, S25, S26, S27, S28, S29, S30, S31, S32, S33, S34, S35]
+    Slist = [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13]
 
-    Slist0 = Slist[0:3]
-    Slist1 = Slist[3:6]
-    Slist2 = Slist[6:9]
-    Slist3 = Slist[9:12]
-    Slist4 = Slist[12:15]
-    Slist5 = Slist[15:18]
-    Slist6 = Slist[18:21]
-    Slist7 = Slist[21:24]
-    Slist8 = Slist[24:27]
-    Slist9 = Slist[27:30]
-    Slist10 = Slist[30:33]
-    Slist11 = Slist[33:36]
+    Slist0 = Slist[0:2]
+    Slist1 = Slist[2:4]
+    Slist2 = Slist[4:6]
+    Slist3 = Slist[6:8]
+    Slist4 = Slist[8:10]
+    Slist5 = Slist[10:12]
+    Slist6 = Slist[12:14]
 
     V0 = Tree(tree_list=Tree.tree_list_BIN(len(Slist0)),
           name='V0',
@@ -78,178 +66,177 @@ def level_bubble_sort():
     V5 = Tree(tree_list=Tree.tree_list_BIN(len(Slist5)),
           name='V5',
           switches=Slist5)
-    V6 = Tree(tree_list=Tree.tree_list_BIN(len(Slist6)),
+    V6 = Tree(tree_list=Tree.tree_list_BIN(len(Slist5)),
           name='V6',
           switches=Slist6)
-    V7 = Tree(tree_list=Tree.tree_list_BIN(len(Slist7)),
+
+    Vlist = [V2, V3, V4, V5, V6]
+    
+    value_list = []
+    for V in Vlist:
+        value_list.append(V.get_value())
+        
+    V7 = Tree(tree_list=['EQUSET'] + [[None]]*(len(Vlist)*2),
           name='V7',
-          switches=Slist7)
-    V8 = Tree(tree_list=Tree.tree_list_BIN(len(Slist8)),
-          name='V8',
-          switches=Slist8)
-    V9 = Tree(tree_list=Tree.tree_list_BIN(len(Slist9)),
-          name='V9',
-          switches=Slist9)
-    V10 = Tree(tree_list=Tree.tree_list_BIN(len(Slist10)),
-          name='V10',
-          switches=Slist10)
-    V11 = Tree(tree_list=Tree.tree_list_BIN(len(Slist11)),
-          name='V11',
-          switches=Slist11)
+          switches=Vlist + value_list)
     
-    Vlist = [V0, V1, V2, V3, V4, V5, V6, V7, V8, V9, V10, V11]
-    Vlist_odd = [V1, V3, V5, V7, V9, V11]
+    tree_list_3 = ['EQU', [None], [None]]
+    tree_list_4 = ['IN', [None], [None], [None]]
 
-    valuelist = []
-    for V in Vlist_odd:
-        valuelist.append(V.get_value())
-    
-    def get_tree(i):
-        if i==0:
-            return Tree(tree_list=['EQU', [None], [None]],
-                        name=f'T{i}',
-                        switches=[V0, V1])
-        elif i%2 == 0:
-            return Tree(tree_list=['EQU', [None], [None]],
-                        name=f'T{i}',
-                        switches=[Vlist[i], Vlist[i+1]])
-        elif i < 11:
-            return Tree(tree_list=['EQU',
-                                   [None],
-                                   ['MIN', [None], [None]]],
-                        name=f'T{i}',
-                        switches=[Vlist[i], Vlist[i-1], Vlist[i+2]])
-        elif i==11:
-            return Tree(tree_list=['EQUSET'] + [[None]]*12,
-                        name=f'T{i}',
-                        switches=Vlist_odd + valuelist,
-                        cut_expression_depth_1=True)
-    T12 = Tree(tree_list=['INFOREQU'] + [[None]]*6,
-                name='T12',
-                switches=Vlist_odd)
+    T0 = Tree(tree_list=[None],
+                name='T0',
+                switches=[V7])
+    T1 = Tree(tree_list=['EQU', [None], ['MOD', Tree.tree_list_SUM(2), [None]]],
+                name='T1',
+                switches=[V0, V1, 1, 4])
+    T2 = Tree(tree_list=['EQU', [None], [None]],
+                name='T2',
+                switches=[V0, V1])
+    T3 = Tree(tree_list=tree_list_3,
+                name='T3',
+                switches=[V0, 0])
+    T4 = Tree(tree_list=tree_list_4,
+                name='T4',
+                switches=[V0, 0, 1])
+    T5 = Tree(tree_list=tree_list_4,
+                name='T5',
+                switches=[V0, 1, 2])
+    T6 = Tree(tree_list=tree_list_4,
+                name='T6',
+                switches=[V0, 2, 3])
+    T7 = Tree(tree_list=tree_list_3,
+                name='T7',
+                switches=[V0, 3])
+    T8 = Tree(tree_list=['AND',
+                         ['INFOREQU'] + [[None]]*len(Vlist),
+                         [None],
+                         Tree.tree_list_NOR(4)],
+                name='T8',
+                switches=Vlist + [V7, S0, S1, S2, S3])
 
-    dx = 3
-    dy = 4.5
-    ex = 1
-    ey = 3
+    dx = 1.25
+    dy = 1.75
+    ex = 0.8
+    ey = ex*2
     
-    ax = -2
+    ey0 = 0.5
+    eys = 0.6
+    
+    ax = 0.15
 
     R0 = Room(name='R0',
-                position=[4*dx, 0*dy+ax, ex, ey],
-                switches_list=Slist0)
+                position=[0*dx, 1*dy, 6*dx+ex, ey0],
+                switches_list=[])
     R1 = Room(name='R1',
-                position=[5*dx, 0*dy+ax, ex, ey],
-                switches_list=Slist1)
+                position=[0*dx, 0*dy-ax, dx+ex, eys],
+                switches_list=Slist0)
     R2 = Room(name='R2',
-                position=[5*dx, 1*dy+ax, ex, ey],
-                switches_list=Slist2)
+                position=[5*dx, 0*dy+ax, dx+ex, eys],
+                switches_list=Slist1)
     R3 = Room(name='R3',
-                position=[4*dx, 1*dy+ax, ex, ey],
-                switches_list=Slist3)
+                position=[0*dx, 2*dy, ex, ey],
+                switches_list=Slist2)
     R4 = Room(name='R4',
-                position=[3*dx, 0*dy, ex, ey],
-                switches_list=Slist4)
+                position=[1*dx, 2*dy+ax, ex, ey],
+                switches_list=Slist3)
     R5 = Room(name='R5',
-                position=[3*dx, 1*dy, ex, ey],
-                switches_list=Slist5)
+                position=[2*dx, 2*dy+2*ax, ex, ey],
+                switches_list=Slist4)
     R6 = Room(name='R6',
-                position=[2*dx, 1*dy, ex, ey],
-                switches_list=Slist6)
+                position=[3*dx, 2*dy+3*ax, ex, ey],
+                switches_list=Slist5)
     R7 = Room(name='R7',
-                position=[2*dx, 0*dy, ex, ey],
-                switches_list=Slist7)
-    R8 = Room(name='R8',
-                position=[1*dx, 1*dy+ax, ex, ey],
-                switches_list=Slist8)
-    R9 = Room(name='R9',
-                position=[0*dx, 1*dy+ax, ex, ey],
-                switches_list=Slist9)
-    R10 = Room(name='R10',
-                position=[0*dx, 0*dy+ax, ex, ey],
-                switches_list=Slist10)
-    R11 = Room(name='R11',
-                position=[1*dx, 0*dy+ax, ex, ey],
-                switches_list=Slist11)
+                position=[4*dx, 2*dy+4*ax, ex, ey],
+                switches_list=Slist6)
     RE = Room(name='RE',
-              position=[2*dx, -dy, dx+ex, ey],
+              position=[5*dx, 1.8*dy, dx+ex, ey],
               is_exit=True)
-
+    
+    def get_relative_departure_coordinates(i):
+        return [(i+2)/12, 1/2]
+    
+    rac = [1/2, eys/2/ey]
+    
+    n = 10
     D0 = Door(two_way=False,
-                tree=get_tree(0),
+                tree=T0,
                 name='D0',
                 room_departure=R0,
-                room_arrival=R1)
+                room_arrival=R1,
+                relative_departure_coordinates=[1/n, 0],
+                relative_arrival_coordinates=[1/2, 1])
     D1 = Door(two_way=False,
-                tree=get_tree(1),
+                tree=T1,
                 name='D1',
                 room_departure=R1,
                 room_arrival=R2)
     D2 = Door(two_way=False,
-                tree=get_tree(2),
+                tree=T2,
                 name='D2',
                 room_departure=R2,
-                room_arrival=R3)
-    D3 = Door(two_way=False,
-                tree=get_tree(3),
+                room_arrival=R0,
+                relative_departure_coordinates=[1/2, 1],
+                relative_arrival_coordinates=[1-1/n, 0])
+    D3 = Door(two_way=True,
+                tree=T3,
                 name='D3',
-                room_departure=R3,
-                room_arrival=R4)
-    D4 = Door(two_way=False,
-                tree=get_tree(4),
+                room_departure=R0,
+                room_arrival=R3,
+                relative_departure_coordinates=get_relative_departure_coordinates(0),
+                relative_arrival_coordinates=rac)
+    D4 = Door(two_way=True,
+                tree=T4,
                 name='D4',
-                room_departure=R4,
-                room_arrival=R5)
-    D5 = Door(two_way=False,
-                tree=get_tree(5),
+                room_departure=R0,
+                room_arrival=R4,
+                relative_departure_coordinates=get_relative_departure_coordinates(1),
+                relative_arrival_coordinates=rac)
+    D5 = Door(two_way=True,
+                tree=T5,
                 name='D5',
-                room_departure=R5,
-                room_arrival=R6)
-    D6 = Door(two_way=False,
-                tree=get_tree(6),
+                room_departure=R0,
+                room_arrival=R5,
+                relative_departure_coordinates=get_relative_departure_coordinates(2),
+                relative_arrival_coordinates=rac)
+    D6 = Door(two_way=True,
+                tree=T6,
                 name='D6',
-                room_departure=R6,
-                room_arrival=R7)
-    D7 = Door(two_way=False,
-                tree=get_tree(7),
+                room_departure=R0,
+                room_arrival=R6,
+                relative_departure_coordinates=get_relative_departure_coordinates(3),
+                relative_arrival_coordinates=rac)
+    D7 = Door(two_way=True,
+                tree=T7,
                 name='D7',
-                room_departure=R7,
-                room_arrival=R8)
+                room_departure=R0,
+                room_arrival=R7,
+                relative_departure_coordinates=get_relative_departure_coordinates(4),
+                relative_arrival_coordinates=rac)
     D8 = Door(two_way=False,
-                tree=get_tree(8),
+                tree=T8,
                 name='D8',
-                room_departure=R8,
-                room_arrival=R9)
-    D9 = Door(two_way=False,
-                tree=get_tree(9),
-                name='D9',
-                room_departure=R9,
-                room_arrival=R10)
-    D10 = Door(two_way=False,
-                tree=get_tree(10),
-                name='D10',
-                room_departure=R10,
-                room_arrival=R11)
-    D11 = Door(two_way=False,
-                tree=get_tree(11),
-                name='D11',
-                room_departure=R11,
-                room_arrival=R0)
-    D12 = Door(two_way=False,
-                tree=T12,
-                name='D12',
-                room_departure=R11,
-                room_arrival=RE)
+                room_departure=R0,
+                room_arrival=RE,
+                relative_departure_coordinates=get_relative_departure_coordinates(5),
+                relative_arrival_coordinates=rac)
+    
+    hu = 0.7
+    lcolor = Level_color(background_color=Color.color_hls(hu, li=0.6, sa=0.3),
+                         room_color=Color.color_hls(hu, li=0.15, sa=0.6),
+                         letters_color=Color.BLACK,
+                         contour_color=Color.color_hls(hu=0.5, li=0.5, sa=1),
+                         inside_room_color=Color.WHITE,
+                         surrounding_color=Color.color_hls(hu=0.5, li=0.5, sa=1))
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
-                 rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, RE],
-                 doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12],
+                 rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, RE],
+                 doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8],
                  fastest_solution=None,
-                 level_color=Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.5),
+                 level_color=lcolor,
                  name='Bubble sort',
                  keep_proportions=True,
-                 door_window_size=300,
+                 door_window_size=400,
                  random=True)
     
     return level
