@@ -38,6 +38,7 @@ from levels.level_chromatic import level_chromatic
 from levels.level_circle import level_circle
 from levels.level_circuit import level_circuit
 from levels.level_classified import level_classified
+from levels.level_cocktail_sort import level_cocktail_sort
 from levels.level_code import level_code
 from levels.level_coloring import level_coloring
 from levels.level_combinatorics import level_combinatorics
@@ -94,6 +95,7 @@ from levels.level_impasse import level_impasse
 from levels.level_independent_set import level_independent_set
 from levels.level_infinity import level_infinity
 from levels.level_initiation import level_initiation
+from levels.level_insertion_sort import level_insertion_sort
 from levels.level_inside_out import level_inside_out
 from levels.level_integer_factorization import level_integer_factorization
 from levels.level_intersection import level_intersection
@@ -192,6 +194,7 @@ from levels.level_rotation_bis import level_rotation_bis
 from levels.level_route import level_route
 from levels.level_second import level_second
 from levels.level_second_guarini_s_problem import level_second_guarini_s_problem
+from levels.level_selection_sort import level_selection_sort
 from levels.level_separation import level_separation
 from levels.level_sheffer_stroke import level_sheffer_stroke
 from levels.level_shortcut import level_shortcut
@@ -300,11 +303,10 @@ class Levels:
     
     gladiolus
     
-    selection sort
-    cocktail sort
     merge sort
     quick sort
     insertion sort
+    cattle
     
     """
 
@@ -426,12 +428,14 @@ class Levels:
                              level_path,
                              level_entropy,
                              level_bubble_sort,
+                             level_cocktail_sort,
                              level_dichotomy,
                              level_wheel,
                              level_random_star,
                              level_intersection,
                              level_partition,
                              level_second,
+                             level_insertion_sort,
                              level_knapsack,
                              level_love,
                              level_palm_tree,
@@ -443,6 +447,7 @@ class Levels:
                              level_maple,
                              level_pine,
                              level_sneckdown,
+                             level_selection_sort,
                              level_random_K2,
                              level_egyptian_fractions,
                              level_roadblock,
@@ -687,7 +692,10 @@ class Levels:
                                           level_invert,
                                           level_permutate,
                                           level_bubble_sort,
+                                          level_cocktail_sort,
                                           level_spare,
+                                          level_insertion_sort,
+                                          level_selection_sort,
                                           level_grid,
                                           level_spaceship,
                                           level_vortex,
@@ -1155,7 +1163,7 @@ if __name__ == "__main__":
     
     # # # fast_solution_finding=True
     
-    # level = level_eratosthenes()
+    # level = level_selection_sort()
     # solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True)
     # for sol in solutions[0]:
     #     print(' '.join(sol))

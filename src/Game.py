@@ -935,7 +935,7 @@ class Game:
                         elif self.current_action[0] == 'L':
                             level_number_list = [str(i) for i in range(Levels.number_of_levels)]
                             if self.current_action[1:] in level_number_list:
-                                self.index_current_level = int(self.current_action[1:])
+                                self.index_current_level = int(self.current_action[1:])-1
                                 self.level_changed = True
                             self.update_possible_actions()
                         self.current_action = ''
