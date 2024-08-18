@@ -52,6 +52,12 @@ class Tree:
 
     def tree_list_IN(n):
         return ['IN'] + [[None]] * n
+    
+    def tree_list_INF(n):
+        return ['INF'] + [[None]] * n
+    
+    def tree_list_INFOREQU(n):
+        return ['INFOREQU'] + [[None]] * n
 
     def tree_list_DIFF(n):
         return ['DIFF'] + [[None]] * n

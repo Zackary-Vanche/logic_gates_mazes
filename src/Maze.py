@@ -266,10 +266,14 @@ class Maze:
             help_menu.append(self.help_txt[0])
         if len(self.intermediate_values_list) != 0:
             help_menu.append(help_menus_list['V'])
+        help_menu_root = []
         for root in Logic_Gate.func_dict.keys():
             help_menus_list[root]
             if root in self.roots_names_set or root in additionnal_roots_in_help:
-                help_menu.append(help_menus_list[root])
+                help_menu_root.append(help_menus_list[root])
+        help_menu_root = ''.join(help_menu_root)
+        if help_menu_root != '':
+            help_menu.append(help_menu_root)
         help_menu.append(help_menus_list['B'])
         if self.random:
             help_menu.append(help_menus_list['N'])

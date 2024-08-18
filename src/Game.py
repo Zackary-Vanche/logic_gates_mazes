@@ -617,7 +617,7 @@ class Game:
             gap = 0
             p, c = linear_function(768-self.Y_marge, 50, 1080-self.Y_marge, 50)
             y0 = p * self.WINDOW_HEIGHT + c
-            p, c = linear_function(1366-self.X_marge, 20, 1920-self.X_marge, 20)
+            p, c = linear_function(1366-self.X_marge, 15, 1920-self.X_marge, 20)
             x0 = p * self.WINDOW_WIDTH + c
             """
             help_list = string_help.split('\n')

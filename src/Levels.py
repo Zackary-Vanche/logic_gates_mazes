@@ -123,6 +123,7 @@ from levels.level_mastermind import level_mastermind
 from levels.level_matrix import level_matrix
 from levels.level_max_cut import level_max_cut
 from levels.level_meanders import level_meanders
+from levels.level_merge_sort import level_merge_sort
 from levels.level_min_cut import level_min_cut
 from levels.level_minimum_spanning_tree import level_minimum_spanning_tree
 from levels.level_mols import level_mols
@@ -135,6 +136,7 @@ from levels.level_numeration import level_numeration
 from levels.level_oak import level_oak
 from levels.level_octahedron import level_octahedron
 from levels.level_odd import level_odd
+from levels.level_odd_even_sort import level_odd_even_sort
 from levels.level_orchard import level_orchard
 from levels.level_orchid import level_orchid
 from levels.level_order import level_order
@@ -165,6 +167,7 @@ from levels.level_product import level_product
 from levels.level_puzzle import level_puzzle
 from levels.level_pyramid import level_pyramid
 from levels.level_pythagorean import level_pythagorean
+from levels.level_quick_sort import level_quick_sort
 from levels.level_rainforest import level_rainforest
 from levels.level_random_K2 import level_random_K2
 from levels.level_random_K33 import level_random_K33
@@ -305,7 +308,6 @@ class Levels:
     
     merge sort
     quick sort
-    insertion sort
     cattle
     
     """
@@ -428,6 +430,7 @@ class Levels:
                              level_path,
                              level_entropy,
                              level_bubble_sort,
+                             level_odd_even_sort,
                              level_cocktail_sort,
                              level_dichotomy,
                              level_wheel,
@@ -436,6 +439,7 @@ class Levels:
                              level_partition,
                              level_second,
                              level_insertion_sort,
+                             level_merge_sort,
                              level_knapsack,
                              level_love,
                              level_palm_tree,
@@ -549,6 +553,7 @@ class Levels:
                              level_sudoku,
                              level_temple,
                              level_syracuse,
+                             level_quick_sort,
                              level_five,
                              level_shuffled,
                              level_sign,
@@ -692,10 +697,13 @@ class Levels:
                                           level_invert,
                                           level_permutate,
                                           level_bubble_sort,
+                                          level_odd_even_sort,
                                           level_cocktail_sort,
                                           level_spare,
                                           level_insertion_sort,
+                                          level_merge_sort,
                                           level_selection_sort,
+                                          level_quick_sort,
                                           level_grid,
                                           level_spaceship,
                                           level_vortex,
@@ -1163,7 +1171,7 @@ if __name__ == "__main__":
     
     # # # fast_solution_finding=True
     
-    # level = level_selection_sort()
+    # level = level_merge_sort()
     # solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True)
     # for sol in solutions[0]:
     #     print(' '.join(sol))

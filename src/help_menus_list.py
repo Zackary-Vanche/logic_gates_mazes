@@ -305,13 +305,13 @@ help_menus_list['DIFF'] = '''
 
 help_menus_list['EQUSET'] = '''
 ~ ( S0 ; S2 ; ...) ( S1 ; S3 ; ...) equals 1 if the two sets ( S0 ; S2 ; ...) and ( S1 ; S3 ; ...) contain the same elements, but not obligatorily in the same order.'''
-
-help_menus_list['INF'] = """
-< S0 S1 equals 1 if S0 is inferior to S1."""
     
 help_menus_list['INF0'] = """
 <0 a b means | < a b = a 0 = b 0
 <0 a b c means & <0 a b <0 b c"""
+
+help_menus_list['INF'] = """
+< S0 S1 equals 1 if S0 is inferior to S1."""
 
 help_menus_list['SUP'] = """
 > S0 S1 equals 1 if S0 is superior to S1."""

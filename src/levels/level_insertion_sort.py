@@ -213,8 +213,6 @@ def level_insertion_sort():
               position=[5*dx, ey, ex, 2*ay+ey0],
               is_exit=True)
 
-    n = 11
-
     D0 = Door(two_way=False,
                 tree=T0,
                 name='D0',
