@@ -29,6 +29,7 @@ from levels.level_bridges import level_bridges
 from levels.level_bubble_sort import level_bubble_sort
 from levels.level_cardinal_directions import level_cardinal_directions
 from levels.level_cartesian import level_cartesian
+from levels.level_cattle import level_cattle
 from levels.level_cedar import level_cedar
 from levels.level_central_symmetry import level_central_symmetry
 from levels.level_chessboard import level_chessboard
@@ -85,6 +86,7 @@ from levels.level_gingko_biloba import level_gingko_biloba
 from levels.level_grid import level_grid
 from levels.level_hamiltonian import level_hamiltonian
 from levels.level_harmony import level_harmony
+from levels.level_heapsort import level_heapsort
 from levels.level_hello_world import level_hello_world
 from levels.level_hitting_set import level_hitting_set
 from levels.level_honeycomb import level_honeycomb
@@ -306,8 +308,6 @@ class Levels:
     
     gladiolus
     
-    merge sort
-    quick sort
     cattle
     
     """
@@ -504,6 +504,7 @@ class Levels:
                              level_magic_square,
                              level_matrix,
                              level_river,
+                             level_cattle,
                              level_vortex,
                              level_tree,
                              level_dead_ends,
@@ -556,6 +557,7 @@ class Levels:
                              level_quick_sort,
                              level_five,
                              level_shuffled,
+                             level_heapsort,
                              level_sign,
                              level_combinatorics,
                              level_hungarian_rings,
@@ -705,6 +707,7 @@ class Levels:
                                           level_selection_sort,
                                           level_quick_sort,
                                           level_grid,
+                                          level_heapsort,
                                           level_spaceship,
                                           level_vortex,
                                           level_line_and_columns,
@@ -810,6 +813,7 @@ class Levels:
                             level_blind_alleys,
                             level_alice_and_bob,
                             level_river,
+                            level_cattle,
                             level_small,
                             level_platonic,
                             level_baguenaudier,
@@ -1171,7 +1175,7 @@ if __name__ == "__main__":
     
     # # # fast_solution_finding=True
     
-    # level = level_merge_sort()
+    # level = level_cattle()
     # solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True)
     # for sol in solutions[0]:
     #     print(' '.join(sol))
