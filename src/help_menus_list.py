@@ -168,6 +168,8 @@ help_menus_list['levels']["Singletons"] = """A singleton is a set with exactly o
 
 help_menus_list['levels']["Taxicab number"] = """Taxicab numbers are also called Hardy–Ramanujan numbers."""
 
+help_menus_list['levels']["Desire path"] = """Do you know who Edsger Dijkstra is ?"""
+
 help_menus_list['levels']["Walk"] = """In graph theory, a walk is a finite or infinite sequence of edges which joins a sequence of vertices. Here, you cannot revisit vertices and edges."""
 
 help_menus_list['levels']["Trail"] = """A trail is a walk in which all edges are distinct."""
