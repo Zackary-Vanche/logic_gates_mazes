@@ -56,7 +56,7 @@ from levels.level_cypress import level_cypress
 from levels.level_dead_ends import level_dead_ends
 from levels.level_diagonal import level_diagonal
 from levels.level_dichotomy import level_dichotomy
-from levels.level_dijkstra import level_dijkstra
+from levels.level_desire_path import level_desire_path
 from levels.level_dominating_set import level_dominating_set
 from levels.level_doppelganger import level_doppelganger
 from levels.level_draw import level_draw
@@ -88,6 +88,7 @@ from levels.level_hamiltonian import level_hamiltonian
 from levels.level_harmony import level_harmony
 from levels.level_heapsort import level_heapsort
 from levels.level_hello_world import level_hello_world
+from levels.level_herd import level_herd
 from levels.level_hitting_set import level_hitting_set
 from levels.level_honeycomb import level_honeycomb
 from levels.level_house import level_house
@@ -299,17 +300,6 @@ class Levels:
     
     Random bin packing
     
-    Trees :
-    
-    sycamore
-    magnolia
-    Hackberry
-    Hickory
-    
-    gladiolus
-    
-    cattle
-    
     """
 
     levels_functions_list = [
@@ -418,7 +408,7 @@ class Levels:
                              level_pyramid,
                              level_invert,
                              level_permutate,
-                             level_dijkstra,
+                             level_desire_path,
                              level_integer_factorization,
                              level_chessboard,
                              level_silex,
@@ -505,6 +495,7 @@ class Levels:
                              level_matrix,
                              level_river,
                              level_cattle,
+                             level_herd,
                              level_vortex,
                              level_tree,
                              level_dead_ends,
@@ -641,7 +632,7 @@ class Levels:
                             level_shortcut,
                             level_octahedron,
                             level_cube,
-                            level_dijkstra,
+                            level_desire_path,
                             level_hamiltonian,
                             level_wind_compass,
                             level_singletons,
@@ -814,6 +805,7 @@ class Levels:
                             level_alice_and_bob,
                             level_river,
                             level_cattle,
+                            level_herd,
                             level_small,
                             level_platonic,
                             level_baguenaudier,
@@ -1105,7 +1097,7 @@ def test_levels(test_random_levels=False):
     for level_function in Levels.levels_functions_list:
         all_level_set.add(level_function().name)
     if len(all_level_set) != len(Levels.levels_functions_list):
-        print("Some leels are duplicated in the list Levels.levels_functions_list")
+        print("Some levels are duplicated in the list Levels.levels_functions_list")
     
     worlds_level_list = []
     for world_name in Levels.Worlds.keys():

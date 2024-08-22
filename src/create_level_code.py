@@ -1,7 +1,7 @@
-ns = 12
-nd = 10
-nr = 7
-nv = 6
+ns = 0
+nd = 13
+nr = 0
+nv = 0
 
 print('''
 from Switch import Switch
@@ -62,7 +62,7 @@ for i in range(nr):
     #             switches_list=[])''')
     print(f'''    R{i} = Room(name='R{i}',
                 position=[{x}*dx, {y}*dy, ex, ey],
-                switches_list=[S{i}])''')
+                switches_list=Slist{i-1})''')
     # print(f'''    R{i} = Room(name='R{i}',
     #             position=position({i}),
     #             switches_list=[S{i}])''')

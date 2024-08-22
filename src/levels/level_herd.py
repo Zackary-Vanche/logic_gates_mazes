@@ -6,7 +6,7 @@ from Maze import Maze
 from Color import Color
 from Level_color import Level_color
 
-def level_cattle():
+def level_herd(): 
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -18,6 +18,36 @@ def level_cattle():
     S7 = Switch(name='S7')
     S8 = Switch(name='S8')
     S9 = Switch(name='S9')
+    S10 = Switch(name='S10')
+    S11 = Switch(name='S11')
+    S12 = Switch(name='S12')
+    S13 = Switch(name='S13')
+    S14 = Switch(name='S14')
+    S15 = Switch(name='S15')
+    S16 = Switch(name='S16')
+    S17 = Switch(name='S17')
+    S18 = Switch(name='S18')
+    S19 = Switch(name='S19')
+    S20 = Switch(name='S20')
+    S21 = Switch(name='S21')
+    S22 = Switch(name='S22')
+    S23 = Switch(name='S23')
+    S24 = Switch(name='S24')
+    S25 = Switch(name='S25')
+    S26 = Switch(name='S26')
+    S27 = Switch(name='S27')
+    S28 = Switch(name='S28')
+    S29 = Switch(name='S29')
+    S30 = Switch(name='S30')
+    S31 = Switch(name='S31')
+    S32 = Switch(name='S32')
+    S33 = Switch(name='S33')
+    S34 = Switch(name='S34')
+    S35 = Switch(name='S35')
+    S36 = Switch(name='S36')
+    S37 = Switch(name='S37')
+    S38 = Switch(name='S38')
+    S39 = Switch(name='S39')
 
     Slist0 = [S0]
     Slist1 = [S1]
@@ -25,6 +55,8 @@ def level_cattle():
     Slist3 = [S4, S5]
     Slist4 = [S6, S7]
     Slist5 = [S8, S9]
+    Slist6 = [S10, S11, S12]
+    Slist7 = [S13, S14, S15]
 
     V0 = Tree(tree_list=Tree.tree_list_BIN(len(Slist0)),
           name='V0',
@@ -44,6 +76,12 @@ def level_cattle():
     V5 = Tree(tree_list=Tree.tree_list_BIN(len(Slist5)),
           name='V5',
           switches=Slist5)
+    V6 = Tree(tree_list=Tree.tree_list_BIN(len(Slist6)),
+          name='V6',
+          switches=Slist6)
+    V7 = Tree(tree_list=Tree.tree_list_BIN(len(Slist7)),
+          name='V7',
+          switches=Slist7)
 
     Vlist = [V0, V1, V2, V3, V4, V5]
     
@@ -78,38 +116,54 @@ def level_cattle():
     T8 = Tree(tree_list=tree_list_2,
                 name='T8',
                 switches=[V4, 0, V5, 3])
-    T9 = Tree(tree_list=['EQU', ['SUM'] + [[None]]*3, [None]],
+    T9 = Tree(tree_list=tree_list_3,
                 name='T9',
-                switches=[V1, V3, V5, 5])
+                switches=[V4, V5, 1])
+    T10 = Tree(tree_list=tree_list_1,
+                name='T10',
+                switches=[V6, V7])
+    T11 = Tree(tree_list=tree_list_2,
+                name='T11',
+                switches=[V6, 0, V7, 4])
+    T12 = Tree(tree_list=['EQU', ['SUM'] + [[None]]*4, [None]],
+                name='T12',
+                switches=[V1, V3, V5, V7, 9])
 
     dx = 1.5
     dy = 1
-    ex = 1.25
+    ex = 1.5
+    ex0 = 1
     ey = 1
     
-    cy = 4*dy+ey
+    cy = 6*dy+ey
 
     R0 = Room(name='R0',
-                position=[0*dx, 0*dy, ex, cy],
+                position=[0*dx, 0*dy, ex0, cy],
                 switches_list=[])
     R1 = Room(name='R1',
                 position=[5.5*dx, 0*dy, ex, ey],
                 switches_list=Slist0)
     R2 = Room(name='R2',
-                position=[2.5*dx, 1*dy, ex, ey],
+                position=[1.5*dx, 1*dy, ex, ey],
                 switches_list=Slist1)
     R3 = Room(name='R3',
-                position=[5*dx, 2*dy, dx+ex, ey],
+                position=[5.5*dx, 2*dy, dx+ex, ey],
                 switches_list=Slist2)
     R4 = Room(name='R4',
-                position=[2*dx, 3*dy, dx+ex, ey],
+                position=[1.5*dx, 3*dy, dx+ex, ey],
                 switches_list=Slist3)
     R5 = Room(name='R5',
-                position=[5*dx, 4*dy, dx+ex, ey],
+                position=[5.5*dx, 4*dy, dx+ex, ey],
                 switches_list=Slist4)
     R6 = Room(name='R6',
-                position=[2*dx, 5*dy, dx+ex, ey],
+                position=[1.5*dx, 5*dy, dx+ex, ey],
                 switches_list=Slist5)
+    R7 = Room(name='R7',
+                position=[5.5*dx, 6*dy, 2*dx+ex, ey],
+                switches_list=Slist6)
+    R8 = Room(name='R8',
+                position=[1.5*dx, 7*dy, 2*dx+ex, ey],
+                switches_list=Slist7)
     RE = Room(name='RE',
               position=[2*dx, -dy, dx+ex, ey],
               is_exit=True)
@@ -146,6 +200,7 @@ def level_cattle():
                 name='D5',
                 room_departure=R4,
                 room_arrival=R0,
+                relative_departure_coordinates=[ex/2/(dx+ex), 1/2],
                 relative_arrival_coordinates=[0, (2*dy+ey/2)/cy])
     D6 = Door(two_way=False,
                 tree=T6,
@@ -162,31 +217,48 @@ def level_cattle():
                 name='D8',
                 room_departure=R6,
                 room_arrival=R0,
+                relative_departure_coordinates=[ex/2/(dx+ex), 1/2],
                 relative_arrival_coordinates=[0, (4*dy+ey/2)/cy])
     D9 = Door(two_way=False,
                 tree=T9,
                 name='D9',
+                room_departure=R6,
+                room_arrival=R7)
+    D10 = Door(two_way=False,
+                tree=T10,
+                name='D10',
+                room_departure=R7,
+                room_arrival=R8)
+    D11 = Door(two_way=False,
+                tree=T11,
+                name='D11',
+                room_departure=R8,
+                room_arrival=R0,
+                relative_departure_coordinates=[ex/2/(2*dx+ex), 1/2],
+                relative_arrival_coordinates=[0, (6*dy+ey/2)/cy])
+    D12 = Door(two_way=False,
+                tree=T12,
+                name='D12',
                 room_departure=R0,
                 room_arrival=RE,
                 relative_departure_coordinates=[0, ey/2/cy])
     
     hu = 0.1
-    lcolor = Level_color(background_color=Color.color_hls(hu, li=0.8, sa=0.3),
-                         room_color=Color.color_hls(hu, li=0.15, sa=0.8),
-                         letters_color=Color.BLACK,
+    lcolor = Level_color(background_color=Color.color_hls(hu, li=0.15, sa=0.8),
+                         room_color=Color.color_hls(hu, li=0.8, sa=0.3),
+                         letters_color=Color.WHITE,
                          contour_color=Color.color_hls(hu=0.16, li=0.9, sa=1),
-                         inside_room_color=Color.WHITE,
+                         inside_room_color=Color.BLACK,
                          surrounding_color=Color.color_hls(hu=0.4, li=0.5, sa=0.2))
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
-                 rooms_list=[R0, R1, R2, R3, R4, R5, R6, RE],
-                 doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9],
-                 fastest_solution="D0 D1 S1 D2 D0 S0 D1 S1 D3 D4 S5 D5 D0 S0 D1 S1 D2 D0 S0 D1 S1 D3 S3 D4 S4 S5 D6 D7 S8 S9 D8 D0 S0 D1 S1 D2 D9",
+                 rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, RE],#, R9, R10, R11, R12, R13, RE],
+                 doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12],#, D10, D11, D12, D13, D14, D15, D16, D17, D18],
+                 fastest_solution='D0 D1 S1 D2 D0 S0 D1 S1 D3 D4 S5 D5 D0 S0 D1 S1 D2 D0 S0 D1 S1 D3 S3 D4 S4 S5 D6 D7 S8 S9 D8 D0 S0 D1 S1 D2 D0 S0 D1 S1 D3 S2 S3 D4 S4 D6 S6 S7 D7 S8 D9 D10 S15 D11 D0 S0 D1 S1 D2 D0 S0 D1 S1 D3 S2 D4 S5 D5 D0 S0 D1 S1 D2 D12',
                  level_color=lcolor,
-                 name='Cattle',
+                 name='Herd',
                  keep_proportions=True,
                  door_window_size=300)
     
     return level
-    
