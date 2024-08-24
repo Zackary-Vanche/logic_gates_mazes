@@ -72,6 +72,10 @@ def level_water_pouring():
     V8 = Tree(tree_list=Tree.tree_list_BIN(len(Slist8)),
           name='V8',
           switches=Slist8)
+    
+    V9 = Tree(tree_list=['EQU', [None], ['SUM', [None], [None]]],
+          name='V9',
+          switches=[V4, V5, 1])
 
     tree_list_EQU_plus1_BIN3 = ['EQU', Tree.tree_list_BIN(3), ['SUM', Tree.tree_list_BIN(3), [None]]]
 
@@ -80,35 +84,45 @@ def level_water_pouring():
     T0 = Tree(tree_list=['AND',
                          ['OR',
                           Tree.tree_list_NOT,
-                          Tree.tree_list_from_str('TT TTTT FF FFFF')],
+                          Tree.tree_list_EQU(2),
+                          Tree.tree_list_EQU(2),
+                          Tree.tree_list_EQU(2),
+                          Tree.tree_list_EQU(2),],
                          ['OR',
                           Tree.tree_list_NOT,
-                          Tree.tree_list_from_str('TFT TTTT FFF FFFF')],
+                          Tree.tree_list_EQU(2),
+                          Tree.tree_list_EQU(2),
+                          Tree.tree_list_EQU(2),
+                          Tree.tree_list_EQU(2),
+                          ],
                          Tree.tree_list_OR(2), ],
               name='T0',
               switches=[
                   S0,
-                  S17, S18,
-                  S3, S4, S5, S6,
-                  S17, S18,
-                  S3, S4, S5, S6,
+                  V3, 3,
+                  V1, 15,
+                  V3, 0,
+                  V1, 0,
                   S1,
-                  S11, S12, S13,
-                  S3, S4, S5, S6,
-                  S11, S12, S13,
-                  S3, S4, S5, S6,
+                  V2, 5,
+                  V1, 15,
+                  V2, 0,
+                  V1, 0,
                   S0, S1,
-              ])
+              ],
+              cut_expression_depth_1=True)
 
     T1 = Tree(tree_list=['AND',
                          [None],
-                         Tree.tree_list_from_str('TT TFT FF FFF')],
+                         ['OR'] + [Tree.tree_list_EQU(2)]*4
+                         ],
               name='T1',
               switches=[S2,
-                        S17, S18,
-                        S11, S12, S13,
-                        S17, S18,
-                        S11, S12, S13])
+                        V3, 3, 
+                        V2, 5, 
+                        V3, 0, 
+                        V2, 0, 
+                        ])
     T2 = Tree(tree_list=[None],
               name='T2',
               switches=[S1])
@@ -117,89 +131,56 @@ def level_water_pouring():
               name='T3',
               switches=[S0])
 
-    T4 = Tree(tree_list=['AND', [None], ['EQU', [None], ['SUM', [None], [None]]]],
+    T4 = Tree(tree_list=Tree.tree_list_AND(2),
               name='T4',
-              switches=[S1, V4, V5, 1])
+              switches=[S1, V9])
 
     T5 = Tree(tree_list=[None],
               name='T5',
               switches=[S2])
 
-    T6 = Tree(tree_list=['AND', Tree.tree_list_OR(2), tree_list_EQU_plus1_BIN3],
+    T6 = Tree(tree_list=['AND', Tree.tree_list_OR(2), [None]],
               name='T6',
-              switches=[S0, S2, S21, S22, S23, S24, S25, S26, 1])
+              switches=[S0, S2, V9])
 
     T7 = Tree(tree_list=['AND',
-                         ['EQU', ['SUM', Tree.tree_list_BIN(4), Tree.tree_list_BIN(3), Tree.tree_list_BIN(2)], [None]],
-                         ['EQU', Tree.tree_list_BIN(9), Tree.tree_list_BIN(9)]],
+                         ['EQU', Tree.tree_list_SUM(3), [None]],
+                         ['EQU', [None], [None]],
+                         ['EQU', [None], [None]],
+                         ['EQU', [None], [None]]
+                         ],
               name='T7',
-              switches=[S7, S8, S9, S10,
-                        S14, S15, S16,
-                        S19, S20,
-                        8,
-                        S17, S18,
-                        S11, S12, S13,
-                        S3, S4, S5, S6,
-                        S19, S20,
-                        S14, S15, S16,
-                        S7, S8, S9, S10])
-    T8 = Tree(tree_list=['EQU', ['SUM', Tree.tree_list_BIN(4), Tree.tree_list_BIN(3), Tree.tree_list_BIN(2)], [None]],
+              switches=[V6, V7, V8, 8,
+                        V3, V6,
+                        V2, V7,
+                        V1, V8,
+                        ])
+    T8 = Tree(tree_list=['EQU', Tree.tree_list_SUM(3), [None]],
               name='T8',
-              switches=[S3, S4, S5, S6,
-                        S11, S12, S13,
-                        S17, S18,
-                        8])
-    T9 = Tree(tree_list=['EQU',
-                         Tree.tree_list_BIN(3),
-                         Tree.tree_list_BIN(3)],
+              switches=[V1, V2, V3, 8])
+    T9 = Tree(tree_list=Tree.tree_list_EQU(2),
               name='T9',
-              switches=[S21, S22, S23,
-                        S24, S25, S26])
-    T10 = Tree(tree_list=['EQU',
-                          Tree.tree_list_BIN(2),
-                          Tree.tree_list_BIN(2)],
+              switches=[V4, V5])
+    T10 = Tree(tree_list=Tree.tree_list_EQU(2),
                name='T10',
-               switches=[S17, S18,
-                         S19, S20])
-    T11 = Tree(tree_list=['EQU',
-                          Tree.tree_list_BIN(3),
-                          Tree.tree_list_BIN(3)],
+               switches=[V3, V6])
+    T11 = Tree(tree_list=Tree.tree_list_EQU(2),
                name='T11',
-               switches=[S11, S12, S13,
-                         S14, S15, S16])
-    T12 = Tree(tree_list=['EQU',
-                          Tree.tree_list_BIN(4),
-                          Tree.tree_list_BIN(4)],
+               switches=[V2, V7])
+    T12 = Tree(tree_list=Tree.tree_list_EQU(2),
                name='T12',
-               switches=[S3, S4, S5, S6,
-                         S7, S8, S9, S10])
-    T13 = Tree(tree_list=['AND'] + [['AND',
-                                     ['EQU', Tree.tree_list_BIN(2), [None]],
-                                     ['EQU', Tree.tree_list_BIN(3), [None]],
-                                     ['EQU', Tree.tree_list_BIN(4), [None]]]] * 2 + [
-                             ['EQU', Tree.tree_list_BIN(3), [None]]] * 3,
+               switches=[V1, V8])
+    T13 = Tree(tree_list=['AND'] + [Tree.tree_list_EQU(2)]*9,
                name='T13',
-               switches=[S17, S18,
-                         0,
-                         S11, S12, S13,
-                         4,
-                         S3, S4, S5, S6,
-                         4,
-
-                         S19, S20,
-                         0,
-                         S14, S15, S16,
-                         4,
-                         S7, S8, S9, S10,
-                         4,
-
-                         S0, S1, S2,
-                         0,
-
-                         S21, S22, S23,
-                         7,
-                         S24, S25, S26,
-                         7,
+               switches=[V0, 0,
+                         V1, 4,
+                         V2, 4,
+                         V3, 0,
+                         V4, 7,
+                         V5, 7,
+                         V6, 0,
+                         V7, 4,
+                         V8, 4,
                          ])
 
     ex = 0.9

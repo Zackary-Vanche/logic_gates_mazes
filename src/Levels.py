@@ -303,7 +303,7 @@ class Levels:
     
     """
 
-    levels_functions_list = [level_water_pouring,
+    levels_functions_list = [
                              #level_black_knight_puzzle,
                              level_trivial,
                              level_choice,
@@ -1167,14 +1167,12 @@ if __name__ == "__main__":
             i = dico_i_level_name[name]
             fw.write(f'{name: <25} {i}\n')
     
-    
     # # # fast_solution_finding=True
     
-    # level = level_the_8_queens()
-    # solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True)
-    # all_sol = ''
-    # for sol in solutions[0]:
-    #     print(' '.join(sol))
+    level = level_water_pouring()
+    solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True)
+    for sol in solutions[0]:
+        print(' '.join(sol))
     
 #     sol_list = """S1 D0 S10 D0 D5 S4 D6 S9 D6 D5 D9 S6 D3 S17 D3 D9 S1 D0 D10 S13 D10 D0 D15
 # S1 D0 S10 D0 D5 S4 D6 S9 D6 D5 D9 S6 D3 S17 D3 D9 S1 D0 S10 S11 D10 S12 D10 D0 D15""".split("\n")
