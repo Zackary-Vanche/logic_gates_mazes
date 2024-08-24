@@ -1,5 +1,5 @@
-ns = 0
-nd = 13
+ns = 62
+nd = 0
 nr = 0
 nv = 0
 
@@ -21,8 +21,8 @@ print('')
 print(f'''    Slist = [{', '.join([f'S{i}' for i in range(ns)])}]''')
 print('')
 
-# for i in range(nv):
-#     print(f'    Slist_{i} = [S{3*i}, S{3*i+1}, S{3*i+2}]')
+for i in range(nv):
+    print(f'    Slist_{i} = [S{8+3*i}, S{8+3*i+1}, S{8+3*i+2}]')
 
 for i in range(nv):
     print(f'''    V{i} = Tree(tree_list=Tree.tree_list_BIN(len(Slist{i})),
@@ -41,6 +41,9 @@ for i in range(nd):
     print(f'''    T{i} = Tree(tree_list=tree_list_0,
                 name='T{i}',
                 switches=[1])''')
+    
+for i in range(nd):
+    print(f'''    T{i} = get_tree({i})''')
     
 # for i in range(nd):
 #     print(f'''    T{i} = Tree(tree_list=tre_list_EQU,
@@ -117,8 +120,8 @@ for i in range(nd):
     print(f'''    D{i} = Door(two_way=False,
                 tree=T{i},
                 name='D{i}',
-                room_departure=R0,
-                room_arrival=RE)''')
+                room_departure=R{i},
+                room_arrival=R{i+1})''')
 
 print(f'''
     level = Maze(start_room_index=0,

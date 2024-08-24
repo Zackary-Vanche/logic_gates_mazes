@@ -24,30 +24,6 @@ def level_herd():
     S13 = Switch(name='S13')
     S14 = Switch(name='S14')
     S15 = Switch(name='S15')
-    S16 = Switch(name='S16')
-    S17 = Switch(name='S17')
-    S18 = Switch(name='S18')
-    S19 = Switch(name='S19')
-    S20 = Switch(name='S20')
-    S21 = Switch(name='S21')
-    S22 = Switch(name='S22')
-    S23 = Switch(name='S23')
-    S24 = Switch(name='S24')
-    S25 = Switch(name='S25')
-    S26 = Switch(name='S26')
-    S27 = Switch(name='S27')
-    S28 = Switch(name='S28')
-    S29 = Switch(name='S29')
-    S30 = Switch(name='S30')
-    S31 = Switch(name='S31')
-    S32 = Switch(name='S32')
-    S33 = Switch(name='S33')
-    S34 = Switch(name='S34')
-    S35 = Switch(name='S35')
-    S36 = Switch(name='S36')
-    S37 = Switch(name='S37')
-    S38 = Switch(name='S38')
-    S39 = Switch(name='S39')
 
     Slist0 = [S0]
     Slist1 = [S1]
@@ -82,8 +58,6 @@ def level_herd():
     V7 = Tree(tree_list=Tree.tree_list_BIN(len(Slist7)),
           name='V7',
           switches=Slist7)
-
-    Vlist = [V0, V1, V2, V3, V4, V5]
     
     tree_list_1 = ['EQU', [None], [None]]
     tree_list_2 = ['AND'] + [['EQU', [None], [None]]]*2

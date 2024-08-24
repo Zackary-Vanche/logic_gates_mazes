@@ -234,6 +234,7 @@ from levels.level_tetractys import level_tetractys
 from levels.level_tetrahedron import level_tetrahedron
 from levels.level_tetris import level_tetris
 from levels.level_the_4_queens import level_the_4_queens
+from levels.level_the_8_queens import level_the_8_queens
 from levels.level_the_4th_dimension import level_the_4th_dimension
 from levels.level_tour import level_tour
 from levels.level_towers import level_towers
@@ -302,7 +303,7 @@ class Levels:
     
     """
 
-    levels_functions_list = [
+    levels_functions_list = [level_water_pouring,
                              #level_black_knight_puzzle,
                              level_trivial,
                              level_choice,
@@ -491,6 +492,7 @@ class Levels:
                              level_flash_back,
                              level_spaceship,
                              level_connect_the_dots,
+                             level_the_8_queens,
                              level_magic_square,
                              level_matrix,
                              level_river,
@@ -779,6 +781,7 @@ class Levels:
               "The Chess Experts":[level_chessboard,
                                    level_the_4_queens,
                                    level_k,
+                                   level_the_8_queens,
                                    level_knight,
                                    level_first_guarini_s_problem,
                                    level_second_guarini_s_problem,
@@ -1167,11 +1170,11 @@ if __name__ == "__main__":
     
     # # # fast_solution_finding=True
     
-    # level = level_cattle()
+    # level = level_the_8_queens()
     # solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True)
+    # all_sol = ''
     # for sol in solutions[0]:
     #     print(' '.join(sol))
-    
     
 #     sol_list = """S1 D0 S10 D0 D5 S4 D6 S9 D6 D5 D9 S6 D3 S17 D3 D9 S1 D0 D10 S13 D10 D0 D15
 # S1 D0 S10 D0 D5 S4 D6 S9 D6 D5 D9 S6 D3 S17 D3 D9 S1 D0 S10 S11 D10 S12 D10 D0 D15""".split("\n")

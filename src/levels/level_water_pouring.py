@@ -34,12 +34,44 @@ def level_water_pouring():
     S24 = Switch(name='S24')
     S25 = Switch(name='S25')
     S26 = Switch(name='S26')
+    
+    Slist0 = [S0, S1, S2]
+    Slist1 = [S3, S4, S5, S6]
+    Slist2 = [S11, S12, S13]
+    Slist3 = [S17, S18]
+    Slist4 = [S21, S22, S23]
+    Slist5 = [S24, S25, S26]
+    Slist6 = [S19, S20]
+    Slist7 = [S14, S15, S16]
+    Slist8 = [S7, S8, S9, S10]
 
-    SN0 = Switch(value=0)
-    SN1 = Switch(value=1)
-    SN4 = Switch(value=4)
-    SN7 = Switch(value=7)
-    SN8 = Switch(value=8)
+    V0 = Tree(tree_list=Tree.tree_list_BIN(len(Slist0)),
+          name='V0',
+          switches=Slist0)
+    V1 = Tree(tree_list=Tree.tree_list_BIN(len(Slist1)),
+          name='V1',
+          switches=Slist1)
+    V2 = Tree(tree_list=Tree.tree_list_BIN(len(Slist2)),
+          name='V2',
+          switches=Slist2)
+    V3 = Tree(tree_list=Tree.tree_list_BIN(len(Slist3)),
+          name='V3',
+          switches=Slist3)
+    V4 = Tree(tree_list=Tree.tree_list_BIN(len(Slist4)),
+          name='V4',
+          switches=Slist4)
+    V5 = Tree(tree_list=Tree.tree_list_BIN(len(Slist5)),
+          name='V5',
+          switches=Slist5)
+    V6 = Tree(tree_list=Tree.tree_list_BIN(len(Slist6)),
+          name='V6',
+          switches=Slist6)
+    V7 = Tree(tree_list=Tree.tree_list_BIN(len(Slist7)),
+          name='V7',
+          switches=Slist7)
+    V8 = Tree(tree_list=Tree.tree_list_BIN(len(Slist8)),
+          name='V8',
+          switches=Slist8)
 
     tree_list_EQU_plus1_BIN3 = ['EQU', Tree.tree_list_BIN(3), ['SUM', Tree.tree_list_BIN(3), [None]]]
 
@@ -85,9 +117,9 @@ def level_water_pouring():
               name='T3',
               switches=[S0])
 
-    T4 = Tree(tree_list=['AND', [None], tree_list_EQU_plus1_BIN3],
+    T4 = Tree(tree_list=['AND', [None], ['EQU', [None], ['SUM', [None], [None]]]],
               name='T4',
-              switches=[S1, S21, S22, S23, S24, S25, S26, SN1])
+              switches=[S1, V4, V5, 1])
 
     T5 = Tree(tree_list=[None],
               name='T5',
@@ -95,7 +127,7 @@ def level_water_pouring():
 
     T6 = Tree(tree_list=['AND', Tree.tree_list_OR(2), tree_list_EQU_plus1_BIN3],
               name='T6',
-              switches=[S0, S2, S21, S22, S23, S24, S25, S26, SN1])
+              switches=[S0, S2, S21, S22, S23, S24, S25, S26, 1])
 
     T7 = Tree(tree_list=['AND',
                          ['EQU', ['SUM', Tree.tree_list_BIN(4), Tree.tree_list_BIN(3), Tree.tree_list_BIN(2)], [None]],
@@ -104,7 +136,7 @@ def level_water_pouring():
               switches=[S7, S8, S9, S10,
                         S14, S15, S16,
                         S19, S20,
-                        SN8,
+                        8,
                         S17, S18,
                         S11, S12, S13,
                         S3, S4, S5, S6,
@@ -116,7 +148,7 @@ def level_water_pouring():
               switches=[S3, S4, S5, S6,
                         S11, S12, S13,
                         S17, S18,
-                        SN8])
+                        8])
     T9 = Tree(tree_list=['EQU',
                          Tree.tree_list_BIN(3),
                          Tree.tree_list_BIN(3)],
@@ -148,26 +180,26 @@ def level_water_pouring():
                              ['EQU', Tree.tree_list_BIN(3), [None]]] * 3,
                name='T13',
                switches=[S17, S18,
-                         SN0,
+                         0,
                          S11, S12, S13,
-                         SN4,
+                         4,
                          S3, S4, S5, S6,
-                         SN4,
+                         4,
 
                          S19, S20,
-                         SN0,
+                         0,
                          S14, S15, S16,
-                         SN4,
+                         4,
                          S7, S8, S9, S10,
-                         SN4,
+                         4,
 
                          S0, S1, S2,
-                         SN0,
+                         0,
 
                          S21, S22, S23,
-                         SN7,
+                         7,
                          S24, S25, S26,
-                         SN7,
+                         7,
                          ])
 
     ex = 0.9
@@ -185,38 +217,31 @@ def level_water_pouring():
 
     R0 = Room(name='R0',
               position=[5 + a - epsilonx, 2 * dy, ex, 2 * dy + ey],
-              switches_list=[S0, S1, S2])
+              switches_list=Slist0)
     R1 = Room(name='R1',
               position=[0, 4 * dy, 4, ey],
-              switches_list=[S3, S4, S5, S6])
+              switches_list=Slist1)
     R2 = Room(name='R2',
               position=[symetric, 3 * dy, d3, ey],
-              switches_list=[S11, S12, S13])
+              switches_list=Slist2)
     R3 = Room(name='R3',
               position=[1 - symetric, 2 * dy, d3, ey],
-              switches_list=[S17, S18])
+              switches_list=Slist3)
     R4 = Room(name='R4',
               position=[symetric, 1 * dy, d3, ey],
-              switches_list=[S21, S22, S23])
-    # if fast_solution_finding:
-    #     psv5 = lambda : [[S.value for S in [S3, S4, S5, S6,
-    #                                         S11, S12, S13,
-    #                                         S17, S18,
-    #                                         S21, S22, S23]]]
-    # else:
-    #     psv5 = None
+              switches_list=Slist4)
     R5 = Room(name='R5',
               position=[7.1 + a + ex, 1 * dy, 3 * ex, ey],
-              switches_list=[S24, S25, S26])
+              switches_list=Slist5)
     R6 = Room(name='R6',
               position=[7.1 + a + ex, 2 * dy, 3 * ex, ey],
-              switches_list=[S19, S20])
+              switches_list=Slist6)
     R7 = Room(name='R7',
               position=[7.1 + a + ex, 3 * dy, 3 * ex, ey],
-              switches_list=[S14, S15, S16])
+              switches_list=Slist7)
     R8 = Room(name='R8',
               position=[7.1 + a, 4 * dy, 4 * ex, ey],
-              switches_list=[S7, S8, S9, S10])
+              switches_list=Slist8)
     le = 1
     position_RE = [5 + a - epsilonx - le / 2, 1 * dy, ex + le, ey]
     RE = Room(name='RE',

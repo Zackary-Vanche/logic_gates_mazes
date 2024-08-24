@@ -727,6 +727,7 @@ class Game:
                       save_videos=False,
                       dt=0.15):
         dt = min(dt, 1)
+        dt = 0
         video_name = f"videos/level_{self.index_current_level}_{self.maze.name}.avi"
         if save_videos and os_path_exists(video_name):
             return
@@ -736,7 +737,7 @@ class Game:
         if solution is None:
             sleep(2)
             return
-        solution_actions_list = solution.split(' ')
+        solution_actions_list = solution.replace('\n', ' ').split(' ')
         assert type(solution_actions_list) == list
         if save_videos:
             name = self.maze.name.replace(' ', '_')
