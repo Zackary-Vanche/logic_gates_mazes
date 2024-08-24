@@ -1,6 +1,6 @@
-ns = 62
-nd = 0
-nr = 0
+ns = 15+8
+nd = 15
+nr = 9
 nv = 0
 
 print('''
@@ -45,10 +45,10 @@ for i in range(nd):
 for i in range(nd):
     print(f'''    T{i} = get_tree({i})''')
     
-# for i in range(nd):
-#     print(f'''    T{i} = Tree(tree_list=tre_list_EQU,
-#                 name='T{i}',
-#                 switches=[V{i}, S{i}])''')
+for i in range(nd):
+    print(f'''    T{i} = Tree(tree_list=[None],
+                name='T{i}',
+                switches=[S{i-1}])''')
     
 print('')
 

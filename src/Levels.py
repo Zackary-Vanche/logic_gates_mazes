@@ -198,6 +198,7 @@ from levels.level_roses_are_red import level_roses_are_red
 from levels.level_rotation import level_rotation
 from levels.level_rotation_bis import level_rotation_bis
 from levels.level_route import level_route
+from levels.level_secret import level_secret
 from levels.level_second import level_second
 from levels.level_second_guarini_s_problem import level_second_guarini_s_problem
 from levels.level_selection_sort import level_selection_sort
@@ -363,6 +364,7 @@ class Levels:
                              level_exact_cover,
                              level_connectivity,
                              level_rainforest,
+                             level_secret,
                              level_odd,
                              level_jungle,
                              level_min_cut,
@@ -578,6 +580,7 @@ class Levels:
                                     level_dominating_set,
                                     level_exact_cover,
                                     level_connectivity,
+                                    level_secret,
                                     level_moore_neighborhood,
                                     level_triangulate,
                                     level_min_cut,
@@ -1169,7 +1172,7 @@ if __name__ == "__main__":
     
     # # # fast_solution_finding=True
     
-    # level = level_water_pouring()
+    # level = level_secret()
     # solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True)
     # for sol in solutions[0]:
     #     print(' '.join(sol))
