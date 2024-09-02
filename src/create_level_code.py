@@ -1,7 +1,7 @@
-ns = 15+8
-nd = 15
-nr = 9
-nv = 0
+ns = 0
+nd = 6*2+1+5
+nr = 10
+nv = 3
 
 print('''
 from Switch import Switch
@@ -48,7 +48,7 @@ for i in range(nd):
 for i in range(nd):
     print(f'''    T{i} = Tree(tree_list=[None],
                 name='T{i}',
-                switches=[S{i-1}])''')
+                switches=[1])''')
     
 print('')
 

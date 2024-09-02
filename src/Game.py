@@ -727,7 +727,6 @@ class Game:
                       save_videos=False,
                       dt=0.15):
         dt = min(dt, 1)
-        #dt = 0
         video_name = f"videos/level_{self.index_current_level}_{self.maze.name}.avi"
         if save_videos and os_path_exists(video_name):
             return
@@ -735,7 +734,7 @@ class Game:
         maze.reboot_solution()
         solution = maze.fastest_solution
         if solution is None:
-            sleep(2)
+            sleep(10*dt)
             return
         solution_actions_list = solution.replace('\n', ' ').split(' ')
         assert type(solution_actions_list) == list
@@ -847,19 +846,17 @@ class Game:
                         self.get_level()
                         self.change_in_display = True
                         self.update_possible_actions()
-                    elif self.current_action.split(' ')[0] in ['SOL', 'SOLUTION']:
-                        if len(self.current_action.split(' ')) == 1:
-                            self.show_solution()
+                    elif self.current_action.split(' ')[0] in ['SOL', 'SOLUTION', 'SOL0', 'SOLUTION0']:
+                        if "0" in self.current_action.split(' ')[0]:
+                            self.show_solution(dt=0)
                         else:
-                            try:
-                                dt = float(self.current_action.split(' ')[1])
-                                print(dt)
-                                self.show_solution(dt=dt)
-                            except ValueError:
-                                self.show_solution()
+                            self.show_solution()
                         self.update_possible_actions()
                     elif self.current_action in ['SOLS', 'SOLUTIONS']:
                         self.show_all_solutions()
+                        self.update_possible_actions()
+                    elif self.current_action in ['SOLS0', 'SOLUTIONS0']:
+                        self.show_all_solutions(dt=0)
                         self.update_possible_actions()
                     elif self.current_action.split(' ')[0] in ['FIND',
                                                                'FINDSOL',

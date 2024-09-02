@@ -105,6 +105,7 @@ from levels.level_intersection import level_intersection
 from levels.level_inversions import level_inversions
 from levels.level_invert import level_invert
 from levels.level_iris import level_iris
+from levels.level_jail import level_jail
 from levels.level_journey import level_journey
 from levels.level_jungle import level_jungle
 from levels.level_k import level_k
@@ -166,6 +167,7 @@ from levels.level_pong import level_pong
 from levels.level_poppy import level_poppy
 from levels.level_power_down import level_power_down
 from levels.level_prime_number import level_prime_number
+from levels.level_prison import level_prison
 from levels.level_product import level_product
 from levels.level_puzzle import level_puzzle
 from levels.level_pyramid import level_pyramid
@@ -304,8 +306,7 @@ class Levels:
     
     """
 
-    levels_functions_list = [
-                             #level_black_knight_puzzle,
+    levels_functions_list = [#level_black_knight_puzzle,
                              level_trivial,
                              level_choice,
                              level_hello_world,
@@ -464,6 +465,8 @@ class Levels:
                              level_voyage,
                              level_taxicab_number,
                              level_platonic,
+                             level_jail,
+                             level_prison,
                              level_small,
                              level_strange,
                              level_water_lily,
@@ -1154,25 +1157,25 @@ def calculates_random_level_solution_length(aux_level_function):
 if __name__ == "__main__":
     pass
 
-    test_levels()
+    # test_levels()
 
-    import os
+    # import os
     
-    if not os.path.exists('temp'):
-        os.mkdir('temp')
+    # if not os.path.exists('temp'):
+    #     os.mkdir('temp')
     
-    dico_i_level_name = {}
-    for i, level_funtion in enumerate(Levels.levels_functions_list):
-        dico_i_level_name[level_funtion().name] = i
+    # dico_i_level_name = {}
+    # for i, level_funtion in enumerate(Levels.levels_functions_list):
+    #     dico_i_level_name[level_funtion().name] = i
     
-    with open('temp/level_numbers.txt', 'w') as fw:
-        for name in sorted(dico_i_level_name.keys()):
-            i = dico_i_level_name[name]
-            fw.write(f'{name: <25} {i}\n')
+    # with open('temp/level_numbers.txt', 'w') as fw:
+    #     for name in sorted(dico_i_level_name.keys()):
+    #         i = dico_i_level_name[name]
+    #         fw.write(f'{name: <25} {i}\n')
     
     # # # fast_solution_finding=True
     
-    # level = level_secret()
+    # level = level_prison()
     # solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True)
     # for sol in solutions[0]:
     #     print(' '.join(sol))
