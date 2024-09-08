@@ -56,6 +56,9 @@ class Tree:
     def tree_list_INF(n):
         return ['INF'] + [[None]] * n
     
+    def tree_list_SUP(n):
+        return ['SUP'] + [[None]] * n
+    
     def tree_list_INFOREQU(n):
         return ['INFOREQU'] + [[None]] * n
     
@@ -416,7 +419,9 @@ class Tree:
             value = self.root.func(self.sons_list)
         if self.is_int:
             value = int(value)
-        # print(self.easy_logical_expression_PN, '=', value)
+        #print(self.name, '=', self.easy_logical_expression_PN, '=', value)
+        #with open('temp.txt', 'a') as fa:
+        #    fa.write(self.name + ' = ' + str(value))
         return value
 
     def get_depth(self):

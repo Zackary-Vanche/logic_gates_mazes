@@ -6,7 +6,6 @@ from Maze import Maze
 from Color import Color
 from Level_color import Level_color
 from random import shuffle as rd_shuffle
-from random import choice as rd_choice
 
 def level_merge_sort():
     

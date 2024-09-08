@@ -420,6 +420,7 @@ class Maze:
                 door.update_open()
 
     def make_actions(self, actions, separator=' ', allow_all=False):
+        #print('*'*20)
         # for a in actions.split(' '):
         #     if not 'R' in a:
         #         print(a)

@@ -52,6 +52,7 @@ from levels.level_crossroad import level_crossroad
 from levels.level_crystal import level_crystal
 from levels.level_cube import level_cube
 from levels.level_cubic import level_cubic
+from levels.level_cycle_sort import level_cycle_sort
 from levels.level_cypress import level_cypress
 from levels.level_dead_ends import level_dead_ends
 from levels.level_diagonal import level_diagonal
@@ -83,6 +84,7 @@ from levels.level_fluid import level_fluid
 from levels.level_forest import level_forest
 from levels.level_fractal import level_fractal
 from levels.level_gingko_biloba import level_gingko_biloba
+from levels.level_gnome_sort import level_gnome_sort
 from levels.level_grid import level_grid
 from levels.level_hamiltonian import level_hamiltonian
 from levels.level_harmony import level_harmony
@@ -205,6 +207,7 @@ from levels.level_second import level_second
 from levels.level_second_guarini_s_problem import level_second_guarini_s_problem
 from levels.level_selection_sort import level_selection_sort
 from levels.level_separation import level_separation
+from levels.level_shared import level_shared
 from levels.level_sheffer_stroke import level_sheffer_stroke
 from levels.level_shortcut import level_shortcut
 from levels.level_shortest_path import level_shortest_path
@@ -306,7 +309,7 @@ class Levels:
     
     """
 
-    levels_functions_list = [#level_black_knight_puzzle,
+    levels_functions_list = [
                              level_trivial,
                              level_choice,
                              level_hello_world,
@@ -326,6 +329,7 @@ class Levels:
                              level_orchard,
                              level_crossroad,
                              level_bis_repetita,
+                             level_shared,
                              level_spy,
                              level_leaves,
                              level_binary,
@@ -433,7 +437,7 @@ class Levels:
                              level_partition,
                              level_second,
                              level_insertion_sort,
-                             level_merge_sort,
+                             level_gnome_sort,
                              level_knapsack,
                              level_love,
                              level_palm_tree,
@@ -444,6 +448,8 @@ class Levels:
                              level_elm,
                              level_maple,
                              level_pine,
+                             level_merge_sort,
+                             level_cycle_sort,
                              level_sneckdown,
                              level_selection_sort,
                              level_random_K2,
@@ -702,7 +708,9 @@ class Levels:
                                           level_cocktail_sort,
                                           level_spare,
                                           level_insertion_sort,
+                                          level_gnome_sort,
                                           level_merge_sort,
+                                          level_cycle_sort,
                                           level_selection_sort,
                                           level_quick_sort,
                                           level_grid,
@@ -806,6 +814,7 @@ class Levels:
                             level_yoyo,
                             level_power_down,
                             level_bis_repetita,
+                            level_shared,
                             level_odd,
                             level_parallel,
                             level_leaves,
@@ -841,6 +850,8 @@ class Levels:
                            level_palace,
                            level_mansion,
                            level_crystal,
+                           level_jail,
+                           level_prison,
                            level_dead_ends,
                            level_fractal,
                            level_house,
@@ -1157,21 +1168,21 @@ def calculates_random_level_solution_length(aux_level_function):
 if __name__ == "__main__":
     pass
 
-    # test_levels()
+    test_levels()
 
-    # import os
+    import os
     
-    # if not os.path.exists('temp'):
-    #     os.mkdir('temp')
+    if not os.path.exists('temp'):
+        os.mkdir('temp')
     
-    # dico_i_level_name = {}
-    # for i, level_funtion in enumerate(Levels.levels_functions_list):
-    #     dico_i_level_name[level_funtion().name] = i
+    dico_i_level_name = {}
+    for i, level_funtion in enumerate(Levels.levels_functions_list):
+        dico_i_level_name[level_funtion().name] = i
     
-    # with open('temp/level_numbers.txt', 'w') as fw:
-    #     for name in sorted(dico_i_level_name.keys()):
-    #         i = dico_i_level_name[name]
-    #         fw.write(f'{name: <25} {i}\n')
+    with open('temp/level_numbers.txt', 'w') as fw:
+        for name in sorted(dico_i_level_name.keys()):
+            i = dico_i_level_name[name]
+            fw.write(f'{name: <25} {i}\n')
     
     # # # fast_solution_finding=True
     
@@ -1200,6 +1211,13 @@ if __name__ == "__main__":
     
     # #print(level.fastest_solution.count('D'))
     
+    # all_roots_names = set()
+    # for level_function in Levels.levels_functions_list:
+    #     level = level_function()
+    #     level_roots_names = level.roots_names_set
+    #     if level_roots_names - all_roots_names != set():
+    #         print(level.name, level_roots_names - all_roots_names)
+    #         all_roots_names = all_roots_names | level_roots_names
     
     
     
