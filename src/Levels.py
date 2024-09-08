@@ -3,6 +3,7 @@ from os.path import exists as os_path_exists
 from os import mkdir as os_mkdir
 from inspect import signature
 
+from levels.level_3_cycle import level_3_cycle
 from levels.level_3sat import level_3sat
 from levels.level_4_colors_theorem import level_4_colors_theorem
 from levels.level_alice_and_bob import level_alice_and_bob
@@ -381,6 +382,7 @@ class Levels:
                              level_stairs,
                              level_sunflower,
                              level_naturals,
+                             level_3_cycle,
                              level_blind_alleys,
                              level_wasted,
                              level_doppelganger,
@@ -706,6 +708,7 @@ class Levels:
                                           level_bubble_sort,
                                           level_odd_even_sort,
                                           level_cocktail_sort,
+                                          level_3_cycle,
                                           level_spare,
                                           level_insertion_sort,
                                           level_gnome_sort,
@@ -1111,6 +1114,7 @@ def test_levels(test_random_levels=False):
     assert level_cartesian().fastest_solution == ' '.join(sol)
     assert level_arithmetic().find_all_solutions()[0] != 0
     assert level_numeration().find_all_solutions()[0] != 0
+    assert level_3_cycle().find_all_solutions()[0] != 0
     
     print('Check levels duplications')
     all_level_set = set()

@@ -1,7 +1,7 @@
-ns = 6+3*6
-nd = 0
-nr = 0
-nv = 13
+ns = 2+4*2
+nd = 2*6+4+1
+nr = 5
+nv = 5
 
 print('''
 from Switch import Switch
