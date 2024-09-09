@@ -161,6 +161,7 @@ from levels.level_peirce_s_arrow import level_peirce_s_arrow
 from levels.level_peony import level_peony
 from levels.level_permutate import level_permutate
 from levels.level_permutations import level_permutations
+from levels.level_pigeonhole_sort import level_pigeonhole_sort
 from levels.level_pine import level_pine
 from levels.level_platonic import level_platonic
 from levels.level_playground import level_playground
@@ -432,6 +433,7 @@ class Levels:
                              level_bubble_sort,
                              level_odd_even_sort,
                              level_cocktail_sort,
+                             level_pigeonhole_sort,
                              level_dichotomy,
                              level_wheel,
                              level_random_star,
@@ -710,6 +712,7 @@ class Levels:
                                           level_cocktail_sort,
                                           level_3_cycle,
                                           level_spare,
+                                          level_pigeonhole_sort,
                                           level_insertion_sort,
                                           level_gnome_sort,
                                           level_merge_sort,
