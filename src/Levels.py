@@ -133,6 +133,7 @@ from levels.level_mastermind import level_mastermind
 from levels.level_matrix import level_matrix
 from levels.level_max_cut import level_max_cut
 from levels.level_meanders import level_meanders
+from levels.level_melencolia_1 import level_melencolia_1
 from levels.level_merge_sort import level_merge_sort
 from levels.level_min_cut import level_min_cut
 from levels.level_minimum_spanning_tree import level_minimum_spanning_tree
@@ -315,7 +316,7 @@ class Levels:
     
     """
 
-    levels_functions_list = [
+    levels_functions_list = [#level_melencolia_1,
                              level_trivial,
                              level_choice,
                              level_hello_world,
@@ -516,6 +517,7 @@ class Levels:
                              level_connect_the_dots,
                              level_the_8_queens,
                              level_magic_square,
+                             level_melencolia_1,
                              level_matrix,
                              level_river,
                              level_cattle,
@@ -778,6 +780,7 @@ class Levels:
                               level_taxicab_number,
                               level_euclidean_algorithm,
                               level_magic_square,
+                              level_melencolia_1,
                               level_matrix,
                               level_takuzu,
                               level_sujiko,
@@ -1188,34 +1191,34 @@ def calculates_random_level_solution_length(aux_level_function):
 if __name__ == "__main__":
     pass
 
-    test_levels()
+    # test_levels()
 
-    import os
+    # import os
     
-    if not os.path.exists('temp'):
-        os.mkdir('temp')
+    # if not os.path.exists('temp'):
+    #     os.mkdir('temp')
     
-    dico_i_level_name = {}
-    for i, level_funtion in enumerate(Levels.levels_functions_list):
-        dico_i_level_name[level_funtion().name] = i
+    # dico_i_level_name = {}
+    # for i, level_funtion in enumerate(Levels.levels_functions_list):
+    #     dico_i_level_name[level_funtion().name] = i
     
-    with open('temp/level_numbers.txt', 'w') as fw:
-        for name in sorted(dico_i_level_name.keys()):
-            i = dico_i_level_name[name]
-            fw.write(f'{name: <25} {i}\n')
+    # with open('temp/level_numbers.txt', 'w') as fw:
+    #     for name in sorted(dico_i_level_name.keys()):
+    #         i = dico_i_level_name[name]
+    #         fw.write(f'{name: <25} {i}\n')
     
     # # # fast_solution_finding=True
     
-    # level = level_automaton(fast_solution_finding=True)
-    # solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True)
-    # print('\n')
-    # print(len(solutions[0]))
-    # print('\n')
+    level = level_melencolia_1()
+    solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True)
+    print('\n')
+    print(len(solutions[0]))
+    print('\n')
     # with open('cellular_automaton_solutions.txt', 'w') as fw:
-    #     for sol in solutions[0]:
-    #         print(' '.join(sol))
-    #         fw.write(' '.join(sol))
-    #         fw.write('\n')
+    for sol in solutions[0]:
+        print(' '.join(sol))
+        # fw.write(' '.join(sol))
+        # fw.write('\n')
     
         
     

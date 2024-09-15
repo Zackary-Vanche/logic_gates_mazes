@@ -1,7 +1,7 @@
-ns = 0
-nd = 0
-nr = 0
-nv = 40
+ns = 4*16
+nd = 16
+nr = 16
+nv = 16
 
 print('''
 from Switch import Switch
@@ -27,8 +27,8 @@ for i in range(nv):
 # for i in range(nv):
 #     print(f'    Slist_{i} = [S{2*i}, S{2*i+1}]')
     
-# for i in range(nv):
-#     print(f'    Slist_{i} = [S{4*i}, S{4*i+1}, S{4*i+2}, S{4*i+3}]')
+for i in range(nv):
+    print(f'    Slist_{i} = [S{4*i}, S{4*i+1}, S{4*i+2}, S{4*i+3}]')
     
 # for i in range(nv):
 #     print(f'    Slist_{i} = [S{8*i}, S{8*i+1}, S{8*i+2}, S{8*i+3}, S{8*i+4}, S{8*i+5}, S{8*i+6}, S{8*i+7}]')
@@ -74,7 +74,7 @@ for i in range(nr):
     #             switches_list=[])''')
     print(f'''    R{i} = Room(name='R{i}',
                 position=[{x}*dx, {y}*dy, ex, ey],
-                switches_list=Slist{i+3})''')
+                switches_list=Slist_{i})''')
     # print(f'''    R{i} = Room(name='R{i}',
     #             position=position({i}),
     #             switches_list=[S{i}])''')
