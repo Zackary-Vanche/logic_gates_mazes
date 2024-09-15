@@ -75,7 +75,7 @@ def level_walls():
     eye = 1/ey
     
     hue_min = -0.05
-    hue_max = 0.2
+    hue_max = 0.25
     li = 0.4
     sa = 0.4
     
