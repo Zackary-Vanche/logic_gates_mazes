@@ -810,6 +810,134 @@ class Game:
             os_mkdir('videos/frames')
         self.show_all_solutions(save_videos=True,
                                 dt = 0)
+        
+    def aux_handle_interractions(self):
+        if len(self.current_action) == 0:
+            return
+        if self.current_action == 'B':
+            self.change_in_display = True
+            self.maze.reboot_solution()
+            self.last_key_pressed_time = time()
+            self.current_action = ''
+            self.maze.current_door_page = 0
+            self.update_possible_actions()
+        elif self.current_action == 'N':
+            self.get_new_level = True
+            self.get_level()
+            self.change_in_display = True
+            self.update_possible_actions()
+        elif self.current_action in ['LR', 'LRANDOM']:
+            level_number_list = [i for i in range(Levels.number_of_levels)]
+            self.index_current_level = rd_choice(level_number_list)
+            self.level_changed = True
+            self.update_possible_actions()
+        else:
+            self.current_action = self.current_action.replace('EXIT', 'RE')
+            if self.current_action[0] in ['D', 'S', 'R']:
+                self.maze.make_actions(self.current_action)
+                if 'R' in self.current_action or 'D' in self.current_action:
+                    self.update_possible_actions()
+                else:
+                    self.update_possible_actions(reset_current_action_index=False)
+            if self.current_action[0:2] == 'A ':
+                self.maze.make_actions(self.current_action[2:], allow_all=True)
+            if self.current_action[0] == 'A':
+                self.maze.make_actions(self.current_action[1:], allow_all=True)
+            elif self.current_action[0] == 'L':
+                level_number_list = [str(i) for i in range(Levels.number_of_levels)]
+                if self.current_action[1:] in level_number_list:
+                    self.index_current_level = int(self.current_action[1:])-1
+                    self.level_changed = True
+                self.update_possible_actions()
+            self.current_action = ''
+        
+    def aux_handle_dev_mode_interractions(self):
+        if not self.dev_mode:
+            return
+        if len(self.current_action) == 0:
+            return
+        if self.current_action.split(' ')[0] in ['SOL',
+                                                 'SOLUTION',
+                                                 'SOL0',
+                                                 'SOL 0',
+                                                 'SOLUTION0',
+                                                 'SOLUTION 0']:
+            if "0" in self.current_action.split(' ')[0]:
+                self.show_solution(dt=0)
+            else:
+                self.show_solution()
+            self.update_possible_actions()
+        elif self.current_action in ['SOLS', 'SOLUTIONS']:
+            self.show_all_solutions()
+            self.update_possible_actions()
+        elif self.current_action in ['SOLS0', 'SOLUTIONS0']:
+            self.show_all_solutions(dt=0)
+            self.update_possible_actions()
+        elif self.current_action.split(' ')[0] in ['FIND',
+                                                   'FIND0',
+                                                   'FINDSOL',
+                                                   'FINDSOL0',
+                                                   'FINDSOLUTION',
+                                                   'FINDSOLUTION0',
+                                                   'FIND SOL',
+                                                   'FIND SOL 0',
+                                                   'FIND SOLUTION',
+                                                   'FIND SOLUTION 0']:
+            if self.maze.random:
+                maze = self.maze
+            else:
+                maze = Levels.get_level(self.index_current_level,
+                                        get_new_level=True,
+                                        fast_solution_finding=True)
+            sol_list = maze.find_all_solutions(stop_at_first_solution=True,
+                                               verbose=1,)[0]
+            self.maze.fastest_solution=' '.join(sol_list[0])
+            if len(self.current_action.split(' ')) == 1:
+                if "0" in self.current_action.split(' ')[0]:
+                    self.show_solution(dt=0)
+                else:
+                    self.show_solution()
+            else:
+                try:
+                    if "0" in self.current_action.split(' ')[0]:
+                        self.show_solution(dt=0)
+                    else:
+                        self.show_solution()
+                except ValueError:
+                    self.show_solution()
+            self.update_possible_actions()
+            print(self.maze.fastest_solution)
+        elif self.current_action in ['VIDEO', 'VIDEOS']:
+            self.save_videos()
+        elif self.current_action == 'COLOR':
+            self.game_color = None
+            self.get_new_level = True
+            self.get_level()
+            self.change_in_display = True
+        elif self.current_action[:3] == 'HSL':
+            hu = 0.1
+            sa = 0
+            li = 0.35
+            l = self.current_action.split(' ')[1:]
+            if len(l) >= 1:
+                try:
+                    hu = float(l.pop(0))
+                except ValueError:
+                    pass
+            if len(l) >= 1:
+                try:
+                    sa = float(l.pop(0))
+                except ValueError:
+                    pass
+            if len(l) >= 1:
+                try:
+                    li = float(l.pop(0))
+                except ValueError:
+                    pass
+            self.game_color = Levels_colors_list.FROM_HUE(hu=hu, sa=sa, li=li)
+            self.get_new_level = True
+            self.get_level()
+            self.change_in_display = True
 
     def handle_interractions(self):
         """
@@ -831,126 +959,8 @@ class Game:
                     self.last_key_pressed_time = time()
             if self.pressed[K_RETURN] and self.current_action != '':# and self.maze.current_room_index != self.maze.exit_room_index:
                 self.change_in_display = True
-                if len(self.current_action) > 0 and self.dev_mode:
-                    if self.current_action.split(' ')[0] in ['SOL',
-                                                             'SOLUTION',
-                                                             'SOL0',
-                                                             'SOL 0',
-                                                             'SOLUTION0',
-                                                             'SOLUTION 0']:
-                        if "0" in self.current_action.split(' ')[0]:
-                            self.show_solution(dt=0)
-                        else:
-                            self.show_solution()
-                        self.update_possible_actions()
-                    elif self.current_action in ['SOLS', 'SOLUTIONS']:
-                        self.show_all_solutions()
-                        self.update_possible_actions()
-                    elif self.current_action in ['SOLS0', 'SOLUTIONS0']:
-                        self.show_all_solutions(dt=0)
-                        self.update_possible_actions()
-                    elif self.current_action.split(' ')[0] in ['FIND',
-                                                               'FIND0',
-                                                               'FINDSOL',
-                                                               'FINDSOL0',
-                                                               'FINDSOLUTION',
-                                                               'FINDSOLUTION0',
-                                                               'FIND SOL',
-                                                               'FIND SOL 0',
-                                                               'FIND SOLUTION',
-                                                               'FIND SOLUTION 0']:
-                        if self.maze.random:
-                            maze = self.maze
-                        else:
-                            maze = Levels.get_level(self.index_current_level,
-                                                    get_new_level=True,
-                                                    fast_solution_finding=True)
-                        sol_list = maze.find_all_solutions(stop_at_first_solution=True,
-                                                           verbose=1,)[0]
-                        self.maze.fastest_solution=' '.join(sol_list[0])
-                        if len(self.current_action.split(' ')) == 1:
-                            if "0" in self.current_action.split(' ')[0]:
-                                self.show_solution(dt=0)
-                            else:
-                                self.show_solution()
-                        else:
-                            try:
-                                if "0" in self.current_action.split(' ')[0]:
-                                    self.show_solution(dt=0)
-                                else:
-                                    self.show_solution()
-                            except ValueError:
-                                self.show_solution()
-                        self.update_possible_actions()
-                        print(self.maze.fastest_solution)
-                    elif self.current_action in ['VIDEO', 'VIDEOS']:
-                        self.save_videos()
-                    elif self.current_action == 'COLOR':
-                        self.game_color = None
-                        self.get_new_level = True
-                        self.get_level()
-                        self.change_in_display = True
-                    elif self.current_action[:3] == 'HSL':
-                        hu = 0.1
-                        sa = 0
-                        li = 0.35
-                        l = self.current_action.split(' ')[1:]
-                        if len(l) >= 1:
-                            try:
-                                hu = float(l.pop(0))
-                            except ValueError:
-                                pass
-                        if len(l) >= 1:
-                            try:
-                                sa = float(l.pop(0))
-                            except ValueError:
-                                pass
-                        if len(l) >= 1:
-                            try:
-                                li = float(l.pop(0))
-                            except ValueError:
-                                pass
-                        self.game_color = Levels_colors_list.FROM_HUE(hu=hu, sa=sa, li=li)
-                        self.get_new_level = True
-                        self.get_level()
-                        self.change_in_display = True
-                    if len(self.current_action) > 0:
-                        if self.current_action == 'B':
-                            self.change_in_display = True
-                            self.maze.reboot_solution()
-                            self.last_key_pressed_time = time()
-                            self.current_action = ''
-                            self.maze.current_door_page = 0
-                            self.update_possible_actions()
-                        elif self.current_action == 'N':
-                            self.get_new_level = True
-                            self.get_level()
-                            self.change_in_display = True
-                            self.update_possible_actions()
-                        elif self.current_action in ['LR', 'LRANDOM']:
-                            level_number_list = [i for i in range(Levels.number_of_levels)]
-                            self.index_current_level = rd_choice(level_number_list)
-                            self.level_changed = True
-                            self.update_possible_actions()
-                        else:
-                            self.current_action = self.current_action.replace('EXIT', 'RE')
-                            if self.current_action[0] in ['D', 'S', 'R']:
-                                self.maze.make_actions(self.current_action)
-                                if 'R' in self.current_action or 'D' in self.current_action:
-                                    self.update_possible_actions()
-                                else:
-                                    self.update_possible_actions(reset_current_action_index=False)
-                            if self.current_action[0:2] == 'A ':
-                                self.maze.make_actions(self.current_action[2:], allow_all=True)
-                            if self.current_action[0] == 'A':
-                                self.maze.make_actions(self.current_action[1:], allow_all=True)
-                            elif self.current_action[0] == 'L':
-                                level_number_list = [str(i) for i in range(Levels.number_of_levels)]
-                                if self.current_action[1:] in level_number_list:
-                                    self.index_current_level = int(self.current_action[1:])-1
-                                    self.level_changed = True
-                                self.update_possible_actions()
-                            self.current_action = ''
+                self.aux_handle_dev_mode_interractions()
+                self.aux_handle_interractions()
         if time() - self.last_key_BACKSPACE_pressed_time > self.time_between_deletings:
             if self.pressed[K_BACKSPACE]:
                 self.change_in_display = True
