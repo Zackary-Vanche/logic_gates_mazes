@@ -242,7 +242,13 @@ class Maze:
                 self.intermediate_values_list.append(x)
                 list_to_visit.extend(x.all_switches_list)
         self.intermediate_values_list = list(set(self.intermediate_values_list))
-        self.intermediate_values_list.sort(key = lambda x : int(x.name[1:]))
+        def aux_sort(V):
+            Vstr = V.name[1:]
+            try:
+                return (0, int(Vstr))
+            except ValueError:
+                return (1, Vstr)
+        self.intermediate_values_list.sort(key = aux_sort)
         intermediate_values_names = [t.name for t in self.intermediate_values_list]
         assert len(intermediate_values_names) == len(set(intermediate_values_names)), str(intermediate_values_names)
         
@@ -1008,6 +1014,7 @@ class Maze:
             ac = door.real_arrival_coordinates
             door.real_middle_coordinates = rp * ac + (1 - rp) * dc
             vect_unit = door.real_arrival_coordinates - door.real_departure_coordinates
+            assert np_linalg_norm(vect_unit) != 0, f"{self.name} {door.name}"
             vect_unit = vect_unit / np_linalg_norm(vect_unit)
             [x, y] = vect_unit
 

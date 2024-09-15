@@ -62,6 +62,9 @@ class Tree:
     def tree_list_INFOREQU(n):
         return ['INFOREQU'] + [[None]] * n
     
+    def tree_list_SUPOREQU(n):
+        return ['SUPOREQU'] + [[None]] * n
+    
     def tree_list_EQU(n):
         return ['EQU'] + [[None]]*n
 

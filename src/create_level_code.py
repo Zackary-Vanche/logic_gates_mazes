@@ -1,7 +1,7 @@
-ns = 3*4+8*2
-nd = 8+1
-nr = 8+1
-nv = 8+4
+ns = 0
+nd = 0
+nr = 0
+nv = 40
 
 print('''
 from Switch import Switch
@@ -22,7 +22,16 @@ print(f'''    Slist = [{', '.join([f'S{i}' for i in range(ns)])}]''')
 print('')
 
 for i in range(nv):
-    print(f'    Slist_{i} = [S{2*i+10}, S{2*i+1+10}]')
+    print(f'    Slist_{i} = []')
+
+# for i in range(nv):
+#     print(f'    Slist_{i} = [S{2*i}, S{2*i+1}]')
+    
+# for i in range(nv):
+#     print(f'    Slist_{i} = [S{4*i}, S{4*i+1}, S{4*i+2}, S{4*i+3}]')
+    
+# for i in range(nv):
+#     print(f'    Slist_{i} = [S{8*i}, S{8*i+1}, S{8*i+2}, S{8*i+3}, S{8*i+4}, S{8*i+5}, S{8*i+6}, S{8*i+7}]')
 
 for i in range(nv):
     print(f'''    V{i} = Tree(tree_list=Tree.tree_list_BIN(len(Slist_{i})),

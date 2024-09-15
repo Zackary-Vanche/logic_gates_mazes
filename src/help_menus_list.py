@@ -253,7 +253,7 @@ help_menus_list['levels']["Chinese postman problem"] = """In graph theory the Ch
 ######################
 
 help_menus_list['V'] = '''
-The elements named V0, V1, etc. are intermediate values.'''
+The elements whose names start by the letter V are intermediate values.'''
 
 help_menus_list['NOT'] = """
 ¬ means 'NOT'. ¬S0 equals 1 if S0 = 0. ¬S0 equals 0 if S0 = 1."""

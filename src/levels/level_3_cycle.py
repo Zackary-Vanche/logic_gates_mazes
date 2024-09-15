@@ -265,7 +265,7 @@ def level_3_cycle():
     D13 = Door(two_way=False,
                 tree=T13,
                 name='D13',
-                room_departure=R1,
+                room_departure=R4,
                 room_arrival=R1,
                 relative_departure_coordinates=rc,
                 relative_arrival_coordinates=rc,

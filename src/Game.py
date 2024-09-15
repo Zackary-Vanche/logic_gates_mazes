@@ -846,7 +846,12 @@ class Game:
                         self.get_level()
                         self.change_in_display = True
                         self.update_possible_actions()
-                    elif self.current_action.split(' ')[0] in ['SOL', 'SOLUTION', 'SOL0', 'SOLUTION0']:
+                    elif self.current_action.split(' ')[0] in ['SOL',
+                                                               'SOLUTION',
+                                                               'SOL0',
+                                                               'SOL 0',
+                                                               'SOLUTION0',
+                                                               'SOLUTION 0']:
                         if "0" in self.current_action.split(' ')[0]:
                             self.show_solution(dt=0)
                         else:
@@ -859,10 +864,15 @@ class Game:
                         self.show_all_solutions(dt=0)
                         self.update_possible_actions()
                     elif self.current_action.split(' ')[0] in ['FIND',
+                                                               'FIND0',
                                                                'FINDSOL',
+                                                               'FINDSOL0',
                                                                'FINDSOLUTION',
+                                                               'FINDSOLUTION0',
                                                                'FIND SOL',
-                                                               'FIND SOLUTION']:
+                                                               'FIND SOL 0',
+                                                               'FIND SOLUTION',
+                                                               'FIND SOLUTION 0']:
                         if self.maze.random:
                             maze = self.maze
                         else:
@@ -873,11 +883,16 @@ class Game:
                                                            verbose=1,)[0]
                         self.maze.fastest_solution=' '.join(sol_list[0])
                         if len(self.current_action.split(' ')) == 1:
-                            self.show_solution()
+                            if "0" in self.current_action.split(' ')[0]:
+                                self.show_solution(dt=0)
+                            else:
+                                self.show_solution()
                         else:
                             try:
-                                dt = float(self.current_action.split(' ')[1])
-                                self.show_solution(dt=dt)
+                                if "0" in self.current_action.split(' ')[0]:
+                                    self.show_solution(dt=0)
+                                else:
+                                    self.show_solution()
                             except ValueError:
                                 self.show_solution()
                         self.update_possible_actions()

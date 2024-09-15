@@ -11,6 +11,7 @@ from Levels import Levels
 from pyautogui import size as pyautogui_size
 import matplotlib.pyplot as plt
 from Levels_colors_list import Levels_colors_list 
+import shutil
 
 def divisor_closest_to_sqrt(n):
     from numpy import ceil, sqrt
@@ -27,12 +28,9 @@ if __name__ == "__main__":
     del racine[-1]
     racine.append('images')
     racine = '/'.join(racine)
-    if not os_path_exists(racine):
-        os_mkdir(racine)
-    for file in os_listdir(racine):
-        file = racine + '/' + file
-        if 'level' in file:
-            os_remove(file)
+    if os_path_exists(racine):
+        shutil.rmtree(racine, ignore_errors=False, onerror=None)
+    os_mkdir(racine)
 
     # TOTAL_SIZE = pyautogui_size()
     # Game(save_image=1, time_between_level_changing=0, show_help=0).play()

@@ -32,6 +32,7 @@ from levels.level_cardinal_directions import level_cardinal_directions
 from levels.level_cartesian import level_cartesian
 from levels.level_cattle import level_cattle
 from levels.level_cedar import level_cedar
+from levels.level_cellular_automaton import level_cellular_automaton
 from levels.level_central_symmetry import level_central_symmetry
 from levels.level_chessboard import level_chessboard
 from levels.level_chinese_postman_problem import level_chinese_postman_problem
@@ -76,6 +77,7 @@ from levels.level_eulerian import level_eulerian
 from levels.level_exact_cover import level_exact_cover
 from levels.level_expand_and_simplify import level_expand_and_simplify
 from levels.level_expedition import level_expedition
+from levels.level_ferrers_diagram import level_ferrers_diagram
 from levels.level_fibonacci_sequence import level_fibonacci_sequence
 from levels.level_fir import level_fir
 from levels.level_first_guarini_s_problem import level_first_guarini_s_problem
@@ -104,6 +106,7 @@ from levels.level_initiation import level_initiation
 from levels.level_insertion_sort import level_insertion_sort
 from levels.level_inside_out import level_inside_out
 from levels.level_integer_factorization import level_integer_factorization
+from levels.level_integer_partition import level_integer_partition
 from levels.level_intersection import level_intersection
 from levels.level_inversions import level_inversions
 from levels.level_invert import level_invert
@@ -271,6 +274,7 @@ from levels.level_willow import level_willow
 from levels.level_wind_compass import level_wind_compass
 from levels.level_wander import level_wander
 from levels.level_worms import level_worms
+from levels.level_young_tableaux import level_young_tableaux
 from levels.level_yoyo import level_yoyo
 from levels.level_zebra import level_zebra
 
@@ -410,6 +414,7 @@ class Levels:
                              level_pythagorean,
                              level_random_butterfly,
                              level_elementary,
+                             level_young_tableaux,
                              level_rotation,
                              level_superpermutation,
                              level_singletons,
@@ -420,6 +425,8 @@ class Levels:
                              level_invert,
                              level_permutate,
                              level_desire_path,
+                             level_integer_partition,
+                             level_ferrers_diagram,
                              level_integer_factorization,
                              level_chessboard,
                              level_silex,
@@ -580,6 +587,7 @@ class Levels:
                              level_zebra,
                              level_bridges,
                              level_chinese_postman_problem,
+                             level_cellular_automaton,
                              level_parking,
                              #level_panex,
                              #level_superflip,
@@ -733,6 +741,7 @@ class Levels:
                                           level_puzzle,
                                           level_panex,
                                           level_hungarian_rings,
+                                          level_cellular_automaton,
                                           level_parking,
                                           #level_panex,
                                           #level_superflip,
@@ -757,6 +766,9 @@ class Levels:
                               level_pythagorean,
                               level_sorted,
                               level_fibonacci_sequence,
+                              level_young_tableaux,
+                              level_integer_partition,
+                              level_ferrers_diagram,
                               level_integer_factorization,
                               level_eratosthenes,
                               level_partition,
@@ -1054,6 +1066,7 @@ def test_levels(test_random_levels=False):
     print('Trying all solutions')
     for level_function in Levels.levels_functions_list:
         level = level_function()
+        assert not level.name in ['', 'TODO', 'todo', 'temp']
         if level.fastest_solution is not None:
             r = level.try_solution(level.fastest_solution)
             if r != 2:
@@ -1193,10 +1206,18 @@ if __name__ == "__main__":
     
     # # # fast_solution_finding=True
     
-    # level = level_prison()
+    # level = level_automaton(fast_solution_finding=True)
     # solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True)
-    # for sol in solutions[0]:
-    #     print(' '.join(sol))
+    # print('\n')
+    # print(len(solutions[0]))
+    # print('\n')
+    # with open('cellular_automaton_solutions.txt', 'w') as fw:
+    #     for sol in solutions[0]:
+    #         print(' '.join(sol))
+    #         fw.write(' '.join(sol))
+    #         fw.write('\n')
+    
+        
     
 #     sol_list = """S1 D0 S10 D0 D5 S4 D6 S9 D6 D5 D9 S6 D3 S17 D3 D9 S1 D0 D10 S13 D10 D0 D15
 # S1 D0 S10 D0 D5 S4 D6 S9 D6 D5 D9 S6 D3 S17 D3 D9 S1 D0 S10 S11 D10 S12 D10 D0 D15""".split("\n")
