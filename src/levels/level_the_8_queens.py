@@ -232,7 +232,7 @@ def level_the_8_queens():
     c0 = Color.color_hls(hu=0.15, li=0.5, sa=0.4)
     c1 = Color.color_hls(hu=0.15, li=0.2, sa=0.8)
     contour_color = Color.color_hls(hu=0.16, li=0.9, sa=1)
-    surrounding_color = Color.color_hls(hu=0.5, li=0.5, sa=0.9)
+    surrounding_color = Color.color_hls(hu=0.5, li=0.5, sa=0.7)
     
     if isol%2 == 0:
         lcolor = Level_color(background_color=c0,

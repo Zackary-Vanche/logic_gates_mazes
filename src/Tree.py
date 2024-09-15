@@ -67,6 +67,9 @@ class Tree:
     
     def tree_list_EQU(n):
         return ['EQU'] + [[None]]*n
+    
+    def tree_list_EQUSET(n):
+        return ['EQUSET'] + [[None]]*n
 
     def tree_list_DIFF(n):
         return ['DIFF'] + [[None]] * n

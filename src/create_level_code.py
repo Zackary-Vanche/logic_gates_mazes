@@ -1,7 +1,7 @@
-ns = 4*16
-nd = 16
-nr = 16
-nv = 16
+ns = 2+6
+nd = 7
+nr = 5
+nv = 2
 
 print('''
 from Switch import Switch
