@@ -16,7 +16,7 @@ if __name__ == "__main__":
          # WINDOW_SIZE=None,
          # SMALLEST_WINDOW_SIZE=None,
          # game_color=Levels_colors_list.FROM_HUE(hu=0.1, sa=0, li=0.35)
-         dev_mode=0,
+         dev_mode=1,
          ).play()
 
     # import cProfile

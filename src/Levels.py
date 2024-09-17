@@ -85,6 +85,7 @@ from levels.level_five import level_five
 from levels.level_flash_back import level_flash_back
 from levels.level_fluid import level_fluid
 from levels.level_forest import level_forest
+from levels.level_fortification import level_fortification
 from levels.level_fractal import level_fractal
 from levels.level_gingko_biloba import level_gingko_biloba
 from levels.level_gnome_sort import level_gnome_sort
@@ -182,6 +183,7 @@ from levels.level_pyramid import level_pyramid
 from levels.level_pythagorean import level_pythagorean
 from levels.level_quick_sort import level_quick_sort
 from levels.level_rainforest import level_rainforest
+from levels.level_rampart import level_rampart
 from levels.level_random_K2 import level_random_K2
 from levels.level_random_K33 import level_random_K33
 from levels.level_random_K5 import level_random_K5
@@ -497,6 +499,8 @@ class Levels:
                              level_mansion,
                              level_alice_and_bob,
                              level_walls,
+                             level_rampart,
+                             level_fortification,
                              level_rotation_bis,
                              level_nonogram,
                              level_crystal,
@@ -845,6 +849,8 @@ class Levels:
                             level_blind_alleys,
                             level_alice_and_bob,
                             level_walls,
+                            level_rampart,
+                            level_fortification,
                             level_river,
                             level_cattle,
                             level_herd,
@@ -1194,34 +1200,34 @@ def calculates_random_level_solution_length(aux_level_function):
 if __name__ == "__main__":
     pass
 
-    test_levels()
+    # test_levels()
 
-    import os
+    # import os
     
-    if not os.path.exists('temp'):
-        os.mkdir('temp')
+    # if not os.path.exists('temp'):
+    #     os.mkdir('temp')
     
-    dico_i_level_name = {}
-    for i, level_funtion in enumerate(Levels.levels_functions_list):
-        dico_i_level_name[level_funtion().name] = i
+    # dico_i_level_name = {}
+    # for i, level_funtion in enumerate(Levels.levels_functions_list):
+    #     dico_i_level_name[level_funtion().name] = i
     
-    with open('temp/level_numbers.txt', 'w') as fw:
-        for name in sorted(dico_i_level_name.keys()):
-            i = dico_i_level_name[name]
-            fw.write(f'{name: <25} {i}\n')
+    # with open('temp/level_numbers.txt', 'w') as fw:
+    #     for name in sorted(dico_i_level_name.keys()):
+    #         i = dico_i_level_name[name]
+    #         fw.write(f'{name: <25} {i}\n')
     
     # # # fast_solution_finding=True
     
-    # level = level_walls()
-    # solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True)
-    # print('\n')
-    # print(len(solutions[0]))
-    # print('\n')
-    # # with open('cellular_automaton_solutions.txt', 'w') as fw:
-    # for sol in solutions[0]:
-    #     print(' '.join(sol))
-    #     # fw.write(' '.join(sol))
-    #     # fw.write('\n')
+    level = level_fortification()
+    solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True)
+    print('\n')
+    print(len(solutions[0]))
+    print('\n')
+    # with open('cellular_automaton_solutions.txt', 'w') as fw:
+    for sol in solutions[0]:
+        print(' '.join(sol))
+        # fw.write(' '.join(sol))
+        # fw.write('\n')
     
         
     
