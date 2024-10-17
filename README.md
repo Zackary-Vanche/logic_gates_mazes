@@ -12,7 +12,6 @@ Before running the project, make sure you have the following dependencies instal
 - [NumPy](https://numpy.org/)
 - [Pygame](https://www.pygame.org/)
 - [PyAutoGUI](https://pyautogui.readthedocs.io/en/latest/)
-- [colorsys](https://docs.python.org/3/library/colorsys.html)
 
 You can install python packages using `pip`:
 
