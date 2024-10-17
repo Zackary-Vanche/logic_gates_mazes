@@ -11,7 +11,7 @@ Before running the project, make sure you have the following dependencies instal
 - [Pygame](https://www.pygame.org/)
 - [PyAutoGUI](https://pyautogui.readthedocs.io/en/latest/)
 
-You can install them using `pip`:
+You can install python packages using `pip`:
 
 ```bash
 pip install numpy pygame pyautogui
