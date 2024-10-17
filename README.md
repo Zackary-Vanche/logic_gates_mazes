@@ -9,14 +9,13 @@ The levels are organized by increasing complexity, allowing players to gradually
 Before running the project, make sure you have the following dependencies installed:
 
 - [Python 3.x](https://www.python.org/)
-- [NumPy](https://numpy.org/)
 - [Pygame](https://www.pygame.org/)
 - [PyAutoGUI](https://pyautogui.readthedocs.io/en/latest/)
 
 You can install python packages using `pip`:
 
 ```bash
-pip install numpy pygame pyautogui
+pip install pygame pyautogui
 ```
 
 ## Installation
