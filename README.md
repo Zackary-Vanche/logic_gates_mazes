@@ -1,6 +1,8 @@
 # Logic Gates Mazes
 
-This project is a challenging logic game that involves elements of boolean logic, graph theory, combinatorics, arithmetic, and algorithmics, as well as concepts from other areas of discrete and continuous mathematics and computer science. Players must use logical reasoning, problem-solving skills, and mathematical concepts to solve puzzles. The game is designed to enhance critical thinking and deepen understanding of these fundamental areas of mathematics and logic through engaging and interactive gameplay.
+This project is a challenging logic game that involves elements of boolean logic, graph theory, combinatorics, arithmetic, and algorithmics, as well as concepts from other areas of discrete and continuous mathematics and computer science. Players must use logical reasoning, problem-solving skills, and mathematical concepts to solve puzzles. The game is designed to enhance critical thinking and deepen understanding of these fundamental areas of mathematics and logic through engaging and interactive gameplay.  
+
+The levels are organized by increasing complexity, allowing players to gradually build their skills. However, players are encouraged to explore more advanced levels even if they haven't completed all the simpler ones, fostering curiosity and providing opportunities to tackle more challenging puzzles at any time.  
 
 ## Prerequisites
 
