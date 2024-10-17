@@ -27,6 +27,8 @@ pip install numpy pygame pyautogui
 git clone https://github.com/Zackary-Vanche/logic_gates_mazes.git
 ```
 
+You can also simply [download the repository](https://docs.github.com/en/repositories/working-with-files/using-files/downloading-source-code-archives).
+
 2. Navigate to the project directory:
 
 ```bash
