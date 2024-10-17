@@ -1,6 +1,6 @@
 # Logic Gates Mazes
 
-This project is a logic game about boolean logic, graph theory, combinatorics theory...
+This project is a challenging logic game that involves elements of boolean logic, graph theory, combinatorics theory, arithmetic and algorithmic. Players must use logical reasoning, problem-solving skills, and mathematical concepts to solve puzzles. The game is designed to enhance critical thinking and deepen understanding of these fundamental areas of mathematics and logic through engaging and interactive gameplay.
 
 ## Prerequisites
 
