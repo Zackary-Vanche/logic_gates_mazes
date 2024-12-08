@@ -271,6 +271,7 @@ from levels.level_walls import level_walls
 from levels.level_wasted import level_wasted
 from levels.level_water_lily import level_water_lily
 from levels.level_water_pouring import level_water_pouring
+from levels.level_water_tower import level_water_tower
 from levels.level_wave import level_wave
 from levels.level_weights import level_weights
 from levels.level_wheel import level_wheel
@@ -381,6 +382,7 @@ class Levels:
                              level_rainforest,
                              level_secret,
                              level_odd,
+                             level_water_tower,
                              level_jungle,
                              level_min_cut,
                              level_max_cut,
