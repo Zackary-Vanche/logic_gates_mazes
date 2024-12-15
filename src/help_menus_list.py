@@ -288,6 +288,9 @@ help_menus_list['PROD'] = """
 help_menus_list['DIV'] = """
 / S0 S1 equals S0 divided by S1."""
 
+help_menus_list['DIVINT'] = """
+/ S0 S1 equals the integer division of S0 by S1."""
+
 help_menus_list['POW'] = """
 ** S0 S1 equals S0 raised to the power of S1."""
 

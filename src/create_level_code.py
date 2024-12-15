@@ -1,7 +1,7 @@
-ns = 6
-nd = 1
-nr = 1
-nv = 2+2+1
+ns = 0
+nd = 0
+nr = 0
+nv = 4
 
 print('''
 from Switch import Switch
@@ -28,7 +28,7 @@ for i in range(nv):
 #     print(f'    Slist_{i} = [S{2*i}, S{2*i+1}]')
     
 for i in range(nv):
-    print(f'    Slist_{i} = [S{4*i}, S{4*i+1}, S{4*i+2}, S{4*i+3}]')
+    print(f'    Slist_{i} = [S{3*i}, S{3*i+1}, S{3*i+2}]')
     
 # for i in range(nv):
 #     print(f'    Slist_{i} = [S{8*i}, S{8*i+1}, S{8*i+2}, S{8*i+3}, S{8*i+4}, S{8*i+5}, S{8*i+6}, S{8*i+7}]')

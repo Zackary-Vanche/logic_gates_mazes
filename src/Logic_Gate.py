@@ -235,6 +235,7 @@ class Logic_Gate:
                  'MINUS': aux_func_MINUS,
                  'PROD': aux_func_PROD,
                  'DIV': aux_func_DIV,
+                 'DIVINT' : aux_func_DIVINT,
                  'POW': aux_func_POW,
                  'ABS': aux_func_ABS,
                  'MOD': aux_func_MOD,

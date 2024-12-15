@@ -89,19 +89,6 @@ def level_quaternary():
         
     Slist = [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13]
     
-    # tree_list_0 = ["AND", ['EQU', Tree.tree_list_SUM(2), [None]], Tree.tree_list_DIFF(2)]
-    # Slist_T0 = [V7, V8, V9, 0, V9]
-    # for i in range(len(Vlist)):
-    #     for j in range(i):
-    #         if Vlist[i].get_value() == Vlist[j].get_value():
-    #             tree_list_0.append(Tree.tree_list_EQU(2))
-    #             Slist_T0.extend([Vlist[j], Vlist[i]])
-
-    # T0 = Tree(tree_list=tree_list_0,
-    #             name='T0',
-    #             switches=Slist_T0,
-    #             cut_expression_depth_1=True)
-    7
     def get_tree(i):
         tree_list = []
         Slist_T = []

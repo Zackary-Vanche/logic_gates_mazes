@@ -19,6 +19,8 @@ class Tree:
     tree_list_not = ['NOT', [None]]
     tree_list_NOT = ['NOT', [None]]
     tree_list_MINUS = ['MINUS', [None]]
+    tree_list_DIV = ['DIV', [None], [None]]
+    tree_list_DIVINT = ['DIVINT', [None], [None]]
 
     def tree_list_AND(n):
         return ['AND'] + [[None]] * n

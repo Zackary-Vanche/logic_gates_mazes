@@ -252,6 +252,7 @@ from levels.level_tetris import level_tetris
 from levels.level_the_4_queens import level_the_4_queens
 from levels.level_the_8_queens import level_the_8_queens
 from levels.level_the_4th_dimension import level_the_4th_dimension
+from levels.level_the_answer import level_the_answer
 from levels.level_tour import level_tour
 from levels.level_towers import level_towers
 from levels.level_town import level_town
@@ -469,6 +470,7 @@ class Levels:
                              level_elm,
                              level_maple,
                              level_pine,
+                             level_the_answer,
                              level_merge_sort,
                              level_cycle_sort,
                              level_sneckdown,
@@ -790,6 +792,7 @@ class Levels:
                               level_eratosthenes,
                               level_partition,
                               level_second,
+                              level_the_answer,
                               level_egyptian_fractions,
                               level_strange,
                               level_taxicab_number,
