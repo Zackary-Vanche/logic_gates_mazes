@@ -149,6 +149,7 @@ from levels.level_oak import level_oak
 from levels.level_octahedron import level_octahedron
 from levels.level_odd import level_odd
 from levels.level_odd_even_sort import level_odd_even_sort
+from levels.level_one_third import level_one_third
 from levels.level_orchard import level_orchard
 from levels.level_orchid import level_orchid
 from levels.level_order import level_order
@@ -181,6 +182,7 @@ from levels.level_product import level_product
 from levels.level_puzzle import level_puzzle
 from levels.level_pyramid import level_pyramid
 from levels.level_pythagorean import level_pythagorean
+from levels.level_quaternary import level_quaternary
 from levels.level_quick_sort import level_quick_sort
 from levels.level_rainforest import level_rainforest
 from levels.level_rampart import level_rampart
@@ -376,6 +378,8 @@ class Levels:
                              level_hitting_set,
                              level_independent_set,
                              level_dominating_set,
+                             level_one_third,
+                             level_quaternary,
                              level_circle,
                              level_exact_cover,
                              level_connectivity,
@@ -1202,7 +1206,7 @@ def calculates_random_level_solution_length(aux_level_function):
 if __name__ == "__main__":
     pass
 
-    # test_levels()
+    test_levels()
 
     # import os
     
@@ -1220,16 +1224,16 @@ if __name__ == "__main__":
     
     # # # fast_solution_finding=True
     
-    level = level_fortification()
-    solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True)
-    print('\n')
-    print(len(solutions[0]))
-    print('\n')
-    # with open('cellular_automaton_solutions.txt', 'w') as fw:
-    for sol in solutions[0]:
-        print(' '.join(sol))
-        # fw.write(' '.join(sol))
-        # fw.write('\n')
+    # level = level_fortification()
+    # solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True)
+    # print('\n')
+    # print(len(solutions[0]))
+    # print('\n')
+    # # with open('cellular_automaton_solutions.txt', 'w') as fw:
+    # for sol in solutions[0]:
+    #     print(' '.join(sol))
+    #     # fw.write(' '.join(sol))
+    #     # fw.write('\n')
     
         
     

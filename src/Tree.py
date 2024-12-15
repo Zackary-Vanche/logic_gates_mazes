@@ -46,6 +46,9 @@ class Tree:
 
     def tree_list_SUM(n):
         return ['SUM'] + [[None]] * n
+    
+    def tree_list_PROD(n):
+        return ['PROD'] + [[None]] * n
 
     def tree_list_NONO(n):
         return ['NONO'] + [[None]] * n
