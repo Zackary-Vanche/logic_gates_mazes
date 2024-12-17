@@ -24,6 +24,7 @@ from levels.level_blind_alleys import level_blind_alleys
 from levels.level_bloodline import level_bloodline
 from levels.level_bonsai import level_bonsai
 from levels.level_boolean import level_boolean
+from levels.level_boustrophedon import level_boustrophedon
 from levels.level_box import level_box
 from levels.level_branches import level_branches
 from levels.level_bridges import level_bridges
@@ -201,7 +202,7 @@ from levels.level_random_K2 import level_random_K2
 from levels.level_random_K33 import level_random_K33
 from levels.level_random_K5 import level_random_K5
 from levels.level_random_binary_tree import level_random_binary_tree
-from levels.level_random_boustrophedon import level_random_boustrophedon
+# from levels.level_random_boustrophedon import level_random_boustrophedon
 from levels.level_random_bull import level_random_bull
 from levels.level_random_butterfly import level_random_butterfly
 from levels.level_random_come_back import level_random_come_back
@@ -319,7 +320,7 @@ from levels.level_random_butterfly import aux_level_random_butterfly
 from levels.level_random_come_back import aux_level_random_come_back
 from levels.level_random_gemini import aux_level_random_gemini
 from levels.level_random_ladder import aux_level_random_ladder
-from levels.level_random_boustrophedon import aux_level_random_boustrophedon
+# from levels.level_random_boustrophedon import aux_level_random_boustrophedon
 from levels.level_random_simple import aux_level_random_simple
 from levels.level_random_petersen import aux_level_random_petersen
 from levels.level_random_cuboctahedron import aux_level_random_cuboctahedron
@@ -342,7 +343,7 @@ class Levels:
     
     """
 
-    levels_functions_list = [                       
+    levels_functions_list = [                
                              level_trivial,
                              level_choice,
                              level_hello_world,
@@ -359,6 +360,7 @@ class Levels:
                              level_boolean,
                              level_alternation,
                              level_yoyo,
+                             level_boustrophedon,
                              level_power_down,
                              level_orchard,
                              level_crossroad,
@@ -444,7 +446,6 @@ class Levels:
                              level_fibonacci_sequence,
                              level_palace,
                              level_random_simple,
-                             level_random_boustrophedon,
                              level_parallel,
                              level_eratosthenes,
                              level_dots,
@@ -741,7 +742,6 @@ class Levels:
                             level_separation,
                             ],
               'The Accidental Realm':[level_random_simple,
-                                      level_random_boustrophedon,
                                       level_random_bull,
                                       level_random_butterfly,
                                       level_random_star,
@@ -899,6 +899,7 @@ class Levels:
                             level_order,
                             level_loop,
                             level_yoyo,
+                            level_boustrophedon,
                             level_power_down,
                             level_bis_repetita,
                             level_domination_number,
@@ -998,7 +999,7 @@ class Levels:
         aux_level_random_line,
         aux_level_random_turning,
         aux_level_random_w6,
-        aux_level_random_boustrophedon,
+        # aux_level_random_boustrophedon,
         aux_level_random_come_back,
         aux_level_random_starting_point,
         aux_level_random_ladder,
@@ -1292,16 +1293,22 @@ if __name__ == "__main__":
     # level = level_the_fourth_triangle()
     # level = level_octahedral_graph()
     # level = level_hexagonal_bipyramid()
-    # # level = level_vertex()
+    # level = level_vertex()
+    # level = level_boustrophedon()
     # solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True)
-    # print('\n')
+    # # print('\n')
     # print(len(solutions[0]))
-    # print('\n')
-    # # with open('cellular_automaton_solutions.txt', 'w') as fw:
+    # # print('\n')
+    # # # with open('cellular_automaton_solutions.txt', 'w') as fw:
     # for sol in solutions[0]:
     #     print(' '.join(sol))
         # fw.write(' '.join(sol))
         # fw.write('\n')
+        
+    #    D0 S1 D1    D2 S3 D3 D4 D5 D6 D7
+    # S0 D0 S1 D1    D2 S3 D3 D4 D5 D6 D7
+    #    D0 S1 D1 S2 D2 S3 D3 D4 D5 D6 D7
+    # S0 D0 S1 D1 S2 D2 S3 D3 D4 D5 D6 D7
     
         
     
