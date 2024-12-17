@@ -87,6 +87,12 @@ class Tree:
 
     def tree_list_INLIST(n):
         return ['INLIST'] + [[None]] * n
+    
+    def tree_list_MIN(n):
+        return ['MIN'] + [[None]] * n
+    
+    def tree_list_MAX(n):
+        return ['MAX'] + [[None]] * n
 
     def tree_list_from_str(txt, CNF=False):
         txt = txt.replace('0', 'F').replace('1', 'T').replace('\n', '')
@@ -433,6 +439,8 @@ class Tree:
         #print(self.name, '=', self.easy_logical_expression_PN, '=', value)
         #with open('temp.txt', 'a') as fa:
         #    fa.write(self.name + ' = ' + str(value))
+        # if not '_' in self.name:
+        #     print(self.name, value)
         return value
 
     def get_depth(self):

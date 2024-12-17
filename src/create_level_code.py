@@ -1,7 +1,10 @@
-ns = 0
-nd = 0
-nr = 0
-nv = 4
+ns = 10
+nd = 1
+nr = 1
+nv = 0
+####
+####
+####
 
 print('''
 from Switch import Switch
@@ -28,7 +31,10 @@ for i in range(nv):
 #     print(f'    Slist_{i} = [S{2*i}, S{2*i+1}]')
     
 for i in range(nv):
-    print(f'    Slist_{i} = [S{3*i}, S{3*i+1}, S{3*i+2}]')
+    print(f'    Slist_{i} = [S{9*i}, S{9*i+1}, S{9*i+2}, S{9*i+3}, S{9*i+4}, S{9*i+5}, S{9*i+6}, S{9*i+7}, S{9*i+8}]')
+    
+for i in range(nv):
+    print(f'    Slist_{i} = Sl[9*{i}:9*{i}+9]')
     
 # for i in range(nv):
 #     print(f'    Slist_{i} = [S{8*i}, S{8*i+1}, S{8*i+2}, S{8*i+3}, S{8*i+4}, S{8*i+5}, S{8*i+6}, S{8*i+7}]')
@@ -37,9 +43,16 @@ for i in range(nv):
     print(f'''    V{i} = Tree(tree_list=Tree.tree_list_BIN(len(Slist_{i})),
           name='V{i}',
           switches=Slist_{i})''')
-    # print(f'''    V{i} = Tree(tree_list=[None],
-    #       name='V{i}',
-    #       switches=[1])''')
+    
+for i in range(nv):
+    print(f'''    V{i} = Tree(tree_list=Tree.tree_list_BIN(9),
+          name='V{i}',
+          switches=Sl[9*{i}:9*{i}+9])''')
+
+for i in range(nv):
+    print(f'''    V{i} = Tree(tree_list=tree_list_V,
+          name='V{i}',
+          switches=[V, 21, V])''')
 
 if nv != 0:
     print('')
@@ -80,7 +93,7 @@ for i in range(nr):
     #             switches_list=[S{i}])''')
     
 print('''    RE = Room(name='RE',
-              position=[0, 0, ex, ey],
+              position=[1*dx, 1*dy, ex, ey],
               is_exit=True)''')
 
 print('')

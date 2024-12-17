@@ -316,6 +316,8 @@ class Maze:
             if len(solutions) != 0:
                 self.fastest_solution = ' '.join(solutions[0])
                 
+        assert self.fastest_solution is None or not 'R' in self.fastest_solution, self.name
+                
         self.coordinates_conversion=None
         
 
@@ -439,8 +441,10 @@ class Maze:
         for action in actions_list:
             action_type = action[0]
             if action_type == 'S' and (self.legit_change_switch(action) or allow_all):
+                # print(action)
                 self.change_switch(action)
             if action_type == 'D' and (self.legit_use_door(action) or allow_all):
+                # print(action)
                 self.use_door(action)
             if action_type == 'R' and (self.legit_change_room(action) or allow_all):
                 self.change_room(action)
@@ -998,7 +1002,6 @@ class Maze:
 
     def calculate_doors_coordinates(self):
         for door in self.doors_set:
-            # for ipage in range(self.number_of_pages): # TODO
             Rd = door.room_departure
             Ra = door.room_arrival
             cRd = door.relative_departure_coordinates

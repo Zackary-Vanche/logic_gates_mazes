@@ -51,7 +51,7 @@ class Door:
                 raise
         if room_departure is not None and room_arrival is not None:
             self.set_rooms(room_departure, room_arrival)
-            assert self.room_departure.name != self.room_arrival.name
+            assert self.room_departure.name != self.room_arrival.name, " ".join([self.name, room_departure.name, room_arrival.name])
         if self.room_arrival is not None and self.room_arrival.is_exit:
             self.two_way = False
         if is_open is None:

@@ -28,9 +28,13 @@ class Logic_Gate:
 
     def aux_func_EQUSET(branches_values):
         n = len(branches_values) // 2
+        # if sorted(branches_values[:n]) != sorted(branches_values[n:]):
+        #     print(branches_values[:n])
+        #     print(sorted(branches_values[n:]))
         return sorted(branches_values[:n]) == sorted(branches_values[n:])
 
     def aux_func_DIFF(branches_values):
+        assert len(branches_values) > 1
         branches_values_sorted = sorted(branches_values)
         return all(branches_values_sorted[i] != branches_values_sorted[i + 1] for i in range(len(branches_values) - 1))
 

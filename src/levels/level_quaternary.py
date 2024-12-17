@@ -201,6 +201,7 @@ def level_quaternary():
     
     a = rd_random()
     hue_list = [i/4+a for i in range(4)]
+    rd_shuffle(hue_list)
     sa = 0.5
     rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, RE]
     doors_list=[D0, D1, D2, D3, D4, D5, D6, D7]

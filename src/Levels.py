@@ -28,6 +28,7 @@ from levels.level_box import level_box
 from levels.level_branches import level_branches
 from levels.level_bridges import level_bridges
 from levels.level_bubble_sort import level_bubble_sort
+from levels.level_butterfly_graph import level_butterfly_graph
 from levels.level_cardinal_directions import level_cardinal_directions
 from levels.level_cartesian import level_cartesian
 from levels.level_cattle import level_cattle
@@ -59,9 +60,15 @@ from levels.level_cypress import level_cypress
 from levels.level_dead_ends import level_dead_ends
 from levels.level_diagonal import level_diagonal
 from levels.level_dichotomy import level_dichotomy
+from levels.level_diminish import level_diminish
+from levels.level_decrease import level_decrease
+from levels.level_deduct import level_deduct
 from levels.level_desire_path import level_desire_path
+from levels.level_detract import level_detract
 from levels.level_dominating_set import level_dominating_set
+from levels.level_domination_number import level_domination_number
 from levels.level_doppelganger import level_doppelganger
+from levels.level_dots import level_dots
 from levels.level_draw import level_draw
 from levels.level_euclidean_algorithm import level_euclidean_algorithm
 from levels.level_edelweiss import level_edelweiss
@@ -95,6 +102,7 @@ from levels.level_harmony import level_harmony
 from levels.level_heapsort import level_heapsort
 from levels.level_hello_world import level_hello_world
 from levels.level_herd import level_herd
+from levels.level_hexagonal_bipyramid import level_hexagonal_bipyramid
 from levels.level_hitting_set import level_hitting_set
 from levels.level_honeycomb import level_honeycomb
 from levels.level_house import level_house
@@ -138,6 +146,7 @@ from levels.level_melencolia_1 import level_melencolia_1
 from levels.level_merge_sort import level_merge_sort
 from levels.level_min_cut import level_min_cut
 from levels.level_minimum_spanning_tree import level_minimum_spanning_tree
+from levels.level_molecule import level_molecule
 from levels.level_mols import level_mols
 from levels.level_moore_neighborhood import level_moore_neighborhood
 from levels.level_naturals import level_naturals
@@ -146,6 +155,7 @@ from levels.level_no_three_in_line import level_no_three_in_line
 from levels.level_nonogram import level_nonogram
 from levels.level_numeration import level_numeration
 from levels.level_oak import level_oak
+from levels.level_octahedral_graph import level_octahedral_graph
 from levels.level_octahedron import level_octahedron
 from levels.level_odd import level_odd
 from levels.level_odd_even_sort import level_odd_even_sort
@@ -172,6 +182,7 @@ from levels.level_pine import level_pine
 from levels.level_platonic import level_platonic
 from levels.level_playground import level_playground
 from levels.level_podium import level_podium
+from levels.level_points import level_points
 from levels.level_point_of_no_return import level_point_of_no_return
 from levels.level_pong import level_pong
 from levels.level_poppy import level_poppy
@@ -206,6 +217,7 @@ from levels.level_random_turning import level_random_turning
 from levels.level_random_w6 import level_random_w6
 from levels.level_recurrence import level_recurrence
 from levels.level_relay import level_relay
+from levels.level_remove import level_remove
 from levels.level_river import level_river
 from levels.level_roadblock import level_roadblock
 from levels.level_roses_are_red import level_roses_are_red
@@ -222,10 +234,12 @@ from levels.level_sheffer_stroke import level_sheffer_stroke
 from levels.level_shortcut import level_shortcut
 from levels.level_shortest_path import level_shortest_path
 from levels.level_shuffled import level_shuffled
+from levels.level_sierpinski import level_sierpinski
 from levels.level_sign import level_sign
 from levels.level_silex import level_silex
 from levels.level_singletons import level_singletons
 from levels.level_small import level_small
+from levels.level_substract import level_substract
 from levels.level_sunflower import level_sunflower
 from levels.level_sneckdown import level_sneckdown
 from levels.level_solitaire import level_solitaire
@@ -253,6 +267,7 @@ from levels.level_the_4_queens import level_the_4_queens
 from levels.level_the_8_queens import level_the_8_queens
 from levels.level_the_4th_dimension import level_the_4th_dimension
 from levels.level_the_answer import level_the_answer
+from levels.level_the_fourth_triangle import level_the_fourth_triangle
 from levels.level_tour import level_tour
 from levels.level_towers import level_towers
 from levels.level_town import level_town
@@ -260,10 +275,12 @@ from levels.level_trail import level_trail
 from levels.level_travelling_salesman import level_travelling_salesman
 from levels.level_traversal import level_traversal
 from levels.level_tree import level_tree
+from levels.level_triangles import level_triangles
 from levels.level_triangulate import level_triangulate
 from levels.level_trivial import level_trivial
 from levels.level_tulip import level_tulip
 from levels.level_variable import level_variable
+from levels.level_vertex import level_vertex
 from levels.level_village import level_village
 from levels.level_violets_are_blue import level_violets_are_blue
 from levels.level_von_neumann_neighborhood import level_von_neumann_neighborhood
@@ -280,6 +297,8 @@ from levels.level_weights import level_weights
 from levels.level_wheel import level_wheel
 from levels.level_willow import level_willow
 from levels.level_wind_compass import level_wind_compass
+from levels.level_withdraw import level_withdraw
+from levels.level_withhold import level_withhold
 from levels.level_wander import level_wander
 from levels.level_worms import level_worms
 from levels.level_young_tableaux import level_young_tableaux
@@ -323,7 +342,7 @@ class Levels:
     
     """
 
-    levels_functions_list = [
+    levels_functions_list = [                       
                              level_trivial,
                              level_choice,
                              level_hello_world,
@@ -332,6 +351,7 @@ class Levels:
                              level_cardinal_directions,
                              level_linear,
                              level_expand_and_simplify,
+                             level_domination_number,
                              level_variable,
                              level_order,
                              level_loop,
@@ -387,6 +407,7 @@ class Levels:
                              level_rainforest,
                              level_secret,
                              level_odd,
+                             level_molecule,
                              level_water_tower,
                              level_jungle,
                              level_min_cut,
@@ -406,12 +427,17 @@ class Levels:
                              level_shortcut,
                              level_wind_compass,
                              level_prime_number,
+                             level_points,
                              level_poppy,
                              level_peony,
                              level_magnolia,
                              level_iris,
                              level_orchid,
                              level_tulip,
+                             level_substract,
+                             level_remove,
+                             level_deduct,
+                             level_decrease,
                              level_compact,
                              level_village,
                              level_town,
@@ -421,6 +447,7 @@ class Levels:
                              level_random_boustrophedon,
                              level_parallel,
                              level_eratosthenes,
+                             level_dots,
                              level_random_bull,
                              level_pythagorean,
                              level_random_butterfly,
@@ -452,6 +479,10 @@ class Levels:
                              level_odd_even_sort,
                              level_cocktail_sort,
                              level_pigeonhole_sort,
+                             level_diminish,
+                             level_withdraw,
+                             level_withhold,
+                             level_detract,
                              level_dichotomy,
                              level_wheel,
                              level_random_star,
@@ -510,6 +541,12 @@ class Levels:
                              level_rampart,
                              level_fortification,
                              level_rotation_bis,
+                             level_butterfly_graph,
+                             level_sierpinski,
+                             level_the_fourth_triangle,
+                             level_octahedral_graph,
+                             level_hexagonal_bipyramid,
+                             level_triangles,
                              level_nonogram,
                              level_crystal,
                              level_mastermind,
@@ -525,6 +562,7 @@ class Levels:
                              level_bamboos,
                              level_gingko_biloba,
                              level_cypress,
+                             level_vertex,
                              level_grid,
                              level_flash_back,
                              level_spaceship,
@@ -772,9 +810,11 @@ class Levels:
                                       level_mastermind,
                                       ],
               'The Numerals':[level_sum,
+                              level_points,
                               level_numeration,
                               level_inside_out,
                               level_equation,
+                              level_dots,
                               level_bloodline,
                               level_arithmetic,
                               level_product,
@@ -806,6 +846,14 @@ class Levels:
                               level_sudoku,
                               level_mols,
                               ],
+              "The substractions":[level_substract,
+                                   level_remove,
+                                   level_deduct,
+                                   level_decrease,
+                                   level_diminish,
+                                   level_withdraw,
+                                   level_withhold,
+                                   level_detract,],
               "The Decisions":[level_boolean,
                                level_alternation,
                                level_3sat,
@@ -853,8 +901,10 @@ class Levels:
                             level_yoyo,
                             level_power_down,
                             level_bis_repetita,
+                            level_domination_number,
                             level_shared,
                             level_odd,
+                            level_molecule,
                             level_parallel,
                             level_leaves,
                             level_recurrence,
@@ -878,6 +928,7 @@ class Levels:
                             level_syracuse,
                             level_classified,
                             level_towers,
+                            level_vertex,
                             ],
               "The Ruins":[level_backward,
                            level_square,
@@ -904,7 +955,13 @@ class Levels:
                              level_doppelganger,
                              level_flash_back,
                              level_code,
-                             ]
+                             ],
+              "The triangular globe":[level_butterfly_graph,
+                                      level_sierpinski,
+                                      level_the_fourth_triangle,
+                                      level_octahedral_graph,
+                                      level_hexagonal_bipyramid,
+                                      level_triangles,]
               }
     
     worlds_names = list(Worlds.keys())
@@ -1230,7 +1287,12 @@ if __name__ == "__main__":
     
     # # # fast_solution_finding=True
     
-    # level = level_fortification()
+    # level = level_triangles()
+    # level = level_detract()
+    # level = level_the_fourth_triangle()
+    # level = level_octahedral_graph()
+    # level = level_hexagonal_bipyramid()
+    # # level = level_vertex()
     # solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True)
     # print('\n')
     # print(len(solutions[0]))
@@ -1238,8 +1300,8 @@ if __name__ == "__main__":
     # # with open('cellular_automaton_solutions.txt', 'w') as fw:
     # for sol in solutions[0]:
     #     print(' '.join(sol))
-    #     # fw.write(' '.join(sol))
-    #     # fw.write('\n')
+        # fw.write(' '.join(sol))
+        # fw.write('\n')
     
         
     

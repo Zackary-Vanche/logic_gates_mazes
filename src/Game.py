@@ -738,13 +738,13 @@ class Game:
             return
         solution_actions_list = solution.replace('\n', ' ').split(' ')
         assert type(solution_actions_list) == list
+        name = self.maze.name.replace(' ', '_')
+        folder_video = f"videos/frames/{name}/"
         if save_videos:
-            name = self.maze.name.replace(' ', '_')
-            folder = f"videos/frames/{name}/"
-            if not os_path_exists(folder):
-                os_mkdir(folder)
+            if not os_path_exists(folder_video):
+                os_mkdir(folder_video)
             def fname(i):
-                fname = folder + f"level_{self.maze.name}_WIDTH_{int(self.WINDOW_WIDTH)}_HEIGHT_{int(self.WINDOW_HEIGHT)}_frame_{i}.jpg"
+                fname = folder_video + f"level_{self.maze.name}_WIDTH_{int(self.WINDOW_WIDTH)}_HEIGHT_{int(self.WINDOW_HEIGHT)}_frame_{i}.jpg"
                 return fname
             self.save_image_as_file(fname(0))
             self.save_image_as_file()
@@ -768,6 +768,7 @@ class Game:
             import numpy as np
             from cv2 import VideoWriter, VideoWriter_fourcc, resize, cvtColor, COLOR_BGR2RGB #, imread#
             from PIL import Image
+            from shutil import rmtree
             size = (int(self.WINDOW_WIDTH), int(self.WINDOW_HEIGHT))
             out = VideoWriter(video_name,
                               VideoWriter_fourcc(*'DIVX'),
@@ -787,6 +788,7 @@ class Game:
             for k in range(6): # You add the last image 12 more times.
                 out.write(img)
             out.release()
+            rmtree(folder_video)
             
     def show_all_solutions(self, save_videos=False, dt=0.2):
         for i_level in range(self.index_current_level, Levels.number_of_levels):
@@ -873,6 +875,13 @@ class Game:
         elif self.current_action in ['SOLS0', 'SOLUTIONS0']:
             self.show_all_solutions(dt=0)
             self.update_possible_actions()
+        elif self.current_action[:4] == 'SOLS':
+            try:
+                dt = float(self.current_action.split(' ')[1])
+                self.show_all_solutions(dt=dt)
+                self.update_possible_actions()
+            except:
+                pass
         elif self.current_action.split(' ')[0] in ['FIND',
                                                    'FIND0',
                                                    'FINDSOL',
