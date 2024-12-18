@@ -55,6 +55,7 @@ from levels.level_connectivity import level_connectivity
 from levels.level_crossroad import level_crossroad
 from levels.level_crystal import level_crystal
 from levels.level_cube import level_cube
+from levels.level_cube_edges_coloring import level_cube_edges_coloring
 from levels.level_cubic import level_cubic
 from levels.level_cycle_sort import level_cycle_sort
 from levels.level_cypress import level_cypress
@@ -104,6 +105,7 @@ from levels.level_heapsort import level_heapsort
 from levels.level_hello_world import level_hello_world
 from levels.level_herd import level_herd
 from levels.level_hexagonal_bipyramid import level_hexagonal_bipyramid
+from levels.level_hexagon import level_hexagon
 from levels.level_hitting_set import level_hitting_set
 from levels.level_honeycomb import level_honeycomb
 from levels.level_house import level_house
@@ -158,6 +160,7 @@ from levels.level_numeration import level_numeration
 from levels.level_oak import level_oak
 from levels.level_octahedral_graph import level_octahedral_graph
 from levels.level_octahedron import level_octahedron
+from levels.level_octahedron_edges_coloring import level_octahedron_edges_coloring
 from levels.level_odd import level_odd
 from levels.level_odd_even_sort import level_odd_even_sort
 from levels.level_one_third import level_one_third
@@ -211,6 +214,7 @@ from levels.level_random_gemini import level_random_gemini
 from levels.level_random_ladder import level_random_ladder
 from levels.level_random_line import level_random_line
 from levels.level_random_petersen import level_random_petersen
+from levels.level_petersen_graph_edges_coloring import level_petersen_graph_edges_coloring
 from levels.level_random_simple import level_random_simple
 from levels.level_random_star import level_random_star
 from levels.level_random_starting_point import level_random_starting_point
@@ -263,6 +267,7 @@ from levels.level_temple import level_temple
 from levels.level_tesseract import level_tesseract
 from levels.level_tetractys import level_tetractys
 from levels.level_tetrahedron import level_tetrahedron
+from levels.level_tetrahedron_edges_coloring import level_tetrahedron_edges_coloring
 from levels.level_tetris import level_tetris
 from levels.level_the_4_queens import level_the_4_queens
 from levels.level_the_8_queens import level_the_8_queens
@@ -281,7 +286,6 @@ from levels.level_triangulate import level_triangulate
 from levels.level_trivial import level_trivial
 from levels.level_tulip import level_tulip
 from levels.level_variable import level_variable
-from levels.level_vertex import level_vertex
 from levels.level_village import level_village
 from levels.level_violets_are_blue import level_violets_are_blue
 from levels.level_von_neumann_neighborhood import level_von_neumann_neighborhood
@@ -343,7 +347,7 @@ class Levels:
     
     """
 
-    levels_functions_list = [                
+    levels_functions_list = [
                              level_trivial,
                              level_choice,
                              level_hello_world,
@@ -416,6 +420,7 @@ class Levels:
                              level_max_cut,
                              level_hut,
                              level_arithmetic,
+                             level_tetrahedron_edges_coloring,
                              level_triangulate,
                              level_recurrence,
                              level_stairs,
@@ -545,6 +550,7 @@ class Levels:
                              level_butterfly_graph,
                              level_sierpinski,
                              level_the_fourth_triangle,
+                             level_hexagon,
                              level_octahedral_graph,
                              level_hexagonal_bipyramid,
                              level_triangles,
@@ -563,7 +569,8 @@ class Levels:
                              level_bamboos,
                              level_gingko_biloba,
                              level_cypress,
-                             level_vertex,
+                             level_cube_edges_coloring,
+                             level_octahedron_edges_coloring,
                              level_grid,
                              level_flash_back,
                              level_spaceship,
@@ -575,6 +582,7 @@ class Levels:
                              level_river,
                              level_cattle,
                              level_herd,
+                             level_petersen_graph_edges_coloring,
                              level_vortex,
                              level_tree,
                              level_dead_ends,
@@ -929,7 +937,10 @@ class Levels:
                             level_syracuse,
                             level_classified,
                             level_towers,
-                            level_vertex,
+                            level_tetrahedron_edges_coloring,
+                            level_cube_edges_coloring,
+                            level_octahedron_edges_coloring,
+                            level_petersen_graph_edges_coloring,
                             ],
               "The Ruins":[level_backward,
                            level_square,
@@ -960,6 +971,7 @@ class Levels:
               "The triangular globe":[level_butterfly_graph,
                                       level_sierpinski,
                                       level_the_fourth_triangle,
+                                      level_hexagon,
                                       level_octahedral_graph,
                                       level_hexagonal_bipyramid,
                                       level_triangles,]
@@ -1295,11 +1307,12 @@ if __name__ == "__main__":
     # level = level_hexagonal_bipyramid()
     # level = level_vertex()
     # level = level_boustrophedon()
+    # level = level_hexagon()
     # solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True)
     # # print('\n')
     # print(len(solutions[0]))
     # # print('\n')
-    # # # with open('cellular_automaton_solutions.txt', 'w') as fw:
+    # # # # with open('cellular_automaton_solutions.txt', 'w') as fw:
     # for sol in solutions[0]:
     #     print(' '.join(sol))
         # fw.write(' '.join(sol))

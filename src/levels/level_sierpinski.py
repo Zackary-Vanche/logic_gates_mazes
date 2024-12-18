@@ -88,7 +88,7 @@ def level_sierpinski():
                                       Tree.tree_list_EQUSET(2*2*3*(iR+1)),
                                       Tree.tree_list_INF(2)],
                         name=f'T{iR}',
-                        switches=Vl0[3*iR:3*iR+3]+[n_vertices]+Vl1[:2*3*(iR+1)]+EQUSET_list+[Vl2[iR-1], Vl2[iR]]+[0]*50,
+                        switches=Vl0[3*iR:3*iR+3]+[n_vertices]+Vl1[:2*3*(iR+1)]+EQUSET_list+[Vl2[iR-1], Vl2[iR]],
                         cut_expression_depth_1=True))
         else:
             Tl.append(Tree(tree_list=["AND",

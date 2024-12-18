@@ -70,7 +70,7 @@ def level_quaternary():
     Vlist = [V0, V1, V2, V3, V4, V5, V6]
     
     Slist_lhs = [S0, S1, S2, S3, S4, S5, S6, S7]
-    m = rd_randint(1, 256)
+    m = rd_randint(1, 255)
     i = 0
     while m > 0:
         Slist_lhs[i].value = m % 2
