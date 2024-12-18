@@ -1,7 +1,7 @@
-ns = 8
+ns = 10
 nd = 8
-nr = 8
-nv = 0
+nr = 6
+nv = nd
 ####
 ####
 ####
@@ -27,8 +27,8 @@ print('')
 for i in range(nv):
     print(f'    Slist_{i} = []')
 
-# for i in range(nv):
-#     print(f'    Slist_{i} = [S{2*i}, S{2*i+1}]')
+for i in range(nv):
+    print(f'    Slist_{i} = [S{2*i}, S{2*i+1}]')
     
 for i in range(nv):
     print(f'    Slist_{i} = [S{9*i}, S{9*i+1}, S{9*i+2}, S{9*i+3}, S{9*i+4}, S{9*i+5}, S{9*i+6}, S{9*i+7}, S{9*i+8}]')
