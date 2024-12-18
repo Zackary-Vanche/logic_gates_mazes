@@ -72,13 +72,13 @@ This list is not exhaustive.
 Feel free to contribute by opening issues or submitting pull requests if you think of anything that might improve the game.
 
 I mainly need to work on:
-- the gameplay.
+- the gameplay.  
 (The gameplay is actually the part I don't like to work on...)  
 I would like to add a more user friendly representation of the logical expressions (They could be represented as trees.).
 I think the best would be to let the user switch between the two representations (equations and trees).  
 I also think of adding elements that don't contribute to the game (like representations of graphs that are hidden in the equations) but that help the player understand what is happening.
 And also, making the game less static would be great.  
-- making the game easier to install.
+- making the game easier to install.  
 I can export the game as a .exe with PyInstaller, but then it is much to heavy, so I need to find another solution.
 
 ## Inspiration
