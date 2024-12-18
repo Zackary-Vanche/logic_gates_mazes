@@ -1,8 +1,8 @@
 # Logic Gates Mazes
 
-This project is a challenging logic game that involves elements of boolean logic, graph theory, combinatorics, arithmetic, and algorithmics, as well as concepts from other areas of discrete and continuous mathematics and computer science. Players must use logical reasoning, problem-solving skills, and mathematical concepts to solve mazes and get to the exit. The game is designed to enhance critical thinking and deepen understanding of these fundamental areas of mathematics and logic through engaging and interactive gameplay.  
+This project is a logic game that involves elements of boolean logic, graph theory, combinatorics, arithmetic, and algorithmics, as well as concepts from other areas of discrete and continuous mathematics and computer science. Players must use logical reasoning, problem-solving skills, and mathematical concepts to solve mazes and get to the exit. 
 
-The levels are organized by increasing complexity, allowing players to gradually build their skills. However, players are encouraged to explore more advanced levels even if they haven't completed all the simpler ones, fostering curiosity and providing opportunities to tackle more challenging puzzles at any time.  
+The levels are more or less organized by increasing complexity (sometimes easy levels are after hard ones, so don't hesitate to skip some and go see further).
 
 ## Prerequisites
 
@@ -44,9 +44,39 @@ python src/main.py
 
 This will launch the program.
 
+## Concepts used in the game
+
+The folowing concepts are used in the game:
+- Boolean logic, boolean satisfiability problem (3SAT and many other levels)
+- Some of Karp's 21 NP-complete problems (hitting set, independent set, knapsack, ...)
+- Graph theory problems (graph coloring, dominating set, minimum spanning tree research, ...)
+- Pathfinding problems with constraints (walks, trails, path, Eulerian paths, hamiltonian paths, travelling salesman)
+- Problems based on permutations (15 puzzle, tower of Hanoi, oval track puzzle, panex, superpremutations...)
+- Chess based enigmas (Knight's tour problem, First and second Guarini problems, 8 queens problem, ...)
+- Rotations in 3 and 4 dimensions problems
+- Cellular automaton
+- Some knowns solitary games (sudoku, the baguenaudier game, takuzu, mastermind, river crossing enigma, nonograms, the solitaire game, lights out game, sujiko, zebra puzzle, magic squares, water pouring enigma, zebra enigma)
+- Many sorting algorithms (bubble sort, cocktail sort, odd even sort, gnome sort, cycle sort, merge sort, selection sort, insertion sort, heap sort, panckake sorting)
+- Egyptian fractions, polynomial equations, matrix inversion, taxicab numbers
+- Eratosthenes algorithm, euclidian algorithm
+- Ferrers diagrams, Young tableaux
+- Integer factorization, integer partition
+- Fibonacci sequence
+- Equations to solve where you have to figure the numbers used in an addition (level Quaternary)
+- Some levels generated randomly
+
+This list is not exhaustive.
+
 ## Contributing
 
 Feel free to contribute by opening issues or submitting pull requests.
+
+I would like to add a more user friendly representation of the logical expressions (They could be represented as trees.).
+I think the best would be to let the user switch between the two representations (equations and trees).
+
+## Inspiration
+
+The games The Witness and [Chromagraph](https://adam-rumpf.github.io/games/chromagraph.html) gave me a lot of ideas for graph-theory oriented levels.
 
 ## License
 
