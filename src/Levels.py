@@ -39,6 +39,7 @@ from levels.level_central_symmetry import level_central_symmetry
 from levels.level_chessboard import level_chessboard
 from levels.level_chinese_postman_problem import level_chinese_postman_problem
 from levels.level_choice import level_choice
+from levels.level_chromagraph import level_chromagraph
 from levels.level_chromatic import level_chromatic
 from levels.level_circle import level_circle
 from levels.level_circuit import level_circuit
@@ -343,7 +344,7 @@ class Levels:
     
     """
 
-    levels_functions_list = [                
+    levels_functions_list = [            
                              level_trivial,
                              level_choice,
                              level_hello_world,
@@ -381,6 +382,7 @@ class Levels:
                              level_product,
                              level_inside_out,
                              level_chromatic,
+                             level_chromagraph,
                              level_octahedron,
                              level_fluid,
                              level_congruence,
@@ -859,6 +861,7 @@ class Levels:
                                level_3sat,
                                level_point_of_no_return,
                                level_chromatic,
+                               level_chromagraph,
                                level_stairs,
                                level_longest_path,
                                level_shortest_path,
@@ -1294,16 +1297,13 @@ if __name__ == "__main__":
     # level = level_octahedral_graph()
     # level = level_hexagonal_bipyramid()
     # level = level_vertex()
-    # level = level_boustrophedon()
+    # level = level_chromagraph()
     # solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True)
-    # # print('\n')
+    # print('\n')
     # print(len(solutions[0]))
-    # # print('\n')
-    # # # with open('cellular_automaton_solutions.txt', 'w') as fw:
+    # print('\n')
     # for sol in solutions[0]:
     #     print(' '.join(sol))
-        # fw.write(' '.join(sol))
-        # fw.write('\n')
         
     #    D0 S1 D1    D2 S3 D3 D4 D5 D6 D7
     # S0 D0 S1 D1    D2 S3 D3 D4 D5 D6 D7
