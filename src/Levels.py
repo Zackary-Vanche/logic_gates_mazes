@@ -23,7 +23,7 @@ class Levels:
     
     """
 
-    levels_functions_list = [ 
+    levels_functions_list = [
         lvls.level_trivial.f,
         lvls.level_choice.f,
         lvls.level_hello_world.f,
@@ -61,6 +61,7 @@ class Levels:
         lvls.level_product.f,
         lvls.level_inside_out.f,
         lvls.level_chromatic.f,
+        lvls.level_rainbow.f,
         lvls.level_chromagraph.f,
         lvls.level_octahedron.f,
         lvls.level_fluid.f,
@@ -260,6 +261,8 @@ class Levels:
         lvls.level_cattle.f,
         lvls.level_herd.f,
         lvls.level_petersen_graph_edges_coloring.f,
+        lvls.level_k5_edges_coloring.f,
+        lvls.level_k6_edges_coloring.f,
         lvls.level_vortex.f,
         lvls.level_tree.f,
         lvls.level_dead_ends.f,
@@ -616,7 +619,9 @@ class Levels:
     #                         level_tetrahedron_edges_coloring,
     #                         level_cube_edges_coloring,
     #                         level_octahedron_edges_coloring,
-    #                         level_petersen_graph_edges_coloring,
+    #                         lvls.level_k5_edges_coloring.f,
+    #                         lvls.level_k5_edges_coloring.f,
+    #                         lvls.level_k5_edges_coloring.f,
     #                         ],
     #           "The Ruins":[level_backward,
     #                        level_square,
@@ -981,12 +986,11 @@ if __name__ == "__main__":
     # level = level_octahedral_graph()
     # level = level_hexagonal_bipyramid()
     # level = level_vertex()
-    # level = level_boustrophedon()
+    # level = lvls.level_k6_edges_coloring.f()
     # solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True)
     # print('\n')
     # print(len(solutions[0]))
-    # # print('\n')
-    # # # with open('cellular_automaton_solutions.txt', 'w') as fw:
+    # print('\n')
     # for sol in solutions[0]:
     #     print(' '.join(sol))
         

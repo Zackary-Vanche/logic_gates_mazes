@@ -1,7 +1,7 @@
-ns = 10
-nd = 8
-nr = 6
-nv = nd
+ns = 8
+nd = 14
+nr = 9
+nv = 12
 ####
 ####
 ####
@@ -14,7 +14,7 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
-def level_(): 
+def f(): 
 ''')
 
 for i in range(ns):
