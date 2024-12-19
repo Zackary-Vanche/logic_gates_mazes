@@ -8,7 +8,7 @@ from Levels_colors_list import Levels_colors_list
 n_switches = 6
 n_doors = 8
 
-def aux_level_random_starting_point(door_trees_list = [[i for i in range(2**n_switches)] for j in range(n_doors)],
+def aux(door_trees_list = [[i for i in range(2**n_switches)] for j in range(n_doors)],
                                     exit_number=None):
 
     S0 = Switch(name='S0')
@@ -123,5 +123,5 @@ def aux_level_random_starting_point(door_trees_list = [[i for i in range(2**n_sw
     
     return level
 
-def level_random_starting_point():
-    return Maze.get_random_level_from_file(aux_level_random_starting_point)
+def f():
+    return Maze.get_random_level_from_file(aux)

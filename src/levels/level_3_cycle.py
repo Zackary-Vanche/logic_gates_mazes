@@ -7,7 +7,7 @@ from Color import Color
 from Levels_colors_list import Levels_colors_list
 from random import shuffle as rd_shuffle
 
-def level_3_cycle(): 
+def f(): 
     
     ilist = [[0, 0,],
              [1, 0,],

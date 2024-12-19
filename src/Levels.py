@@ -3,332 +3,7 @@ from os.path import exists as os_path_exists
 from os import mkdir as os_mkdir
 from inspect import signature
 
-from levels.level_3_cycle import level_3_cycle
-from levels.level_3sat import level_3sat
-from levels.level_4_colors_theorem import level_4_colors_theorem
-from levels.level_alice_and_bob import level_alice_and_bob
-from levels.level_alternation import level_alternation
-from levels.level_arithmetic import level_arithmetic
-from levels.level_backward import level_backward
-from levels.level_baguenaudier import level_baguenaudier
-from levels.level_bamboos import level_bamboos
-from levels.level_baobab import level_baobab
-from levels.level_beech import level_beech
-from levels.level_betweenness import level_betweenness
-from levels.level_binary import level_binary
-from levels.level_bipartite import level_bipartite
-from levels.level_bis_repetita import level_bis_repetita
-from levels.level_birch import level_birch
-#from levels.level_black_knight_puzzle import level_black_knight_puzzle
-from levels.level_blind_alleys import level_blind_alleys
-from levels.level_bloodline import level_bloodline
-from levels.level_bonsai import level_bonsai
-from levels.level_boolean import level_boolean
-from levels.level_boustrophedon import level_boustrophedon
-from levels.level_box import level_box
-from levels.level_branches import level_branches
-from levels.level_bridges import level_bridges
-from levels.level_bubble_sort import level_bubble_sort
-from levels.level_butterfly_graph import level_butterfly_graph
-from levels.level_cardinal_directions import level_cardinal_directions
-from levels.level_cartesian import level_cartesian
-from levels.level_cattle import level_cattle
-from levels.level_cedar import level_cedar
-from levels.level_cellular_automaton import level_cellular_automaton
-from levels.level_central_symmetry import level_central_symmetry
-from levels.level_chessboard import level_chessboard
-from levels.level_chinese_postman_problem import level_chinese_postman_problem
-from levels.level_choice import level_choice
-from levels.level_chromagraph import level_chromagraph
-from levels.level_chromatic import level_chromatic
-from levels.level_circle import level_circle
-from levels.level_circuit import level_circuit
-from levels.level_classified import level_classified
-from levels.level_cocktail_sort import level_cocktail_sort
-from levels.level_code import level_code
-from levels.level_coloring import level_coloring
-from levels.level_combinatorics import level_combinatorics
-from levels.level_compact import level_compact
-from levels.level_congruence import level_congruence
-from levels.level_conjunctive_normal_form import level_conjunctive_normal_form
-from levels.level_connect_the_dots import level_connect_the_dots
-from levels.level_connectivity import level_connectivity
-from levels.level_crossroad import level_crossroad
-from levels.level_crystal import level_crystal
-from levels.level_cube import level_cube
-from levels.level_cube_edges_coloring import level_cube_edges_coloring
-from levels.level_cubic import level_cubic
-from levels.level_cycle_sort import level_cycle_sort
-from levels.level_cypress import level_cypress
-from levels.level_dead_ends import level_dead_ends
-from levels.level_diagonal import level_diagonal
-from levels.level_dichotomy import level_dichotomy
-from levels.level_diminish import level_diminish
-from levels.level_decrease import level_decrease
-from levels.level_deduct import level_deduct
-from levels.level_desire_path import level_desire_path
-from levels.level_detract import level_detract
-from levels.level_dominating_set import level_dominating_set
-from levels.level_domination_number import level_domination_number
-from levels.level_doppelganger import level_doppelganger
-from levels.level_dots import level_dots
-from levels.level_draw import level_draw
-from levels.level_euclidean_algorithm import level_euclidean_algorithm
-from levels.level_edelweiss import level_edelweiss
-from levels.level_egyptian_fractions import level_egyptian_fractions
-from levels.level_electricity import level_electricity
-from levels.level_elementary import level_elementary
-from levels.level_elm import level_elm
-from levels.level_entropy import level_entropy
-from levels.level_equation import level_equation
-from levels.level_eratosthenes import level_eratosthenes
-from levels.level_error import level_error
-from levels.level_eulerian import level_eulerian
-from levels.level_exact_cover import level_exact_cover
-from levels.level_expand_and_simplify import level_expand_and_simplify
-from levels.level_expedition import level_expedition
-from levels.level_ferrers_diagram import level_ferrers_diagram
-from levels.level_fibonacci_sequence import level_fibonacci_sequence
-from levels.level_fir import level_fir
-from levels.level_first_guarini_s_problem import level_first_guarini_s_problem
-from levels.level_five import level_five
-from levels.level_flash_back import level_flash_back
-from levels.level_fluid import level_fluid
-from levels.level_forest import level_forest
-from levels.level_fortification import level_fortification
-from levels.level_fractal import level_fractal
-from levels.level_gingko_biloba import level_gingko_biloba
-from levels.level_gnome_sort import level_gnome_sort
-from levels.level_grid import level_grid
-from levels.level_hamiltonian import level_hamiltonian
-from levels.level_harmony import level_harmony
-from levels.level_heapsort import level_heapsort
-from levels.level_hello_world import level_hello_world
-from levels.level_herd import level_herd
-from levels.level_hexagonal_bipyramid import level_hexagonal_bipyramid
-from levels.level_hexagon import level_hexagon
-from levels.level_hitting_set import level_hitting_set
-from levels.level_honeycomb import level_honeycomb
-from levels.level_house import level_house
-from levels.level_hungarian_rings import level_hungarian_rings
-from levels.level_hut import level_hut
-from levels.level_impasse import level_impasse
-from levels.level_independent_set import level_independent_set
-from levels.level_infinity import level_infinity
-from levels.level_initiation import level_initiation
-from levels.level_insertion_sort import level_insertion_sort
-from levels.level_inside_out import level_inside_out
-from levels.level_integer_factorization import level_integer_factorization
-from levels.level_integer_partition import level_integer_partition
-from levels.level_intersection import level_intersection
-from levels.level_inversions import level_inversions
-from levels.level_invert import level_invert
-from levels.level_iris import level_iris
-from levels.level_jail import level_jail
-from levels.level_journey import level_journey
-from levels.level_jungle import level_jungle
-from levels.level_k import level_k
-from levels.level_knapsack import level_knapsack
-from levels.level_knight import level_knight
-from levels.level_leaves import level_leaves
-from levels.level_lights_out import level_lights_out
-from levels.level_linear import level_linear
-from levels.level_line_and_columns import level_line_and_columns
-from levels.level_longest_path import level_longest_path
-from levels.level_loop import level_loop
-from levels.level_love import level_love
-from levels.level_magic_square import level_magic_square  # kakuro
-from levels.level_magnolia import level_magnolia
-from levels.level_manhattan_distance import level_manhattan_distance
-from levels.level_mansion import level_mansion
-from levels.level_maple import level_maple
-from levels.level_mastermind import level_mastermind
-from levels.level_matrix import level_matrix
-from levels.level_max_cut import level_max_cut
-from levels.level_meanders import level_meanders
-from levels.level_melencolia_1 import level_melencolia_1
-from levels.level_merge_sort import level_merge_sort
-from levels.level_min_cut import level_min_cut
-from levels.level_minimum_spanning_tree import level_minimum_spanning_tree
-from levels.level_molecule import level_molecule
-from levels.level_mols import level_mols
-from levels.level_moore_neighborhood import level_moore_neighborhood
-from levels.level_naturals import level_naturals
-from levels.level_network import level_network
-from levels.level_no_three_in_line import level_no_three_in_line
-from levels.level_nonogram import level_nonogram
-from levels.level_numeration import level_numeration
-from levels.level_oak import level_oak
-from levels.level_octahedral_graph import level_octahedral_graph
-from levels.level_octahedron import level_octahedron
-from levels.level_octahedron_edges_coloring import level_octahedron_edges_coloring
-from levels.level_odd import level_odd
-from levels.level_odd_even_sort import level_odd_even_sort
-from levels.level_one_third import level_one_third
-from levels.level_orchard import level_orchard
-from levels.level_orchid import level_orchid
-from levels.level_order import level_order
-from levels.level_oval_track_puzzle import level_oval_track_puzzle
-from levels.level_palace import level_palace
-from levels.level_palm_tree import level_palm_tree
-from levels.level_pancake_sorting import level_pancake_sorting
-from levels.level_panex import level_panex
-from levels.level_parallel import level_parallel
-from levels.level_parking import level_parking
-from levels.level_partition import level_partition
-from levels.level_passage import level_passage
-from levels.level_path import level_path
-from levels.level_peirce_s_arrow import level_peirce_s_arrow
-from levels.level_peony import level_peony
-from levels.level_permutate import level_permutate
-from levels.level_permutations import level_permutations
-from levels.level_pigeonhole_sort import level_pigeonhole_sort
-from levels.level_pine import level_pine
-from levels.level_platonic import level_platonic
-from levels.level_playground import level_playground
-from levels.level_podium import level_podium
-from levels.level_points import level_points
-from levels.level_point_of_no_return import level_point_of_no_return
-from levels.level_pong import level_pong
-from levels.level_poppy import level_poppy
-from levels.level_power_down import level_power_down
-from levels.level_prime_number import level_prime_number
-from levels.level_prison import level_prison
-from levels.level_product import level_product
-from levels.level_puzzle import level_puzzle
-from levels.level_pyramid import level_pyramid
-from levels.level_pythagorean import level_pythagorean
-from levels.level_quaternary import level_quaternary
-from levels.level_quick_sort import level_quick_sort
-from levels.level_rainforest import level_rainforest
-from levels.level_rampart import level_rampart
-from levels.level_random_K2 import level_random_K2
-from levels.level_random_K33 import level_random_K33
-from levels.level_random_K5 import level_random_K5
-from levels.level_random_binary_tree import level_random_binary_tree
-# from levels.level_random_boustrophedon import level_random_boustrophedon
-from levels.level_random_bull import level_random_bull
-from levels.level_random_butterfly import level_random_butterfly
-from levels.level_random_come_back import level_random_come_back
-from levels.level_random_cuboctahedron import level_random_cuboctahedron
-from levels.level_random_gemini import level_random_gemini
-from levels.level_random_ladder import level_random_ladder
-from levels.level_random_line import level_random_line
-from levels.level_random_petersen import level_random_petersen
-from levels.level_petersen_graph_edges_coloring import level_petersen_graph_edges_coloring
-from levels.level_random_simple import level_random_simple
-from levels.level_random_star import level_random_star
-from levels.level_random_starting_point import level_random_starting_point
-from levels.level_random_turning import level_random_turning
-from levels.level_random_w6 import level_random_w6
-from levels.level_recurrence import level_recurrence
-from levels.level_relay import level_relay
-from levels.level_remove import level_remove
-from levels.level_river import level_river
-from levels.level_roadblock import level_roadblock
-from levels.level_roses_are_red import level_roses_are_red
-from levels.level_rotation import level_rotation
-from levels.level_rotation_bis import level_rotation_bis
-from levels.level_route import level_route
-from levels.level_secret import level_secret
-from levels.level_second import level_second
-from levels.level_second_guarini_s_problem import level_second_guarini_s_problem
-from levels.level_selection_sort import level_selection_sort
-from levels.level_separation import level_separation
-from levels.level_shared import level_shared
-from levels.level_sheffer_stroke import level_sheffer_stroke
-from levels.level_shortcut import level_shortcut
-from levels.level_shortest_path import level_shortest_path
-from levels.level_shuffled import level_shuffled
-from levels.level_sierpinski import level_sierpinski
-from levels.level_sign import level_sign
-from levels.level_silex import level_silex
-from levels.level_singletons import level_singletons
-from levels.level_small import level_small
-from levels.level_substract import level_substract
-from levels.level_sunflower import level_sunflower
-from levels.level_sneckdown import level_sneckdown
-from levels.level_solitaire import level_solitaire
-from levels.level_sorted import level_sorted
-from levels.level_spaceship import level_spaceship
-from levels.level_spare import level_spare
-from levels.level_spider import level_spider
-from levels.level_spy import level_spy
-from levels.level_square import level_square
-from levels.level_stairs import level_stairs
-from levels.level_strange import level_strange
-from levels.level_sudoku import level_sudoku
-from levels.level_sujiko import level_sujiko
-from levels.level_sum import level_sum
-from levels.level_superpermutation import level_superpermutation
-from levels.level_syracuse import level_syracuse
-from levels.level_takuzu import level_takuzu
-from levels.level_taxicab_number import level_taxicab_number
-from levels.level_temple import level_temple
-from levels.level_tesseract import level_tesseract
-from levels.level_tetractys import level_tetractys
-from levels.level_tetrahedron import level_tetrahedron
-from levels.level_tetrahedron_edges_coloring import level_tetrahedron_edges_coloring
-from levels.level_tetris import level_tetris
-from levels.level_the_4_queens import level_the_4_queens
-from levels.level_the_8_queens import level_the_8_queens
-from levels.level_the_4th_dimension import level_the_4th_dimension
-from levels.level_the_answer import level_the_answer
-from levels.level_the_fourth_triangle import level_the_fourth_triangle
-from levels.level_tour import level_tour
-from levels.level_towers import level_towers
-from levels.level_town import level_town
-from levels.level_trail import level_trail
-from levels.level_travelling_salesman import level_travelling_salesman
-from levels.level_traversal import level_traversal
-from levels.level_tree import level_tree
-from levels.level_triangles import level_triangles
-from levels.level_triangulate import level_triangulate
-from levels.level_trivial import level_trivial
-from levels.level_tulip import level_tulip
-from levels.level_variable import level_variable
-from levels.level_village import level_village
-from levels.level_violets_are_blue import level_violets_are_blue
-from levels.level_von_neumann_neighborhood import level_von_neumann_neighborhood
-from levels.level_vortex import level_vortex
-from levels.level_voyage import level_voyage
-from levels.level_walk import level_walk
-from levels.level_walls import level_walls
-from levels.level_wasted import level_wasted
-from levels.level_water_lily import level_water_lily
-from levels.level_water_pouring import level_water_pouring
-from levels.level_water_tower import level_water_tower
-from levels.level_wave import level_wave
-from levels.level_weights import level_weights
-from levels.level_wheel import level_wheel
-from levels.level_willow import level_willow
-from levels.level_wind_compass import level_wind_compass
-from levels.level_withdraw import level_withdraw
-from levels.level_withhold import level_withhold
-from levels.level_wander import level_wander
-from levels.level_worms import level_worms
-from levels.level_young_tableaux import level_young_tableaux
-from levels.level_yoyo import level_yoyo
-from levels.level_zebra import level_zebra
-
-from levels.level_random_K2 import aux_level_random_K2
-from levels.level_random_K5 import aux_level_random_K5
-from levels.level_random_K33 import aux_level_random_K33
-from levels.level_random_star import aux_level_random_star
-from levels.level_random_starting_point import aux_level_random_starting_point
-from levels.level_random_turning import aux_level_random_turning
-from levels.level_random_line import aux_level_random_line
-from levels.level_random_binary_tree import aux_level_random_binary_tree
-from levels.level_random_w6 import aux_level_random_w6
-from levels.level_random_bull import aux_level_random_bull
-from levels.level_random_butterfly import aux_level_random_butterfly
-from levels.level_random_come_back import aux_level_random_come_back
-from levels.level_random_gemini import aux_level_random_gemini
-from levels.level_random_ladder import aux_level_random_ladder
-# from levels.level_random_boustrophedon import aux_level_random_boustrophedon
-from levels.level_random_simple import aux_level_random_simple
-from levels.level_random_petersen import aux_level_random_petersen
-from levels.level_random_cuboctahedron import aux_level_random_cuboctahedron
+import levels as lvls
 
 class Levels:
 
@@ -348,639 +23,637 @@ class Levels:
     
     """
 
-    levels_functions_list = [                
-                             level_trivial,
-                             level_choice,
-                             level_hello_world,
-                             level_playground,
-                             level_initiation,
-                             level_cardinal_directions,
-                             level_linear,
-                             level_expand_and_simplify,
-                             level_domination_number,
-                             level_variable,
-                             level_order,
-                             level_loop,
-                             level_backward,
-                             level_boolean,
-                             level_alternation,
-                             level_yoyo,
-                             level_power_down,
-                             level_orchard,
-                             level_crossroad,
-                             level_bis_repetita,
-                             level_shared,
-                             level_boustrophedon,
-                             level_spy,
-                             level_leaves,
-                             level_binary,
-                             level_tetrahedron,
-                             level_bonsai,
-                             level_numeration,
-                             level_square,
-                             level_point_of_no_return,
-                             level_cubic,
-                             level_cube,
-                             level_3sat,
-                             level_sum,
-                             level_product,
-                             level_inside_out,
-                             level_chromatic,
-                             level_chromagraph,
-                             level_octahedron,
-                             level_fluid,
-                             level_congruence,
-                             level_infinity,
-                             level_forest,
-                             level_equation,
-                             level_von_neumann_neighborhood,
-                             level_moore_neighborhood,
-                             level_pong,
-                             level_bipartite,
-                             level_bloodline,
-                             level_hamiltonian,
-                             level_sorted,
-                             level_sheffer_stroke,
-                             level_peirce_s_arrow,
-                             level_longest_path,
-                             level_shortest_path,
-                             level_hitting_set,
-                             level_independent_set,
-                             level_dominating_set,
-                             level_one_third,
-                             level_quaternary,
-                             level_circle,
-                             level_exact_cover,
-                             level_connectivity,
-                             level_rainforest,
-                             level_secret,
-                             level_odd,
-                             level_molecule,
-                             level_water_tower,
-                             level_jungle,
-                             level_min_cut,
-                             level_max_cut,
-                             level_hut,
-                             level_arithmetic,
-                             level_tetrahedron_edges_coloring,
-                             level_triangulate,
-                             level_recurrence,
-                             level_stairs,
-                             level_sunflower,
-                             level_naturals,
-                             level_3_cycle,
-                             level_blind_alleys,
-                             level_wasted,
-                             level_doppelganger,
-                             level_meanders,
-                             level_shortcut,
-                             level_wind_compass,
-                             level_prime_number,
-                             level_points,
-                             level_poppy,
-                             level_peony,
-                             level_magnolia,
-                             level_iris,
-                             level_orchid,
-                             level_tulip,
-                             level_substract,
-                             level_remove,
-                             level_deduct,
-                             level_decrease,
-                             level_compact,
-                             level_village,
-                             level_town,
-                             level_fibonacci_sequence,
-                             level_palace,
-                             level_random_simple,
-                             level_parallel,
-                             level_eratosthenes,
-                             level_dots,
-                             level_random_bull,
-                             level_pythagorean,
-                             level_random_butterfly,
-                             level_elementary,
-                             level_young_tableaux,
-                             level_rotation,
-                             level_superpermutation,
-                             level_singletons,
-                             level_relay,
-                             level_circuit,
-                             level_network,
-                             level_pyramid,
-                             level_invert,
-                             level_permutate,
-                             level_desire_path,
-                             level_integer_partition,
-                             level_ferrers_diagram,
-                             level_integer_factorization,
-                             level_chessboard,
-                             level_silex,
-                             level_roses_are_red,
-                             level_edelweiss,
-                             level_violets_are_blue,
-                             level_walk,
-                             level_trail,
-                             level_path,
-                             level_entropy,
-                             level_bubble_sort,
-                             level_odd_even_sort,
-                             level_cocktail_sort,
-                             level_pigeonhole_sort,
-                             level_diminish,
-                             level_withdraw,
-                             level_withhold,
-                             level_detract,
-                             level_dichotomy,
-                             level_wheel,
-                             level_random_star,
-                             level_intersection,
-                             level_partition,
-                             level_second,
-                             level_insertion_sort,
-                             level_gnome_sort,
-                             level_knapsack,
-                             level_love,
-                             level_palm_tree,
-                             level_podium,
-                             level_willow,
-                             level_beech,
-                             level_birch,
-                             level_elm,
-                             level_maple,
-                             level_pine,
-                             level_the_answer,
-                             level_merge_sort,
-                             level_cycle_sort,
-                             level_sneckdown,
-                             level_selection_sort,
-                             level_random_K2,
-                             level_egyptian_fractions,
-                             level_roadblock,
-                             level_passage,
-                             level_impasse,
-                             level_route,
-                             level_baobab,
-                             level_code,
-                             level_random_binary_tree,
-                             level_spider,
-                             level_cedar,
-                             level_oak,
-                             level_fir,
-                             level_traversal,
-                             level_journey,
-                             level_expedition,
-                             level_voyage,
-                             level_taxicab_number,
-                             level_platonic,
-                             level_jail,
-                             level_prison,
-                             level_small,
-                             level_strange,
-                             level_water_lily,
-                             level_harmony,
-                             level_worms,
-                             level_wander,
-                             level_k,
-                             level_the_4_queens,
-                             level_mansion,
-                             level_alice_and_bob,
-                             level_walls,
-                             level_rampart,
-                             level_fortification,
-                             level_rotation_bis,
-                             level_butterfly_graph,
-                             level_sierpinski,
-                             level_the_fourth_triangle,
-                             level_hexagon,
-                             level_octahedral_graph,
-                             level_hexagonal_bipyramid,
-                             level_triangles,
-                             level_nonogram,
-                             level_crystal,
-                             level_mastermind,
-                             level_tetris,
-                             level_central_symmetry,
-                             level_lights_out,
-                             level_weights,
-                             level_tetractys,
-                             level_line_and_columns,
-                             level_baguenaudier,
-                             level_spare,
-                             level_4_colors_theorem,
-                             level_bamboos,
-                             level_gingko_biloba,
-                             level_cypress,
-                             level_cube_edges_coloring,
-                             level_octahedron_edges_coloring,
-                             level_grid,
-                             level_flash_back,
-                             level_spaceship,
-                             level_connect_the_dots,
-                             level_the_8_queens,
-                             level_magic_square,
-                             level_melencolia_1,
-                             level_matrix,
-                             level_river,
-                             level_cattle,
-                             level_herd,
-                             level_petersen_graph_edges_coloring,
-                             level_vortex,
-                             level_tree,
-                             level_dead_ends,
-                             level_conjunctive_normal_form,
-                             level_betweenness,
-                             level_fractal,
-                             level_euclidean_algorithm,
-                             level_tesseract,
-                             level_random_turning,
-                             level_branches,
-                             level_oval_track_puzzle,
-                             level_cartesian,
-                             level_random_line,
-                             level_eulerian,
-                             level_random_starting_point,
-                             level_sujiko,
-                             level_electricity,
-                             level_random_w6,
-                             level_pancake_sorting,
-                             level_random_ladder,
-                             level_wave,
-                             level_box,
-                             level_error,
-                             level_house,
-                             level_the_4th_dimension,
-                             level_draw,
-                             level_random_come_back,
-                             level_permutations,
-                             level_inversions,
-                             level_random_K5,
-                             level_takuzu,
-                             level_random_K33,
-                             level_travelling_salesman,
-                             level_random_petersen,
-                             level_no_three_in_line,
-                             level_manhattan_distance,
-                             level_tour,
-                             level_minimum_spanning_tree,
-                             level_honeycomb,
-                             level_random_gemini,
-                             level_random_cuboctahedron,
-                             level_knight,
-                             level_coloring,
-                             level_first_guarini_s_problem,
-                             level_second_guarini_s_problem,
-                             level_diagonal,
-                             level_sudoku,
-                             level_temple,
-                             level_syracuse,
-                             level_quick_sort,
-                             level_five,
-                             level_shuffled,
-                             level_heapsort,
-                             level_sign,
-                             level_combinatorics,
-                             level_hungarian_rings,
-                             level_water_pouring,
-                             level_puzzle,
-                             level_solitaire,
-                             level_mols,
-                             level_separation,
-                             level_panex,
-                             level_classified,
-                             level_towers,
-                             level_zebra,
-                             level_bridges,
-                             level_chinese_postman_problem,
-                             level_cellular_automaton,
-                             level_parking,
-                             #level_panex,
-                             #level_superflip,
+    levels_functions_list = [ 
+        lvls.level_trivial.f,
+        lvls.level_choice.f,
+        lvls.level_hello_world.f,
+        lvls.level_playground.f,
+        lvls.level_initiation.f,
+        lvls.level_cardinal_directions.f,
+        lvls.level_linear.f,
+        lvls.level_expand_and_simplify.f,
+        lvls.level_domination_number.f,
+        lvls.level_variable.f,
+        lvls.level_order.f,
+        lvls.level_loop.f,
+        lvls.level_backward.f,
+        lvls.level_boolean.f,
+        lvls.level_alternation.f,
+        lvls.level_yoyo.f,
+        lvls.level_power_down.f,
+        lvls.level_orchard.f,
+        lvls.level_crossroad.f,
+        lvls.level_bis_repetita.f,
+        lvls.level_shared.f,
+        lvls.level_boustrophedon.f,
+        lvls.level_spy.f,
+        lvls.level_leaves.f,
+        lvls.level_binary.f,
+        lvls.level_tetrahedron.f,
+        lvls.level_bonsai.f,
+        lvls.level_numeration.f,
+        lvls.level_square.f,
+        lvls.level_point_of_no_return.f,
+        lvls.level_cubic.f,
+        lvls.level_cube.f,
+        lvls.level_3sat.f,
+        lvls.level_sum.f,
+        lvls.level_product.f,
+        lvls.level_inside_out.f,
+        lvls.level_chromatic.f,
+        lvls.level_chromagraph.f,
+        lvls.level_octahedron.f,
+        lvls.level_fluid.f,
+        lvls.level_congruence.f,
+        lvls.level_infinity.f,
+        lvls.level_forest.f,
+        lvls.level_equation.f,
+        lvls.level_von_neumann_neighborhood.f,
+        lvls.level_moore_neighborhood.f,
+        lvls.level_pong.f,
+        lvls.level_bipartite.f,
+        lvls.level_bloodline.f,
+        lvls.level_hamiltonian.f,
+        lvls.level_sorted.f,
+        lvls.level_sheffer_stroke.f,
+        lvls.level_peirce_s_arrow.f,
+        lvls.level_longest_path.f,
+        lvls.level_shortest_path.f,
+        lvls.level_hitting_set.f,
+        lvls.level_independent_set.f,
+        lvls.level_dominating_set.f,
+        lvls.level_one_third.f,
+        lvls.level_quaternary.f,
+        lvls.level_circle.f,
+        lvls.level_exact_cover.f,
+        lvls.level_connectivity.f,
+        lvls.level_rainforest.f,
+        lvls.level_secret.f,
+        lvls.level_odd.f,
+        lvls.level_molecule.f,
+        lvls.level_water_tower.f,
+        lvls.level_jungle.f,
+        lvls.level_min_cut.f,
+        lvls.level_max_cut.f,
+        lvls.level_hut.f,
+        lvls.level_arithmetic.f,
+        lvls.level_tetrahedron_edges_coloring.f,
+        lvls.level_triangulate.f,
+        lvls.level_recurrence.f,
+        lvls.level_stairs.f,
+        lvls.level_sunflower.f,
+        lvls.level_naturals.f,
+        lvls.level_3_cycle.f,
+        lvls.level_blind_alleys.f,
+        lvls.level_wasted.f,
+        lvls.level_doppelganger.f,
+        lvls.level_meanders.f,
+        lvls.level_shortcut.f,
+        lvls.level_wind_compass.f,
+        lvls.level_prime_number.f,
+        lvls.level_points.f,
+        lvls.level_poppy.f,
+        lvls.level_peony.f,
+        lvls.level_magnolia.f,
+        lvls.level_iris.f,
+        lvls.level_orchid.f,
+        lvls.level_tulip.f,
+        lvls.level_substract.f,
+        lvls.level_remove.f,
+        lvls.level_deduct.f,
+        lvls.level_decrease.f,
+        lvls.level_compact.f,
+        lvls.level_village.f,
+        lvls.level_town.f,
+        lvls.level_fibonacci_sequence.f,
+        lvls.level_palace.f,
+        lvls.level_random_simple.f,
+        lvls.level_parallel.f,
+        lvls.level_eratosthenes.f,
+        lvls.level_dots.f,
+        lvls.level_random_bull.f,
+        lvls.level_pythagorean.f,
+        lvls.level_random_butterfly.f,
+        lvls.level_elementary.f,
+        lvls.level_young_tableaux.f,
+        lvls.level_rotation.f,
+        lvls.level_superpermutation.f,
+        lvls.level_singletons.f,
+        lvls.level_relay.f,
+        lvls.level_circuit.f,
+        lvls.level_network.f,
+        lvls.level_pyramid.f,
+        lvls.level_invert.f,
+        lvls.level_permutate.f,
+        lvls.level_desire_path.f,
+        lvls.level_integer_partition.f,
+        lvls.level_ferrers_diagram.f,
+        lvls.level_integer_factorization.f,
+        lvls.level_chessboard.f,
+        lvls.level_silex.f,
+        lvls.level_roses_are_red.f,
+        lvls.level_edelweiss.f,
+        lvls.level_violets_are_blue.f,
+        lvls.level_walk.f,
+        lvls.level_trail.f,
+        lvls.level_path.f,
+        lvls.level_entropy.f,
+        lvls.level_bubble_sort.f,
+        lvls.level_odd_even_sort.f,
+        lvls.level_cocktail_sort.f,
+        lvls.level_pigeonhole_sort.f,
+        lvls.level_diminish.f,
+        lvls.level_withdraw.f,
+        lvls.level_withhold.f,
+        lvls.level_detract.f,
+        lvls.level_dichotomy.f,
+        lvls.level_wheel.f,
+        lvls.level_random_star.f,
+        lvls.level_intersection.f,
+        lvls.level_partition.f,
+        lvls.level_second.f,
+        lvls.level_insertion_sort.f,
+        lvls.level_gnome_sort.f,
+        lvls.level_knapsack.f,
+        lvls.level_love.f,
+        lvls.level_palm_tree.f,
+        lvls.level_podium.f,
+        lvls.level_willow.f,
+        lvls.level_beech.f,
+        lvls.level_birch.f,
+        lvls.level_elm.f,
+        lvls.level_maple.f,
+        lvls.level_pine.f,
+        lvls.level_the_answer.f,
+        lvls.level_merge_sort.f,
+        lvls.level_cycle_sort.f,
+        lvls.level_sneckdown.f,
+        lvls.level_selection_sort.f,
+        lvls.level_random_K2.f,
+        lvls.level_egyptian_fractions.f,
+        lvls.level_roadblock.f,
+        lvls.level_passage.f,
+        lvls.level_impasse.f,
+        lvls.level_route.f,
+        lvls.level_baobab.f,
+        lvls.level_code.f,
+        lvls.level_random_binary_tree.f,
+        lvls.level_spider.f,
+        lvls.level_cedar.f,
+        lvls.level_oak.f,
+        lvls.level_fir.f,
+        lvls.level_traversal.f,
+        lvls.level_journey.f,
+        lvls.level_expedition.f,
+        lvls.level_voyage.f,
+        lvls.level_taxicab_number.f,
+        lvls.level_platonic.f,
+        lvls.level_jail.f,
+        lvls.level_prison.f,
+        lvls.level_small.f,
+        lvls.level_strange.f,
+        lvls.level_water_lily.f,
+        lvls.level_harmony.f,
+        lvls.level_worms.f,
+        lvls.level_wander.f,
+        lvls.level_k.f,
+        lvls.level_the_4_queens.f,
+        lvls.level_mansion.f,
+        lvls.level_alice_and_bob.f,
+        lvls.level_walls.f,
+        lvls.level_rampart.f,
+        lvls.level_fortification.f,
+        lvls.level_rotation_bis.f,
+        lvls.level_butterfly_graph.f,
+        lvls.level_sierpinski.f,
+        lvls.level_the_fourth_triangle.f,
+        lvls.level_hexagon.f,
+        lvls.level_octahedral_graph.f,
+        lvls.level_hexagonal_bipyramid.f,
+        lvls.level_triangles.f,
+        lvls.level_nonogram.f,
+        lvls.level_crystal.f,
+        lvls.level_mastermind.f,
+        lvls.level_tetris.f,
+        lvls.level_central_symmetry.f,
+        lvls.level_lights_out.f,
+        lvls.level_weights.f,
+        lvls.level_tetractys.f,
+        lvls.level_line_and_columns.f,
+        lvls.level_baguenaudier.f,
+        lvls.level_spare.f,
+        lvls.level_4_colors_theorem.f,
+        lvls.level_bamboos.f,
+        lvls.level_gingko_biloba.f,
+        lvls.level_cypress.f,
+        lvls.level_cube_edges_coloring.f,
+        lvls.level_octahedron_edges_coloring.f,
+        lvls.level_grid.f,
+        lvls.level_flash_back.f,
+        lvls.level_spaceship.f,
+        lvls.level_connect_the_dots.f,
+        lvls.level_the_8_queens.f,
+        lvls.level_magic_square.f,
+        lvls.level_melencolia_1.f,
+        lvls.level_matrix.f,
+        lvls.level_river.f,
+        lvls.level_cattle.f,
+        lvls.level_herd.f,
+        lvls.level_petersen_graph_edges_coloring.f,
+        lvls.level_vortex.f,
+        lvls.level_tree.f,
+        lvls.level_dead_ends.f,
+        lvls.level_conjunctive_normal_form.f,
+        lvls.level_betweenness.f,
+        lvls.level_fractal.f,
+        lvls.level_euclidean_algorithm.f,
+        lvls.level_tesseract.f,
+        lvls.level_random_turning.f,
+        lvls.level_branches.f,
+        lvls.level_oval_track_puzzle.f,
+        lvls.level_cartesian.f,
+        lvls.level_random_line.f,
+        lvls.level_eulerian.f,
+        lvls.level_random_starting_point.f,
+        lvls.level_sujiko.f,
+        lvls.level_electricity.f,
+        lvls.level_random_w6.f,
+        lvls.level_pancake_sorting.f,
+        lvls.level_random_ladder.f,
+        lvls.level_wave.f,
+        lvls.level_box.f,
+        lvls.level_error.f,
+        lvls.level_house.f,
+        lvls.level_the_4th_dimension.f,
+        lvls.level_draw.f,
+        lvls.level_random_come_back.f,
+        lvls.level_permutations.f,
+        lvls.level_inversions.f,
+        lvls.level_random_K5.f,
+        lvls.level_takuzu.f,
+        lvls.level_random_K33.f,
+        lvls.level_travelling_salesman.f,
+        lvls.level_random_petersen.f,
+        lvls.level_no_three_in_line.f,
+        lvls.level_manhattan_distance.f,
+        lvls.level_tour.f,
+        lvls.level_minimum_spanning_tree.f,
+        lvls.level_honeycomb.f,
+        lvls.level_random_gemini.f,
+        lvls.level_random_cuboctahedron.f,
+        lvls.level_knight.f,
+        lvls.level_coloring.f,
+        lvls.level_first_guarini_s_problem.f,
+        lvls.level_second_guarini_s_problem.f,
+        lvls.level_diagonal.f,
+        lvls.level_sudoku.f,
+        lvls.level_temple.f,
+        lvls.level_syracuse.f,
+        lvls.level_quick_sort.f,
+        lvls.level_five.f,
+        lvls.level_shuffled.f,
+        lvls.level_heapsort.f,
+        lvls.level_sign.f,
+        lvls.level_combinatorics.f,
+        lvls.level_hungarian_rings.f,
+        lvls.level_water_pouring.f,
+        lvls.level_puzzle.f,
+        lvls.level_solitaire.f,
+        lvls.level_mols.f,
+        lvls.level_separation.f,
+        lvls.level_panex.f,
+        lvls.level_classified.f,
+        lvls.level_towers.f,
+        lvls.level_zebra.f,
+        lvls.level_bridges.f,
+        lvls.level_chinese_postman_problem.f,
+        lvls.level_cellular_automaton.f,
+        lvls.level_parking.f,
                              ]
     
-    Worlds = {'The Hidden Country':[level_von_neumann_neighborhood,
-                                    level_cubic,
-                                    level_spy,
-                                    level_hitting_set,
-                                    level_independent_set,
-                                    level_dominating_set,
-                                    level_exact_cover,
-                                    level_connectivity,
-                                    level_secret,
-                                    level_moore_neighborhood,
-                                    level_triangulate,
-                                    level_water_tower,
-                                    level_min_cut,
-                                    level_max_cut,
-                                    level_entropy,
-                                    level_branches,
-                                    level_tree,
-                                    level_tesseract,
-                                    level_electricity,
-                                    level_wave,
-                                    level_travelling_salesman,
-                                    level_bridges,
-                                    level_chinese_postman_problem,
-                                   ],
-              'The Tree-House':[level_orchard,
-                                level_binary,
-                                level_forest,
-                                level_jungle,
-                                level_rainforest,
-                             ],
-              'The Wooden World':[level_bonsai,
-                                  level_poppy,
-                                  level_peony,
-                                  level_magnolia,
-                                  level_iris,
-                                  level_orchid,
-                                  level_tulip,
-                                  level_roses_are_red,
-                                  level_edelweiss,
-                                  level_violets_are_blue,
-                                  level_love,
-                                  level_palm_tree,
-                                  level_podium,
-                                  level_intersection,
-                                  level_sunflower,
-                                  level_willow,
-                                  level_beech,
-                                  level_birch,
-                                  level_elm,
-                                  level_maple,
-                                  level_pine,
-                                  level_baobab,
-                                  level_minimum_spanning_tree,
-                                  level_weights,
-                                  level_honeycomb,
-                                  level_cedar,
-                                  level_oak,
-                                  level_fir,
-                                  level_bamboos,
-                                  level_gingko_biloba,
-                                  level_cypress],
-              'The Travel':[level_tetrahedron,
-                            level_meanders,
-                            level_shortcut,
-                            level_octahedron,
-                            level_cube,
-                            level_desire_path,
-                            level_hamiltonian,
-                            level_wind_compass,
-                            level_singletons,
-                            level_walk,
-                            level_trail,
-                            level_path,
-                            level_sneckdown,
-                            level_roadblock,
-                            level_passage,
-                            level_impasse,
-                            level_route,
-                            level_traversal,
-                            level_journey,
-                            level_expedition,
-                            level_voyage,
-                            level_water_lily,
-                            level_harmony,
-                            level_worms,
-                            level_wander,
-                            level_tour,
-                            level_central_symmetry,
-                            level_tetractys,
-                            level_connect_the_dots,
-                            level_eulerian,
-                            level_separation,
-                            ],
-              'The Accidental Realm':[level_random_simple,
-                                      level_random_bull,
-                                      level_random_butterfly,
-                                      level_random_star,
-                                      level_random_K2,
-                                      level_random_binary_tree,
-                                      level_random_turning,
-                                      level_random_line,
-                                      level_random_starting_point,
-                                      level_random_w6,
-                                      level_random_ladder,
-                                      level_random_come_back,
-                                      level_random_K5,
-                                      level_random_K33,
-                                      level_random_petersen,
-                                      level_random_gemini,
-                                      level_random_cuboctahedron,
-                                      ],
-              'The Digital Maze':[level_sheffer_stroke,
-                                  level_peirce_s_arrow,
-                                  level_relay,
-                                  level_circuit,
-                                  level_network,
-                                  level_pyramid,
-                                  ],
-              'The Permutation Universe':[level_circle,
-                                          level_elementary,
-                                          level_invert,
-                                          level_permutate,
-                                          level_bubble_sort,
-                                          level_odd_even_sort,
-                                          level_cocktail_sort,
-                                          level_3_cycle,
-                                          level_spare,
-                                          level_pigeonhole_sort,
-                                          level_insertion_sort,
-                                          level_gnome_sort,
-                                          level_merge_sort,
-                                          level_cycle_sort,
-                                          level_selection_sort,
-                                          level_quick_sort,
-                                          level_grid,
-                                          level_heapsort,
-                                          level_spaceship,
-                                          level_vortex,
-                                          level_line_and_columns,
-                                          level_permutations,
-                                          level_inversions,
-                                          level_pancake_sorting,
-                                          level_oval_track_puzzle,
-                                          level_box,
-                                          level_error,
-                                          level_puzzle,
-                                          level_panex,
-                                          level_hungarian_rings,
-                                          level_cellular_automaton,
-                                          level_parking,
-                                          #level_panex,
-                                          #level_superflip,
-                                          ],
-              'The Rotations Dimension':[level_wasted,
-                                         level_rotation,
-                                         level_rotation_bis,
-                                         level_the_4th_dimension,
-                                        ],
-              'The Deduction Course':[level_dichotomy,
-                                      level_mastermind,
-                                      ],
-              'The Numerals':[level_sum,
-                              level_points,
-                              level_numeration,
-                              level_inside_out,
-                              level_equation,
-                              level_dots,
-                              level_bloodline,
-                              level_arithmetic,
-                              level_product,
-                              level_congruence,
-                              level_one_third,
-                              level_prime_number,
-                              level_pythagorean,
-                              level_sorted,
-                              level_fibonacci_sequence,
-                              level_quaternary,
-                              level_young_tableaux,
-                              level_integer_partition,
-                              level_ferrers_diagram,
-                              level_integer_factorization,
-                              level_eratosthenes,
-                              level_partition,
-                              level_second,
-                              level_the_answer,
-                              level_egyptian_fractions,
-                              level_strange,
-                              level_taxicab_number,
-                              level_euclidean_algorithm,
-                              level_magic_square,
-                              level_melencolia_1,
-                              level_matrix,
-                              level_takuzu,
-                              level_sujiko,
-                              level_diagonal,
-                              level_sudoku,
-                              level_mols,
-                              ],
-              "The substractions":[level_substract,
-                                   level_remove,
-                                   level_deduct,
-                                   level_decrease,
-                                   level_diminish,
-                                   level_withdraw,
-                                   level_withhold,
-                                   level_detract,],
-              "The Decisions":[level_boolean,
-                               level_alternation,
-                               level_3sat,
-                               level_point_of_no_return,
-                               level_chromatic,
-                               level_chromagraph,
-                               level_stairs,
-                               level_longest_path,
-                               level_shortest_path,
-                               level_tetris,
-                               level_knapsack,
-                               level_wheel,
-                               level_betweenness,
-                               level_4_colors_theorem,
-                               level_nonogram,
-                               level_no_three_in_line,
-                               level_superpermutation,
-                               level_conjunctive_normal_form,
-                               level_manhattan_distance,
-                               level_coloring,
-                               level_zebra,
-                               level_five,
-                               level_shuffled,
-                               level_sign,
-                               level_combinatorics,
-                             ],
-              "The Chess Experts":[level_chessboard,
-                                   level_the_4_queens,
-                                   level_k,
-                                   level_the_8_queens,
-                                   level_knight,
-                                   level_first_guarini_s_problem,
-                                   level_second_guarini_s_problem,
-                                   ],
-              "The Nature":[level_trivial,
-                            level_choice,
-                            level_hello_world,
-                            level_playground,
-                            level_initiation,
-                            level_cardinal_directions,
-                            level_linear,
-                            level_expand_and_simplify,
-                            level_variable,
-                            level_order,
-                            level_loop,
-                            level_yoyo,
-                            level_boustrophedon,
-                            level_power_down,
-                            level_bis_repetita,
-                            level_domination_number,
-                            level_shared,
-                            level_odd,
-                            level_molecule,
-                            level_parallel,
-                            level_leaves,
-                            level_recurrence,
-                            level_blind_alleys,
-                            level_alice_and_bob,
-                            level_walls,
-                            level_rampart,
-                            level_fortification,
-                            level_river,
-                            level_cattle,
-                            level_herd,
-                            level_small,
-                            level_platonic,
-                            level_baguenaudier,
-                            level_lights_out,
-                            level_cartesian,
-                            level_compact,
-                            level_temple,
-                            level_water_pouring,
-                            level_solitaire,
-                            level_syracuse,
-                            level_classified,
-                            level_towers,
-                            level_tetrahedron_edges_coloring,
-                            level_cube_edges_coloring,
-                            level_octahedron_edges_coloring,
-                            level_petersen_graph_edges_coloring,
-                            ],
-              "The Ruins":[level_backward,
-                           level_square,
-                           level_fluid,
-                           level_crossroad,
-                           level_silex,
-                           level_infinity,
-                           level_spider,
-                           level_hut,
-                           level_town,
-                           level_village,
-                           level_palace,
-                           level_mansion,
-                           level_crystal,
-                           level_jail,
-                           level_prison,
-                           level_dead_ends,
-                           level_fractal,
-                           level_house,
-                           level_draw,],
-              "The Zigzags":[level_pong,
-                             level_naturals,
-                             level_bipartite,
-                             level_doppelganger,
-                             level_flash_back,
-                             level_code,
-                             ],
-              "The triangular globe":[level_butterfly_graph,
-                                      level_sierpinski,
-                                      level_the_fourth_triangle,
-                                      level_hexagon,
-                                      level_octahedral_graph,
-                                      level_hexagonal_bipyramid,
-                                      level_triangles,]
-              }
+    # Worlds = {'The Hidden Country':[level_von_neumann_neighborhood,
+    #                                 level_cubic,
+    #                                 level_spy,
+    #                                 level_hitting_set,
+    #                                 level_independent_set,
+    #                                 level_dominating_set,
+    #                                 level_exact_cover,
+    #                                 level_connectivity,
+    #                                 level_secret,
+    #                                 level_moore_neighborhood,
+    #                                 level_triangulate,
+    #                                 level_water_tower,
+    #                                 level_min_cut,
+    #                                 level_max_cut,
+    #                                 level_entropy,
+    #                                 level_branches,
+    #                                 level_tree,
+    #                                 level_tesseract,
+    #                                 level_electricity,
+    #                                 level_wave,
+    #                                 level_travelling_salesman,
+    #                                 level_bridges,
+    #                                 level_chinese_postman_problem,
+    #                                ],
+    #           'The Tree-House':[level_orchard,
+    #                             level_binary,
+    #                             level_forest,
+    #                             level_jungle,
+    #                             level_rainforest,
+    #                          ],
+    #           'The Wooden World':[level_bonsai,
+    #                               level_poppy,
+    #                               level_peony,
+    #                               level_magnolia,
+    #                               level_iris,
+    #                               level_orchid,
+    #                               level_tulip,
+    #                               level_roses_are_red,
+    #                               level_edelweiss,
+    #                               level_violets_are_blue,
+    #                               level_love,
+    #                               level_palm_tree,
+    #                               level_podium,
+    #                               level_intersection,
+    #                               level_sunflower,
+    #                               level_willow,
+    #                               level_beech,
+    #                               level_birch,
+    #                               level_elm,
+    #                               level_maple,
+    #                               level_pine,
+    #                               level_baobab,
+    #                               level_minimum_spanning_tree,
+    #                               level_weights,
+    #                               level_honeycomb,
+    #                               level_cedar,
+    #                               level_oak,
+    #                               level_fir,
+    #                               level_bamboos,
+    #                               level_gingko_biloba,
+    #                               level_cypress],
+    #           'The Travel':[level_tetrahedron,
+    #                         level_meanders,
+    #                         level_shortcut,
+    #                         level_octahedron,
+    #                         level_cube,
+    #                         level_desire_path,
+    #                         level_hamiltonian,
+    #                         level_wind_compass,
+    #                         level_singletons,
+    #                         level_walk,
+    #                         level_trail,
+    #                         level_path,
+    #                         level_sneckdown,
+    #                         level_roadblock,
+    #                         level_passage,
+    #                         level_impasse,
+    #                         level_route,
+    #                         level_traversal,
+    #                         level_journey,
+    #                         level_expedition,
+    #                         level_voyage,
+    #                         level_water_lily,
+    #                         level_harmony,
+    #                         level_worms,
+    #                         level_wander,
+    #                         level_tour,
+    #                         level_central_symmetry,
+    #                         level_tetractys,
+    #                         level_connect_the_dots,
+    #                         level_eulerian,
+    #                         level_separation,
+    #                         ],
+    #           'The Accidental Realm':[level_random_simple,
+    #                                   level_random_bull,
+    #                                   level_random_butterfly,
+    #                                   level_random_star,
+    #                                   level_random_K2,
+    #                                   level_random_binary_tree,
+    #                                   level_random_turning,
+    #                                   level_random_line,
+    #                                   level_random_starting_point,
+    #                                   level_random_w6,
+    #                                   level_random_ladder,
+    #                                   level_random_come_back,
+    #                                   level_random_K5,
+    #                                   level_random_K33,
+    #                                   level_random_petersen,
+    #                                   level_random_gemini,
+    #                                   level_random_cuboctahedron,
+    #                                   ],
+    #           'The Digital Maze':[level_sheffer_stroke,
+    #                               level_peirce_s_arrow,
+    #                               level_relay,
+    #                               level_circuit,
+    #                               level_network,
+    #                               level_pyramid,
+    #                               ],
+    #           'The Permutation Universe':[level_circle,
+    #                                       level_elementary,
+    #                                       level_invert,
+    #                                       level_permutate,
+    #                                       level_bubble_sort,
+    #                                       level_odd_even_sort,
+    #                                       level_cocktail_sort,
+    #                                       level_3_cycle,
+    #                                       level_spare,
+    #                                       level_pigeonhole_sort,
+    #                                       level_insertion_sort,
+    #                                       level_gnome_sort,
+    #                                       level_merge_sort,
+    #                                       level_cycle_sort,
+    #                                       level_selection_sort,
+    #                                       level_quick_sort,
+    #                                       level_grid,
+    #                                       level_heapsort,
+    #                                       level_spaceship,
+    #                                       level_vortex,
+    #                                       level_line_and_columns,
+    #                                       level_permutations,
+    #                                       level_inversions,
+    #                                       level_pancake_sorting,
+    #                                       level_oval_track_puzzle,
+    #                                       level_box,
+    #                                       level_error,
+    #                                       level_puzzle,
+    #                                       level_panex,
+    #                                       level_hungarian_rings,
+    #                                       level_cellular_automaton,
+    #                                       level_parking,
+    #                                       #level_panex,
+    #                                       #level_superflip,
+    #                                       ],
+    #           'The Rotations Dimension':[level_wasted,
+    #                                      level_rotation,
+    #                                      level_rotation_bis,
+    #                                      level_the_4th_dimension,
+    #                                     ],
+    #           'The Deduction Course':[level_dichotomy,
+    #                                   level_mastermind,
+    #                                   ],
+    #           'The Numerals':[level_sum,
+    #                           level_points,
+    #                           level_numeration,
+    #                           level_inside_out,
+    #                           level_equation,
+    #                           level_dots,
+    #                           level_bloodline,
+    #                           level_arithmetic,
+    #                           level_product,
+    #                           level_congruence,
+    #                           level_one_third,
+    #                           level_prime_number,
+    #                           level_pythagorean,
+    #                           level_sorted,
+    #                           level_fibonacci_sequence,
+    #                           level_quaternary,
+    #                           level_young_tableaux,
+    #                           level_integer_partition,
+    #                           level_ferrers_diagram,
+    #                           level_integer_factorization,
+    #                           level_eratosthenes,
+    #                           level_partition,
+    #                           level_second,
+    #                           level_the_answer,
+    #                           level_egyptian_fractions,
+    #                           level_strange,
+    #                           level_taxicab_number,
+    #                           level_euclidean_algorithm,
+    #                           level_magic_square,
+    #                           level_melencolia_1,
+    #                           level_matrix,
+    #                           level_takuzu,
+    #                           level_sujiko,
+    #                           level_diagonal,
+    #                           level_sudoku,
+    #                           level_mols,
+    #                           ],
+    #           "The substractions":[level_substract,
+    #                                level_remove,
+    #                                level_deduct,
+    #                                level_decrease,
+    #                                level_diminish,
+    #                                level_withdraw,
+    #                                level_withhold,
+    #                                level_detract,],
+    #           "The Decisions":[level_boolean,
+    #                            level_alternation,
+    #                            level_3sat,
+    #                            level_point_of_no_return,
+    #                            level_chromatic,
+    #                            level_chromagraph,
+    #                            level_stairs,
+    #                            level_longest_path,
+    #                            level_shortest_path,
+    #                            level_tetris,
+    #                            level_knapsack,
+    #                            level_wheel,
+    #                            level_betweenness,
+    #                            level_4_colors_theorem,
+    #                            level_nonogram,
+    #                            level_no_three_in_line,
+    #                            level_superpermutation,
+    #                            level_conjunctive_normal_form,
+    #                            level_manhattan_distance,
+    #                            level_coloring,
+    #                            level_zebra,
+    #                            level_five,
+    #                            level_shuffled,
+    #                            level_sign,
+    #                            level_combinatorics,
+    #                          ],
+    #           "The Chess Experts":[level_chessboard,
+    #                                level_the_4_queens,
+    #                                level_k,
+    #                                level_the_8_queens,
+    #                                level_knight,
+    #                                level_first_guarini_s_problem,
+    #                                level_second_guarini_s_problem,
+    #                                ],
+    #           "The Nature":[level_trivial,
+    #                         level_choice,
+    #                         level_hello_world,
+    #                         level_playground,
+    #                         level_initiation,
+    #                         level_cardinal_directions,
+    #                         level_linear,
+    #                         level_expand_and_simplify,
+    #                         level_variable,
+    #                         level_order,
+    #                         level_loop,
+    #                         level_yoyo,
+    #                         level_boustrophedon,
+    #                         level_power_down,
+    #                         level_bis_repetita,
+    #                         level_domination_number,
+    #                         level_shared,
+    #                         level_odd,
+    #                         level_molecule,
+    #                         level_parallel,
+    #                         level_leaves,
+    #                         level_recurrence,
+    #                         level_blind_alleys,
+    #                         level_alice_and_bob,
+    #                         level_walls,
+    #                         level_rampart,
+    #                         level_fortification,
+    #                         level_river,
+    #                         level_cattle,
+    #                         level_herd,
+    #                         level_small,
+    #                         level_platonic,
+    #                         level_baguenaudier,
+    #                         level_lights_out,
+    #                         level_cartesian,
+    #                         level_compact,
+    #                         level_temple,
+    #                         level_water_pouring,
+    #                         level_solitaire,
+    #                         level_syracuse,
+    #                         level_classified,
+    #                         level_towers,
+    #                         level_tetrahedron_edges_coloring,
+    #                         level_cube_edges_coloring,
+    #                         level_octahedron_edges_coloring,
+    #                         level_petersen_graph_edges_coloring,
+    #                         ],
+    #           "The Ruins":[level_backward,
+    #                        level_square,
+    #                        level_fluid,
+    #                        level_crossroad,
+    #                        level_silex,
+    #                        level_infinity,
+    #                        level_spider,
+    #                        level_hut,
+    #                        level_town,
+    #                        level_village,
+    #                        level_palace,
+    #                        level_mansion,
+    #                        level_crystal,
+    #                        level_jail,
+    #                        level_prison,
+    #                        level_dead_ends,
+    #                        level_fractal,
+    #                        level_house,
+    #                        level_draw,],
+    #           "The Zigzags":[level_pong,
+    #                          level_naturals,
+    #                          level_bipartite,
+    #                          level_doppelganger,
+    #                          level_flash_back,
+    #                          level_code,
+    #                          ],
+    #           "The triangular globe":[level_butterfly_graph,
+    #                                   level_sierpinski,
+    #                                   level_the_fourth_triangle,
+    #                                   level_hexagon,
+    #                                   level_octahedral_graph,
+    #                                   level_hexagonal_bipyramid,
+    #                                   level_triangles,]
+    #           }
     
-    worlds_names = list(Worlds.keys())
+    # worlds_names = list(Worlds.keys())
     # ['The Hidden Country',
     #  'The Tree-house',
     #  'The Journey',
@@ -1005,24 +678,23 @@ class Levels:
     # print(levels_names_dico)
 
     aux_level_function_list = [
-        aux_level_random_simple,
-        aux_level_random_bull,
-        aux_level_random_butterfly,
-        aux_level_random_star,
-        aux_level_random_K2,
-        aux_level_random_binary_tree,
-        aux_level_random_line,
-        aux_level_random_turning,
-        aux_level_random_w6,
-        # aux_level_random_boustrophedon,
-        aux_level_random_come_back,
-        aux_level_random_starting_point,
-        aux_level_random_ladder,
-        aux_level_random_K5,
-        aux_level_random_K33,
-        aux_level_random_petersen,
-        aux_level_random_cuboctahedron,
-        aux_level_random_gemini,
+        lvls.level_random_simple.aux,
+        lvls.level_random_bull.aux,
+        lvls.level_random_butterfly.aux,
+        lvls.level_random_star.aux,
+        lvls.level_random_K2.aux,
+        lvls.level_random_binary_tree.aux,
+        lvls.level_random_line.aux,
+        lvls.level_random_turning.aux,
+        lvls.level_random_w6.aux,
+        lvls.level_random_come_back.aux,
+        lvls.level_random_starting_point.aux,
+        lvls.level_random_ladder.aux,
+        lvls.level_random_K5.aux,
+        lvls.level_random_K33.aux,
+        lvls.level_random_petersen.aux,
+        lvls.level_random_cuboctahedron.aux,
+        lvls.level_random_gemini.aux,
     ]
 
     number_of_levels = len(levels_functions_list)
@@ -1219,15 +891,15 @@ def test_levels(test_random_levels=False):
             print('')
 
     print('Testing some chosen levels')
-    solutions = level_cartesian().find_all_solutions(verbose=2,
+    solutions = lvls.level_cartesian.f().find_all_solutions(verbose=2,
                                                      nb_iterations_print=10**4,
                                                      stop_at_first_solution=False)
     assert len(solutions[0]) == 1
     sol = solutions[0][0]
-    assert level_cartesian().fastest_solution == ' '.join(sol)
-    assert level_arithmetic().find_all_solutions()[0] != 0
-    assert level_numeration().find_all_solutions()[0] != 0
-    assert level_3_cycle().find_all_solutions()[0] != 0
+    assert lvls.level_cartesian.f().fastest_solution == ' '.join(sol)
+    assert lvls.level_arithmetic.f().find_all_solutions()[0] != 0
+    assert lvls.level_numeration.f().find_all_solutions()[0] != 0
+    assert lvls.level_3_cycle.f().find_all_solutions()[0] != 0
     
     print('Check levels duplications')
     all_level_set = set()
@@ -1236,24 +908,24 @@ def test_levels(test_random_levels=False):
     if len(all_level_set) != len(Levels.levels_functions_list):
         print("Some levels are duplicated in the list Levels.levels_functions_list")
     
-    worlds_level_list = []
-    for world_name in Levels.Worlds.keys():
-        for level_function in Levels.Worlds[world_name]:
-            worlds_level_list.append(level_function().name)
+    # worlds_level_list = []
+    # for world_name in Levels.Worlds.keys():
+    #     for level_function in Levels.Worlds[world_name]:
+    #         worlds_level_list.append(level_function().name)
             
-    for level_function in Levels.levels_functions_list:
-        name = level_function().name
-        if not name in worlds_level_list:
-            print(name)
+    # for level_function in Levels.levels_functions_list:
+    #     name = level_function().name
+    #     if not name in worlds_level_list:
+    #         print(name)
             
-    worlds_level_set = set(worlds_level_list)
-    duplicates = set([item for item in worlds_level_list if worlds_level_list.count(item) > 1])
-    if all_level_set != worlds_level_set or duplicates != set():
-        print(duplicates)
-        print('')
-        print(all_level_set - worlds_level_set)
-        print('')
-        print(worlds_level_set - all_level_set)
+    # worlds_level_set = set(worlds_level_list)
+    # duplicates = set([item for item in worlds_level_list if worlds_level_list.count(item) > 1])
+    # if all_level_set != worlds_level_set or duplicates != set():
+    #     print(duplicates)
+    #     print('')
+    #     print(all_level_set - worlds_level_set)
+    #     print('')
+    #     print(worlds_level_set - all_level_set)
     
     print('End of the tests')
 

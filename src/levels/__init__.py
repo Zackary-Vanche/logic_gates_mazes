@@ -1,15 +1,10 @@
-# import os
-# import glob
-# import importlib
+import os
+import importlib
 
-# dossier_courant = os.path.dirname(__file__)
-
-# for fichier in glob.glob(os.path.join(dossier_courant, "*.py")):
-#     if not os.path.basename(fichier).startswith("__init__.py"):
-#         module_name = os.path.basename(fichier).rsplit('.', 1)[0]
-#         module = importlib.import_module(module_name)
-#         print('*')
-#         for nom_attribut in dir(module):
-#             objet = getattr(module, nom_attribut)
-#             if not nom_attribut.startswith("_"):  
-#                 globals()[nom_attribut] = objet
+# Parcourir tous les fichiers Python dans le dossier actuel
+current_dir = os.path.dirname(__file__)
+for filename in os.listdir(current_dir):
+    if filename.endswith(".py") and filename != "__init__.py":
+        module_name = filename[:-3]  # Nom du module sans l'extension .py
+        # Importer le fichier comme un sous-module
+        importlib.import_module(f".{module_name}", package=__name__)

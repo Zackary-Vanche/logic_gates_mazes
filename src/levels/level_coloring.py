@@ -11,7 +11,7 @@ from random import random as rd_random
 n_switches = 5
 n_doors = 16
 
-def level_coloring():
+def f():
     
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')

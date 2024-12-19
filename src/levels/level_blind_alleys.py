@@ -9,7 +9,7 @@ from random import shuffle as rd_shuffle
 from random import randint as rd_randint
 from Color import Color
 
-def level_blind_alleys():
+def f():
     
     Snames = [f'S{i}' for i in range(11)]
 

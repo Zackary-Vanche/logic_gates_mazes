@@ -6,7 +6,7 @@ from Maze import Maze
 from Color import Color
 from Levels_colors_list import Levels_colors_list
 
-def level_petersen_graph_edges_coloring():
+def f():
     
     nR = 15
     N = 2

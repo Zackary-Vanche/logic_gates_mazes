@@ -6,7 +6,7 @@ from Maze import Maze
 from Color import Color
 from Levels_colors_list import Levels_colors_list
 
-def level_butterfly_graph():
+def f():
     
     nR = 2
     nb = 3

@@ -7,7 +7,7 @@ from Color import Color
 from Level_color import Level_color
 from random import choice as rd_choice
 
-def level_euclidean_algorithm(): 
+def f(): 
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')

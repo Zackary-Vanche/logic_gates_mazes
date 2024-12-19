@@ -7,7 +7,7 @@ from Level_color import Level_color
 from Color import Color
 import numpy as np
 
-def level_wander(): 
+def f(): 
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')

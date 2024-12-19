@@ -6,7 +6,7 @@ from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
 
-def level_diagonal(fast_solution_finding=False):
+def f(fast_solution_finding=False):
 
     a = 7
     b = 2

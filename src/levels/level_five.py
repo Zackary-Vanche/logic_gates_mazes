@@ -12,7 +12,7 @@ def base2(l):
     return sum([l[i] * 2 ** i for i in range(len(l))])
 
 
-def level_five():
+def f():
     n = 5
 
     S0 = Switch(name='S0')

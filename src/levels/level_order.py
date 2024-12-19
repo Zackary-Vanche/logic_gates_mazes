@@ -6,7 +6,7 @@ from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 from random import shuffle as rd_shuffle
 
-def level_order(): 
+def f(): 
     
     Snames = ['S0', 'S1', 'S2']
     rd_shuffle(Snames)

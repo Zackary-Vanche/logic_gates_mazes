@@ -10,7 +10,7 @@ from random import random as rd_random
 
 from levels.solutions_cellular_automaton import dico_sol
 
-def level_cellular_automaton(fast_solution_finding=False):
+def f(fast_solution_finding=False):
     
     Svalue_end_int = rd_choice(list(dico_sol.keys()))
     sol = dico_sol[Svalue_end_int]

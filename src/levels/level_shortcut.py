@@ -6,7 +6,7 @@ from Maze import Maze
 from Level_color import Level_color
 from Color import Color
 
-def level_shortcut(): 
+def f(): 
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')

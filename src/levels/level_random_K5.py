@@ -9,7 +9,7 @@ from numpy import cos, sin, pi
 n_switches = 5
 n_doors = 26
 
-def aux_level_random_K5(door_trees_list = [[i for i in range(2**n_switches)] for j in range(n_doors)],
+def aux(door_trees_list = [[i for i in range(2**n_switches)] for j in range(n_doors)],
                         exit_number=None,
                         exit_door=None):
 
@@ -241,6 +241,6 @@ def aux_level_random_K5(door_trees_list = [[i for i in range(2**n_switches)] for
     
     return level
 
-def level_random_K5():
-    return Maze.get_random_level_from_file(aux_level_random_K5)
+def f():
+    return Maze.get_random_level_from_file(aux)
     

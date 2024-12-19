@@ -9,7 +9,7 @@ from numpy import cos, sin, pi
 n_switches = 5
 n_doors = 16
 
-def aux_level_random_petersen(door_trees_list = [[i for i in range(2**n_switches)] for j in range(n_doors)],
+def aux(door_trees_list = [[i for i in range(2**n_switches)] for j in range(n_doors)],
                         exit_number=None):
 
     S0 = Switch(name='S0')
@@ -194,5 +194,5 @@ def aux_level_random_petersen(door_trees_list = [[i for i in range(2**n_switches
     
     return level
 
-def level_random_petersen():
-    return Maze.get_random_level_from_file(aux_level_random_petersen)
+def f():
+    return Maze.get_random_level_from_file(aux)

@@ -9,7 +9,7 @@ from random import shuffle as rd_shuffle
 from Graph import Graph
 from Color import Color
 
-def level_cypress():
+def f():
     
     l_weights = [i+1 for i in range(127)]
     rd_shuffle(l_weights)

@@ -7,7 +7,7 @@ from Levels_colors_list import Levels_colors_list
 from random import choice as rd_choice
 from Color import Color
 
-def level_lights_out(): 
+def f(): 
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')

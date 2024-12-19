@@ -7,7 +7,7 @@ from Levels_colors_list import Levels_colors_list
 from Color import Color
 from random import choice as rd_choice
 
-def level_relay(): 
+def f(): 
 
     S0 = Switch(name='S0', value=rd_choice([0, 1]))
     S1 = Switch(name='S1', value=rd_choice([0, 1]))

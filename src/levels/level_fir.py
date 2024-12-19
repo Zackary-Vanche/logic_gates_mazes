@@ -6,7 +6,7 @@ from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 from Color import Color
 
-def level_fir(fast_solution_finding=False):
+def f(fast_solution_finding=False):
     
     v = 0
 

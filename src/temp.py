@@ -1,28 +1,37 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Aug 17 10:18:12 2023
+import os
+import re
 
-@author: zackary.vanche
-"""
-
-# import os
-
-# if not os.path.exists('temp'):
-#     os.mkdir('temp')
+def replace_function_names(directory):
+    """
+    Remplace les noms des fonctions dans tous les fichiers .py du répertoire donné
+    uniquement si le nom commence par 'level_'.
+    - Les noms de fonctions contenant '_aux' deviennent 'aux'.
+    - Les autres noms de fonctions deviennent 'f'.
     
-# txt = 'empty=True,'
+    Args:
+        directory (str): Chemin vers le dossier contenant les fichiers Python.
+    """
+    for filename in os.listdir(directory):
+        if filename.endswith(".py"):  # Vérifie que le fichier est un fichier Python
+            filepath = os.path.join(directory, filename)
 
-# for file in os.listdir('levels/'):
-#     if file.split('.')[-1] == 'py':
-#         file_old = 'levels/' + file
-#         file_new = 'temp/' + file
-#         with open(file_old, 'r') as fr:
-#             with open(file_new, 'w') as fw:
-#                 line_list = fr.readlines()
-#                 for line in line_list:
-#                     if txt in line:
-#                         print(file)
-#                         line = line.replace(txt, '')
-#                         if line.replace('\n', '').replace(' ', '') == '':
-#                             continue
-#                     fw.write(line)
+            # Lire le contenu du fichier
+            with open(filepath, "r", encoding="utf-8") as file:
+                content = file.read()
+
+            # Remplacer les noms des fonctions correspondant au critère
+            modified_content = re.sub(
+                r"def\s+(level_[a-zA-Z0-9_]*)\s*\(",
+                lambda match: f"def {'aux' if '_aux' in match.group(1) else 'f'}(",
+                content
+            )
+
+            # Réécrire le fichier avec les modifications
+            with open(filepath, "w", encoding="utf-8") as file:
+                file.write(modified_content)
+
+            print(f"Modifications apportées au fichier : {filename}")
+
+# Exemple d'utilisation
+directory_path = "./levels"  # Remplacez par le chemin de votre dossier
+replace_function_names(directory_path)

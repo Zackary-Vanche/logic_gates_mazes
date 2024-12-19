@@ -7,7 +7,7 @@ from Color import Color
 from Level_color import Level_color
 from random import shuffle as rd_shuffle
 
-def level_heapsort():
+def f():
     
     ilist = [[0, 1, 0],
              [1, 0, 0],

@@ -7,7 +7,7 @@ from Color import Color
 from Level_color import Level_color
 from random import choice as rd_choice
 
-def level_integer_factorization(): 
+def f(): 
     
     plist = [[1, 0, 0, 0],
              [0, 1, 0, 0],

@@ -6,7 +6,7 @@ from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
 
-def level_parking():
+def f():
     v = 1
     # 0
     S0 = Switch(name='S0')

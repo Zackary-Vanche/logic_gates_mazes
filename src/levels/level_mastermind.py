@@ -8,7 +8,7 @@ from random import randint as rd_randint
 from random import random
 
 
-def level_mastermind():
+def f():
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
     S2 = Switch(name='S2')

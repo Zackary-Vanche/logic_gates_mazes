@@ -8,7 +8,7 @@ from random import choice as rd_choice
 from os.path import exists as os_path_exists
 from Color import Color
 
-def level_grid(): 
+def f(): 
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')

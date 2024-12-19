@@ -7,7 +7,7 @@ from Levels_colors_list import Levels_colors_list
 
 n_switches = 6
 
-def aux_level_random_K33(door_trees_list = [[i for i in range(2**n_switches)] for j in range(10)],
+def aux(door_trees_list = [[i for i in range(2**n_switches)] for j in range(10)],
                          exit_number=None):
 
     S0 = Switch(name='S0')
@@ -136,5 +136,5 @@ def aux_level_random_K33(door_trees_list = [[i for i in range(2**n_switches)] fo
     
     return level
 
-def level_random_K33():
-    return Maze.get_random_level_from_file(aux_level_random_K33)
+def f():
+    return Maze.get_random_level_from_file(aux)

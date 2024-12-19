@@ -8,7 +8,7 @@ from Levels_colors_list import Levels_colors_list
 from random import randint as rd_randint
 from random import random as rd_random
 
-def level_points(): 
+def f(): 
 
     S0 = Switch(name='S0', value=rd_randint(0, 1))
     S1 = Switch(name='S1', value=rd_randint(0, 1))

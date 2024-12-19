@@ -6,7 +6,7 @@ from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
 
-def level_pancake_sorting():
+def f():
     v = 1
 
     # pancakes

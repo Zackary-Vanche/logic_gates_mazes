@@ -7,7 +7,7 @@ from Color import Color
 from Level_color import Level_color
 from numpy import cos, sin, pi
 
-def level_prime_number(): 
+def f(): 
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')

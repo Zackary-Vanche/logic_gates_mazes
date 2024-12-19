@@ -8,7 +8,7 @@ from Level_color import Level_color
 from random import shuffle as rd_shuffle
 from random import choice as rd_choice
 
-def level_quick_sort():
+def f():
     
     ilist = [[0, 0, 0],
              [0, 1, 0],

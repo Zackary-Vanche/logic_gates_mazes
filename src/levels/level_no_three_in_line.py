@@ -6,7 +6,7 @@ from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
 
-def level_no_three_in_line(fast_solution_finding=False):
+def f(fast_solution_finding=False):
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
     S2 = Switch(name='S2')

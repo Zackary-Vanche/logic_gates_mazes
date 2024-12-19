@@ -7,7 +7,7 @@ from Color import Color
 from Levels_colors_list import Levels_colors_list
 from random import choice as rd_choice
 
-def level_boustrophedon(): 
+def f(): 
 
     nR = 8
 

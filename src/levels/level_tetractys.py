@@ -8,7 +8,7 @@ from Graph import Graph
 from random import shuffle as rd_shuffle
 from Color import Color
 
-def level_tetractys(fast_solution_finding=False): 
+def f(fast_solution_finding=False): 
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')

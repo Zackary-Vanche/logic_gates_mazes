@@ -14,7 +14,7 @@ from Levels_colors_list import Levels_colors_list
 from os.path import exists as os_path_exists
 from random import choice as rd_choice
 
-def level_the_4th_dimension(): 
+def f(): 
     
     v = 1
 

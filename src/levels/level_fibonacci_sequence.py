@@ -7,7 +7,7 @@ from Color import Color
 from Level_color import Level_color
 from Levels_colors_list import Levels_colors_list
 
-def level_fibonacci_sequence(): 
+def f(): 
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')

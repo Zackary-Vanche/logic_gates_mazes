@@ -10,7 +10,7 @@ from Color import Color
 from random import shuffle as rd_shuffle
 from Graph import Graph
 
-def level_bamboos(fast_solution_finding=False):
+def f(fast_solution_finding=False):
     
     l_weights = [i+1 for i in range(127)]
     rd_shuffle(l_weights)

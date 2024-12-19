@@ -7,7 +7,7 @@ from Level_color import Level_color
 from Color import Color
 from random import choice as rd_choice
 
-def level_town(): 
+def f(): 
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')

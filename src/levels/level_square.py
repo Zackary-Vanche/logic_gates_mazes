@@ -6,7 +6,7 @@ from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
 
-def level_square():
+def f():
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')

@@ -5,7 +5,7 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
-def level_strange(a=1, b=1, c=1, d=1):
+def f(a=1, b=1, c=1, d=1):
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')

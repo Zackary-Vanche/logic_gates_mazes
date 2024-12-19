@@ -7,7 +7,7 @@ from Levels_colors_list import Levels_colors_list
 from random import choice as rd_choice
 from random import shuffle as rd_shuffle 
 
-def level_conjunctive_normal_form():
+def f():
 
     S0 = Switch(name='S0', value = rd_choice([0, 1]))
     S1 = Switch(name='S1', value = rd_choice([0, 1]))

@@ -5,7 +5,7 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
-def level_superflip():
+def f():
     
     f = 8
     

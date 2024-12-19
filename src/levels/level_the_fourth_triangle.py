@@ -6,7 +6,7 @@ from Maze import Maze
 from Color import Color
 from Levels_colors_list import Levels_colors_list
 
-def level_the_fourth_triangle():
+def f():
     
     nR = 4
     nb = 3

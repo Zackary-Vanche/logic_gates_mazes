@@ -8,7 +8,7 @@ from Color import Color
 from random import shuffle as rd_shuffle
 from Graph import Graph
 
-def level_sunflower(fast_solution_finding=False): 
+def f(fast_solution_finding=False): 
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')

@@ -10,7 +10,7 @@ from random import shuffle as rd_shuffle
 def base2(l):
     return sum([l[i]*2**i for i in range(len(l))])
 
-def level_shuffled():
+def f():
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')

@@ -5,7 +5,7 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
-def level_hello_world():
+def f():
     S0 = Switch(name='S0')
 
     T0 = Tree(tree_list=[None],

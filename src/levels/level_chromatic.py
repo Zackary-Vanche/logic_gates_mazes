@@ -8,7 +8,7 @@ from Color import Color
 import numpy as np
 from random import random as rd_random
 
-def level_chromatic(): 
+def f(): 
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')

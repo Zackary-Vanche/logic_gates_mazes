@@ -7,7 +7,7 @@ from Levels_colors_list import Levels_colors_list
 from random import choice as rd_choice
 from random import shuffle as rd_shuffle
 
-def level_min_cut(): 
+def f(): 
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')

@@ -9,7 +9,7 @@ from random import randint as rd_randint
 n_switches = 5
 n_doors = 23
 
-def level_sum():
+def f():
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -142,6 +142,6 @@ def level_sum():
     
     return level
 
-# def level_random_sum():
+# def f():
 #     # return aux_level_random_sum()
 #     return Maze.get_random_level_from_file(aux_level_random_sum)

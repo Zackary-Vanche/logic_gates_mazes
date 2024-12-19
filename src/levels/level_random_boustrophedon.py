@@ -5,7 +5,7 @@ from Door import Door
 from Room import Room
 from Levels_colors_list import Levels_colors_list
 
-def aux_level_random_boustrophedon(door_trees_list = [[i for i in range(2**8)] for j in range(8)],
+def aux(door_trees_list = [[i for i in range(2**8)] for j in range(8)],
                                    exit_number=None): # exit_number isn't usde but should remain as an argument
 
     S0 = Switch(name='S0')
@@ -134,5 +134,5 @@ def aux_level_random_boustrophedon(door_trees_list = [[i for i in range(2**8)] f
     
     return level
 
-def level_random_boustrophedon():
-    return Maze.get_random_level_from_file(aux_level_random_boustrophedon)
+def f():
+    return Maze.get_random_level_from_file(aux)

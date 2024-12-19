@@ -9,7 +9,7 @@ from numpy import sqrt
 n_switches = 4
 n_doors = 100
 
-def aux_level_random_cuboctahedron(door_trees_list = [[i for i in range(2**n_switches)] for j in range(n_doors)],
+def aux(door_trees_list = [[i for i in range(2**n_switches)] for j in range(n_doors)],
                                    exit_number=None):
 
     S0 = Switch(name='S0')
@@ -219,5 +219,5 @@ def aux_level_random_cuboctahedron(door_trees_list = [[i for i in range(2**n_swi
     
     return level
 
-def level_random_cuboctahedron():
-    return Maze.get_random_level_from_file(aux_level_random_cuboctahedron)
+def f():
+    return Maze.get_random_level_from_file(aux)

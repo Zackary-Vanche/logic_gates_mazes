@@ -6,7 +6,7 @@ from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
 # Théorème des 4 couleurs
-def level_4_colors_theorem(fast_solution_finding=False):
+def f(fast_solution_finding=False):
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')

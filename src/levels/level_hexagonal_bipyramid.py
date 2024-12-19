@@ -6,7 +6,7 @@ from Maze import Maze
 from Color import Color
 from Levels_colors_list import Levels_colors_list
 
-def level_hexagonal_bipyramid():
+def f():
     
     nR = 6
     nb = 3

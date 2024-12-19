@@ -7,7 +7,7 @@ from Levels_colors_list import Levels_colors_list
 from Color import Color
 
 
-def level_chessboard():
+def f():
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
     S2 = Switch(name='S2')

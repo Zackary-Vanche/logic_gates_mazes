@@ -5,7 +5,7 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
-def aux_level_random_simple(door_trees_list = [[i for i in range(2**4)] for j in range(5)],
+def aux(door_trees_list = [[i for i in range(2**4)] for j in range(5)],
                             exit_number=None):
     
     S0 = Switch(name='S0')
@@ -87,5 +87,5 @@ def aux_level_random_simple(door_trees_list = [[i for i in range(2**4)] for j in
 
     return level
 
-def level_random_simple():
-    return Maze.get_random_level_from_file(aux_level_random_simple)
+def f():
+    return Maze.get_random_level_from_file(aux)

@@ -7,7 +7,7 @@ from Level_color import Level_color
 from Color import Color
 from random import shuffle as rd_shuffle
 
-def level_expand_and_simplify(): 
+def f(): 
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')

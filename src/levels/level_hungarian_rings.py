@@ -7,7 +7,7 @@ from Levels_colors_list import Levels_colors_list
 from random import shuffle as rd_shuffle
 from Color import Color
 
-def level_hungarian_rings():
+def f():
     
     v_list = [[0, 0, 0],
               [0, 0, 1],

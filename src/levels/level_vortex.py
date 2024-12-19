@@ -5,7 +5,7 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
-def level_vortex():
+def f():
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1', value=1)

@@ -7,7 +7,7 @@ from Levels_colors_list import Levels_colors_list
 from numpy import cos, sin, pi
 from Color import Color
 
-def level_violets_are_blue(fast_solution_finding=False): 
+def f(fast_solution_finding=False): 
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')

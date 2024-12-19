@@ -6,7 +6,7 @@ from Maze import Maze
 from Color import Color
 from Levels_colors_list import Levels_colors_list
 
-def level_tetrahedron_edges_coloring():
+def f():
     
     nR = 6
     N = 2

@@ -8,7 +8,7 @@ from Level_color import Level_color
 import numpy as np
 from random import random as rd_random
 
-def level_circle(): 
+def f(): 
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')

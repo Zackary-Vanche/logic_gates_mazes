@@ -7,7 +7,7 @@ from Levels_colors_list import Levels_colors_list
 from random import choice as rd_choice
 from Color import Color
 
-def level_network(): 
+def f(): 
 
     A0 = Switch(name='S0', value = rd_choice([0, 1]))
     A1 = Switch(name='S1', value = rd_choice([0, 1]))

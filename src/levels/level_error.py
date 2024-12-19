@@ -7,7 +7,7 @@ from Levels_colors_list import Levels_colors_list
 from random import choice as rd_choice
 from os.path import exists as os_path_exists
 
-def level_error(): 
+def f(): 
     
     v = 1
 

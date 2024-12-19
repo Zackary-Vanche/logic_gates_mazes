@@ -6,7 +6,7 @@ from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
 # Problème du sac à dos
-def level_knapsack():
+def f():
     w_list = [2, 3, 4, 5, 6, 7, 8, 9]
     p_list = [8, 9, 10, 12, 12, 18, 20, 21]
 

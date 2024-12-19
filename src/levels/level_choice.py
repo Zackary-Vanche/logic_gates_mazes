@@ -6,7 +6,7 @@ from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 from Color import Color
 
-def level_choice():
+def f():
 
     T0 = Tree(tree_list=[None],
               name='T0',

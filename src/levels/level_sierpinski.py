@@ -6,7 +6,7 @@ from Maze import Maze
 from Color import Color
 from Levels_colors_list import Levels_colors_list
 
-def level_sierpinski():
+def f():
     
     nR = 3
     nb = 3
