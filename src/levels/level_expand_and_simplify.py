@@ -64,7 +64,20 @@ def f():
                 name='D2',
                 room_departure=R2,
                 room_arrival=RE)
+
+    level = Maze(start_room_index=0,
+                 exit_room_index=-1,
+                 rooms_list=[R0, R1, R2, RE],
+                 doors_list=[D0, D1, D2],
+                 fastest_solution=sol,
+                 level_color=get_color(),
+                 name='Expand and simplify',
+                 keep_proportions=True,
+                 door_window_size=300)
     
+    return level
+
+def get_color():
     hu = 0.1
     lcolor = Level_color(background_color=Color.color_hls(hu, li=0.5, sa=0.6),
                          room_color=Color.BLACK,
@@ -72,15 +85,4 @@ def f():
                          contour_color=Color.SILVER,
                          inside_room_color=Color.WHITE,
                          surrounding_color=Color.IVORY)
-
-    level = Maze(start_room_index=0,
-                 exit_room_index=-1,
-                 rooms_list=[R0, R1, R2, RE],
-                 doors_list=[D0, D1, D2],
-                 fastest_solution=sol,
-                 level_color=lcolor,
-                 name='Expand and simplify',
-                 keep_proportions=True,
-                 door_window_size=300)
-    
-    return level
+    return lcolor

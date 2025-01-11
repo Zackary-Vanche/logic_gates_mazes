@@ -298,21 +298,12 @@ def f():
                 room_departure=R7,
                 room_arrival=RE)
     
-    hu = 0
-    sa = 0
-    li = 0.8
-    lcolor = Level_color(background_color=Color.color_hls(hu, li, sa),
-                         room_color=Color.color_hls(hu, li / 4, 0.8 * sa),
-                         letters_color=Color.BLACK,
-                         contour_color=Color.ORANGE,
-                         inside_room_color=Color.WHITE,
-                         surrounding_color=Color.PURE_ORANGE)
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, Ra, Rb, RE,],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17],
                  fastest_solution='''S0 S2 S4 S5 S6 S8 S9 S11 S13 D0 S14 D1 S15 D3 S16 D5 S19 D10 S21 D14 S22 D12 S20 D9 S18 D6 S17 D7 S23 D15 S25 S26 S27 S28 S29 S33 S35 S36 S37 D16 S14 D2 S17 D6 S18 D4 S15 D3 S16 D5 S19 D10 S21 D14 S22 D12 S20 D13 S23 D17''',
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Sneckdown',
                  keep_proportions=True,
                  door_window_size=260)
@@ -331,3 +322,15 @@ def f():
     #     door_list = room.two_way_doors_list + room.departure_doors_list
     #     print(', '.join([f'S{int(door.name.replace("D", ''))-1}' for door in door_list])+', 2,')
     return level
+
+def get_color():
+    hu = 0
+    sa = 0
+    li = 0.8
+    lcolor = Level_color(background_color=Color.color_hls(hu, li, sa),
+                         room_color=Color.color_hls(hu, li / 4, 0.8 * sa),
+                         letters_color=Color.BLACK,
+                         contour_color=Color.ORANGE,
+                         inside_room_color=Color.WHITE,
+                         surrounding_color=Color.PURE_ORANGE)
+    return lcolor

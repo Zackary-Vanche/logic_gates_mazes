@@ -252,10 +252,13 @@ def f():
                  rooms_list=[R0, R1, R2, R3, R4, R5, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13],
                  fastest_solution=None,
-                 level_color=Levels_colors_list.FROM_HUE(hu=0.6, sa=0.4, li=0.5),
+                 level_color=get_color(),
                  name='The_4th_dimension',
                  keep_proportions=False,
                  door_window_size=450,
                  random=True)
     
     return level
+
+def get_color():
+    return Levels_colors_list.FROM_HUE(hu=0.6, sa=0.4, li=0.5)

@@ -186,21 +186,23 @@ def f():
               name='D7',
               room_departure=R7,
               room_arrival=RE)
-    
-    lcolor = Levels_colors_list.FROM_HUE(hu=0, sa=0.4, li=0.5)
-    lcolor.background_color = Color.GREY_170
-    lcolor.letters_color = Color.BLACK
-    lcolor.surrounding_color = Color.BLACK
-    lcolor.contour_color = Color.BLACK
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7],
                  fastest_solution="S1 S2 S5 S9 D0 S13 D1 D2 D3 D4 D5 D6 D7",
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Sheffer stroke',
                  keep_proportions=True,
                  door_window_size=300)
     
     return level
+
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(hu=0, sa=0.4, li=0.5)
+    lcolor.background_color = Color.GREY_170
+    lcolor.letters_color = Color.BLACK
+    lcolor.surrounding_color = Color.BLACK
+    lcolor.contour_color = Color.BLACK
+    return lcolor

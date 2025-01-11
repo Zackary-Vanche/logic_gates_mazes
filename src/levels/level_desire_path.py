@@ -823,15 +823,12 @@ def f():
                 relative_arrival_coordinates=[1, 1],
                 relative_position=0.3)
 
-    lcolor = Levels_colors_list.FROM_HUE(hu=0.2, sa=0.5, li=0.5)
-    lcolor.room_color = Color.BLUE
-
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, R15, R16, R17, R18, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19, D20, D21, D22, D23, D24, D25, D26, D27, D28, D29, D30, D31, D32, D33, D34, D35, D36, D37, D38, D39, D40, D41, D42, D43, D44, D45, D46, D47, D48, D49, D50, D51, D52, D53, D54, D55, D56, D57, D58, D59, D60, D61, D62, D63,],
                  fastest_solution="S0 D0 S1 D60 S7 D28 S12 D62 S18 D59",
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Desire path',
                  keep_proportions=True,
                  door_window_size=300)
@@ -852,3 +849,8 @@ def f():
     #                     switches=[{S0.name}, {S1.name}, V0])''')
     
     return level
+
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.2, sa=0.5, li=0.5)
+    lcolor.room_color = Color.BLUE
+    return lcolor

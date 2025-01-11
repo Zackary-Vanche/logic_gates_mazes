@@ -212,23 +212,25 @@ def f():
                 room_arrival=RE,
                 relative_departure_coordinates=[1, 1/2],
                 relative_arrival_coordinates=[0, 1/2])
-    
-    lcolor = Levels_colors_list.FROM_HUE(hu=0.2, sa=0.5, li=0.9)
-    lcolor.contour_color = Color.GREY_60
-    lcolor.room_color = Color.BLACK
-    lcolor.inside_room_color = Color.WHITE
-    lcolor.surrounding_color = Color.WHITE
-    # lcolor.letters_color = Color.BLACK
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10],
                  fastest_solution=None,
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Lights_out',
                  keep_proportions=True,
                  door_window_size=450,
                  random=True)
     
     return level
+
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.2, sa=0.5, li=0.9)
+    lcolor.contour_color = Color.GREY_60
+    lcolor.room_color = Color.BLACK
+    lcolor.inside_room_color = Color.WHITE
+    lcolor.surrounding_color = Color.WHITE
+    # lcolor.letters_color = Color.BLACK
+    return lcolor

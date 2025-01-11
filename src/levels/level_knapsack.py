@@ -77,9 +77,12 @@ def f():
                  rooms_list=[R0, R1, RE],
                  doors_list=[D0, D1],
                  fastest_solution='S0 S2 S3 D0 D1',
-                 level_color=Levels_colors_list.BLACK_AND_ORANGE,
+                 level_color=get_color(),
                  name='Knapsack',
                  door_window_size=500,
                  keep_proportions=True)
 
     return level
+
+def get_color():
+    return Levels_colors_list.BLACK_AND_ORANGE

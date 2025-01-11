@@ -210,9 +210,13 @@ def f(fast_solution_finding=False):
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14],
                  fastest_solution="S1 S3 S5 S6 S8 S10 S11 D0 S16 D6 S15 D2 S13 D2 D4 S14 D4 D7 S18 D11 S19 D11 D12 S20 D12 D9 S17 D14",
-                 level_color=Levels_colors_list.FROM_HUE(hu=0.16, sa=0.2, li=0.35),
+                 level_color=get_color(),
                  name='Baobab',
                  keep_proportions=True,
                  door_window_size=300)
     
     return level
+
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.16, sa=0.2, li=0.35)
+    return lcolor

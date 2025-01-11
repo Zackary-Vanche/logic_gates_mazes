@@ -314,15 +314,13 @@ def f(fast_solution_finding=False):
                 room_departure=R1,
                 room_arrival=RE,
                 relative_position=0.6)
-    
-    lcolor = Levels_colors_list.FROM_HUE(hu=0.4, sa=0.45, li=0.55)
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18],
                  fastest_solution=None,
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Bamboos',
                  keep_proportions=True,
                  door_window_size=280,
@@ -330,3 +328,6 @@ def f(fast_solution_finding=False):
     
     return level
 
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.4, sa=0.45, li=0.55)
+    return lcolor

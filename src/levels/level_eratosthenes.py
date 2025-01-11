@@ -330,7 +330,20 @@ def f():
                 room_departure=R0,
                 room_arrival=RE,
                 relative_departure_coordinates=[(dx+ex/2)/(dx+ex), (ey)/(dy+ey)])
+
+    level = Maze(start_room_index=0,
+                 exit_room_index=-1,
+                 rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, R15, RE],
+                 doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16],
+                 fastest_solution="S1 D0 S3 D4 S8 D4 D6 S10 D6 D8 S12 D8 D10 S14 D10 D12 S16 D12 D14 S18 D14 D1 S0 D0 S3 S4 S5 D9 S13 D9 D15 S19 D15 D1 S0 S1 S2 D0 S3 D1 S0 D16",
+                 level_color=get_color(),
+                 name='Sieve of Eratosthenes',
+                 keep_proportions=True,
+                 door_window_size=300)
     
+    return level
+
+def get_color():
     hu = 0.05
     sa = 0.6
     li = 0.6
@@ -340,15 +353,4 @@ def f():
                          contour_color=Color.BRIGHT_ORANGE,
                          inside_room_color=Color.WHITE,
                          surrounding_color=Color.TOTAL_RED)
-
-    level = Maze(start_room_index=0,
-                 exit_room_index=-1,
-                 rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, R15, RE],
-                 doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16],
-                 fastest_solution="S1 D0 S3 D4 S8 D4 D6 S10 D6 D8 S12 D8 D10 S14 D10 D12 S16 D12 D14 S18 D14 D1 S0 D0 S3 S4 S5 D9 S13 D9 D15 S19 D15 D1 S0 S1 S2 D0 S3 D1 S0 D16",
-                 level_color=lcolor,
-                 name='Sieve of Eratosthenes',
-                 keep_proportions=True,
-                 door_window_size=300)
-    
-    return level
+    return lcolor

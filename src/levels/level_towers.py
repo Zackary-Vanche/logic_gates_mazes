@@ -456,9 +456,12 @@ S5 D0 S8 D9 D13 S16 D4
 S0 S1 S4 S5 D3 S15 D12 D16 S23 D7
 S0 S1 S4 S5 S6 S7 D0 S8 D9 D17 S24 D8
 S4 S7 D0 D9 D18""".replace('\n', ' '),
-                 level_color=Levels_colors_list.FROM_HUE(hu=0.06, sa=0.35, li=0.5),
+                 level_color=get_color(),
                  name='Towers',
                  keep_proportions=True,
                  door_window_size=335)
     
     return level
+
+def get_color():
+    return Levels_colors_list.FROM_HUE(hu=0.06, sa=0.35, li=0.5)

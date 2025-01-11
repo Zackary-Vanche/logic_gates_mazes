@@ -72,11 +72,6 @@ def f():
                 room_departure=R0,
                 room_arrival=RE)
     
-    hu = rd_random()
-    lcolor = Levels_colors_list.FROM_HUE(hu=hu, sa=0.3, li=0.4)
-    lcolor.surrounding_color=Color.color_hls(hu=hu+0.5, sa=0.9, li=0.8)
-    lcolor.contour_color=Color.color_hls(hu=hu+0.5, sa=0.9, li=0.8)
-    
     sol_list = []
     for S in Slist:
         if S.value:
@@ -89,10 +84,17 @@ def f():
                  rooms_list=[R0, RE],
                  doors_list=[D0],
                  fastest_solution=" ".join(sol_list),
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Points',
                  keep_proportions=True,
                  door_window_size=300,
                  random=True)
     
     return level
+
+def get_color():
+    hu = rd_random()
+    lcolor = Levels_colors_list.FROM_HUE(hu=hu, sa=0.3, li=0.4)
+    lcolor.surrounding_color=Color.color_hls(hu=hu+0.5, sa=0.9, li=0.8)
+    lcolor.contour_color=Color.color_hls(hu=hu+0.5, sa=0.9, li=0.8)
+    return lcolor

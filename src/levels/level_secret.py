@@ -233,16 +233,6 @@ def f():
                 room_departure=R1,
                 room_arrival=RE)
     
-    hu = 0.1
-    sa = 0.1
-    li = 0.5
-    lcolor = Level_color(background_color=Color.color_hls(hu, li, sa),
-                         room_color=Color.color_hls(hu, li / 4, 0.8 * sa),
-                         letters_color=Color.BLACK,
-                         contour_color=Color.color_hls(hu, li=0.5, sa=1),
-                         inside_room_color=Color.WHITE,
-                         surrounding_color=Color.color_hls(hu, li=0.5, sa=1))
-    
     doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14]
 
     level = Maze(start_room_index=0,
@@ -250,7 +240,7 @@ def f():
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, RE],
                  doors_list=doors_list,
                  fastest_solution="S2 S6 D0 S11 D9 S14 D6 S9 D6 D10 S12 D10 D13 S15 D13 D11 S13 D7 S10 D1 S8 D14",
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Secret',
                  keep_proportions=True,
                  door_window_size=320)
@@ -276,3 +266,15 @@ def f():
     #         switches=[{V}])""")
     
     return level
+
+def get_color():
+    hu = 0.1
+    sa = 0.1
+    li = 0.5
+    lcolor = Level_color(background_color=Color.color_hls(hu, li, sa),
+                         room_color=Color.color_hls(hu, li / 4, 0.8 * sa),
+                         letters_color=Color.BLACK,
+                         contour_color=Color.color_hls(hu, li=0.5, sa=1),
+                         inside_room_color=Color.WHITE,
+                         surrounding_color=Color.color_hls(hu, li=0.5, sa=1))
+    return lcolor

@@ -293,19 +293,23 @@ def f():
                 room_departure=R0,
                 room_arrival=RE)
     
-    lcolor = Levels_colors_list.FROM_HUE(hu=0, sa=0.2, li=0.8)
-    lcolor.contour_color = Color.color_hls(hu=0.12, li=0.4, sa=0.5)
-    lcolor.surrounding_color = Color.color_hls(hu=0.12, li=0.4, sa=0.5)
+    
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16],
                  fastest_solution=None,
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='3-Cycle',
                  keep_proportions=True,
                  door_window_size=300,
                  random=True)
     
     return level
+
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(hu=0, sa=0.2, li=0.8)
+    lcolor.contour_color = Color.color_hls(hu=0.12, li=0.4, sa=0.5)
+    lcolor.surrounding_color = Color.color_hls(hu=0.12, li=0.4, sa=0.5)
+    return lcolor

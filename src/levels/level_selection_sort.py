@@ -300,7 +300,21 @@ def f():
                 room_arrival=RE,
                 relative_departure_coordinates=[0, 1/2],
                 relative_arrival_coordinates=[1, 1/2])
+
+    level = Maze(start_room_index=0,
+                 exit_room_index=-1,
+                 rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, RE],
+                 doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11],
+                 fastest_solution=None,
+                 level_color=get_color(),
+                 name='Selection sort',
+                 keep_proportions=True,
+                 door_window_size=300,
+                 random=True)
     
+    return level
+
+def get_color():
     hu = 0.1
     lcolor = Level_color(background_color=Color.color_hls(hu, li=0.6, sa=0.2),
                          room_color=Color.color_hls(hu, li=0.15, sa=0.6),
@@ -308,16 +322,4 @@ def f():
                          contour_color=Color.color_hls(hu=0.9, li=0.4, sa=1),
                          inside_room_color=Color.WHITE,
                          surrounding_color=Color.color_hls(hu=0.9, li=0.3, sa=1))
-
-    level = Maze(start_room_index=0,
-                 exit_room_index=-1,
-                 rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, RE],
-                 doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11],
-                 fastest_solution=None,
-                 level_color=lcolor,
-                 name='Selection sort',
-                 keep_proportions=True,
-                 door_window_size=300,
-                 random=True)
-    
-    return level
+    return lcolor

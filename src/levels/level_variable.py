@@ -53,7 +53,20 @@ def f():
                 room_departure=R0,
                 room_arrival=RE,
                 relative_departure_coordinates=[1/3, 1/3])
+
+    level = Maze(start_room_index=0,
+                 exit_room_index=-1,
+                 rooms_list=[R0, RE],
+                 doors_list=[D0],
+                 fastest_solution=' '.join(sol_list) + ' D0',
+                 level_color=get_color(),
+                 name='Variable',
+                 keep_proportions=True,
+                 door_window_size=300)
     
+    return level
+
+def get_color():
     hu = 0.9
     lcolor = Level_color(background_color=Color.color_hls(hu, 0.3, 0.4),
                          room_color=Color.color_hls(hu, 0.6, 0.4),
@@ -61,15 +74,4 @@ def f():
                          contour_color=Color.IVORY,
                          inside_room_color=Color.BLACK,
                          surrounding_color=Color.IVORY)
-
-    level = Maze(start_room_index=0,
-                 exit_room_index=-1,
-                 rooms_list=[R0, RE],
-                 doors_list=[D0],
-                 fastest_solution=' '.join(sol_list) + ' D0',
-                 level_color=lcolor,
-                 name='Variable',
-                 keep_proportions=True,
-                 door_window_size=300)
-    
-    return level
+    return lcolor

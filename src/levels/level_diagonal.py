@@ -247,9 +247,12 @@ def f(fast_solution_finding=False):
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6],
                  fastest_solution='S1 S10 S30 S31 D0 S6 S13 S18 S19 D1 S4 S5 D2 S27 S28 D3 S8 S9 S16 D4 S23 D5 D6',
-                 level_color=Levels_colors_list.FROM_HUE(0.5, sa=0.2, li=0.9),
+                 level_color=get_color(),
                  name='Diagonal',
                  door_window_size=600,
                  keep_proportions=True)
 
     return level
+
+def get_color():
+    return Levels_colors_list.FROM_HUE(0.5, sa=0.2, li=0.9)

@@ -132,7 +132,7 @@ def f():
                  rooms_list=[R0, R1, R2, R3, R4] + [RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11],
                  fastest_solution=None,
-                 level_color=Levels_colors_list.RANDOM(),
+                 level_color=get_color(),
                  name='Sum',
                  door_window_size=375,
                  keep_proportions=True,
@@ -141,6 +141,8 @@ def f():
                  random=True)
     
     return level
+
+get_color = Levels_colors_list.RANDOM
 
 # def f():
 #     # return aux_level_random_sum()

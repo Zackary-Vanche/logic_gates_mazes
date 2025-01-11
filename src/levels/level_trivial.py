@@ -23,15 +23,13 @@ def f():
               tree=T0,
               room_departure=R0,
               room_arrival=RE)
-    
-    lcolor = Levels_colors_list.FROM_HUE(hu=0.6, sa=0.4, li=0.3)
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0] + [RE],
                  doors_list=[D0],
                  fastest_solution='D0',
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Trivial',
                  door_window_size=380,
                  keep_proportions=True,
@@ -39,3 +37,6 @@ def f():
                  border=40)
 
     return level
+
+def get_color():
+    return Levels_colors_list.FROM_HUE(hu=0.6, sa=0.4, li=0.3)

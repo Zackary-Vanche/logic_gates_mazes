@@ -191,9 +191,13 @@ def f(fast_solution_finding=False):
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16],
                  fastest_solution='S3 S4 D0 S9 D3 S12 D4 S10 D4 D5 S11 D6 S13 D10 S14 D10 D11 S16 D11 D12 S17 D12 D6 D5 D9 S15 D16',
-                 level_color=Levels_colors_list.FROM_HUE(0.6),
+                 level_color=get_color(),
                  name='Dominating set',
                  door_window_size=390,
                  keep_proportions=False)
 
     return level
+
+
+def get_color():
+    return Levels_colors_list.FROM_HUE(0.6)

@@ -328,16 +328,6 @@ def f():
                 name='D28',
                 room_departure=R1,
                 room_arrival=RE)
-    
-    hu = 0.16
-    sa = 0.2
-    li = 0.6
-    lcolor = Level_color(background_color=Color.color_hls(hu, li*0.5 , sa),
-                         room_color=Color.color_hls(hu, li*0.2, 0.8 * sa),
-                         letters_color=Color.color_hls(hu=0.72, li=0.95, sa=0.9),
-                         contour_color=Color.GREY,
-                         inside_room_color=Color.WHITE,
-                         surrounding_color=Color.KHAKI)
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
@@ -346,7 +336,7 @@ def f():
                              D12, D13, D14, D15, D16, D17, D18, D19, D20, D21, D22, D23,
                              D24, D25, D26, D27, D28],
                  fastest_solution="D0 S0 D1 D2 S1 D3 D4 S2 D21 D22 S4 D23 D24 S5 D17 D18 S6 D19 D14 S3 D9 D28",
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Silex',
                  keep_proportions=True,
                  door_window_size=250)
@@ -366,3 +356,15 @@ def f():
     #                     switches=[{R1.switches_list[0].name}])''')
     
     return level
+
+def get_color():
+    hu = 0.16
+    sa = 0.2
+    li = 0.6
+    lcolor = Level_color(background_color=Color.color_hls(hu, li*0.5 , sa),
+                         room_color=Color.color_hls(hu, li*0.2, 0.8 * sa),
+                         letters_color=Color.color_hls(hu=0.72, li=0.95, sa=0.9),
+                         contour_color=Color.GREY,
+                         inside_room_color=Color.WHITE,
+                         surrounding_color=Color.KHAKI)
+    return lcolor

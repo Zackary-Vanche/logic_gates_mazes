@@ -282,17 +282,12 @@ def f():
                 room_departure=R7,
                 room_arrival=RE)
 
-    hu = 0.4
-    lcolor = Levels_colors_list.FROM_HUE(hu=hu, sa=0.5, li=0.25)
-    lcolor.surrounding_color = Color.color_hls(hu=hu+0.1, sa=1, li=0.7)
-    lcolor.contour_color = Color.color_hls(hu=hu+0.1, sa=1, li=0.7)
-
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19, D20, D21, D22, D23, D24],
                  fastest_solution="S0 D0 S1 D4 S3 D10 S2 D8 S6 D19 S4 D13 S5 D17 S7 D24",
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Cube',
                  keep_proportions=True,
                  door_window_size=300)
@@ -309,3 +304,10 @@ def f():
     #                     switches=[{S0.name}, {S1.name}])''')
     
     return level
+
+def get_color():
+    hu = 0.4
+    lcolor = Levels_colors_list.FROM_HUE(hu=hu, sa=0.5, li=0.25)
+    lcolor.surrounding_color = Color.color_hls(hu=hu+0.1, sa=1, li=0.7)
+    lcolor.contour_color = Color.color_hls(hu=hu+0.1, sa=1, li=0.7)
+    return lcolor

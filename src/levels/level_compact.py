@@ -97,7 +97,7 @@ def f():
                  rooms_list=[R0, R1, R2] + [RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6],
                  fastest_solution='S0 D0 S1 D4 D3 S0 D0 D4 S2 D3 S0 D0 S1 D4 D3 S0 D0 D4 S2 D6',
-                 level_color=Levels_colors_list.FROM_HUE(hu=0.145, sa=0.2, li=0.45),
+                 level_color=get_color(),
                  name='Compact',
                  door_window_size=333,
                  keep_proportions=True,
@@ -106,3 +106,6 @@ def f():
                  group='pure maze')
 
     return level
+
+def get_color():
+    return Levels_colors_list.FROM_HUE(hu=0.145, sa=0.2, li=0.45)

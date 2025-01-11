@@ -329,9 +329,12 @@ def f():
                              RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12],
                  fastest_solution="S0 S2 D4 S12 S15 D5 S2 S3 D6 S17 S18 S19 D7 S0 S1 S2 D4 S12 S13 S15 D5 S0 S3 D4 S12 S15 D5 D6 S16 S17 S18 S19",
-                 level_color=Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.5),
+                 level_color=get_color(),
                  name="Second Guarini's puzzle",
                  keep_proportions=True,
                  door_window_size=300)
     
     return level
+
+def get_color():
+    return Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.5)

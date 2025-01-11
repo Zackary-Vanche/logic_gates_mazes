@@ -54,9 +54,13 @@ def f():
                  rooms_list=[R0, R1, R2, RE],
                  doors_list=[D0, D1, D2],
                  fastest_solution="S0 D0 S1 D1 D2",
-                 level_color=Levels_colors_list.GREY,
+                 level_color=get_color(),
                  name='Initiation',
                  door_window_size=395,
                  keep_proportions=True)
 
     return level
+
+
+def get_color():
+    return Levels_colors_list.GREY

@@ -110,7 +110,7 @@ def f():
               rooms_list=[R0, R1, R2, R3, R4, RE], 
               doors_list = [D0, D1, D2, D3, D4, D5, D6],
               fastest_solution="D4 D5 D0 S1 D2 S4 D4 D5 D1 S7 D3 S4 D4 D5 D0 S0 D2 S3 D4 D5 D1 S6 S7 D3 S3 S4 D4 D5 D0 S1 S2 D2 S4 S5 D4 D5 D1 S8 D3 S5 D4 D5 D0 S1 D2 S4 D4 D5 D1 S7 D3 S4 D4 D5 D6",
-              level_color=Levels_colors_list.DARK_AND_GREY_GREEN,
+              level_color=get_color(),
               name='River',
               keep_proportions=False,
               door_window_size=500,
@@ -118,7 +118,6 @@ def f():
     
     return level
 
-if __name__ == "__main__":
-    
-    solutions = level_river().find_all_solutions(verbose=2, stop_at_first_solution=False)
+def get_color():
+    return Levels_colors_list.DARK_AND_GREY_GREEN
     

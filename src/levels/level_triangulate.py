@@ -71,7 +71,7 @@ def f():
                  rooms_list=[R0, RE],
                  doors_list=[D0],
                  fastest_solution='S0 S1 S2 S5 S7 S8 D0',
-                 level_color=Levels_colors_list.FROM_HUE(hu=0, sa=0.3, li=0.7),
+                 level_color=get_color(),
                  name='Triangulate',
                  door_window_size=395,
                  keep_proportions=True,
@@ -79,3 +79,6 @@ def f():
                  border=70)
 
     return level
+
+def get_color():
+    return Levels_colors_list.FROM_HUE(hu=0, sa=0.3, li=0.7)

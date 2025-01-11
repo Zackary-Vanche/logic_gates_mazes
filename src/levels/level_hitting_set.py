@@ -81,10 +81,13 @@ def f():
                  rooms_list=[R0, R1, RE],
                  doors_list=[D0, D1],
                  fastest_solution='S2 S4 S5 D0 D1',
-                 level_color=Levels_colors_list.FROM_HUE(0, sa=0.3, li=0.5),
+                 level_color=get_color(),
                  name='Hitting set',
                  border=30,
                  door_window_size=385,
                  keep_proportions=True)
 
     return level
+
+def get_color():
+    return Levels_colors_list.FROM_HUE(0, sa=0.3, li=0.5)

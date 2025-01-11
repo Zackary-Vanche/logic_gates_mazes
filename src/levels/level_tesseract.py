@@ -318,12 +318,15 @@ def f():
               rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, RE], 
               doors_list = [D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19, D20, D21, D22],
               fastest_solution="D2 S2 D6 D16 D20 D10 S6 D14 D17 D18 D3 S3 D7 D16 D21 D11 S7 D15 D17 D18 D0 S0 D4 D16 D18 D8 S4 D12 D17 D18 D1 S1 D5 D16 D19 D9 S5 D13 D17 D18 D22",
-              level_color=Levels_colors_list.BLACK_AND_WHITE,
+              level_color=get_color(),
               name='Tesseract',
               keep_proportions=False,
               door_window_size=350,
               y_separation=50)
     return level
+
+def get_color():
+    return Levels_colors_list.BLACK_AND_WHITE
 
 if __name__ == "__main__":
     

@@ -276,17 +276,13 @@ def f():
                 room_departure=R3,
                 room_arrival=RE,
                 relative_position=0.5)
-    
-    lcolor = Levels_colors_list.FROM_HUE(hu=0, sa=0.5, li=0.25)
-    lcolor.surrounding_color = Color.color_hls(hu=0.9, sa=1, li=0.7)
-    lcolor.contour_color = Color.color_hls(hu=0.9, sa=1, li=0.7)
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19, D20, D21, D22, D23, D24],
                  fastest_solution="S0 D0 S1 D10 S4 D17 S2 D18 S5 D23 S3 D24",
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Octahedron',
                  keep_proportions=True,
                  door_window_size=300)
@@ -303,3 +299,9 @@ def f():
     #                     switches=[{S0.name}, {S1.name}])''')
     
     return level
+
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(hu=0, sa=0.5, li=0.25)
+    lcolor.surrounding_color = Color.color_hls(hu=0.9, sa=1, li=0.7)
+    lcolor.contour_color = Color.color_hls(hu=0.9, sa=1, li=0.7)
+    return lcolor

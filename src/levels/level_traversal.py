@@ -281,9 +281,12 @@ def f():
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19],
                  fastest_solution="S0 S3 D0 S4 S7 S9 S10 D1 D2 D5 D9 D12 D14 S12 D16 S14 D18 S15 D17 S13 D19",
-                 level_color=Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.49),
+                 level_color=get_color(),
                  name='Traversal',
                  keep_proportions=True,
                  door_window_size=315)
     
     return level
+
+def get_color():
+    return Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.49)

@@ -304,9 +304,12 @@ def f(fast_solution_finding=False):
                  doors_list=[D0, D1, D2],
                  fastest_solution='''S0 S1 S2 D0 S15 S16 S17 D1 S2 S7 S11 D0 S17 S22 S26 D1 S1 S2 S3 D0 S16 S17 S18 D1 S0 S1 S2 D0 S15 S16 S17 D1 S5 S6 S7 D0 S20 S21 S22 D1 S5 S9 S12 D0 S20 S24 S27 D1 S4 S8 S11 D0 S19 S23 S26 D1 S8 S11 S13 D0 S23 S26 S28 D1 S2 S7 S11 D0 S17 S22 S26 D1 S8 S11 S13 D0 S23 S26 S28 D1 S11 S13 S14 D0 S26 S28 S29 D1 S9 S10 S11 D0 S24 S25 S26 D1 S0 S5 S9 D0 S15 S20 S24 D2'''.replace(
                      '\n', ''),
-                 level_color=Levels_colors_list.FROM_HUE(0, sa=0.35, li=0.49),
+                 level_color=get_color(),
                  name='Solitaire',
                  door_window_size=500,
                  keep_proportions=True)
 
     return level
+
+def get_color():
+    return Levels_colors_list.FROM_HUE(0, sa=0.35, li=0.49)

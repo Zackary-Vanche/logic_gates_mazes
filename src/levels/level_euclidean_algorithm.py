@@ -7,6 +7,20 @@ from Color import Color
 from Level_color import Level_color
 from random import choice as rd_choice
 
+hu = 0.55
+background_color=Color.color_hls(hu, li=0.6, sa=0.4)
+room_color=Color.color_hls(hu, li=0.1, sa=0.3)
+letters_color=Color.BLACK
+contour_color=Color.YELLOW
+inside_room_color=Color.WHITE
+surrounding_color=Color.YELLOW
+lcolor = Level_color(background_color=background_color,
+                        room_color=room_color,
+                        letters_color=letters_color,
+                        contour_color=contour_color,
+                        inside_room_color=inside_room_color,
+                        surrounding_color=surrounding_color)
+
 def f(): 
 
     S0 = Switch(name='S0')
@@ -114,20 +128,6 @@ def f():
     dx = ex+ax
     dy = ey+ay
     
-    hu = 0.55
-    background_color=Color.color_hls(hu, li=0.6, sa=0.4)
-    room_color=Color.color_hls(hu, li=0.1, sa=0.3)
-    letters_color=Color.BLACK
-    contour_color=Color.YELLOW
-    inside_room_color=Color.WHITE
-    surrounding_color=Color.YELLOW
-    lcolor = Level_color(background_color=background_color,
-                         room_color=room_color,
-                         letters_color=letters_color,
-                         contour_color=contour_color,
-                         inside_room_color=inside_room_color,
-                         surrounding_color=surrounding_color)
-    
     Ra = Room(name='',
                 position=[ex, ey, ax, ay],
                 switches_list=[],
@@ -215,3 +215,6 @@ def f():
                  random=True)
     
     return level
+
+def get_color():
+    return lcolor

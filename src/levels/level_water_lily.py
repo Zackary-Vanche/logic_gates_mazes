@@ -300,20 +300,21 @@ def f(fast_solution_finding=False):
                 room_departure=R13,
                 room_arrival=RE)
     
-    lcolor = Levels_colors_list.FROM_HUE(hu=0.6, sa=0.5, li=0.6)
-    lcolor.room_color = Color.GREEN
-    lcolor.inside_room_color = Color.IVORY
-    lcolor.surrounding_color = Color.PINK
-
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19],
                  fastest_solution="S0 S2 S3 S5 S7 S9 S10 S11 S13 S15 S16 S17 S18 D0 S19 D10 S23 D11 S27 D7 S28 D13 S24 D5 S25 D15 S29 D9 S30 D17 S26 D16 S22 D3 S21 D2 S20 D18 D19",
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Water lily',
                  keep_proportions=True,
                  door_window_size=330)
     
     return level
 
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.6, sa=0.5, li=0.6)
+    lcolor.room_color = Color.GREEN
+    lcolor.inside_room_color = Color.IVORY
+    lcolor.surrounding_color = Color.PINK
+    return lcolor

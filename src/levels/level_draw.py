@@ -462,10 +462,12 @@ def f():
                              D20, D21, D22, D23, D24, D25, D26, D27, D28, D29,
                              D30, D31, D32, D33, D34, D35, D36, D37, D38, D39],
                  fastest_solution="D3 D18 S1 D15 D11 S0 D13 D19 S4 D16 D23 S3 D17 D12 S2 D14 D24 S5 D22 D20 S6 D26 D35 S10 D29 D25 S11 D30 D36 S7 D31 D21 S8 D27 D33 S12 D34 D37 S13 D38 D32 S9 D28 D4 D39",
-                 level_color=Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.5),
+                 level_color=get_color(),
                  name='Draw',
                  keep_proportions=True,
                  door_window_size=250)
     
     return level
 
+def get_color():
+    return Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.5)

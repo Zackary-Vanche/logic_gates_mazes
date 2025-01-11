@@ -1,119 +1,170 @@
 from numpy import ceil as np_ceil
+from numpy import log
 
-def compute_positions(tree, x=0, y=0, x_step=2, y_step=1):
-    """
-    Calcule récursivement les positions des nœuds d'un arbre.
+# def make_chain(l):
+#     chain = [l.pop()]
+#     l.reverse()
+#     for x in l:
+#         if isinstance(x, list):
+#             pass
+#         else:
+#             chain = [x, chain]
+#     return chain
 
-    :param tree: Liste représentant l'arbre, e.g., [0, [1, [2, 3], 4]].
-    :param x: Position x actuelle du nœud racine.
-    :param y: Position y actuelle du nœud racine.
-    :param x_step: Espacement horizontal minimal entre les sous-arbres.
-    :param y_step: Espacement vertical entre les niveaux de l'arbre.
-    :return: Dictionnaire {nœud: (x, y)}.
-    """
-    # Si le nœud est une feuille (non une liste)
-    if not isinstance(tree, list):
-        return {tree: (x, y)}
+def make_chain(*args):
+    # Si des arguments sont passés en tant que liste, les traiter comme une liste
+    if len(args) == 1 and isinstance(args[0], list):
+        l = args[0]
+    else:
+        # Sinon, on les traite comme une liste d'éléments individuels
+        l = list(args)
+    assert len(l) != 0
+    if len(l) == 1:
+        assert not isinstance(l[0], list)
+        return l
+    chain = [l[0]]
+    for i in range(1, len(l)):
+        if isinstance(l[i], list):
+            chain.append(l[i])
+        else:
+            chain.append(make_chain(l[i:]))
+            break
+    return chain
+        
+def make_positions_dict(tree, tree_positions):
+    positions_dict = {tree[0]:tree_positions[0]}
+    for i in range(1, len(tree)):
+        positions_dict = positions_dict|make_positions_dict(tree[i], tree_positions[i])
+    return positions_dict
 
-    # Calcul des positions
-    positions = {}
+def make_nodes_dict(tree, prefix=''):
+    try:
+        if isinstance(tree, list):
+            nodes_dict = {prefix:tree[0]}
+            for i in range(1, len(tree)):
+                nodes_dict = nodes_dict|make_nodes_dict(tree[i], prefix=prefix+f'_{str(i)}')
+        else:
+            nodes_dict = {prefix:tree}
+        return nodes_dict
+    except:
+        print('*'*50)
+        print(tree)
+        print('*'*50)
+        raise
+        
+def make_children_dict(tree, prefix=''):
+    if isinstance(tree, list):
+        children_names = []
+        for i in range(1, len(tree)):
+            children_names.append(prefix+f'_{str(i)}')
+        children_dict = {prefix:children_names}
+        for i in range(1, len(tree)):
+            children_dict = children_dict|make_children_dict(tree[i], prefix=prefix+f'_{str(i)}')
+    else:
+        children_dict = {prefix:[]}
+    return children_dict
+
+def make_edges_list(tree):
+    edges_list = []
     root = tree[0]
-    positions[root] = (x, y)
-
-    if len(tree) > 1:
-        # Calcul des positions des enfants
-        subtree_positions = []
-        subtree_widths = []
-
-        for subtree in tree[1:]:
-            subtree_pos = compute_positions(subtree, x=0, y=y - y_step, x_step=x_step, y_step=y_step)
-            subtree_positions.append(subtree_pos)
-
-            # Calcul de la largeur totale du sous-arbre
-            subtree_min_x = min(pos[0] for pos in subtree_pos.values())
-            subtree_max_x = max(pos[0] for pos in subtree_pos.values())
-            subtree_widths.append(subtree_max_x - subtree_min_x + x_step)
-
-        # Centre des sous-arbres autour du parent
-        current_x = x - sum(subtree_widths) / 2
-
-        for i, subtree_pos in enumerate(subtree_positions):
-            offset_x = current_x + subtree_widths[i] / 2
-            for node, (node_x, node_y) in subtree_pos.items():
-                positions[node] = (node_x + offset_x, node_y)
-            current_x += subtree_widths[i]
-
-    return positions
-
-
-def draw_tree_ascii(positions):
+    for i in range(1, len(tree)):
+        subtree = tree[i]
+        edges_list.append([root, subtree[0]])
+        edges_list.extend(make_edges_list(subtree))
+    return edges_list 
+    
+def draw_tree_ascii(tree, tree_positions):
     """
     Dessine l'arbre en utilisant des caractères ASCII.
 
     :param positions: Dictionnaire {nœud: (x, y)}.
     """
+    positions = make_positions_dict(tree, tree_positions)
+    
     # Normaliser les coordonnées pour l'affichage ASCII
     min_x = min(x for x, y in positions.values())
     max_x = max(x for x, y in positions.values())
     min_y = min(y for x, y in positions.values())
-
+    max_y = max(y for x, y in positions.values())
+    
+    nx = 4
+    ny = 2
+    
     grid_width = int(np_ceil(max_x - min_x)) + 1
-    grid_height = int(np_ceil(abs(min_y))) + 1
+    grid_height = int(np_ceil(max_y - min_y)) + 1
 
-    grid = [[' ' for _ in range(grid_width)] for _ in range(grid_height)]
+    grid = [[' ' for _ in range(nx*grid_width)] for _ in range(ny*grid_height)]
 
     for node, (x, y) in positions.items():
-        grid[int(abs(y))][int(x - min_x)] = str(node)
+        grid[ny*int(abs(y))][nx*int(x - min_x)] = str(node)
 
     # Afficher la grille
     for row in grid:
         print(''.join(row))
-
-def convert_to_tree(graph):
-    """
-    Convertit une liste de chaînes (représentant un arbre) en une structure d'arbre imbriqué.
-
-    :param graph: Liste de chaînes représentant l'arbre (chaînes de noeuds liés).
-    :return: Arbre sous forme de liste imbriquée.
-    """
-    # Crée un dictionnaire pour stocker les enfants de chaque noeud
-    children_map = {}
-    for chain in graph:
-        parent = chain[0]
-        children_map[parent] = chain[1:]  # Stocke tous les enfants sauf le premier (qui est le parent)
-
-    def build_tree(node):
-        """
-        Fonction récursive pour construire l'arbre imbriqué.
-        """
-        # Si le noeud n'a pas d'enfants dans le dictionnaire, c'est une feuille
-        if node not in children_map or not children_map[node]:
-            return [node]
         
-        # Sinon, construire une sous-arbre avec ses enfants
-        children = [build_tree(child) for child in children_map[node]]
-        return [node] + children
+def translate_tree_position(tree_list, dx, dy):
+    root_x, root_y = tree_list[0]
+    translated_tree_list = [(root_x+dx, root_y+dy)]
+    for child in tree_list[1:]:
+        translated_tree_list.append(translate_tree_position(child, dx, dy))
+    return translated_tree_list
 
-    # Construire l'arbre à partir du noeud racine
-    root = graph[0][0]  # Supposons que le premier noeud est la racine
-    return build_tree(root)
+def get_bounding_box(tree_list):
+    root_x, root_y = tree_list[0]
+    min_x, max_x, min_y, max_y = root_x, root_x, root_y, root_y
+    for child in tree_list[1:]:
+        min_x_child, max_x_child, min_y_child, max_y_child = get_bounding_box(child)
+        min_x = min(min_x, min_x_child)
+        max_x = max(max_x, max_x_child)
+        min_y = min(min_y, min_y_child)
+        max_y = max(max_y, max_y_child)
+    return min_x, max_x, min_y, max_y
 
+def translate_to_0(tree_list):
+    min_x, max_x, min_y, max_y = get_bounding_box(tree_list)
+    return translate_tree_position(tree_list, min_x, 0)
+        
+def compute_positions(tree_list, y=0):
+    if not isinstance(tree_list, list):
+        return [[0, y]]
+    if len(tree_list) == 1:
+        return [[0, y]]
+    children_positions = []
+    children_root_positions = []
+    children = tree_list[1:]
+    dx = 0
+    xmax = -float('inf')
+    xmin = float('inf')
+    for child in children:
+        child_position = compute_positions(child, y+1)
+        child_position = translate_tree_position(child_position, dx, 0)
+        min_x_child, max_x_child, min_y_child, max_y_child = get_bounding_box(child_position)
+        xmax = max(xmax, child_position[0][0])
+        xmin = min(xmin, child_position[0][0])
+        dx += max_x_child - min_x_child + 1
+        children_positions.append(child_position)
+        children_root_positions.append(child_position[0])
+    x = sum([p[0] for p in children_root_positions])/len(children_root_positions)
+    dy = log(xmax-xmin+1)*0.5
+    children_positions = [translate_tree_position(child_position, 0, dy) for child_position in children_positions]
+    tree_positions = translate_to_0([(x, y)] + children_positions)
+    return tree_positions
+    
+if __name__ == "__main__":
+    tree = ["A",
+             ["B",
+              make_chain(["C", "D", "E"]),
+              make_chain(["F", "G", "H"]),
+              make_chain(["I", "J", "K", make_chain(["L", "M", "N"]), "O"]),
+              make_chain(["P", "Q", "R", make_chain(["S", "T"]), make_chain(["U", "V"])]),
+              ['W', 'X', 'Y', 'Z']]
+             ]
+    
+    print(tree)
+    
+    positions = compute_positions(tree, y=0)
+    draw_tree_ascii(tree, positions)
 
-# Exemple d'utilisation
-graph = [
-    ["A", "B", "C", "D"],
-    ["B", "E", "F"],
-    ["B", "G", "H"],
-    ["C", "I", "J", "K"]
-]
-
-tree = [["A",
-         ["B",
-          ["C", ["D"], ["I", ["J", ["K"]]]],
-          ["E", ["F"]],
-          ["G", ["H"]]]]]
-
-tree_list = convert_to_tree(graph)
-
-positions = compute_positions(tree_list, x=0, y=0, x_step=4, y_step=2)
-draw_tree_ascii(positions) # Je ne comrends pas pourquoi le 12 n'est pas centré en dessous du 9 
+class Map:
+    
+    pass

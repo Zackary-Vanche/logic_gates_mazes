@@ -80,9 +80,12 @@ def f():
                  rooms_list=[R0, RE],
                  doors_list=[D0],
                  fastest_solution=" ".join(solution_list),
-                 level_color=Levels_colors_list.FROM_HUE(hu=0.16, sa=0.4, li=0.5),
+                 level_color=get_color(),
                  name='Connectivity',
                  keep_proportions=True,
                  door_window_size=300)
     
     return level
+
+def get_color():
+    return Levels_colors_list.FROM_HUE(hu=0.16, sa=0.4, li=0.5)

@@ -240,7 +240,20 @@ def f():
                 room_arrival=RE,
                 relative_departure_coordinates=[1, 0],
                 relative_arrival_coordinates=[1, 1/2])
+
+    level = Maze(start_room_index=0,
+                 exit_room_index=-1,
+                 rooms_list=[R0, R1, R2, R3, R4, RE],
+                 doors_list=[D0, D1, D2, D3, D4],
+                 fastest_solution="S0 S2 S4 S6 D0 S10 S12 S15 D1 S21 S23 D2 S28 S30 S31 D3 S40 D4",
+                 level_color=get_color(),
+                 name='Integer partition',
+                 keep_proportions=True,
+                 door_window_size=350)
     
+    return level
+    
+def get_color():
     hu = 0.25
     sa = 0.6
     lcolor = Level_color(background_color=Color.color_hls(hu, 0.4, sa),
@@ -249,17 +262,4 @@ def f():
                          contour_color=Color.color_hls(hu=0.1, li=0.7, sa=1),
                          inside_room_color=Color.WHITE,
                          surrounding_color=Color.color_hls(hu=0.1, li=0.8, sa=1))
-
-    level = Maze(start_room_index=0,
-                 exit_room_index=-1,
-                 rooms_list=[R0, R1, R2, R3, R4, RE],
-                 doors_list=[D0, D1, D2, D3, D4],
-                 fastest_solution="S0 S2 S4 S6 D0 S10 S12 S15 D1 S21 S23 D2 S28 S30 S31 D3 S40 D4",
-                 level_color=lcolor,
-                 name='Integer partition',
-                 keep_proportions=True,
-                 door_window_size=350)
-    
-    return level
-    
-    
+    return lcolor    

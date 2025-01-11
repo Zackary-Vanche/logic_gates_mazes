@@ -52,8 +52,11 @@ def f():
                  rooms_list=[R0, R1, RE],
                  doors_list=[D0, D1],
                  fastest_solution='S0 D0 S2 D0 S0 S1 D1',
-                 level_color=Levels_colors_list.BROWN,
+                 level_color=get_color(),
                  name='Backward',
                  door_window_size=350)
 
     return level
+
+def get_color():
+    return Levels_colors_list.BROWN

@@ -96,7 +96,7 @@ def f():
                  rooms_list=[R0, R1, R2] + [RE],
                  doors_list=[D0, D1, D2],
                  fastest_solution=None,
-                 level_color=Levels_colors_list.FROM_HUE(hu=0, sa=0.2, li=0.4),
+                 level_color=get_color(),
                  name='Second',
                  door_window_size=375,
                  keep_proportions=True,
@@ -105,3 +105,6 @@ def f():
                  random=True)
 
     return level
+
+def get_color():
+    return Levels_colors_list.FROM_HUE(hu=0, sa=0.2, li=0.4)

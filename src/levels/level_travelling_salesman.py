@@ -322,9 +322,12 @@ def f(fast_solution_finding=False):
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7],
                  fastest_solution='S2 S3 D0 S7 S10 D1 S13 S15 S17 D2 S20 S21 S22 S23 D3 S25 S26 S27 S28 D4 S31 S32 D5 S38 D6 D7',
-                 level_color=Levels_colors_list.FROM_HUE(0.2, sa=0.5, li=0.4),
+                 level_color=get_color(),
                  name='Travelling salesman',
                  door_window_size=425,
                  keep_proportions=False)
 
     return level
+
+def get_color():
+    return Levels_colors_list.FROM_HUE(0.2, sa=0.5, li=0.4)

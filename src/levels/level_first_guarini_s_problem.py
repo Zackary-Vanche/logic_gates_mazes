@@ -237,10 +237,13 @@ def f():
                  rooms_list=[R0, R1, R2, R3, R4, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8],
                  fastest_solution='S0 S3 D4 S13 S14 S15 D5 S1 D2 S9 S10 D3 S0 S2 D0 S4 S5 S7 D1 S3 D6 S16 S19 D7 S0 D0 S4 S7 D1 S1 D2 S9 S10 S11 D3 S3 D6 S16 S17 S19 D7 S1 D4 S13 S14 D5 S0 D2 S8 S9 S11 D3 S3 D4 S12 S15 D5 S0 S2 S3 D6 S17 S18 D7 S1 D0 S5 S6 S7 D1 S2 D4 S12 S13 S15 D5 S1 D0 S5 S6 D1 S3 D2 S8 S11 D3 S1 D6 S17 S18 S19 D7 S0 S2 D8',
-                 level_color=Levels_colors_list.FROM_HUE(hu=0.1, sa=0.4, li=0.7),
+                 level_color=get_color(),
                  uniform_surrounding_colors=False,
                  name="First Guarini's puzzle",
                  keep_proportions=True,
                  door_window_size=400)
     
     return level
+
+def get_color():
+    return Levels_colors_list.FROM_HUE(hu=0.1, sa=0.4, li=0.7)

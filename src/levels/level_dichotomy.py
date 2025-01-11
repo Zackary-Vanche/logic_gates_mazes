@@ -140,7 +140,7 @@ def f():
                  rooms_list=[R0, R1, R2, R3] + [RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6],
                  fastest_solution=None,
-                 level_color=Levels_colors_list.PURPLE_AND_GREY,
+                 level_color=get_color(),
                  name='Dichotomy',
                  random=True,
                  door_window_size=300,
@@ -149,3 +149,7 @@ def f():
                  border=40)
 
     return level
+
+
+def get_color():
+    return Levels_colors_list.PURPLE_AND_GREY

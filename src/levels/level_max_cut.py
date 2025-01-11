@@ -89,9 +89,12 @@ def f():
                  rooms_list=[R0, RE],
                  doors_list=[D0],
                  fastest_solution="S3 S4 S6 D0",
-                 level_color=Levels_colors_list.FROM_HUE(hu=0.5, sa=0.3, li=0.6),
+                 level_color=get_color(),
                  name='Max-cut',
                  keep_proportions=True,
                  door_window_size=400)
     
     return level
+
+def get_color():
+    return Levels_colors_list.FROM_HUE(hu=0.5, sa=0.3, li=0.6)

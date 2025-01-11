@@ -133,19 +133,21 @@ def f():
     
     sol = 'S8 ' * bin_c[0] + 'S9 ' * bin_c[1] + 'S10 ' * bin_c[2] + 'S11 ' * bin_c[3] + 'S12 ' * bin_c[4]
     sol = sol + 'D0'
-    
-    lcolor = Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.4)
-    lcolor.surrounding_color = Color.PURE_BLUE
-    lcolor.contour_color = Color.PURE_BLUE
 
     level = Maze(start_room_index=1,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, RE],
                  doors_list=[D0],
                  fastest_solution=sol,
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Circuit',
                  keep_proportions=True,
                  door_window_size=500)
     
     return level
+
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.4)
+    lcolor.surrounding_color = Color.PURE_BLUE
+    lcolor.contour_color = Color.PURE_BLUE
+    return lcolor

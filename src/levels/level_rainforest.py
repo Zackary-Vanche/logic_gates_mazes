@@ -380,7 +380,20 @@ def f(fast_solution_finding=False):
                 name='D24',
                 room_departure=R0,
                 room_arrival=RE)
+
+    level = Maze(start_room_index=0,
+                 exit_room_index=-1,
+                 rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, R15, R16, R17, R18, R19, R20, R21, R22, R23, R24, RE],
+                 doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19, D20, D21, D22, D23, D24],
+                 fastest_solution='D7 D22 S18 D22 D7 S0 D6 D20 S16 D20 D6 S0 S1 D4 D16 S12 D16 D4 S0 D5 D18 S14 D18 D5 S0 S1 S2 D1 D10 S6 D10 D1 S0 D0 D8 S4 D8 D0 S0 S1 D2 D12 S8 D12 D2 S0 D3 D14 S10 D14 D3 S0 S1 S2 S3 D3 D15 S11 D15 D3 S0 D2 D13 S9 D13 D2 S0 S1 D0 D9 S5 D9 D0 S0 D1 D11 S7 D11 D1 S0 S1 S2 D5 D19 S15 D19 D5 S0 D4 D17 S13 D17 D4 S0 S1 D6 D21 S17 D21 D6 S0 D7 D23 S19 D23 D7 D24',
+                 level_color=get_color(),
+                 name='Rainforest',
+                 keep_proportions=False,
+                 door_window_size=300)
     
+    return level
+
+def get_color():
     lcolor = Levels_colors_list.FROM_HUE(hu=0.4, sa=0.5, li=0.3)
     c = Color.IVORY
     lcolor.inside_room_color = c
@@ -388,15 +401,4 @@ def f(fast_solution_finding=False):
     lcolor.surrounding_color = c
     lcolor.contour_color = c
     lcolor.background_color = [0, 0, 50]
-
-    level = Maze(start_room_index=0,
-                 exit_room_index=-1,
-                 rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, R15, R16, R17, R18, R19, R20, R21, R22, R23, R24, RE],
-                 doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19, D20, D21, D22, D23, D24],
-                 fastest_solution='D7 D22 S18 D22 D7 S0 D6 D20 S16 D20 D6 S0 S1 D4 D16 S12 D16 D4 S0 D5 D18 S14 D18 D5 S0 S1 S2 D1 D10 S6 D10 D1 S0 D0 D8 S4 D8 D0 S0 S1 D2 D12 S8 D12 D2 S0 D3 D14 S10 D14 D3 S0 S1 S2 S3 D3 D15 S11 D15 D3 S0 D2 D13 S9 D13 D2 S0 S1 D0 D9 S5 D9 D0 S0 D1 D11 S7 D11 D1 S0 S1 S2 D5 D19 S15 D19 D5 S0 D4 D17 S13 D17 D4 S0 S1 D6 D21 S17 D21 D6 S0 D7 D23 S19 D23 D7 D24',
-                 level_color=lcolor,
-                 name='Rainforest',
-                 keep_proportions=False,
-                 door_window_size=300)
-    
-    return level
+    return lcolor

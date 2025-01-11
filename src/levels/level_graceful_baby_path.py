@@ -73,20 +73,22 @@ def f():
                 room_departure=R0,
                 room_arrival=RE,
                 relative_position=0.6)
-    
-    color=Color.color_hls(hu=0.6, li=0.7, sa=0.8)
-    lcolor=Levels_colors_list.FROM_HUE(hu=0.6, sa=0.2, li=0.4)
-    lcolor.surrounding_color=color
-    lcolor.contour_color=color
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, RE],
                  doors_list=[D0],
                  fastest_solution="S0 S3 D0",
-                 level_color=lcolor,
-                 name='Substract',
+                 level_color=get_color(),
+                 name='Graceful baby path',
                  keep_proportions=True,
                  door_window_size=300)
     
     return level
+
+def get_color():
+    color=Color.color_hls(hu=0.6, li=0.7, sa=0.8)
+    lcolor=Levels_colors_list.FROM_HUE(hu=0.6, sa=0.2, li=0.4)
+    lcolor.surrounding_color=color
+    lcolor.contour_color=color
+    return lcolor

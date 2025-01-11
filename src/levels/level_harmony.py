@@ -428,11 +428,6 @@ def f(fast_solution_finding=False):
                 name='D26',
                 room_departure=R11,
                 room_arrival=RE)
-    
-    lcolor = Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.7)
-    lcolor.surrounding_color = Color.WHITE
-    lcolor.contour_color = Color.WHITE
-    lcolor.background_color = Color.color_hls(hu=0, li=0.1, sa=0.25)
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
@@ -444,9 +439,16 @@ def f(fast_solution_finding=False):
                              RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19, D20, D21, D22, D23, D24, D25, D26],
                  fastest_solution='S1 S6 S8 D0 S10 S11 S13 S14 S15 S18 S19 S20 D1 S21 D3 S23 D6 S25 D5 S22 D4 S24 D8 S27 D14 S31 D15 S28 D16 S32 D21 S34 D24 S36 D25 S35 D23 S33 D18 S29 D12 S26 D13 S30 D26',
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Harmony',
                  keep_proportions=True,
                  door_window_size=350)
     
     return level
+
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.7)
+    lcolor.surrounding_color = Color.WHITE
+    lcolor.contour_color = Color.WHITE
+    lcolor.background_color = Color.color_hls(hu=0, li=0.1, sa=0.25)
+    return lcolor

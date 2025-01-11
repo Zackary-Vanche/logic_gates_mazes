@@ -130,7 +130,7 @@ def aux(door_trees_list = [[i for i in range(2**n_switches)] for j in range(n_do
                  rooms_list=[R0, R1, R2, R3, R4, R5] + [RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10],
                  fastest_solution=None,
-                 level_color=Levels_colors_list.RANDOM(),
+                 level_color=get_color(),
                  name='Random - W6',
                  door_window_size=400,
                  keep_proportions=True,
@@ -139,6 +139,8 @@ def aux(door_trees_list = [[i for i in range(2**n_switches)] for j in range(n_do
                  random=True)
     
     return level
+
+get_color = Levels_colors_list.RANDOM
 
 def f():
     return Maze.get_random_level_from_file(aux)

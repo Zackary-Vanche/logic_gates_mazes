@@ -186,7 +186,20 @@ def f():
                 room_departure=R8,
                 room_arrival=RE,
                 relative_arrival_coordinates=[2.5/4, 1/2])
+
+    level = Maze(start_room_index=0,
+                 exit_room_index=-1,
+                 rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, RE],
+                 doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8],
+                 fastest_solution="D0 S1 D1 S2 D2 S4 D3 S5 S6 D4 S7 S9 D5 S13 D6 S14 S16 S17 D7 S18 S20 S22 D8",
+                 level_color=get_color(),
+                 name='Fibonacci sequence',
+                 keep_proportions=True,
+                 door_window_size=300)
     
+    return level
+
+def get_color():
     hu = 0.8
     lcolor = Level_color(background_color=Color.color_hls(hu, li=0.7, sa=0.25),
                          room_color=Color.color_hls(hu, li=0.2, sa=0.5),
@@ -194,15 +207,4 @@ def f():
                          contour_color=Color.ELECTRIC_BLUE,
                          inside_room_color=Color.WHITE,
                          surrounding_color=Color.ELECTRIC_BLUE)
-
-    level = Maze(start_room_index=0,
-                 exit_room_index=-1,
-                 rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, RE],
-                 doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8],
-                 fastest_solution="D0 S1 D1 S2 D2 S4 D3 S5 S6 D4 S7 S9 D5 S13 D6 S14 S16 S17 D7 S18 S20 S22 D8",
-                 level_color=lcolor,
-                 name='Fibonacci sequence',
-                 keep_proportions=True,
-                 door_window_size=300)
-    
-    return level
+    return lcolor

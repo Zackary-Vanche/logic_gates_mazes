@@ -358,16 +358,19 @@ def f():
                 relative_departure_coordinates=[1/2, 0],
                 relative_arrival_coordinates=[1/2, 1])
 
-    lcolor = Levels_colors_list.FROM_HUE(hu=0, sa=0.2, li=0.4)
-    lcolor.surrounding_color = Color.TOTAL_YELLOW
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19, D20, D21, D22],
                  fastest_solution='D2 S7 D13 S3 S4 D12 S0 D0 D5 S16 D14 S6 S7 D13 S3 D1 D21 D8 S25 S26 D19 S21 S22 D18 S18 S20 D6 D10 S13 D16 S17 D20 S24 S25 D19 S21 S23 D7 D9 S10 D15 S14 D16 S15 S16 D20 S26 D17 S8 D14 S15 S16 D16 S14 D15 S10 D3 D1 S3 S5 D13 S6 S7 D14 S17 D16 S13 D10 D7 S21 D19 S24 S25 D20 S16 D11 D6 S18 D18 S21 S22 D19 S25 D8 D21 D0 S0 S2 D12 S3 S4 D13 S7 S8 D2 D22',
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Panex',
                  keep_proportions=True,
                  door_window_size=325)
     
     return level
+
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(hu=0, sa=0.2, li=0.4)
+    lcolor.surrounding_color = Color.TOTAL_YELLOW
+    return lcolor

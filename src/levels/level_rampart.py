@@ -180,7 +180,7 @@ def f():
                  rooms_list=[R0, R1, R2, R3, R4, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5,],
                  fastest_solution="D0 S0 D1 S1 D2 S3 D3 S7 D4 D0 S0 D1 S1 D2 S2 D3 S6 D4 D0 S0 D1 S1 D2 S2 S4 D3 S6 S8 D4 D0 S0 D1 S1 D2 S2 D3 S6 D4 D0 S0 D1 S1 D2 S2 S4 S5 D3 S6 S8 S9 D4 D0 S0 D1 S1 D2 S2 S3 D3 S6 S7 D4 D0 S0 D1 S1 D2 S2 S4 D3 S6 S8 D4 D0 S0 D1 S1 D2 S2 D3 S6 D4 D0 S0 D1 S1 D2 S3 D3 S7 D4 D0 S0 D1 S1 D2 S2 D3 S6 D4 D0 S0 D1 S1 D2 S2 S4 D3 S6 S8 D4 D0 S0 D1 S1 D2 S2 S3 S4 D3 S6 S7 S8 D4 D0 S0 D1 S1 D2 S2 S4 D3 S6 S8 D4 D0 S0 D1 S1 D2 S2 D3 S6 D4 D0 S0 D1 S1 D2 S2 S4 S5 D3 S6 S8 S9 D4 D0 S0 D1 S1 D2 S2 S3 D3 S6 S7 D4 D0 S0 D1 S1 D2 S2 S4 D3 S6 S8 D4 D0 S0 D1 S1 D2 S2 S3 S4 D3 S6 S7 S8 D4 D0 S0 D1 S1 D2 S2 S4 D3 S6 S8 D4 D5",
-                 level_color=Levels_colors_list.FROM_HUE(hu=(hue_max+hue_min)/2, sa=sa, li=0.3),
+                 level_color=get_color(),
                  name='Rampart',
                  keep_proportions=True,
                  door_window_size=350,
@@ -188,3 +188,9 @@ def f():
                  uniform_inside_room_color=False)
     
     return level
+
+def get_color():
+    hue_min = 1/3
+    hue_max = 2/3
+    sa = 0.4
+    return Levels_colors_list.FROM_HUE(hu=(hue_max+hue_min)/2, sa=sa, li=0.3)

@@ -81,7 +81,20 @@ def f():
                 name='D4',
                 room_departure=R4,
                 room_arrival=RE)
+
+    level = Maze(start_room_index=0,
+                 exit_room_index=-1,
+                 rooms_list=[R0, R1, R2, R3, R4, RE],
+                 doors_list=[D0, D1, D2, D3, D4],
+                 fastest_solution="S0 D0 S1 D1 S2 D2 S3 D3 S4 D4",
+                 level_color=get_color(),
+                 name='Alternation',
+                 keep_proportions=True,
+                 door_window_size=300)
     
+    return level
+
+def get_color():
     hu = 0.25
     lcolor = Level_color(background_color=Color.color_hls(hu, 0.2, 0.4),
                          room_color=Color.color_hls(hu, 0.4, 0.4),
@@ -89,15 +102,4 @@ def f():
                          contour_color=Color.KHAKI,
                          inside_room_color=Color.BLACK,
                          surrounding_color=Color.TOTAL_YELLOW)
-
-    level = Maze(start_room_index=0,
-                 exit_room_index=-1,
-                 rooms_list=[R0, R1, R2, R3, R4, RE],
-                 doors_list=[D0, D1, D2, D3, D4],
-                 fastest_solution="S0 D0 S1 D1 S2 D2 S3 D3 S4 D4",
-                 level_color=lcolor,
-                 name='Alternation',
-                 keep_proportions=True,
-                 door_window_size=300)
-    
-    return level
+    return lcolor

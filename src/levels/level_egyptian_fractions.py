@@ -60,7 +60,7 @@ def f():
                  rooms_list=[R0] + [RE],
                  doors_list=[D0],
                  fastest_solution='S0 S1 S3 S4 S5 S6 S7 S8 S9 S10 S12 S14 D0',
-                 level_color=Levels_colors_list.FROM_HUE(hu=0.15, sa=0.8, li=0.51),
+                 level_color=get_color(),
                  name='Egyptian fractions',
                  door_window_size=350,
                  keep_proportions=True,
@@ -68,3 +68,6 @@ def f():
                  border=40)
 
     return level
+
+def get_color():
+    return Levels_colors_list.FROM_HUE(hu=0.15, sa=0.8, li=0.51)

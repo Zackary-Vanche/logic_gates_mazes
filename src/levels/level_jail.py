@@ -273,10 +273,13 @@ def f():
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17],
                  fastest_solution="S0 D12 S5 D0 S1 D13 S6 D4 S3 D15 S8 D10 S4 D16 S9 D9 S2 D14 S7 D3 D17",
-                 level_color=Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.5),
+                 level_color=get_color(),
                  name='Jail',
                  keep_proportions=True,
                  door_window_size=300,
                  uniform_inside_room_color=False)
     
     return level
+
+def get_color():
+    return Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.5)

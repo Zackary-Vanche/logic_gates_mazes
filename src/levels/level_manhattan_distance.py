@@ -252,10 +252,13 @@ def f():
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9,
                              D10, D11, D12, D13, D14, D15, D16, D17, D18, D19],
                  fastest_solution='S2 S4 S6 S8 S9 S10 S11 S12 S14 D10 S20 D4 S21 D13 S25 D8 S26 D9',
-                 level_color=Levels_colors_list.BLACK_AND_GREY_ORANGE_CONTOUR,
+                 level_color=get_color(),
                  name='Manhattan_distance',
                  door_window_size=500,
                  keep_proportions=True,
                  line_size=4)
 
     return level
+
+def get_color():
+    return Levels_colors_list.BLACK_AND_GREY_ORANGE_CONTOUR

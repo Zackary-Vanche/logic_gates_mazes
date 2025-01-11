@@ -76,10 +76,13 @@ def f():
                  rooms_list=[R0, RE],
                  doors_list=[D0],
                  fastest_solution=solution,
-                 level_color=Levels_colors_list.FROM_HUE(hu=0, sa=0.4, li=0.3),
+                 level_color=get_color(),
                  name='Conjunctive normal form',
                  keep_proportions=True,
                  door_window_size=222,
                  random=True)
     
     return level
+
+def get_color():
+    return Levels_colors_list.FROM_HUE(hu=0, sa=0.4, li=0.3)

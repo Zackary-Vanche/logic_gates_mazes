@@ -58,19 +58,21 @@ def f():
                 room_arrival=RE,
                 relative_departure_coordinates=[1, 1],
                 relative_arrival_coordinates=[0, 1/2])
-    
-    lcolor=Levels_colors_list.FROM_HUE(hu=0.6, sa=0.5, li=0.6)
-    lcolor.surrounding_color = Color.WHITE
-    lcolor.contour_color = Color.WHITE
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, RE],
                  doors_list=[D0, D1, D2],
                  fastest_solution="S0 D0 S1 D1 S2 D2",
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Boolean',
                  keep_proportions=True,
                  door_window_size=400)
     
     return level
+
+def get_color():
+    lcolor=Levels_colors_list.FROM_HUE(hu=0.6, sa=0.5, li=0.6)
+    lcolor.surrounding_color = Color.WHITE
+    lcolor.contour_color = Color.WHITE
+    return lcolor

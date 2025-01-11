@@ -222,21 +222,23 @@ def f():
                 name='D9',
                 room_departure=R9,
                 room_arrival=RE)
-    
-    lcolor = Levels_colors_list.FROM_HUE(hu=0.2, sa=0.4, li=0.8)
-    lcolor.room_color = Color.GREY_150
-    lcolor.surrounding_color = Color.WHITE
-    lcolor.contour_color = Color.WHITE
-    lcolor.letters_color = Color.WHITE
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9],
                  fastest_solution="D0 S2 D1 D2 S7 D3 S8 S9 D4 S11 D5 D6 S14 D7 D8 D9",
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Moore neighborhood',
                  keep_proportions=True,
                  door_window_size=440)
     
     return level
+
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.2, sa=0.4, li=0.8)
+    lcolor.room_color = Color.GREY_150
+    lcolor.surrounding_color = Color.WHITE
+    lcolor.contour_color = Color.WHITE
+    lcolor.letters_color = Color.WHITE
+    return lcolor

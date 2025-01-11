@@ -122,7 +122,7 @@ def f():
                  rooms_list=Rl,
                  doors_list=Dl,
                  fastest_solution="S3 S7 D0 S12 S13 S17 D1 S21 S23 S25 S26 D2 S28 S30 S31 S33 S34 S35 D3 S38 S39 S41 S42 S43 S44 D4 S45 S49 S50 S51 S52 S53 D5",
-                 level_color=Levels_colors_list.FROM_HUE(hu=0.9, sa=0.1, li=0.5),
+                 level_color=get_color(),
                  name='Hexagonal bipyramid',
                  keep_proportions=True,
                  door_window_size=400,
@@ -130,3 +130,6 @@ def f():
                  uniform_inside_room_color=False)
     
     return level
+
+def get_color():
+    return Levels_colors_list.FROM_HUE(hu=0.9, sa=0.1, li=0.5)

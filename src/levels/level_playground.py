@@ -5,6 +5,9 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 
+def get_color():
+    return Levels_colors_list.FROM_HUE(hu=0.16, sa=0.5, li=0.51)
+
 def f():
     S0 = Switch(name='S0', value=1)
 
@@ -30,7 +33,7 @@ def f():
                  rooms_list=[R0] + [RE],
                  doors_list=[D0],
                  fastest_solution='S0 D0',
-                 level_color=Levels_colors_list.FROM_HUE(hu=0.16, sa=0.5, li=0.51),
+                 level_color=get_color(),
                  name='Playground',
                  door_window_size=300,
                  keep_proportions=True,

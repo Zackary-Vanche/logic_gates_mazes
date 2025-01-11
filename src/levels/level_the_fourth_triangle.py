@@ -119,7 +119,7 @@ def f():
                  rooms_list=Rl,
                  doors_list=Dl,
                  fastest_solution="S3 S7 D0 S9 S12 S13 S17 D1 S19 S21 S22 S24 S26 D2 S29 S30 S32 S34 S35 D3",
-                 level_color=Levels_colors_list.FROM_HUE(hu=0.9, sa=0.1, li=0.5),
+                 level_color=get_color(),
                  name='The fourth triangle',
                  keep_proportions=True,
                  door_window_size=400,
@@ -127,3 +127,6 @@ def f():
                  uniform_inside_room_color=False)
     
     return level
+
+def get_color():
+    return Levels_colors_list.FROM_HUE(hu=0.9, sa=0.1, li=0.5)

@@ -122,9 +122,13 @@ def f():
                  rooms_list=[R0, R1, R2, R3, R4, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6],
                  fastest_solution="S0 S3 S4 D0 S5 D1 S6 D4 S7 D5 S8 D5 D6",
-                 level_color=Levels_colors_list.FROM_HUE(hu=0.4, sa=0.2, li=0.5),
+                 level_color=get_color(),
                  name='Bonsai',
                  keep_proportions=True,
                  door_window_size=300)
     
     return level
+
+def get_color():
+    lcolor=Levels_colors_list.FROM_HUE(hu=0.4, sa=0.2, li=0.5)
+    return lcolor

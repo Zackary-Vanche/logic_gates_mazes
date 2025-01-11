@@ -83,10 +83,13 @@ def f():
                  rooms_list=[R0, RE],
                  doors_list=[D0],
                  fastest_solution=None,
-                 level_color=Levels_colors_list.FROM_HUE(hu=0.57, sa=0.4, li=0.5),
+                 level_color=get_color(),
                  name='Water tower',
                  keep_proportions=True,
                  door_window_size=400,
                  random=True)
     
     return level
+
+def get_color():
+    return Levels_colors_list.FROM_HUE(hu=0.57, sa=0.4, li=0.5)

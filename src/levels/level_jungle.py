@@ -253,19 +253,21 @@ def f():
                 room_departure=R0,
                 room_arrival=RE,
                 relative_departure_coordinates=[9.5/10, 1/2])
-    
-    lcolor = Levels_colors_list.FROM_HUE(hu=0.4, sa=0.3, li=0.4)
-    lcolor.surrounding_color = Color.BRIGHT_ORANGE
-    lcolor.contour_color = Color.BRIGHT_ORANGE
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15],
                  fastest_solution="D0 D1 S15 D2 D3 S3 S4 D4 S16 D5 D6 S6 S8 D7 S17 D8 D9 S10 S11 D10 S18 D11 D12 S12 S13 S14 D13 S19 D14 D15",
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Jungle',
                  keep_proportions=True,
                  door_window_size=375)
     
     return level
+
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.4, sa=0.3, li=0.4)
+    lcolor.surrounding_color = Color.BRIGHT_ORANGE
+    lcolor.contour_color = Color.BRIGHT_ORANGE
+    return lcolor

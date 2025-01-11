@@ -72,9 +72,12 @@ def f():
                  rooms_list=[R0, RE],
                  doors_list=[D0],
                  fastest_solution='S0 S1 S2 S4 S5 D0',
-                 level_color=Levels_colors_list.FROM_HUE(0.83, sa=0.3, li=0.6),
+                 level_color=get_color(),
                  name='Congruence',
                  door_window_size=380,
                  keep_proportions=True)
 
     return level
+
+def get_color():
+    return Levels_colors_list.FROM_HUE(0.83, sa=0.3, li=0.6)

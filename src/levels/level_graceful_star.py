@@ -27,6 +27,8 @@ def f():
     S16 = Switch(name='S16')
     S17 = Switch(name='S17')
 
+    Slist = [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17]
+
     Slist_0 = [S0, S1, S2]
     Slist_1 = [S3, S4, S5]
     Slist_2 = [S6, S7, S8]
@@ -80,39 +82,23 @@ def f():
           switches=[V6, V7]*2)
     V13 = Tree(tree_list=tree_list_minus,
           name='V13',
-          switches=[V7, V8]*2)
+          switches=[V6, V8]*2)
     V14 = Tree(tree_list=tree_list_minus,
           name='V14',
-          switches=[V7, V9]*2)
+          switches=[V6, V9]*2)
     V15 = Tree(tree_list=tree_list_minus,
           name='V15',
-          switches=[V8, V10]*2)
+          switches=[V6, V10]*2)
     V16 = Tree(tree_list=tree_list_minus,
           name='V16',
-          switches=[V9, V11]*2)
+          switches=[V6, V11]*2)
 
     Vlist = [V6, V7, V8, V9, V10, V11, V12, V13, V14, V15, V16]
 
-    def get_tree(i):
-        if i == 0:
-            return Tree(tree_list=[None],
-                        name=f'T{i}',
-                        switches=[1])
-        if i < 5:
-            return Tree(tree_list=Tree.tree_list_DIFF(i+1),
-                        name=f'T{i}',
-                        switches=[V0, V1, V2, V3, V4, V5][:i+1])
-        else:
-            return Tree(tree_list=Tree.tree_list_EQUSET(2*len(Vlist)),
-                        name=f'T{i}',
-                        switches=Vlist+[i for i in range(1, len(Vlist)+1)])
-        
-    T0 = get_tree(0)
-    T1 = get_tree(1)
-    T2 = get_tree(2)
-    T3 = get_tree(3)
-    T4 = get_tree(4)
-    T5 = get_tree(5)
+    T0 = Tree(tree_list=["AND", Tree.tree_list_INF(5), Tree.tree_list_EQUSET(11*2)],
+              name='T0',
+              switches=[V12, V13, V14, V15, V16]+Vlist+[i for i in range(1, 12)],
+              cut_expression_depth_1=True)
 
     dx = 1
     dy = 1
@@ -120,71 +106,33 @@ def f():
     ey = 0.5
 
     R0 = Room(name='R0',
-                position=[0*dx, 0*dy, ex, ey],
-                switches_list=Slist_0)
-    R1 = Room(name='R1',
-                position=[1*dx, 0*dy, ex, ey],
-                switches_list=Slist_1)
-    R2 = Room(name='R2',
-                position=[2*dx, 0*dy, ex, ey],
-                switches_list=Slist_2)
-    R3 = Room(name='R3',
-                position=[2*dx, 1*dy, ex, ey],
-                switches_list=Slist_3)
-    R4 = Room(name='R4',
-                position=[2*dx, 2*dy, ex, ey],
-                switches_list=Slist_4)
-    R5 = Room(name='R5',
-                position=[1*dx, 2*dy, ex, ey],
-                switches_list=Slist_5)
+                position=[0*dx, 0*dy, 1*ex, 2*ey],
+                switches_list=Slist)
     RE = Room(name='RE',
-              position=[0*dx, 2*dy, ex, ey],
+              position=[1*dx, 1*dy, ex, ey],
               is_exit=True)
 
     D0 = Door(two_way=False,
                 tree=T0,
                 name='D0',
                 room_departure=R0,
-                room_arrival=R1)
-    D1 = Door(two_way=False,
-                tree=T1,
-                name='D1',
-                room_departure=R1,
-                room_arrival=R2)
-    D2 = Door(two_way=False,
-                tree=T2,
-                name='D2',
-                room_departure=R2,
-                room_arrival=R3)
-    D3 = Door(two_way=False,
-                tree=T3,
-                name='D3',
-                room_departure=R3,
-                room_arrival=R4)
-    D4 = Door(two_way=False,
-                tree=T4,
-                name='D4',
-                room_departure=R4,
-                room_arrival=R5)
-    D5 = Door(two_way=False,
-                tree=T5,
-                name='D5',
-                room_departure=R5,
                 room_arrival=RE)
-    
-    color=Color.color_hls(hu=0.2, li=0.7, sa=0.8)
-    lcolor=Levels_colors_list.FROM_HUE(hu=0.2, sa=0.2, li=0.4)
-    lcolor.surrounding_color=color
-    lcolor.contour_color=color
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
-                 rooms_list=[R0, R1, R2, R3, R4, R5, RE],
-                 doors_list=[D0, D1, D2, D3, D4, D5,],
-                 fastest_solution="S0 D0 S5 D1 S7 D2 D3 S12 S13 D4 S15 S17 D5",
-                 level_color=lcolor,
-                 name='Diminish',
+                 rooms_list=[R0, RE],
+                 doors_list=[D0],
+                 fastest_solution="S3 S7 S9 S10 S14 S15 S17 D0",
+                 level_color=get_color(),
+                 name='Graceful star',
                  keep_proportions=True,
-                 door_window_size=310)
+                 door_window_size=300)
     
     return level
+
+def get_color():
+    color=Color.color_hls(hu=0.5, li=0.7, sa=0.8)
+    lcolor=Levels_colors_list.FROM_HUE(hu=0.5, sa=0.2, li=0.4)
+    lcolor.surrounding_color=color
+    lcolor.contour_color=color
+    return lcolor

@@ -82,7 +82,7 @@ def f():
              rooms_list=[R0, R1, R2, R3, RE], 
              doors_list = [D0, D1, D2, D3, D4, D5, D6], 
              fastest_solution="S4 D1 S2 D5 S3 D2 S0 S4 D0 D4 S3 S7 D2 S0 D1 S6 D3 S1 S5 D0 S0 S4 D2 D5 S6 D3 S1 D4 S7 D6",
-             level_color=Levels_colors_list.REALLY_BRIGHT_RED,
+             level_color=get_color(),
              name='Platonic',
              border = 30,
              door_window_size = 400,
@@ -90,6 +90,9 @@ def f():
              group='pure maze')
     
     return level
+
+def get_color():
+    return Levels_colors_list.REALLY_BRIGHT_RED
     
 if __name__ == '__main__':
     # These 2 lines

@@ -76,9 +76,12 @@ def f():
                  rooms_list=[R0, R1, R2, R3, RE],
                  doors_list=[D0, D1, D2, D3],
                  fastest_solution='S0 S1 D0 S2 D1 S5 D2 D3',
-                 level_color=Levels_colors_list.BRIGHT_GREEN,
+                 level_color=get_color(),
                  name='Linear',
                  door_window_size=400,
                  keep_proportions=True)
 
     return level
+
+def get_color():
+    return Levels_colors_list.BRIGHT_GREEN

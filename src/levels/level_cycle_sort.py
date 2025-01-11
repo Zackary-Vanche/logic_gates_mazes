@@ -499,13 +499,7 @@ def f():
                 room_arrival=RE,
                 relative_position=0.575)
     
-    hu = 0.6
-    lcolor = Level_color(background_color=Color.color_hls(hu, li=0.7, sa=0.3),
-                         room_color=Color.color_hls(hu, li=0.4, sa=0.4),
-                         letters_color=Color.BLACK,
-                         contour_color=Color.color_hls(hu=0.12, li=0.4, sa=0.4),
-                         inside_room_color=Color.WHITE,
-                         surrounding_color=Color.color_hls(hu=0.12, li=0.4, sa=0.4))
+    
     
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
@@ -513,10 +507,20 @@ def f():
                  doors_list=[D0, D1, D2, D3, D4, D5,
                              D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19, D20, D21, D22, D23, D24, D25, D26, D27, D28, D29, D30, D31, D32, D33, D34, D35, D36],
                  fastest_solution=None,
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Cycle sort',
                  keep_proportions=True,
                  door_window_size=300,
                  random=True)
     
     return level
+
+def get_color():
+    hu = 0.6
+    lcolor = Level_color(background_color=Color.color_hls(hu, li=0.7, sa=0.3),
+                         room_color=Color.color_hls(hu, li=0.4, sa=0.4),
+                         letters_color=Color.BLACK,
+                         contour_color=Color.color_hls(hu=0.12, li=0.4, sa=0.4),
+                         inside_room_color=Color.WHITE,
+                         surrounding_color=Color.color_hls(hu=0.12, li=0.4, sa=0.4))
+    return lcolor

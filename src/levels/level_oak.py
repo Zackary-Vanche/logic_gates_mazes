@@ -254,9 +254,6 @@ def f(fast_solution_finding=False):
                 room_departure=R9,
                 room_arrival=RE)
     
-    lcolor = Levels_colors_list.FROM_HUE(hu=0.16, sa=0.5, li=0.18)
-    lcolor.background_color = Color.color_hls(hu=0.4, sa=0.5, li=0.07)
-    
     if fast_solution_finding:
         for room in [R2, R3, R4, R5, R6, R7, R8, R9]:
             room.possible_switches_values = [[1]]
@@ -266,9 +263,14 @@ def f(fast_solution_finding=False):
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17],
                  fastest_solution="S0 S2 S5 S7 S8 S10 S12 S14 D0 S23 D8 D1 S16 D9 S17 D9 D1 D3 S18 D11 S19 D11 D3 D6 S21 D13 S20 D13 D6 D8 D15 S22 D15 D17",
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Oak',
                  keep_proportions=True,
                  door_window_size=270)
     
     return level
+
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.16, sa=0.5, li=0.18)
+    lcolor.background_color = Color.color_hls(hu=0.4, sa=0.5, li=0.07)
+    return lcolor

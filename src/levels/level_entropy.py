@@ -250,10 +250,14 @@ def f():
                              D13, D14,
                              D15],
                  fastest_solution='D0 D1 S2 D7 D13 S8 D14 S0 D0 D3 S4 D9 D13 S8 S9 D14 S0 S1 D0 D5 S6 D11 D15',
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Entropy',
                  keep_proportions=True,
                  door_window_size=408)
     
     return level
-# [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13]
+
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(hu=0, sa=0.1, li=0.5)
+    lcolor.surrounding_color = Color.TOTAL_RED
+    return lcolor

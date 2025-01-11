@@ -75,7 +75,7 @@ def f():
           switches=[V6, V7]*2)
     V12 = Tree(tree_list=tree_list_minus,
           name='V12',
-          switches=[V7, V8]*2)
+          switches=[V6, V8]*2)
     V13 = Tree(tree_list=tree_list_minus,
           name='V13',
           switches=[V8, V9]*2)
@@ -104,20 +104,22 @@ def f():
                 name='D0',
                 room_departure=R0,
                 room_arrival=RE)
-    
-    color=Color.color_hls(hu=0.4, li=0.7, sa=0.8)
-    lcolor=Levels_colors_list.FROM_HUE(hu=0.4, sa=0.2, li=0.4)
-    lcolor.surrounding_color=color
-    lcolor.contour_color=color
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, RE],
                  doors_list=[D0],
-                 fastest_solution="S0 S1 S4 S11 S12 D0",
-                 level_color=lcolor,
-                 name='Deduct',
+                 fastest_solution="S0 S1 S3 S7 S11 D0",
+                 level_color=get_color(),
+                 name='Graceful baby caterpillar',
                  keep_proportions=True,
                  door_window_size=300)
     
     return level
+
+def get_color():
+    color=Color.color_hls(hu=0.3, li=0.7, sa=0.8)
+    lcolor=Levels_colors_list.FROM_HUE(hu=0.3, sa=0.2, li=0.4)
+    lcolor.surrounding_color=color
+    lcolor.contour_color=color
+    return lcolor

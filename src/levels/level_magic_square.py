@@ -207,10 +207,13 @@ def f(fast_solution_finding=False):
                  rooms_list=[R0, R1, R2, R3, R4, R5, RE, R_useless],
                  doors_list=[D0, D1, D2, D3, D4, D5],
                  fastest_solution="S0 S2 S6 S7 S8 D0 S10 S11 S14 S16 D1 S18 S24 S25 S26 D2 D3 D4 D5",
-                 level_color=Levels_colors_list.PINK_AND_WHITE,
+                 level_color=get_color(),
                  name='Magic square',
                  door_window_size=450,
                  keep_proportions=True,
                  border=20)
 
     return level
+
+def get_color():
+    return Levels_colors_list.PINK_AND_WHITE

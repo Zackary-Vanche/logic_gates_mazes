@@ -150,9 +150,13 @@ def f():
                  rooms_list=[R0, R1, R2, R3, R4, R5, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5],
                  fastest_solution='S0 S2 D0 S4 S5 D1 S10 S11 D2 S13 S15 D3 S17 S18 D4 S20 S23 D5',
-                 level_color=Levels_colors_list.FROM_HUE(0.57, sa=0.3, li=0.5),
+                 level_color=get_color(),
                  name='Betweenness',
                  door_window_size=333,
                  keep_proportions=True)
 
     return level
+
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(0.57, sa=0.3, li=0.5)
+    return lcolor

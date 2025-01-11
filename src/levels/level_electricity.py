@@ -190,9 +190,12 @@ def f():
                  rooms_list=[R0, R1, R2, R3, R4, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10],
                  fastest_solution='S0 S1 S5 S8 D0 S11 D3 S12 D5 S14 D8 S16 S17 D10',
-                 level_color=Levels_colors_list.GOLD_AND_SILVER,
+                 level_color=get_color(),
                  name='Electricity',
                  border=70,
                  door_window_size=400)
 
     return level
+
+def get_color():
+    return Levels_colors_list.GOLD_AND_SILVER

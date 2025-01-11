@@ -376,11 +376,12 @@ def f():
                              D10, D11, D12, D13, D14, D15, D16, D17, D18, D19,
                              D20, D21, D22, D23, D24, D25, D26, D27, D28],
                  fastest_solution="S0 D1 S7 D18 S2 D4 S3 D8 S10 D25 S5 D12 S6 D16 S11 D26 S4 D9 S9 D23 S8 D19 S1 D28",
-                 level_color=Levels_colors_list.FROM_HUE(hu=0.9, sa=0.2, li=0.5),
+                 level_color=get_color(),
                  name='Tour',
                  keep_proportions=True,
                  door_window_size=300)
     
     return level
 
-    
+def get_color():
+    return Levels_colors_list.FROM_HUE(hu=0.9, sa=0.2, li=0.5)    

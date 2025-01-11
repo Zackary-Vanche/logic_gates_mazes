@@ -249,20 +249,21 @@ def f():
                name='D18',
                room_departure=R6,
                room_arrival=RE)
-    
-    lcolor = Levels_colors_list.FROM_HUE(hu=0.25, sa=0.3, li=0.3)
-    # lcolor.background_color = Color.DARK_GREEN
-    lcolor.surrounding_color = Color.BRIGHT_BLUE
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18],
                  fastest_solution='S0 D1 S2 D8 S5 D16 S7 D15 S4 D5 S1 D2 S3 D10 S6 D18',
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Meanders',
                  keep_proportions=True,
                  door_window_size=400)
     
     return level
 
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.25, sa=0.3, li=0.3)
+    # lcolor.background_color = Color.DARK_GREEN
+    lcolor.surrounding_color = Color.BRIGHT_BLUE
+    return lcolor

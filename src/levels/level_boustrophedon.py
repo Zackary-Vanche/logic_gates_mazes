@@ -58,10 +58,6 @@ def f():
                room_departure=Rl[i],
                room_arrival=Rl[i+1]) for i in range(nR)]
     
-    lcolor = Levels_colors_list.FROM_HUE(hu=0.15, sa=0.2, li=0.35)
-    lcolor.surrounding_color = Color.color_hls(hu=0.1, sa=0.6, li=0.5)
-    lcolor.contour_color = Color.color_hls(hu=0.1, sa=0.6, li=0.5)
-    
     sol_list = []
     for i, S in enumerate(Slist):
         if S.value:
@@ -74,10 +70,16 @@ def f():
                  rooms_list=Rl,
                  doors_list=Dl,
                  fastest_solution=sol,
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Boustrophedon',
                  keep_proportions=True,
                  door_window_size=300,
                  random=True)
     
     return level
+
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.15, sa=0.2, li=0.35)
+    lcolor.surrounding_color = Color.color_hls(hu=0.1, sa=0.6, li=0.5)
+    lcolor.contour_color = Color.color_hls(hu=0.1, sa=0.6, li=0.5)
+    return lcolor

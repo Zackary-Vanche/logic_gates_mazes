@@ -145,19 +145,20 @@ def f(fast_solution_finding=False):
                 name='D8',
                 room_departure=R5,
                 room_arrival=RE)
-    
-    lcolor = Levels_colors_list.FROM_HUE(hu=0.4, sa=0.4, li=0.6)
-    lcolor.surrounding_color = Color.BRIGHT_BROWN
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8],
                  fastest_solution="S0 S1 S4 S5 D0 S10 D5 S8 D2 S6 D1 S7 D1 D2 D4 S9 D4 D5 D7 S11 D7 D8",
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Pine',
                  keep_proportions=True,
                  door_window_size=420)
     
     return level
 
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.4, sa=0.4, li=0.6)
+    lcolor.surrounding_color = Color.BRIGHT_BROWN
+    return lcolor

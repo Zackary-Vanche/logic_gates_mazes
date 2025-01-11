@@ -250,10 +250,12 @@ def f():
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19, D20],
                  fastest_solution='D0 S0 D4 D8 S2 S5 D9 D10 S3 D16 D19 S4 D15 D7 S1 D3 D20',
-                 level_color=Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.3),
+                 level_color=get_color(),
                  name='Spider',
                  keep_proportions=True,
                  door_window_size=300)
     
     return level
-# [S0, S1, S2, S3, S4]
+
+def get_color():
+    return Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.3)

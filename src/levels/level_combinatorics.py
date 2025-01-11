@@ -437,15 +437,14 @@ def f(fast_solution_finding=False):
                 relative_departure_coordinates=rdc,
                 relative_arrival_coordinates=rac)
 
-    l_color=Levels_colors_list.FROM_HUE(hu=0.75, sa=0.5, li=0.6)
-    l_color.surrounding_color=Color.WHITE
+    
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10] + [RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10],
                  fastest_solution='S2 S3 S4 S5 S10 S11 S12 S13 D0 S17 S19 S21 S23 S24 S26 S28 S30 D1 S32 S34 S37 S39 S41 S43 S44 S46 D2 S49 S51 S52 S53 S58 S59 S60 S62 D3 S64 S67 S69 S70 S72 S75 S77 S78 D4 S81 S82 S84 S87 S88 S91 S93 S94 D5 S97 S98 S100 S103 S105 S106 S108 S111 D6 S112 S114 S118 S119 S120 S121 S125 S127 D7 S129 S131 S132 S134 S136 S138 S141 S143 D8 S144 S146 S148 S150 S153 S155 S157 S159 D9 S160 S161 S166 S167 S168 S169 S174 S175 D10',
-                 level_color=l_color,
+                 level_color=get_color(),
                  name='Combinatorics',
                  door_window_size=330,
                  keep_proportions=True,
@@ -453,3 +452,8 @@ def f(fast_solution_finding=False):
                  border=40)
 
     return level
+
+def get_color():
+    lcolor=Levels_colors_list.FROM_HUE(hu=0.75, sa=0.5, li=0.6)
+    lcolor.surrounding_color=Color.WHITE
+    return lcolor

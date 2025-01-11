@@ -142,9 +142,13 @@ def f():
                  rooms_list=[R0, R1, R2, R3, R4, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10],
                  fastest_solution='S0 D0 S1 D8 S3 D3 S4 D9 S2 D7 S5 D4 S9 D6 S6 D1 S7 D2 S8 D5 D10',
-                 level_color=Levels_colors_list.BLACK_AND_YELLOW,
+                 level_color=get_color(),
                  name='Infinity',
                  border=50,
                  door_window_size=430,
                  keep_proportions=False)
     return level
+
+
+def get_color():
+    return Levels_colors_list.BLACK_AND_YELLOW

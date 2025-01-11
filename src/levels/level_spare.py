@@ -241,15 +241,12 @@ def f():
                relative_departure_coordinates=[1/2, 0],
                relative_arrival_coordinates=[1/2, 1])
 
-    lcolor = Levels_colors_list.FROM_HUE(hu=0.15, sa=1, li=0.4)
-    lcolor.inside_room_color = Color.BLACK_RED
-    lcolor.background_color = Color.ORANGE
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6] + [RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14],
                  fastest_solution='S2 D9 S10 D10 S12 D11 S0 S1 S2 D6 S8 D7 S10 D8 S1 S2 D12 S14 D13 S8 D5 S0 S1 S2 D3 S5 D4 S7 D5 S0 D6 S7 D7 S9 D8 S1 D0 S3 D1 S5 D2 S0 S1 D3 S5 D4 S7 D5 S1 S2 D9 S9 D10 S11 D11 S0 S1 S2 D6 S7 D7 S9 D8 S1 S2 D12 S14 D13 S8 D5 S0 S1 S2 D3 S6 D4 S8 D5 S0 S1 D0 S4 D1 S6 D2 S1 S2 D14',
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Spare',
                  door_window_size=400,
                  keep_proportions=True,
@@ -257,3 +254,9 @@ def f():
                  border=40)
 
     return level
+
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.15, sa=1, li=0.4)
+    lcolor.inside_room_color = Color.BLACK_RED
+    lcolor.background_color = Color.ORANGE
+    return lcolor

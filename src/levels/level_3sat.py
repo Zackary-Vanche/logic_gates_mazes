@@ -63,9 +63,12 @@ def f():
                  rooms_list=[R0, RE],
                  doors_list=[D0],
                  fastest_solution=sol,
-                 level_color=Levels_colors_list.WHITE_AND_BLACK,
+                 level_color=get_color(),
                  name='3 SAT',
                  door_window_size=530,
                  keep_proportions=True)
 
     return level
+
+def get_color():
+    return Levels_colors_list.WHITE_AND_BLACK

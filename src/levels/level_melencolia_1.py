@@ -406,16 +406,6 @@ def f():
                 room_arrival=RE,
                 relative_departure_coordinates=[1/2, 0],
                 relative_arrival_coordinates=[1/2, 1])
-    
-    li = 0.2
-    c0 = Color.color_hls(hu=0, li=0.7, sa=0)
-    c1 = Color.color_hls(hu=0, li=0.3, sa=0)
-    lcolor = Level_color(background_color=c0,
-                         room_color=c1,
-                         letters_color=Color.BLACK,
-                         contour_color=Color.WHITE,
-                         inside_room_color=Color.WHITE,
-                         surrounding_color=Color.BLACK)
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
@@ -430,9 +420,20 @@ def f():
                              D12, D13, D14, D15,
                              D16],
                  fastest_solution="S0 S1 S2 S3 D0 S5 D1 S8 D2 S14 S15 D3 S18 D4 S20 S23 D5 S25 S27 D6 S28 S29 S30 D7 S35 D8 S36 S38 D9 S41 S42 D10 S44 S45 S47 D11 S48 S49 D12 S53 S55 S54 D13 S56 S58 S59 D14 D15 D16",
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Melencolia I',
                  keep_proportions=True,
                  door_window_size=300)
     
     return level    
+
+def get_color():
+    c0 = Color.color_hls(hu=0, li=0.7, sa=0)
+    c1 = Color.color_hls(hu=0, li=0.3, sa=0)
+    lcolor = Level_color(background_color=c0,
+                         room_color=c1,
+                         letters_color=Color.BLACK,
+                         contour_color=Color.WHITE,
+                         inside_room_color=Color.WHITE,
+                         surrounding_color=Color.BLACK)
+    return lcolor

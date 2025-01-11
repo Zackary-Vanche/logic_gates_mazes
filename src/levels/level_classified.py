@@ -447,9 +447,13 @@ S0 S1 S5 D1 S10 D10 D14 S18 D5
 S0 S4 S6 S7 D0 S9 D9 D17 S25 D8
 S4 S7 D0 D9 D18
 """.replace('\n', ' '),
-                 level_color=Levels_colors_list.FROM_HUE(hu=0.275, sa=0.4, li=0.5),
+                 level_color=get_color(),
                  name='Classified',
                  keep_proportions=True,
                  door_window_size=335)
     
     return level
+
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.275, sa=0.4, li=0.5)
+    return lcolor

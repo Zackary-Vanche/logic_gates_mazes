@@ -23,4 +23,5 @@ if __name__ == "__main__":
     # import cProfile
     # cProfile.run("Game(show_help=1, index_current_level=0).play()")
     
-    
+    # 3 1 4 2 0
+    #  4 5 1 2 3

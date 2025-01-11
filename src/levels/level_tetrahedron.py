@@ -183,18 +183,13 @@ def f():
                 name='D12',
                 room_departure=R1,
                 room_arrival=RE)
-    
-    hu = 0.1
-    lcolor = Levels_colors_list.FROM_HUE(hu=hu, sa=0.5, li=0.25)
-    lcolor.surrounding_color = Color.color_hls(hu=hu+0.1, sa=1, li=0.7)
-    lcolor.contour_color = Color.color_hls(hu=hu+0.1, sa=1, li=0.7)
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12],
                  fastest_solution="S0 D6 S2 D10 S3 D5 S1 D12",
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Tetrahedron',
                  keep_proportions=True,
                  door_window_size=300)
@@ -211,3 +206,10 @@ def f():
     #                     switches=[{S1.name}, {S0.name}])''')
     
     return level
+
+def get_color():
+    hu = 0.1
+    lcolor = Levels_colors_list.FROM_HUE(hu=hu, sa=0.5, li=0.25)
+    lcolor.surrounding_color = Color.color_hls(hu=hu+0.1, sa=1, li=0.7)
+    lcolor.contour_color = Color.color_hls(hu=hu+0.1, sa=1, li=0.7)
+    return lcolor

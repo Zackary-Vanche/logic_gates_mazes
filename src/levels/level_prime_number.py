@@ -188,7 +188,20 @@ def f():
                 name='D10',
                 room_departure=R10,
                 room_arrival=RE)
+
+    level = Maze(start_room_index=0,
+                 exit_room_index=-1,
+                 rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, RE],
+                 doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10,],
+                 fastest_solution="S0 D0 S1 D1 D2 S3 D3 D4 S5 D5 D6 D7 D8 S9 D9 D10",
+                 level_color=get_color(),
+                 name='Prime number',
+                 keep_proportions=True,
+                 door_window_size=300)
     
+    return level
+
+def get_color():
     hu = 0.2
     sa = 0.6
     li = 0.8
@@ -198,15 +211,4 @@ def f():
                          contour_color=Color.BRIGHT_ORANGE,
                          inside_room_color=Color.WHITE,
                          surrounding_color=Color.TOTAL_RED)
-
-    level = Maze(start_room_index=0,
-                 exit_room_index=-1,
-                 rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, RE],
-                 doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10,],
-                 fastest_solution="S0 D0 S1 D1 D2 S3 D3 D4 S5 D5 D6 D7 D8 S9 D9 D10",
-                 level_color=lcolor,
-                 name='Prime number',
-                 keep_proportions=True,
-                 door_window_size=300)
-    
-    return level
+    return lcolor

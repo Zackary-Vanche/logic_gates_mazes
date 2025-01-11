@@ -228,20 +228,22 @@ def f(fast_solution_finding=False):
                 name='D13',
                 room_departure=R6,
                 room_arrival=RE)
-    
-    lcolor = Levels_colors_list.FROM_HUE(hu=0.16, sa=0.5, li=0.5)
-    lcolor.background_color = Color.ORANGE
-    lcolor.surrounding_color = Color.BLACK
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13],
                  fastest_solution=None,
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Sunflower',
                  keep_proportions=True,
                  door_window_size=325,
                  random=True)
     
     return level
+
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.16, sa=0.5, li=0.5)
+    lcolor.background_color = Color.ORANGE
+    lcolor.surrounding_color = Color.BLACK
+    return lcolor

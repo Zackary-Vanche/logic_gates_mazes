@@ -164,9 +164,6 @@ def f(fast_solution_finding=False):
                 name='D11',
                 room_departure=R2,
                 room_arrival=RE)
-
-    lcolor = Levels_colors_list.FROM_HUE(hu=0.4, sa=0.5, li=0.175)
-    lcolor.background_color = Color.color_hls(hu=0.16, sa=0.5, li=0.075)
     
     if fast_solution_finding:
         for room in [R1, R2, R3, R4, R5, R6]:
@@ -177,9 +174,14 @@ def f(fast_solution_finding=False):
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11],
                  fastest_solution="S0 S2 S4 S7 S8 D1 S10 D2 S9 D4 S12 D6 S11 D6 D9 S14 D10 S13 D10 D9 D4 D2 D11",
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Fir',
                  keep_proportions=True,
                  door_window_size=300)
     
     return level
+
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.4, sa=0.5, li=0.175)
+    lcolor.background_color = Color.color_hls(hu=0.16, sa=0.5, li=0.075)
+    return lcolor

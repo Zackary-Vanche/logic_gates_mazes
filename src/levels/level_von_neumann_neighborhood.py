@@ -53,20 +53,22 @@ def f():
               room_arrival=RE,
               relative_departure_coordinates=[1/2, 2.5/3])
 
-    lcolor = Levels_colors_list.FROM_HUE(hu=0.2, sa=0.4, li=0.8)
-    lcolor.background_color = Color.GREY_100
-    lcolor.surrounding_color = Color.WHITE
-    lcolor.contour_color = Color.WHITE
-    lcolor.letters_color = Color.WHITE
-
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, RE],
                  doors_list=[D0],
                  fastest_solution='S1 S3 S5 S7 D0',
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='von Neumann neighborhood',
                  keep_proportions=True,
                  door_window_size=380)
     
     return level
+
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.2, sa=0.4, li=0.8)
+    lcolor.background_color = Color.GREY_100
+    lcolor.surrounding_color = Color.WHITE
+    lcolor.contour_color = Color.WHITE
+    lcolor.letters_color = Color.WHITE
+    return lcolor

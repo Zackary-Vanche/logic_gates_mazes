@@ -435,13 +435,16 @@ def f():
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, R15, R16, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19, D20, D21, D22, D23, D24, D25],
                  fastest_solution=fastest_solution,
-                 level_color=Levels_colors_list.FROM_HUE(hu=0.15, sa=0.6, li=0.5),
+                 level_color=get_color(),
                  name='Separation',
                  keep_proportions=True,
                  door_window_size=350,
                  y_separation=35)
     
     return level
+
+def get_color():
+    return Levels_colors_list.FROM_HUE(hu=0.15, sa=0.6, li=0.5)
 
 if __name__ == "__main__":
     for i in [0, 8, 16, 24]:

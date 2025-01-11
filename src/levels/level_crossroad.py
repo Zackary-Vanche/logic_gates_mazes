@@ -56,9 +56,12 @@ def f():
                  rooms_list=[R0, R1, R2, R3, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5],
                  fastest_solution='S0 S2 D2 S4 D4 S1 S3 D1 D0 S5 D3 D5',
-                 level_color=Levels_colors_list.YELLOW,
+                 level_color=get_color(),
                  name='Crossroad',
                  border=30,
                  door_window_size=470)
 
     return level
+
+def get_color():
+    return Levels_colors_list.YELLOW

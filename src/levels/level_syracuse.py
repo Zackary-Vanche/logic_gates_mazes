@@ -123,10 +123,13 @@ def f(test_solution=False):
                  rooms_list=[R0, R1, RE], 
                  doors_list = [D0, D1, D2, D3], 
                  fastest_solution='S0 D0 S8 S9 D1 S0 S1 D0 S9 S10 D1 S1 S2 D0 S10 S11 D1 S2 S3 D0 S11 S12 D1 S3 S4 D0 S8 S10 S12 D2 S0 S2 S4 D0 S8 S9 S10 S11 D1 S0 S1 S2 S3 D0 S9 S10 S11 S12 D1 S1 S2 S3 S4 D0 S10 S11 S12 S13 D1 S2 S3 S4 S5 D0 S8 S10 S13 D2 S0 S2 S5 D0 S8 S9 S10 S12 D1 S0 S1 S2 S4 D0 S9 S10 S11 S13 D1 S1 S2 S3 S5 D0 S8 S10 S13 D2 S0 S2 S5 D0 S8 S9 S12 S13 D1 S0 S1 S4 S5 D0 S8 S11 S13 D2 S0 S3 S5 D0 S8 S10 S11 S12 D1 S0 S2 S3 S4 D0 S8 S12 D2 S0 S4 D0 S8 S11 D1 S0 S3 D0 S9 S12 D1 S1 S4 D0 S10 S13 D1 S2 S5 D0 S11 S14 D1 S3 S6 D0 S8 S10 S12 S14 D2 S0 S2 S4 S6 D0 S8 S9 S10 S11 S13 S14 D1 S0 S1 S2 S3 S5 S6 D0 S9 S10 S11 S12 S14 S15 D1 S1 S2 S3 S4 S6 S7 D0 S8 S10 S13 S15 D2 S0 S2 S5 S7 D0 S8 S9 S12 S14 D1 S0 S1 S4 S6 D0 S9 S10 S13 S15 D1 S1 S2 S5 S7 D0 S8 S10 S15 D2 S0 S2 S7 D0 S8 S9 S14 S15 D1 S0 S1 S6 S7 D0 S8 S11 S13 S15 D2 S0 S3 S5 S7 D0 S8 S10 S11 S12 S13 S14 D1 S0 S2 S3 S4 S5 S6 D0 S9 S11 S12 S13 S14 S15 D1 S1 S3 S4 S5 S6 S7 D0 S8 S10 S12 S15 D2 S0 S2 S4 S7 D0 S8 S9 S11 S14 D1 S0 S1 S3 S6 D0 S9 S10 S12 S15 D1 S1 S2 S4 S7 D0 D3',
-                 level_color=Levels_colors_list.BROWN_AND_BLUE,
+                 level_color=get_color(),
                  name='Syracuse',
                  door_window_size = 400,
                  keep_proportions = True,
                  border=50)
 
     return level
+
+def get_color():
+    return Levels_colors_list.BROWN_AND_BLUE

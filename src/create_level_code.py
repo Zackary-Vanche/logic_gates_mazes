@@ -1,7 +1,7 @@
 ns = 8
-nd = 14
-nr = 9
-nv = 12
+nd = 8
+nr = 5
+nv = 0
 ####
 ####
 ####
@@ -12,6 +12,7 @@ from Tree import Tree
 from Door import Door
 from Room import Room
 from Maze import Maze
+from Color import Color
 from Levels_colors_list import Levels_colors_list
 
 def f(): 
@@ -29,6 +30,9 @@ for i in range(nv):
 
 for i in range(nv):
     print(f'    Slist_{i} = [S{2*i}, S{2*i+1}]')
+    
+for i in range(nv):
+    print(f'    Slist_{i} = [S{3*i}, S{3*i+1}, S{3*i+2}]')
     
 for i in range(nv):
     print(f'    Slist_{i} = [S{9*i}, S{9*i+1}, S{9*i+2}, S{9*i+3}, S{9*i+4}, S{9*i+5}, S{9*i+6}, S{9*i+7}, S{9*i+8}]')
@@ -151,12 +155,16 @@ print(f'''
                  rooms_list=[{', '.join(room_names_list)}],
                  doors_list=[{', '.join([f'D{i}' for i in range(nd)])}],
                  fastest_solution=None,
-                 level_color=Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.5),
+                 level_color=get_color(),
                  name='TODO',
                  keep_proportions=True,
                  door_window_size=300)
     
-    return level''')
+    return level
+
+def get_color():
+    return Color.color_from_hls(hu, li, sa)
+''')
 
 # k = 0
 # for i in range(1, 7):

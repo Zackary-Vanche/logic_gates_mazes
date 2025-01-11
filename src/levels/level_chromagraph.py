@@ -195,7 +195,7 @@ def f():
                  rooms_list=[R0, R1, R2, R3, R4, R5, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7],
                  fastest_solution="S0 S3 S8 D0 D7",
-                 level_color=Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.5),
+                 level_color=get_color(),
                  name='Chromagraph',
                  keep_proportions=True,
                  door_window_size=360,
@@ -203,3 +203,7 @@ def f():
                  uniform_inside_room_color=False)
     
     return level
+
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.5)
+    return lcolor

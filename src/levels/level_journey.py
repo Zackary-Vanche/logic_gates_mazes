@@ -291,10 +291,12 @@ def f():
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18],
                  fastest_solution="S0 S2 S4 S7 S8 S9 S10 S11 S12 S13 S14 D0 D2 D6 D11 D15 D14 D9 D4 D3 D7 D12 D16 D18",
-                 level_color=Levels_colors_list.FROM_HUE(hu=0.05, sa=0.3, li=0.5),
+                 level_color=get_color(),
                  name='Journey',
                  keep_proportions=True,
                  door_window_size=300)
     
     return level
 
+def get_color():
+    return Levels_colors_list.FROM_HUE(hu=0.05, sa=0.3, li=0.5)

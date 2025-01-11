@@ -81,10 +81,13 @@ def f():
                  rooms_list=[R0, R1, RE],
                  doors_list=[D0, D1],
                  fastest_solution=None,
-                 level_color=Levels_colors_list.FROM_HUE(hu=0.75, sa=0.5, li=0.4),
+                 level_color=get_color(),
                  name='Sorted',
                  keep_proportions=True,
                  door_window_size=500,
                  random=True)
     
     return level
+
+def get_color():
+    return Levels_colors_list.FROM_HUE(hu=0.75, sa=0.5, li=0.4)

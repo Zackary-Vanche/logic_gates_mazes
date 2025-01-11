@@ -285,19 +285,23 @@ def f():
             
     R0.switches_list.sort(key=lambda x: [len(x.name), x.name])
     
-    lcolor = Levels_colors_list.FROM_HUE(hu=0.5, sa=0.2, li=0.3)
-    lcolor.contour_color = Color.GREY
-    lcolor.surrounding_color = Color.GREY
+    
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=Rlist + [RE],
                  doors_list=Dlist,
                  partial_solution=partial_sol,
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Cypress',
                  keep_proportions=True,
                  door_window_size=350,
                  random=True)
     
     return level
+
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.5, sa=0.2, li=0.3)
+    lcolor.contour_color = Color.GREY
+    lcolor.surrounding_color = Color.GREY
+    return lcolor

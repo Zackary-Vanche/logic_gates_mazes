@@ -80,17 +80,18 @@ def f():
     for S in Slist:
         S.value = 0
 
-    color = Levels_colors_list.FROM_HUE(hu=0.7, sa=0.1, li=0.3)
-
     level = Maze(start_room_index=0, 
              exit_room_index=-1, 
              rooms_list=[R0, RE], 
              doors_list=[D0], 
              fastest_solution=None,
-             level_color=color,
+             level_color=get_color(),
              name='Shuffled',
              random=True,
              door_window_size = 444,
              keep_proportions = True)
     
     return level
+
+def get_color():
+    return Levels_colors_list.FROM_HUE(hu=0.7, sa=0.1, li=0.3)

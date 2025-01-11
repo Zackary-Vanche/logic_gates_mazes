@@ -112,19 +112,21 @@ def f():
             solution_list.append(S.name)
     solution_list.append('D0')
     solution = ' '.join(solution_list)
-    
-    lcolor = Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.4)
-    lcolor.surrounding_color = Color.REALLY_BRIGHT_GREEN
-    lcolor.contour_color = Color.REALLY_BRIGHT_GREEN
 
     level = Maze(start_room_index=1,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, RE],
                  doors_list=[D0],
                  fastest_solution=solution,
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Pyramid',
                  keep_proportions=True,
                  door_window_size=300)
     
     return level
+
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.4)
+    lcolor.surrounding_color = Color.REALLY_BRIGHT_GREEN
+    lcolor.contour_color = Color.REALLY_BRIGHT_GREEN
+    return lcolor

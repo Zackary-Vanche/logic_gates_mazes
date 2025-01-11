@@ -162,5 +162,7 @@ def aux(door_trees_list = [[i for i in range(2**n_switches)] for j in range(11)]
     
     return level
 
+get_color = Levels_colors_list.RANDOM
+
 def f():
     return Maze.get_random_level_from_file(aux)

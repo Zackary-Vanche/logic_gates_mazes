@@ -182,10 +182,6 @@ def f(fast_solution_finding=False):
                 name='D11',
                 room_departure=R4,
                 room_arrival=RE)
-    
-    lcolor = Levels_colors_list.FROM_HUE(hu=0, sa=0.6, li=0.3)
-    lcolor.surrounding_color = Color.WHITE
-    lcolor.background_color = Color.color_hls(hu=0.5, li=0.1, sa=0.5)
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
@@ -193,9 +189,15 @@ def f(fast_solution_finding=False):
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11],
                  uniform_surrounding_colors=False,
                  fastest_solution="S0 S1 S2 S3 S4 D0 S15 D5 S10 D1 S11 D1 D2 S12 D2 D4 S14 D4 D3 S13 D11",
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Roses are red',
                  keep_proportions=True,
                  door_window_size=340)
     
     return level
+
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(hu=0, sa=0.6, li=0.3)
+    lcolor.surrounding_color = Color.WHITE
+    lcolor.background_color = Color.color_hls(hu=0.5, li=0.1, sa=0.5)
+    return lcolor

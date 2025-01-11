@@ -385,22 +385,12 @@ def f():
                 room_departure=R5,
                 room_arrival=RE)
     
-    hu = 0.3
-    sa = 0.3
-    li = 0.7
-    lcolor = Level_color(background_color=Color.color_hls(hu, li*0.5 , sa),
-                         room_color=Color.color_hls(hu, li*0.3, 0.8 * sa),
-                         letters_color=Color.color_hls(hu=0.72, li=0.95, sa=0.9),
-                         contour_color=Color.KHAKI,
-                         inside_room_color=Color.WHITE,
-                         surrounding_color=Color.KHAKI)
-    
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, R15, R16, R17, R18, R19, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19, D20, D21, D22, D23, D24, D25, D26, D27, D28],
                  fastest_solution='S0 S1 S4 D0 S6 S9 S10 S11 D1 S12 S13 S14 S17 D2 S19 S21 S22 S23 D3 D10 D16 D17 D18 D23 D26 S25 D27 D25 D21 S24 D15 D14 D13 D8 D5 D4 D28',
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Wander',
                  keep_proportions=True,
                  door_window_size=300)
@@ -431,3 +421,15 @@ def f():
     #     print(', '.join([f'S{int(door.name.replace("D", ''))-4}' for door in door_list])+', 2,')
     
     return level
+
+def get_color():
+    hu = 0.3
+    sa = 0.3
+    li = 0.7
+    lcolor = Level_color(background_color=Color.color_hls(hu, li*0.5 , sa),
+                         room_color=Color.color_hls(hu, li*0.3, 0.8 * sa),
+                         letters_color=Color.color_hls(hu=0.72, li=0.95, sa=0.9),
+                         contour_color=Color.KHAKI,
+                         inside_room_color=Color.WHITE,
+                         surrounding_color=Color.KHAKI)
+    return lcolor

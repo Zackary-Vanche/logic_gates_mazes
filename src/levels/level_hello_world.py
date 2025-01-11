@@ -29,7 +29,7 @@ def f():
                  rooms_list=[R0] + [RE],
                  doors_list=[D0],
                  fastest_solution='S0 D0',
-                 level_color=Levels_colors_list.FROM_HUE(hu=0.8, sa=0.4, li=0.3),
+                 level_color=get_color(),
                  name='Hello world',
                  door_window_size=380,
                  keep_proportions=True,
@@ -38,3 +38,5 @@ def f():
 
     return level
 
+def get_color():
+    return Levels_colors_list.FROM_HUE(hu=0.8, sa=0.4, li=0.3)

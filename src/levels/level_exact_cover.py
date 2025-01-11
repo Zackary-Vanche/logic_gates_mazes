@@ -85,9 +85,12 @@ def f():
                  rooms_list=[R0, RE], 
                  doors_list = [D0], 
                  fastest_solution='S1 S3 S5 D0',
-                 level_color=Levels_colors_list.ORANGE,
+                 level_color=get_color(),
                  name='Exact cover',
                  door_window_size = 500,
                  keep_proportions=True)
 
     return level
+
+def get_color():
+    return Levels_colors_list.ORANGE

@@ -141,7 +141,7 @@ def f():
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7],
                  fastest_solution='S0 D0 S1 D0 D2 S3 D2 S0 D0 S1 D0 D3 S4 D3 S0 D1 S2 D1 D0 S1 D0 D5 S6 D5 S0 D0 S1 D0 D2 S3 D2 S0 D0 S1 D0 D3 S4 D3 S0 D1 S2 D1 D0 S1 D0 D6 S7 D6 S0 D0 S1 D0 D2 S3 D2 S0 D1 S2 D1 S0 D4 S5 D4 S0 D1 S2 D1 D0 S1 D0 D3 S4 D3 S0 D1 S2 D1 D0 S1 D0 D7',
-                 level_color=Levels_colors_list.FROM_HUE(hu=0.15, sa=1, li=0.9),
+                 level_color=get_color(),
                  name='Baguenaudier',
                  door_window_size=400,
                  keep_proportions=False,
@@ -149,3 +149,7 @@ def f():
                  border=50)
 
     return level
+
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.15, sa=1, li=0.9)
+    return lcolor

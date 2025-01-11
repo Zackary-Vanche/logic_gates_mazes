@@ -837,8 +837,7 @@ def f():
                relative_departure_coordinates=[1 / 2, 0],
                relative_arrival_coordinates=[0.3, 0.7])
 
-    color = Levels_colors_list.FROM_HUE(hu=0.5, sa=0.6, li=0.9)
-    color.surrounding_color = Color.RED
+    
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, R15, R16, R17, RE],
@@ -851,7 +850,7 @@ def f():
                              D30, D31, D32, D33, D34,
                              D35, D36, D37],
                  fastest_solution=None,
-                 level_color=color,
+                 level_color=get_color(),
                  name='Big panex',
                  door_window_size=500,
                  keep_proportions=False,
@@ -859,3 +858,8 @@ def f():
                  border=30)
 
     return level
+
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.5, sa=0.6, li=0.9)
+    lcolor.surrounding_color = Color.RED
+    return lcolor

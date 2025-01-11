@@ -379,21 +379,13 @@ def f():
                 relative_position=0.54,
                 inside_color = get_random_inside_color(),
                 surrounding_color=get_random_surrounding_color())
-    
-    hu = 0
-    lcolor = Level_color(background_color=Color.color_hls(hu, 0, 0.4),
-                         room_color=Color.color_hls(hu, 0.2, 0),
-                         letters_color=Color.WHITE,
-                         contour_color=Color.color_hls(hu=0.9, li=0.6, sa=1),
-                         inside_room_color=Color.WHITE,
-                         surrounding_color=Color.TOTAL_YELLOW)
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15],
                  fastest_solution="S1 D0 S10 D0 D5 S4 D6 S9 D6 D5 D9 S6 D3 S17 D3 D9 S1 D0 S10 S11 D10 S12 D10 D0 D15",
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Coloring',
                  keep_proportions=True,
                  door_window_size=300,
@@ -415,3 +407,13 @@ def f():
     #                 switches=[V{i}])''')
     
     return level
+
+def get_color():
+    hu = 0
+    lcolor = Level_color(background_color=Color.color_hls(hu, 0, 0.4),
+                         room_color=Color.color_hls(hu, 0.2, 0),
+                         letters_color=Color.WHITE,
+                         contour_color=Color.color_hls(hu=0.9, li=0.6, sa=1),
+                         inside_room_color=Color.WHITE,
+                         surrounding_color=Color.TOTAL_YELLOW)
+    return lcolor

@@ -221,7 +221,7 @@ def f():
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14],
                  fastest_solution="S0 D1 S7 D5 S2 D5 D1 S0 D0 D11 S10 D7 S3 D7 D11 D10 D2 S1 D3 S8 D3 D2 D12 S11 D9 S4 D14",
-                 level_color=Levels_colors_list.YELLOW_AND_GREY,
+                 level_color=get_color(),
                  uniform_surrounding_colors=False,
                  name='Chessboard',
                  door_window_size=360,
@@ -229,3 +229,7 @@ def f():
                  line_size=4)
 
     return level
+
+def get_color():
+    lcolor = Levels_colors_list.YELLOW_AND_GREY
+    return lcolor

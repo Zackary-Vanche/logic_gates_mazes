@@ -109,18 +109,21 @@ def f():
                 room_departure=R2,
                 room_arrival=RE)
     
-    lcolor = Levels_colors_list.FROM_HUE(hu=0.18, sa=0.6, li=0.2)
-    lcolor.background_color = Color.BRIGHT_YELLOW
-    lcolor.letters_color = Color.BLACK
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, RE],
                  doors_list=[D0, D1, D2, D3],
                  fastest_solution=None,
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Rotation_bis',
                  keep_proportions=True,
                  door_window_size=500,
                  random=True)
     
     return level
+
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.18, sa=0.6, li=0.2)
+    lcolor.background_color = Color.BRIGHT_YELLOW
+    lcolor.letters_color = Color.BLACK
+    return lcolor

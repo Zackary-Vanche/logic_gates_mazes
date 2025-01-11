@@ -83,7 +83,7 @@ def f():
                  rooms_list=[R0, R1] + [RE],
                  doors_list=[D0, D1, D2],
                  fastest_solution="D0 S1 D1 S0 D0 S3 D1 S2 D0 S1 D1 S0 D0 S1 S5 D1 S0 S4 D0 S1 D1 S0 D0 S3 D1 S2 D0 S1 D1 S0 D0 S3 S7 D1 S2 S6 D0 S1 D1 S0 D0 S3 D1 S2 D0 S1 D1 S0 D0 S1 S5 D1 S0 S4 D0 S1 D1 S0 D0 S3 D1 S2 D0 S1 D1 S0 S2 S4 S6 D2",
-                 level_color=Levels_colors_list.FROM_HUE(hu=0.5, sa=0.25, li=0.9),
+                 level_color=get_color(),
                  name='Code',
                  door_window_size=500,
                  keep_proportions=True,
@@ -91,3 +91,7 @@ def f():
                  border=40)
 
     return level
+
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.5, sa=0.25, li=0.9)
+    return lcolor

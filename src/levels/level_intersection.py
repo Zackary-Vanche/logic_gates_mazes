@@ -207,20 +207,22 @@ def f():
                 room_departure=R3,
                 room_arrival=RE)
 
-    lcolor = Levels_colors_list.FROM_HUE(hu=0.92, sa=0.2, li=0.7)
-    lcolor.surrounding_color = Color.IVORY
-
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15],
                  fastest_solution='S0 S4 S5 S8 D0 S9 D13 S13 D4 S14 D12 S17 D6 S16 D5 S15 D8 S12 D14 S10 D2 S11 D15',
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Intersection',
                  keep_proportions=True,
                  door_window_size=375)
     
     return level
+
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.92, sa=0.2, li=0.7)
+    lcolor.surrounding_color = Color.IVORY
+    return lcolor
 
 """
 S2 S5 S8 D0 S9 D1 S10 D9 S13 D3 S12 D8 S15 D5 S16 D6 S17 D12 S14 D11 S11 D15

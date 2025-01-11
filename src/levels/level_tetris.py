@@ -82,9 +82,12 @@ def f():
                  rooms_list=[R0, RE],
                  doors_list=[D0],
                  fastest_solution='S0 S8 S10 D0',
-                 level_color=Levels_colors_list.FROM_HUE(0.225, sa=1, li=0.3),
+                 level_color=get_color(),
                  name='Tetris',
                  door_window_size=350,
                  keep_proportions=True)
 
     return level
+
+def get_color():
+    return Levels_colors_list.FROM_HUE(0.225, sa=1, li=0.3)

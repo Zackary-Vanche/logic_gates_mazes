@@ -94,7 +94,7 @@ def f():
                  rooms_list=Rl,
                  doors_list=Dl,
                  fastest_solution='S0 D0 S4 D1 S8 D2 S9 S10 D3 S14 D4 S15 S16 D5 D6 D7 S24 D8 S28 D9',
-                 level_color=Levels_colors_list.FROM_HUE(hu=hu, sa=0.1, li=0.5),
+                 level_color=get_color(),
                  name='K5 edges coloring',
                  keep_proportions=True,
                  door_window_size=550,
@@ -102,3 +102,6 @@ def f():
                  uniform_inside_room_color=False)
     
     return level
+
+def get_color():
+    return Levels_colors_list.FROM_HUE(hu=0.1, sa=0.1, li=0.5)

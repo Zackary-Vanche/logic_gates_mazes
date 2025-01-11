@@ -85,8 +85,12 @@ def f():
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6],
                  fastest_solution='S0 D3 S4 D3 D2 S3 D2 D3 D1 S2 D1 D5 S6 D5 D3 D2 D0 S1 D0 D4 S5 D4 D2 D6',
-                 level_color=Levels_colors_list.BLUE_GREEN,
+                 level_color=get_color(),
                  name='Binary',
                  door_window_size=340)
 
     return level
+
+def get_color():
+    lcolor = Levels_colors_list.BLUE_GREEN
+    return lcolor

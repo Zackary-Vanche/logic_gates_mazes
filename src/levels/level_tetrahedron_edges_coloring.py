@@ -94,7 +94,7 @@ def f():
                  rooms_list=Rl,
                  doors_list=Dl,
                  fastest_solution="S0 D0 S3 D1 D2 S7 D3 D4 S10 D5",
-                 level_color=Levels_colors_list.FROM_HUE(hu=hu, sa=0.1, li=0.5),
+                 level_color=get_color(),
                  name='Tetrahedron edges coloring',
                  keep_proportions=True,
                  door_window_size=550,
@@ -102,3 +102,6 @@ def f():
                  uniform_inside_room_color=False)
     
     return level
+
+def get_color():
+    return Levels_colors_list.FROM_HUE(hu=0, sa=0.1, li=0.5)

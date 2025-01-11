@@ -85,19 +85,21 @@ def f():
     
     sol = 'S4 ' * bin_c[0] + 'S5 ' * bin_c[1] + 'S6 ' * bin_c[2] + 'S7 ' * bin_c[3]
     sol = sol + 'D0'
-    
-    lcolor = Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.4)
-    lcolor.surrounding_color = Color.TOTAL_RED
-    lcolor.contour_color = Color.TOTAL_RED
 
     level = Maze(start_room_index=1,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, RE],
                  doors_list=[D0],
                  fastest_solution=sol,
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Network',
                  keep_proportions=True,
                  door_window_size=400)
     
     return level
+
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.4)
+    lcolor.surrounding_color = Color.TOTAL_RED
+    lcolor.contour_color = Color.TOTAL_RED
+    return lcolor

@@ -70,9 +70,12 @@ def f():
              rooms_list=[R0, R1, RE],
              doors_list=[D0, D1], 
              fastest_solution='S0 S1 S5 S6 S8 D0 D1',
-             level_color=Levels_colors_list.FROM_HUE(0.15, sa=1, li=0.25),
+             level_color=get_color(),
              name='Pythagorean',
              door_window_size = 350,
              keep_proportions = True)
     
     return level
+
+def get_color():
+    return Levels_colors_list.FROM_HUE(0.15, sa=1, li=0.25)

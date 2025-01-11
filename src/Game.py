@@ -4,6 +4,7 @@ import pygame.locals
 from pygame.locals import K_KP0, K_KP1, K_KP2, K_KP3, K_KP4
 from pygame.locals import K_KP5, K_KP6, K_KP7, K_KP8, K_KP9
 from pygame.locals import QUIT, K_RIGHT, K_LEFT, K_UP, K_DOWN, K_SPACE, K_LALT, K_RALT, K_KP_PERIOD
+from pygame.locals import K_q, K_s, K_d, K_z
 from pygame.locals import K_RETURN, K_BACKSPACE, K_ESCAPE
 from pygame.locals import MOUSEWHEEL
 from pygame.display import set_mode as pygame_display_set_mode
@@ -36,6 +37,12 @@ from time import sleep
 from linear_function import linear_function
 from Maze import Maze
 from Levels import Levels
+
+from geometry import point_in_polygon, point_in_ellipse
+
+from Color import Color
+from Map import Map, make_nodes_dict, make_edges_list, make_children_dict
+from Map import compute_positions as compute_levels_positions
 
 from Levels_colors_list import Levels_colors_list
 
@@ -96,7 +103,6 @@ class Game:
             self.SMALLEST_WINDOW_SIZE = SMALLEST_WINDOW_SIZE
         self.XY_marge = XY_marge
         self.save_image = save_image
-        self.index_current_level = index_current_level
         self.time_between_actions = time_between_actions
         self.time_between_deletings = time_between_deletings
         self.time_between_level_changing = time_between_level_changing
@@ -125,6 +131,43 @@ class Game:
         self.lower_right_window_rectangle = None
         self.do_you_quit_game = False
         self.dev_mode = dev_mode
+        
+    def map_color_setup(self):
+        self.level_color_dict = {}
+        for node in self.levels_dict.keys():
+            level_module = self.levels_dict[node]
+            assert hasattr(level_module, "f"), str(level_module)
+            if hasattr(level_module, "get_color"):
+                self.level_color_dict[node] = level_module.get_color()
+            else:
+                self.level_color_dict[node] = Levels_colors_list.FROM_HUE(0, sa=0, li=0)
+                print(self.levels_dict[node]().name, 'no get_color')
+        
+    def game_map_setup(self):
+        self.show_map = True
+        level_tree = Levels.level_tree
+        level_positions = compute_levels_positions(level_tree)
+        self.level_positions_dict = make_nodes_dict(level_positions)
+        self.positions_list = self.level_positions_dict.values()
+        self.levels_true_positions_dict = {}
+        self.levels_dict = make_nodes_dict(level_tree)
+        self.next_node_dict = make_children_dict(level_tree)
+        self.map_color_setup()
+        x_positions = [p[0] for p in self.positions_list]
+        y_positions = [p[1] for p in self.positions_list]
+        self.edges_list = make_edges_list(level_positions)
+        self.map_pos_x = 0
+        self.map_pos_y = 0
+        self.delta_x = 40
+        self.delta_y = 40
+        self.dx = 60
+        self.dy = 60
+        self.map_pos_x_min = min(x_positions) - max(x_positions) + self.TOTAL_WIDTH/self.dx - 2
+        self.map_pos_x_max = 0
+        self.map_pos_y_min = min(y_positions) - max(y_positions) + self.TOTAL_HEIGHT/self.dy - 2
+        self.map_pos_y_max = 0
+        self.dot_radius = 50
+        self.node = ''
 
     def game_setup(self):
         # Game Setup
@@ -159,23 +202,16 @@ class Game:
         self.last_key_pressed_time = time()
         self.last_space_pressed_time = time()
         self.last_key_BACKSPACE_pressed_time = time()
+        
+        self.game_map_setup()
 
     def get_level(self, fast_solution_finding=False):
 
         if self.level_changed or self.get_new_level:
             try:
                 self.change_in_display = True
-    
                 self.level_changed = False
-    
-                # self.maze = Levels.levels_functions_list[self.index_current_level]()
-                self.maze = Levels.get_level(self.index_current_level,
-                                             get_new_level=self.get_new_level,
-                                             fast_solution_finding=False)
                 self.get_new_level = False
-                # if self.maze.random:
-                #     self.maze = level_random()
-                # else:
                 self.maze.reboot_solution()
     
                 self.doors_list = self.maze.doors_list
@@ -219,8 +255,7 @@ class Game:
                 
                 self.update_possible_actions()
             except ZeroDivisionError:
-                maze_name = Levels.get_level(self.index_current_level, get_new_level=self.get_new_level).name
-                print(f'The level {maze_name} cannot be loaded.')
+                print('The level cannot be loaded.')
                 print('Your screen is too small.')
 
     def update_window_size(self):
@@ -346,10 +381,24 @@ class Game:
         if self.maze.random:
             maze_name = maze_name + " (random)"
         level_name_render = self.font.render(
-            f"Level {str(self.index_current_level+1)} / {Levels.number_of_levels} : {maze_name.replace('_', ' ')}",
+            maze_name.replace('_', ' '),
             True,
             self.letters_color)
         self.WINDOW.blit(level_name_render, (10, 10))
+        
+    def print_menu_button(self):
+        word_surface = self.font.render('MENU',
+                                        True,
+                                        self.inside_room_color)
+        word_width, word_height = word_surface.get_size()
+        d = 17
+        self.menu_rect = pygame_Rect(self.x_separation - word_width - 21,
+                                     7,
+                                     word_width+d,
+                                     word_height+d)
+        pygame_draw_rect(self.WINDOW, self.room_color, self.menu_rect)
+        pygame_draw_rect(self.WINDOW, self.contour_color, self.menu_rect, 3)
+        self.WINDOW.blit(word_surface, (self.x_separation - word_width - 12, 16))
         
     def print_you_won(self):
         if self.maze.current_room_index == self.maze.exit_room_index and self.current_action != 'YOU WON !':
@@ -357,7 +406,7 @@ class Game:
                                             True,
                                             self.letters_color)
             word_width, word_height = word_surface.get_size()
-            self.WINDOW.blit(word_surface, (self.x_separation - word_width - 10, 10))
+            self.WINDOW.blit(word_surface, (self.x_separation - word_width - 70, 10))
         
     def blit_text(self,
                   text,
@@ -608,7 +657,7 @@ class Game:
             if self.maze.random:
                 maze_name = maze_name + " (random)"
             level_name_render = self.font.render(
-                f"Level {str(self.index_current_level+1)} / {Levels.number_of_levels} : {maze_name.replace('_', ' ')}",
+                maze_name.replace('_', ' '),
                 True,
                 self.letters_color)
             self.WINDOW.blit(level_name_render, (10, 10))
@@ -634,12 +683,11 @@ class Game:
             pygame_display_update()
     
             if self.save_image:
-                fname = f"images/HELP_level_{self.index_current_level}_{self.maze.name}_WIDTH_{int(self.WINDOW_WIDTH)}_HEIGHT_{int(self.WINDOW_HEIGHT)}.jpg"
+                fname = f"images/HELP_level_{self.maze.name}_WIDTH_{int(self.WINDOW_WIDTH)}_HEIGHT_{int(self.WINDOW_HEIGHT)}.jpg"
                 if not os_path_exists(fname):
                     pygame_image_save(self.WINDOW, fname)
         except ZeroDivisionError:
-            maze_name = Levels.get_level(self.index_current_level, get_new_level=self.get_new_level).name
-            print(f'The level {maze_name} cannot be loaded.')
+            print('The level cannot be loaded.')
             print('Your screen is too small.')
 
     def print_current_action(self):
@@ -664,6 +712,7 @@ class Game:
             self.print_level_name()
             self.print_trees()
             self.print_you_won()
+            self.print_menu_button()
             self.draw_door_lines()
             self.draw_rooms()
             self.draw_switches()
@@ -676,8 +725,7 @@ class Game:
             #     self.draw_cross()
             pygame_display_update()
         except ZeroDivisionError:
-            maze_name = Levels.get_level(self.index_current_level, get_new_level=self.get_new_level).name
-            print(f'The level {maze_name} cannot be loaded.')
+            print('The level cannot be loaded.')
             print('Your screen is too small.')
         
     def update_possible_actions(self, reset_current_action_index=True):
@@ -727,7 +775,7 @@ class Game:
                       save_videos=False,
                       dt=0.15):
         dt = min(dt, 1)
-        video_name = f"videos/level_{self.index_current_level}_{self.maze.name}.avi"
+        video_name = f"videos/level_{self.maze.name}.avi"
         if save_videos and os_path_exists(video_name):
             return
         maze = self.maze
@@ -789,29 +837,6 @@ class Game:
                 out.write(img)
             out.release()
             rmtree(folder_video)
-            
-    def show_all_solutions(self, save_videos=False, dt=0.2):
-        for i_level in range(self.index_current_level, Levels.number_of_levels):
-            t0 = time()
-            self.index_current_level = i_level
-            self.level_changed = True
-            self.get_level()
-            self.display_game_window()
-            sleep(dt)
-            self.show_solution(save_videos=save_videos,
-                               dt=dt)
-            sleep(dt)
-            assert dt >= 0
-            sleep(max(0, 2*dt-time()+t0))
-            
-    def save_videos(self):
-        # from PIL.Image import fromarray
-        if not os_path_exists('videos'):
-            os_mkdir('videos')
-        if not os_path_exists('videos/frames'):
-            os_mkdir('videos/frames')
-        self.show_all_solutions(save_videos=True,
-                                dt = 0)
         
     def aux_handle_interractions(self):
         if len(self.current_action) == 0:
@@ -825,14 +850,13 @@ class Game:
             self.update_possible_actions()
         elif self.current_action == 'N':
             self.get_new_level = True
-            self.get_level()
+            self.maze = self.level_module.f()
             self.change_in_display = True
             self.update_possible_actions()
-        elif self.current_action in ['LR', 'LRANDOM']:
-            level_number_list = [i for i in range(Levels.number_of_levels)]
-            self.index_current_level = rd_choice(level_number_list)
-            self.level_changed = True
-            self.update_possible_actions()
+        # elif self.current_action in ['LR', 'LRANDOM']:
+        #     level_number_list = [i for i in range(Levels.number_of_levels)]
+        #     self.level_changed = True
+        #     self.update_possible_actions()
         else:
             self.current_action = self.current_action.replace('EXIT', 'RE')
             if self.current_action[0] in ['D', 'S', 'R']:
@@ -845,12 +869,12 @@ class Game:
                 self.maze.make_actions(self.current_action[2:], allow_all=True)
             if self.current_action[0] == 'A':
                 self.maze.make_actions(self.current_action[1:], allow_all=True)
-            elif self.current_action[0] == 'L':
-                level_number_list = [str(i) for i in range(Levels.number_of_levels)]
-                if self.current_action[1:] in level_number_list:
-                    self.index_current_level = int(self.current_action[1:])-1
-                    self.level_changed = True
-                self.update_possible_actions()
+            # elif self.current_action[0] == 'L':
+            #     level_number_list = [str(i) for i in range(Levels.number_of_levels)]
+            #     if self.current_action[1:] in level_number_list:
+            #         self.index_current_level = int(self.current_action[1:])-1
+            #         self.level_changed = True
+            #     self.update_possible_actions()
             self.current_action = ''
         
     def aux_handle_dev_mode_interractions(self):
@@ -869,19 +893,6 @@ class Game:
             else:
                 self.show_solution()
             self.update_possible_actions()
-        elif self.current_action in ['SOLS', 'SOLUTIONS']:
-            self.show_all_solutions()
-            self.update_possible_actions()
-        elif self.current_action in ['SOLS0', 'SOLUTIONS0']:
-            self.show_all_solutions(dt=0)
-            self.update_possible_actions()
-        elif self.current_action[:4] == 'SOLS':
-            try:
-                dt = float(self.current_action.split(' ')[1])
-                self.show_all_solutions(dt=dt)
-                self.update_possible_actions()
-            except:
-                pass
         elif self.current_action.split(' ')[0] in ['FIND',
                                                    'FIND0',
                                                    'FINDSOL',
@@ -892,13 +903,7 @@ class Game:
                                                    'FIND SOL 0',
                                                    'FIND SOLUTION',
                                                    'FIND SOLUTION 0']:
-            if self.maze.random:
-                maze = self.maze
-            else:
-                maze = Levels.get_level(self.index_current_level,
-                                        get_new_level=True,
-                                        fast_solution_finding=True)
-            sol_list = maze.find_all_solutions(stop_at_first_solution=True,
+            sol_list = self.maze.find_all_solutions(stop_at_first_solution=True,
                                                verbose=1,)[0]
             self.maze.fastest_solution=' '.join(sol_list[0])
             if len(self.current_action.split(' ')) == 1:
@@ -975,6 +980,19 @@ class Game:
                 self.change_in_display = True
                 self.current_action = self.current_action[:-1]
                 self.last_key_BACKSPACE_pressed_time = time()
+                
+    def get_previous_maze(self):
+        if self.node == "":
+            return None
+        previous_node = '_'.join(self.node.split('_')[:-1])
+        self.node = previous_node
+        return self.levels_dict[self.node]
+                
+    def get_next_maze(self):
+        new_nodes_list = self.next_node_dict[self.node]
+        if len(new_nodes_list) == 1:
+            self.node = new_nodes_list[0]
+            return self.levels_dict[self.node]
 
     def change_level(self):
         self.pressed = pygame_key_get_pressed()
@@ -984,25 +1002,38 @@ class Game:
                 if self.show_help:
                     self.show_help = False
                 else:
-                    self.index_current_level += 1
+                    new_maze = self.get_next_maze()
                     self.show_help = True
+                    if new_maze is None:
+                        self.show_map = True
+                        self.map_color_setup()
+                        self.change_in_display = True
+                    else:
+                        self.level_changed = True
+                        self.change_in_display = True
+                        self.maze = new_maze.f()
                 self.level_changed = True
-                new_level = Levels.get_level(self.index_current_level, get_new_level=False)
-                if self.show_help and ''.join(new_level.help_txt) == '':
-                    self.show_help = False
+                self.last_key_pressed_time = time()
             if (self.pressed[K_LEFT]):
-                if not self.show_help:
-                    self.show_help = True
+                if self.show_help:
+                    new_maze = self.get_previous_maze()
+                    self.show_help = False
+                    if new_maze is None:
+                        self.show_map = True
+                        self.map_color_setup()
+                        self.change_in_display = True
+                    else:
+                        self.level_changed = True
+                        self.change_in_display = True
+                        self.maze = new_maze.f()
                 else:
-                    self.index_current_level -= 1
-                    self.show_help = False
+                    self.show_help = True
+                    self.change_in_display = True
+                
                 self.level_changed = True
-                if self.show_help and ''.join(self.maze.help_txt) == '':
-                    self.show_help = False
-                    self.index_current_level -= 1
+                self.last_key_pressed_time = time()
         if self.level_changed:
             self.last_level_change_time = time()
-        self.index_current_level = self.index_current_level % Levels.number_of_levels
 
     def save_image_as_file(self,
                            fname=None):
@@ -1012,7 +1043,7 @@ class Game:
             if not os_path_exists(folder):
                 os_mkdir(folder)
         if type(fname) is not str:
-            fname = f"images/level_{self.index_current_level}_{self.maze.name}_WIDTH_{int(self.WINDOW_WIDTH)}_HEIGHT_{int(self.WINDOW_HEIGHT)}.jpg"
+            fname = f"images/level_{self.maze.name}_WIDTH_{int(self.WINDOW_WIDTH)}_HEIGHT_{int(self.WINDOW_HEIGHT)}.jpg"
         # if not os_path_exists(fname):
         pygame_image_save(self.WINDOW, fname)
 
@@ -1026,36 +1057,10 @@ class Game:
         pygame_quit()
 
     def handle_events(self):
-        def point_in_polygon(point, polygon_points):
-            """ Vérifie si un point est à l'intérieur d'un polygone en utilisant l'algorithme du rayon """
-            x, y = point
-            n = len(polygon_points)
-            inside = False
-            p1x, p1y = polygon_points[0]
-            for i in range(n + 1):
-                p2x, p2y = polygon_points[i % n]
-                if y > min(p1y, p2y):
-                    if y <= max(p1y, p2y):
-                        if x <= max(p1x, p2x):
-                            if p1y != p2y:
-                                xinters = (y - p1y) * (p2x - p1x) / (p2y - p1y) + p1x
-                            if p1x == p2x or x <= xinters:
-                                inside = not inside
-                p1x, p1y = p2x, p2y
-            return inside
-        def point_in_ellipse(point, ellipse_rect):
-            """ Vérifie si un point est à l'intérieur d'une ellipse définie par un Rect """
-            cx = ellipse_rect.x + ellipse_rect.width / 2  # Centre x de l'ellipse
-            cy = ellipse_rect.y + ellipse_rect.height / 2  # Centre y de l'ellipse
-            rx = ellipse_rect.width / 2  # Rayon x de l'ellipse
-            ry = ellipse_rect.height / 2  # Rayon y de l'ellipse
-            px, py = point  # Point de clic
-            # Formule de l'ellipse : ((x - cx)^2 / rx^2) + ((y - cy)^2 / ry^2) <= 1
-            return ((px - cx) ** 2) / (rx ** 2) + ((py - cy) ** 2) / (ry ** 2) <= 1
         self.pressed = pygame_key_get_pressed()
         for event in pygame_event_get():
             if event.type == QUIT:
-                # print(number_of_loops)
+                self.do_you_quit_game = True
                 self.quit_game()
                 return True
             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -1064,22 +1069,22 @@ class Game:
                     self.level_changed = True
                 else:
                     mouse_x, mouse_y = event.pos
+                    if self.menu_rect.collidepoint(mouse_x, mouse_y):
+                        self.show_map = True
+                        self.change_in_display = True
                     if self.lower_right_window_rectangle.collidepoint(mouse_x, mouse_y):
                         self.name_tree_list = self.name_tree_list[1:] + self.name_tree_list[:1]
                         self.last_key_pressed_time = time()
                         self.change_in_display = True
-                    # if self.upper_right_window_rectangle.collidepoint(mouse_x, mouse_y):
-                    #     self.index_current_level += 1
-                    #     self.show_help = True
-                    #     self.change_in_display = True
                     for room in self.maze.rooms_list:
                         rect = self.element_dict[room.name]
                         if room.name == 'RE':
                             if point_in_ellipse(event.pos, rect):
                                 if self.maze.current_room().is_exit:
-                                    self.index_current_level += 1
+                                    self.show_map = True
                                     self.show_help = True
                                     self.level_changed = True
+                                    self.change_in_display = True
                                 else:
                                     self.maze.make_actions('RE')
                                 self.change_in_display = True
@@ -1101,20 +1106,20 @@ class Game:
             self.quit_game()
             self.do_you_quit_game = True
 
-    def update_to_save_images(self):
-        if self.save_image:
-            if self.index_current_level != Levels.number_of_levels - 1:
-                self.index_current_level += 1
-            else:
-                if not self.show_help:
-                    self.show_help = 1
-                    self.change_in_display = True
-                    self.index_current_level = 0
-                else:
-                    self.quit_game()
-                    return True
-            self.level_changed = True
-        return False
+    # def update_to_save_images(self):
+    #     if self.save_image:
+    #         if self.index_current_level != Levels.number_of_levels - 1:
+    #             self.index_current_level += 1
+    #         else:
+    #             if not self.show_help:
+    #                 self.show_help = 1
+    #                 self.change_in_display = True
+    #                 self.index_current_level = 0
+    #             else:
+    #                 self.quit_game()
+    #                 return True
+    #         self.level_changed = True
+    #     return False
     
     def handle_K_UP_DOWN(self):
         # print(time() - self.last_key_pressed_time)
@@ -1128,35 +1133,139 @@ class Game:
                 self.name_tree_list = self.name_tree_list[-1:] + self.name_tree_list[:-1]
                 self.last_key_pressed_time = time()
                 self.change_in_display = True
+                
+    def realign_map_pos(self):
+        self.map_pos_x = max(min(self.map_pos_x, self.map_pos_x_max), self.map_pos_x_min)
+        self.map_pos_y = max(min(self.map_pos_y, self.map_pos_y_max), self.map_pos_y_min)
+                
+    def draw_map_edges(self):
+        # Affichage des lignes des portes
+        color_list = [Color.GREY_100, Color.GREY_120, Color.GREY_140, Color.GREY_160, Color.GREY_180]
+        line_size_list = [10, 8, 6, 4, 2]
+        for i in range(len(line_size_list)):
+            for edge in self.edges_list:
+                pygame_draw_line(self.WINDOW,
+                                 color_list[i],
+                                 [self.dx*(edge[0][0]+self.map_pos_x)+self.delta_x, self.dy*(edge[0][1]+self.map_pos_y)+self.delta_y],
+                                 [self.dx*(edge[1][0]+self.map_pos_x)+self.delta_x, self.dy*(edge[1][1]+self.map_pos_y)+self.delta_y],
+                                 line_size_list[i])
+            
+    def draw_map_dots(self):
+        self.levels_true_positions_dict = {}
+        for node in self.level_positions_dict.keys():
+            [x, y] = self.level_positions_dict[node]
+            x = self.dx*(x+self.map_pos_x)+self.delta_x-self.dot_radius/2
+            y = self.dy*(y+self.map_pos_y)+self.delta_y-self.dot_radius/2
+            rect = [x, y, self.dot_radius, self.dot_radius]
+            self.levels_true_positions_dict[node] = rect
+            lcolor = self.level_color_dict[node]
+            pygame_draw_ellipse(self.WINDOW, lcolor.background_color, rect)
+            rect_in = [x+self.dot_radius/4, y+0.45*self.dot_radius, self.dot_radius/2, self.dot_radius/2]
+            pygame_draw_ellipse(self.WINDOW, lcolor.room_color, rect_in)
+            if self.node == node:
+                w = 8
+                pygame_draw_ellipse(self.WINDOW, [255]*3, [x-w, y-w, self.dot_radius+2*w, self.dot_radius+2*w], width=4)
+            line_width = 1
+            pygame_draw_ellipse(self.WINDOW, lcolor.surrounding_color, rect_in, width=line_width)
+            pygame_draw_ellipse(self.WINDOW, lcolor.contour_color, [x-1, y-1, self.dot_radius+2, self.dot_radius+2], width=line_width)
+            
+    def handle_map_events(self):
+        for event in pygame_event_get():
+            if event.type == QUIT:
+                self.do_you_quit_game = True
+                self.quit_game()
+                return True
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                assert self.levels_true_positions_dict.keys() == self.levels_dict.keys(), f"{self.levels_true_positions_dict.keys} {self.levels_dict.keys}"
+                px, py = event.pos
+                for node in self.levels_true_positions_dict.keys():
+                    rect = self.levels_true_positions_dict[node]
+                    cx, cy, rx, ry = rect
+                    if ((px - cx) ** 2) / (rx ** 2) + ((py - cy) ** 2) / (ry ** 2) <= 1:
+                        pygame_draw_ellipse(self.WINDOW, [255, 0, 0], rect)
+                        self.level_module = self.levels_dict[node]
+                        self.maze = self.level_module.f()
+                        self.node = node
+                        self.show_map = False
+                        self.change_in_display = True
+                        self.level_changed = True
+                        break
+        self.pressed = pygame_key_get_pressed()
+        if time() - self.last_key_pressed_time > 0.1:
+            if self.pressed[K_RIGHT] or self.pressed[K_d]:
+                self.map_pos_x += -2.25
+            if self.pressed[K_LEFT] or self.pressed[K_q]:
+                self.map_pos_x += +2.25
+            if self.pressed[K_UP] or self.pressed[K_z]:
+                self.map_pos_y += +2.25
+            if self.pressed[K_DOWN] or self.pressed[K_s]:
+                self.map_pos_y += -2.25
+            self.last_key_pressed_time = time()
+        
+    def display_map(self):
+        self.WINDOW.fill(Color.color_hls(hu=0.15, li=0.2, sa=0.15))
+        self.font = pygame_font_SysFont(None, self.help_font_size)
+        self.realign_map_pos()
+        self.draw_map_edges()
+        self.draw_map_dots()
+        self.handle_map_events()
+        pygame_display_update()
 
     def play(self): # The main function that controls the game
-        self.game_setup()
         self.t0 = time()
-        self.n_loops = 0
+        self.game_setup()
         while self.looping:
+            for event in pygame_event_get():
+                if event.type == QUIT:
+                    # print(number_of_loops)
+                    self.quit_game()
+                    return True
             sleep(self.sleep_time)  # I did that not to use too much CPU
-            self.n_loops += 1
-            self.handle_events()
+            if self.show_map:
+                self.display_map()
+            else:
+                self.handle_events()
+                self.get_level()
+                self.update_window_size()
+                if self.show_help:
+                    if self.change_in_display or self.update_display_at_every_loop:
+                        self.display_help()
+                        self.change_in_display = False
+                else:
+                    if self.change_in_display or self.update_display_at_every_loop:
+                        self.display_game_window()
+                        self.change_in_display = False
+                    self.handle_keys_ALT()
+                    self.handle_interractions()
+                    if self.save_image:
+                        self.save_image_as_file()
+                self.change_level()
+                self.handle_K_UP_DOWN()
+                # if self.update_to_save_images():  # It means you quit the game
+                #     return None
             if self.do_you_quit_game:
                 return None
-            self.get_level()
-            self.update_window_size()
-            if self.show_help:
-                if self.change_in_display or self.update_display_at_every_loop:
-                    self.display_help()
-                    self.change_in_display = False
-            else:
-                if self.change_in_display or self.update_display_at_every_loop:
-                    self.display_game_window()
-                    self.change_in_display = False
-                self.handle_keys_ALT()
-                self.handle_interractions()
-                if self.save_image:
-                    self.save_image_as_file()
-            self.change_level()
-            self.handle_K_UP_DOWN()
-            if self.update_to_save_images():  # It means you quit the game
-                return None
+        
+    def play_level(self):
+        self.handle_events()
+        self.get_level()
+        self.update_window_size()
+        if self.show_help:
+            if self.change_in_display or self.update_display_at_every_loop:
+                self.display_help()
+                self.change_in_display = False
+        else:
+            if self.change_in_display or self.update_display_at_every_loop:
+                self.display_game_window()
+                self.change_in_display = False
+            self.handle_keys_ALT()
+            self.handle_interractions()
+            if self.save_image:
+                self.save_image_as_file()
+        self.change_level()
+        self.handle_K_UP_DOWN()
+        if self.update_to_save_images():  # It means you quit the game
+            return None
 
     def save_levels_txt(verbose=0, calculates_solutions=True, short_only=True):
         t0 = time()

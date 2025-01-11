@@ -269,7 +269,7 @@ def f():
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7] + [RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16],
                  fastest_solution='D0 S3 S4 D5 S6 S7 D10 D15 S0 D1 S7 D6 S10 D11 D15 S0 D0 S3 D5 S6 D10 D15 S1 D2 S9 S11 D7 S12 S14 D12 D15 S0 D3 S14 D8 S17 D13 D15 S0 D2 S9 D7 S12 D12 D15 S0 S1 D1 S6 S7 S8 D6 S9 S10 S11 D11 D15 S0 D0 S4 S5 D5 S7 S8 D10 D15 S1 D2 S10 S11 D7 S13 S14 D12 D15 S0 S1 D1 S6 S7 S8 D6 S9 S10 S11 D11 D15 S0 S2 D4 S15 S16 S17 D9 S18 S19 S20 D14 D15 S0 S1 S2 D3 S14 D8 S17 D13 D15 S0 D2 S9 S11 D7 S12 S14 D12 D15 S0 S1 D1 S7 D6 S10 D11 D15 S0 D0 S3 S4 D5 S6 S7 D10 D15 D16',
-                 level_color=Levels_colors_list.FROM_HUE(hu=0.175, sa=0.9, li=0.7),
+                 level_color=get_color(),
                  name='Inversions',
                  door_window_size=400,
                  keep_proportions=True,
@@ -277,3 +277,6 @@ def f():
                  border=40)
 
     return level
+
+def get_color():
+    return Levels_colors_list.FROM_HUE(hu=0.175, sa=0.9, li=0.7)

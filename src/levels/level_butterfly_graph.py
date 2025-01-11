@@ -107,7 +107,7 @@ def f():
                  rooms_list=Rl,
                  doors_list=Dl,
                  fastest_solution="S3 S7 D0 S9 S12 S13 S17 D1",
-                 level_color=Levels_colors_list.FROM_HUE(hu=0.9, sa=0.1, li=0.5),
+                 level_color=get_color(),
                  name='Butterfly graph',
                  keep_proportions=True,
                  door_window_size=400,
@@ -115,3 +115,6 @@ def f():
                  uniform_inside_room_color=False)
     
     return level
+
+def get_color():
+    return Levels_colors_list.FROM_HUE(hu=0.9, sa=0.1, li=0.5)

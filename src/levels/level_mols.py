@@ -413,15 +413,12 @@ def f():
 
     rp = 1 / 2
 
-    lcolor = Levels_colors_list.FROM_HUE(hu=0.7, sa=0.6, li=0.65)
-    lcolor.surrounding_color=Color.BRIGHT_YELLOW
-
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12] + [RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12],
                  fastest_solution='S0 S3 S4 S5 D0 S7 S8 S9 D1 S12 S13 S16 D2 S20 S23 D3 S25 S26 S27 S28 D4 S30 S31 S33 D5 S36 S40 S41 D6 S43 S44 D7 S48 S49 S51 S52 D8 S56 S57 S59 D9 S60 S61 S62 D10 S68 S71 D11 D12',
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='MOLS',
                  door_window_size=500,
                  keep_proportions=True,
@@ -429,3 +426,8 @@ def f():
                  border=40)
 
     return level
+
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.7, sa=0.6, li=0.65)
+    lcolor.surrounding_color=Color.BRIGHT_YELLOW
+    return lcolor

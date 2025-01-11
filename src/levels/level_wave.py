@@ -364,7 +364,7 @@ def f():
                              D13, D14, D15, D16, D17, D18, D19, D20, D21, D22, D23, D24,
                              D25, D26],
                  fastest_solution="S0 S3 S4 D0 D1 S5 D13 D18 S10 D6 D10 S14 D22 D25 D26",
-                 level_color=Levels_colors_list.PURPLE_BLUE,
+                 level_color=get_color(),
                  name='Wave',
                  door_window_size=300,
                  y_separation=50,
@@ -373,3 +373,6 @@ def f():
                  group='pure maze')
 
     return level
+
+def get_color():
+    return Levels_colors_list.PURPLE_BLUE

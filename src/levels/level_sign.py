@@ -340,7 +340,7 @@ def f(fast_solution_finding=False):
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14] + [RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14],
                  fastest_solution='D0 S2 S3 D1 S5 D2 S7 D3 S8 S9 D4 S10 S11 D5 D6 S13 S14 D7 S16 D8 S17 D9 S18 D10 D11 S21 D12 S22 D13 S23 D14',
-                 level_color=Levels_colors_list.FROM_HUE(hu=0.5, sa=0.4, li=0.4),
+                 level_color=get_color(),
                  name='Sign',
                  door_window_size=300,
                  keep_proportions=True,
@@ -349,3 +349,6 @@ def f(fast_solution_finding=False):
                  door_multipages=fast_solution_finding)
 
     return level
+
+def get_color():
+    return Levels_colors_list.FROM_HUE(hu=0.5, sa=0.4, li=0.4)

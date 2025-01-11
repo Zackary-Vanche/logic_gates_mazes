@@ -195,9 +195,12 @@ def f(fast_solution_finding=False):
                      rooms_list=[R0, R1, R2, R3, R4, R5, RE],
                      doors_list=[D0, D1, D2, D3, D4, D5],
                      fastest_solution='S2 S4 S11 S13 D0 D1 D2 D3 D4 D5',
-                     level_color=Levels_colors_list.FROM_HUE(0),
+                     level_color=get_color,
                      name='The 4 queens',
                      door_window_size=300,
                      keep_proportions=True)
 
         return level
+    
+def get_color():
+    return Levels_colors_list.FROM_HUE(0)

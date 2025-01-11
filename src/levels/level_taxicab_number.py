@@ -115,9 +115,12 @@ def f():
                  rooms_list=[R0, R1, R2, R3, RE],
                  doors_list=[D0, D1, D2, D3],
                  fastest_solution='S0 D0 S6 S7 D1 S8 S11 D2 S13 S15 D3',
-                 level_color=Levels_colors_list.YELLOW_AND_BLACK,
+                 level_color=get_color(),
                  name='Taxicab number',
                  door_window_size=410,
                  keep_proportions=False)
 
     return level
+
+def get_color():
+    return Levels_colors_list.YELLOW_AND_BLACK

@@ -228,12 +228,28 @@ def f():
                 room_arrival=RE,
                 relative_departure_coordinates=[0, 0],
                 relative_arrival_coordinates=[1/2, 0])
+
+    level = Maze(start_room_index=0,
+                 exit_room_index=-1,
+                 rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, RE],
+                 doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8],
+                 fastest_solution=["S2 D0 S4 D1 D2 S10 S11 D3 D4 D5 D6 D7 D8",
+                                   "S0 S2 D0 S3 S4 D1 S7 S8 D2 D3 D4 D5 D6 D7 D8",
+                                   "S1 D0 S5 D1 S6 D2 S9 S10 S11 D3 D4 D5 D6 D7 D8",
+                                   "S0 S1 D0 S3 S5 D1 S6 S7 S8 D2 S9 D3 D4 D5 D6 D7 D8"][isol],
+                 level_color=get_color(),
+                 name='The eight queens',
+                 keep_proportions=True,
+                 door_window_size=350)
     
+    return level
+
+def get_color():
+    isol = rd_choice([0, 1, 2, 3])
     c0 = Color.color_hls(hu=0.15, li=0.5, sa=0.4)
     c1 = Color.color_hls(hu=0.15, li=0.2, sa=0.8)
     contour_color = Color.color_hls(hu=0.16, li=0.9, sa=1)
     surrounding_color = Color.color_hls(hu=0.5, li=0.5, sa=0.7)
-    
     if isol%2 == 0:
         lcolor = Level_color(background_color=c0,
                              room_color=c1,
@@ -248,18 +264,4 @@ def f():
                              contour_color=contour_color,
                              inside_room_color=Color.BLACK,
                              surrounding_color=surrounding_color)
-
-    level = Maze(start_room_index=0,
-                 exit_room_index=-1,
-                 rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, RE],
-                 doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8],
-                 fastest_solution=["S2 D0 S4 D1 D2 S10 S11 D3 D4 D5 D6 D7 D8",
-                                   "S0 S2 D0 S3 S4 D1 S7 S8 D2 D3 D4 D5 D6 D7 D8",
-                                   "S1 D0 S5 D1 S6 D2 S9 S10 S11 D3 D4 D5 D6 D7 D8",
-                                   "S0 S1 D0 S3 S5 D1 S6 S7 S8 D2 S9 D3 D4 D5 D6 D7 D8"][isol],
-                 level_color=lcolor,
-                 name='The eight queens',
-                 keep_proportions=True,
-                 door_window_size=350)
-    
-    return level
+    return lcolor

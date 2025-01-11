@@ -339,16 +339,6 @@ def f(fast_solution_finding=False):
     
     # hu_min = 0.85
     # hu_max = 0.5
-    hu = rd_random()*0.65-0.15
-    li = 0.2
-    c0 = Color.color_hls(hu, li=li, sa=1)
-    c1 = Color.color_hls(hu, li=li, sa=0.1)
-    lcolor = Level_color(background_color=c0,
-                         room_color=c1,
-                         letters_color=Color.WHITE,
-                         contour_color=Color.WHITE,
-                         inside_room_color=Color.WHITE,
-                         surrounding_color=Color.WHITE)
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
@@ -357,7 +347,7 @@ def f(fast_solution_finding=False):
                              RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13],
                  fastest_solution=sol,
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Automaton',
                  keep_proportions=True,
                  door_window_size=250,
@@ -409,3 +399,16 @@ def f(fast_solution_finding=False):
     #             room_arrival=RE)
     
     return level
+
+def get_color():
+    hu = rd_random()*0.65-0.15
+    li = 0.2
+    c0 = Color.color_hls(hu, li=li, sa=1)
+    c1 = Color.color_hls(hu, li=li, sa=0.1)
+    lcolor = Level_color(background_color=c0,
+                         room_color=c1,
+                         letters_color=Color.WHITE,
+                         contour_color=Color.WHITE,
+                         inside_room_color=Color.WHITE,
+                         surrounding_color=Color.WHITE)
+    return lcolor

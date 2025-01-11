@@ -324,20 +324,22 @@ def f():
         rd_shuffle(door_names_list)
         for i, door in enumerate(doors_list):
             door.name = door_names_list[i]
-        
-    lcolor = Levels_colors_list.FROM_HUE(hu=0.8, sa=0.1, li=0.3)
-    lcolor.contour_color = Color.GREY_100
-    lcolor.surrounding_color = Color.PALE_RED
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=rooms_list,
                  doors_list=doors_list+[D22],
                  fastest_solution=None,
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Blind alleys',
                  keep_proportions=False,
                  door_window_size=350,
                  random=True)
     
     return level
+
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.8, sa=0.1, li=0.3)
+    lcolor.contour_color = Color.GREY_100
+    lcolor.surrounding_color = Color.PALE_RED
+    return lcolor

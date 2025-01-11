@@ -103,9 +103,12 @@ def f():
                  rooms_list=[R0, R1, R2, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6],
                  fastest_solution='S0 D0 S1 D1 S2 D2 D0 S1 S4 D3 D5 S5 D4 S1 D3 S3 D6',
-                 level_color=Levels_colors_list.PINK,
+                 level_color=get_color(),
                  name='Parallel',
                  door_window_size=450,
                  border=50)
 
     return level
+
+def get_color():
+    return Levels_colors_list.PINK

@@ -214,19 +214,21 @@ def f():
                 room_arrival=RE,
                 relative_departure_coordinates=[1/2, 0],
                 relative_arrival_coordinates=[1/2, 1])
-    
-    lcolor = Levels_colors_list.FROM_HUE(hu=0.1, sa=0.3, li=0.6)
-    lcolor.room_color = Color.color_hls(hu=0.6, sa=0.4, li=0.4)
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8],
                  fastest_solution=None,
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Pigeonhole sort',
                  keep_proportions=True,
                  door_window_size=550,
                  random=True)
     
     return level
+
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.1, sa=0.3, li=0.6)
+    lcolor.room_color = Color.color_hls(hu=0.6, sa=0.4, li=0.4)
+    return lcolor

@@ -278,17 +278,20 @@ def f():
                 room_departure=R0,
                 room_arrival=RE)
 
-    lcolor = Levels_colors_list.FROM_HUE(hu=0, sa=0.5, li=0.3)
-    lcolor.surrounding_color = Color.TOTAL_YELLOW
-    lcolor.contour_color = Color.TOTAL_YELLOW
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11],
                  fastest_solution="""D0 S0 D1 S4 D2 S9 S13 D3 D4 S18 D4 D0 S0 D1 S4 S5 D2 S9 S13 S14 D3 D0 S1 D1 S4 D2 S10 S13 D3 D5 S19 D5 D0 S1 D1 S4 S5 S6 D2 S10 S13 S14 S15 D3 D0 S2 D1 S4 D2 S11 S13 D3 D7 S21 D7 D0 S2 D1 S4 S5 D2 S11 S13 S14 D3 D0 S0 S1 D1 S4 D2 S9 S10 S13 D3 D6 S20 D6 D0 S0 S1 S3 D1 S4 S5 S6 S7 D2 S9 S10 S12 S13 S14 S15 S16 D3 D0 S0 S1 S2 S3 D1 S4 D2 S9 S10 S11 S12 S13 D3 D9 S23 D9 D0 S0 S1 S2 S3 D1 S4 S5 D2 S9 S10 S11 S12 S13 S14 D3 D0 S0 D1 S4 D2 S9 S13 D3 D10 S24 D10 D0 S0 S1 D1 S4 S5 S6 D2 S9 S10 S13 S14 S15 D3 D0 S0 S1 S2 S3 D1 S4 D2 S9 S10 S11 S12 S13 D3 D8 S22 D8 D0 S0 S2 D1 S4 S5 D2 S9 S11 S13 S14 D3 D11""",
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Bridges',
                  keep_proportions=False,
                  door_window_size=362)
     
     return level
+
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(hu=0, sa=0.5, li=0.3)
+    lcolor.surrounding_color = Color.TOTAL_YELLOW
+    lcolor.contour_color = Color.TOTAL_YELLOW
+    return lcolor

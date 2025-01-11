@@ -307,9 +307,12 @@ def f(fast_solution_finding=False):
                      doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18,
                                  D19],
                      fastest_solution='S2 S3 S4 S6 S7 S8 S10 S11 S13 S15 D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 D16 D17 D18 D19',
-                     level_color=Levels_colors_list.FOUR_COLORS,
+                     level_color=get_color(),
                      name='4 colors theorem',
                      door_window_size=400,
                      keep_proportions=True)
 
         return level
+    
+def get_color():
+    return Levels_colors_list.FOUR_COLORS

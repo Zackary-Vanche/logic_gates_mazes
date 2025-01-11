@@ -141,7 +141,20 @@ def f():
                 name='D10',
                 room_departure=R6,
                 room_arrival=RE)
+
+    level = Maze(start_room_index=0,
+                 exit_room_index=-1,
+                 rooms_list=[R0, R1, R2, R3, R4, R5, R6, RE],
+                 doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10],
+                 fastest_solution="S4 D0 S6 D3 S10 D5 S7 D5 D6 S8 D6 D8 S9 D8 D9 S11 D10",
+                 level_color=get_color(),
+                 name='Spy',
+                 keep_proportions=True,
+                 door_window_size=300)
     
+    return level
+
+def get_color():
     hu = 0
     sa = 0.1
     li = 0.5
@@ -151,15 +164,4 @@ def f():
                          contour_color=Color.RED,
                          inside_room_color=Color.WHITE,
                          surrounding_color=Color.TOTAL_RED)
-
-    level = Maze(start_room_index=0,
-                 exit_room_index=-1,
-                 rooms_list=[R0, R1, R2, R3, R4, R5, R6, RE],
-                 doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10],
-                 fastest_solution="S4 D0 S6 D3 S10 D5 S7 D5 D6 S8 D6 D8 S9 D8 D9 S11 D10",
-                 level_color=lcolor,
-                 name='Spy',
-                 keep_proportions=True,
-                 door_window_size=300)
-    
-    return level
+    return lcolor

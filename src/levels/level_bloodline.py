@@ -171,7 +171,20 @@ def f():
                 room_arrival=RE,
                 relative_departure_coordinates=[1, 1/2],
                 relative_arrival_coordinates=[0, 1/2])
+
+    level = Maze(start_room_index=0,
+                 exit_room_index=-1,
+                 rooms_list=[R0, R1, R2, R3, R4, R5, R6, RE],
+                 doors_list=[D0, D1, D2, D3, D4, D5, D6],
+                 fastest_solution="S0 D0 S3 S4 D1 S13 D2 S6 S8 D3 S9 S10 S11 D4 S16 S17 D5 S20 D6",
+                 level_color=get_color(),
+                 name='Bloodline',
+                 keep_proportions=True,
+                 door_window_size=300)
     
+    return level
+
+def get_color():
     hu = 0
     sa = 0.3
     li = 0.6
@@ -181,16 +194,4 @@ def f():
                          contour_color=Color.PINK,
                          inside_room_color=Color.WHITE,
                          surrounding_color=Color.TOTAL_RED)
-
-    level = Maze(start_room_index=0,
-                 exit_room_index=-1,
-                 rooms_list=[R0, R1, R2, R3, R4, R5, R6, RE],
-                 doors_list=[D0, D1, D2, D3, D4, D5, D6],
-                 fastest_solution="S0 D0 S3 S4 D1 S13 D2 S6 S8 D3 S9 S10 S11 D4 S16 S17 D5 S20 D6",
-                 level_color=lcolor,
-                 name='Bloodline',
-                 keep_proportions=True,
-                 door_window_size=300)
-    
-    return level
-
+    return lcolor

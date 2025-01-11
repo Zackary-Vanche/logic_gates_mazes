@@ -516,10 +516,13 @@ def f():
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, R15, R16, R17, R18, R19, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19, D20, D21, D22, D23, D24, D25, D26, D27, D28, D29, D30, D31, D32, D33, D34, D35, D36, D37, D38, D39, D40, D41, D42, D43],
                  fastest_solution=None,
-                 level_color=Levels_colors_list.FROM_HUE(hu=0.85, sa=0.5, li=0.3),
+                 level_color=get_color(),
                  name='Line and columns',
                  keep_proportions=True,
                  door_window_size=300,
                  random=True)
     
     return level
+
+def get_color():
+    return Levels_colors_list.FROM_HUE(hu=0.85, sa=0.5, li=0.3)

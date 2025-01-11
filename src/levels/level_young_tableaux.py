@@ -148,19 +148,21 @@ def f():
                 name='D5',
                 room_departure=R5,
                 room_arrival=RE)
-    
-    lcolor = Levels_colors_list.FROM_HUE(hu=0, sa=0.1, li=0.5)
-    lcolor.surrounding_color = Color.TOTAL_RED
-    lcolor.contour_color = Color.TOTAL_RED
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5],
                  fastest_solution="D0 S4 D1 S8 S9 D2 S12 S14 D3 S16 S17 S18 D4 S20 S21 S22 S23 D5",
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Young tableaux',
                  keep_proportions=True,
                  door_window_size=300)
     
     return level
+
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(hu=0, sa=0.1, li=0.5)
+    lcolor.surrounding_color = Color.TOTAL_RED
+    lcolor.contour_color = Color.TOTAL_RED
+    return lcolor

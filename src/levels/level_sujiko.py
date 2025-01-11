@@ -203,9 +203,12 @@ def f():
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8],
                  fastest_solution='S2 D0 S3 S4 D1 S6 S7 S8 D2 S10 S11 D3 S12 D4 S16 D5 S18 S20 D6 D7 S27 D8',
-                 level_color=Levels_colors_list.FROM_HUE(0.9, sa=1, li=0.3),
+                 level_color=get_color(),
                  name='Sujiko',
                  door_window_size=400,
                  keep_proportions=True)
 
     return level
+
+def get_color():
+    return Levels_colors_list.FROM_HUE(0.9, sa=1, li=0.3)

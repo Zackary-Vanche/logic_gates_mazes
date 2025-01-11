@@ -196,9 +196,6 @@ def f():
                 room_departure=R7,
                 room_arrival=RE)
     
-    lcolor = Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.6)
-    lcolor.surrounding_color = Color.IVORY
-    
     a = rd_random()
     hue_list = [i/4+a for i in range(4)]
     rd_shuffle(hue_list)
@@ -236,11 +233,16 @@ def f():
                  rooms_list=rooms_list,
                  doors_list=doors_list,
                  fastest_solution=' '.join(sol_list),
-                 level_color=lcolor,
-                 name='Quaternary',
+                 level_color=get_color(),
+                 name='Quaternary cryptarithmetic',
                  keep_proportions=True,
                  door_window_size=300,
                  uniform_inside_room_color=False,
                  random=True)
     
     return level
+
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.6)
+    lcolor.surrounding_color = Color.IVORY
+    return lcolor

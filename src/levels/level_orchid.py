@@ -161,20 +161,21 @@ def f():
                 name='D9',
                 room_departure=R5,
                 room_arrival=RE)
-    
-    lcolor = Levels_colors_list.FROM_HUE(hu=0.98, sa=0.2, li=0.8)
-    lcolor.contour_color = Color.GREEN
-    lcolor.surrounding_color = Color.GREEN
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9],
                  fastest_solution="S0 S5 S6 S7 D0 S9 D1 S8 D1 D8 S12 D7 S11 D6 S10 D6 D7 D9",
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Orchid',
                  keep_proportions=True,
                  door_window_size=315)
     
     return level
 
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.98, sa=0.2, li=0.8)
+    lcolor.contour_color = Color.GREEN
+    lcolor.surrounding_color = Color.GREEN
+    return lcolor

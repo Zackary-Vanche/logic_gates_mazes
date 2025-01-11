@@ -611,9 +611,13 @@ def f():
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, R15, R16, R17, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19, D20, D21, D22, D23, D24, D25, D26, D27, D28, D29, D30, D31, D32, D33, D34, D35, D36, D37, D38, D39, D40, D41, D42, D43, D44, D45, D46, D47, D48, D49, D50, D51],
                  fastest_solution='S1 S2 S4 S5 S8 S9 S11 D0 S12 D25 S16 D7 S17 D33 S21 D14 S20 D29 S24 D19 S25 D21 S26 D49 S28 D50 S27 D48 S23 D18 S22 D40 S18 D11 S19 D44 S15 D6 S14 D4 S13 D51',
-                 level_color=Levels_colors_list.FROM_HUE(hu=0.6, sa=0.4, li=0.3),
+                 level_color=get_color(),
                  name='Central symmetry',
                  keep_proportions=False,
                  door_window_size=240)
     
     return level
+
+def get_color():
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.6, sa=0.4, li=0.3)
+    return lcolor

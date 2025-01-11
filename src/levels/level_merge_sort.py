@@ -374,14 +374,6 @@ def f():
                 name='D20',
                 room_departure=R0,
                 room_arrival=RE)
-    
-    hu = 0.4
-    lcolor = Level_color(background_color=Color.color_hls(hu, li=0.7, sa=0.3),
-                         room_color=Color.color_hls(hu, li=0.4, sa=0.4),
-                         letters_color=Color.BLACK,
-                         contour_color=Color.color_hls(hu=0.9, li=0.1, sa=1),
-                         inside_room_color=Color.WHITE,
-                         surrounding_color=Color.color_hls(hu=0.9, li=0.1, sa=1))
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
@@ -390,10 +382,20 @@ def f():
                              D10, D11,
                              D12, D13, D14, D15, D16, D17, D18, D19, D20],
                  fastest_solution=None,
-                 level_color=lcolor,
+                 level_color=get_color(),
                  name='Merge sort',
                  keep_proportions=True,
                  door_window_size=300,
                  random=True)
     
     return level
+
+def get_color():
+    hu = 0.4
+    lcolor = Level_color(background_color=Color.color_hls(hu, li=0.7, sa=0.3),
+                         room_color=Color.color_hls(hu, li=0.4, sa=0.4),
+                         letters_color=Color.BLACK,
+                         contour_color=Color.color_hls(hu=0.9, li=0.1, sa=1),
+                         inside_room_color=Color.WHITE,
+                         surrounding_color=Color.color_hls(hu=0.9, li=0.1, sa=1))
+    return lcolor

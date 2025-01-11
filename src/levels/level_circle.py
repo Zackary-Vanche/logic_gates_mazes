@@ -63,6 +63,19 @@ def f():
                 room_arrival=RE,
                 relative_departure_coordinates=[2.5/3, 1/4])
     
+    level = Maze(start_room_index=0,
+                 exit_room_index=-1,
+                 rooms_list=[R0, RE],
+                 doors_list=[D0],
+                 fastest_solution="S0 S1 S3 D0",
+                 level_color=get_color(),
+                 name='Circle',
+                 keep_proportions=True,
+                 door_window_size=300)
+    
+    return level
+
+def get_color():
     hu = 0.3
     sa = 0.6
     li = 0.8
@@ -72,15 +85,4 @@ def f():
                          contour_color=Color.YELLOW,
                          inside_room_color=Color.WHITE,
                          surrounding_color=Color.YELLOW)
-
-    level = Maze(start_room_index=0,
-                 exit_room_index=-1,
-                 rooms_list=[R0, RE],
-                 doors_list=[D0],
-                 fastest_solution="S0 S1 S3 D0",
-                 level_color=lcolor,
-                 name='Circle',
-                 keep_proportions=True,
-                 door_window_size=300)
-    
-    return level
+    return lcolor

@@ -155,8 +155,11 @@ def f():
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8],
                  fastest_solution='S1 S3 S5 D0 S8 D1 D2 D3 D4 D5 D6 D7 D8',
-                 level_color=Levels_colors_list.RED_AND_ORANGE,
+                 level_color=get_color(),
                  name='Stairs',
                  door_window_size=300)
 
     return level
+
+def get_color():
+    return Levels_colors_list.RED_AND_ORANGE
