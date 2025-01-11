@@ -177,20 +177,6 @@ class Levels:
                                      lvls.level_knight,),
                              ],
                              ),
-                         [lvls.level_graceful_baby_path,
-                          mkc(lvls.level_graceful_triangle,
-                              lvls.level_graceful_square,
-                              lvls.level_graceful_tetrahedron),
-                          mkc(lvls.level_graceful_star,
-                              lvls.level_graceful_path,
-                              lvls.level_graceful_baby_caterpillar,
-                              lvls.level_graceful_firecracker,
-                              [lvls.level_graceful_caterpillar,
-                               lvls.level_graceful_random_tree,
-                               mkc(lvls.level_graceful_lobster,
-                                   lvls.level_graceful_large_caterpillar,)]),
-                          mkc(lvls.level_edge_graceful_cycle,
-                              lvls.level_edge_graceful_tetrahedron),],
                          [lvls.level_chromatic,
                           lvls.level_chromagraph,
                           mkc(lvls.level_wheel,
@@ -210,59 +196,96 @@ class Levels:
                              lvls.level_octahedral_graph,
                              lvls.level_hexagonal_bipyramid,
                              lvls.level_triangles,),
-                         mkc(lvls.level_inside_out,
-                             [lvls.level_sorted,
-                              [lvls.level_bubble_sort,
-                               mkc(lvls.level_odd_even_sort,
-                                   lvls.level_cocktail_sort,),
-                               [lvls.level_pigeonhole_sort,
-                                lvls.level_insertion_sort,
-                                lvls.level_gnome_sort,
-                                lvls.level_merge_sort,
-                                lvls.level_cycle_sort,
-                                lvls.level_selection_sort,
-                                lvls.level_quick_sort,
-                                lvls.level_heapsort,
-                                lvls.level_pancake_sorting,]],
-                             mkc(lvls.level_elementary,
-                                 lvls.level_invert,
-                                 [lvls.level_permutate,
-                                  mkc(lvls.level_3_cycle,
-                                      lvls.level_permutations,
-                                      [lvls.level_inversions,
-                                       lvls.level_spaceship,
-                                       mkc(lvls.level_first_guarini_s_problem,
-                                           lvls.level_second_guarini_s_problem,),
-                                       mkc(lvls.level_grid,
-                                           lvls.level_line_and_columns,),
-                                       mkc(lvls.level_oval_track_puzzle,
-                                           lvls.level_puzzle,
-                                           lvls.level_panex,
-                                           lvls.level_hungarian_rings,
-                                           lvls.level_cellular_automaton,
-                                           lvls.level_parking,)]),
-                                  mkc(lvls.level_spare,
-                                      lvls.level_vortex,
-                                      lvls.level_box,
-                                      lvls.level_error,),
-                                  mkc(lvls.level_temple,
-                                      lvls.level_classified,
-                                      lvls.level_baguenaudier,
-                                      lvls.level_towers,
-                                      lvls.level_solitaire,
-                                      lvls.level_water_pouring,)
-                                  ],),
-                             [lvls.level_walls,
-                             mkc(lvls.level_jail,
-                                 lvls.level_prison),
-                             mkc(lvls.level_rampart,
-                                 lvls.level_fortification,)]]),
+                         [lvls.level_graceful_baby_path,
+                          mkc(lvls.level_graceful_triangle,
+                              lvls.level_graceful_square,
+                              lvls.level_graceful_tetrahedron),
+                          mkc(lvls.level_graceful_star,
+                              lvls.level_graceful_path,
+                              lvls.level_graceful_baby_caterpillar,
+                              lvls.level_graceful_firecracker,
+                              [lvls.level_graceful_caterpillar,
+                               lvls.level_graceful_random_tree,
+                               mkc(lvls.level_graceful_lobster,
+                                   lvls.level_graceful_large_caterpillar,)]),
+                          mkc(lvls.level_edge_graceful_cycle,
+                              lvls.level_edge_graceful_tetrahedron),],
                          [lvls.level_relay,
                          mkc(lvls.level_circuit,
                              lvls.level_network,
                              lvls.level_pyramid,),],
                          mkc(lvls.level_cattle,
                              lvls.level_herd,),
+                         mkc(lvls.level_wasted,
+                            lvls.level_rotation,
+                            lvls.level_rotation_bis,
+                            lvls.level_the_4th_dimension,),
+                        [lvls.level_random_simple,
+                         mkc(lvls.level_random_bull,
+                             lvls.level_random_butterfly,
+                             lvls.level_random_star,
+                             lvls.level_random_binary_tree,),
+                         mkc(lvls.level_random_K2,
+                             lvls.level_random_w6,
+                             lvls.level_random_K5,
+                             lvls.level_random_K33,lvls.level_random_petersen,
+                             lvls.level_random_gemini,
+                             lvls.level_random_cuboctahedron,),
+                         mkc(lvls.level_random_turning,
+                             lvls.level_random_line,
+                             lvls.level_random_starting_point,
+                             lvls.level_random_ladder,
+                             lvls.level_random_come_back,),],
+                        mkc(lvls.level_guess,
+                            lvls.level_dichotomy,
+                            lvls.level_mastermind,),
+                        mkc(lvls.level_inside_out,
+                            [lvls.level_sorted,
+                             [lvls.level_bubble_sort,
+                              mkc(lvls.level_odd_even_sort,
+                                  lvls.level_cocktail_sort,),
+                              [lvls.level_pigeonhole_sort,
+                               lvls.level_insertion_sort,
+                               lvls.level_gnome_sort,
+                               lvls.level_merge_sort,
+                               lvls.level_cycle_sort,
+                               lvls.level_selection_sort,
+                               lvls.level_quick_sort,
+                               lvls.level_heapsort,
+                               lvls.level_pancake_sorting,]],
+                            mkc(lvls.level_elementary,
+                                lvls.level_invert,
+                                [lvls.level_permutate,
+                                 mkc(lvls.level_3_cycle,
+                                     lvls.level_permutations,
+                                     [lvls.level_inversions,
+                                      lvls.level_spaceship,
+                                      mkc(lvls.level_first_guarini_s_problem,
+                                          lvls.level_second_guarini_s_problem,),
+                                      mkc(lvls.level_grid,
+                                          lvls.level_line_and_columns,),
+                                      mkc(lvls.level_oval_track_puzzle,
+                                          lvls.level_puzzle,
+                                          lvls.level_panex,
+                                          lvls.level_hungarian_rings,
+                                          lvls.level_cellular_automaton,
+                                          lvls.level_parking,)]),
+                                 mkc(lvls.level_spare,
+                                     lvls.level_vortex,
+                                     lvls.level_box,
+                                     lvls.level_error,),
+                                 mkc(lvls.level_temple,
+                                     lvls.level_classified,
+                                     lvls.level_baguenaudier,
+                                     lvls.level_towers,
+                                     lvls.level_solitaire,
+                                     lvls.level_water_pouring,)
+                                 ],),
+                            [lvls.level_walls,
+                            mkc(lvls.level_jail,
+                                lvls.level_prison),
+                            mkc(lvls.level_rampart,
+                                lvls.level_fortification,)]]),
                          [lvls.level_product,
                           mkc(lvls.level_domination_number,
                               [lvls.level_spy,
@@ -338,30 +361,7 @@ class Levels:
                               lvls.level_code,
                               lvls.level_syracuse,),
                           ],
-                         mkc(lvls.level_wasted,
-                             lvls.level_rotation,
-                             lvls.level_rotation_bis,
-                             lvls.level_the_4th_dimension,),
-                         [lvls.level_random_simple,
-                          mkc(lvls.level_random_bull,
-                              lvls.level_random_butterfly,
-                              lvls.level_random_star,
-                              lvls.level_random_binary_tree,),
-                          mkc(lvls.level_random_K2,
-                              lvls.level_random_w6,
-                              lvls.level_random_K5,
-                              lvls.level_random_K33,lvls.level_random_petersen,
-                              lvls.level_random_gemini,
-                              lvls.level_random_cuboctahedron,),
-                          mkc(lvls.level_random_turning,
-                              lvls.level_random_line,
-                              lvls.level_random_starting_point,
-                              lvls.level_random_ladder,
-                              lvls.level_random_come_back,),
-                          mkc(lvls.level_dichotomy,
-                              lvls.level_mastermind,),
-    
-    ]
+                         
     ]
     ]
     ]
@@ -586,18 +586,7 @@ def test_levels(test_random_levels=False):
             plt.xticks(bins_list)
             plt.show()
             print('')
-
-    print('Testing some chosen levels')
-    solutions = lvls.level_cartesian.f().find_all_solutions(verbose=2,
-                                                     nb_iterations_print=10**4,
-                                                     stop_at_first_solution=False)
-    assert len(solutions[0]) == 1
-    sol = solutions[0][0]
-    assert lvls.level_cartesian.f().fastest_solution == ' '.join(sol)
-    assert lvls.level_arithmetic.f().find_all_solutions()[0] != 0
-    assert lvls.level_numeration.f().find_all_solutions()[0] != 0
-    assert lvls.level_3_cycle.f().find_all_solutions()[0] != 0
-    
+            
     print('Check levels duplications')
     all_level_set = set()
     for level_function in Levels.levels_modules_list:
@@ -608,7 +597,19 @@ def test_levels(test_random_levels=False):
     levels_folder_names_list = [x for x in dir(lvls) if x[:6] == 'level_']
     levels_used_names_list = [str(level_module).split('\\')[-1].split('.')[0] for level_module in Levels.levels_modules_list]
     
-    print(set(levels_folder_names_list) - set(levels_used_names_list))
+    print(set(levels_folder_names_list) - set(levels_used_names_list), 'not used')
+
+    print('Testing some chosen levels')
+    solutions = lvls.level_cartesian.f().find_all_solutions(verbose=2,
+                                                     nb_iterations_print=10**4,
+                                                     stop_at_first_solution=False)
+    assert len(solutions[0]) == 1
+    sol = solutions[0][0]
+    assert lvls.level_cartesian.f().fastest_solution == ' '.join(sol)
+    assert len(lvls.level_arithmetic.f().find_all_solutions()) != 0
+    assert len(lvls.level_numeration.f().find_all_solutions()) != 0
+    assert len(lvls.level_3_cycle.f().find_all_solutions()) != 0
+    assert len(lvls.level_graceful_random_tree.f().find_all_solutions()) != 0
     
     # worlds_level_list = []
     # for world_name in Levels.Worlds.keys():

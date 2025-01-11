@@ -1164,7 +1164,10 @@ class Game:
             pygame_draw_ellipse(self.WINDOW, lcolor.room_color, rect_in)
             if self.node == node:
                 w = 8
-                pygame_draw_ellipse(self.WINDOW, [255]*3, [x-w, y-w, self.dot_radius+2*w, self.dot_radius+2*w], width=4)
+                pygame_draw_ellipse(self.WINDOW, [208]*3, [x-w, y-w, self.dot_radius+2*w, self.dot_radius+2*w], width=5)
+                pygame_draw_ellipse(self.WINDOW, [224]*3, [x-w, y-w, self.dot_radius+2*w, self.dot_radius+2*w], width=4)
+                pygame_draw_ellipse(self.WINDOW, [240]*3, [x-w, y-w, self.dot_radius+2*w, self.dot_radius+2*w], width=3)
+                pygame_draw_ellipse(self.WINDOW, [255]*3, [x-w, y-w, self.dot_radius+2*w, self.dot_radius+2*w], width=2)
             line_width = 2
             pygame_draw_ellipse(self.WINDOW, lcolor.surrounding_color, rect_in, width=line_width)
             pygame_draw_ellipse(self.WINDOW, lcolor.contour_color, [x-1, y-1, self.dot_radius+2, self.dot_radius+2], width=line_width)

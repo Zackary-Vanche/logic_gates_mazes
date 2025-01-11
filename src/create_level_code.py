@@ -1,6 +1,6 @@
-ns = 8
-nd = 8
-nr = 5
+ns = 2
+nd = 1
+nr = 1
 nv = 0
 ####
 ####
@@ -163,7 +163,7 @@ print(f'''
     return level
 
 def get_color():
-    return Color.color_from_hls(hu, li, sa)
+    return Levels_colors_list.FROM_HUE(hu, sa, li)
 ''')
 
 # k = 0
