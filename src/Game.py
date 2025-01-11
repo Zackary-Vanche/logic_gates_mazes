@@ -1165,7 +1165,7 @@ class Game:
             if self.node == node:
                 w = 8
                 pygame_draw_ellipse(self.WINDOW, [255]*3, [x-w, y-w, self.dot_radius+2*w, self.dot_radius+2*w], width=4)
-            line_width = 1
+            line_width = 2
             pygame_draw_ellipse(self.WINDOW, lcolor.surrounding_color, rect_in, width=line_width)
             pygame_draw_ellipse(self.WINDOW, lcolor.contour_color, [x-1, y-1, self.dot_radius+2, self.dot_radius+2], width=line_width)
             
@@ -1203,7 +1203,7 @@ class Game:
             self.last_key_pressed_time = time()
         
     def display_map(self):
-        self.WINDOW.fill(Color.color_hls(hu=0.15, li=0.2, sa=0.15))
+        self.WINDOW.fill(Color.color_hls(hu=0.15, li=0.3, sa=0.1))
         self.font = pygame_font_SysFont(None, self.help_font_size)
         self.realign_map_pos()
         self.draw_map_edges()

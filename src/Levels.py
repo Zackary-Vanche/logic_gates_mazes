@@ -185,9 +185,10 @@ class Levels:
                               lvls.level_graceful_path,
                               lvls.level_graceful_baby_caterpillar,
                               lvls.level_graceful_firecracker,
-                              lvls.level_graceful_caterpillar,
-                              lvls.level_graceful_lobster,
-                              lvls.level_graceful_large_caterpillar,),
+                              [lvls.level_graceful_caterpillar,
+                               lvls.level_graceful_random_tree,
+                               mkc(lvls.level_graceful_lobster,
+                                   lvls.level_graceful_large_caterpillar,)]),
                           mkc(lvls.level_edge_graceful_cycle,
                               lvls.level_edge_graceful_tetrahedron),],
                          [lvls.level_chromatic,
@@ -676,12 +677,13 @@ if __name__ == "__main__":
     
     # # # fast_solution_finding=True
     
-    # solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True)
-    # print('\n')
-    # print(len(solutions[0]))
-    # print('\n')
-    # for sol in solutions[0]:
-    #     print(' '.join(sol))
+    level = lvls.level_graceful_random_tree.f()
+    solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True)
+    print('\n')
+    print(len(solutions[0]))
+    print('\n')
+    for sol in solutions[0]:
+        print(' '.join(sol))
         
     #    D0 S1 D1    D2 S3 D3 D4 D5 D6 D7
     # S0 D0 S1 D1    D2 S3 D3 D4 D5 D6 D7
