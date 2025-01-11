@@ -565,6 +565,10 @@ def test_levels(test_random_levels=False):
         all_level_set.add(level_function.f().name)
     if len(all_level_set) != len(Levels.levels_modules_list):
         print("Some levels are duplicated in the list Levels.levels_modules_list")
+    levels_folder_names_list = [x for x in dir(lvls) if x[:6] == 'level_']
+    levels_used_names_list = [str(level_module).split('\\')[-1].split('.')[0] for level_module in Levels.levels_modules_list]
+    print(len(levels_folder_names_list), 'levels')
+    print(set(levels_folder_names_list) - set(levels_used_names_list), 'not used')
 
     if test_random_levels:
         print('Testing random levels')
@@ -593,11 +597,6 @@ def test_levels(test_random_levels=False):
             plt.xticks(bins_list)
             plt.show()
             print('')
-        
-    levels_folder_names_list = [x for x in dir(lvls) if x[:6] == 'level_']
-    levels_used_names_list = [str(level_module).split('\\')[-1].split('.')[0] for level_module in Levels.levels_modules_list]
-    
-    print(set(levels_folder_names_list) - set(levels_used_names_list), 'not used')
 
     print('Testing some chosen levels')
     solutions = lvls.level_cartesian.f().find_all_solutions(verbose=2,
