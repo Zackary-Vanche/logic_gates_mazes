@@ -169,7 +169,8 @@ class Levels:
                                      lvls.level_shortest_path,),
                                  ]),
                                  lvls.level_cube,
-                                 lvls.level_torus_maximum_matching,
+                                 mkc(lvls.level_torus_maximum_matching,
+                                     lvls.level_toroid_maximum_matching),
                                  mkc(lvls.level_meanders,
                                      lvls.level_wind_compass,),
                                  mkc(lvls.level_chessboard,
@@ -659,7 +660,7 @@ def calculates_random_level_solution_length(aux_level_function):
 if __name__ == "__main__":
     pass
 
-    test_levels()
+    # test_levels()
 
     # import os
     
@@ -677,7 +678,7 @@ if __name__ == "__main__":
     
     # # # fast_solution_finding=True
     
-    level = lvls.level_graceful_random_tree.f()
+    level = lvls.level_toroid_maximum_matching.f()
     solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True)
     print('\n')
     print(len(solutions[0]))
