@@ -1168,9 +1168,10 @@ class Game:
                 a_min = 0.4
                 a_max = 1
                 a = a * (a_max-a_min) + a_min
-                pygame_draw_ellipse(self.WINDOW, [int(a*208)]*3, [x-w, y-w, self.dot_radius+2*w, self.dot_radius+2*w], width=5)
-                pygame_draw_ellipse(self.WINDOW, [int(a*224)]*3, [x-w, y-w, self.dot_radius+2*w, self.dot_radius+2*w], width=4)
-                pygame_draw_ellipse(self.WINDOW, [int(a*240)]*3, [x-w, y-w, self.dot_radius+2*w, self.dot_radius+2*w], width=3)
+                k = 8
+                pygame_draw_ellipse(self.WINDOW, [int(a*255-3*k)]*3, [x-w, y-w, self.dot_radius+2*w, self.dot_radius+2*w], width=5)
+                pygame_draw_ellipse(self.WINDOW, [int(a*255-2*k)]*3, [x-w, y-w, self.dot_radius+2*w, self.dot_radius+2*w], width=4)
+                pygame_draw_ellipse(self.WINDOW, [int(a*255-k)]*3, [x-w, y-w, self.dot_radius+2*w, self.dot_radius+2*w], width=3)
                 pygame_draw_ellipse(self.WINDOW, [int(a*255)]*3, [x-w, y-w, self.dot_radius+2*w, self.dot_radius+2*w], width=2)
             line_width = 2
             pygame_draw_ellipse(self.WINDOW, lcolor.surrounding_color, rect_in, width=line_width)
