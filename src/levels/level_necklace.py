@@ -69,7 +69,7 @@ def f():
                  doors_list=[D0],
                  fastest_solution="S0 S1 S3 D0",
                  level_color=get_color(),
-                 name='Circle',
+                 name='Necklace',
                  keep_proportions=True,
                  door_window_size=300)
     

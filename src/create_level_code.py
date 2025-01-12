@@ -1,7 +1,7 @@
-ns = 18
-nd = 18
-nr = 12
-nv = 1
+ns = 4*6
+nd = 6
+nr = 6
+nv = 6
 ####
 ####
 ####
@@ -32,7 +32,7 @@ for i in range(nv):
     print(f'    Slist_{i} = [S{2*i}, S{2*i+1}]')
     
 for i in range(nv):
-    print(f'    Slist_{i} = [S{3*i}, S{3*i+1}, S{3*i+2}]')
+    print(f'    Slist_{i} = [S{4*i}, S{4*i+1}, S{4*i+2}, S{4*i+3}]')
     
 for i in range(nv):
     print(f'    Slist_{i} = [S{9*i}, S{9*i+1}, S{9*i+2}, S{9*i+3}, S{9*i+4}, S{9*i+5}, S{9*i+6}, S{9*i+7}, S{9*i+8}]')

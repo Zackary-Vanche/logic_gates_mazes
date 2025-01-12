@@ -1013,7 +1013,7 @@ class Game:
                         self.change_in_display = True
                         self.maze = new_maze.f()
                 self.level_changed = True
-                self.last_key_pressed_time = time()
+                self.last_key_pressed_time = time() + 0.2
             if (self.pressed[K_LEFT]):
                 if self.show_help:
                     new_maze = self.get_previous_maze()
@@ -1029,9 +1029,8 @@ class Game:
                 else:
                     self.show_help = True
                     self.change_in_display = True
-                
                 self.level_changed = True
-                self.last_key_pressed_time = time()
+                self.last_key_pressed_time = time() + 0.2
         if self.level_changed:
             self.last_level_change_time = time()
 
@@ -1159,8 +1158,8 @@ class Game:
             rect = [x, y, self.dot_radius, self.dot_radius]
             self.levels_true_positions_dict[node] = rect
             lcolor = self.level_color_dict[node]
-            pygame_draw_ellipse(self.WINDOW, lcolor.background_color, rect)
             rect_in = [x+self.dot_radius/4, y+0.45*self.dot_radius, self.dot_radius/2, self.dot_radius/2]
+            pygame_draw_ellipse(self.WINDOW, lcolor.background_color, rect)
             pygame_draw_ellipse(self.WINDOW, lcolor.room_color, rect_in)
             if self.node == node:
                 w = 8
@@ -1194,15 +1193,17 @@ class Game:
                         self.level_changed = True
                         break
         self.pressed = pygame_key_get_pressed()
-        if time() - self.last_key_pressed_time > 0.1:
+        v = 25
+        nt = 0.05
+        if time() - self.last_key_pressed_time > nt:
             if self.pressed[K_RIGHT] or self.pressed[K_d]:
-                self.map_pos_x += -2.25
+                self.map_pos_x += -v*nt
             if self.pressed[K_LEFT] or self.pressed[K_q]:
-                self.map_pos_x += +2.25
+                self.map_pos_x += +v*nt
             if self.pressed[K_UP] or self.pressed[K_z]:
-                self.map_pos_y += +2.25
+                self.map_pos_y += +v*nt
             if self.pressed[K_DOWN] or self.pressed[K_s]:
-                self.map_pos_y += -2.25
+                self.map_pos_y += -v*nt
             self.last_key_pressed_time = time()
         
     def display_map(self):

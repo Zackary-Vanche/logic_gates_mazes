@@ -314,13 +314,14 @@ class Levels:
                                    lvls.level_max_cut,
                                    lvls.level_connectivity,)]),
                           lvls.level_superpermutation,
-                          lvls.level_circle,
-                          lvls.level_tetris,
-                          lvls.level_lights_out,
-                          lvls.level_betweenness,
-                          lvls.level_nonogram,
+                          mkc(lvls.level_necklace,
+                              lvls.level_necklaces_enumeration),
+                          mkc(lvls.level_lights_out,
+                              lvls.level_water_tower,
+                              lvls.level_betweenness,
+                              lvls.level_nonogram,
+                              lvls.level_tetris,),
                           lvls.level_triangulate,
-                          lvls.level_water_tower,
                           [lvls.level_sum,
                            lvls.level_bloodline,
                             [lvls.level_arithmetic,
@@ -661,7 +662,7 @@ def calculates_random_level_solution_length(aux_level_function):
 if __name__ == "__main__":
     pass
 
-    # test_levels()
+    test_levels()
 
     # import os
     
@@ -679,13 +680,13 @@ if __name__ == "__main__":
     
     # # # fast_solution_finding=True
     
-    level = lvls.level_herringbone.f()
-    solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True)
-    print('\n')
-    print(len(solutions[0]))
-    print('\n')
-    for sol in solutions[0]:
-        print(' '.join(sol))
+    # level = lvls.level_herringbone.f()
+    # solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True)
+    # print('\n')
+    # print(len(solutions[0]))
+    # print('\n')
+    # for sol in solutions[0]:
+    #     print(' '.join(sol))
         
     #    D0 S1 D1    D2 S3 D3 D4 D5 D6 D7
     # S0 D0 S1 D1    D2 S3 D3 D4 D5 D6 D7
