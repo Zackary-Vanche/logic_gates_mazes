@@ -955,15 +955,6 @@ class Game:
             self.change_in_display = True
 
     def handle_interractions(self):
-        """
-        for event in pygame_event_get():
-            print('event.type', event.type)
-            if event.type == MOUSEWHEEL:
-               print(event)
-               print(event.x, event.y)
-               print(event.flipped)
-               print(event.which)
-        """
         self.pressed = pygame_key_get_pressed()
         if time() - self.last_key_pressed_time > self.time_between_actions:
             self.pressed = pygame_key_get_pressed()
@@ -1226,11 +1217,6 @@ class Game:
         self.game_setup()
         while self.looping:
             sleep(self.sleep_time)  # I did that not to use too much CPU
-            for event in pygame_event_get():
-                if event.type == QUIT:
-                    # print(number_of_loops)
-                    self.quit_game()
-                    return True
             if self.show_map:
                 self.display_map()
             else:
