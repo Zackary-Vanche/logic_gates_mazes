@@ -1225,12 +1225,12 @@ class Game:
         self.t0 = time()
         self.game_setup()
         while self.looping:
+            sleep(self.sleep_time)  # I did that not to use too much CPU
             for event in pygame_event_get():
                 if event.type == QUIT:
                     # print(number_of_loops)
                     self.quit_game()
                     return True
-            sleep(self.sleep_time)  # I did that not to use too much CPU
             if self.show_map:
                 self.display_map()
             else:
