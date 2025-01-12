@@ -123,6 +123,16 @@ def get_bounding_box(tree_list):
 def translate_to_0(tree_list):
     min_x, max_x, min_y, max_y = get_bounding_box(tree_list)
     return translate_tree_position(tree_list, min_x, 0)
+
+# def intersect_tree(tp0, tp1, e):
+#     a = make_children_dict(tp0).values()
+#     b = make_children_dict(tp1).values()
+#     for p in a:
+#         for q in b:
+#             print(p, q)
+#             if ((p[0]-q[0])**2+(p[1]-q[1])**2)**(1/2) < e:
+#                 return True
+#     return False
         
 def compute_positions(tree_list, y=0):
     if not isinstance(tree_list, list):
@@ -144,6 +154,22 @@ def compute_positions(tree_list, y=0):
         dx += max_x_child - min_x_child + 1
         children_positions.append(child_position)
         children_root_positions.append(child_position[0])
+    # last_child_position = None
+    # xmax = -float('inf')
+    # xmin = float('inf')
+    # for child in children:
+    #     child_position = compute_positions(child, y+1)
+    #     if not last_child_position is None:
+    #         dx = 1
+    #         e = 1
+    #         while intersect_tree(last_child_position, child_position, e):
+    #             child_position = translate_tree_position(child_position, dx, 0)
+    #     children_positions.append(child_position)
+    #     children_root_positions.append(child_position[0])
+    #     min_x_child, max_x_child, min_y_child, max_y_child = get_bounding_box(child_position)
+    #     xmax = max(xmax, child_position[0][0])
+    #     xmin = min(xmin, child_position[0][0])
+    #     last_child_position = child_position
     x = sum([p[0] for p in children_root_positions])/len(children_root_positions)
     dy = log(xmax-xmin+1)*0.5
     children_positions = [translate_tree_position(child_position, 0, dy) for child_position in children_positions]
