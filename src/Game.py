@@ -991,9 +991,17 @@ class Game:
                 
     def get_next_maze(self):
         new_nodes_list = self.next_node_dict[self.node]
+        self.show_help = True
+        self.change_in_display = True
+        self.level_changed = True
+        self.last_key_pressed_time = time() + 0.1
         if len(new_nodes_list) == 1:
             self.node = new_nodes_list[0]
-            return self.levels_dict[self.node]
+            new_maze = self.levels_dict[self.node]
+            self.maze = new_maze.f()
+        else:
+            self.show_map = True
+            self.map_color_setup()
 
     def change_level(self):
         self.pressed = pygame_key_get_pressed()
@@ -1003,18 +1011,10 @@ class Game:
                 if self.show_help:
                     self.show_help = False
                 else:
-                    new_maze = self.get_next_maze()
-                    self.show_help = True
-                    if new_maze is None:
-                        self.show_map = True
-                        self.map_color_setup()
-                        self.change_in_display = True
-                    else:
-                        self.level_changed = True
-                        self.change_in_display = True
-                        self.maze = new_maze.f()
+                    self.get_next_maze()
+                self.change_in_display = True
                 self.level_changed = True
-                self.last_key_pressed_time = time() + 0.2
+                self.last_key_pressed_time = time() + 0.1
             if (self.pressed[K_LEFT]):
                 if self.show_help:
                     new_maze = self.get_previous_maze()
@@ -1031,7 +1031,7 @@ class Game:
                     self.show_help = True
                     self.change_in_display = True
                 self.level_changed = True
-                self.last_key_pressed_time = time() + 0.2
+                self.last_key_pressed_time = time()
         if self.level_changed:
             self.last_level_change_time = time()
 
@@ -1056,52 +1056,52 @@ class Game:
             print("mean time of execution of one loop :\n", self.t_tot / self.n_loops, 's')
         pygame_quit()
 
-    def handle_events(self):
+    def handle_events(self): # TODO
         self.pressed = pygame_key_get_pressed()
         for event in pygame_event_get():
-            if event.type == QUIT:
-                self.do_you_quit_game = True
-                self.quit_game()
-                return True
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                if self.show_help:
-                    self.show_help = False
-                    self.level_changed = True
-                else:
-                    mouse_x, mouse_y = event.pos
-                    if self.menu_rect.collidepoint(mouse_x, mouse_y):
-                        self.show_map = True
-                        self.change_in_display = True
-                    if self.lower_right_window_rectangle.collidepoint(mouse_x, mouse_y):
-                        self.name_tree_list = self.name_tree_list[1:] + self.name_tree_list[:1]
-                        self.last_key_pressed_time = time()
-                        self.change_in_display = True
-                    for room in self.maze.rooms_list:
-                        rect = self.element_dict[room.name]
-                        if room.name == 'RE':
-                            if point_in_ellipse(event.pos, rect):
-                                if self.maze.current_room().is_exit:
-                                    self.show_map = True
-                                    self.show_help = True
-                                    self.level_changed = True
+            if time() - self.last_key_pressed_time > self.time_between_actions:
+                if event.type == QUIT:
+                    self.do_you_quit_game = True
+                    self.quit_game()
+                    return True
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    self.last_key_pressed_time = time()
+                    if self.show_help:
+                        self.show_help = False
+                        self.level_changed = True
+                    else:
+                        mouse_x, mouse_y = event.pos
+                        if self.menu_rect.collidepoint(mouse_x, mouse_y):
+                            self.show_map = True
+                            self.change_in_display = True
+                        if self.lower_right_window_rectangle.collidepoint(mouse_x, mouse_y):
+                            self.name_tree_list = self.name_tree_list[1:] + self.name_tree_list[:1]
+                            self.last_key_pressed_time = time()
+                            self.change_in_display = True
+                        for room in self.maze.rooms_list:
+                            rect = self.element_dict[room.name]
+                            if room.name == 'RE':
+                                if point_in_ellipse(event.pos, rect):
+                                    if self.maze.current_room().is_exit:
+                                        self.get_next_maze()
+                                    else:
+                                        self.maze.make_actions('RE')
                                     self.change_in_display = True
-                                else:
-                                    self.maze.make_actions('RE')
-                                self.change_in_display = True
-                        else:
-                            if rect.collidepoint(mouse_x, mouse_y):
-                                self.maze.make_actions(room.name)
-                                self.change_in_display = True
-                    for door in self.maze.doors_set:
-                        polygon = self.element_dict[door.name]
-                        if point_in_polygon(event.pos, polygon):
-                            self.maze.make_actions(door.name)
-                            self.change_in_display = True
-                    for switch in self.maze.switches_set:
-                        rect = self.element_dict[switch.name]
-                        if rect.collidepoint(mouse_x, mouse_y):
-                            self.maze.make_actions(switch.name)
-                            self.change_in_display = True
+                            else:
+                                if rect.collidepoint(mouse_x, mouse_y):
+                                    self.maze.make_actions(room.name)
+                                    self.change_in_display = True
+                        if not self.level_changed:
+                            for door in self.maze.doors_set:
+                                polygon = self.element_dict[door.name]
+                                if point_in_polygon(event.pos, polygon):
+                                    self.maze.make_actions(door.name)
+                                    self.change_in_display = True
+                            for switch in self.maze.switches_set:
+                                rect = self.element_dict[switch.name]
+                                if rect.collidepoint(mouse_x, mouse_y):
+                                    self.maze.make_actions(switch.name)
+                                    self.change_in_display = True
         if self.pressed[K_ESCAPE]:
             self.quit_game()
             self.do_you_quit_game = True
