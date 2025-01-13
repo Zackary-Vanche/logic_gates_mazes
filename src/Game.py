@@ -388,18 +388,17 @@ class Game:
         self.WINDOW.blit(level_name_render, (10, 10))
         
     def print_menu_button(self):
-        word_surface = self.font.render('MENU',
+        word_surface = self.font.render('MAP',
                                         True,
-                                        self.inside_room_color)
+                                        self.letters_color)
         word_width, word_height = word_surface.get_size()
-        d = 17
-        self.menu_rect = pygame_Rect(self.x_separation - word_width - 21,
-                                     7,
-                                     word_width+d,
-                                     word_height+d)
-        pygame_draw_rect(self.WINDOW, self.room_color, self.menu_rect)
+        self.menu_rect = pygame_Rect(self.WINDOW_WIDTH - word_width - 30,
+                                     0,
+                                     word_width+30,
+                                     self.y_separation+2)
+        pygame_draw_rect(self.WINDOW, self.background_color, self.menu_rect)
         pygame_draw_rect(self.WINDOW, self.contour_color, self.menu_rect, 3)
-        self.WINDOW.blit(word_surface, (self.x_separation - word_width - 12, 16))
+        self.WINDOW.blit(word_surface, (self.WINDOW_WIDTH - word_width - 15, 19))
         
     def print_you_won(self):
         if self.maze.current_room_index == self.maze.exit_room_index and self.current_action != 'YOU WON !':
@@ -713,7 +712,6 @@ class Game:
             self.print_level_name()
             self.print_trees()
             self.print_you_won()
-            self.print_menu_button()
             self.draw_door_lines()
             self.draw_rooms()
             self.draw_switches()
@@ -722,6 +720,7 @@ class Game:
             self.print_current_action()
             self.draw_rooms_names()
             self.draw_exterior_lines()
+            self.print_menu_button()
             # if self.dev_mode:
             #     self.draw_cross()
             pygame_display_update()
