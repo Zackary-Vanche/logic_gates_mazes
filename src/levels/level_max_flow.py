@@ -90,7 +90,7 @@ def f():
                  doors_list=[D0],
                  fastest_solution="S3 S4 S6 D0",
                  level_color=get_color(),
-                 name='Max-cut',
+                 name='Max-flow',
                  keep_proportions=True,
                  door_window_size=400)
     

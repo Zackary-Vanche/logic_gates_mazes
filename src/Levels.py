@@ -19,8 +19,6 @@ def flatten(liste):
 class Levels:
 
     """    
-    Problème du couplage maximal (Maximum Matching Problem) :
-        Trouver un couplage (ensemble d'arêtes non adjacentes) de taille maximale dans un graphe.
 
     k_center
 
@@ -33,6 +31,10 @@ class Levels:
     Random bin packing
     
     Magic hexagon
+    
+    Halin
+    
+    tree diameter
     
     """    
     
@@ -157,7 +159,8 @@ class Levels:
                                        lvls.level_wander,),],
                                   mkc(lvls.level_singletons,
                                       lvls.level_intersection),
-                                  lvls.level_water_lily,
+                                  mkc(lvls.level_water_lily,
+                                      lvls.level_wind_flower,),
                                   ],
                                  mkc(lvls.level_roadblock,
                                      lvls.level_passage,
@@ -223,22 +226,23 @@ class Levels:
                             lvls.level_rotation,
                             lvls.level_rotation_bis,
                             lvls.level_the_4th_dimension,),
-                        [lvls.level_random_simple,
-                         mkc(lvls.level_random_bull,
-                             lvls.level_random_butterfly,
-                             lvls.level_random_star,
-                             lvls.level_random_binary_tree,),
-                         mkc(lvls.level_random_K2,
-                             lvls.level_random_w6,
-                             lvls.level_random_K5,
-                             lvls.level_random_K33,lvls.level_random_petersen,
-                             lvls.level_random_gemini,
-                             lvls.level_random_cuboctahedron,),
-                         mkc(lvls.level_random_turning,
-                             lvls.level_random_line,
-                             lvls.level_random_starting_point,
-                             lvls.level_random_ladder,
-                             lvls.level_random_come_back,),],
+                        mkc(lvls.level_random_simple,
+                         lvls.level_random_bull,
+                         lvls.level_random_butterfly,
+                         lvls.level_random_K2,
+                         lvls.level_random_w6,
+                         lvls.level_random_binary_tree,
+                         lvls.level_random_star,
+                         lvls.level_random_K5,
+                         lvls.level_random_K33,
+                         lvls.level_random_turning,
+                         lvls.level_random_petersen,
+                         lvls.level_random_line,
+                         lvls.level_random_starting_point,
+                         lvls.level_random_up_and_down,
+                         lvls.level_random_come_back,
+                         lvls.level_random_gemini,
+                         lvls.level_random_cuboctahedron,),
                         mkc(lvls.level_guess,
                             lvls.level_dichotomy,
                             lvls.level_mastermind,),
@@ -312,7 +316,7 @@ class Levels:
                                    lvls.level_the_4_queens,
                                    lvls.level_the_8_queens,),
                                mkc(lvls.level_min_cut,
-                                   lvls.level_max_cut,
+                                   lvls.level_max_flow,
                                    lvls.level_connectivity,)]),
                           lvls.level_superpermutation,
                           mkc(lvls.level_necklace,
@@ -342,10 +346,10 @@ class Levels:
                                  lvls.level_diagonal,
                                  lvls.level_sudoku,
                                  lvls.level_mols,
+                                 lvls.level_combinatorics,
                                  lvls.level_zebra,
                                  lvls.level_five,
-                                 lvls.level_shuffled,
-                                 lvls.level_combinatorics,)
+                                 lvls.level_shuffled,)
                             ]],
                           mkc(lvls.level_one_third,
                               lvls.level_quaternary_cryptarithmetic,),
@@ -390,7 +394,7 @@ class Levels:
         lvls.level_random_w6.aux,
         lvls.level_random_come_back.aux,
         lvls.level_random_starting_point.aux,
-        lvls.level_random_ladder.aux,
+        lvls.level_random_up_and_down.aux,
         lvls.level_random_K5.aux,
         lvls.level_random_K33.aux,
         lvls.level_random_petersen.aux,
@@ -554,7 +558,7 @@ def test_levels(test_random_levels=False):
         level = level_function.f()
         if level.fastest_solution is not None:
             solutions_lenghts.append(len(level.fastest_solution.split(' ')))
-    plt.figure(figsize=(15, 15))
+    plt.figure(figsize=(10, 5))
     x_list = [i for i in range(len(solutions_lenghts))]
     plt.plot(x_list, solutions_lenghts, lw=0.3, color='k')
     plt.scatter(x_list, solutions_lenghts, lw=0.1, color='r')
@@ -596,7 +600,7 @@ def test_levels(test_random_levels=False):
             print('med', median(array(number_of_solutions)))
             print('max', max(number_of_solutions))
             bins_list = [i for i in range(max(solution_length) + 1)]
-            plt.figure(figsize=(30, 5))
+            plt.figure(figsize=(10, 5))
             plt.hist(solution_length, bins=bins_list)
             plt.xticks(bins_list)
             plt.show()
@@ -681,7 +685,7 @@ if __name__ == "__main__":
     
     # # # fast_solution_finding=True
     
-    # level = lvls.level_herringbone.f()
+    # level = lvls.level_wind_flower.f()
     # solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True)
     # print('\n')
     # print(len(solutions[0]))

@@ -1,7 +1,7 @@
-ns = 4+10+10
-nd = 6
-nr = 3
-nv = 2+2+2
+ns = 8
+nd = 4+3+3+1
+nr = 8
+nv = 0
 ####
 ####
 ####
@@ -145,6 +145,13 @@ room_names_list = [f'R{i}' for i in range(nr)] + ['RE']
 for i in range(nd):
     print(f'''    D{i} = Door(two_way=False,
                 tree=T{i},
+                name='D{i}',
+                room_departure=R{i},
+                room_arrival=R{i+1})''')
+    
+for i in range(nd):
+    print(f'''    D{i} = Door(two_way=False,
+                tree=get_tree({i}),
                 name='D{i}',
                 room_departure=R{i},
                 room_arrival=R{i+1})''')

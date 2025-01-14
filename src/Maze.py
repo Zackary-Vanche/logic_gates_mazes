@@ -551,7 +551,7 @@ class Maze:
         folder = f'levels/{aux_level.name}'
         if not os_path_exists(folder):
             os_mkdir(folder)
-
+        
         for seed in range(i0, i0 + n_files):
 
             file_name = folder + f'/door_trees_list_{seed}'
@@ -559,17 +559,19 @@ class Maze:
 
                 # Choix de la graine de génération de nombre aléatoires
                 rd_seed(seed)
-                print('seed', seed)
+                # print('seed', seed)
                 exit_number = rd_randint(0, n_bin - 1)
                 if aux_level.random_several_exit:
                     exit_door = rd_choice(aux_level.exit_doors_indexes)
-                    print('exit_door =', exit_door)
+                    # print('exit_door =', exit_door)
                     aux_level = aux_level_function(exit_number=exit_number,
                                                    exit_door=exit_door)
                 else:
-                    print('Only one exit')
+                    # print('Only one exit')
                     aux_level = aux_level_function(exit_number=exit_number)
-                print('exit_number =', exit_number)
+                # print('exit_number =', exit_number)
+                
+                # assert False
 
                 # Calcul de la solution du niveau et de la première door_trees_list correspondante
                 aux_level.all_solutions = None
@@ -607,7 +609,7 @@ class Maze:
 
                 # On vérifie que la nouvelle solution est identique à la solution initiale
                 new_sol = aux_level_function(door_trees_list).find_all_solutions()
-                print(new_sol)
+                # print(new_sol)
                 # print(door_trees_list)
                 sol = aux_level_function(door_trees_list).find_all_solutions()
                 assert sol[0] != []
@@ -753,28 +755,27 @@ class Maze:
             nb_operations_file = f'solutions/levels/{name}_nb_operations.txt'
         nb_iterations_tot = None
         nb_operations_tot = None
-        solutions_from_file = None
-        
-        if os_path_exists(nb_iterations_file):
-            try:
-                with open(nb_iterations_file, 'r') as fr:
-                    nb_iterations_tot = int(fr.readline())
-            except ValueError:
-                print('something wrong with {nb_iterations_file}')
-        if os_path_exists(nb_operations_file):
-            try:
-                with open(nb_operations_file, 'r') as fr:
-                    nb_operations_tot = int(fr.readline())
-            except ValueError:
-                print('something wrong with {nb_iterations_file}')
-        if os_path_exists(solutions_file):
-            try:
-                with open(solutions_file, 'r') as fr:
-                    solutions_from_file = fr.readlines()
-            except ValueError:
-                print('something wrong with {solutions_file}')
-        if not (nb_iterations_tot is None or nb_operations_tot is None or solutions_from_file is None) and only_if_not_yet_calculated:
-            return [solutions_from_file, nb_iterations_tot, nb_operations_tot]
+        # solutions_from_file = None
+        # if os_path_exists(nb_iterations_file):
+        #     try:
+        #         with open(nb_iterations_file, 'r') as fr:
+        #             nb_iterations_tot = int(fr.readline())
+        #     except ValueError:
+        #         print(f'something wrong with {nb_iterations_file}')
+        # if os_path_exists(nb_operations_file):
+        #     try:
+        #         with open(nb_operations_file, 'r') as fr:
+        #             nb_operations_tot = int(fr.readline())
+        #     except ValueError:
+        #         print(f'something wrong with {nb_iterations_file}')
+        # if os_path_exists(solutions_file):
+        #     try:
+        #         with open(solutions_file, 'r') as fr:
+        #             solutions_from_file = fr.readlines()
+        #     except ValueError:
+        #         print(f'something wrong with {solutions_file}')
+        # if not (nb_iterations_tot is None or nb_operations_tot is None or solutions_from_file is None) and only_if_not_yet_calculated:
+        #     return [solutions_from_file, nb_iterations_tot, nb_operations_tot]
 
         if self.all_solutions is None:
             visited_situations = set()
@@ -845,7 +846,7 @@ class Maze:
                             #     f.write('\n')
                             solutions_to_visit.extend(last_solutions_to_visit)
                             solutions_to_visit.reverse()
-                            print(solutions_to_visit)
+                            # print(solutions_to_visit)
                         # not random search
                         else:
                             # DOORS
