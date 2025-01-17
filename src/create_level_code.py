@@ -1,7 +1,7 @@
-ns = 8
-nd = 4+3+3+1
-nr = 8
-nv = 0
+ns = 4*16
+nd = 15
+nr = 15
+nv = 15
 ####
 ####
 ####
@@ -18,27 +18,27 @@ from Levels_colors_list import Levels_colors_list
 def f(): 
 ''')
 
-for i in range(ns):
-    print(f'''    S{i} = Switch(name='S{i}')''')
+# for i in range(ns):
+#     print(f'''    S{i} = Switch(name='S{i}')''')
     
 print('')
 print(f'''    Slist = [{', '.join([f'S{i}' for i in range(ns)])}]''')
 print('')
 
-for i in range(nv):
-    print(f'    Slist_{i} = []')
+# for i in range(nv):
+#     print(f'    Slist_{i} = []')
 
-for i in range(nv):
-    print(f'    Slist_{i} = [S{2*i}, S{2*i+1}]')
+# for i in range(nv):
+#     print(f'    Slist_{i} = [S{2*i}, S{2*i+1}]')
     
 for i in range(nv):
     print(f'    Slist_{i} = [S{4*i}, S{4*i+1}, S{4*i+2}, S{4*i+3}]')
     
-for i in range(nv):
-    print(f'    Slist_{i} = [S{9*i}, S{9*i+1}, S{9*i+2}, S{9*i+3}, S{9*i+4}, S{9*i+5}, S{9*i+6}, S{9*i+7}, S{9*i+8}]')
+# for i in range(nv):
+#     print(f'    Slist_{i} = [S{9*i}, S{9*i+1}, S{9*i+2}, S{9*i+3}, S{9*i+4}, S{9*i+5}, S{9*i+6}, S{9*i+7}, S{9*i+8}]')
     
-for i in range(nv):
-    print(f'    Slist_{i} = Sl[9*{i}:9*{i}+9]')
+# for i in range(nv):
+#     print(f'    Slist_{i} = Sl[9*{i}:9*{i}+9]')
     
 # for i in range(nv):
 #     print(f'    Slist_{i} = [S{8*i}, S{8*i+1}, S{8*i+2}, S{8*i+3}, S{8*i+4}, S{8*i+5}, S{8*i+6}, S{8*i+7}]')

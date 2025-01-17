@@ -95,7 +95,7 @@ def f():
                  rooms_list=[R0, R1, R2, R3, R4, RE],
                  doors_list=[D0, D1, D2, D3, D4],
                  fastest_solution='S0 S2 S6 S8 D0 D1 D2 D3 D4',
-                 level_color=get_color,
+                 level_color=get_color(),
                  name='Independent set',
                  door_window_size=380,
                  keep_proportions=True)

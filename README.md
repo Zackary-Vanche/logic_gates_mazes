@@ -76,7 +76,6 @@ I mainly need to work on:
 (The gameplay is actually the part I don't like to work on...)
   - A better name would be great.  
   - I would like to add a more user friendly representation of the logical expressions (They could be represented as trees.). I think the best would be to let the user switch between the two representations (equations and trees).  
-  - I would like to create a map-menu where the user can choose between levels, rather than just a list of all levels. That is actually an easy task and the first thing I am going to do (apart from adding levels).  
   - I also think of adding elements that don't contribute to the game (like representations of graphs that are hidden in the equations) but that help the player understand what is happening.  
   - And also, making the game less static would be great.  
 - making the game easier to install.  
@@ -84,7 +83,7 @@ I can export the game as a .exe with PyInstaller, but then it is much to heavy, 
 
 ## Inspiration
 
-The games The Witness and [Chromagraph](https://adam-rumpf.github.io/games/chromagraph.html) gave me a lot of ideas for graph-theory oriented levels.
+The games "The Witness" and ["Chromagraph"](https://adam-rumpf.github.io/games/chromagraph.html) gave me a lot of ideas for graph-theory oriented levels.
 
 ## License
 

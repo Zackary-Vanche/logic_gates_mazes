@@ -143,7 +143,19 @@ class Game:
             else:
                 self.level_color_dict[node] = Levels_colors_list.FROM_HUE(0, sa=0, li=0)
                 print(self.levels_dict[node]().name, 'no get_color')
+                
+    def map_pos_x_min(self):
+        return self.x_positions_map_min - self.x_positions_map_max + self.TOTAL_WIDTH/self.dx - 2
+    
+    def map_pos_y_min(self):
+        return self.y_positions_map_min - self.y_positions_map_max + self.TOTAL_HEIGHT/self.dy - 2        
         
+    def map_pos_x_max(self):
+        return 0
+    
+    def map_pos_y_max(self):
+        return 0    
+    
     def game_map_setup(self):
         self.show_map = True
         level_tree = Levels.level_tree
@@ -163,10 +175,10 @@ class Game:
         self.delta_y = 60
         self.dx = 60
         self.dy = 60
-        self.map_pos_x_min = min(x_positions) - max(x_positions) + self.TOTAL_WIDTH/self.dx - 2
-        self.map_pos_x_max = 0
-        self.map_pos_y_min = min(y_positions) - max(y_positions) + self.TOTAL_HEIGHT/self.dy - 2
-        self.map_pos_y_max = 0
+        self.x_positions_map_min = min(x_positions)
+        self.x_positions_map_max = max(x_positions)
+        self.y_positions_map_min = min(y_positions)
+        self.y_positions_map_max = max(y_positions)
         self.dot_radius = 50
         self.node = ''
 
@@ -406,7 +418,7 @@ class Game:
                                             True,
                                             self.letters_color)
             word_width, word_height = word_surface.get_size()
-            self.WINDOW.blit(word_surface, (self.x_separation - word_width - 70, 10))
+            self.WINDOW.blit(word_surface, (self.x_separation - word_width - 12, 10))
         
     def blit_text(self,
                   text,
@@ -851,6 +863,7 @@ class Game:
         elif self.current_action == 'N':
             self.get_new_level = True
             self.maze = self.level_module.f()
+            assert isinstance(self.maze, Maze)
             self.change_in_display = True
             self.update_possible_actions()
         # elif self.current_action in ['LR', 'LRANDOM']:
@@ -989,6 +1002,7 @@ class Game:
             self.node = new_nodes_list[0]
             new_maze = self.levels_dict[self.node]
             self.maze = new_maze.f()
+            assert isinstance(self.maze, Maze)
         else:
             self.show_map = True
             self.map_color_setup()
@@ -1017,6 +1031,7 @@ class Game:
                         self.level_changed = True
                         self.change_in_display = True
                         self.maze = new_maze.f()
+                        assert isinstance(self.maze, Maze)
                 else:
                     self.show_help = True
                     self.change_in_display = True
@@ -1046,7 +1061,7 @@ class Game:
             print("mean time of execution of one loop :\n", self.t_tot / self.n_loops, 's')
         pygame_quit()
 
-    def handle_events(self): # TODO
+    def handle_events(self):
         self.pressed = pygame_key_get_pressed()
         for event in pygame_event_get():
             if time() - self.last_key_pressed_time > self.time_between_actions:
@@ -1125,8 +1140,8 @@ class Game:
                 self.change_in_display = True
                 
     def realign_map_pos(self):
-        self.map_pos_x = max(min(self.map_pos_x, self.map_pos_x_max), self.map_pos_x_min)
-        self.map_pos_y = max(min(self.map_pos_y, self.map_pos_y_max), self.map_pos_y_min)
+        self.map_pos_x = max(min(self.map_pos_x, self.map_pos_x_max()), self.map_pos_x_min())
+        self.map_pos_y = max(min(self.map_pos_y, self.map_pos_y_max()), self.map_pos_y_min())
                 
     def draw_map_edges(self):
         # Affichage des lignes des portes
@@ -1183,6 +1198,7 @@ class Game:
                         pygame_draw_ellipse(self.WINDOW, [255, 0, 0], rect)
                         self.level_module = self.levels_dict[node]
                         self.maze = self.level_module.f()
+                        assert isinstance(self.maze, Maze)
                         self.node = node
                         self.show_map = False
                         self.change_in_display = True
@@ -1202,12 +1218,34 @@ class Game:
                 self.map_pos_y += -v*nt
             self.last_key_pressed_time = time()
         
+    def print_map_help(self):
+        txt_list = ["Use arrow keys to move.",
+                    "Click on the level you wish to play."]
+        txt_render_list = [self.font.render(txt,
+                                            True,
+                                            [255]*3) for txt in txt_list]
+        txt_width_max = max([txt_render.get_width() for txt_render in txt_render_list])
+        txt_height_max = max([txt_render.get_height() for txt_render in txt_render_list])
+        dy = txt_height_max*1.25
+        ax = 10
+        ay = 10
+        rect = pygame_Rect(self.TOTAL_WIDTH-txt_width_max-dy*1.5-ax,
+                           +ay,
+                           txt_width_max+dy*1.5,
+                           (len(txt_render_list)+0.75)*dy)
+        pygame_draw_rect(self.WINDOW, Color.color_hls(hu=0.15, li=0.1, sa=0.1), rect)
+        pygame_draw_rect(self.WINDOW, [255]*3, rect, width=2)
+        for i, txt_render in enumerate(txt_render_list): # TODO
+            self.WINDOW.blit(txt_render, (self.TOTAL_WIDTH-txt_width_max-dy-ax, (i+0.5)*dy+ay))
+        
     def display_map(self):
         self.WINDOW.fill(Color.color_hls(hu=0.15, li=0.3, sa=0.1))
+        self.TOTAL_WIDTH, self.TOTAL_HEIGHT = pygame.display.get_surface().get_size()
         self.font = pygame_font_SysFont(None, self.help_font_size)
         self.realign_map_pos()
         self.draw_map_edges()
         self.draw_map_dots()
+        self.print_map_help()
         self.handle_map_events()
         pygame_display_update()
 
