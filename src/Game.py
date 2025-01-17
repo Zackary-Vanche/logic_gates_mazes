@@ -410,7 +410,7 @@ class Game:
                                      self.y_separation+2)
         pygame_draw_rect(self.WINDOW, self.background_color, self.menu_rect)
         pygame_draw_rect(self.WINDOW, self.contour_color, self.menu_rect, 3)
-        self.WINDOW.blit(word_surface, (self.WINDOW_WIDTH - word_width - 15, 19))
+        self.WINDOW.blit(word_surface, (self.WINDOW_WIDTH - word_width - 15, 14))
         
     def print_you_won(self):
         if self.maze.current_room_index == self.maze.exit_room_index and self.current_action != 'YOU WON !':

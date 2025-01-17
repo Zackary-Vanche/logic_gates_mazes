@@ -101,8 +101,10 @@ class Levels:
                           mkc(lvls.level_bonsai,
                               mkc(lvls.level_poppy,
                                   lvls.level_peony,
-                                  lvls.level_magnolia,
+                                  lvls.level_geranium,
+                                  lvls.level_petunia,
                                   lvls.level_iris,
+                                  lvls.level_magnolia,
                                   lvls.level_orchid,
                                   [lvls.level_tulip,
                                    mkc(lvls.level_roses_are_red,
@@ -686,7 +688,7 @@ if __name__ == "__main__":
     
     # # # fast_solution_finding=True
     
-    # level = lvls.level_wind_flower.f()
+    # level = lvls.level_petunia.f()
     # solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True)
     # print('\n')
     # print(len(solutions[0]))

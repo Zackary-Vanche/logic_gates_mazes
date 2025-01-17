@@ -39,7 +39,7 @@ class Maze:
                  fastest_solution=None,
                  partial_solution=None,
                  name='L',
-                 y_separation=50,
+                 y_separation=40, # DEPRECATED
                  door_window_size=500,
                  border=50,
                  keep_proportions=False,
@@ -194,11 +194,11 @@ class Maze:
         self.partial_solution = partial_solution
         self.extreme_coordinates = None
         self.border = border
-        self.y_separation = max(y_separation, 50)
+        self.y_separation = 40
         self.door_window_size = door_window_size
         self.keep_proportions = keep_proportions
         self.level_color = level_color
-        assert isinstance(self.level_color, Level_color)
+        assert isinstance(self.level_color, Level_color), name
         self.n_lines_door_printing = 0
         self.do_not_write_trees_always_open = do_not_write_trees_always_open
         for k in range(len(self.doors_list)):
