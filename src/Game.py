@@ -24,7 +24,10 @@ from pygame import RESIZABLE as pygame_RESIZABLE
 from pygame import SCALED as pygame_SCALED
 from pygame import FULLSCREEN as pygame_FULLSCREEN
 
-from os.path import exists as os_path_exists
+from pygame.mixer import init as pygame_mixer_init
+from pygame.mixer import Sound as pygame_sound
+
+from os.path import exists as os_path_exists, join as os_path_join, isfile as os_path_isfile
 from os import mkdir as os_mkdir
 from os import listdir as os_listdir
 from os import remove as os_remove
@@ -48,6 +51,9 @@ from Map import compute_positions as compute_levels_positions
 from Levels_colors_list import Levels_colors_list
 
 from random import choice as rd_choice
+
+def get_files_list(folder):
+    return ['/'.join([folder, file]) for file in os_listdir(folder) if os_path_isfile('/'.join([folder, file]))]
 
 class Game:
     keys_dict = {K_KP0: '0',
@@ -171,20 +177,39 @@ class Game:
         self.edges_list = make_edges_list(level_positions)
         self.map_pos_x = 0
         self.map_pos_y = 0
-        self.delta_x = 60
-        self.delta_y = 60
-        self.dx = 60
-        self.dy = 60
+        self.delta_x = 40
+        self.delta_y = 40
+        self.dx = 50
+        self.dy = 50
         self.x_positions_map_min = min(x_positions)
         self.x_positions_map_max = max(x_positions)
         self.y_positions_map_min = min(y_positions)
         self.y_positions_map_max = max(y_positions)
-        self.dot_radius = 50
+        self.dot_radius = min(self.dx, self.dy)-10
         self.node = ''
+        
+    def sound_setup(self):
+        self.volume = 0
+        pygame_mixer_init()
+        click_sounds_folder = 'sounds/click'
+        self.click_sounds_list = [pygame.mixer.Sound(file) for file in get_files_list(click_sounds_folder)]
+        footstep_sounds_folder = 'sounds/footstep'
+        self.footstep_sounds_list = [pygame.mixer.Sound(file) for file in get_files_list(footstep_sounds_folder)]
+
+    def play_click(self):
+        sound = rd_choice(self.click_sounds_list)
+        sound.set_volume(self.volume*0.3)
+        pygame_sound.play(sound)
+        
+    def play_footstep(self):
+        sound = rd_choice(self.footstep_sounds_list)
+        sound.set_volume(self.volume*0.3)
+        pygame_sound.play(rd_choice(self.footstep_sounds_list))
 
     def game_setup(self):
         # Game Setup
         pygame_init()
+        self.sound_setup()
         self.looping = True
         self.TOTAL_WIDTH, self.TOTAL_HEIGHT = self.WINDOW_SIZE
         self.X_marge, self.Y_marge = self.XY_marge
@@ -1012,6 +1037,7 @@ class Game:
         # Changement de niveau
         if time() - self.last_level_change_time > self.time_between_level_changing:
             if (self.pressed[K_RIGHT]):
+                self.play_footstep()
                 if self.show_help:
                     self.show_help = False
                 else:
@@ -1020,6 +1046,7 @@ class Game:
                 self.level_changed = True
                 self.last_key_pressed_time = time() + 0.1
             if (self.pressed[K_LEFT]):
+                self.play_footstep()
                 if self.show_help:
                     new_maze = self.get_previous_maze()
                     self.show_help = False
@@ -1074,37 +1101,46 @@ class Game:
                     if self.show_help:
                         self.show_help = False
                         self.level_changed = True
+                        self.play_footstep()
                     else:
                         mouse_x, mouse_y = event.pos
                         if self.menu_rect.collidepoint(mouse_x, mouse_y):
                             self.show_map = True
                             self.change_in_display = True
                         if self.lower_right_window_rectangle.collidepoint(mouse_x, mouse_y):
+                            self.play_click()
                             self.name_tree_list = self.name_tree_list[1:] + self.name_tree_list[:1]
                             self.last_key_pressed_time = time()
                             self.change_in_display = True
-                        for room in self.maze.rooms_list:
+                        for iR, room in enumerate(self.maze.rooms_list):
                             rect = self.element_dict[room.name]
                             if room.name == 'RE':
                                 if point_in_ellipse(event.pos, rect):
+                                    self.play_footstep()
                                     if self.maze.current_room().is_exit:
                                         self.get_next_maze()
                                     else:
                                         self.maze.make_actions('RE')
                                     self.change_in_display = True
+                            elif iR == self.maze.current_room_index:
+                                continue
                             else:
                                 if rect.collidepoint(mouse_x, mouse_y):
+                                    if not any([self.element_dict[switch.name].collidepoint(mouse_x, mouse_y) for switch in room.switches_list]):
+                                        self.play_footstep()
                                     self.maze.make_actions(room.name)
                                     self.change_in_display = True
                         if not self.level_changed:
                             for door in self.maze.doors_set:
                                 polygon = self.element_dict[door.name]
                                 if point_in_polygon(event.pos, polygon):
+                                    self.play_footstep()
                                     self.maze.make_actions(door.name)
                                     self.change_in_display = True
                             for switch in self.maze.switches_set:
                                 rect = self.element_dict[switch.name]
                                 if rect.collidepoint(mouse_x, mouse_y):
+                                    self.play_click()
                                     self.maze.make_actions(switch.name)
                                     self.change_in_display = True
         if self.pressed[K_ESCAPE]:
@@ -1191,6 +1227,13 @@ class Game:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 assert self.levels_true_positions_dict.keys() == self.levels_dict.keys(), f"{self.levels_true_positions_dict.keys} {self.levels_dict.keys}"
                 px, py = event.pos
+                if self.left_volume_button.collidepoint(px, py):
+                    self.volume -= 0.05
+                    self.play_click()
+                if self.right_volume_button.collidepoint(px, py):
+                    self.volume += 0.05
+                    self.play_click()
+                self.volume = min(1, max(0, self.volume))
                 for node in self.levels_true_positions_dict.keys():
                     rect = self.levels_true_positions_dict[node]
                     cx, cy, rx, ry = rect
@@ -1203,6 +1246,7 @@ class Game:
                         self.show_map = False
                         self.change_in_display = True
                         self.level_changed = True
+                        self.play_click()
                         break
         self.pressed = pygame_key_get_pressed()
         v = 25
@@ -1229,14 +1273,49 @@ class Game:
         dy = txt_height_max*1.25
         ax = 10
         ay = 10
-        rect = pygame_Rect(self.TOTAL_WIDTH-txt_width_max-dy*1.5-ax,
-                           +ay,
-                           txt_width_max+dy*1.5,
-                           (len(txt_render_list)+0.75)*dy)
-        pygame_draw_rect(self.WINDOW, Color.color_hls(hu=0.15, li=0.1, sa=0.1), rect)
-        pygame_draw_rect(self.WINDOW, [255]*3, rect, width=2)
-        for i, txt_render in enumerate(txt_render_list): # TODO
+        self.map_help_rect = pygame_Rect(self.TOTAL_WIDTH-txt_width_max-dy*1.5-ax,
+                                         +ay,
+                                         txt_width_max+dy*1.5,
+                                         (len(txt_render_list)+0.75)*dy)
+        pygame_draw_rect(self.WINDOW, Color.color_hls(hu=0.15, li=0.1, sa=0.1), self.map_help_rect)
+        pygame_draw_rect(self.WINDOW, [255]*3, self.map_help_rect, width=2)
+        for i, txt_render in enumerate(txt_render_list):
             self.WINDOW.blit(txt_render, (self.TOTAL_WIDTH-txt_width_max-dy-ax, (i+0.5)*dy+ay))
+            
+    def draw_volume_button(self):
+        xmax = self.map_help_rect.x
+        ymin = self.map_help_rect.y
+        ymax = self.map_help_rect.y + self.map_help_rect.h
+        delta_y = ymax-ymin
+        delta_x = 3*delta_y
+        xmin = xmax-delta_x-ymin
+        rect_0 = pygame_Rect(xmin,
+                             ymin,
+                             delta_x*self.volume,
+                             delta_y)
+        rect_1 = pygame_Rect(xmin+delta_x*self.volume,
+                             ymin,
+                             delta_x*(1-self.volume),
+                             delta_y)
+        pygame_draw_rect(self.WINDOW, Color.color_hls(hu=0.15, li=0.6, sa=0.1), rect_0)
+        pygame_draw_rect(self.WINDOW, Color.color_hls(hu=0.15, li=0.1, sa=0.1), rect_1)
+        self.left_volume_button = pygame_Rect(xmin,
+                                              ymin,
+                                              delta_x*0.3,
+                                              delta_y)
+        self.right_volume_button = pygame_Rect(xmin+delta_x*0.7,
+                                               ymin,
+                                               delta_x*0.3,
+                                               delta_y)
+        V_minus = self.font.render("V-",
+                                   True,
+                                   [16*(16-12)]*3)
+        V_plus = self.font.render("V+",
+                                  True,
+                                  [16*12]*3)
+        self.WINDOW.blit(V_minus, (xmin+11, ymin+delta_y/2-9))
+        self.WINDOW.blit(V_plus, (xmax-49, ymin+delta_y/2-9))
+        
         
     def display_map(self):
         self.WINDOW.fill(Color.color_hls(hu=0.15, li=0.3, sa=0.1))
@@ -1246,6 +1325,7 @@ class Game:
         self.draw_map_edges()
         self.draw_map_dots()
         self.print_map_help()
+        self.draw_volume_button()
         self.handle_map_events()
         pygame_display_update()
 

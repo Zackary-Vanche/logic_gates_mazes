@@ -254,15 +254,15 @@ class Levels:
                              [lvls.level_bubble_sort,
                               mkc(lvls.level_odd_even_sort,
                                   lvls.level_cocktail_sort,),
-                              [lvls.level_pigeonhole_sort,
-                               lvls.level_insertion_sort,
-                               lvls.level_gnome_sort,
-                               lvls.level_merge_sort,
-                               lvls.level_cycle_sort,
-                               lvls.level_selection_sort,
-                               lvls.level_quick_sort,
-                               lvls.level_heapsort,
-                               lvls.level_pancake_sorting,]],
+                              mkc(lvls.level_pigeonhole_sort,
+                                  lvls.level_insertion_sort,
+                                  lvls.level_selection_sort,
+                                  lvls.level_gnome_sort,
+                                  lvls.level_cycle_sort,
+                                  lvls.level_merge_sort,
+                                  lvls.level_quick_sort,
+                                  lvls.level_heapsort,
+                                   lvls.level_pancake_sorting,)],
                             mkc(lvls.level_elementary,
                                 lvls.level_invert,
                                 [lvls.level_permutate,
@@ -539,28 +539,40 @@ class Levels:
 def test_levels(test_random_levels=False):
     import matplotlib.pyplot as plt
     plt.rcParams.update({'font.size': 15})
+    
+    print('Check levels duplications')
+    all_mazes_list = []
+    all_mazes_set = set()
+    for level_function in Levels.levels_modules_list:
+        maze = level_function.f()
+        all_mazes_set.add(maze.name)
+        all_mazes_list.append(maze)
+    if len(all_mazes_set) != len(Levels.levels_modules_list):
+        print("Some levels are duplicated in the list Levels.levels_modules_list")
+    levels_folder_names_list = [x for x in dir(lvls) if x[:6] == 'level_']
+    levels_used_names_list = [str(level_module).split('\\')[-1].split('.')[0] for level_module in Levels.levels_modules_list]
+    print(len(levels_folder_names_list), 'levels')
+    print(set(levels_folder_names_list) - set(levels_used_names_list), 'not used')
 
     print('Trying all solutions')
-    for level_function in Levels.levels_modules_list:
-        level = level_function.f()
-        assert not level.name in ['', 'TODO', 'todo', 'temp']
-        if level.fastest_solution is not None:
-            r = level.try_solution(level.fastest_solution)
+    for maze in all_mazes_list:
+        assert not maze.name in ['', 'TODO', 'todo', 'temp']
+        if maze.fastest_solution is not None:
+            r = maze.try_solution(maze.fastest_solution)
             if r != 2:
-                print(level.name, 'wrong solution')
-        elif not level.random:
-            if level.name not in ['Panex', 'Superflip']:
-                print(level.name, 'no solution')
+                print(maze.name, 'wrong solution')
+        elif not maze.random:
+            if maze.name not in ['Panex', 'Superflip']:
+                print(maze.name, 'no solution')
 
     print('Saving solutions')
     Levels.save_solutions_txt(do_it_fast=True, verbose=0)
 
     print('Calculating solutions lenghts')
     solutions_lenghts = []
-    for level_function in Levels.levels_modules_list:
-        level = level_function.f()
-        if level.fastest_solution is not None:
-            solutions_lenghts.append(len(level.fastest_solution.split(' ')))
+    for maze in all_mazes_list:
+        if maze.fastest_solution is not None:
+            solutions_lenghts.append(len(maze.fastest_solution.split(' ')))
     plt.figure(figsize=(10, 5))
     x_list = [i for i in range(len(solutions_lenghts))]
     plt.plot(x_list, solutions_lenghts, lw=0.3, color='k')
@@ -569,17 +581,6 @@ def test_levels(test_random_levels=False):
     plt.ylabel('Number of actions in the solution')
     plt.grid()
     plt.show()
-    
-    print('Check levels duplications')
-    all_level_set = set()
-    for level_function in Levels.levels_modules_list:
-        all_level_set.add(level_function.f().name)
-    if len(all_level_set) != len(Levels.levels_modules_list):
-        print("Some levels are duplicated in the list Levels.levels_modules_list")
-    levels_folder_names_list = [x for x in dir(lvls) if x[:6] == 'level_']
-    levels_used_names_list = [str(level_module).split('\\')[-1].split('.')[0] for level_module in Levels.levels_modules_list]
-    print(len(levels_folder_names_list), 'levels')
-    print(set(levels_folder_names_list) - set(levels_used_names_list), 'not used')
 
     if test_random_levels:
         print('Testing random levels')
