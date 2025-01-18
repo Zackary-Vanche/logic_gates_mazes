@@ -189,7 +189,7 @@ class Game:
         self.node = ''
         
     def sound_setup(self):
-        self.volume = 0
+        self.volume = 0.05
         pygame_mixer_init()
         click_sounds_folder = 'sounds/click'
         self.click_sounds_list = [pygame.mixer.Sound(file) for file in get_files_list(click_sounds_folder)]
@@ -1200,6 +1200,7 @@ class Game:
             rect = [x, y, self.dot_radius, self.dot_radius]
             self.levels_true_positions_dict[node] = rect
             lcolor = self.level_color_dict[node]
+            self.small_dot_radius = self.dot_radius/1.5
             rect_in = [x+self.dot_radius/4, y+0.45*self.dot_radius, self.dot_radius/2, self.dot_radius/2]
             pygame_draw_ellipse(self.WINDOW, lcolor.background_color, rect)
             pygame_draw_ellipse(self.WINDOW, lcolor.room_color, rect_in)
@@ -1214,7 +1215,7 @@ class Game:
                 pygame_draw_ellipse(self.WINDOW, [int(a*255-2*k)]*3, [x-w, y-w, self.dot_radius+2*w, self.dot_radius+2*w], width=4)
                 pygame_draw_ellipse(self.WINDOW, [int(a*255-k)]*3, [x-w, y-w, self.dot_radius+2*w, self.dot_radius+2*w], width=3)
                 pygame_draw_ellipse(self.WINDOW, [int(a*255)]*3, [x-w, y-w, self.dot_radius+2*w, self.dot_radius+2*w], width=2)
-            line_width = 2
+            line_width = 1
             pygame_draw_ellipse(self.WINDOW, lcolor.surrounding_color, rect_in, width=line_width)
             pygame_draw_ellipse(self.WINDOW, lcolor.contour_color, [x-1, y-1, self.dot_radius+2, self.dot_radius+2], width=line_width)
             
@@ -1263,7 +1264,7 @@ class Game:
             self.last_key_pressed_time = time()
         
     def print_map_help(self):
-        txt_list = ["Use arrow keys to move.",
+        txt_list = ["Use arrow keys to move the map.",
                     "Click on the level you wish to play."]
         txt_render_list = [self.font.render(txt,
                                             True,
@@ -1297,8 +1298,13 @@ class Game:
                              ymin,
                              delta_x*(1-self.volume),
                              delta_y)
+        rect_tot = pygame_Rect(xmin,
+                               ymin,
+                               delta_x,
+                               delta_y)
         pygame_draw_rect(self.WINDOW, Color.color_hls(hu=0.15, li=0.6, sa=0.1), rect_0)
         pygame_draw_rect(self.WINDOW, Color.color_hls(hu=0.15, li=0.1, sa=0.1), rect_1)
+        pygame_draw_rect(self.WINDOW, [255]*3, rect_tot, width=2)
         self.left_volume_button = pygame_Rect(xmin,
                                               ymin,
                                               delta_x*0.3,

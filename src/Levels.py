@@ -324,6 +324,7 @@ class Levels:
                           lvls.level_superpermutation,
                           mkc(lvls.level_necklace,
                               lvls.level_necklaces_enumeration),
+                          lvls.level_articulation_point,
                           mkc(lvls.level_lights_out,
                               lvls.level_water_tower,
                               lvls.level_betweenness,

@@ -29,7 +29,7 @@ class Room:
         self.departure_doors_list = []
         self.arrival_doors_list = []
         self.two_way_doors_list = []
-        self.switches_list = switches_list
+        self.switches_list = switches_list[:]
         self.switches_list.sort(key=lambda x: [len(x.name), x.name])
         for switch in self.switches_list:
             assert type(switch) == Switch
