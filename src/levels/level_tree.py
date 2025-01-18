@@ -294,7 +294,7 @@ def f():
                  name='Tree',
                  random=True,
                  border=40,
-                 door_window_size=250)
+                 door_window_size=300)
 
     return level
 

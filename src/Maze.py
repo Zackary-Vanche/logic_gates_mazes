@@ -281,9 +281,9 @@ class Maze:
         help_menu_root = ''.join(help_menu_root)
         if help_menu_root != '':
             help_menu.append(help_menu_root)
-        help_menu.append(help_menus_list['B'])
-        if self.random:
-            help_menu.append(help_menus_list['N'])
+        # help_menu.append(help_menus_list['B'])
+        # if self.random:
+        #     help_menu.append(help_menus_list['N'])
         if len(self.intermediate_values_list + self.doors_list) > 1:
             help_menu.append(help_menus_list['UP DOWN'])
         help_menu.append(help_menus_list['RIGHT LEFT'])
@@ -320,6 +320,9 @@ class Maze:
         assert self.fastest_solution is None or not 'R' in self.fastest_solution, self.name
                 
         self.coordinates_conversion=None
+        
+        assert not (random and self.door_window_size < 270), self.name
+        assert self.door_window_size > 210
         
 
     def current_room(self):

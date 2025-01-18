@@ -61,23 +61,28 @@ The name of the exit room is RE."""
 
 help_menus_list['introduction'] = """You are trapped in the inside of a computer and want to reach the exit.
 
-Rooms are named R0, R1, R2, ..., EXIT.
+R0, R1, R2, ..., EXIT are rooms.
 The room inside which you are is surrounded.
 
-Doors are named D0, D1, D2, ...    
+D0, D1, D2, ... are doors.    
 If a door is equal to 1, it is open and surrounded. If it is equal to 0, it is closed.
 Diamond-shape doors are two-way while arrow-shaped doors are one-way only.
 
-To go in a room, or travel by a door, you can :
-    - directly click on it.
-    - write its name and press [ENTER]. You can always erase what you wrote with the [BACKSPACE] key.
-You can only travel by open doors."""
+To go in a room, or travel by a door, you need to click on it.
+"""
+
+# To go in a room, or travel by a door, you can :
+#     - directly click on it.
+#     - write its name and press [ENTER]. You can always erase what you wrote with the [BACKSPACE] key.
+# You can only travel by open doors.
 
 help_menus_list['switches'] = """Switches are named S0, S1, S2, ...
 If a switch is turned on, it is surrounded, and you say it is equal to 1. If it is turned off, it is equal to 0.
-To use a switch, write its name and press [ENTER] or click on it.
+To use a switch, click on it.
 You can only use switches of your current room.
 D0 = S0 means D0 equals S0 i.e. D0 is open if S0 is turned on."""
+
+# write its name and press [ENTER] or
 
 help_menus_list['directions keys'] = """
 To change level, you can use :
@@ -93,11 +98,11 @@ To go directly in a room, you can type its name (if it is possible for you to go
 help_menus_list['B'] = """
 Press [B] and then [ENTER] to start the level again from the beginning."""
 
-help_menus_list['write several actions'] = """
-You can write several actions at a time, separated by spaces.
-For instance, if you want to turn on S0 and then use the door D0, you write :
-    S0 D0
-and then press [ENTER]."""
+# help_menus_list['write several actions'] = """
+# You can write several actions at a time, separated by spaces.
+# For instance, if you want to turn on S0 and then use the door D0, you write :
+#     S0 D0
+# and then press [ENTER]."""
 
 help_menus_list['leave the game'] = """
 To leave the game, you can click on the cross but also press [ESCAPE]."""
@@ -128,7 +133,7 @@ help_menus_list['levels']["Trivial"] = help_menus_list['introduction']
 
 help_menus_list['levels']["Hello world"] = help_menus_list['switches']
 
-help_menus_list['levels']["Playground"] = help_menus_list['write several actions']
+# help_menus_list['levels']["Playground"] = help_menus_list['write several actions']
 
 help_menus_list['levels']["Initiation"] = '\n'.join([help_menus_list['leave the game'],
                                                      help_menus_list['Polish notation']])

@@ -424,7 +424,7 @@ class Game:
             self.letters_color)
         self.WINDOW.blit(level_name_render, (10, 10))
         
-    def print_menu_button(self):
+    def print_map_button(self):
         word_surface = self.font.render('MAP',
                                         True,
                                         self.letters_color)
@@ -436,6 +436,40 @@ class Game:
         pygame_draw_rect(self.WINDOW, self.background_color, self.menu_rect)
         pygame_draw_rect(self.WINDOW, self.contour_color, self.menu_rect, 3)
         self.WINDOW.blit(word_surface, (self.WINDOW_WIDTH - word_width - 15, 14))
+        
+    def print_restart_button(self):
+        word_surface = self.font.render('RESTART',
+                                        True,
+                                        self.letters_color)
+        word_width, word_height = word_surface.get_size()
+        xmax = self.menu_rect.x
+        self.button_restart_rect = pygame_Rect(xmax - word_width - 27,
+                                               0,
+                                               word_width+30,
+                                               self.y_separation+2)
+        pygame_draw_rect(self.WINDOW, self.background_color, self.button_restart_rect)
+        pygame_draw_rect(self.WINDOW, self.contour_color, self.button_restart_rect, 3)
+        self.WINDOW.blit(word_surface, (xmax - word_width - 12, 14))
+        
+    def print_new_button(self):
+        word_surface = self.font.render('NEW',
+                                        True,
+                                        self.letters_color)
+        word_width, word_height = word_surface.get_size()
+        xmax = self.button_restart_rect.x
+        self.button_new_rect = pygame_Rect(xmax - word_width - 27,
+                                           0,
+                                           word_width+30,
+                                           self.y_separation+2)
+        pygame_draw_rect(self.WINDOW, self.background_color, self.button_new_rect)
+        pygame_draw_rect(self.WINDOW, self.contour_color, self.button_new_rect, 3)
+        self.WINDOW.blit(word_surface, (xmax - word_width - 12, 14))
+    
+    def print_buttons(self):
+        self.print_map_button()
+        self.print_restart_button()
+        if self.maze.random:
+            self.print_new_button()
         
     def print_you_won(self):
         if self.maze.current_room_index == self.maze.exit_room_index and self.current_action != 'YOU WON !':
@@ -757,7 +791,7 @@ class Game:
             self.print_current_action()
             self.draw_rooms_names()
             self.draw_exterior_lines()
-            self.print_menu_button()
+            self.print_buttons()
             # if self.dev_mode:
             #     self.draw_cross()
             pygame_display_update()
@@ -878,19 +912,19 @@ class Game:
     def aux_handle_interractions(self):
         if len(self.current_action) == 0:
             return
-        if self.current_action == 'B':
-            self.change_in_display = True
-            self.maze.reboot_solution()
-            self.last_key_pressed_time = time()
-            self.current_action = ''
-            self.maze.current_door_page = 0
-            self.update_possible_actions()
-        elif self.current_action == 'N':
-            self.get_new_level = True
-            self.maze = self.level_module.f()
-            assert isinstance(self.maze, Maze)
-            self.change_in_display = True
-            self.update_possible_actions()
+        # if self.current_action == 'B':
+        #     self.change_in_display = True
+        #     self.maze.reboot_solution()
+        #     self.last_key_pressed_time = time()
+        #     self.current_action = ''
+        #     self.maze.current_door_page = 0
+        #     self.update_possible_actions()
+        # elif self.current_action == 'N':
+        #     self.get_new_level = True
+        #     self.maze = self.level_module.f()
+        #     assert isinstance(self.maze, Maze)
+        #     self.change_in_display = True
+        #     self.update_possible_actions()
         # elif self.current_action in ['LR', 'LRANDOM']:
         #     level_number_list = [i for i in range(Levels.number_of_levels)]
         #     self.level_changed = True
@@ -1105,8 +1139,23 @@ class Game:
                     else:
                         mouse_x, mouse_y = event.pos
                         if self.menu_rect.collidepoint(mouse_x, mouse_y):
+                            self.show_help = True
                             self.show_map = True
                             self.change_in_display = True
+                        if self.maze.random:
+                            if self.button_new_rect.collidepoint(mouse_x, mouse_y):
+                                self.get_new_level = True
+                                self.maze = self.level_module.f()
+                                assert isinstance(self.maze, Maze)
+                                self.change_in_display = True
+                                self.update_possible_actions()
+                        if self.button_restart_rect.collidepoint(mouse_x, mouse_y):
+                            self.change_in_display = True
+                            self.maze.reboot_solution()
+                            self.last_key_pressed_time = time()
+                            self.current_action = ''
+                            self.maze.current_door_page = 0
+                            self.update_possible_actions()
                         if self.lower_right_window_rectangle.collidepoint(mouse_x, mouse_y):
                             self.play_click()
                             self.name_tree_list = self.name_tree_list[1:] + self.name_tree_list[:1]

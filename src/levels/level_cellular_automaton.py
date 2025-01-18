@@ -350,7 +350,7 @@ def f(fast_solution_finding=False):
                  level_color=get_color(),
                  name='Automaton',
                  keep_proportions=True,
-                 door_window_size=250,
+                 door_window_size=300,
                  random=True)
     
     # solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True)

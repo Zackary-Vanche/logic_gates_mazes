@@ -79,7 +79,7 @@ def f():
                  level_color=get_color(),
                  name='Conjunctive normal form',
                  keep_proportions=True,
-                 door_window_size=222,
+                 door_window_size=300,
                  random=True)
     
     return level
