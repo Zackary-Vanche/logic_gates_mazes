@@ -377,6 +377,8 @@ class Game:
                                          self.line_size)
 
     def draw_exterior_lines(self):
+        if self.show_map:
+            self.contour_color = [200]*3
         # Bords exterieurs
         l = 5  # Largeur des bords exterieurs
         pygame_draw_line(self.WINDOW,
@@ -477,7 +479,7 @@ class Game:
                                             True,
                                             self.letters_color)
             word_width, word_height = word_surface.get_size()
-            self.WINDOW.blit(word_surface, (self.x_separation - word_width - 12, 10))
+            self.WINDOW.blit(word_surface, (self.x_separation - word_width - 105, 10))
         
     def blit_text(self,
                   text,
@@ -751,6 +753,9 @@ class Game:
                            pos=(x0, y0 + gap),
                            max_width=self.WINDOW_WIDTH-20-x0,
                            color=self.letters_color)
+            
+            self.draw_arrows_buttons()
+            
             pygame_display_update()
     
             if self.save_image:
@@ -771,6 +776,40 @@ class Game:
         except TypeError:
             print(self.current_action)
             raise
+            
+    def draw_arrows_buttons(self):
+        if self.show_help:
+            w = self.TOTAL_WIDTH
+            e = 10
+            x = 60
+            y = 30
+        else:
+            w = self.x_separation
+            e = 5
+            x = 40
+            y = 20
+        self.left_arrow_polygon = [[0, y/2], [x, 0], [x, y]]
+        self.right_arrow_polygon = [[w, y/2], [w-x, 0], [w-x, y]]
+        for i in range(len(self.left_arrow_polygon)):
+            self.left_arrow_polygon[i][0] += w-2*x-2*e
+            self.left_arrow_polygon[i][1] += e
+        for i in range(len(self.right_arrow_polygon)):
+            self.right_arrow_polygon[i][0] += -e
+            self.right_arrow_polygon[i][1] += e
+        pygame_draw_polygon(self.WINDOW,
+                            self.room_color,
+                            self.left_arrow_polygon)
+        pygame_draw_polygon(self.WINDOW,
+                            self.contour_color,
+                            self.left_arrow_polygon,
+                            width=2)
+        pygame_draw_polygon(self.WINDOW,
+                            self.room_color,
+                            self.right_arrow_polygon)
+        pygame_draw_polygon(self.WINDOW,
+                            self.contour_color,
+                            self.right_arrow_polygon,
+                            width=2) 
 
     def display_game_window(self):
         try:
@@ -792,6 +831,7 @@ class Game:
             self.draw_rooms_names()
             self.draw_exterior_lines()
             self.print_buttons()
+            self.draw_arrows_buttons()
             # if self.dev_mode:
             #     self.draw_cross()
             pygame_display_update()
@@ -869,6 +909,11 @@ class Game:
             self.save_image_as_file()
         for i in range(len(solution_actions_list)):
             action = solution_actions_list[i]
+            if len(action) > 1:
+                if action[0] in ['D', 'R']:
+                    self.play_footstep()
+                if action[0] == 'S':
+                    self.play_click()
             self.current_action = action
             self.display_game_window()
             if save_videos:
@@ -1065,39 +1110,45 @@ class Game:
         else:
             self.show_map = True
             self.map_color_setup()
+            
+    def change_to_next_page(self):
+        self.play_footstep()
+        if self.show_help:
+            self.show_help = False
+        else:
+            self.get_next_maze()
+        self.change_in_display = True
+        self.level_changed = True
+        self.last_key_pressed_time = time() + 0.1
+        
+    def change_to_previous_page(self):
+        self.play_footstep()
+        if self.show_help:
+            new_maze = self.get_previous_maze()
+            self.show_help = False
+            if new_maze is None:
+                self.show_map = True
+                self.map_color_setup()
+                self.change_in_display = True
+            else:
+                self.level_changed = True
+                self.change_in_display = True
+                self.maze = new_maze.f()
+                assert isinstance(self.maze, Maze)
+        else:
+            self.show_help = True
+            self.change_in_display = True
+        self.level_changed = True
+        self.last_key_pressed_time = time()
 
     def change_level(self):
         self.pressed = pygame_key_get_pressed()
         # Changement de niveau
         if time() - self.last_level_change_time > self.time_between_level_changing:
             if (self.pressed[K_RIGHT]):
-                self.play_footstep()
-                if self.show_help:
-                    self.show_help = False
-                else:
-                    self.get_next_maze()
-                self.change_in_display = True
-                self.level_changed = True
-                self.last_key_pressed_time = time() + 0.1
+                self.change_to_next_page()
             if (self.pressed[K_LEFT]):
-                self.play_footstep()
-                if self.show_help:
-                    new_maze = self.get_previous_maze()
-                    self.show_help = False
-                    if new_maze is None:
-                        self.show_map = True
-                        self.map_color_setup()
-                        self.change_in_display = True
-                    else:
-                        self.level_changed = True
-                        self.change_in_display = True
-                        self.maze = new_maze.f()
-                        assert isinstance(self.maze, Maze)
-                else:
-                    self.show_help = True
-                    self.change_in_display = True
-                self.level_changed = True
-                self.last_key_pressed_time = time()
+                self.change_to_previous_page()
         if self.level_changed:
             self.last_level_change_time = time()
 
@@ -1132,11 +1183,7 @@ class Game:
                     return True
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     self.last_key_pressed_time = time()
-                    if self.show_help:
-                        self.show_help = False
-                        self.level_changed = True
-                        self.play_footstep()
-                    else:
+                    if not self.show_help:
                         mouse_x, mouse_y = event.pos
                         if self.menu_rect.collidepoint(mouse_x, mouse_y):
                             self.show_help = True
@@ -1192,6 +1239,10 @@ class Game:
                                     self.play_click()
                                     self.maze.make_actions(switch.name)
                                     self.change_in_display = True
+                    if point_in_polygon(event.pos, self.right_arrow_polygon):
+                        self.change_to_next_page()
+                    if point_in_polygon(event.pos, self.left_arrow_polygon):
+                        self.change_to_previous_page()
         if self.pressed[K_ESCAPE]:
             self.quit_game()
             self.do_you_quit_game = True
@@ -1269,6 +1320,7 @@ class Game:
             pygame_draw_ellipse(self.WINDOW, lcolor.contour_color, [x-1, y-1, self.dot_radius+2, self.dot_radius+2], width=line_width)
             
     def handle_map_events(self):
+        
         for event in pygame_event_get():
             if event.type == QUIT:
                 self.do_you_quit_game = True
@@ -1277,13 +1329,28 @@ class Game:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 assert self.levels_true_positions_dict.keys() == self.levels_dict.keys(), f"{self.levels_true_positions_dict.keys} {self.levels_dict.keys}"
                 px, py = event.pos
-                if self.left_volume_button.collidepoint(px, py):
-                    self.volume -= 0.05
-                    self.play_click()
-                if self.right_volume_button.collidepoint(px, py):
-                    self.volume += 0.05
-                    self.play_click()
-                self.volume = min(1, max(0, self.volume))
+                d = 5
+                if point_in_polygon(event.pos, self.right_arrow_map_button):
+                    self.map_pos_x += -d
+                    break
+                if point_in_polygon(event.pos, self.left_arrow_map_button):
+                    self.map_pos_x += +d
+                    break
+                if point_in_polygon(event.pos, self.up_arrow_map_button):
+                    self.map_pos_y += +d
+                    break
+                if point_in_polygon(event.pos, self.down_arrow_map_button):
+                    self.map_pos_y += -d
+                    break
+                if self.volume_rect.collidepoint(px, py):
+                    if self.left_volume_button.collidepoint(px, py):
+                        self.volume -= 0.05
+                        self.play_click()
+                    if self.right_volume_button.collidepoint(px, py):
+                        self.volume += 0.05
+                        self.play_click()
+                    self.volume = min(1, max(0, self.volume))
+                    break
                 for node in self.levels_true_positions_dict.keys():
                     rect = self.levels_true_positions_dict[node]
                     cx, cy, rx, ry = rect
@@ -1311,34 +1378,13 @@ class Game:
             if self.pressed[K_DOWN] or self.pressed[K_s]:
                 self.map_pos_y += -v*nt
             self.last_key_pressed_time = time()
-        
-    def print_map_help(self):
-        txt_list = ["Use arrow keys to move the map.",
-                    "Click on the level you wish to play."]
-        txt_render_list = [self.font.render(txt,
-                                            True,
-                                            [255]*3) for txt in txt_list]
-        txt_width_max = max([txt_render.get_width() for txt_render in txt_render_list])
-        txt_height_max = max([txt_render.get_height() for txt_render in txt_render_list])
-        dy = txt_height_max*1.25
-        ax = 10
-        ay = 10
-        self.map_help_rect = pygame_Rect(self.TOTAL_WIDTH-txt_width_max-dy*1.5-ax,
-                                         +ay,
-                                         txt_width_max+dy*1.5,
-                                         (len(txt_render_list)+0.75)*dy)
-        pygame_draw_rect(self.WINDOW, Color.color_hls(hu=0.15, li=0.1, sa=0.1), self.map_help_rect)
-        pygame_draw_rect(self.WINDOW, [255]*3, self.map_help_rect, width=2)
-        for i, txt_render in enumerate(txt_render_list):
-            self.WINDOW.blit(txt_render, (self.TOTAL_WIDTH-txt_width_max-dy-ax, (i+0.5)*dy+ay))
             
     def draw_volume_button(self):
-        xmax = self.map_help_rect.x
-        ymin = self.map_help_rect.y
-        ymax = self.map_help_rect.y + self.map_help_rect.h
+        ymin = 10
+        ymax = 60
         delta_y = ymax-ymin
         delta_x = 3*delta_y
-        xmin = xmax-delta_x-ymin
+        xmin = self.TOTAL_WIDTH-delta_x-ymin
         rect_0 = pygame_Rect(xmin,
                              ymin,
                              delta_x*self.volume,
@@ -1362,6 +1408,10 @@ class Game:
                                                ymin,
                                                delta_x*0.3,
                                                delta_y)
+        self.volume_rect = pygame_Rect(xmin,
+                                       ymin,
+                                       delta_x,
+                                       delta_y)
         V_minus = self.font.render("V-",
                                    True,
                                    [16*(16-12)]*3)
@@ -1369,18 +1419,55 @@ class Game:
                                   True,
                                   [16*12]*3)
         self.WINDOW.blit(V_minus, (xmin+11, ymin+delta_y/2-9))
-        self.WINDOW.blit(V_plus, (xmax-49, ymin+delta_y/2-9))
+        self.WINDOW.blit(V_plus, (self.TOTAL_WIDTH-44, ymin+delta_y/2-9))
         
+    def draw_map_arrows_buttons(self):
+        x0 = 20
+        y0 = 20
+        x = 80
+        y = 80
+        e = 8
+        h = self.TOTAL_HEIGHT
+        w = self.TOTAL_WIDTH
+        self.left_arrow_map_button = [[e,     h/2],
+                                      [e+x0, h/2-y/2],
+                                      [e+x0, h/2+y/2]]
+        self.right_arrow_map_button = [[w-e,     h/2],
+                                       [w-e-x0, h/2-y/2],
+                                       [w-e-x0, h/2+y/2]]
+        self.up_arrow_map_button = [[w/2,     e],
+                                    [w/2-x/2, e+y0],
+                                    [w/2+x/2, e+y0]]
+        self.down_arrow_map_button = [[w/2,     h-e],
+                                      [w/2-x/2, h-e-y0],
+                                      [w/2+x/2, h-e-y0],]
+        for poly in [self.left_arrow_map_button,
+                     self.right_arrow_map_button,
+                     self.up_arrow_map_button,
+                     self.down_arrow_map_button
+                     ]:
+            pygame_draw_polygon(self.WINDOW,
+                                Color.color_hls(hu=0.15, li=0.4, sa=0.6),
+                                poly)
+            pygame_draw_polygon(self.WINDOW,
+                                [255]*3,
+                                poly,
+                                width=2)
         
     def display_map(self):
         self.WINDOW.fill(Color.color_hls(hu=0.15, li=0.3, sa=0.1))
         self.TOTAL_WIDTH, self.TOTAL_HEIGHT = pygame.display.get_surface().get_size()
+        self.WINDOW_WIDTH, self.WINDOW_HEIGHT = self.WINDOW.get_size()
+        self.WINDOW_WIDTH = max(self.SMALLEST_WINDOW_SIZE[0], self.WINDOW_WIDTH)
+        self.WINDOW_HEIGHT = max(self.SMALLEST_WINDOW_SIZE[1], self.WINDOW_HEIGHT)
         self.font = pygame_font_SysFont(None, self.help_font_size)
         self.realign_map_pos()
         self.draw_map_edges()
         self.draw_map_dots()
-        self.print_map_help()
+        # self.print_map_help()
         self.draw_volume_button()
+        self.draw_exterior_lines()
+        self.draw_map_arrows_buttons()
         self.handle_map_events()
         pygame_display_update()
 
