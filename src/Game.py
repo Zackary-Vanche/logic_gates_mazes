@@ -152,16 +152,16 @@ class Game:
                 print(self.levels_dict[node]().name, 'no get_color')
                 
     def map_pos_x_min(self):
-        return self.x_positions_map_min - self.x_positions_map_max + self.TOTAL_WIDTH/self.dx - 2
+        return self.x_positions_map_min - self.x_positions_map_max + self.TOTAL_WIDTH/self.dx - self.marge/self.dx
     
     def map_pos_y_min(self):
-        return self.y_positions_map_min - self.y_positions_map_max + self.TOTAL_HEIGHT/self.dy - 2        
+        return self.y_positions_map_min - self.y_positions_map_max + self.TOTAL_HEIGHT/self.dy - self.marge/self.dy
         
     def map_pos_x_max(self):
-        return 0
+        return self.marge/self.dx
     
     def map_pos_y_max(self):
-        return 0    
+        return self.marge/self.dy
     
     def game_map_setup(self):
         self.show_map = True
@@ -176,12 +176,13 @@ class Game:
         x_positions = [p[0] for p in self.positions_list]
         y_positions = [p[1] for p in self.positions_list]
         self.edges_list = make_edges_list(level_positions)
-        self.map_pos_x = 0
-        self.map_pos_y = 0
-        self.delta_x = 40
-        self.delta_y = 40
         self.dx = 50
         self.dy = 50
+        self.marge = 60
+        self.map_pos_x = self.map_pos_x_max()
+        self.map_pos_y = self.map_pos_y_max()
+        # self.delta_x = 50
+        # self.delta_y = 50
         self.x_positions_map_min = min(x_positions)
         self.x_positions_map_max = max(x_positions)
         self.y_positions_map_min = min(y_positions)
@@ -1292,16 +1293,16 @@ class Game:
             for edge in self.edges_list:
                 pygame_draw_line(self.WINDOW,
                                  color_list[i],
-                                 [self.dx*(edge[0][0]+self.map_pos_x)+self.delta_x, self.dy*(edge[0][1]+self.map_pos_y)+self.delta_y],
-                                 [self.dx*(edge[1][0]+self.map_pos_x)+self.delta_x, self.dy*(edge[1][1]+self.map_pos_y)+self.delta_y],
+                                 [self.dx*(edge[0][0]+self.map_pos_x), self.dy*(edge[0][1]+self.map_pos_y)],
+                                 [self.dx*(edge[1][0]+self.map_pos_x), self.dy*(edge[1][1]+self.map_pos_y)],
                                  line_size_list[i])
             
     def draw_map_dots(self):
         self.levels_true_positions_dict = {}
         for node in self.level_positions_dict.keys():
             [x, y] = self.level_positions_dict[node]
-            x = self.dx*(x+self.map_pos_x)+self.delta_x-self.dot_radius/2
-            y = self.dy*(y+self.map_pos_y)+self.delta_y-self.dot_radius/2
+            x = self.dx*(x+self.map_pos_x)-self.dot_radius/2
+            y = self.dy*(y+self.map_pos_y)-self.dot_radius/2
             rect = [x, y, self.dot_radius, self.dot_radius]
             self.levels_true_positions_dict[node] = rect
             lcolor = self.level_color_dict[node]
