@@ -1334,7 +1334,7 @@ class Game:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 assert self.levels_true_positions_dict.keys() == self.levels_dict.keys(), f"{self.levels_true_positions_dict.keys} {self.levels_dict.keys}"
                 px, py = event.pos
-                d = 5
+                d = 4
                 if point_in_polygon(event.pos, self.right_arrow_map_button):
                     self.play_footstep()
                     self.map_pos_x += -d
