@@ -26,6 +26,7 @@ from pygame import FULLSCREEN as pygame_FULLSCREEN
 
 from pygame.mixer import init as pygame_mixer_init
 from pygame.mixer import Sound as pygame_sound
+from pygame.mixer import music as pygame_music
 
 from os.path import exists as os_path_exists, join as os_path_join, isfile as os_path_isfile
 from os import mkdir as os_mkdir
@@ -190,11 +191,15 @@ class Game:
         
     def sound_setup(self):
         self.volume = 0.05
+        self.music_volume = 0.05
         pygame_mixer_init()
         click_sounds_folder = 'sounds/click'
         self.click_sounds_list = [pygame.mixer.Sound(file) for file in get_files_list(click_sounds_folder)]
         footstep_sounds_folder = 'sounds/footstep'
         self.footstep_sounds_list = [pygame.mixer.Sound(file) for file in get_files_list(footstep_sounds_folder)]
+        pygame_music.load('sounds/ambiance/forest.wav')
+        pygame_music.play(-1)
+        pygame_music.set_volume(self.music_volume)
 
     def play_click(self):
         sound = rd_choice(self.click_sounds_list)
@@ -1331,15 +1336,19 @@ class Game:
                 px, py = event.pos
                 d = 5
                 if point_in_polygon(event.pos, self.right_arrow_map_button):
+                    self.play_footstep()
                     self.map_pos_x += -d
                     break
                 if point_in_polygon(event.pos, self.left_arrow_map_button):
+                    self.play_footstep()
                     self.map_pos_x += +d
                     break
                 if point_in_polygon(event.pos, self.up_arrow_map_button):
+                    self.play_footstep()
                     self.map_pos_y += +d
                     break
                 if point_in_polygon(event.pos, self.down_arrow_map_button):
+                    self.play_footstep()
                     self.map_pos_y += -d
                     break
                 if self.volume_rect.collidepoint(px, py):
@@ -1350,6 +1359,16 @@ class Game:
                         self.volume += 0.05
                         self.play_click()
                     self.volume = min(1, max(0, self.volume))
+                    break
+                if self.music_volume_rect.collidepoint(px, py):
+                    if self.left_music_volume_button.collidepoint(px, py):
+                        self.music_volume -= 0.05
+                        self.play_click()
+                    if self.right_music_volume_button.collidepoint(px, py):
+                        self.music_volume += 0.05
+                        self.play_click()
+                    self.music_volume = min(1, max(0, self.music_volume))
+                    pygame_music.set_volume(self.music_volume*0.3)
                     break
                 for node in self.levels_true_positions_dict.keys():
                     rect = self.levels_true_positions_dict[node]
@@ -1369,19 +1388,24 @@ class Game:
         v = 25
         nt = 0.05
         if time() - self.last_key_pressed_time > nt:
+            # has_moved = False
             if self.pressed[K_RIGHT] or self.pressed[K_d]:
+                # has_moved = True
                 self.map_pos_x += -v*nt
             if self.pressed[K_LEFT] or self.pressed[K_q]:
+                # has_moved = True
                 self.map_pos_x += +v*nt
             if self.pressed[K_UP] or self.pressed[K_z]:
+                # has_moved = True
                 self.map_pos_y += +v*nt
             if self.pressed[K_DOWN] or self.pressed[K_s]:
+                # has_moved = True
                 self.map_pos_y += -v*nt
             self.last_key_pressed_time = time()
             
     def draw_volume_button(self):
         ymin = 10
-        ymax = 60
+        ymax = 50
         delta_y = ymax-ymin
         delta_x = 3*delta_y
         xmin = self.TOTAL_WIDTH-delta_x-ymin
@@ -1416,6 +1440,48 @@ class Game:
                                    True,
                                    [16*(16-12)]*3)
         V_plus = self.font.render("V+",
+                                  True,
+                                  [16*12]*3)
+        self.WINDOW.blit(V_minus, (xmin+11, ymin+delta_y/2-9))
+        self.WINDOW.blit(V_plus, (self.TOTAL_WIDTH-44, ymin+delta_y/2-9))
+        
+    def draw_music_volume_button(self):
+        ymin = 55
+        ymax = 95
+        delta_y = ymax-ymin
+        delta_x = 3*delta_y
+        xmin = self.TOTAL_WIDTH-delta_x-10
+        rect_0 = pygame_Rect(xmin,
+                             ymin,
+                             delta_x*self.music_volume,
+                             delta_y)
+        rect_1 = pygame_Rect(xmin+delta_x*self.music_volume,
+                             ymin,
+                             delta_x*(1-self.music_volume),
+                             delta_y)
+        rect_tot = pygame_Rect(xmin,
+                               ymin,
+                               delta_x,
+                               delta_y)
+        pygame_draw_rect(self.WINDOW, Color.color_hls(hu=0.15, li=0.6, sa=0.1), rect_0)
+        pygame_draw_rect(self.WINDOW, Color.color_hls(hu=0.15, li=0.1, sa=0.1), rect_1)
+        pygame_draw_rect(self.WINDOW, [255]*3, rect_tot, width=2)
+        self.left_music_volume_button = pygame_Rect(xmin,
+                                                    ymin,
+                                                    delta_x*0.3,
+                                                    delta_y)
+        self.right_music_volume_button = pygame_Rect(xmin+delta_x*0.7,
+                                                     ymin,
+                                                     delta_x*0.3,
+                                                     delta_y)
+        self.music_volume_rect = pygame_Rect(xmin,
+                                             ymin,
+                                             delta_x,
+                                             delta_y)
+        V_minus = self.font.render("M-",
+                                   True,
+                                   [16*(16-12)]*3)
+        V_plus = self.font.render("M+",
                                   True,
                                   [16*12]*3)
         self.WINDOW.blit(V_minus, (xmin+11, ymin+delta_y/2-9))
@@ -1466,6 +1532,7 @@ class Game:
         self.draw_map_dots()
         # self.print_map_help()
         self.draw_volume_button()
+        self.draw_music_volume_button()
         self.draw_exterior_lines()
         self.draw_map_arrows_buttons()
         self.handle_map_events()
