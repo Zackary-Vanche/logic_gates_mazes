@@ -79,7 +79,7 @@ I can export the game as a .exe with PyInstaller, but then it is much to heavy, 
 
 ## Inspiration
 
-The games "The Witness", ["Chromagraph"](https://adam-rumpf.github.io/games/chromagraph.html) and ["The NandGame"](https://nandgame.com/) gave me a lot of ideas.
+The games ["The Witness"](https://en.wikipedia.org/wiki/The_Witness_(2016_video_game)), ["Chromagraph"](https://adam-rumpf.github.io/games/chromagraph.html) and ["The NandGame"](https://nandgame.com/) gave me a lot of ideas.
 
 
 ## License
