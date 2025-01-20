@@ -191,8 +191,9 @@ class Game:
         self.node = ''
         
     def sound_setup(self):
-        self.volume = 0.05
-        self.music_volume = 0.05
+        self.d_volume = 0.05
+        self.volume = self.d_volume
+        self.music_volume = self.d_volume
         pygame_mixer_init()
         click_sounds_folder = 'sounds/click'
         self.click_sounds_list = [pygame.mixer.Sound(file) for file in get_files_list(click_sounds_folder)]
@@ -1354,19 +1355,19 @@ class Game:
                     break
                 if self.volume_rect.collidepoint(px, py):
                     if self.left_volume_button.collidepoint(px, py):
-                        self.volume -= 0.05
+                        self.volume -= self.d_volume
                         self.play_click()
                     if self.right_volume_button.collidepoint(px, py):
-                        self.volume += 0.05
+                        self.volume += self.d_volume
                         self.play_click()
                     self.volume = min(1, max(0, self.volume))
                     break
                 if self.music_volume_rect.collidepoint(px, py):
                     if self.left_music_volume_button.collidepoint(px, py):
-                        self.music_volume -= 0.05
+                        self.music_volume -= self.d_volume
                         self.play_click()
                     if self.right_music_volume_button.collidepoint(px, py):
-                        self.music_volume += 0.05
+                        self.music_volume += self.d_volume
                         self.play_click()
                     self.music_volume = min(1, max(0, self.music_volume))
                     pygame_music.set_volume(self.music_volume*0.3)
