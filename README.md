@@ -79,7 +79,8 @@ I can export the game as a .exe with PyInstaller, but then it is much to heavy, 
 
 ## Inspiration
 
-The games "The Witness" and ["Chromagraph"](https://adam-rumpf.github.io/games/chromagraph.html) gave me a lot of ideas for graph-theory oriented levels.
+The games "The Witness", ["Chromagraph"](https://adam-rumpf.github.io/games/chromagraph.html) and ["The NandGame"](https://nandgame.com/) gave me a lot of ideas.
+
 
 ## License
 
