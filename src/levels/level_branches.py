@@ -50,7 +50,8 @@ def f():
 
     T0 = Tree(tree_list=tree_list,
               name='T0',
-              switches=Slist_T0)
+              switches=Slist_T0,
+              cut_expression_depth_1=True)
 
     dx = 1
     dy = 1
