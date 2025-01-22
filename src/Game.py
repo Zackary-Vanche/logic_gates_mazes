@@ -177,7 +177,7 @@ class Game:
         y_positions = [p[1] for p in self.positions_list]
         self.edges_list = make_edges_list(level_positions)
         self.dx = 50
-        self.dy = 50
+        self.dy = 60
         self.marge = 60
         self.map_pos_x = self.map_pos_x_max()
         self.map_pos_y = self.map_pos_y_max()

@@ -1,6 +1,6 @@
-ns = 2
-nd = 3*7
-nr = 4*5
+ns = 6
+nd = 6
+nr = 5
 nv = 0
 ####
 ####
@@ -22,8 +22,8 @@ from Levels_colors_list import Levels_colors_list
 def f(): 
 ''')
 
-# for i in range(ns):
-#     print(f'''    S{i} = Switch(name='S{i}')''')
+for i in range(ns):
+    print(f'''    S{i} = Switch(name='S{i}')''')
     
 print('')
 print(f'''    Slist = [{', '.join([f'S{i}' for i in range(ns)])}]''')
