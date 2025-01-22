@@ -111,12 +111,10 @@ help_menus_list['N'] = """
 Press [N] and then [ENTER] to get a new random level."""
 
 help_menus_list['UP DOWN'] = """
-If you use the [UP] and [DOWN] keys, you can switch which equation appears first.
-You can also simply click on the displayed equations."""
+To change which equation appears first, use the [UP] and [DOWN] keys or simply click on the displayed equations."""
 
 help_menus_list['RIGHT LEFT'] = """
-Press the [RIGHT] ([LEFT]) arrow key to go to the next (previous) page, or use the buttons on the right of the screen.
-To go to the next page, you can also click on the exit room once you are in it."""
+To go to the next (previous) page, press the [RIGHT] ([LEFT]) arrow key, use the buttons on the right of the screen, or click on the exit room once you are in it."""
 
 help_menus_list['ALT'] = """
 Use ALT keys to see all actions you can do."""

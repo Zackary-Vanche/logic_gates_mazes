@@ -5,7 +5,7 @@ from inspect import signature
 
 import levels as lvls
 
-from Map import make_chain as mkc
+from tree_geometry import make_chain as mkc
 
 def flatten(liste):
     flat = []

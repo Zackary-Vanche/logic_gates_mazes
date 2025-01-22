@@ -46,8 +46,8 @@ from Levels import Levels
 from geometry import point_in_polygon, point_in_ellipse
 
 from Color import Color
-from Map import Map, make_nodes_dict, make_edges_list, make_children_dict
-from Map import compute_positions as compute_levels_positions
+from tree_geometry import Map, make_nodes_dict, make_edges_list, make_children_dict
+from tree_geometry import compute_positions as compute_levels_positions
 
 from Levels_colors_list import Levels_colors_list
 
@@ -302,6 +302,14 @@ class Game:
             except ZeroDivisionError:
                 print('The level cannot be loaded.')
                 print('Your screen is too small.')
+                
+    def update_map_window_size(self):
+
+        if (self.WINDOW_WIDTH, self.WINDOW_HEIGHT) != self.WINDOW.get_size():
+            self.WINDOW_SIZE_changed = True
+            self.WINDOW_WIDTH, self.WINDOW_HEIGHT = self.WINDOW.get_size()
+            self.WINDOW_WIDTH = max(self.SMALLEST_WINDOW_SIZE[0], self.WINDOW_WIDTH)
+            self.WINDOW_HEIGHT = max(self.SMALLEST_WINDOW_SIZE[1], self.WINDOW_HEIGHT)
 
     def update_window_size(self):
 
@@ -311,7 +319,7 @@ class Game:
             self.WINDOW_WIDTH = max(self.SMALLEST_WINDOW_SIZE[0], self.WINDOW_WIDTH)
             self.WINDOW_HEIGHT = max(self.SMALLEST_WINDOW_SIZE[1], self.WINDOW_HEIGHT)
 
-        if self.WINDOW_SIZE_changed:
+        if self.WINDOW_SIZE_changed and not self.show_map:
             self.y_separation = self.maze.y_separation
             door_window_size = self.maze.door_window_size
 
@@ -786,7 +794,7 @@ class Game:
             
     def draw_arrows_buttons(self):
         if self.show_help:
-            w = self.TOTAL_WIDTH
+            w = self.WINDOW_WIDTH
             e = 10
             x = 60
             y = 30
@@ -795,8 +803,12 @@ class Game:
             e = 5
             x = 40
             y = 20
-        self.left_arrow_polygon = [[0, y/2], [x, 0], [x, y]]
-        self.right_arrow_polygon = [[w, y/2], [w-x, 0], [w-x, y]]
+        self.left_arrow_polygon = [[x, 0],
+                                   [x/2, 0],
+                                   [0, y/2],
+                                   [x/2, y],
+                                   [x, y]]
+        self.right_arrow_polygon = [[w-x, y] for [x, y] in self.left_arrow_polygon]
         for i in range(len(self.left_arrow_polygon)):
             self.left_arrow_polygon[i][0] += w-2*x-2*e
             self.left_arrow_polygon[i][1] += e
@@ -1302,11 +1314,13 @@ class Game:
         self.levels_true_positions_dict = {}
         for node in self.level_positions_dict.keys():
             [x, y] = self.level_positions_dict[node]
+            # old_x, old_y = x, y
             x = self.dx*(x+self.map_pos_x)-self.dot_radius/2
             y = self.dy*(y+self.map_pos_y)-self.dot_radius/2
             rect = [x, y, self.dot_radius, self.dot_radius]
             self.levels_true_positions_dict[node] = rect
             lcolor = self.level_color_dict[node]
+            # self.blit_text(f"{round(old_x, 2)} {round(old_y, 2)}", [x, y], max_width=50, color=lcolor.background_color)
             self.small_dot_radius = self.dot_radius/1.5
             rect_in = [x+self.dot_radius/4, y+0.45*self.dot_radius, self.dot_radius/2, self.dot_radius/2]
             pygame_draw_ellipse(self.WINDOW, lcolor.background_color, rect)
@@ -1491,24 +1505,26 @@ class Game:
         
     def draw_map_arrows_buttons(self):
         x0 = 20
+        x1 = 15
         y0 = 20
+        y1 = 15
         x = 80
         y = 80
         e = 8
         h = self.TOTAL_HEIGHT
         w = self.TOTAL_WIDTH
-        self.left_arrow_map_button = [[e,     h/2],
-                                      [e+x0, h/2-y/2],
+        self.left_arrow_map_button = [[e+x0, h/2-y/2],
+                                      [e+x1, h/2-y/2],
+                                      [e,    h/2],
+                                      [e+x1, h/2+y/2],
                                       [e+x0, h/2+y/2]]
-        self.right_arrow_map_button = [[w-e,     h/2],
-                                       [w-e-x0, h/2-y/2],
-                                       [w-e-x0, h/2+y/2]]
-        self.up_arrow_map_button = [[w/2,     e],
-                                    [w/2-x/2, e+y0],
+        self.right_arrow_map_button = [[w-x, y] for [x, y] in self.left_arrow_map_button]
+        self.up_arrow_map_button = [[w/2-x/2, e+y0],
+                                    [w/2-x/2, e+y1],
+                                    [w/2,     e],
+                                    [w/2+x/2, e+y1],
                                     [w/2+x/2, e+y0]]
-        self.down_arrow_map_button = [[w/2,     h-e],
-                                      [w/2-x/2, h-e-y0],
-                                      [w/2+x/2, h-e-y0],]
+        self.down_arrow_map_button = [[x, h-y] for [x, y] in self.up_arrow_map_button]
         for poly in [self.left_arrow_map_button,
                      self.right_arrow_map_button,
                      self.up_arrow_map_button,
@@ -1547,6 +1563,7 @@ class Game:
             sleep(self.sleep_time)  # I did that not to use too much CPU
             if self.show_map:
                 self.display_map()
+                self.update_map_window_size()
             else:
                 self.handle_events()
                 self.get_level()

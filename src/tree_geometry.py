@@ -177,7 +177,9 @@ def intersect_tree(tp0, tp1, e):
         nodes_1 = make_nodes_dict(tp1).values()
         for p in nodes_0:
             for q in nodes_1:
-                if ((p[0]-q[0])**2+(p[1]-q[1])**2)**(1/2) < e:
+                dx=p[0]-q[0]
+                dy=p[1]-q[1]
+                if dx**2 + dy**2 < e**2:
                     return True
         edges_0 = make_edges_list(tp0)
         edges_1 = make_edges_list(tp1)
@@ -220,7 +222,7 @@ def compute_positions(tree_list, y=0):
     #     child_position = compute_positions(child, y+1)
     #     if not last_child_position is None:
     #         dx = 1
-    #         e = 2
+    #         e = 10
     #         while intersect_tree(last_child_position, child_position, e):
     #             child_position = translate_tree_position(child_position, dx, 0)
     #     children_positions.append(child_position)
@@ -234,6 +236,7 @@ def compute_positions(tree_list, y=0):
     dy = log(xmax-xmin+1)*0.5
     children_positions = [translate_tree_position(child_position, 0, dy) for child_position in children_positions]
     tree_positions = translate_to_0([(x, y)] + children_positions)
+    # print(len(make_nodes_dict(tree_positions).values()))
     return tree_positions
     
 if __name__ == "__main__":
