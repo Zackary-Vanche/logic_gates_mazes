@@ -1,10 +1,14 @@
-ns = 4+16
-nd = 2
-nr = 2
-nv = 1
+ns = 2
+nd = 3*7
+nr = 4*5
+nv = 0
 ####
 ####
 ####
+
+#  #  #  #  #  #  #  #  #  #
+#        #        #        #
+#  #  #  #  #  #  #  #  #  #
 
 print('''
 from Switch import Switch
