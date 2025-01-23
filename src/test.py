@@ -1,1 +1,3 @@
-from levels import *
+import pygame
+
+pygame.examples.stars
