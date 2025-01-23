@@ -5,6 +5,7 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 from numpy import sqrt
+from random import randint as rd_randint
 
 def f():
 
@@ -12,10 +13,13 @@ def f():
     S1 = Switch(name='S1')
     S2 = Switch(name='S2')
     S3 = Switch(name='S3')
+    
+    a = rd_randint(0, 15)
+    b = rd_randint(0, 15)
 
     T0 = Tree(tree_list=['EQU', ['PROD', [None], Tree.tree_list_BIN(4)], [None]],
               name='T0',
-              switches=[7, S0, S1, S2, S3, 42])
+              switches=[a, S0, S1, S2, S3, a*b])
 
     R0 = Room(name='R0',
               position=[0, 0, 1, 1],
@@ -41,6 +45,10 @@ def f():
                  keep_proportions=True,
                  y_separation=40,
                  border=40)
+    
+    sol_list = level.find_all_solutions()[0]
+    assert len(sol_list) == 1
+    level.fastest_solution = ' '.join(sol_list[0])
 
     return level
 
