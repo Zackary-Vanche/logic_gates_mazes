@@ -1336,9 +1336,8 @@ class Game:
                 pygame_draw_ellipse(self.WINDOW, [int(a*255-2*k)]*3, [x-w, y-w, self.dot_radius+2*w, self.dot_radius+2*w], width=4)
                 pygame_draw_ellipse(self.WINDOW, [int(a*255-k)]*3, [x-w, y-w, self.dot_radius+2*w, self.dot_radius+2*w], width=3)
                 pygame_draw_ellipse(self.WINDOW, [int(a*255)]*3, [x-w, y-w, self.dot_radius+2*w, self.dot_radius+2*w], width=2)
-            line_width = 1
-            pygame_draw_ellipse(self.WINDOW, lcolor.surrounding_color, rect_in, width=line_width)
-            pygame_draw_ellipse(self.WINDOW, lcolor.contour_color, [x-1, y-1, self.dot_radius+2, self.dot_radius+2], width=line_width)
+            pygame_draw_ellipse(self.WINDOW, lcolor.surrounding_color, rect_in, width=1)
+            pygame_draw_ellipse(self.WINDOW, lcolor.contour_color, [x-1, y-1, self.dot_radius+2, self.dot_radius+2], width=1)
             
     def handle_map_events(self):
         
@@ -1539,7 +1538,7 @@ class Game:
                                 width=2)
         
     def display_map(self):
-        self.WINDOW.fill(Color.color_hls(hu=0.15, li=0.3, sa=0.1))
+        self.WINDOW.fill(Color.color_hls(hu=0.15, li=0.3, sa=0.05))
         self.TOTAL_WIDTH, self.TOTAL_HEIGHT = pygame.display.get_surface().get_size()
         self.WINDOW_WIDTH, self.WINDOW_HEIGHT = self.WINDOW.get_size()
         self.WINDOW_WIDTH = max(self.SMALLEST_WINDOW_SIZE[0], self.WINDOW_WIDTH)
