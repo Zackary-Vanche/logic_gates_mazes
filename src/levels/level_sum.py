@@ -33,22 +33,26 @@ def f():
               room_arrival=RE,
               relative_departure_coordinates=[1, 0],
               relative_arrival_coordinates=[1/2, 0])
+    
+    sol_list = []
+    for i in range(4):
+        if b%2 == 1:
+            sol_list.append(f"S{i}")
+        b = b//2
+    sol_list.append('D0')
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0] + [RE],
                  doors_list=[D0],
-                 fastest_solution=None,
+                 fastest_solution=' '.join(sol_list),
                  level_color=get_color(),
                  name='Sum',
                  door_window_size=400,
                  keep_proportions=True,
                  y_separation=40,
-                 border=40)
-    
-    sol_list = level.find_all_solutions()[0]
-    assert len(sol_list) == 1
-    level.fastest_solution = ' '.join(sol_list[0])
+                 border=40,
+                 random=True)
 
     return level
 

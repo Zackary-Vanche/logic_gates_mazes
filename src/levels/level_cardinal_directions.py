@@ -3,6 +3,7 @@ from Tree import Tree
 from Door import Door
 from Room import Room
 from Maze import Maze
+from Color import Color
 from Levels_colors_list import Levels_colors_list
 from random import shuffle as rd_shuffle
 
@@ -88,4 +89,8 @@ def f():
     return level
 
 def get_color():
-    return Levels_colors_list.FROM_HUE(hu=0.12, sa=0.6, li=0.5)
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.12, sa=0.6, li=0.5)
+    c = Color.color_hls(hu=0, li=0.5, sa=0.6)
+    lcolor.contour_color = c
+    lcolor.surrounding_color = c
+    return lcolor

@@ -1,7 +1,7 @@
-ns = 6
-nd = 6
-nr = 5
-nv = 0
+ns = 12
+nd = 1
+nr = 1
+nv = 5
 ####
 ####
 ####
@@ -34,9 +34,16 @@ print('')
 
 # for i in range(nv):
 #     print(f'    Slist_{i} = [S{2*i}, S{2*i+1}]')
-    
+
 for i in range(nv):
-    print(f'    Slist_{i} = [S{4*i}, S{4*i+1}, S{4*i+2}, S{4*i+3}]')
+    print(f'    Slist_{i} = [S{3*i}, S{3*i+1}, S{3*i+2}]')
+    
+# for i in range(nv):
+#     print(f'    Slist_{i} = [S{4*i}, S{4*i+1}, S{4*i+2}, S{4*i+3}]')
+
+
+for i in range(nv):
+    print(f'    Slist_{i} = [S{6*i}, S{6*i+1}, S{6*i+2}, S{6*i+3}, S{6*i+4}, S{6*i+5}]')
     
 # for i in range(nv):
 #     print(f'    Slist_{i} = [S{9*i}, S{9*i+1}, S{9*i+2}, S{9*i+3}, S{9*i+4}, S{9*i+5}, S{9*i+6}, S{9*i+7}, S{9*i+8}]')
@@ -88,14 +95,14 @@ print('''    dx = 1
     ey = 0.5\n''')
     
 for i in range(nr):
-    y = i//4
-    x = i%4
+    y = i//3
+    x = i%3
     # print(f'''    R{i} = Room(name='R{i}',
     #             position=[{x}*dx, {y}*dy, ex, ey],
     #             switches_list=[])''')
     print(f'''    R{i} = Room(name='R{i}',
                 position=[{x}*dx, {y}*dy, ex, ey],
-                switches_list=Slist_{i})''')
+                switches_list=[])''')
     # print(f'''    R{i} = Room(name='R{i}',
     #             position=position({i}),
     #             switches_list=[S{i}])''')

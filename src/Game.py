@@ -433,7 +433,7 @@ class Game:
     def print_level_name(self):
         # Affichage du nom du niveau courant
         maze_name = self.maze.name
-        if self.maze.random:
+        if self.maze.random and not 'random' in self.maze.name.lower():
             maze_name = maze_name + " (random)"
         level_name_render = self.font.render(
             maze_name.replace('_', ' '),
@@ -589,7 +589,7 @@ class Game:
         for room in self.maze.rooms_list:
             if self.maze.current_page in room.pages_list:
                 [x_gap, y_gap, x, y] = array(room.position[self.maze.current_page])
-                if room.is_exit:
+                if room.is_exit and room.name != '':
                     room_name_render = self.font.render('EXIT',
                                                         True,
                                                         self.inside_room_color)
@@ -742,7 +742,7 @@ class Game:
             self.draw_exterior_lines()
             # Affichage du nom du niveau courant
             maze_name = self.maze.name
-            if self.maze.random:
+            if self.maze.random and not 'random' in self.maze.name.lower():
                 maze_name = maze_name + " (random)"
             level_name_render = self.font.render(
                 maze_name.replace('_', ' '),

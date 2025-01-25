@@ -107,7 +107,7 @@ def f(fast_solution_finding=False):
               name='V13',
               switches=Slist_13)
 
-    tree_list_IN = ['IN', Tree.tree_list_BIN(6)] + [[None]] * 7
+    # tree_list_IN = ['IN', Tree.tree_list_BIN(6)] + [[None]] * 7
 
     tree_list_DIST = ['DIST'] + [[None]] * 4  # 12
 

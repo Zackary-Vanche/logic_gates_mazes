@@ -81,7 +81,7 @@ def f():
                  doors_list=[D0],
                  fastest_solution=" ".join(solution_list),
                  level_color=get_color(),
-                 name='Connectivity',
+                 name='Graph realization problem',
                  keep_proportions=True,
                  door_window_size=300)
     

@@ -114,7 +114,7 @@ def f():
                  doors_list=Dl,
                  fastest_solution="S3 S7 D0 S9 S12 S13 S17 D1 S21 S22 S24 S26 D2 S28 S32 S33 S35 D3",
                  level_color=get_color(),
-                 name='Hexagoneee',
+                 name='Hexagon',
                  keep_proportions=True,
                  door_window_size=400,
                  uniform_surrounding_colors=False,

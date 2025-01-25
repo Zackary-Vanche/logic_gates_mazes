@@ -25,7 +25,7 @@ class Room:
         self.name = name
         self.is_exit = is_exit
         if self.is_exit:
-            assert self.name == 'RE'
+            assert self.name in ['', 'RE']
         self.departure_doors_list = []
         self.arrival_doors_list = []
         self.two_way_doors_list = []

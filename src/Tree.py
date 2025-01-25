@@ -172,13 +172,15 @@ class Tree:
         for i in range(len(self.switches_list)):
             if isinstance(self.switches_list[i], int):
                 self.switches_list[i] = Switch(value=self.switches_list[i])
+            if isinstance(self.switches_list[i], float):
+                self.switches_list[i] = Switch(value=self.switches_list[i])
             if self.switches_list[i] is None:
                 self.switches_list[i] = Switch(value=None)
         
         self.all_switches_list = self.switches_list[:]
         for switch in self.all_switches_list:
             try:
-                assert type(switch) in [Switch, Tree]
+                assert type(switch) in [Switch, Tree], str(type(switch))
             except AssertionError:
                 print(type(switch))
                 print(switch)
@@ -433,7 +435,11 @@ class Tree:
         if self.is_leaf:
             value = self.root
         else:
-            value = self.root.func(self.sons_list)
+            try:
+                value = self.root.func(self.sons_list)
+            except:
+                print(self.name)
+                raise
         if self.is_int:
             value = int(value)
         #print(self.name, '=', self.easy_logical_expression_PN, '=', value)

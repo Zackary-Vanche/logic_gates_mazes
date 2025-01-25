@@ -24,6 +24,8 @@ class Door:
         Si position == [1,1] l'interrupteur est dans le coin bas droite de la piece.
         """
         assert not room_departure.is_exit
+        assert not room_departure.name.replace(' ', '') == ''
+        assert not room_arrival.name.replace(' ', '') == ''
         if room_arrival.is_exit:
             two_way=False
         if name is None:
