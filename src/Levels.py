@@ -17,26 +17,6 @@ def flatten(liste):
     return flat
 
 class Levels:
-
-    """    
-
-    k_center
-
-    k-mean
-
-    Domatic partition
-
-    Maximum coverage problem
-    
-    Random bin packing
-    
-    Magic hexagon
-    
-    Halin
-    
-    tree diameter
-    
-    """    
     
     lt = mkc(lvls.level_trivial,
              lvls.level_choice,
