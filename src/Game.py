@@ -199,6 +199,8 @@ class Game:
         self.click_sounds_list = [pygame.mixer.Sound(file) for file in get_files_list(click_sounds_folder)]
         footstep_sounds_folder = 'sounds/footstep'
         self.footstep_sounds_list = [pygame.mixer.Sound(file) for file in get_files_list(footstep_sounds_folder)]
+        bell_sounds_folder = 'sounds/bell'
+        self.bell_sounds_list = [pygame.mixer.Sound(file) for file in get_files_list(bell_sounds_folder)]
         pygame_music.load('sounds/ambiance/forest.wav')
         pygame_music.play(-1)
         pygame_music.set_volume(self.music_volume)
@@ -210,8 +212,13 @@ class Game:
         
     def play_footstep(self):
         sound = rd_choice(self.footstep_sounds_list)
-        sound.set_volume(self.volume*0.3)
-        pygame_sound.play(rd_choice(self.footstep_sounds_list))
+        sound.set_volume(self.volume*0.5)
+        pygame_sound.play(sound)
+        
+    def play_bell(self):
+        sound = rd_choice(self.bell_sounds_list)
+        sound.set_volume(self.volume*0.5)
+        pygame_sound.play(sound)
 
     def game_setup(self):
         # Game Setup
@@ -1231,11 +1238,14 @@ class Game:
                             rect = self.element_dict[room.name]
                             if room.name == 'RE':
                                 if point_in_ellipse(event.pos, rect):
-                                    self.play_footstep()
                                     if self.maze.current_room().is_exit:
                                         self.get_next_maze()
                                     else:
                                         self.maze.make_actions('RE')
+                                    if self.maze.current_room_index == self.maze.exit_room_index:
+                                        self.play_bell()
+                                    else:
+                                        self.play_footstep()
                                     self.change_in_display = True
                             elif iR == self.maze.current_room_index:
                                 continue
@@ -1249,9 +1259,12 @@ class Game:
                             for door in self.maze.doors_set:
                                 polygon = self.element_dict[door.name]
                                 if point_in_polygon(event.pos, polygon):
-                                    self.play_footstep()
                                     self.maze.make_actions(door.name)
                                     self.change_in_display = True
+                                    if self.maze.current_room_index == self.maze.exit_room_index:
+                                        self.play_bell()
+                                    else:
+                                        self.play_footstep()
                             for switch in self.maze.switches_set:
                                 rect = self.element_dict[switch.name]
                                 if rect.collidepoint(mouse_x, mouse_y):

@@ -23,12 +23,18 @@ def f():
     S12 = Switch(name='S12')
     S13 = Switch(name='S13')
     S14 = Switch(name='S14')
+    S15 = Switch(name='S15')
+    S16 = Switch(name='S16')
+    S17 = Switch(name='S17')
+
+    Slist = [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17]
 
     Slist_0 = [S0, S1, S2]
     Slist_1 = [S3, S4, S5]
     Slist_2 = [S6, S7, S8]
     Slist_3 = [S9, S10, S11]
     Slist_4 = [S12, S13, S14]
+    Slist_5 = [S15, S16, S17]
     V0 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_0)),
           name='V0',
           switches=Slist_0)
@@ -44,28 +50,36 @@ def f():
     V4 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_4)),
           name='V4',
           switches=Slist_4)
+    V5 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_5)),
+          name='V5',
+          switches=Slist_5)
     
     tree_list_V = ["MOD", Tree.tree_list_SUM(2), [None]]
-    V5 = Tree(tree_list=tree_list_V,
-              name='V5',
-              switches=[V0, V1, 5])
     V6 = Tree(tree_list=tree_list_V,
               name='V6',
-              switches=[V1, V2, 5])
+              switches=[V0, V1, 5])
     V7 = Tree(tree_list=tree_list_V,
               name='V7',
-              switches=[V2, V3, 5])
+              switches=[V0, V2, 5])
     V8 = Tree(tree_list=tree_list_V,
               name='V8',
-              switches=[V3, V4, 5])
+              switches=[V0, V3, 5])
     V9 = Tree(tree_list=tree_list_V,
               name='V9',
-              switches=[V4, V0, 5])
+              switches=[V0, V4, 5])
+    V10 = Tree(tree_list=tree_list_V,
+              name='V10',
+              switches=[V0, V5, 5])
 
-    T0 = Tree(tree_list=["AND"] + [Tree.tree_list_EQUSET(10)]*2,
-                name='T0',
-                switches=[V0, V1, V2, V3, V4, 0, 1, 2, 3, 4,
-                          V5, V6, V7, V8, V9, 0, 1, 2, 3, 4])
+    T0 = Tree(tree_list=["AND",
+                         Tree.tree_list_EQUSET(12),
+                         Tree.tree_list_INF(4),
+                         Tree.tree_list_DIFF(5),
+                         ],
+               name='T0',
+               switches=[V0, V1, V2, V3, V4, V5, 0, 1, 2, 3, 4, 5,
+                         V1, V2, V3, V4, V5,
+                         V6, V7, V8, V9, V10,])
 
     dx = 1
     dy = 1
@@ -73,8 +87,8 @@ def f():
     ey = 0.5
 
     R0 = Room(name='R0',
-                position=[0*dx, 0*dy, ex, 3*ey],
-                switches_list=Slist_0+Slist_1+Slist_2+Slist_3+Slist_4)
+                position=[0*dx, 0*dy, 1*ex, 2*ey],
+                switches_list=Slist)
     RE = Room(name='RE',
               position=[1*dx, 1*dy, ex, ey],
               is_exit=True)
@@ -89,17 +103,17 @@ def f():
                  exit_room_index=-1,
                  rooms_list=[R0, RE],
                  doors_list=[D0],
-                 fastest_solution="S0 S1 S3 S8 S10 D0",
+                 fastest_solution=None,
                  level_color=get_color(),
-                 name='Edge graceful cycle',
+                 name='Harmonious star',
                  keep_proportions=True,
-                 door_window_size=300)
+                 door_window_size=360)
     
     return level
 
 def get_color():
-    color=Color.color_hls(hu=0.6, li=0.6, sa=0.9)
-    lcolor=Levels_colors_list.FROM_HUE(hu=0.6, sa=0.2, li=0.7)
+    color=Color.color_hls(hu=0.2, li=0.6, sa=0.9)
+    lcolor=Levels_colors_list.FROM_HUE(hu=0.2, sa=0.2, li=0.7)
     lcolor.surrounding_color=color
     lcolor.contour_color=color
     return lcolor

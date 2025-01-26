@@ -39,6 +39,7 @@ class Levels:
     """    
     
     lt = mkc(lvls.level_trivial,
+             lvls.level_arboricity,
              lvls.level_choice,
              lvls.level_hello_world,
              lvls.level_playground,
@@ -251,6 +252,7 @@ class Levels:
                                [lvls.level_shared,
                                 mkc(lvls.level_cubic,
                                     lvls.level_molecule,
+                                    lvls.level_zero_3_vertex_clique,
                                     lvls.level_points,
                                     lvls.level_dots,
                                     lvls.level_von_neumann_neighborhood,
@@ -282,8 +284,12 @@ class Levels:
                                      lvls.level_graceful_random_tree,
                                      mkc(lvls.level_graceful_lobster,
                                          lvls.level_graceful_large_caterpillar,)]),
-                                mkc(lvls.level_edge_graceful_cycle,
-                                    lvls.level_edge_graceful_tetrahedron),],),
+                                [lvls.level_harmonious_cycle,
+                                 lvls.level_edge_graceful_tetrahedron,
+                                 mkc(lvls.level_harmonious_caterpillar,
+                                     lvls.level_harmonious_bull,
+                                     lvls.level_harmonious_house,
+                                     lvls.level_harmonious_star)],],),
                            ],
                       mkc(lvls.level_inside_out,
                           [lvls.level_sorted,
@@ -696,7 +702,7 @@ def calculates_random_level_solution_length(aux_level_function):
 if __name__ == "__main__":
     pass
 
-    test_levels()
+    # test_levels()
 
     # import os
     
@@ -714,14 +720,14 @@ if __name__ == "__main__":
     
     # # # fast_solution_finding=True
     
-    # level = lvls.level_two_plus_two_equals_four.f()
-    # solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True,
-    #                                      DFS=False)
-    # print('\n')
-    # print(len(solutions[0]))
-    # print('\n')
-    # for sol in solutions[0]:
-    #     print(' '.join(sol))
+    level = lvls.level_zero_3_vertex_clique.f()
+    solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True,
+                                          DFS=False)
+    print('\n')
+    print(len(solutions[0]))
+    print('\n')
+    for sol in solutions[0]:
+        print(' '.join(sol))
         
     #    D0 S1 D1    D2 S3 D3 D4 D5 D6 D7
     # S0 D0 S1 D1    D2 S3 D3 D4 D5 D6 D7
