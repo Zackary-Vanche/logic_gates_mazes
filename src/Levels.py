@@ -39,7 +39,6 @@ class Levels:
     """    
     
     lt = mkc(lvls.level_trivial,
-             lvls.level_arboricity,
              lvls.level_choice,
              lvls.level_hello_world,
              lvls.level_playground,
