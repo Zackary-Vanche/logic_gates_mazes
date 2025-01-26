@@ -549,7 +549,7 @@ def test_levels(test_random_levels=False):
     import matplotlib.pyplot as plt
     plt.rcParams.update({'font.size': 15})
     
-    print('Check levels duplications')
+    print('\nCheck levels duplications')
     all_mazes_list = []
     all_mazes_set = set()
     for level_function in Levels.levels_modules_list:
@@ -562,8 +562,19 @@ def test_levels(test_random_levels=False):
     levels_used_names_list = [str(level_module).split('\\')[-1].split('.')[0] for level_module in Levels.levels_modules_list]
     print(len(levels_folder_names_list), 'levels')
     print(set(levels_folder_names_list) - set(levels_used_names_list), 'not used')
+    
+    print('\nCheck if "random" is specified when needed')
+    for level_function in Levels.levels_modules_list:
+        maze = level_function.f()
+        if maze.fastest_solution is None:
+            continue
+        if maze.random:
+            continue
+        if maze.fastest_solution != level_function.f().fastest_solution:
+            print(maze.name)
+            
 
-    print('Trying all solutions')
+    print('\nTrying all solutions')
     for maze in all_mazes_list:
         assert not maze.name in ['', 'TODO', 'todo', 'temp']
         if maze.fastest_solution is not None:
@@ -574,10 +585,10 @@ def test_levels(test_random_levels=False):
             if maze.name not in ['Panex', 'Superflip']:
                 print(maze.name, 'no solution')
 
-    print('Saving solutions')
+    print('\nSaving solutions')
     Levels.save_solutions_txt(do_it_fast=True, verbose=0)
 
-    print('Calculating solutions lenghts')
+    print('\nCalculating solutions lenghts')
     solutions_lenghts = []
     for maze in all_mazes_list:
         if maze.fastest_solution is not None:
@@ -591,7 +602,7 @@ def test_levels(test_random_levels=False):
     plt.grid()
     plt.show()
     
-    print('Testing some chosen levels')
+    print('\nTesting some chosen levels')
     solutions = lvls.level_cartesian.f().find_all_solutions(verbose=2,
                                                      nb_iterations_print=10**4,
                                                      stop_at_first_solution=False)
@@ -609,7 +620,7 @@ def test_levels(test_random_levels=False):
     assert len(lvls.level_graceful_random_tree.f().find_all_solutions()) != 0
 
     if test_random_levels:
-        print('Testing random levels')
+        print('\nTesting random levels')
         from numpy import array, median
         for aux_level in Levels.aux_level_function_list:
             print(aux_level().name)
@@ -655,7 +666,7 @@ def test_levels(test_random_levels=False):
     #     print('')
     #     print(worlds_level_set - all_level_set)
     
-    print('End of the tests')
+    print('\nEnd of the tests')
 
 
 def calculates_random_level_solution_length(aux_level_function):
@@ -685,7 +696,7 @@ def calculates_random_level_solution_length(aux_level_function):
 if __name__ == "__main__":
     pass
 
-    # test_levels()
+    test_levels()
 
     # import os
     
@@ -703,15 +714,15 @@ if __name__ == "__main__":
     
     # # # fast_solution_finding=True
     
-    level = lvls.level_harmonious_star.f()
-    solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True,
-                                          DFS=False,
-                                          initial_try=())
-    print('\n')
-    print(len(solutions[0]))
-    print('\n')
-    for sol in solutions[0]:
-        print(' '.join(sol))
+    # level = lvls.level_harmonious_star.f()
+    # solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True,
+    #                                       DFS=False,
+    #                                       initial_try=())
+    # print('\n')
+    # print(len(solutions[0]))
+    # print('\n')
+    # for sol in solutions[0]:
+    #     print(' '.join(sol))
         
     #    D0 S1 D1    D2 S3 D3 D4 D5 D6 D7
     # S0 D0 S1 D1    D2 S3 D3 D4 D5 D6 D7

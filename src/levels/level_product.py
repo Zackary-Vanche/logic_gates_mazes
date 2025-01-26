@@ -51,7 +51,8 @@ def f():
                  door_window_size=400,
                  keep_proportions=True,
                  y_separation=40,
-                 border=40)
+                 border=40,
+                 random=True)
     
     # sol_list = level.find_all_solutions()[0]
     # assert len(sol_list) == 1, f"{a} {b}"

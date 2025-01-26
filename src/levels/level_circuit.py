@@ -142,7 +142,8 @@ def f():
                  level_color=get_color(),
                  name='Circuit',
                  keep_proportions=True,
-                 door_window_size=500)
+                 door_window_size=500,
+                 random=True)
     
     return level
 

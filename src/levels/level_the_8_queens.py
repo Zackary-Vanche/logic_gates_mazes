@@ -240,7 +240,8 @@ def f():
                  level_color=get_color(),
                  name='The eight queens',
                  keep_proportions=True,
-                 door_window_size=350)
+                 door_window_size=350,
+                 random=True)
     
     return level
 

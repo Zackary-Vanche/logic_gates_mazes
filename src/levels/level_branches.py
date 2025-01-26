@@ -93,7 +93,8 @@ def f():
                  level_color=get_color(),
                  name='Branches',
                  keep_proportions=True,
-                 door_window_size=450)
+                 door_window_size=450,
+                 random=True)
     
     return level
 

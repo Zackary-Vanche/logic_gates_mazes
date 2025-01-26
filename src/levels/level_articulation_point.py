@@ -110,7 +110,8 @@ def f():
                  level_color=get_color(),
                  name='Articulation point',
                  keep_proportions=True,
-                 door_window_size=400)
+                 door_window_size=400,
+                 random=True)
     
     return level
 

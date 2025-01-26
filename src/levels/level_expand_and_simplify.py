@@ -73,7 +73,8 @@ def f():
                  level_color=get_color(),
                  name='Expand and simplify',
                  keep_proportions=True,
-                 door_window_size=300)
+                 door_window_size=300,
+                 random=True)
     
     return level
 

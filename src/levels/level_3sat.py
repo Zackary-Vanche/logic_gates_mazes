@@ -66,7 +66,8 @@ def f():
                  level_color=get_color(),
                  name='3 SAT',
                  door_window_size=530,
-                 keep_proportions=True)
+                 keep_proportions=True,
+                 random=True)
 
     return level
 
