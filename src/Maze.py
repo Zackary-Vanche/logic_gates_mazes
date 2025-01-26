@@ -411,7 +411,10 @@ class Maze:
                 is_ra = self.current_room() == door.room_arrival
                 return is_rd or is_ra
             else:
-                return self.current_room() == door.room_departure
+                if self.current_room() == door.room_departure:
+                    return True
+                return door.room_arrival in self.get_current_possible_rooms()
+            
 
     def use_door_if_legit(self, door_name, verbose=0):
         if verbose >= 1:
