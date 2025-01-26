@@ -72,14 +72,19 @@ def f():
               switches=[V0, V5, 5])
 
     T0 = Tree(tree_list=["AND",
-                         Tree.tree_list_EQUSET(12),
-                         Tree.tree_list_INF(4),
+                         Tree.tree_list_INF(5),
                          Tree.tree_list_DIFF(5),
+                         Tree.tree_list_DIFF(2),
+                         Tree.tree_list_EQUSET(12),
                          ],
                name='T0',
-               switches=[V0, V1, V2, V3, V4, V5, 0, 1, 2, 3, 4, 5,
+               switches=[
                          V1, V2, V3, V4, V5,
-                         V6, V7, V8, V9, V10,])
+                         V6, V7, V8, V9, V10,
+                         V0, 0,
+                         V0, V1, V2, V3, V4, V5, 0, 1, 2, 3, 4, 5,
+                         ],
+               cut_expression_depth_1=True)
 
     dx = 1
     dy = 1
@@ -98,16 +103,19 @@ def f():
                 name='D0',
                 room_departure=R0,
                 room_arrival=RE)
+    
+    # S0 S2 S6 S10 S12 S13 S17 D0
+    # S3 S7 S9 S10 S14 S15 S17 D0
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, RE],
                  doors_list=[D0],
-                 fastest_solution=None,
+                 fastest_solution="S0 S2 S6 S10 S12 S13 S17 D0",
                  level_color=get_color(),
                  name='Harmonious star',
                  keep_proportions=True,
-                 door_window_size=360)
+                 door_window_size=380)
     
     return level
 

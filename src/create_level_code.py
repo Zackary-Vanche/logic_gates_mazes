@@ -1,7 +1,7 @@
-ns = 32
-nd = 2
-nr = 2
-nv = 16
+ns = 10+12
+nd = 8*3+2
+nr = 1+13
+nv = 5
 ####
 ####
 ####
@@ -32,18 +32,18 @@ print('')
 # for i in range(nv):
 #     print(f'    Slist_{i} = []')
 
-# for i in range(nv):
-#     print(f'    Slist_{i} = [S{2*i}, S{2*i+1}]')
-
 for i in range(nv):
-    print(f'    Slist_{i} = [S{3*i}, S{3*i+1}, S{3*i+2}]')
+    print(f'    Slist_{i} = [S{2*i}, S{2*i+1}]')
+
+# for i in range(nv):
+#     print(f'    Slist_{i} = [S{3*i}, S{3*i+1}, S{3*i+2}]')
     
 # for i in range(nv):
 #     print(f'    Slist_{i} = [S{4*i}, S{4*i+1}, S{4*i+2}, S{4*i+3}]')
 
 
-for i in range(nv):
-    print(f'    Slist_{i} = [S{6*i}, S{6*i+1}, S{6*i+2}, S{6*i+3}, S{6*i+4}, S{6*i+5}]')
+# for i in range(nv):
+#     print(f'    Slist_{i} = [S{6*i}, S{6*i+1}, S{6*i+2}, S{6*i+3}, S{6*i+4}, S{6*i+5}]')
     
 # for i in range(nv):
 #     print(f'    Slist_{i} = [S{9*i}, S{9*i+1}, S{9*i+2}, S{9*i+3}, S{9*i+4}, S{9*i+5}, S{9*i+6}, S{9*i+7}, S{9*i+8}]')
@@ -59,28 +59,28 @@ for i in range(nv):
           name='V{i}',
           switches=Slist_{i})''')
     
-for i in range(nv):
-    print(f'''    V{i} = Tree(tree_list=Tree.tree_list_BIN(9),
-          name='V{i}',
-          switches=Sl[9*{i}:9*{i}+9])''')
+# for i in range(nv):
+#     print(f'''    V{i} = Tree(tree_list=Tree.tree_list_BIN(9),
+#           name='V{i}',
+#           switches=Sl[9*{i}:9*{i}+9])''')
 
-for i in range(nv):
-    print(f'''    V{i} = Tree(tree_list=tree_list_V,
-          name='V{i}',
-          switches=[V, 21, V])''')
+# for i in range(nv):
+#     print(f'''    V{i} = Tree(tree_list=tree_list_V,
+#           name='V{i}',
+#           switches=[V, 21, V])''')
 
 if nv != 0:
     print('')
     print(f'''    Vlist = [{', '.join([f'V{i}' for i in range(nv)])}]''')
     print('')
     
-for i in range(nd):
-    print(f'''    T{i} = Tree(tree_list=tree_list_0,
-                name='T{i}',
-                switches=[1])''')
+# for i in range(nd):
+#     print(f'''    T{i} = Tree(tree_list=tree_list_0,
+#                 name='T{i}',
+#                 switches=[1])''')
     
-for i in range(nd):
-    print(f'''    T{i} = get_tree({i})''')
+# for i in range(nd):
+#     print(f'''    T{i} = get_tree({i})''')
     
 for i in range(nd):
     print(f'''    T{i} = Tree(tree_list=[None],

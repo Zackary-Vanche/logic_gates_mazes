@@ -177,6 +177,9 @@ class Levels:
                                     mkc(lvls.level_roses_are_red,
                                         lvls.level_edelweiss,
                                         lvls.level_violets_are_blue,),
+                                    mkc(lvls.level_linear_arboricity,
+                                        lvls.level_arboricity,
+                                        lvls.level_forest_partition,),
                                     mkc(lvls.level_weights,
                                         lvls.level_sign,)]),
                                mkc(lvls.level_sunflower,
@@ -227,7 +230,7 @@ class Levels:
                                     lvls.level_hitting_set,
                                     lvls.level_independent_set,
                                     lvls.level_exact_cover,
-                                    lvls.level_knapsack,),
+                                    lvls.level_domatic_number,),
                                [lvls.level_shared,
                                 mkc(lvls.level_cubic,
                                     lvls.level_molecule,
@@ -351,6 +354,7 @@ class Levels:
                                lvls.level_taxicab_number,
                                lvls.level_matrix,),
                            mkc(lvls.level_partition,
+                               lvls.level_knapsack,
                                lvls.level_young_tableaux,
                                lvls.level_ferrers_diagram,
                                lvls.level_integer_partition,
@@ -699,9 +703,10 @@ if __name__ == "__main__":
     
     # # # fast_solution_finding=True
     
-    level = lvls.level_zero_3_vertex_clique.f()
+    level = lvls.level_harmonious_star.f()
     solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True,
-                                          DFS=False)
+                                          DFS=False,
+                                          initial_try=())
     print('\n')
     print(len(solutions[0]))
     print('\n')

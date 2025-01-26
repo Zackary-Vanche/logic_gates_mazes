@@ -436,8 +436,8 @@ class Maze:
         # for a in actions.split(' '):
         #     if not 'R' in a:
         #         print(a)
-        if len(actions) == 0:
-            return
+        # if len(actions) == 0:
+        #     return
         actions_list = actions.split(separator)
         for action in actions_list:
             if not (action in self.possibles_actions_list or (action in self.rooms_dict.keys() and allow_all)):
