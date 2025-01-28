@@ -108,8 +108,9 @@ class Levels:
                                 mkc(lvls.level_random_travelling_salesman,
                                     lvls.level_random_bottleneck_travelling_salesman,
                                     lvls.level_travelling_salesman),
-                                mkc(lvls.level_longest_path,
-                                    lvls.level_shortest_path,),]),
+                                mkc(lvls.level_shortest_path,
+                                    lvls.level_minimize,
+                                    lvls.level_longest_path,),]),
                             [lvls.level_shortcut,
                              mkc(lvls.level_walk,
                                  lvls.level_trail,
@@ -570,27 +571,54 @@ def test_levels(test_random_levels=False):
         if maze.fastest_solution != level_function.f().fastest_solution:
             print(maze.name)
             
-    print('\nCheck color contrast')
+    print('\nCheck color contrasts')
     background_contrast_ratio_list = []
     room_contrast_ratio_list = []
+    surrounding_contrast_ratio_list = []
+    contour_contrast_ratio_list = []
     for maze in all_mazes_list:
         lcolor = maze.level_color
-        background_contrast_ratio = contrast_ratio(lcolor.background_color, lcolor.letters_color)
-        room_contrast_ratio = contrast_ratio(lcolor.room_color, lcolor.inside_room_color)
+        
+        background_contrast_ratio = contrast_ratio(lcolor.background_color,
+                                                   lcolor.letters_color)
+        
+        room_contrast_ratio = contrast_ratio(lcolor.room_color,
+                                             lcolor.inside_room_color)
+        
+        surrounding_contrast_ratio = min(contrast_ratio(lcolor.room_color,
+                                                        lcolor.surrounding_color),
+                                         contrast_ratio(lcolor.background_color,
+                                                        lcolor.surrounding_color))
+        
+        contour_contrast_ratio = min(contrast_ratio(lcolor.room_color,
+                                                    lcolor.contour_color),
+                                     contrast_ratio(lcolor.background_color,
+                                                    lcolor.contour_color))
+        
         background_contrast_ratio_list.append([background_contrast_ratio, maze.name])
         room_contrast_ratio_list.append([room_contrast_ratio, maze.name])
+        surrounding_contrast_ratio_list.append([surrounding_contrast_ratio, maze.name])
+        contour_contrast_ratio_list.append([contour_contrast_ratio, maze.name])
         # if background_contrast_ratio < threshold_contrast_ratio:
         #     print(maze.name, f"bad contrast ratio ({background_contrast_ratio}) for letters/background")
         # if room_contrast_ratio < threshold_contrast_ratio:
         #     print(maze.name, f"bad contrast ratio ({room_contrast_ratio}) for letters/room")
     background_contrast_ratio_list.sort(key=lambda x : x[0])
     room_contrast_ratio_list.sort(key=lambda x : x[0])
-    print("Levels with worst letter/background contrast ratio:")
+    surrounding_contrast_ratio_list.sort(key=lambda x : x[0])
+    contour_contrast_ratio_list.sort(key=lambda x : x[0])
+    print("\nLevels with worst letter/background contrast ratio:")
     for i in range(10):
         print(background_contrast_ratio_list[i])
-    print("Levels with worst letter/room contrast ratio:")
+    print("\nLevels with worst letter/room contrast ratio:")
     for i in range(10):
         print(room_contrast_ratio_list[i])
+    # print("\nLevels with worst surrounding_color contrast ratio:")
+    # for i in range(10):
+    #     print(surrounding_contrast_ratio_list[i])
+    # print("\nLevels with worst contour_color contrast ratio:")
+    # for i in range(10):
+    #     print(contour_contrast_ratio_list[i])
     
     print('\nCheck levels duplications')
     if len(all_mazes_set) != len(Levels.levels_modules_list):

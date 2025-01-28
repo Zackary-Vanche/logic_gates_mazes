@@ -231,4 +231,6 @@ def f():
 def get_color():
     lcolor = Levels_colors_list.FROM_HUE(hu=0.1, sa=0.3, li=0.6)
     lcolor.room_color = Color.color_hls(hu=0.6, sa=0.4, li=0.4)
+    lcolor.surrounding_color = Color.color_hls(hu=0.4, sa=0.4, li=0.7)
+    lcolor.contour_color = Color.color_hls(hu=0, sa=0.4, li=0.7)
     return lcolor
