@@ -936,8 +936,10 @@ class Game:
         for i in range(len(solution_actions_list)):
             action = solution_actions_list[i]
             if len(action) > 1:
+                if i+1 == len(solution_actions_list):
+                    self.play_bell()
                 if action[0] in ['D', 'R']:
-                    self.play_footstep()
+                    self.play_footstep() # TODO
                 if action[0] == 'S':
                     self.play_click()
             self.current_action = action
