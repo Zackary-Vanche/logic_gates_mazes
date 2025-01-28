@@ -312,4 +312,4 @@ def f(fast_solution_finding=False):
     return level
 
 def get_color():
-    return Levels_colors_list.FROM_HUE(0, sa=0.35, li=0.49)
+    return Levels_colors_list.FROM_HUE(0, sa=0.35, li=0.35)

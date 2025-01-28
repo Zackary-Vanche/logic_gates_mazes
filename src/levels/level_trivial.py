@@ -39,4 +39,7 @@ def f():
     return level
 
 def get_color():
-    return Levels_colors_list.FROM_HUE(hu=0.6, sa=0.4, li=0.3)
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.6, sa=0.4, li=0.3)
+    lcolor.surrounding_color = Color.color_hls(hu=0.5, sa=0.8, li=0.9)
+    lcolor.contour_color = Color.color_hls(hu=0.5, sa=0.8, li=0.9)
+    return lcolor

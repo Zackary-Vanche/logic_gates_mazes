@@ -3,10 +3,14 @@ from Tree import Tree
 from Door import Door
 from Room import Room
 from Maze import Maze
+from Color import Color
 from Levels_colors_list import Levels_colors_list
 
 def get_color():
-    return Levels_colors_list.FROM_HUE(hu=0.16, sa=0.5, li=0.51)
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.16, sa=0.5, li=0.51)
+    lcolor.surrounding_color = Color.color_hls(hu=0.3, sa=0.9, li=0.9)
+    lcolor.contour_color = Color.color_hls(hu=0.3, sa=0.9, li=0.9)
+    return lcolor
 
 def f():
     S0 = Switch(name='S0', value=1)

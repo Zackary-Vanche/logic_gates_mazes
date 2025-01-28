@@ -554,23 +554,15 @@ def test_levels(test_random_levels=False):
     import matplotlib.pyplot as plt
     plt.rcParams.update({'font.size': 15})
     
-    print('\nCheck levels duplications')
+    from Color import contrast_ratio
+    
+    print('\nCheck if "random" is specified when needed')
     all_mazes_list = []
     all_mazes_set = set()
     for level_function in Levels.levels_modules_list:
         maze = level_function.f()
         all_mazes_set.add(maze.name)
         all_mazes_list.append(maze)
-    if len(all_mazes_set) != len(Levels.levels_modules_list):
-        print("Some levels are duplicated in the list Levels.levels_modules_list")
-    levels_folder_names_list = [x for x in dir(lvls) if x[:6] == 'level_']
-    levels_used_names_list = [str(level_module).split('\\')[-1].split('.')[0] for level_module in Levels.levels_modules_list]
-    print(len(levels_folder_names_list), 'levels')
-    print(set(levels_folder_names_list) - set(levels_used_names_list), 'not used')
-    
-    print('\nCheck if "random" is specified when needed')
-    for level_function in Levels.levels_modules_list:
-        maze = level_function.f()
         if maze.fastest_solution is None:
             continue
         if maze.random:
@@ -578,6 +570,35 @@ def test_levels(test_random_levels=False):
         if maze.fastest_solution != level_function.f().fastest_solution:
             print(maze.name)
             
+    print('\nCheck color contrast')
+    background_contrast_ratio_list = []
+    room_contrast_ratio_list = []
+    for maze in all_mazes_list:
+        lcolor = maze.level_color
+        background_contrast_ratio = contrast_ratio(lcolor.background_color, lcolor.letters_color)
+        room_contrast_ratio = contrast_ratio(lcolor.room_color, lcolor.inside_room_color)
+        background_contrast_ratio_list.append([background_contrast_ratio, maze.name])
+        room_contrast_ratio_list.append([room_contrast_ratio, maze.name])
+        # if background_contrast_ratio < threshold_contrast_ratio:
+        #     print(maze.name, f"bad contrast ratio ({background_contrast_ratio}) for letters/background")
+        # if room_contrast_ratio < threshold_contrast_ratio:
+        #     print(maze.name, f"bad contrast ratio ({room_contrast_ratio}) for letters/room")
+    background_contrast_ratio_list.sort(key=lambda x : x[0])
+    room_contrast_ratio_list.sort(key=lambda x : x[0])
+    print("Levels with worst letter/background contrast ratio:")
+    for i in range(10):
+        print(background_contrast_ratio_list[i])
+    print("Levels with worst letter/room contrast ratio:")
+    for i in range(10):
+        print(room_contrast_ratio_list[i])
+    
+    print('\nCheck levels duplications')
+    if len(all_mazes_set) != len(Levels.levels_modules_list):
+        print("Some levels are duplicated in the list Levels.levels_modules_list")
+    levels_folder_names_list = [x for x in dir(lvls) if x[:6] == 'level_']
+    levels_used_names_list = [str(level_module).split('\\')[-1].split('.')[0] for level_module in Levels.levels_modules_list]
+    print(len(levels_folder_names_list), 'levels')
+    print(set(levels_folder_names_list) - set(levels_used_names_list), 'not used')
 
     print('\nTrying all solutions')
     for maze in all_mazes_list:

@@ -1,6 +1,13 @@
-from colorsys import hls_to_rgb
+from colorsys import hls_to_rgb, rgb_to_hls
 from numpy import array
 from numpy import uint8
+
+def contrast_ratio(rgb0, rgb1):
+    hls0 = rgb_to_hls(*rgb0)
+    hls1 = rgb_to_hls(*rgb1)
+    li0 = hls0[1]
+    li1 = hls1[1]
+    return (max(li0, li1) + 0.05) / (min(li0, li1) + 0.05)
 
 class Color:
     saturation=0.3
