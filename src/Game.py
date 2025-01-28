@@ -1134,6 +1134,7 @@ class Game:
             self.node = new_nodes_list[0]
             new_maze = self.levels_dict[self.node]
             self.maze = new_maze.f()
+            self.level_module = new_maze
             assert isinstance(self.maze, Maze)
         else:
             self.show_map = True
@@ -1162,6 +1163,7 @@ class Game:
                 self.level_changed = True
                 self.change_in_display = True
                 self.maze = new_maze.f()
+                self.level_module = new_maze
                 assert isinstance(self.maze, Maze)
         else:
             self.show_help = True
