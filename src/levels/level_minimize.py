@@ -41,7 +41,10 @@ def f():
         if S < S_min:
             S_min = S
             i_min = i
+    sum_list = list(set(sum_list)) # On retire les doublons
     sum_list.sort()
+    if len(sum_list) == 1:
+        sum_list.append(sum_list[0]+1)
     sol = ["S0 S2 S4 D0 D2 D4",
            "S0 S3 S6 D0 D3 D6",
            "S1 S5 S6 D1 D5 D6",
