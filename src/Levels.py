@@ -102,7 +102,8 @@ class Levels:
                                     lvls.level_house,
                                     lvls.level_draw,),
                                 mkc(lvls.level_desire_path,
-                                    lvls.level_connect_the_dots,),
+                                    lvls.level_connect_the_dots,
+                                    lvls.level_equality,),
                                 mkc(lvls.level_hamiltonian,
                                     lvls.level_eulerian,),
                                 mkc(lvls.level_random_travelling_salesman,
@@ -110,7 +111,8 @@ class Levels:
                                     lvls.level_travelling_salesman),
                                 mkc(lvls.level_shortest_path,
                                     lvls.level_minimize,
-                                    lvls.level_longest_path,),]),
+                                    lvls.level_longest_path,
+                                    lvls.level_maximize),]),
                             [lvls.level_shortcut,
                              mkc(lvls.level_walk,
                                  lvls.level_trail,
@@ -238,6 +240,7 @@ class Levels:
                                 mkc(lvls.level_cubic,
                                     lvls.level_molecule,
                                     lvls.level_zero_3_vertex_clique,
+                                    lvls.level_ramsey_theorem,
                                     lvls.level_points,
                                     lvls.level_dots,
                                     lvls.level_von_neumann_neighborhood,
@@ -309,7 +312,8 @@ class Levels:
                                              lvls.level_hungarian_rings,
                                              [lvls.level_cellular_automaton,
                                               lvls.level_spaceship,
-                                              lvls.level_mountains,
+                                              mkc(lvls.level_valleys,
+                                                  lvls.level_mountains,),
                                               mkc(lvls.level_organize,
                                                   lvls.level_parking,)])]),
                                     mkc(lvls.level_box,
@@ -321,13 +325,15 @@ class Levels:
                                    lvls.level_solitaire,
                                    lvls.level_water_pouring,),
                                mkc(lvls.level_necklace,
-                                   lvls.level_necklaces_enumeration),
+                                   lvls.level_necklaces_enumeration,
+                                   lvls.level_necklace_splitting,),
                                ],),
                           mkc(lvls.level_alice_and_bob,
                               lvls.level_river,
                               lvls.level_cattle,
                               lvls.level_herd,),
-                          lvls.level_lights_out,
+                          mkc(lvls.level_lights_out,
+                              lvls.level_flip),
                           mkc(lvls.level_wasted,
                              lvls.level_rotation,
                              lvls.level_rotation_bis,
@@ -343,6 +349,7 @@ class Levels:
                           mkc(lvls.level_fibonacci_sequence,
                               lvls.level_factorial,
                               lvls.level_prime_number,
+                              lvls.level_ploutos,
                               lvls.level_eratosthenes,
                               lvls.level_euclidean_algorithm,),
                            mkc(lvls.level_iterations,
@@ -552,6 +559,7 @@ class Levels:
 
 
 def test_levels(test_random_levels=False):
+    from tqdm import tqdm
     import matplotlib.pyplot as plt
     plt.rcParams.update({'font.size': 15})
     
@@ -560,7 +568,7 @@ def test_levels(test_random_levels=False):
     print('\nCheck if "random" is specified when needed')
     all_mazes_list = []
     all_mazes_set = set()
-    for level_function in Levels.levels_modules_list:
+    for level_function in tqdm(Levels.levels_modules_list):
         maze = level_function.f()
         all_mazes_set.add(maze.name)
         all_mazes_list.append(maze)
@@ -608,10 +616,10 @@ def test_levels(test_random_levels=False):
     surrounding_contrast_ratio_list.sort(key=lambda x : x[0])
     contour_contrast_ratio_list.sort(key=lambda x : x[0])
     print("\nLevels with worst letter/background contrast ratio:")
-    for i in range(10):
+    for i in range(20):
         print(background_contrast_ratio_list[i])
     print("\nLevels with worst letter/room contrast ratio:")
-    for i in range(10):
+    for i in range(20):
         print(room_contrast_ratio_list[i])
     # print("\nLevels with worst surrounding_color contrast ratio:")
     # for i in range(10):
@@ -629,12 +637,11 @@ def test_levels(test_random_levels=False):
     print(set(levels_folder_names_list) - set(levels_used_names_list), 'not used')
 
     print('\nTrying all solutions')
-    for maze in all_mazes_list:
+    for maze in tqdm(all_mazes_list):
         assert not maze.name in ['', 'TODO', 'todo', 'temp']
         if maze.fastest_solution is not None:
             r = maze.try_solution(maze.fastest_solution)
-            if r != 2:
-                print(maze.name, 'wrong solution')
+            assert r == 2, f"{maze.name} wrong solution"
         elif not maze.random:
             if maze.name not in ['Panex', 'Superflip']:
                 print(maze.name, 'no solution')
@@ -768,7 +775,7 @@ if __name__ == "__main__":
     
     # # # fast_solution_finding=True
     
-    # level = lvls.level_harmonious_star.f()
+    # level = lvls.level_equality.f()
     # solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True,
     #                                       DFS=False,
     #                                       initial_try=())
@@ -777,6 +784,8 @@ if __name__ == "__main__":
     # print('\n')
     # for sol in solutions[0]:
     #     print(' '.join(sol))
+    # for sol in solutions[0]:
+    #     print(' '.join(sol).count('S'))
         
     #    D0 S1 D1    D2 S3 D3 D4 D5 D6 D7
     # S0 D0 S1 D1    D2 S3 D3 D4 D5 D6 D7

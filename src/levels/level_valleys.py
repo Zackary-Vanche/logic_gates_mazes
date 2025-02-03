@@ -32,7 +32,7 @@ def f():
     S18 = Switch(name='S18')
     
     S19 = Switch(name='S19')
-    S20 = Switch(name='S20', value=1)
+    S20 = Switch(name='S20')
     S21 = Switch(name='S21')
     S22 = Switch(name='S22')
     S23 = Switch(name='S23', value=1)
@@ -58,7 +58,11 @@ def f():
           name='V5',
           switches=[S19, S20, S21, S22, S23])
     
-    l = [0, 1, 2, 3, 2, 3, 4, 5, 4, 3, 2, 1, 2, 3, 4, 3, 2, 1, 0]
+    # R 0
+    # B 1
+    # Y 2
+    
+    l = [0, 1, 2, 1, 2, 0, 1, 0, 2, 1, 0, 1, 2, 0, 2, 1, 0]
     
     def get_V_Slist(V):
         tree_list = []
@@ -94,36 +98,36 @@ def f():
                          ],
                 name='T4',
                 switches=[V3, V1, V5,
-                          V4, V5, 18,
+                          V4, V5, len(l)-1,
                           V6, V7,
                           ])
     T5 = Tree(tree_list=Tree.tree_list_NOR(len(Slist)),
                 name='T5',
                 switches=Slist)
 
-    dx = 1.3
-    dy = 1
+    dx = 1.2
+    dy = 1.2
     ex = 0.5
     ey = 0.5
 
     R0 = Room(name='R0',
-                position=[1*dx, 0*dy, dy+ey, dy+ey],
+                position=[0*dx, 1*dy, dx+ex, dy+ey],
                 switches_list=[S0, S1, S2, S3])
     R1 = Room(name='R1',
-                position=[0*dx, 2*dy, ey, ey*5],
+                position=[2*dx, 0*dy, ey*5, ey],
                 switches_list=[S4, S5, S6, S7, S8])
     R2 = Room(name='R2',
-                position=[1*dx, 2*dy, ey, ey*5.5],
+                position=[2*dx, 1*dy, ey*5.5, ey],
                 switches_list=[S9, S10, S11, S12, S13])
     R3 = Room(name='R3',
-                position=[2*dx, 2*dy, ey, ey*5.5],
+                position=[2*dx, 2*dy, ey*5.5, ey],
                 switches_list=[S14, S15, S16, S17, S18])
     R4 = Room(name='R4',
-                position=[3*dx, 2*dy, ey, ey*5],
+                position=[2*dx, 3*dy, ey*5, ey],
                 switches_list=[S19, S20, S21, S22, S23])
     
     RE = Room(name='RE',
-              position=[3*dx, 0*dy, dx+ex, dy+ey],
+              position=[0*dx, 3*dy, dx+ex, dy+ey],
               is_exit=True)
     
     D0 = Door(two_way=False,
@@ -131,58 +135,58 @@ def f():
                 name='D0',
                 room_departure=R0,
                 room_arrival=R1,
-                relative_departure_coordinates=[ex/2/(dx+ex), 1],
-                relative_arrival_coordinates=[1/2, 0])
+                relative_departure_coordinates=[1, ex/2/(dx+ex)],
+                relative_arrival_coordinates=[0, 1/2])
     D1 = Door(two_way=False,
                 tree=T1,
                 name='D1',
                 room_departure=R1,
                 room_arrival=R2,
-                relative_departure_coordinates=[1, 1/2],
-                relative_arrival_coordinates=[0, 1/2])
+                relative_departure_coordinates=[1/2, 1],
+                relative_arrival_coordinates=[1/2, 0])
     D2 = Door(two_way=False,
                 tree=T2,
                 name='D2',
                 room_departure=R2,
                 room_arrival=R3,
-                relative_departure_coordinates=[1, 1/2],
-                relative_arrival_coordinates=[0, 1/2])
+                relative_departure_coordinates=[1/2, 1],
+                relative_arrival_coordinates=[1/2, 0])
     D3 = Door(two_way=False,
                 tree=T3,
                 name='D3',
                 room_departure=R3,
                 room_arrival=R4,
-                relative_departure_coordinates=[1, 1/2],
-                relative_arrival_coordinates=[0, 1/2])
+                relative_departure_coordinates=[1/2, 1],
+                relative_arrival_coordinates=[1/2, 0])
     D4 = Door(two_way=False,
                 tree=T4,
                 name='D4',
                 room_departure=R4,
                 room_arrival=R0,
-                relative_departure_coordinates=[1/2, 0],
-                relative_arrival_coordinates=[(dx+ex/2)/(dx+ex), 1])
+                relative_departure_coordinates=[0, 1/2],
+                relative_arrival_coordinates=[1, (dx+ex/2)/(dx+ex)])
     D5 = Door(two_way=False,
                 tree=T5,
                 name='D5',
                 room_departure=R0,
                 room_arrival=RE,
-                relative_departure_coordinates=[1, 1/2],
-                relative_arrival_coordinates=[0, 1/2])
+                relative_departure_coordinates=[1/2, 1],
+                relative_arrival_coordinates=[1/2, 0])
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5],
-                 fastest_solution="S0 S3 D0 D1 S10 S13 D2 S14 D3 S19 S20 D4 D0 S4 D1 S9 S10 D2 S14 S15 D3 S19 D4 D0 S4 S5 D1 S9 D2 S14 D3 S19 S20 S21 S22 S23 D4 S2 S3 D0 S4 D1 S9 S10 S11 S12 S13 D2 S14 S15 S16 D3 S19 S20 S21 S22 S23 D4 S2 S3 D0 S4 S5 S6 D1 S9 S10 S11 S12 S13 D2 S14 D3 S19 S20 S21 S22 S23 D4 D0 S4 D1 S9 S10 S11 S12 S13 D2 S14 S15 D3 S19 D4 S0 S1 D0 S4 S5 D1 S9 D2 S14 S15 D3 S19 S20 D4 D0 S4 S5 D1 S9 S10 D2 S14 D3 S19 D4 S2 S3 D0 S4 D1 S9 D2 S14 S15 S16 D3 S19 D4 S2 S3 D0 S4 S5 S6 D1 S9 D2 S14 D3 S19 D4 D0 S4 D1 S9 D2 S14 S15 D3 S19 S20 S21 D4 S0 S1 D0 S4 S5 D1 S9 S10 S11 D2 S14 S15 D3 S19 D4 D0 S4 S5 D1 S9 D2 S14 D3 S19 S20 D4 S2 S3 D0 S4 D1 S9 S10 D2 S14 S15 S16 D3 S19 S20 D4 S2 S3 D0 S4 S5 S6 D1 S9 S10 D2 S14 D3 S19 S20 D4 D0 S4 D1 S9 S10 D2 S14 S15 D3 S19 D4 D0 S4 S5 D1 S9 D2 S14 D3 S19 S20 S21 S22 D4 S0 S1 D0 S4 D1 S9 S10 S11 S12 D2 S14 D3 S19 D4 D0 S4 D1 S9 D2 S14 S15 D3 S19 S20 D4 D0 S4 S5 D1 S9 S10 D2 S14 D3 S19 D4 D0 S4 D1 S9 D2 S14 S15 S16 D3 S19 S20 S21 D4 D0 S4 S5 S6 D1 S9 S10 S11 D2 S14 D3 S19 D4 D0 S4 D1 S9 D2 S14 S15 D3 S19 S20 D4 D0 S4 S5 D1 S9 S10 D2 S14 D3 S19 D4 S1 S3 D0 S4 D1 S9 D2 D3 D4 D5",
+                 fastest_solution="S0 S3 D0 D1 S13 D2 S14 D3 S19 S20 S21 S22 S23 D4 D0 S4 D1 S9 S10 S11 S12 S13 D2 S14 S15 D3 S19 D4 S2 S3 D0 S4 S5 D1 S9 D2 S14 D3 S19 D4 S2 S3 D0 S4 D1 S9 D2 S14 S15 S16 D3 S19 D4 D0 S4 S5 S6 D1 S9 D2 S14 D3 S19 S20 D4 S0 S1 D0 S4 D1 S9 S10 D2 S14 D3 S19 D4 D0 S4 D1 S9 D2 S14 S15 S16 D3 S19 S20 S21 D4 S2 S3 D0 S4 S5 S6 D1 S9 S10 S11 D2 S14 D3 S19 S20 S21 D4 S2 S3 D0 S4 D1 S9 S10 S11 D2 S14 S15 D3 S19 S20 S21 D4 D0 S4 S5 D1 S9 S10 S11 D2 S14 D3 S19 D4 S0 S1 D0 S4 D1 S9 D2 S14 D3 S19 S20 D4 D0 S4 D1 S9 S10 D2 S14 S15 D3 S19 D4 S2 S3 D0 S4 S5 D1 S9 D2 S14 D3 S19 D4 S2 S3 D0 S4 D1 S9 D2 S14 S15 S16 D3 S19 D4 D0 S4 S5 S6 D1 S9 D2 S14 D3 S19 S20 S21 S22 D4 D0 S4 D1 S9 S10 S11 S12 D2 S14 S15 D3 S19 D4 S0 S1 D0 S4 S5 D1 S9 D2 S14 S15 D3 S19 S20 D4 D0 S4 S5 D1 S9 S10 D2 S14 D3 S19 D4 D0 S4 D1 S9 D2 S14 S15 S16 D3 S19 S20 S21 D4 D0 S4 S5 S6 D1 S9 S10 S11 D2 S14 D3 S19 D4 D0 S4 D1 S9 D2 S14 S15 D3 S19 S20 D4 D0 S4 S5 D1 S9 S10 D2 S14 D3 S19 D4 S1 S3 D0 S4 D1 S9 D2 D3 D4 D5",
                  level_color=get_color(),
-                 name='Mountains',
+                 name='Valleys',
                  keep_proportions=True,
                  door_window_size=450)
     
     return level
 
 def get_color():
-    lcolor = Levels_colors_list.FROM_HUE(hu=0.16, sa=0.2, li=0.6)
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.4, sa=0.2, li=0.6)
     lcolor.room_color = Color.color_hls(hu=0.6, sa=0.1, li=0.6)
     lcolor.inside_room_color = Color.color_hls(hu=0.4, sa=0.1, li=0.2)
     lcolor.surrounding_color = Color.color_hls(hu=0.1, sa=0.6, li=0.4)

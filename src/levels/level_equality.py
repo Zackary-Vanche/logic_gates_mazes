@@ -164,13 +164,19 @@ def f():
     T45 = Tree(tree_list=[None],
                       name='T45',
                       switches=[S13])
-    T46 = Tree(tree_list=Tree.tree_list_AND(len(Slist)),
+    T46 = Tree(tree_list=["EQU",
+                          Tree.tree_list_SUM(3),
+                          Tree.tree_list_SUM(5),
+                          Tree.tree_list_SUM(6)],
                       name='T46',
-                      switches=Slist)
+                      switches=[S2, S6, S12,
+                                S1, S3, S5, S7, S9,
+                                S0, S4, S8, S10, S11, S13],
+                      cut_expression_depth_1=True)
     
     ex = 0.4
     ey = 0.4
-    dx = -1
+    dx = 1
     dy = 1
     
     R0 = Room(name='R0',
@@ -553,17 +559,19 @@ def f():
                 name='D46',
                 room_departure=R15,
                 room_arrival=RE)
+    
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, R15, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19, D20, D21, D22, D23, D24, D25, D26, D27, D28, D29, D30, D31, D32, D33, D34, D35, D36, D37, D38, D39, D40, D41, D42, D43, D44, D45, D46],
-                 fastest_solution="D0 S0 D2 D1 S3 D11 S4 D15 S5 D17 S1 D6 S2 D9 S6 D23 S10 D36 S9 D32 S8 D28 S7 D26 S11 D39 S12 D42 S13 D45 D46",
+                 fastest_solution="D0 S0 D3 S1 D6 S2 D9 S6 D22 S5 D20 S9 D32 S8 D30 S12 D42 S13 D45 D46",
                  level_color=get_color(),
-                 name='Connect the dots',
+                 uniform_inside_room_color=True,
+                 name='Equality',
                  keep_proportions=True,
                  door_window_size=250)
     
     return level
 
 def get_color():
-    return Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.5)
+    return Levels_colors_list.FROM_HUE_light_background(hu=0.1, sa=0.2, li=0.1)

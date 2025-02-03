@@ -3,8 +3,8 @@ from Tree import Tree
 from Door import Door
 from Room import Room
 from Maze import Maze
-from Levels_colors_list import Levels_colors_list
-
+from Level_color import Level_color
+from Color import Color
 
 def f(fast_solution_finding=False):
     S0 = Switch(name='S0')
@@ -216,4 +216,9 @@ def f(fast_solution_finding=False):
     return level
 
 def get_color():
-    return Levels_colors_list.PINK_AND_WHITE
+    return Level_color(background_color=Color.color_hls(hu=0.95, li=0.2, sa=0.4),
+                       room_color=Color.color_hls(hu=0.95, li=0.7, sa=0.2),
+                       contour_color=Color.color_hls(hu=0.45, li=0.9, sa=1),
+                       letters_color=Color.color_hls(hu=0.45, li=0.95, sa=0.5),
+                       inside_room_color=Color.BLACK,
+                       letter_contour_color=Color.WHITE)

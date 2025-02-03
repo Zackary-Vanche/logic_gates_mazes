@@ -67,7 +67,7 @@ def f():
 
 def get_color():
     lcolor = Levels_colors_list.FROM_HUE(hu=0.2, sa=0.4, li=0.8)
-    lcolor.background_color = Color.GREY_100
+    lcolor.background_color = Color.GREY_80
     lcolor.surrounding_color = Color.WHITE
     lcolor.contour_color = Color.WHITE
     lcolor.letters_color = Color.WHITE

@@ -4,7 +4,7 @@ from Door import Door
 from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
-
+from Color import Color
 
 def f():
     S0 = Switch(name='S0')
@@ -110,4 +110,4 @@ def f():
     return level
 
 def get_color():
-    return Levels_colors_list.PURPLE
+    return Levels_colors_list.FROM_HUE_light_background(hu=0.85, sa=0.2, li=0.1)

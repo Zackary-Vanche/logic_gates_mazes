@@ -74,4 +74,4 @@ def f():
     return level
 
 def get_color():
-    return Levels_colors_list.BRIGHT_RED
+    return Levels_colors_list.FROM_HUE_light_background(hu=0, sa=0.5, li=0.2)

@@ -267,7 +267,7 @@ def f():
     return level
 
 def get_color():
-    lcolor = Levels_colors_list.FROM_HUE(hu=0.4, sa=0.3, li=0.4)
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.4, sa=0.3, li=0.3)
     lcolor.surrounding_color = Color.BRIGHT_ORANGE
     lcolor.contour_color = Color.BRIGHT_ORANGE
     return lcolor

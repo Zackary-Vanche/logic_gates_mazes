@@ -258,5 +258,5 @@ def f():
 def get_color():
     lcolor = Levels_colors_list.FROM_HUE(hu=0.15, sa=1, li=0.4)
     lcolor.inside_room_color = Color.BLACK_RED
-    lcolor.background_color = Color.ORANGE
+    lcolor.background_color = Color.color_hls(hu=0.1, sa=0.5, li=0.2)
     return lcolor

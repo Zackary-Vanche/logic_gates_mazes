@@ -92,7 +92,7 @@ def f():
     return level
 
 def get_color():
-    return Levels_colors_list.REALLY_BRIGHT_RED
+    return Levels_colors_list.FROM_HUE_light_background(hu=0.9, li=0.2, sa=0.4)
     
 if __name__ == '__main__':
     # These 2 lines
@@ -100,4 +100,4 @@ if __name__ == '__main__':
     # should have 
     # in order to the solution to be sol
     sol = "S4 D1 S2 D5 S3 D2 S0 S4 D0 D4 S3 S7 D2 S0 D1 S6 D3 S1 S5 D0 S0 S4 D2 D5 S6 D3 S1 D4 S7 D6"
-    level_platonic().try_solution(sol, verbose = 3, allow_all_doors=True, allow_all_switches=True)
+    f().try_solution(sol, verbose = 3, allow_all_doors=True, allow_all_switches=True)

@@ -31,7 +31,8 @@ from Tree import Tree
 from Door import Door
 from Room import Room
 from Maze import Maze
-from Levels_colors_list import Levels_colors_list
+from Level_color import Level_color
+from Color import Color
 
 def f():
 
@@ -93,4 +94,9 @@ def f():
     return level
 
 def get_color():
-    return Levels_colors_list.ORANGE
+    return Level_color(background_color=Color.color_hls(hu=0.1, sa=0.5, li=0.2),
+                       room_color=Color.PURE_ORANGE,
+                       contour_color=Color.BLACK,
+                       letters_color=Color.WHITE,
+                       inside_room_color=Color.BLACK,
+                       letter_contour_color=Color.BLACK)

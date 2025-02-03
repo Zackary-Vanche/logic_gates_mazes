@@ -63,4 +63,4 @@ def f():
 
 
 def get_color():
-    return Levels_colors_list.GREY
+    return Levels_colors_list.FROM_HUE(hu=0.2, sa=0, li=0.3)

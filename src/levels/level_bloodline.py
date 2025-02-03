@@ -188,7 +188,7 @@ def get_color():
     hu = 0
     sa = 0.3
     li = 0.6
-    lcolor = Level_color(background_color=Color.color_hls(hu, li*0.5 , sa),
+    lcolor = Level_color(background_color=Color.color_hls(hu, 0.2, sa),
                          room_color=Color.color_hls(hu, li*0.2, 0.8 * sa),
                          letters_color=Color.color_hls(hu=0.72, li=0.95, sa=0.9),
                          contour_color=Color.PINK,

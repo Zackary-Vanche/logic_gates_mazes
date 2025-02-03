@@ -6,7 +6,6 @@ from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 from Color import Color
 
-
 def f():
     S0 = Switch(name='S0')
 
@@ -107,73 +106,87 @@ def f():
     RE = Room(name='RE',
               position=position_RE,
               is_exit=True)  # E pour exit ou end
+    
+    door_inside_color = Color.color_hls(hu=0, sa=0.1, li=0.3)
 
     D0 = Door(two_way=False,
               tree=T0,
               room_departure=R0,
               room_arrival=R1,
+              inside_color=door_inside_color,
               surrounding_color=Color.WHITE)
 
     D1 = Door(two_way=True,
               tree=T1,
               room_departure=R1,
               room_arrival=R4,
+              inside_color=door_inside_color,
               surrounding_color=Color.TOTAL_RED)
     D2 = Door(two_way=True,
               tree=T2,
               room_departure=R1,
               room_arrival=R5,
+              inside_color=door_inside_color,
               surrounding_color=Color.TOTAL_YELLOW)
     D3 = Door(two_way=True,
               tree=T3,
               room_departure=R1,
               room_arrival=R6,
-              relative_position=1 / 3,
+              relative_position=1/3,
+              inside_color=door_inside_color,
               surrounding_color=Color.TOTAL_MAGENTA)
 
     D4 = Door(two_way=True,
               tree=T4,
               room_departure=R2,
               room_arrival=R4,
+              inside_color=door_inside_color,
               surrounding_color=Color.TOTAL_YELLOW)
     D5 = Door(two_way=True,
               tree=T5,
               room_departure=R2,
               room_arrival=R5,
-              relative_position=1 / 3,
+              relative_position=1/3,
+              inside_color=door_inside_color,
               surrounding_color=Color.TOTAL_GREEN)
     D6 = Door(two_way=True,
               tree=T6,
               room_departure=R2,
               room_arrival=R6,
+              inside_color=door_inside_color,
               surrounding_color=Color.TOTAL_CYAN)
 
     D7 = Door(two_way=True,
               tree=T7,
               room_departure=R3,
               room_arrival=R4,
-              relative_position=1 / 3,
+              relative_position=1/3,
+              inside_color=door_inside_color,
               surrounding_color=Color.TOTAL_MAGENTA)
     D8 = Door(two_way=True,
               tree=T8,
               room_departure=R3,
               room_arrival=R5,
+              inside_color=door_inside_color,
               surrounding_color=Color.TOTAL_CYAN)
     D9 = Door(two_way=True,
               tree=T9,
               room_departure=R3,
               room_arrival=R6,
+              inside_color=door_inside_color,
               surrounding_color=Color.TOTAL_BLUE)
 
     D10 = Door(two_way=False,
                tree=T10,
                room_departure=R3,
                room_arrival=R7,
+               inside_color=door_inside_color,
                surrounding_color=Color.WHITE)
     D11 = Door(two_way=False,
                tree=T11,
                room_departure=R7,
                room_arrival=RE,
+               inside_color=door_inside_color,
                surrounding_color=Color.WHITE)
 
     level = Maze(start_room_index=0,
@@ -191,5 +204,6 @@ def f():
     return level
 
 def get_color():
-    lcolor = Levels_colors_list.BLACK_AND_GREY_WHITE_CONTOUR
+    lcolor = Levels_colors_list.FROM_HUE(hu=0, sa=0.1, li=0.3)
+    lcolor.surrounding_color = Color.color_hls(hu=0, sa=0.1, li=0.2)
     return lcolor

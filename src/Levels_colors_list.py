@@ -24,6 +24,33 @@ class Levels_colors_list:
                            contour_color=contour_color,
                            inside_room_color=inside_room_color,
                            surrounding_color=surrounding_color)
+    
+    def FROM_HUE_light_background(hu, sa=0.5, li=0.3):
+        
+        if li < 0.5:
+            inside_room_color = Color.WHITE
+        else:
+            inside_room_color = Color.BLACK
+            
+        if li < 0.6:
+            contour_color = Color.color_hls(hu, li=0.9, sa=1)
+            surrounding_color = Color.color_hls(hu, li=0.9, sa=1)
+        else:
+            contour_color = Color.color_hls(hu, li=0.1, sa=1)
+            surrounding_color = Color.color_hls(hu, li=0.1, sa=1)
+            
+        background_li = li*3
+        if background_li < 0.5:
+            letters_color=Color.WHITE
+        else:
+            letters_color=Color.BLACK
+            
+        return Level_color(background_color=Color.color_hls(hu, background_li, 0.8 * sa),
+                           room_color=Color.color_hls(hu, li, sa),
+                           letters_color=letters_color,
+                           contour_color=contour_color,
+                           inside_room_color=inside_room_color,
+                           surrounding_color=surrounding_color)
 
     def RANDOM():
         from random import random
@@ -52,14 +79,6 @@ class Levels_colors_list:
                         letter_contour_color=Color.BLACK,
                         surrounding_color=Color.WHITE)
 
-    BLACK_AND_BLUE = Level_color(background_color=Color.GREY_100,
-                                 room_color=Color.BLACK,
-                                 contour_color=Color.PURE_BLUE,
-                                 letters_color=Color.WHITE,
-                                 letter_contour_color=Color.BLACK,
-                                 inside_room_color=Color.PURE_BLUE,
-                                 surrounding_color=Color.PURE_BLUE)
-
     BLACK_AND_GREY_ORANGE_CONTOUR = Level_color(background_color=Color.BLACK,
                                                 room_color=Color.GREY_80,
                                                 contour_color=Color.REALLY_BRIGHT_ORANGE,
@@ -75,14 +94,6 @@ class Levels_colors_list:
                                              inside_room_color=Color.WHITE,
                                              letter_contour_color=Color.BLACK,
                                              surrounding_color=Color.BRIGHT_RED)
-
-    BLACK_AND_GREY_WHITE_CONTOUR = Level_color(background_color=Color.GREY_100,
-                                               room_color=Color.BLACK,
-                                               contour_color=Color.WHITE,
-                                               letters_color=Color.WHITE,
-                                               inside_room_color=Color.WHITE,
-                                               letter_contour_color=Color.BLACK,
-                                               surrounding_color=Color.WHITE)
 
     BLACK_AND_ORANGE = Level_color(background_color=Color.BLACK,
                                    room_color=Color.BRIGHT_ORANGE,
@@ -169,12 +180,6 @@ class Levels_colors_list:
                                  inside_room_color=Color.WHITE,
                                  letter_contour_color=Color.BLACK)
 
-    DARK_GREEN = Level_color(background_color=Color.DARK_GREEN,
-                             room_color=Color.GREEN,
-                             contour_color=Color.WHITE,
-                             letters_color=Color.WHITE,
-                             letter_contour_color=Color.WHITE)
-
     DARK_RED = Level_color(background_color=Color.REALLY_DARK_RED,
                            room_color=Color.BLACK,
                            contour_color=Color.WHITE,
@@ -202,39 +207,11 @@ class Levels_colors_list:
                              letters_color=Color.BLACK,
                              letter_contour_color=Color.BLACK)
 
-    GREY = Level_color(background_color=Color.GREY_100,
-                       room_color=Color.DARK_GREY,
-                       contour_color=Color.WHITE,
-                       letters_color=Color.WHITE,
-                       letter_contour_color=Color.BLACK,
-                       inside_room_color=Color.WHITE,
-                       surrounding_color=Color.WHITE)
-
-    ORANGE = Level_color(background_color=Color.ORANGE,
-                         room_color=Color.PURE_ORANGE,
-                         contour_color=Color.BLACK,
-                         letters_color=Color.WHITE,
-                         inside_room_color=Color.BLACK,
-                         letter_contour_color=Color.BLACK)
-
     PINK = Level_color(background_color=Color.PINK,
                        room_color=Color.BRIGHT_PINK,
                        contour_color=Color.BLACK,
                        letters_color=Color.BLACK,
                        letter_contour_color=Color.WHITE)
-
-    PINK_AND_WHITE = Level_color(background_color=Color.PINK,
-                                 room_color=Color.DIRT_WHITE,
-                                 contour_color=Color.BLACK,
-                                 letters_color=Color.REALLY_DARK_BLUE,
-                                 inside_room_color=Color.BLACK,
-                                 letter_contour_color=Color.WHITE)
-
-    PURPLE = Level_color(background_color=Color.DARK_PURPLE,
-                         room_color=Color.BRIGHT_PURPLE,
-                         contour_color=Color.WHITE,
-                         letters_color=Color.WHITE,
-                         letter_contour_color=Color.DARK_PURPLE)
 
     PURPLE_AND_GREY = Level_color(background_color=Color.DARK_BLUE,
                                   room_color=Color.BLUE_GREEN,

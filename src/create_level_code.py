@@ -1,7 +1,7 @@
-ns = 7
-nd = 7
-nr = 6
-nv = 0
+ns = 14*2
+nd = 14
+nr = 14
+nv = 14
 ####
 ####
 ####
@@ -95,14 +95,14 @@ print('''    dx = 1
     ey = 0.5\n''')
     
 for i in range(nr):
-    y = i//3
-    x = i%3
+    y = i//5
+    x = i%5
     # print(f'''    R{i} = Room(name='R{i}',
     #             position=[{x}*dx, {y}*dy, ex, ey],
     #             switches_list=[])''')
     print(f'''    R{i} = Room(name='R{i}',
                 position=[{x}*dx, {y}*dy, ex, ey],
-                switches_list=[])''')
+                switches_list=Slist_{i})''')
     # print(f'''    R{i} = Room(name='R{i}',
     #             position=position({i}),
     #             switches_list=[S{i}])''')

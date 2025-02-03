@@ -94,7 +94,7 @@ def f():
 
 def get_color():
     hu = rd_random()
-    lcolor = Levels_colors_list.FROM_HUE(hu=hu, sa=0.3, li=0.4)
+    lcolor = Levels_colors_list.FROM_HUE_light_background(hu, sa=0.5, li=0.35)
     lcolor.surrounding_color=Color.color_hls(hu=hu+0.5, sa=0.9, li=0.8)
     lcolor.contour_color=Color.color_hls(hu=hu+0.5, sa=0.9, li=0.8)
     return lcolor
