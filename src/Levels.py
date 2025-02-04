@@ -27,30 +27,38 @@ class Levels:
              lvls.level_linear,
              lvls.level_electronic,
              lvls.level_variable,
-                [lvls.level_loop,
-                 mkc(lvls.level_yoyo,
-                     lvls.level_power_down,),
-                mkc(lvls.level_crossroad,
-                    lvls.level_backward,
-                    lvls.level_square,
-                    lvls.level_binary,
-                    lvls.level_bis_repetita,
-                    lvls.level_recurrence,
-                    lvls.level_bipartite,
-                    lvls.level_fluid,
-                    lvls.level_parallel,
-                    lvls.level_odd,
-                    lvls.level_compact,
-                    lvls.level_infinity,
-                    lvls.level_crystal,
-                    lvls.level_platonic,
-                    lvls.level_small,
-                    lvls.level_cartesian,
-                    lvls.level_fractal,)],
+                mkc(lvls.level_loop,
+                    mkc(lvls.level_crossroad,
+                        mkc(lvls.level_yoyo,
+                            lvls.level_power_down,
+                            lvls.level_boolean,
+                            lvls.level_alternation),
+                        mkc(lvls.level_order,
+                            lvls.level_blind_alleys,
+                            lvls.level_dead_ends,),
+                        mkc(lvls.level_backward,
+                            lvls.level_square,
+                            lvls.level_binary,
+                            lvls.level_bis_repetita,
+                            lvls.level_recurrence,
+                            lvls.level_bipartite,
+                            lvls.level_fluid,
+                            lvls.level_parallel,
+                            lvls.level_odd,
+                            lvls.level_compact,
+                            lvls.level_infinity,
+                            lvls.level_crystal,
+                            lvls.level_platonic,
+                            lvls.level_small,
+                            lvls.level_cartesian,
+                            lvls.level_fractal,),
+                        mkc(lvls.level_hut,
+                            lvls.level_village,
+                            lvls.level_palace,
+                            lvls.level_mansion,
+                            lvls.level_town,),
+                        )),
                 [lvls.level_expand_and_simplify,
-                 mkc(lvls.level_order,
-                     lvls.level_blind_alleys,
-                     lvls.level_dead_ends,),
                  mkc(lvls.level_orchard,
                      lvls.level_forest,
                      lvls.level_jungle,
@@ -67,13 +75,7 @@ class Levels:
                          lvls.level_pyramid,
                          lvls.level_sheffer_stroke,
                          lvls.level_peirce_s_arrow,),]),
-                 mkc([lvls.level_boolean,
-                      [lvls.level_alternation,
-                       mkc(lvls.level_hut,
-                           lvls.level_village,
-                           lvls.level_palace,
-                           lvls.level_mansion,
-                           lvls.level_town,),]])],
+                 ],
                 [lvls.level_numeration,
                   mkc(lvls.level_random_simple,
                    lvls.level_random_bull,
@@ -646,7 +648,11 @@ def test_levels(test_random_levels=False):
     solutions_lenghts = []
     for maze in all_mazes_list:
         if maze.fastest_solution is not None:
-            solutions_lenghts.append(len(maze.fastest_solution.split(' ')))
+            try:
+                solutions_lenghts.append(len(maze.fastest_solution.split(' ')))
+            except:
+                print(maze.name)
+                raise
     plt.figure(figsize=(10, 5))
     x_list = [i for i in range(len(solutions_lenghts))]
     plt.plot(x_list, solutions_lenghts, lw=0.3, color='k')
@@ -768,15 +774,15 @@ if __name__ == "__main__":
     
     # # # fast_solution_finding=True
     
-    level = lvls.level_electronic.f()
-    solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True,
-                                          DFS=False,
-                                          initial_try=())
-    print('\n')
-    print(len(solutions[0]))
-    print('\n')
-    for sol in solutions[0]:
-        print(' '.join(sol))
+    # level = lvls.level_alternation.f()
+    # solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True,
+    #                                       DFS=False,
+    #                                       initial_try=())
+    # print('\n')
+    # print(len(solutions[0]))
+    # print('\n')
+    # for sol in solutions[0]:
+    #     print(' '.join(sol))
     # for sol in solutions[0]:
     #     print(' '.join(sol).count('S'))
         

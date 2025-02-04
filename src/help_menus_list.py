@@ -274,10 +274,10 @@ help_menus_list['NOR'] = '''
 ¬| means 'NOR'. ¬| S1 S2 equals 1 if S1 and S2 are turned off.'''
 
 help_menus_list['XOR'] = """
-XOR (^) means exclusive or. ^ (S0, S1, ...) equals 1 if there is exactly one switch among its parameters that is turned on."""
+XOR (^) means exclusive or. ^ (S0, S1, ...) equals 1 if there is exactly one value among its parameters that is turned on."""
         
 help_menus_list['XNOR'] = """
-XNOR (¬^) is the opposite of exclusive or. ¬^ (S0, S1, ...) equals 0 if there is exactly one switch among its parameters that is turned on."""
+XNOR (¬^) is the opposite of exclusive or. ¬^ (S0, S1, ...) equals 0 if there is exactly one value among its parameters that is turned on."""
 
 help_menus_list['SUM'] = """
 + S0 S1 is the sum of S0 and S1."""
@@ -358,7 +358,7 @@ For example:
     etc"""
 
 help_menus_list['IN'] = """
-The operator i takes two arguments : one switch and a switch list. It returns the value 1 if the switch is included in the list, 0 if not."""
+The operator i takes two arguments : one value and a value list. It returns 1 if the value is included in the list, 0 if not."""
     
 help_menus_list['IN examples'] = """
 For example:
@@ -366,7 +366,7 @@ For example:
     i 4 [4 2] = 1"""
 
 help_menus_list['INLIST'] = """
-Let l1 and l2 be two switches list. Then, i l1 l2 equals 1 if and only if l1 is a substring of l2.
+Let l1 and l2 be two values list. Then, i l1 l2 equals 1 if and only if l1 is a substring of l2.
 For example:
     i (1) [1 2] = 1
     i (1 0) [0 1 2] = 0
@@ -388,8 +388,8 @@ For example:
 
 help_menus_list['BETWEEN'] = """
 The operator BETWEEN (<<) takes several arguments:
-    A list of triplets of switches
-    A list or switches. Let be L that ast list.
+    A list of triplets of values
+    A list of values. Let be L that ast list.
 For every triplet:
     Let (a, b, c) be the triplet
     If a, b or c are not in L or b is not in between a and c, then the operator result is 0.
@@ -397,7 +397,7 @@ If, for every triplet, a, b and c are in L and b is in between a and c, the oper
 
 help_menus_list['JUMP'] = """
 j stands for 'jump'.
-This operator takes as argument a list of switches.
+This operator takes as argument a list.
 
     j (S0 S1 S2 S3 S4 S5) = i b(S0 S1 S2 S3 S4 S5) [22 26 37 41]
     j (S0 S1 S2 S3 S4 S5 S6 S7) = ^ j (S0 S1 S2 S3 S4 S5) j (S2 S3 S4 S5 S6 S7)
@@ -405,7 +405,7 @@ This operator takes as argument a list of switches.
 
 help_menus_list['MAS'] = """
 w stands for 'white'.
-This operator takes as argument two lists of switches.
+This operator takes as argument two lists.
 w l1 l2 is the number of values of l1 that are in l2 but not at the same index.
 
     w [0 0 0] [0 0 1] = 0
@@ -417,9 +417,9 @@ w l1 l2 is the number of values of l1 that are in l2 but not at the same index.
 
 help_menus_list['N3L_4'] = """
 N3L stands for 'no three in line'.
-This operator takes as argument one list of switches.
+This operator takes as argument one list.
 N3L (S0 S1 S2 S3 S4 S5 S6 S7 S8 S9 S10 S11 S12 S13 S14 S15) = 1
-only if there are no three switches aligned in the array :
+only if there are no three 1 aligned in the array :
          S0  S1  S2  S3
          S4  S5  S6  S7
          S8  S9  S10 S11

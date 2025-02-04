@@ -19,7 +19,8 @@ def f():
 
     T0 = Tree(tree_list=Tree.tree_list_XOR(2),
                 name='T0',
-                switches=[S0, S1])
+                switches=[S0, S1],
+              easy_logical_expression_PN="^ S0 S1\n= | & ¬S0 S1 & S0 ¬S1")
     T1 = Tree(tree_list=[None],
                 name='T1',
                 switches=[S0])
@@ -31,7 +32,8 @@ def f():
                 switches=[S2])
     T4 = Tree(tree_list=Tree.tree_list_XNOR(2),
                 name='T4',
-                switches=[S4, S5])
+                switches=[S4, S5],
+              easy_logical_expression_PN="¬^ S0 S1\n= | & ¬S0 ¬S1 & S0 S1")
     T5 = Tree(tree_list=[None],
                 name='T5',
                 switches=[S4])
@@ -74,7 +76,7 @@ def f():
               position=[4*dx, 0*dy, ex, 2*dy+ey],
               is_exit=True)
 
-    D0 = Door(two_way=False,
+    D0 = Door(two_way=True,
                 tree=T0,
                 name='D0',
                 room_departure=R0,
@@ -87,7 +89,7 @@ def f():
                 room_departure=R1,
                 room_arrival=R2,
                 relative_arrival_coordinates=[1/2, (dy+ey/2)/(dy+ey)])
-    D2 = Door(two_way=False,
+    D2 = Door(two_way=True,
                 tree=T2,
                 name='D2',
                 room_departure=R2,
@@ -100,7 +102,7 @@ def f():
                 room_departure=R3,
                 room_arrival=R4,
                 relative_arrival_coordinates=[1/2, ey/2/(dy+ey)])
-    D4 = Door(two_way=False,
+    D4 = Door(two_way=True,
                 tree=T4,
                 name='D4',
                 room_departure=R4,
@@ -113,7 +115,7 @@ def f():
                 room_departure=R5,
                 room_arrival=R6,
                 relative_arrival_coordinates=[1/2, (dy+ey/2)/(dy+ey)])
-    D6 = Door(two_way=False,
+    D6 = Door(two_way=True,
                 tree=T6,
                 name='D6',
                 room_departure=R6,

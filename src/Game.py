@@ -195,7 +195,7 @@ class Game:
         self.node = ''
 
     def sound_setup(self):
-        self.d_volume = 0.05
+        self.d_volume = 1/8
         self.volume = self.d_volume
         self.music_volume = self.d_volume
         pygame_mixer_init()
