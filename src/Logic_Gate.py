@@ -234,6 +234,8 @@ class Logic_Gate:
                  'NOR': aux_func_NOR,
                  'XOR': aux_func_XOR,
                  'XNOR': aux_func_XNOR,
+                 # BINARY
+                 'BIN': aux_func_BIN,
                  # ARITHMETIC
                  'SUM': aux_func_SUM,
                  'MINUS': aux_func_MINUS,
@@ -245,8 +247,6 @@ class Logic_Gate:
                  'MOD': aux_func_MOD,
                  'MODNAN': aux_func_MODNAN,
                  'DIST': aux_func_DIST,
-                 # BINARY
-                 'BIN': aux_func_BIN,
                  # NUMBERS COMPARISON
                  'EQU': aux_func_EQU,
                  'DIFF': aux_func_DIFF,

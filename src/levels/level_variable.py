@@ -68,9 +68,8 @@ def f():
     return level
 
 def get_color():
-    hu = 0.9
-    lcolor = Level_color(background_color=Color.color_hls(hu, 0.3, 0.4),
-                         room_color=Color.color_hls(hu, 0.6, 0.4),
+    lcolor = Level_color(background_color=Color.color_hls(0, 0.3, 0.4),
+                         room_color=Color.color_hls(0.9, 0.6, 0.4),
                          letters_color=Color.WHITE,
                          contour_color=Color.IVORY,
                          inside_room_color=Color.BLACK,
