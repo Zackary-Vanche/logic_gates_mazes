@@ -7,6 +7,8 @@ from Levels_colors_list import Levels_colors_list
 from random import choice as rd_choice
 from os.path import exists as os_path_exists
 
+current_folder = '/'.join(__file__.split('\\')[:-1])
+
 def f(): 
     
     v = 1
@@ -114,7 +116,7 @@ def f():
                 switches=[V0, V1, V2, V3, V4, V5, V6, V7,
                           0, 0, 1, 1, 2, 2, 3, 3],
                 cut_expression=True)
-    filename = 'levels/Oval_track_puzzle_random_exits.txt'
+    filename = current_folder+'/Oval_track_puzzle_random_exits.txt'
     if os_path_exists(filename):
         with open(filename, 'r') as fr:
             lines = fr.readlines()

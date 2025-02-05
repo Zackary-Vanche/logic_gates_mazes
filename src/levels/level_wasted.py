@@ -8,6 +8,8 @@ from random import choice as rd_choice
 from os.path import exists as os_path_exists
 from Color import Color
 
+current_folder = '/'.join(__file__.split('\\')[:-1])
+
 def f(): 
 
     S0 = Switch(name='S0')
@@ -43,7 +45,7 @@ def f():
     T1 = Tree(tree_list=['EQU'] + [Tree.tree_list_BIN(3)]*2,
                 name='T1',
                 switches=[S0, S1, S2, S3, S4, S5])
-    filename = 'levels/Wasted_random_exits.txt'
+    filename = current_folder+'/Wasted_random_exits.txt'
     if os_path_exists(filename):
         with open(filename, 'r') as fr:
             lines = fr.readlines()
@@ -90,7 +92,6 @@ def f():
                 relative_departure_coordinates=[1/2, 0],
                 relative_arrival_coordinates=[1/2, 1])
 
-    lcolor = Levels_colors_list.FROM_HUE(hu=0.6, sa=0.6, li=0.3)
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, RE],

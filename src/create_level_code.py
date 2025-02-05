@@ -1,7 +1,7 @@
-ns = 10
-nd = 0
-nr = 0
-nv = 0
+ns = 2*4+4
+nd = 11
+nr = 8
+nv = 5
 ####
 ####
 ####
@@ -102,7 +102,7 @@ for i in range(nr):
     #             switches_list=[])''')
     print(f'''    R{i} = Room(name='R{i}',
                 position=[{x}*dx, {y}*dy, ex, ey],
-                switches_list=Slist_{i})''')
+                switches_list=[])''')
     # print(f'''    R{i} = Room(name='R{i}',
     #             position=position({i}),
     #             switches_list=[S{i}])''')

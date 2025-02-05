@@ -1,6 +1,7 @@
 src/images/
 src/videos/
 src/solutions/
+src/saved_games/
 __pycache__/
 src/temp/
 src/temp.txt

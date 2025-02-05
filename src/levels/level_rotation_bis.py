@@ -8,6 +8,8 @@ from random import choice as rd_choice
 from os.path import exists as os_path_exists
 from Color import Color
 
+current_folder = '/'.join(__file__.split('\\')[:-1])
+
 def f(): 
     
     v = 1
@@ -56,7 +58,7 @@ def f():
     T2 = Tree(tree_list=[None],
                 name='T2',
                 switches=[1])
-    filename = 'levels/Rotation_bis_random_exits.txt'
+    filename = current_folder+'/Rotation_bis_random_exits.txt'
     if os_path_exists(filename):
         with open(filename, 'r') as fr:
             lines = fr.readlines()

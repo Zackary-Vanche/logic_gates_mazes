@@ -8,6 +8,8 @@ from Level_color import Level_color
 from Levels_colors_list import Levels_colors_list
 from random import choice as rd_choice
 
+current_folder = '/'.join(__file__.split('\\')[:-1])
+
 def aux(l): 
 
     S0 = Switch(name='S0')
@@ -260,7 +262,7 @@ def aux(l):
     return level
 
 def f():
-    filename = 'levels/necklace_splitting_random_list.txt'
+    filename = current_folder+'/necklace_splitting_random_list.txt'
     with open(filename, 'r') as fr:
         lines = fr.readlines()
         l = rd_choice(lines)

@@ -28,7 +28,7 @@ from pygame.mixer import init as pygame_mixer_init
 from pygame.mixer import Sound as pygame_sound
 from pygame.mixer import music as pygame_music
 
-from os.path import exists as os_path_exists, join as os_path_join, isfile as os_path_isfile
+from os.path import exists as os_path_exists, join as os_path_join, isfile as os_path_isfile, abspath as os_abspath
 from os import mkdir as os_mkdir
 from os import listdir as os_listdir
 from os import remove as os_remove
@@ -53,10 +53,10 @@ from Levels_colors_list import Levels_colors_list
 
 from random import choice as rd_choice
 
+current_folder = '/'.join(__file__.split('\\')[:-1])
 
 def get_files_list(folder):
-    return ['/'.join([folder, file]) for file in os_listdir(folder) if os_path_isfile('/'.join([folder, file]))]
-
+    return ['/'.join([current_folder, folder, file]) for file in os_listdir('/'.join([current_folder, folder])) if os_path_isfile('/'.join([current_folder, folder, file]))]
 
 class Game:
     keys_dict = {K_KP0: '0',
@@ -90,7 +90,7 @@ class Game:
                  save_image=False,
                  # Cette variable détermine le niveau joué.
                  index_current_level=0,
-                 time_between_actions=0.15,
+                 time_between_actions=0.1,
                  time_between_deletings=0.05,
                  time_between_level_changing=0.25,
                  print_click_rects=True,
@@ -141,6 +141,8 @@ class Game:
         self.upper_right_window_rectangle = None
         self.lower_right_window_rectangle = None
         self.do_you_quit_game = False
+        self.player_name = None
+        self.player_name_selection = ''
         self.dev_mode = dev_mode
 
     def map_color_setup(self):
@@ -166,6 +168,11 @@ class Game:
 
     def map_pos_y_max(self):
         return self.marge/self.dy
+    
+    def make_level_number_dict(self):
+        self.level_number_dict = {}
+        for i, k in enumerate(sorted(self.levels_dict.keys())):
+            self.level_number_dict[k] = i
 
     def game_map_setup(self):
         self.show_map = True
@@ -175,6 +182,7 @@ class Game:
         self.positions_list = self.level_positions_dict.values()
         self.levels_true_positions_dict = {}
         self.levels_dict = make_nodes_dict(level_tree)
+        self.make_level_number_dict()
         self.next_node_dict = make_children_dict(level_tree)
         self.map_color_setup()
         x_positions = [p[0] for p in self.positions_list]
@@ -199,16 +207,16 @@ class Game:
         self.volume = self.d_volume
         self.music_volume = self.d_volume
         pygame_mixer_init()
-        click_sounds_folder = 'sounds/click'
+        click_sounds_folder = r'sounds/click'
         self.click_sounds_list = [pygame.mixer.Sound(
             file) for file in get_files_list(click_sounds_folder)]
-        footstep_sounds_folder = 'sounds/footstep'
+        footstep_sounds_folder = r'sounds/footstep'
         self.footstep_sounds_list = [pygame.mixer.Sound(
             file) for file in get_files_list(footstep_sounds_folder)]
-        bell_sounds_folder = 'sounds/bell'
+        bell_sounds_folder = r'sounds/bell'
         self.bell_sounds_list = [pygame.mixer.Sound(
             file) for file in get_files_list(bell_sounds_folder)]
-        pygame_music.load('sounds/ambiance/forest.wav')
+        pygame_music.load(current_folder+'/sounds/ambiance/forest.wav')
         pygame_music.play(-1)
         pygame_music.set_volume(self.music_volume)
 
@@ -263,6 +271,9 @@ class Game:
         self.last_key_BACKSPACE_pressed_time = time()
 
         self.game_map_setup()
+        if not os_path_exists(current_folder+'/saved_games'):
+            os_mkdir(current_folder+'/saved_games')
+        self.levels_success_list = [0]*len(Levels.levels_modules_list)
 
     def get_level(self, fast_solution_finding=False):
 
@@ -513,6 +524,10 @@ class Game:
         if self.maze.random:
             self.print_new_button()
 
+    def export_level_success_list(self):
+        with open(current_folder+'/saved_games/'+self.player_name_selection+'.txt', 'w') as fw:
+            fw.write(''.join([str(i) for i in self.levels_success_list]))
+
     def print_you_won(self):
         if self.maze.current_room_index == self.maze.exit_room_index and self.current_action != 'YOU WON !':
             word_surface = self.font.render('YOU WON !',
@@ -521,6 +536,9 @@ class Game:
             word_width, word_height = word_surface.get_size()
             self.WINDOW.blit(
                 word_surface, (self.x_separation - word_width - 105, 10))
+            if not self.dev_mode:
+                self.levels_success_list[self.level_number_dict[self.node]] = 1
+                self.export_level_success_list()
 
     def blit_text(self,
                   text,
@@ -594,13 +612,26 @@ class Game:
                 surrounding_color = self.surrounding_color
             else:
                 surrounding_color = room.surrounding_color
-                
+            
+            # if not self.update_display_at_every_loop:
             if self.maze.current_room() == room:
                 line_size = self.line_size
             else:
                 line_size = 1
                 a = 1/3
                 surrounding_color = a*array(surrounding_color)+(1-a)*array(room_color)
+            # else:
+            #     if self.maze.current_room() == room:
+            #         line_size = self.line_size
+            #         a = (sin(time()*4)+1)/2 # between 0 and 1
+            #         a_min = 0.5
+            #         a_max = 1
+            #         a = a * (a_max-a_min) + a_min
+            #         surrounding_color = a*array(surrounding_color)+(1-a)*array(room_color)
+            #     else:
+            #         line_size = 1
+            #         a = 1/3
+            #         surrounding_color = a*array(surrounding_color)+(1-a)*array(room_color)
                 
             if self.maze.current_page in room.pages_list:
                 [x_gap, y_gap, x, y] = array(room.position[self.maze.current_page])
@@ -1371,13 +1402,19 @@ class Game:
             y = self.dy*(y+self.map_pos_y)-self.dot_radius/2
             rect = [x, y, self.dot_radius, self.dot_radius]
             self.levels_true_positions_dict[node] = rect
-            lcolor = self.level_color_dict[node]
+            if self.levels_success_list[self.level_number_dict[node]] or self.dev_mode:
+                lcolor = self.level_color_dict[node]
+            else:
+                lcolor = Levels_colors_list.GREY
             # self.blit_text(f"{round(old_x, 2)} {round(old_y, 2)}", [x, y], max_width=50, color=lcolor.background_color)
             self.small_dot_radius = self.dot_radius/1.5
             rect_in = [x+self.dot_radius/4, y+0.45*self.dot_radius, self.dot_radius/2, self.dot_radius/2]
             pygame_draw_ellipse(self.WINDOW, lcolor.background_color, rect)
             pygame_draw_ellipse(self.WINDOW, lcolor.room_color, rect_in)
-            if self.node == node:
+            previous_node = '_'.join(node.split('_')[:-1])
+            success_previous_node = self.levels_success_list[self.level_number_dict[previous_node]]
+            success_node = self.levels_success_list[self.level_number_dict[node]]
+            if (success_previous_node or node=='') and not success_node and not self.dev_mode:
                 w = 8
                 a = (sin(time()*4)+1)/2 # between 0 and 1
                 a_min = 0.4
@@ -1445,19 +1482,26 @@ class Game:
                     pygame_music.set_volume(self.music_volume*0.3)
                     break
                 for node in self.levels_true_positions_dict.keys():
-                    rect = self.levels_true_positions_dict[node]
-                    cx, cy, rx, ry = rect
-                    if ((px - cx) ** 2) / (rx ** 2) + ((py - cy) ** 2) / (ry ** 2) <= 1:
-                        pygame_draw_ellipse(self.WINDOW, [255, 0, 0], rect)
-                        self.level_module = self.levels_dict[node]
-                        self.maze = self.level_module.f()
-                        assert isinstance(self.maze, Maze)
-                        self.node = node
-                        self.show_map = False
-                        self.change_in_display = True
-                        self.level_changed = True
-                        self.play_click()
-                        break
+                    previous_node = '_'.join(node.split('_')[:-1])
+                    success_previous_node = self.levels_success_list[self.level_number_dict[previous_node]]
+                    if success_previous_node or node == '' or self.dev_mode:
+                        rect = self.levels_true_positions_dict[node]
+                        cx, cy, rx, ry = rect
+                        if ((px - cx) ** 2) / (rx ** 2) + ((py - cy) ** 2) / (ry ** 2) <= 1:
+                            pygame_draw_ellipse(self.WINDOW, [255, 0, 0], rect)
+                            self.level_module = self.levels_dict[node]
+                            try:
+                                self.maze = self.level_module.f()
+                            except:
+                                print(self.maze.name)
+                                raise
+                            assert isinstance(self.maze, Maze)
+                            self.node = node
+                            self.show_map = False
+                            self.change_in_display = True
+                            self.level_changed = True
+                            self.play_click()
+                            break
         self.pressed = pygame_key_get_pressed()
         v = 25
         nt = 0.05
@@ -1617,6 +1661,127 @@ class Game:
         self.draw_map_arrows_buttons()
         self.handle_map_events()
         pygame_display_update()
+        
+    def create_new_game(self):
+        if '/' in self.player_name_selection:
+            return
+        if '.' in self.player_name_selection:
+            return
+        if self.player_name_selection == '':
+            return
+        if os_path_exists(current_folder+'/saved_games/'+self.player_name_selection+'.txt'):
+            return
+        else:
+            self.player_name = self.player_name_selection
+            with open(current_folder+'/saved_games/'+self.player_name_selection+'.txt', 'w') as fw:
+                fw.write('0'*len(Levels.levels_modules_list))
+                self.levels_success_list = [0]*len(Levels.levels_modules_list)
+                
+    def read_level_success(self):
+        print(current_folder+'/saved_games/'+self.player_name+'.txt')
+        with open(current_folder+'/saved_games/'+self.player_name+'.txt', 'r') as fr:
+            self.levels_success_list = [int(i) for i in fr.readline()]
+        
+    def handle_event_player_selection(self):
+        for event in pygame_event_get():
+            if event.type == QUIT:
+                self.do_you_quit_game = True
+                self.quit_game()
+                return True
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                mouse_x, mouse_y = event.pos
+                if self.new_game_rect.collidepoint(mouse_x, mouse_y):
+                    self.create_new_game()
+                if self.selection_rect.collidepoint(mouse_x, mouse_y):
+                    self.create_new_game()
+                for saved_game_name in self.saved_games_rect_dict.keys():
+                    rect = self.saved_games_rect_dict[saved_game_name]
+                    if rect.collidepoint(mouse_x, mouse_y):
+                        self.player_name = saved_game_name
+                        self.read_level_success()
+            if time() - self.last_key_pressed_time > self.time_between_actions:
+                self.pressed = pygame_key_get_pressed()
+                for key in Game.keys_dict.keys():
+                    if self.pressed[key] and not Game.keys_dict[key] in [' ', '/', '.']:
+                        self.player_name_selection += Game.keys_dict[key]
+                if self.pressed[K_BACKSPACE]:
+                    self.player_name_selection = self.player_name_selection[:-1]
+                if self.pressed[K_RETURN]:
+                    self.create_new_game()
+                self.last_key_pressed_time = time()
+                
+    def draw_player_selection_rectangles(self):
+        self.WINDOW_WIDTH, self.WINDOW_HEIGHT
+        # NEW GAME
+        new_game_surface = self.font.render("NEW GAME",
+                                            True,
+                                            [0]*3)
+        new_game_word_width, new_game_word_height = new_game_surface.get_size()
+        # SAVED
+        self.saved_games_surfaces_dict = {}
+        for file_name in os_listdir(current_folder+'/saved_games'):
+            file_name = 'saved_games/'+file_name
+            if file_name.split('.')[-1] == 'txt':
+                surface = self.font.render(file_name,
+                                           True,
+                                           [0]*3)
+                self.saved_games_surfaces_dict[file_name] = surface
+        n = len(self.saved_games_surfaces_dict.keys())+1
+        total_word_height = (new_game_word_height+15)*n
+        y0 = self.WINDOW_HEIGHT/2-total_word_height/2
+        # NEW GAME
+        self.new_game_rect = pygame_Rect(self.WINDOW_WIDTH/4,
+                                         y0,
+                                         new_game_word_width+10,
+                                         new_game_word_height+7)
+        pygame_draw_rect(self.WINDOW, [255]*3, self.new_game_rect)
+        self.WINDOW.blit(new_game_surface, (self.WINDOW_WIDTH/4+4, y0+4))
+        # SAVED
+        max_txt_width = new_game_word_width
+        self.saved_games_rect_dict = {}
+        for i, saved_game_name in enumerate(sorted(self.saved_games_surfaces_dict.keys())):
+            i = i+1
+            saved_game_name = saved_game_name.replace('saved_games/', '').split('.')[0]
+            saved_game_surface = self.font.render(saved_game_name,
+                                                  True,
+                                                  [0]*3)
+            word_width, word_height = saved_game_surface.get_size()
+            max_txt_width = max(max_txt_width, word_width)
+            saved_game_rect = pygame_Rect(self.WINDOW_WIDTH/4,
+                                          y0+i*(new_game_word_height+15),
+                                          word_width+10,
+                                          word_height+7)
+            self.saved_games_rect_dict[saved_game_name] = saved_game_rect
+            pygame_draw_rect(self.WINDOW, [200]*3, saved_game_rect)
+            self.WINDOW.blit(saved_game_surface, (self.WINDOW_WIDTH/4+4, y0+i*(new_game_word_height+15)+4))
+        # SELECTION
+        dt_blink = 1
+        selection_surface = self.font.render(self.player_name_selection+'_',
+                                             True,
+                                             [0]*3)
+        selection_word_width, selection_word_height = selection_surface.get_size()
+        if time()%dt_blink > dt_blink/2:
+            selection_surface = self.font.render(self.player_name_selection,
+                                                 True,
+                                                 [0]*3)        
+        
+        self.selection_rect = pygame_Rect(self.WINDOW_WIDTH/4+max_txt_width+20,
+                                     y0,
+                                     selection_word_width+10,
+                                     new_game_word_height+7)
+        pygame_draw_rect(self.WINDOW, [255]*3, self.selection_rect)
+        self.WINDOW.blit(selection_surface, (self.WINDOW_WIDTH/4+max_txt_width+20+4, y0+4))
+        
+    def display_player_selection(self):
+        self.WINDOW.fill(Color.color_hls(hu=0.15, li=0.3, sa=0.05))
+        self.TOTAL_WIDTH, self.TOTAL_HEIGHT = pygame.display.get_surface().get_size()
+        self.WINDOW_WIDTH, self.WINDOW_HEIGHT = self.WINDOW.get_size()
+        self.WINDOW_WIDTH = max(self.SMALLEST_WINDOW_SIZE[0], self.WINDOW_WIDTH)
+        self.WINDOW_HEIGHT = max(self.SMALLEST_WINDOW_SIZE[1], self.WINDOW_HEIGHT)
+        self.font = pygame_font_SysFont(None, 40)
+        self.handle_event_player_selection()
+        self.draw_player_selection_rectangles()
+        pygame_display_update()
 
     def play(self):  # The main function that controls the game
         self.t0 = time()
@@ -1624,8 +1789,11 @@ class Game:
         while self.looping:
             sleep(self.sleep_time)  # I did that not to use too much CPU
             if self.show_map:
-                self.display_map()
-                self.update_map_window_size()
+                if self.player_name is None:
+                    self.display_player_selection()
+                else:
+                    self.display_map()
+                    self.update_map_window_size()
             else:
                 self.handle_events()
                 self.get_level()

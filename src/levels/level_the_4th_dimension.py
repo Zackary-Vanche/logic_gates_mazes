@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu May  4 21:53:03 2023
-
-@author: utilisateur
-"""
-
 from Switch import Switch
 from Tree import Tree
 from Door import Door
@@ -13,6 +6,8 @@ from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 from os.path import exists as os_path_exists
 from random import choice as rd_choice
+
+current_folder = '/'.join(__file__.split('\\')[:-1])
 
 def f(): 
     
@@ -122,7 +117,7 @@ def f():
     T12 = Tree(tree_list=tree_list_10,
                 name='T12',
                 switches=Slist0 + [V5])
-    filename = 'levels/The_4th_dimension_random_exits.txt'
+    filename = current_folder+'/The_4th_dimension_random_exits.txt'
     if os_path_exists(filename):
         with open(filename, 'r') as fr:
             lines = fr.readlines()

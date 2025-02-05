@@ -8,6 +8,8 @@ from random import choice as rd_choice
 from os.path import exists as os_path_exists
 from Color import Color
 
+current_folder = '/'.join(__file__.split('\\')[:-1])
+
 def f(): 
 
     S0 = Switch(name='S0')
@@ -139,7 +141,7 @@ def f():
                           S7, S20,
                           S8, S21,
                           5])
-    filename = 'levels/Grid_random_exits.txt'
+    filename = current_folder+'/Grid_random_exits.txt'
     if os_path_exists(filename):
         with open(filename, 'r') as fr:
             lines = fr.readlines()

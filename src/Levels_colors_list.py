@@ -56,6 +56,9 @@ class Levels_colors_list:
         from random import random
         return Levels_colors_list.FROM_HUE(random())
     
+    
+    GREY = FROM_HUE_light_background(hu=0, sa=0, li=0.1)
+    
     BEIGE = Level_color(background_color=Color.KHAKI,
                         room_color=Color.DARK_KHAKI,
                         contour_color=Color.WHITE,

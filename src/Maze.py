@@ -23,6 +23,8 @@ from Tree import Tree
 from Door import Door
 from Switch import Switch
 
+current_folder = '/'.join(__file__.split('\\')[:-1])
+
 class Maze:
     # Fonctions de creation et de manipulation des differents niveaux
 
@@ -556,13 +558,13 @@ class Maze:
         aux_level = aux_level_function()
         n_bin = 2 ** len(aux_level.switches_list)
         folder = f'levels/{aux_level.name}'
-        if not os_path_exists(folder):
-            os_mkdir(folder)
+        if not os_path_exists(current_folder+'/'+folder):
+            os_mkdir(current_folder+'/'+folder)
         
         for seed in range(i0, i0 + n_files):
 
             file_name = folder + f'/door_trees_list_{seed}'
-            if not os_path_exists(file_name):
+            if not os_path_exists(current_folder+'/'+file_name):
 
                 # Choix de la graine de génération de nombre aléatoires
                 rd_seed(seed)
@@ -624,23 +626,23 @@ class Maze:
                 # Enregistrement de door_trees_list dans un fichier
                 for i_door in range(len(door_trees_list)):
                     door_trees_list[i_door].sort()
-                if not os_path_exists(file_name):
-                    with open(file_name, 'wb') as fp:
+                if not os_path_exists(current_folder+'/'+file_name):
+                    with open(current_folder+'/'+file_name, 'wb') as fp:
                         pickle_dump(door_trees_list, fp)
 
                 assert Maze.get_random_level_from_file(aux_level_function, file_name=None).find_all_solutions()[0] != []
 
     def get_random_level_from_file(aux_level_function, file_name=None):
         folder = f'levels/{aux_level_function().name}'
-        if not os_path_exists(folder):
+        if not os_path_exists(current_folder+'/'+folder):
             print(folder, "doesn't exist")
             return aux_level_function()
-        if os_listdir(folder) == []:
-            print(folder, "is empty")
+        if os_listdir(current_folder+'/'+folder) == []:
+            print(current_folder+'/'+folder, "is empty")
             return aux_level_function()
         if file_name is None:
-            file_name = rd_choice(os_listdir(folder))
-        with open('/'.join([folder, file_name]), 'rb') as fp:
+            file_name = rd_choice(os_listdir(current_folder+'/'+folder))
+        with open('/'.join([current_folder, folder, file_name]), 'rb') as fp:
             door_trees_list = pickle_load(fp)
         level = aux_level_function(door_trees_list)
         level.name = level.name.replace('Random - ', '')
@@ -881,12 +883,12 @@ class Maze:
                     visited_situations.add(current_situation_vector)
                 elif result_solution == 2:
                     if save_solutions_txt:
-                        if os_path_exists('solutions'):
-                            with open(solutions_file, 'w') as file:
+                        if os_path_exists(current_folder+'/'+'solutions'):
+                            with open(current_folder+'/'+solutions_file, 'w') as file:
                                 file.write(' '.join(solution) + '\n')
-                            with open(nb_iterations_file, 'w') as file:
+                            with open(current_folder+'/'+nb_iterations_file, 'w') as file:
                                 file.write(str(nb_iterations))
-                            with open(nb_operations_file, 'w') as file:
+                            with open(current_folder+'/'+nb_operations_file, 'w') as file:
                                 file.write(str(nb_operations))
                     solutions_that_work.append(solution)
                     if stop_at_first_solution:

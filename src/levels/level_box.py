@@ -7,6 +7,8 @@ from Levels_colors_list import Levels_colors_list
 from random import choice as rd_choice
 from os.path import exists as os_path_exists
 
+current_folder = '/'.join(__file__.split('\\')[:-1])
+
 def f(): 
 
     v = 1
@@ -199,7 +201,7 @@ def f():
                 switches=[V0, 4,
                           V8,
                           V6])
-    filename = 'levels/Box_random_exits.txt'
+    filename = current_folder+'/Box_random_exits.txt'
     if os_path_exists(filename):
         with open(filename, 'r') as fr:
             lines = fr.readlines()

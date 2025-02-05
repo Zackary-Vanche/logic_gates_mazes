@@ -394,6 +394,7 @@ class Levels:
                       lvls.level_nonogram,
                       lvls.level_tetris,),
                   mkc(lvls.level_guess,
+                      lvls.level_hypothesis,
                       lvls.level_dichotomy,
                       lvls.level_mastermind,),
                   ]]]
