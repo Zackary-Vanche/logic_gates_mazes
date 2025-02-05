@@ -26,20 +26,22 @@ def f():
                 switches=[S0])
     T2 = Tree(tree_list=Tree.tree_list_XOR(2),
                 name='T2',
-                switches=[S2, S3])
+                switches=[S2, S3],
+              easy_logical_expression_PN="^ S2 S3\n= | & ¬S2 S3 & S2 ¬S3")
     T3 = Tree(tree_list=Tree.tree_list_NOT,
                 name='T3',
                 switches=[S2])
     T4 = Tree(tree_list=Tree.tree_list_XNOR(2),
                 name='T4',
                 switches=[S4, S5],
-              easy_logical_expression_PN="¬^ S0 S1\n= | & ¬S0 ¬S1 & S0 S1")
+              easy_logical_expression_PN="¬^ S4 S5\n= | & ¬S4 ¬S5 & S4 S5")
     T5 = Tree(tree_list=[None],
                 name='T5',
                 switches=[S4])
     T6 = Tree(tree_list=Tree.tree_list_XNOR(2),
                 name='T6',
-                switches=[S6, S7])
+                switches=[S6, S7],
+              easy_logical_expression_PN="¬^ S6 S7\n= | & ¬S6 ¬S7 & S6 S7")
     T7 = Tree(tree_list=Tree.tree_list_NOT,
                 name='T7',
                 switches=[S6])
