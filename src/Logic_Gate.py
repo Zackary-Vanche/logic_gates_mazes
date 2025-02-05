@@ -250,9 +250,6 @@ class Logic_Gate:
                  # NUMBERS COMPARISON
                  'EQU': aux_func_EQU,
                  'DIFF': aux_func_DIFF,
-                 'EQUSET': aux_func_EQUSET,
-                 'IN': aux_func_IN,
-                 'INLIST': aux_func_INLIST, # Rarely used
                  'INF': aux_func_INF,
                  'INFOREQU': aux_func_INFOREQU,
                  'SUP': aux_func_SUP,
@@ -260,6 +257,10 @@ class Logic_Gate:
                  'INF0': aux_func_INF0, # Rarely used
                  'MIN':aux_func_MIN,
                  'MAX':aux_func_MAX,
+                 # LIST COMPARISON
+                 'IN': aux_func_IN,
+                 'EQUSET': aux_func_EQUSET,
+                 'INLIST': aux_func_INLIST, # Rarely used
                  # SPECIAL FUNCTIONS (rarely used)
                  'NONO': aux_func_NONO,
                  'BETWEEN': aux_func_BETWEEN,
