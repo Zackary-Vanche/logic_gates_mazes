@@ -3,7 +3,6 @@ from pyautogui import size as pyautogui_size
 from Color import Color
 from Levels_colors_list import Levels_colors_list
 
-
 if __name__ == "__main__":
 
     #TOTAL_SIZE = pyautogui_size()

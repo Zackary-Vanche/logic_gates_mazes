@@ -477,12 +477,12 @@ class Game:
                                         True,
                                         self.letters_color)
         word_width, word_height = word_surface.get_size()
-        self.menu_rect = pygame_Rect(self.WINDOW_WIDTH - word_width - 30,
+        self.map_rect = pygame_Rect(self.WINDOW_WIDTH - word_width - 30,
                                      0,
                                      word_width+30,
                                      self.y_separation+2)
-        pygame_draw_rect(self.WINDOW, self.background_color, self.menu_rect)
-        pygame_draw_rect(self.WINDOW, self.contour_color, self.menu_rect, 3)
+        pygame_draw_rect(self.WINDOW, self.background_color, self.map_rect)
+        pygame_draw_rect(self.WINDOW, self.contour_color, self.map_rect, 3)
         self.WINDOW.blit(
             word_surface, (self.WINDOW_WIDTH - word_width - 15, 14))
 
@@ -491,7 +491,7 @@ class Game:
                                         True,
                                         self.letters_color)
         word_width, word_height = word_surface.get_size()
-        xmax = self.menu_rect.x
+        xmax = self.map_rect.x
         self.button_restart_rect = pygame_Rect(xmax - word_width - 27,
                                                0,
                                                word_width+30,
@@ -525,7 +525,7 @@ class Game:
             self.print_new_button()
 
     def export_level_success_list(self):
-        with open(current_folder+'/saved_games/'+self.player_name_selection+'.txt', 'w') as fw:
+        with open(current_folder+'/saved_games/'+self.player_name+'.txt', 'w') as fw:
             fw.write(''.join([str(i) for i in self.levels_success_list]))
 
     def print_you_won(self):
@@ -1207,6 +1207,8 @@ class Game:
         self.play_footstep()
         if self.show_help:
             self.show_help = False
+        elif not self.levels_success_list[self.level_number_dict[self.node]]:
+            return
         else:
             self.get_next_maze()
         self.change_in_display = True
@@ -1279,7 +1281,7 @@ class Game:
                     self.last_key_pressed_time = time()
                     if not self.show_help:
                         mouse_x, mouse_y = event.pos
-                        if self.menu_rect.collidepoint(mouse_x, mouse_y):
+                        if self.map_rect.collidepoint(mouse_x, mouse_y):
                             self.show_help = True
                             self.show_map = True
                             self.change_in_display = True
@@ -1462,6 +1464,9 @@ class Game:
                     self.play_footstep()
                     self.map_pos_y += -d
                     break
+                if self.menu_rect.collidepoint(px, py):
+                    self.player_name_selection = ''
+                    self.player_name = None
                 if self.volume_rect.collidepoint(px, py):
                     if self.left_volume_button.collidepoint(px, py):
                         self.volume -= self.d_volume
@@ -1520,6 +1525,26 @@ class Game:
                 # has_moved = True
                 self.map_pos_y += -v*nt
             self.last_key_pressed_time = time()
+            
+    def draw_menu_button(self):
+        xmin = 10
+        ymin = 10
+        delta_x = 183
+        delta_y = 40
+        rect = pygame_Rect(xmin,
+                           ymin,
+                           delta_x,
+                           delta_y)
+        pygame_draw_rect(self.WINDOW, Color.color_hls(hu=0.15, li=0.1, sa=0.1), rect)
+        pygame_draw_rect(self.WINDOW, [255]*3, rect, width=2)
+        self.menu_rect = pygame_Rect(xmin,
+                                       ymin,
+                                       delta_x,
+                                       delta_y)
+        menu_font_render = self.font.render("Player selection",
+                                            True,
+                                            [255]*3)
+        self.WINDOW.blit(menu_font_render, (xmin+11, ymin+11))
 
     def draw_volume_button(self):
         ymin = 10
@@ -1655,6 +1680,7 @@ class Game:
         self.draw_map_edges()
         self.draw_map_dots()
         # self.print_map_help()
+        self.draw_menu_button()
         self.draw_volume_button()
         self.draw_music_volume_button()
         self.draw_exterior_lines()
@@ -1672,13 +1698,13 @@ class Game:
         if os_path_exists(current_folder+'/saved_games/'+self.player_name_selection+'.txt'):
             return
         else:
+            self.game_map_setup()
             self.player_name = self.player_name_selection
             with open(current_folder+'/saved_games/'+self.player_name_selection+'.txt', 'w') as fw:
                 fw.write('0'*len(Levels.levels_modules_list))
                 self.levels_success_list = [0]*len(Levels.levels_modules_list)
                 
     def read_level_success(self):
-        print(current_folder+'/saved_games/'+self.player_name+'.txt')
         with open(current_folder+'/saved_games/'+self.player_name+'.txt', 'r') as fr:
             self.levels_success_list = [int(i) for i in fr.readline()]
         
@@ -1697,6 +1723,7 @@ class Game:
                 for saved_game_name in self.saved_games_rect_dict.keys():
                     rect = self.saved_games_rect_dict[saved_game_name]
                     if rect.collidepoint(mouse_x, mouse_y):
+                        self.game_map_setup()
                         self.player_name = saved_game_name
                         self.read_level_success()
             if time() - self.last_key_pressed_time > self.time_between_actions:
@@ -1712,6 +1739,7 @@ class Game:
                 
     def draw_player_selection_rectangles(self):
         self.WINDOW_WIDTH, self.WINDOW_HEIGHT
+        c = Color.color_hls(hu=0.15, li=0.5, sa=1)
         # NEW GAME
         new_game_surface = self.font.render("NEW GAME",
                                             True,
@@ -1735,6 +1763,7 @@ class Game:
                                          new_game_word_width+10,
                                          new_game_word_height+7)
         pygame_draw_rect(self.WINDOW, [255]*3, self.new_game_rect)
+        pygame_draw_rect(self.WINDOW, c, self.new_game_rect, width=2)
         self.WINDOW.blit(new_game_surface, (self.WINDOW_WIDTH/4+4, y0+4))
         # SAVED
         max_txt_width = new_game_word_width
@@ -1753,6 +1782,7 @@ class Game:
                                           word_height+7)
             self.saved_games_rect_dict[saved_game_name] = saved_game_rect
             pygame_draw_rect(self.WINDOW, [200]*3, saved_game_rect)
+            pygame_draw_rect(self.WINDOW, c, saved_game_rect, width=2)
             self.WINDOW.blit(saved_game_surface, (self.WINDOW_WIDTH/4+4, y0+i*(new_game_word_height+15)+4))
         # SELECTION
         dt_blink = 1
@@ -1766,11 +1796,27 @@ class Game:
                                                  [0]*3)        
         
         self.selection_rect = pygame_Rect(self.WINDOW_WIDTH/4+max_txt_width+20,
-                                     y0,
-                                     selection_word_width+10,
-                                     new_game_word_height+7)
+                                          y0,
+                                          selection_word_width+10,
+                                          new_game_word_height+7)
         pygame_draw_rect(self.WINDOW, [255]*3, self.selection_rect)
+        pygame_draw_rect(self.WINDOW, c, self.selection_rect, width=2)
         self.WINDOW.blit(selection_surface, (self.WINDOW_WIDTH/4+max_txt_width+20+4, y0+4))
+        # ENTER YOUR NAME
+        enter_your_name_surface = self.font.render('ENTER YOUR NAME',
+                                                   True,
+                                                   [0]*3)
+        word_width, word_height = enter_your_name_surface.get_size()
+        enter_your_name_rect = pygame_Rect(self.WINDOW_WIDTH/4+max_txt_width+20,
+                                           y0-new_game_word_height-20,
+                                           word_width+10,
+                                           new_game_word_height+7)
+        pygame_draw_rect(self.WINDOW, [255]*3, enter_your_name_rect)
+        pygame_draw_rect(self.WINDOW, c, enter_your_name_rect, width=2)
+        self.WINDOW.blit(enter_your_name_surface, (self.WINDOW_WIDTH/4+max_txt_width+23,
+                                                   y0-new_game_word_height-15,
+                                                   selection_word_width+10,
+                                                   new_game_word_height+7))
         
     def display_player_selection(self):
         self.WINDOW.fill(Color.color_hls(hu=0.15, li=0.3, sa=0.05))
@@ -1814,6 +1860,8 @@ class Game:
                 self.handle_K_UP_DOWN()
                 # if self.update_to_save_images():  # It means you quit the game
                 #     return None
+                if self.player_name is None:
+                    self.show_map = True
             if self.do_you_quit_game:
                 return None
 
