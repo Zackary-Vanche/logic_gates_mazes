@@ -1190,12 +1190,13 @@ class Game:
             self.map_color_setup()
 
     def change_to_next_page(self):
-        self.play_footstep()
         if self.show_help:
+            self.play_footstep()
             self.show_help = False
-        elif not self.levels_success_list[self.level_number_dict[self.node]]:
+        elif (not self.levels_success_list[self.level_number_dict[self.node]]) and not self.dev_mode:
             return
         else:
+            self.play_footstep()
             self.get_next_maze()
         self.change_in_display = True
         self.level_changed = True
