@@ -1725,6 +1725,7 @@ class Game:
                 
     def draw_player_selection_rectangles(self):
         self.WINDOW_WIDTH, self.WINDOW_HEIGHT
+        self.draw_exterior_lines()
         c = Color.color_hls(hu=0.15, li=0.5, sa=1)
         # NEW GAME
         new_game_surface = self.font.render("NEW GAME",
@@ -1740,7 +1741,7 @@ class Game:
                                            True,
                                            [0]*3)
                 self.saved_games_surfaces_dict[file_name] = surface
-        n = len(self.saved_games_surfaces_dict.keys())+1
+        n = len(self.saved_games_surfaces_dict.keys())+0.1
         total_word_height = (new_game_word_height+15)*n
         y0 = self.WINDOW_HEIGHT/2-total_word_height/2
         # NEW GAME
@@ -1755,7 +1756,7 @@ class Game:
         max_txt_width = new_game_word_width
         self.saved_games_rect_dict = {}
         for i, saved_game_name in enumerate(sorted(self.saved_games_surfaces_dict.keys())):
-            i = i+1
+            i = i+1.1
             saved_game_name = saved_game_name.replace('saved_games/', '').split('.')[0]
             saved_game_surface = self.font.render(saved_game_name,
                                                   True,
