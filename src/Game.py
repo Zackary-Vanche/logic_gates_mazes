@@ -1372,13 +1372,15 @@ class Game:
         # Affichage des lignes des portes
         color_list = [Color.GREY_100, Color.GREY_120, Color.GREY_140, Color.GREY_160, Color.GREY_180]
         line_size_list = [10, 8, 6, 4, 2]
-        for edge in self.edges_list:
-            a = self.dx*(edge[0][0]+self.map_pos_x)
-            b = self.dy*(edge[0][1]+self.map_pos_y)
-            c = self.dx*(edge[1][0]+self.map_pos_x)
-            d = self.dy*(edge[1][1]+self.map_pos_y)
-            for i in range(len(line_size_list)):
-                pygame_draw_line(self.WINDOW, color_list[i], [c, d], [a, b], line_size_list[i])
+        for i in range(len(line_size_list)):
+            color = color_list[i]
+            line_size = line_size_list[i]
+            for edge in self.edges_list:
+                a = self.dx*(edge[0][0]+self.map_pos_x)
+                b = self.dy*(edge[0][1]+self.map_pos_y)
+                c = self.dx*(edge[1][0]+self.map_pos_x)
+                d = self.dy*(edge[1][1]+self.map_pos_y)
+                pygame_draw_line(self.WINDOW, color, [c, d], [a, b], line_size)
 
     def draw_map_dots(self):
         self.levels_true_positions_dict = {}
