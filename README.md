@@ -49,7 +49,7 @@ This will launch the program.
 The folowing concepts are used in the game:
 - Boolean logic, boolean satisfiability problem (3SAT and many other levels)
 - Some of Karp's 21 NP-complete problems (hitting set, independent set, knapsack, ...)
-- Graph theory problems (graph coloring, dominating set, minimum spanning tree research, ...)
+- Graph theory problems (graph coloring, matching, dominating set, minimum spanning tree research, ...)
 - Pathfinding problems with constraints (walks, trails, path, Eulerian paths, hamiltonian paths, travelling salesman)
 - Problems based on permutations (15 puzzle, tower of Hanoi, oval track puzzle, panex, superpremutations...)
 - Chess based enigmas (Knight's tour problem, First and second Guarini problems, 8 queens problem, ...)
