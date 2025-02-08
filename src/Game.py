@@ -199,7 +199,8 @@ class Game:
         self.x_positions_map_max = max(x_positions)
         self.y_positions_map_min = min(y_positions)
         self.y_positions_map_max = max(y_positions)
-        self.dot_radius = min(self.dx, self.dy)-10
+        self.dot_radius_x = self.dx-15
+        self.dot_radius_y = self.dy-15
         self.node = ''
 
     def sound_setup(self):
@@ -1387,9 +1388,9 @@ class Game:
         for node in self.level_positions_dict.keys():
             [x, y] = self.level_positions_dict[node]
             # old_x, old_y = x, y
-            x = self.dx*(x+self.map_pos_x)-self.dot_radius/2
-            y = self.dy*(y+self.map_pos_y)-self.dot_radius/2
-            rect = [x, y, self.dot_radius, self.dot_radius]
+            x = self.dx*(x+self.map_pos_x)-self.dot_radius_x/2
+            y = self.dy*(y+self.map_pos_y)-self.dot_radius_y/2
+            rect = [x, y, self.dot_radius_x, self.dot_radius_y]
             self.levels_true_positions_dict[node] = rect
             previous_node = '_'.join(node.split('_')[:-1])
             success_previous_node = self.levels_success_list[self.level_number_dict[previous_node]]
@@ -1401,8 +1402,9 @@ class Game:
             else:
                 lcolor = Levels_colors_list.GREY
             # self.blit_text(f"{round(old_x, 2)} {round(old_y, 2)}", [x, y], max_width=50, color=lcolor.background_color)
-            self.small_dot_radius = self.dot_radius/1.5
-            rect_in = [x+self.dot_radius/4, y+0.45*self.dot_radius, self.dot_radius/2, self.dot_radius/2]
+            self.small_dot_radius_x = self.dot_radius_x/1.5
+            self.small_dot_radius_y = self.dot_radius_y/1.5
+            rect_in = [x+self.dot_radius_x/4, y+0.45*self.dot_radius_y, self.dot_radius_x/2, self.dot_radius_y/2]
             pygame_draw_ellipse(self.WINDOW, lcolor.background_color, rect)
             pygame_draw_ellipse(self.WINDOW, lcolor.room_color, rect_in)
             if (success_previous_node or node=='') and not success_node and not self.dev_mode:
@@ -1413,17 +1415,17 @@ class Game:
                 a = a * (a_max-a_min) + a_min
                 k = 8
                 pygame_draw_ellipse(self.WINDOW, [int(
-                    a*255-3*k)]*3, [x-w, y-w, self.dot_radius+2*w, self.dot_radius+2*w], width=5)
+                    a*255-3*k)]*3, [x-w, y-w, self.dot_radius_x+2*w, self.dot_radius_y+2*w], width=5)
                 pygame_draw_ellipse(self.WINDOW, [int(
-                    a*255-2*k)]*3, [x-w, y-w, self.dot_radius+2*w, self.dot_radius+2*w], width=4)
+                    a*255-2*k)]*3, [x-w, y-w, self.dot_radius_x+2*w, self.dot_radius_y+2*w], width=4)
                 pygame_draw_ellipse(self.WINDOW, [int(
-                    a*255-k)]*3, [x-w, y-w, self.dot_radius+2*w, self.dot_radius+2*w], width=3)
+                    a*255-k)]*3, [x-w, y-w, self.dot_radius_x+2*w, self.dot_radius_y+2*w], width=3)
                 pygame_draw_ellipse(self.WINDOW, [int(
-                    a*255)]*3, [x-w, y-w, self.dot_radius+2*w, self.dot_radius+2*w], width=2)
+                    a*255)]*3, [x-w, y-w, self.dot_radius_x+2*w, self.dot_radius_y+2*w], width=2)
             pygame_draw_ellipse(
                 self.WINDOW, lcolor.surrounding_color, rect_in, width=1)
             pygame_draw_ellipse(self.WINDOW, lcolor.contour_color, [
-                                x-1, y-1, self.dot_radius+2, self.dot_radius+2], width=1)
+                                x-1, y-1, self.dot_radius_x+2, self.dot_radius_y+2], width=1)
 
     def handle_map_events(self):
 
