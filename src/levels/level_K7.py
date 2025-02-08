@@ -95,7 +95,7 @@ def f():
                  doors_list=Dl,
                  fastest_solution="S3 S7 D0 S12 S13 S17 D1 S19 S21 S22 S24 S26 D2 S27 S32 S33 S35 D3 S36 S39 S40 S43 S44 D4 S46 S50 S52 S53 D5 S57 S59 S61 S62 D6",
                  level_color=get_color(),
-                 name='Triangles',
+                 name='K7',
                  keep_proportions=True,
                  door_window_size=400,
                  uniform_surrounding_colors=False,

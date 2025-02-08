@@ -264,7 +264,7 @@ class Levels:
                              lvls.level_hexagon,
                              lvls.level_octahedral_graph,
                              lvls.level_hexagonal_bipyramid,
-                             lvls.level_triangles,),
+                             lvls.level_K7,),
                          [lvls.level_graceful_baby_path,
                           mkc(lvls.level_graceful_triangle,
                               lvls.level_graceful_square,
