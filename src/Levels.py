@@ -27,15 +27,30 @@ class Levels:
              lvls.level_linear,
              lvls.level_electronic,
              lvls.level_variable,
+                [lvls.level_expand_and_simplify,
+                 mkc(lvls.level_orchard,
+                     lvls.level_forest,
+                     lvls.level_jungle,
+                     lvls.level_rainforest,),
+                 mkc(lvls.level_eliminate,
+                     [lvls.level_3sat,
+                     mkc(lvls.level_boustrophedon,
+                         lvls.level_point_of_no_return,
+                         lvls.level_stairs,
+                         lvls.level_conjunctive_normal_form),
+                     mkc(lvls.level_relay,
+                         lvls.level_circuit,
+                         lvls.level_network,
+                         lvls.level_pyramid,
+                         lvls.level_sheffer_stroke,
+                         lvls.level_peirce_s_arrow,),]),
+                 ],
                 mkc(lvls.level_loop,
                     mkc(lvls.level_crossroad,
                         mkc(lvls.level_yoyo,
                             lvls.level_power_down,
                             lvls.level_boolean,
                             lvls.level_alternation),
-                        mkc(lvls.level_order,
-                            lvls.level_blind_alleys,
-                            lvls.level_dead_ends,),
                         mkc(lvls.level_backward,
                             lvls.level_square,
                             lvls.level_binary,
@@ -57,43 +72,28 @@ class Levels:
                             lvls.level_palace,
                             lvls.level_mansion,
                             lvls.level_town,),
+                        mkc(lvls.level_order,
+                            lvls.level_blind_alleys,
+                            lvls.level_dead_ends,),
                         )),
-                [lvls.level_expand_and_simplify,
-                 mkc(lvls.level_orchard,
-                     lvls.level_forest,
-                     lvls.level_jungle,
-                     lvls.level_rainforest,),
-                 mkc(lvls.level_eliminate,
-                     [lvls.level_3sat,
-                     mkc(lvls.level_boustrophedon,
-                         lvls.level_point_of_no_return,
-                         lvls.level_stairs,
-                         lvls.level_conjunctive_normal_form),
-                     mkc(lvls.level_relay,
-                         lvls.level_circuit,
-                         lvls.level_network,
-                         lvls.level_pyramid,
-                         lvls.level_sheffer_stroke,
-                         lvls.level_peirce_s_arrow,),]),
-                 ],
                 [lvls.level_numeration,
-                  mkc(lvls.level_random_simple,
-                   lvls.level_random_bull,
-                   lvls.level_random_butterfly,
-                   lvls.level_random_K2,
-                   lvls.level_random_w6,
-                   lvls.level_random_binary_tree,
-                   lvls.level_random_star,
-                   lvls.level_random_K5,
-                   lvls.level_random_K33,
-                   lvls.level_random_turning,
-                   lvls.level_random_petersen,
-                   lvls.level_random_line,
-                   lvls.level_random_starting_point,
-                   lvls.level_random_up_and_down,
-                   lvls.level_random_come_back,
-                   lvls.level_random_gemini,
-                   lvls.level_random_cuboctahedron,),
+                 mkc(lvls.level_random_simple,
+                  lvls.level_random_bull,
+                  lvls.level_random_butterfly,
+                  lvls.level_random_K2,
+                  lvls.level_random_w6,
+                  lvls.level_random_binary_tree,
+                  lvls.level_random_star,
+                  lvls.level_random_K5,
+                  lvls.level_random_K33,
+                  lvls.level_random_turning,
+                  lvls.level_random_petersen,
+                  lvls.level_random_line,
+                  lvls.level_random_starting_point,
+                  lvls.level_random_up_and_down,
+                  lvls.level_random_come_back,
+                  lvls.level_random_gemini,
+                  lvls.level_random_cuboctahedron,),
                   [lvls.level_move,
                      mkc(lvls.level_tetrahedron,
                          lvls.level_octahedron,
@@ -206,56 +206,58 @@ class Levels:
                               lvls.level_fir,]),
                          ),    
                      mkc(lvls.level_domination_number,
-                         [lvls.level_chromatic,
-                          lvls.level_chromagraph,
-                          mkc(lvls.level_wheel,
-                              lvls.level_rainbow,
-                              lvls.level_coloring,),
+                         [lvls.level_matching,
+                          [lvls.level_chromatic,
+                          lvls.level_colorful,
                           mkc(lvls.level_leaves,
                               lvls.level_branches,
                               lvls.level_tree_skin,
                               lvls.level_tree_bark,),
-                          mkc(lvls.level_torus_maximum_matching,
-                              lvls.level_tetrahedron_maximum_matching,
-                              lvls.level_octahedron_maximum_matching,
-                              lvls.level_cube_maximum_matching,
-                              lvls.level_toroid_maximum_matching,
-                              lvls.level_moser_graph_maximum_matching,
-                              lvls.level_herringbone,
-                              lvls.level_perfect_matching,
-                              lvls.level_3_dimensional_matching,),
-                          mkc(lvls.level_tetrahedron_edges_coloring,
-                              lvls.level_cube_edges_coloring,
-                              lvls.level_octahedron_edges_coloring,
-                              lvls.level_k5_edges_coloring,
-                              lvls.level_k6_edges_coloring,
-                              lvls.level_petersen_graph_edges_coloring),
-                          lvls.level_articulation_point,
-                          ],
-                          mkc(lvls.level_spy,
-                              lvls.level_secret,
-                              lvls.level_dominating_set,
-                              lvls.level_hitting_set,
-                              lvls.level_independent_set,
-                              lvls.level_exact_cover,
-                              lvls.level_domatic_number,),
-                         [lvls.level_shared,
-                          mkc(lvls.level_cubic,
-                              lvls.level_molecule,
-                              lvls.level_zero_3_vertex_clique,
-                              lvls.level_ramsey_theorem,
-                              lvls.level_points,
-                              lvls.level_dots,
-                              lvls.level_von_neumann_neighborhood,
-                              lvls.level_moore_neighborhood,
-                              lvls.level_4_colors_theorem,),
-                          mkc(lvls.level_no_three_in_line,
-                              lvls.level_k,
-                              lvls.level_the_4_queens,
-                              lvls.level_the_8_queens,),
-                          mkc(lvls.level_min_cut,
-                              lvls.level_max_flow,
-                              lvls.level_graph_realization_problem,)],
+                          [lvls.level_rainbow,
+                           [lvls.level_cubic,
+                            mkc(lvls.level_molecule,
+                                lvls.level_von_neumann_neighborhood,
+                                mkc(lvls.level_moore_neighborhood,
+                                    mkc(lvls.level_wheel,
+                                        lvls.level_coloring,
+                                        lvls.level_zero_3_vertex_clique,
+                                        lvls.level_ramsey_theorem,
+                                        lvls.level_4_colors_theorem,),
+                                lvls.level_articulation_point,),
+                                mkc(lvls.level_min_cut,
+                                    lvls.level_max_flow,),),
+                            mkc(lvls.level_tetrahedron_edges_coloring,
+                                lvls.level_cube_edges_coloring,
+                                lvls.level_octahedron_edges_coloring,
+                                lvls.level_k5_edges_coloring,
+                                lvls.level_k6_edges_coloring,
+                                lvls.level_petersen_graph_edges_coloring),
+                            mkc(lvls.level_torus_maximum_matching,
+                                lvls.level_tetrahedron_maximum_matching,
+                                lvls.level_octahedron_maximum_matching,
+                                lvls.level_cube_maximum_matching,
+                                lvls.level_toroid_maximum_matching,
+                                lvls.level_moser_graph_maximum_matching,
+                                lvls.level_herringbone,
+                                lvls.level_perfect_matching,
+                                lvls.level_3_dimensional_matching,),
+                            ]],
+                          [lvls.level_shared,
+                           mkc(lvls.level_points,
+                               lvls.level_dots,),
+                           mkc(lvls.level_spy,
+                               lvls.level_secret,
+                               lvls.level_dominating_set,
+                               lvls.level_hitting_set,
+                               lvls.level_independent_set,
+                               lvls.level_exact_cover,
+                               lvls.level_domatic_number,),
+                           mkc(lvls.level_the_4_queens,
+                               lvls.level_k,
+                               lvls.level_the_8_queens,
+                               lvls.level_no_three_in_line,),
+                           lvls.level_graph_realization_problem,],
+                          ]],
                          mkc(lvls.level_butterfly_graph,
                              lvls.level_sierpinski,
                              lvls.level_the_fourth_triangle,
@@ -280,7 +282,8 @@ class Levels:
                            mkc(lvls.level_harmonious_caterpillar,
                                lvls.level_harmonious_bull,
                                lvls.level_harmonious_house,
-                               lvls.level_harmonious_star)],],),
+                               lvls.level_harmonious_star)],],
+                         ),
                      ],
                 mkc(lvls.level_inside_out,
                     [lvls.level_sorted,
@@ -298,7 +301,6 @@ class Levels:
                            lvls.level_pancake_sorting,)],
                     mkc(lvls.level_invert,
                         [lvls.level_permutate,
-                         lvls.level_superpermutation,
                          mkc(lvls.level_3_cycle,
                              lvls.level_elementary,
                              lvls.level_permutations,
@@ -328,6 +330,7 @@ class Levels:
                          mkc(lvls.level_necklace,
                              lvls.level_necklaces_enumeration,
                              lvls.level_necklace_splitting,),
+                         lvls.level_superpermutation,
                          ],),
                     mkc(lvls.level_alice_and_bob,
                         lvls.level_river,
@@ -397,7 +400,8 @@ class Levels:
                       lvls.level_hypothesis,
                       lvls.level_dichotomy,
                       lvls.level_mastermind,),
-                  ]]]
+                  ]],
+                 ]
     )
     
     level_tree = lt
@@ -580,11 +584,17 @@ def test_levels(test_random_levels=False):
     room_contrast_ratio_list = []
     surrounding_contrast_ratio_list = []
     contour_contrast_ratio_list = []
+    line_contrast_ratio_list = []
     for maze in all_mazes_list:
         lcolor = maze.level_color
         
         background_contrast_ratio = contrast_ratio(lcolor.background_color,
                                                    lcolor.letters_color)
+        
+        line_contrast_ratio = min(contrast_ratio(lcolor.background_color,
+                                                 lcolor.surrounding_color),
+                                  contrast_ratio(lcolor.background_color,
+                                                 lcolor.contour_color))
         
         room_contrast_ratio = contrast_ratio(lcolor.room_color,
                                              lcolor.inside_room_color)
@@ -600,6 +610,7 @@ def test_levels(test_random_levels=False):
                                                     lcolor.contour_color))
         
         background_contrast_ratio_list.append([background_contrast_ratio, maze.name])
+        line_contrast_ratio_list.append([line_contrast_ratio, maze.name])
         room_contrast_ratio_list.append([room_contrast_ratio, maze.name])
         surrounding_contrast_ratio_list.append([surrounding_contrast_ratio, maze.name])
         contour_contrast_ratio_list.append([contour_contrast_ratio, maze.name])
@@ -608,15 +619,22 @@ def test_levels(test_random_levels=False):
         # if room_contrast_ratio < threshold_contrast_ratio:
         #     print(maze.name, f"bad contrast ratio ({room_contrast_ratio}) for letters/room")
     background_contrast_ratio_list.sort(key=lambda x : x[0])
+    line_contrast_ratio_list.sort(key=lambda x : x[0])
     room_contrast_ratio_list.sort(key=lambda x : x[0])
     surrounding_contrast_ratio_list.sort(key=lambda x : x[0])
     contour_contrast_ratio_list.sort(key=lambda x : x[0])
+    # print("\nLevels with worst line/background contrast ratio:")
+    # for cr in line_contrast_ratio_list:
+    #     if cr[0] < 2:
+    #         print([round(cr[0], 3), cr[1]])
     print("\nLevels with worst letter/background contrast ratio:")
-    for i in range(20):
-        print(background_contrast_ratio_list[i])
+    for cr in background_contrast_ratio_list:
+        if cr[0] < 4.5:
+            print([round(cr[0], 3), cr[1]])
     print("\nLevels with worst letter/room contrast ratio:")
-    for i in range(20):
-        print(room_contrast_ratio_list[i])
+    for cr in room_contrast_ratio_list:
+        if cr[0] < 4.5:
+            print([round(cr[0], 3), cr[1]])
     # print("\nLevels with worst surrounding_color contrast ratio:")
     # for i in range(10):
     #     print(surrounding_contrast_ratio_list[i])

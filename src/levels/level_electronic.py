@@ -47,35 +47,45 @@ def f():
                 switches=[S6])
     dx = 1
     dy = 1
-    ex = 0.65
-    ey = 0.65
+    ex = 0.95
+    ey = 0.95
+    ax = 0.25
+    ay = 0.25
+    bx = (ex-ax)/2
+    by = (ey-ay)/2
+    
+    c = Color.color_hls(hu=0.15, li=0.15, sa=0.4)
 
     R0 = Room(name='R0',
                 position=[0*dx, 0*dy, ex, dy+ey],
                 switches_list=[S0, S1])
     R1 = Room(name='R1',
-                position=[0*dx, 2*dy, ex, ey],
-                switches_list=[])
+                position=[0*dx+bx, 2*dy+by, ax, ay],
+                switches_list=[],
+                inside_color=c)
     R2 = Room(name='R2',
                 position=[1*dx, 1*dy, ex, dy+ey],
                 switches_list=[S2, S3])
     R3 = Room(name='R3',
-                position=[1*dx, 0*dy, ex, ey],
-                switches_list=[])
+                position=[1*dx+bx, 0*dy+by, ax, ay],
+                switches_list=[],
+                inside_color=c)
     R4 = Room(name='R4',
                 position=[2*dx, 0*dy, ex, dy+ey],
                 switches_list=[S4, S5])
     R5 = Room(name='R5',
-                position=[2*dx, 2*dy, ex, ey],
-                switches_list=[])
+                position=[2*dx+bx, 2*dy+by, ax, ay],
+                switches_list=[],
+                inside_color=c)
     R6 = Room(name='R6',
                 position=[3*dx, 1*dy, ex, dy+ey],
                 switches_list=[S6, S7])
     R7 = Room(name='R7',
-                position=[3*dx, 0*dy, ex, ey],
-                switches_list=[])
+                position=[3*dx+bx, 0*dy+by, ax, ay],
+                switches_list=[],
+                inside_color=c)
     RE = Room(name='RE',
-              position=[4*dx, 0*dy, ex, 2*dy+ey],
+              position=[4*dx, 0*dy, ex, dy+ey],
               is_exit=True)
 
     D0 = Door(two_way=True,
@@ -90,7 +100,8 @@ def f():
                 name='D1',
                 room_departure=R1,
                 room_arrival=R2,
-                relative_arrival_coordinates=[1/2, (dy+ey/2)/(dy+ey)])
+                relative_departure_coordinates=[1, 1/2],
+                relative_arrival_coordinates=[0, (dy+ey/2)/(dy+ey)])
     D2 = Door(two_way=True,
                 tree=T2,
                 name='D2',
@@ -103,7 +114,8 @@ def f():
                 name='D3',
                 room_departure=R3,
                 room_arrival=R4,
-                relative_arrival_coordinates=[1/2, ey/2/(dy+ey)])
+                relative_departure_coordinates=[1, 1/2],
+                relative_arrival_coordinates=[0, ey/2/(dy+ey)])
     D4 = Door(two_way=True,
                 tree=T4,
                 name='D4',
@@ -116,7 +128,8 @@ def f():
                 name='D5',
                 room_departure=R5,
                 room_arrival=R6,
-                relative_arrival_coordinates=[1/2, (dy+ey/2)/(dy+ey)])
+                relative_departure_coordinates=[1, 1/2],
+                relative_arrival_coordinates=[0, (dy+ey/2)/(dy+ey)])
     D6 = Door(two_way=True,
                 tree=T6,
                 name='D6',
@@ -129,7 +142,8 @@ def f():
                 name='D7',
                 room_departure=R7,
                 room_arrival=RE,
-                relative_arrival_coordinates=[1/2, ey/2/(2*dy+ey)])
+                relative_departure_coordinates=[1, 1/2],
+                relative_arrival_coordinates=[0.15, ey/2/(dy+ey)])
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
@@ -139,7 +153,8 @@ def f():
                  level_color=get_color(),
                  name='Electronic',
                  keep_proportions=True,
-                 door_window_size=300)
+                 door_window_size=300,
+                 uniform_inside_room_color=False)
     
     return level
 

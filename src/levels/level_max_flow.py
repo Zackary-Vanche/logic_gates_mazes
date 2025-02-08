@@ -55,18 +55,16 @@ def f():
     def tree_list_SUM_XOR(n):
         return ['SUM'] + [Tree.tree_list_XOR(2)]*n
     
-    tree_list_0 = ['SUPOREQU',
-                         ['SUM',
-                          tree_list_SUM_XOR(6),
-                          tree_list_SUM_XOR(6),
-                          tree_list_SUM_XOR(6)],
-                         [None]]
+    V0 = Tree(tree_list=tree_list_SUM_XOR(18),
+              name='V0',
+              switches=Slist_tree_0,
+              cut_expression=True)
     
     T0 = Tree(tree_list=['AND',
-                         tree_list_0,
+                         ['SUPOREQU', [None], [None]],
                          ['INF', [None], [None]]],
               name='T0',
-              switches=Slist_tree_0 + [3*4, Sa, Sb],
+              switches=[V0, 3*4, Sa, Sb],
               cut_expression=True)
 
     R0 = Room(name='R0',

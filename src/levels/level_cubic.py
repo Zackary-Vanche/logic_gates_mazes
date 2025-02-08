@@ -35,7 +35,8 @@ def f():
                           S4, S5,
                           S4, S6,
                           S5, S7,
-                          S6, S7])
+                          S6, S7],
+                cut_expression_depth_1=True)
 
     R0 = Room(name='R0',
                 position=[0, 0, 1, 1],

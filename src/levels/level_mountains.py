@@ -184,6 +184,6 @@ def f():
 def get_color():
     lcolor = Levels_colors_list.FROM_HUE(hu=0.16, sa=0.2, li=0.6)
     lcolor.room_color = Color.color_hls(hu=0.6, sa=0.1, li=0.6)
-    lcolor.inside_room_color = Color.color_hls(hu=0.4, sa=0.1, li=0.2)
+    lcolor.inside_room_color = Color.color_hls(hu=0.4, sa=0.1, li=0.1)
     lcolor.surrounding_color = Color.color_hls(hu=0.1, sa=0.6, li=0.4)
     return lcolor

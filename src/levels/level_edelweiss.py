@@ -118,7 +118,8 @@ def f(fast_solution_finding=False):
                 name='D0',
                 room_departure=R0,
                 room_arrival=R6,
-                relative_departure_coordinates=[0.5/1.5, 0.5/5])
+                relative_departure_coordinates=[0.5/1.5, 0.5/5],
+                surrounding_color=Color.WHITE)
     D1 = Door(two_way=True,
                 tree=T1,
                 name='D1',
@@ -153,32 +154,38 @@ def f(fast_solution_finding=False):
                 tree=T6,
                 name='D6',
                 room_departure=R2,
-                room_arrival=R3)
+                room_arrival=R3,
+                surrounding_color=Color.WHITE)
     D7 = Door(two_way=True,
                 tree=T7,
                 name='D7',
                 room_departure=R3,
-                room_arrival=R4)
+                room_arrival=R4,
+                surrounding_color=Color.WHITE)
     D8 = Door(two_way=True,
                 tree=T8,
                 name='D8',
                 room_departure=R4,
-                room_arrival=R5)
+                room_arrival=R5,
+                surrounding_color=Color.WHITE)
     D9 = Door(two_way=True,
                 tree=T9,
                 name='D9',
                 room_departure=R5,
-                room_arrival=R6)
+                room_arrival=R6,
+                surrounding_color=Color.WHITE)
     D10 = Door(two_way=True,
                 tree=T10,
                 name='D10',
                 room_departure=R6,
-                room_arrival=R2)
+                room_arrival=R2,
+                surrounding_color=Color.WHITE)
     D11 = Door(two_way=False,
                 tree=T11,
                 name='D11',
                 room_departure=R4,
-                room_arrival=RE)
+                room_arrival=RE,
+                surrounding_color=Color.WHITE)
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
@@ -196,5 +203,5 @@ def f(fast_solution_finding=False):
 def get_color():
     lcolor = Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0.6)
     lcolor.surrounding_color = Color.WHITE
-    lcolor.background_color = Color.color_hls(hu=0.4, li=0.1, sa=0.5)
+    lcolor.background_color = Color.color_hls(hu=0.4, li=0.1, sa=0.6)
     return lcolor

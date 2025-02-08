@@ -291,6 +291,6 @@ def f():
     return level
 
 def get_color():
-    lcolor = Levels_colors_list.FROM_HUE(hu=0.425, sa=0.4, li=0.375)
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.425, sa=0.4, li=0.3)
     lcolor.surrounding_color = Color.ORANGE
     return lcolor

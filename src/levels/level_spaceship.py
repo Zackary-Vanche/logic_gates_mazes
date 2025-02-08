@@ -192,7 +192,7 @@ def f():
     return level
 
 def get_color():
-    lcolor = Levels_colors_list.FROM_HUE(hu=0.6, sa=0.3, li=0.4)
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.6, sa=0.3, li=0.3)
     lcolor.surrounding_color=Color.TOTAL_YELLOW
     lcolor.contour_color=Color.TOTAL_YELLOW
     lcolor.letters_color=Color.TOTAL_YELLOW

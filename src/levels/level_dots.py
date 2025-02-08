@@ -102,7 +102,7 @@ def f():
 
 def get_color():
     hu = rd_random()
-    lcolor = Levels_colors_list.FROM_HUE(hu, sa=0.5, li=0.35)
+    lcolor = Levels_colors_list.FROM_HUE(hu, sa=0.5, li=0.25)
     lcolor.surrounding_color=Color.color_hls(hu=hu+0.5, sa=0.9, li=0.8)
     lcolor.contour_color=Color.color_hls(hu=hu+0.5, sa=0.9, li=0.8)
     lcolor.letter_color = Color.WHITE

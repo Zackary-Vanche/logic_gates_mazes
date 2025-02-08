@@ -394,7 +394,7 @@ def f(fast_solution_finding=False):
     return level
 
 def get_color():
-    lcolor = Levels_colors_list.FROM_HUE(hu=0.4, sa=0.5, li=0.3)
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.4, sa=0.5, li=0.25)
     c = Color.IVORY
     lcolor.inside_room_color = c
     lcolor.letters_color = c

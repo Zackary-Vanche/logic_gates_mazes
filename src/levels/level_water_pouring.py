@@ -500,4 +500,4 @@ S0 S2 D13'''.replace('\n', ' ')
     return level
 
 def get_color():
-    return Levels_colors_list.FROM_HUE(0.58, sa=0.8, li=0.35)
+    return Levels_colors_list.FROM_HUE(0.58, sa=0.8, li=0.25)

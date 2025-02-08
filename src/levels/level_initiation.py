@@ -5,26 +5,31 @@ from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
 from random import shuffle as rd_shuffle
+from random import choice as rd_choice
 
 def f():
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
     
-    tl_list = [Tree.tree_list_OR(2),
-               ["OR", Tree.tree_list_NOT, [None]],
-               ["OR", [None], Tree.tree_list_NOT],
-               ["OR", Tree.tree_list_NOT, Tree.tree_list_NOT]]
+    tl_list = ['0 0', '0 1', '1 0', '1 1']
     rd_shuffle(tl_list)
 
-    T0 = Tree(tree_list=tl_list[0],
+    T0 = Tree(tree_list=Tree.tree_list_from_str(tl_list[0]),
               name='T0',
               switches=[S0, S1])
-    T1 = Tree(tree_list=tl_list[1],
+    T1 = Tree(tree_list=Tree.tree_list_from_str(tl_list[1]),
               name='T1',
               switches=[S0, S1])
-    T2 = Tree(tree_list=tl_list[2],
+    T2 = Tree(tree_list=Tree.tree_list_from_str(tl_list[2]),
               name='T2',
               switches=[S0, S1])
+    
+    a = int(tl_list[-1].split(' ')[0])
+    b = int(tl_list[-1].split(' ')[1])
+    
+    a, b = rd_choice([[a, b], [not a, b], [a, not b]])
+    S0.value = a
+    S1.value = b
 
     c = 1
     e = 0.6

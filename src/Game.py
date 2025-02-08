@@ -393,34 +393,31 @@ class Game:
                 real_arrival_coordinates = door.real_arrival_coordinates
                 if not door.is_open:
                     if self.uniform_surrounding_colors:
-                        pygame_draw_line(self.WINDOW,
-                                         self.room_color,
-                                         real_departure_coordinates,
-                                         real_arrival_coordinates,
-                                         self.line_size)
+                        c = self.room_color
                     else:
-                        pygame_draw_line(self.WINDOW,
-                                         door.inside_color,
-                                         real_departure_coordinates,
-                                         real_arrival_coordinates,
-                                         self.line_size)
+                        c = door.inside_color
+                    pygame_draw_line(self.WINDOW,
+                                     c,
+                                     real_departure_coordinates,
+                                     real_arrival_coordinates,
+                                     self.line_size)
         for door in self.maze.doors_set:
             if self.maze.current_page in door.pages_list:
                 real_departure_coordinates = door.real_departure_coordinates
                 real_arrival_coordinates = door.real_arrival_coordinates
+                if self.uniform_surrounding_colors:
+                    c = self.surrounding_color
+                else:
+                    c = door.surrounding_color
                 if door.is_open:
-                    if self.uniform_surrounding_colors:
-                        pygame_draw_line(self.WINDOW,
-                                         self.surrounding_color,
-                                         real_departure_coordinates,
-                                         real_arrival_coordinates,
-                                         self.line_size)
-                    else:
-                        pygame_draw_line(self.WINDOW,
-                                         door.surrounding_color,
-                                         real_departure_coordinates,
-                                         real_arrival_coordinates,
-                                         self.line_size)
+                    line_size = self.line_size
+                    pygame_draw_line(self.WINDOW,
+                                c,
+                                real_departure_coordinates,
+                                real_arrival_coordinates,
+                                line_size)
+                #else:
+                #    line_size = 1     
 
     def draw_exterior_lines(self):
         if self.show_map:
@@ -613,25 +610,12 @@ class Game:
             else:
                 surrounding_color = room.surrounding_color
             
-            # if not self.update_display_at_every_loop:
             if self.maze.current_room() == room:
                 line_size = self.line_size
             else:
                 line_size = 1
                 a = 1/3
                 surrounding_color = a*array(surrounding_color)+(1-a)*array(room_color)
-            # else:
-            #     if self.maze.current_room() == room:
-            #         line_size = self.line_size
-            #         a = (sin(time()*4)+1)/2 # between 0 and 1
-            #         a_min = 0.5
-            #         a_max = 1
-            #         a = a * (a_max-a_min) + a_min
-            #         surrounding_color = a*array(surrounding_color)+(1-a)*array(room_color)
-            #     else:
-            #         line_size = 1
-            #         a = 1/3
-            #         surrounding_color = a*array(surrounding_color)+(1-a)*array(room_color)
                 
             if self.maze.current_page in room.pages_list:
                 [x_gap, y_gap, x, y] = array(room.position[self.maze.current_page])
@@ -716,24 +700,26 @@ class Game:
                 arrow_coordinates = door.arrow_coordinates
                 self.element_dict[door.name] = arrow_coordinates
                 if self.uniform_inside_room_color:
-                    pygame_draw_polygon(self.WINDOW,
-                                        self.room_color,
-                                        arrow_coordinates)
+                    inside_color = self.room_color
                 else:
-                    pygame_draw_polygon(self.WINDOW,
-                                        door.inside_color,
-                                        arrow_coordinates)
+                    inside_color = door.inside_color
+                pygame_draw_polygon(self.WINDOW,
+                                    inside_color,
+                                    arrow_coordinates)
+                if self.uniform_surrounding_colors:
+                    surrounding_color = self.surrounding_color
+                else:
+                    surrounding_color = door.surrounding_color
                 if door.is_open:
-                    if self.uniform_surrounding_colors:
-                        pygame_draw_polygon(self.WINDOW,
-                                            self.surrounding_color,
-                                            arrow_coordinates,
-                                            width=3)
-                    else:
-                        pygame_draw_polygon(self.WINDOW,
-                                            door.surrounding_color,
-                                            arrow_coordinates,
-                                            width=3)
+                    width = 3
+                else:
+                    width = 1
+                    a = 1/3
+                    surrounding_color = a*array(surrounding_color)+(1-a)*array(inside_color)
+                pygame_draw_polygon(self.WINDOW,
+                                    surrounding_color,
+                                    arrow_coordinates,
+                                    width=width)
 
     def print_doors_names(self):
         # Affichage des portes
@@ -1385,15 +1371,13 @@ class Game:
         # Affichage des lignes des portes
         color_list = [Color.GREY_100, Color.GREY_120, Color.GREY_140, Color.GREY_160, Color.GREY_180]
         line_size_list = [10, 8, 6, 4, 2]
-        for i in range(len(line_size_list)):
-            for edge in self.edges_list:
-                pygame_draw_line(self.WINDOW,
-                                 color_list[i],
-                                 [self.dx*(edge[0][0]+self.map_pos_x),
-                                           self.dy*(edge[0][1]+self.map_pos_y)],
-                                 [self.dx*(edge[1][0]+self.map_pos_x),
-                                           self.dy*(edge[1][1]+self.map_pos_y)],
-                                 line_size_list[i])
+        for edge in self.edges_list:
+            a = self.dx*(edge[0][0]+self.map_pos_x)
+            b = self.dy*(edge[0][1]+self.map_pos_y)
+            c = self.dx*(edge[1][0]+self.map_pos_x)
+            d = self.dy*(edge[1][1]+self.map_pos_y)
+            for i in range(len(line_size_list)):
+                pygame_draw_line(self.WINDOW, color_list[i], [c, d], [a, b], line_size_list[i])
 
     def draw_map_dots(self):
         self.levels_true_positions_dict = {}
@@ -1404,7 +1388,12 @@ class Game:
             y = self.dy*(y+self.map_pos_y)-self.dot_radius/2
             rect = [x, y, self.dot_radius, self.dot_radius]
             self.levels_true_positions_dict[node] = rect
-            if self.levels_success_list[self.level_number_dict[node]] or self.dev_mode:
+            previous_node = '_'.join(node.split('_')[:-1])
+            success_previous_node = self.levels_success_list[self.level_number_dict[previous_node]]
+            success_node = self.levels_success_list[self.level_number_dict[node]]
+            if success_node or self.dev_mode:
+                lcolor = self.level_color_dict[node]
+            elif node == '' or success_previous_node:
                 lcolor = self.level_color_dict[node]
             else:
                 lcolor = Levels_colors_list.GREY
@@ -1413,9 +1402,6 @@ class Game:
             rect_in = [x+self.dot_radius/4, y+0.45*self.dot_radius, self.dot_radius/2, self.dot_radius/2]
             pygame_draw_ellipse(self.WINDOW, lcolor.background_color, rect)
             pygame_draw_ellipse(self.WINDOW, lcolor.room_color, rect_in)
-            previous_node = '_'.join(node.split('_')[:-1])
-            success_previous_node = self.levels_success_list[self.level_number_dict[previous_node]]
-            success_node = self.levels_success_list[self.level_number_dict[node]]
             if (success_previous_node or node=='') and not success_node and not self.dev_mode:
                 w = 8
                 a = (sin(time()*4)+1)/2 # between 0 and 1
@@ -1498,7 +1484,7 @@ class Game:
                             try:
                                 self.maze = self.level_module.f()
                             except:
-                                print(self.maze.name)
+                                print(self.level_module)
                                 raise
                             assert isinstance(self.maze, Maze)
                             self.node = node

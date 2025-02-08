@@ -196,7 +196,7 @@ def f():
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7],
                  fastest_solution="S0 S3 S8 D0 D7",
                  level_color=get_color(),
-                 name='Chromagraph',
+                 name='Colorful',
                  keep_proportions=True,
                  door_window_size=360,
                  uniform_surrounding_colors=False,

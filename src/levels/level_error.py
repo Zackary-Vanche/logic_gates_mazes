@@ -344,4 +344,4 @@ def f():
     return level
 
 def get_color():
-    return Levels_colors_list.FROM_HUE(hu=0.21, sa=0.3, li=0.35)
+    return Levels_colors_list.FROM_HUE(hu=0.21, sa=0.3, li=0.2)

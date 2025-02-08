@@ -221,7 +221,7 @@ def f():
 def get_color():
     hu = rd_random()
     color=Color.color_hls(hu=hu, li=0.7, sa=0.8)
-    lcolor=Levels_colors_list.FROM_HUE(hu=hu, sa=0.2, li=0.4)
+    lcolor=Levels_colors_list.FROM_HUE(hu=hu, sa=0.2, li=0.3)
     lcolor.surrounding_color=color
     lcolor.contour_color=color
     return lcolor
