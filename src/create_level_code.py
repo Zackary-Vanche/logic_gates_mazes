@@ -1,7 +1,7 @@
-ns = 4
-nd = 1
-nr = 1
-nv = 0
+ns = 15
+nd = 5
+nr = 5
+nv = 5
 ####
 ####
 ####
@@ -32,11 +32,11 @@ print('')
 # for i in range(nv):
 #     print(f'    Slist_{i} = []')
 
-for i in range(nv):
-    print(f'    Slist_{i} = [S{2*i}, S{2*i+1}]')
-
 # for i in range(nv):
-#     print(f'    Slist_{i} = [S{3*i}, S{3*i+1}, S{3*i+2}]')
+#     print(f'    Slist_{i} = [S{2*i}, S{2*i+1}]')
+
+for i in range(nv):
+    print(f'    Slist_{i} = [S{3*i}, S{3*i+1}, S{3*i+2}]')
     
 # for i in range(nv):
 #     print(f'    Slist_{i} = [S{4*i}, S{4*i+1}, S{4*i+2}, S{4*i+3}]')

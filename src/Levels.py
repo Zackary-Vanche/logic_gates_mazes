@@ -54,6 +54,7 @@ class Levels:
                         mkc(lvls.level_backward,
                             lvls.level_square,
                             lvls.level_binary,
+                            lvls.level_ebb_and_flow,
                             lvls.level_bis_repetita,
                             lvls.level_recurrence,
                             lvls.level_bipartite,
@@ -73,8 +74,9 @@ class Levels:
                             lvls.level_mansion,
                             lvls.level_town,),
                         mkc(lvls.level_order,
-                            lvls.level_blind_alleys,
-                            lvls.level_dead_ends,),
+                            [lvls.level_blind_alleys,
+                             lvls.level_dead_ends,
+                             lvls.level_keys,]),
                         )),
                 [lvls.level_numeration,
                  mkc(lvls.level_random_simple,
@@ -695,6 +697,8 @@ def test_levels(test_random_levels=False):
     assert len(lvls.level_numeration.f().find_all_solutions()) != 0
     print("3 cycle")
     assert len(lvls.level_3_cycle.f().find_all_solutions()) != 0
+    # print("Keys")
+    # assert len(lvls.level_keys.f().find_all_solutions()) != 0
     print("Graceful random tree")
     assert len(lvls.level_graceful_random_tree.f().find_all_solutions()) != 0
 
@@ -793,7 +797,7 @@ if __name__ == "__main__":
     
     # # # fast_solution_finding=True
     
-    # level = lvls.level_alternation.f()
+    # level = lvls.level_keys.f()
     # solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True,
     #                                       DFS=False,
     #                                       initial_try=())
