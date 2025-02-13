@@ -225,7 +225,8 @@ class Levels:
                                         lvls.level_zero_3_vertex_clique,
                                         lvls.level_ramsey_theorem,
                                         lvls.level_4_colors_theorem,),
-                                lvls.level_articulation_point,),
+                                mkc(lvls.level_exact_cover,
+                                    lvls.level_articulation_point,)),
                                 mkc(lvls.level_min_cut,
                                     lvls.level_max_flow,),),
                             mkc(lvls.level_tetrahedron_edges_coloring,
@@ -251,7 +252,6 @@ class Levels:
                                lvls.level_dominating_set,
                                lvls.level_hitting_set,
                                lvls.level_independent_set,
-                               lvls.level_exact_cover,
                                lvls.level_secret,
                                lvls.level_domatic_number,),
                            mkc(lvls.level_the_4_queens,
@@ -706,7 +706,8 @@ def test_levels(test_random_levels=False):
                          lvls.level_isomorphism]:
         level = level_module.f()
         print(level.name)
-        assert len(level.find_all_solutions()) != 0
+        # for _ in tqdm(range(10)):
+        assert len(level_module.f().find_all_solutions()) != 0
     # print("Graceful random tree")
     # assert len(lvls.level_graceful_random_tree.f().find_all_solutions()) != 0
 
