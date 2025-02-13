@@ -207,7 +207,7 @@ class Levels:
                                   lvls.level_cypress),
                               lvls.level_fir,]),
                          ),    
-                     mkc(lvls.level_domination_number,
+                     [lvls.level_domination_number,
                          [lvls.level_matching,
                           [lvls.level_chromatic,
                           mkc(lvls.level_leaves,
@@ -267,6 +267,10 @@ class Levels:
                              lvls.level_octahedral_graph,
                              lvls.level_hexagonal_bipyramid,
                              lvls.level_K7,),
+                         mkc(lvls.level_claw_graph,
+                             lvls.level_paw_graph,
+                             lvls.level_diamond_graph,
+                             lvls.level_isomorphism),
                          [lvls.level_graceful_baby_path,
                           mkc(lvls.level_graceful_triangle,
                               lvls.level_graceful_square,
@@ -285,7 +289,7 @@ class Levels:
                                lvls.level_harmonious_bull,
                                lvls.level_harmonious_house,
                                lvls.level_harmonious_star)],],
-                         ),
+                         ],
                      ],
                 mkc(lvls.level_inside_out,
                     [lvls.level_sorted,
@@ -629,14 +633,14 @@ def test_levels(test_random_levels=False):
     # for cr in line_contrast_ratio_list:
     #     if cr[0] < 2:
     #         print([round(cr[0], 3), cr[1]])
-    print("\nLevels with worst letter/background contrast ratio:")
-    for cr in background_contrast_ratio_list:
-        if cr[0] < 4.5:
-            print([round(cr[0], 3), cr[1]])
-    print("\nLevels with worst letter/room contrast ratio:")
-    for cr in room_contrast_ratio_list:
-        if cr[0] < 4.5:
-            print([round(cr[0], 3), cr[1]])
+    # print("\nLevels with worst letter/background contrast ratio:")
+    # for cr in background_contrast_ratio_list:
+    #     if cr[0] < 4.5:
+    #         print([round(cr[0], 3), cr[1]])
+    # print("\nLevels with worst letter/room contrast ratio:")
+    # for cr in room_contrast_ratio_list:
+    #     if cr[0] < 4.5:
+    #         print([round(cr[0], 3), cr[1]])
     # print("\nLevels with worst surrounding_color contrast ratio:")
     # for i in range(10):
     #     print(surrounding_contrast_ratio_list[i])
@@ -651,6 +655,8 @@ def test_levels(test_random_levels=False):
     levels_used_names_list = [str(level_module).split('\\')[-1].split('.')[0] for level_module in Levels.levels_modules_list]
     print(len(levels_folder_names_list), 'levels')
     print(set(levels_folder_names_list) - set(levels_used_names_list), 'not used')
+    maze_names = [maze.name for maze in all_mazes_list]
+    assert len(set(maze_names)) == len(maze_names)
 
     print('\nTrying all solutions')
     for maze in tqdm(all_mazes_list):
@@ -691,16 +697,18 @@ def test_levels(test_random_levels=False):
     sol = solutions[0][0]
     print("Cartesian")
     assert lvls.level_cartesian.f().fastest_solution == ' '.join(sol)
-    print("Arithmetic")
-    assert len(lvls.level_arithmetic.f().find_all_solutions()) != 0
-    print("Numeration")
-    assert len(lvls.level_numeration.f().find_all_solutions()) != 0
-    print("3 cycle")
-    assert len(lvls.level_3_cycle.f().find_all_solutions()) != 0
-    # print("Keys")
-    # assert len(lvls.level_keys.f().find_all_solutions()) != 0
-    print("Graceful random tree")
-    assert len(lvls.level_graceful_random_tree.f().find_all_solutions()) != 0
+    for level_module in [lvls.level_arithmetic,
+                         lvls.level_numeration,
+                         lvls.level_3_cycle,
+                         lvls.level_claw_graph,
+                         lvls.level_paw_graph,
+                         lvls.level_diamond_graph,
+                         lvls.level_isomorphism]:
+        level = level_module.f()
+        print(level.name)
+        assert len(level.find_all_solutions()) != 0
+    # print("Graceful random tree")
+    # assert len(lvls.level_graceful_random_tree.f().find_all_solutions()) != 0
 
     if test_random_levels:
         print('\nTesting random levels')

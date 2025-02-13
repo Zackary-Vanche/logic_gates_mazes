@@ -885,6 +885,7 @@ class Game:
 
     def display_game_window(self):
         try:
+            self.element_dict = {}
             self.font = pygame_font_SysFont(None, self.font_size)
             self.WINDOW.fill(self.background_color)
             self.uniform_surrounding_colors = self.maze.uniform_surrounding_colors
@@ -1430,7 +1431,7 @@ class Game:
                 assert self.levels_true_positions_dict.keys() == self.levels_dict.keys(
                 ), f"{self.levels_true_positions_dict.keys} {self.levels_dict.keys}"
                 px, py = event.pos
-                d = 4
+                d = 6
                 if point_in_polygon(event.pos, self.right_arrow_map_button):
                     self.play_footstep()
                     self.map_pos_x += -d
@@ -1850,7 +1851,6 @@ class Game:
                 return None
 
     def play_level(self):
-        self.handle_events()
         self.get_level()
         self.update_window_size()
         if self.show_help:
@@ -1867,6 +1867,7 @@ class Game:
                 self.save_image_as_file()
         self.change_level()
         self.handle_K_UP_DOWN()
+        self.handle_events()
         if self.update_to_save_images():  # It means you quit the game
             return None
 

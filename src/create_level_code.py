@@ -1,7 +1,7 @@
-ns = 15
-nd = 5
+ns = 8
+nd = 6
 nr = 5
-nv = 5
+nv = 4
 ####
 ####
 ####
@@ -25,18 +25,21 @@ def f():
 for i in range(ns):
     print(f'''    S{i} = Switch(name='S{i}')''')
     
-print('')
-print(f'''    Slist = [{', '.join([f'S{i}' for i in range(ns)])}]''')
-print('')
+# print('')
+# print(f'''    Slist = [{', '.join([f'S{i}' for i in range(ns)])}]''')
+# print('')
 
 # for i in range(nv):
 #     print(f'    Slist_{i} = []')
 
-# for i in range(nv):
-#     print(f'    Slist_{i} = [S{2*i}, S{2*i+1}]')
-
 for i in range(nv):
-    print(f'    Slist_{i} = [S{3*i}, S{3*i+1}, S{3*i+2}]')
+    print(f'    Slist_{i} = [S{2*i}, S{2*i+1}]')
+
+# for i in range(nv):
+#     print(f'    Slist_{i} = [S{3*i}, S{3*i+1}, S{3*i+2}]')
+    
+# for i in range(nv):
+#     print(f"    Slist_{i} = Sl_list[{i}]")
     
 # for i in range(nv):
 #     print(f'    Slist_{i} = [S{4*i}, S{4*i+1}, S{4*i+2}, S{4*i+3}]')
@@ -162,10 +165,17 @@ for i in range(nd):
     
 for i in range(nd):
     print(f'''    D{i} = Door(two_way=False,
-                tree=get_tree({i}),
+                tree=T{i},
                 name='D{i}',
-                room_departure=R{i},
+                room_departure=R0,
                 room_arrival=R{i+1})''')
+    
+# for i in range(nd):
+#     print(f'''    D{i} = Door(two_way=False,
+#                 tree=get_tree({i}),
+#                 name='D{i}',
+#                 room_departure=R{i},
+#                 room_arrival=R{i+1})''')
 
 print(f'''
     level = Maze(start_room_index=0,
