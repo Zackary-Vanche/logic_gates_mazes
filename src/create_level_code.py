@@ -1,7 +1,7 @@
-ns = 8
-nd = 6
-nr = 5
-nv = 4
+ns = 4
+nd = 4
+nr = 4
+nv = 0
 ####
 ####
 ####
@@ -32,11 +32,11 @@ for i in range(ns):
 # for i in range(nv):
 #     print(f'    Slist_{i} = []')
 
-for i in range(nv):
-    print(f'    Slist_{i} = [S{2*i}, S{2*i+1}]')
-
 # for i in range(nv):
-#     print(f'    Slist_{i} = [S{3*i}, S{3*i+1}, S{3*i+2}]')
+#     print(f'    Slist_{i} = [S{2*i}, S{2*i+1}]')
+
+for i in range(nv):
+    print(f'    Slist_{i} = [S{3*i}, S{3*i+1}, S{3*i+2}]')
     
 # for i in range(nv):
 #     print(f"    Slist_{i} = Sl_list[{i}]")
@@ -67,10 +67,13 @@ for i in range(nv):
 #           name='V{i}',
 #           switches=Sl[9*{i}:9*{i}+9])''')
 
-# for i in range(nv):
-#     print(f'''    V{i} = Tree(tree_list=tree_list_V,
-#           name='V{i}',
-#           switches=[V, 21, V])''')
+for i in range(nv):
+    print(f'''    V{i} = Tree(tree_list=tree_list_V,
+          name='V{i}',
+          switches=[V0, V{i-6}, 0,
+                    V1, V{i-6}, 1,
+                    V2, V{i-6}, 2,
+                    V3, V{i-6}, 3,])''')
 
 if nv != 0:
     print('')
@@ -163,12 +166,12 @@ for i in range(nd):
                 room_departure=R{i},
                 room_arrival=R{i+1})''')
     
-for i in range(nd):
-    print(f'''    D{i} = Door(two_way=False,
-                tree=T{i},
-                name='D{i}',
-                room_departure=R0,
-                room_arrival=R{i+1})''')
+# for i in range(nd):
+#     print(f'''    D{i} = Door(two_way=False,
+#                 tree=T{i},
+#                 name='D{i}',
+#                 room_departure=R0,
+#                 room_arrival=R{i+1})''')
     
 # for i in range(nd):
 #     print(f'''    D{i} = Door(two_way=False,

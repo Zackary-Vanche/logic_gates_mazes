@@ -28,12 +28,6 @@ def f():
     S15 = Switch(name='S15')
     S16 = Switch(name='S16')
     S17 = Switch(name='S17')
-    # S18 = Switch(name='S18')
-    # S19 = Switch(name='S19')
-    # S20 = Switch(name='S20')
-    # S21 = Switch(name='S21')
-    # S22 = Switch(name='S22')
-    # S23 = Switch(name='S23')
 
     Slist_0 = [S0, S1, S2]
     Slist_1 = [S3, S4, S5]

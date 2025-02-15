@@ -96,7 +96,8 @@ class Levels:
                   lvls.level_random_come_back,
                   lvls.level_random_gemini,
                   lvls.level_random_cuboctahedron,),
-                  [lvls.level_move,
+                  [lvls.level_easy,
+                   [lvls.level_move,
                      mkc(lvls.level_tetrahedron,
                          lvls.level_octahedron,
                          lvls.level_cube,
@@ -206,7 +207,7 @@ class Levels:
                                   lvls.level_gingko_biloba,
                                   lvls.level_cypress),
                               lvls.level_fir,]),
-                         ),    
+                         ),],   
                      [lvls.level_domination_number,
                          [lvls.level_matching,
                           [lvls.level_chromatic,
@@ -260,17 +261,20 @@ class Levels:
                                lvls.level_no_three_in_line,),
                            lvls.level_graph_realization_problem,],
                           ]],
-                         mkc(lvls.level_butterfly_graph,
-                             lvls.level_sierpinski,
-                             lvls.level_the_fourth_triangle,
-                             lvls.level_hexagon,
-                             lvls.level_octahedral_graph,
-                             lvls.level_hexagonal_bipyramid,
-                             lvls.level_K7,),
                          mkc(lvls.level_claw_graph,
                              lvls.level_paw_graph,
-                             lvls.level_diamond_graph,
-                             lvls.level_isomorphism),
+                             [lvls.level_diamond_graph,
+                              mkc(lvls.level_butterfly_graph,
+                                  lvls.level_sierpinski,
+                                  lvls.level_the_fourth_triangle,
+                                  lvls.level_hexagon,
+                                  lvls.level_octahedral_graph,
+                                  lvls.level_hexagonal_bipyramid,
+                                  lvls.level_K7,),
+                             lvls.level_isomorphism,
+                             mkc(lvls.level_self_complementary_graph,
+                                 lvls.level_split,
+                                 lvls.level_fracture)]),
                          [lvls.level_graceful_baby_path,
                           mkc(lvls.level_graceful_triangle,
                               lvls.level_graceful_square,
@@ -313,8 +317,13 @@ class Levels:
                              lvls.level_inversions,
                              lvls.level_spare,
                              [lvls.level_vortex,
-                              mkc(lvls.level_oval_track_puzzle,
+                              mkc(lvls.level_classified,
+                                  lvls.level_baguenaudier,
+                                  lvls.level_towers,
+                                  lvls.level_oval_track_puzzle,
                                   [lvls.level_puzzle,
+                                   mkc(lvls.level_solitaire,
+                                       lvls.level_water_pouring,),
                                    mkc(lvls.level_panex,
                                        lvls.level_hungarian_rings,
                                        [lvls.level_cellular_automaton,
@@ -325,14 +334,9 @@ class Levels:
                                             lvls.level_parking,)])]),
                               mkc(lvls.level_first_guarini_s_problem,
                                   lvls.level_second_guarini_s_problem,),
-                              mkc(lvls.level_box,
+                              mkc(lvls.level_temple,
+                                  lvls.level_box,
                                   lvls.level_error,),]),
-                         mkc(lvls.level_temple,
-                             lvls.level_classified,
-                             lvls.level_baguenaudier,
-                             lvls.level_towers,
-                             lvls.level_solitaire,
-                             lvls.level_water_pouring,),
                          mkc(lvls.level_necklace,
                              lvls.level_necklaces_enumeration,
                              lvls.level_necklace_splitting,),
@@ -789,24 +793,8 @@ if __name__ == "__main__":
     pass
 
     test_levels()
-
-    # import os
     
-    # if not os.path.exists('temp'):
-    #     os.mkdir('temp')
-    
-    # dico_i_level_name = {}
-    # for i, level_funtion in enumerate(Levels.levels_modules_list):
-    #     dico_i_level_name[level_funtion().name] = i
-    
-    # with open('temp/level_numbers.txt', 'w') as fw:
-    #     for name in sorted(dico_i_level_name.keys()):
-    #         i = dico_i_level_name[name]
-    #         fw.write(f'{name: <25} {i}\n')
-    
-    # # # fast_solution_finding=True
-    
-    # level = lvls.level_keys.f()
+    # level = lvls.level_split.f()
     # solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True,
     #                                       DFS=False,
     #                                       initial_try=())
@@ -815,43 +803,8 @@ if __name__ == "__main__":
     # print('\n')
     # for sol in solutions[0]:
     #     print(' '.join(sol))
+    
     # for sol in solutions[0]:
     #     print(' '.join(sol).count('S'))
-        
-    #    D0 S1 D1    D2 S3 D3 D4 D5 D6 D7
-    # S0 D0 S1 D1    D2 S3 D3 D4 D5 D6 D7
-    #    D0 S1 D1 S2 D2 S3 D3 D4 D5 D6 D7
-    # S0 D0 S1 D1 S2 D2 S3 D3 D4 D5 D6 D7
-    
-        
-    
-#     sol_list = """S1 D0 S10 D0 D5 S4 D6 S9 D6 D5 D9 S6 D3 S17 D3 D9 S1 D0 D10 S13 D10 D0 D15
-# S1 D0 S10 D0 D5 S4 D6 S9 D6 D5 D9 S6 D3 S17 D3 D9 S1 D0 S10 S11 D10 S12 D10 D0 D15""".split("\n")
-
-#     nsol = 0
-#     for sol in sol_list:
-#         if level.try_solution(sol) == 2:
-#             nsol += 1
-#             print(sol)
-#     print(nsol)
-    
-#     for sol in sol_list:
-#         sol = sol.split(' ')
-#         sol = [a for a in sol if 'S' in a]
-#         sol = ' '.join(sol)
-#         print(sol)
-    
-    # print(level.try_solution(level.fastest_solution, verbose=2))
-    
-    # #print(level.fastest_solution.count('D'))
-    
-    # all_roots_names = set()
-    # for level_function in Levels.levels_modules_list:
-    #     level = level_function()
-    #     level_roots_names = level.roots_names_set
-    #     if level_roots_names - all_roots_names != set():
-    #         print(level.name, level_roots_names - all_roots_names)
-    #         all_roots_names = all_roots_names | level_roots_names
-    
     
     
