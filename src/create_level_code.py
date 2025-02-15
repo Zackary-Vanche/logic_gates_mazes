@@ -1,6 +1,6 @@
-ns = 4
-nd = 4
-nr = 4
+ns = 12+7
+nd = 12+2
+nr = 7+1
 nv = 0
 ####
 ####
@@ -26,7 +26,7 @@ for i in range(ns):
     print(f'''    S{i} = Switch(name='S{i}')''')
     
 # print('')
-# print(f'''    Slist = [{', '.join([f'S{i}' for i in range(ns)])}]''')
+print(f'''    Slist = [{', '.join([f'S{i}' for i in range(ns)])}]''')
 # print('')
 
 # for i in range(nv):

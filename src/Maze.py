@@ -745,6 +745,8 @@ class Maze:
                            level_number=None,
                            only_if_not_yet_calculated=False):  # Only used for printing
 
+        initial_try = tuple(initial_try)
+
         from tqdm import tqdm
         # The main function doesn't use this function
         # The import is here because you need to be able to run the game without tqdm

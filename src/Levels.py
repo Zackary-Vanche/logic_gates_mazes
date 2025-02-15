@@ -189,6 +189,8 @@ class Levels:
                                   lvls.level_forest_partition,),
                               mkc(lvls.level_weights,
                                   lvls.level_sign,)]),
+                         mkc(lvls.level_spanning,
+                             lvls.level_rising_sun,),
                          mkc(lvls.level_sunflower,
                             lvls.level_minimum_spanning_tree,
                             lvls.level_tetractys,
@@ -450,10 +452,10 @@ class Levels:
             try:
                 level_number = level_number % Levels.number_of_levels
                 if Levels.levels_list[level_number] is None:
-                    if fast_solution_finding and len(signature(Levels.levels_modules_list[level_number].f).parameters) > 0:
-                        Levels.levels_list[level_number] = Levels.levels_modules_list[level_number].f(True)
-                    else:
-                        Levels.levels_list[level_number] = Levels.levels_modules_list[level_number].f()
+                    # if fast_solution_finding and len(signature(Levels.levels_modules_list[level_number].f).parameters) > 0:
+                    #     Levels.levels_list[level_number] = Levels.levels_modules_list[level_number].f(True)
+                    # else:
+                    Levels.levels_list[level_number] = Levels.levels_modules_list[level_number].f()
                 else:
                     Levels.levels_list[level_number].reboot_solution()
             except IndexError:
@@ -707,14 +709,14 @@ def test_levels(test_random_levels=False):
                          lvls.level_claw_graph,
                          lvls.level_paw_graph,
                          lvls.level_diamond_graph,
-                         lvls.level_isomorphism]:
+                         lvls.level_isomorphism,
+                         lvls.level_rising_sun,
+                         lvls.level_graceful_random_tree]:
         level = level_module.f()
         print(level.name)
         # for _ in tqdm(range(10)):
         assert len(level_module.f().find_all_solutions()) != 0
-    # print("Graceful random tree")
-    # assert len(lvls.level_graceful_random_tree.f().find_all_solutions()) != 0
-
+    
     if test_random_levels:
         print('\nTesting random levels')
         from numpy import array, median
@@ -794,7 +796,7 @@ if __name__ == "__main__":
 
     test_levels()
     
-    # level = lvls.level_split.f()
+    # level = lvls.level_rising_sun.f()
     # solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True,
     #                                       DFS=False,
     #                                       initial_try=())
@@ -803,8 +805,5 @@ if __name__ == "__main__":
     # print('\n')
     # for sol in solutions[0]:
     #     print(' '.join(sol))
-    
-    # for sol in solutions[0]:
-    #     print(' '.join(sol).count('S'))
     
     
