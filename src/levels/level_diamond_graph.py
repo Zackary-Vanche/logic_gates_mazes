@@ -67,19 +67,19 @@ def f():
     
     value_list = [max(a_list[i], a_list[j])+4*min(a_list[i], a_list[j]) for [i, j] in index_list]
     
-    V8 = Tree(tree_list=Tree.tree_list_IN(5),
+    V8 = Tree(tree_list=Tree.tree_list_IN(6),
                 name='V8',
                 switches=[V4]+value_list)
-    V9 = Tree(tree_list=Tree.tree_list_IN(5),
+    V9 = Tree(tree_list=Tree.tree_list_IN(6),
                 name='V9',
                 switches=[V5]+value_list)
-    V10 = Tree(tree_list=Tree.tree_list_IN(5),
+    V10 = Tree(tree_list=Tree.tree_list_IN(6),
                 name='V10',
                 switches=[V6]+value_list)
-    V11 = Tree(tree_list=Tree.tree_list_IN(5),
+    V11 = Tree(tree_list=Tree.tree_list_IN(6),
                 name='V11',
                 switches=[V7]+value_list)
-    V12 = Tree(tree_list=Tree.tree_list_IN(5),
+    V12 = Tree(tree_list=Tree.tree_list_IN(6),
                 name='V12',
                 switches=[V8]+value_list)
 

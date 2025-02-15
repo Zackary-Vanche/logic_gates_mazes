@@ -705,16 +705,17 @@ def test_levels(test_random_levels=False):
     assert lvls.level_cartesian.f().fastest_solution == ' '.join(sol)
     for level_module in [lvls.level_arithmetic,
                          lvls.level_numeration,
-                         lvls.level_3_cycle,
                          lvls.level_claw_graph,
                          lvls.level_paw_graph,
                          lvls.level_diamond_graph,
+                         lvls.level_3_cycle,
                          lvls.level_isomorphism,
                          lvls.level_graceful_random_tree]:
         level = level_module.f()
         print(level.name)
-        # for _ in tqdm(range(10)):
-        assert len(level_module.f().find_all_solutions()) != 0
+        for _ in tqdm(range(100)):
+            solutions_that_work, nb_iterations, nb_operations = level_module.f().find_all_solutions()
+            assert len(solutions_that_work) != 0
     
     if test_random_levels:
         print('\nTesting random levels')
