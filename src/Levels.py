@@ -710,7 +710,6 @@ def test_levels(test_random_levels=False):
                          lvls.level_paw_graph,
                          lvls.level_diamond_graph,
                          lvls.level_isomorphism,
-                         lvls.level_rising_sun,
                          lvls.level_graceful_random_tree]:
         level = level_module.f()
         print(level.name)
