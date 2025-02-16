@@ -782,7 +782,8 @@ def test_levels(test_random_levels=False):
         n_test = 0
         while time() - t0 < 10 and n_test < 5:
             t1 = time()
-            solutions_that_work, nb_iterations, nb_operations = maze.find_all_solutions(max_calculation_time=max_calculation_time)
+            solutions_that_work, nb_iterations, nb_operations = maze.find_all_solutions(max_calculation_time=max_calculation_time,
+                                                                                        stop_at_first_solution=True)
             if len(solutions_that_work) == 0:
                 if time() - t1 > max_calculation_time:
                     ansi_print(f"{maze.name} solution calculation is too long.",
