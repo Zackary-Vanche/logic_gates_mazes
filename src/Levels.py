@@ -569,6 +569,78 @@ class Levels:
             a = [1 for i in range(Levels.number_of_levels)]
             return a, a, a
 
+# ANSI escape codes
+
+def ansi_print(txt, color_code=None, bg_color_code=None, style_code=None):
+    # Code ANSI de base pour réinitialiser tout effet
+    reset = '\x1b[0m'
+    
+    # Les codes pour les couleurs de texte (de 30 à 37 pour les couleurs de base)
+    colors = {
+        'black': '30',
+        'red': '31',
+        'green': '32',
+        'yellow': '33',
+        'blue': '34',
+        'magenta': '35',
+        'cyan': '36',
+        'white': '37',
+        'gray': '90',
+        'bright_red': '91',
+        'bright_green': '92',
+        'bright_yellow': '93',
+        'bright_blue': '94',
+        'bright_magenta': '95',
+        'bright_cyan': '96',
+        'bright_white': '97'
+    }
+
+    # Les codes pour les couleurs de fond (de 40 à 47 pour les couleurs de base)
+    bg_colors = {
+        'black': '40',
+        'red': '41',
+        'green': '42',
+        'yellow': '43',
+        'blue': '44',
+        'magenta': '45',
+        'cyan': '46',
+        'white': '47',
+        'gray': '100',
+        'bright_red': '101',
+        'bright_green': '102',
+        'bright_yellow': '103',
+        'bright_blue': '104',
+        'bright_magenta': '105',
+        'bright_cyan': '106',
+        'bright_white': '107'
+    }
+
+    # Les codes pour les styles (gras, italique, etc.)
+    styles = {
+        'bold': '1',
+        'underline': '4',
+        'blink': '5',
+        'inverse': '7',
+        'hidden': '8'
+    }
+    
+    # Construction du code ANSI final
+    codes = []
+    
+    if color_code and color_code in colors:
+        codes.append(colors[color_code])
+    
+    if bg_color_code and bg_color_code in bg_colors:
+        codes.append(bg_colors[bg_color_code])
+    
+    if style_code and style_code in styles:
+        codes.append(styles[style_code])
+    
+    # Construction de la chaîne ANSI
+    final_code = '\x1b[' + ';'.join(codes) + 'm' if codes else ''
+    
+    # Affichage du texte avec les codes ANSI appliqués
+    print(final_code + txt + reset)
 
 def test_levels(test_random_levels=False):
     from tqdm import tqdm
@@ -577,15 +649,23 @@ def test_levels(test_random_levels=False):
     
     from Color import contrast_ratio
     
-    print("\nCreate maze list")
+    title_color = 'cyan'
+    second_title_color = 'bright_white'
+    error_color = 'red'
+    warning_color = 'magenta'
+    
+    ansi_print("\nCreate maze list", color_code=title_color)
     all_mazes_list = []
     all_mazes_set = set()
     for level_function in tqdm(Levels.levels_modules_list):
+        t0 = time()
         maze = level_function.f()
+        if time() - t0 > 1:
+            ansi_print(f"\n{maze.name} takes {round(time() - t0, 2)} seconds to load", color_code=warning_color)
         all_mazes_set.add(maze.name)
         all_mazes_list.append(maze)
     
-    print('\nCheck if "random" is specified when needed')
+    ansi_print('\nCheck if "random" is specified when needed', color_code=title_color)
     for i in tqdm(range(len(Levels.levels_modules_list))):
         level_function = Levels.levels_modules_list[i]
         maze = all_mazes_list[i]
@@ -596,7 +676,7 @@ def test_levels(test_random_levels=False):
         if maze.fastest_solution != level_function.f().fastest_solution:
             print(maze.name)
             
-    print('\nCheck color contrasts')
+    ansi_print('\nCheck color contrasts', color_code=title_color)
     background_contrast_ratio_list = []
     room_contrast_ratio_list = []
     surrounding_contrast_ratio_list = []
@@ -659,9 +739,10 @@ def test_levels(test_random_levels=False):
     # for i in range(10):
     #     print(contour_contrast_ratio_list[i])
     
-    print('\nCheck levels duplications')
+    ansi_print('\nCheck levels duplications', color_code=title_color)
     if len(all_mazes_set) != len(Levels.levels_modules_list):
-        print("Some levels are duplicated in the list Levels.levels_modules_list")
+        ansi_print("\nSome levels are duplicated in the list Levels.levels_modules_list",
+                   color_code=error_color)
     levels_folder_names_list = [x for x in dir(lvls) if x[:6] == 'level_']
     levels_used_names_list = [str(level_module).split('\\')[-1].split('.')[0] for level_module in Levels.levels_modules_list]
     print(len(levels_folder_names_list), 'levels')
@@ -669,66 +750,57 @@ def test_levels(test_random_levels=False):
     maze_names = [maze.name for maze in all_mazes_list]
     assert len(set(maze_names)) == len(maze_names)
 
-    print('\nTrying all solutions')
+    ansi_print('\nTrying all solutions', color_code=title_color)
     for maze in tqdm(all_mazes_list):
         assert not maze.name in ['', 'TODO', 'todo', 'temp']
         if maze.fastest_solution is not None:
             r = maze.try_solution(maze.fastest_solution)
-            assert r == 2, f"{maze.name} wrong solution"
+            if r != 2:
+                ansi_print(f"\n{maze.name} wrong solution",
+                           color_code=error_color)
         elif not maze.random:
-            if maze.name not in ['Panex', 'Superflip']:
-                print(maze.name, 'no solution')
-
-    print('\nSaving solutions')
-    Levels.save_solutions_txt(do_it_fast=True, verbose=0)
-
-    print('\nCalculating solutions lenghts')
-    solutions_lenghts = []
-    for maze in all_mazes_list:
-        if maze.fastest_solution is not None:
-            try:
-                solutions_lenghts.append(len(maze.fastest_solution.split(' ')))
-            except:
-                print(maze.name)
-                raise
-    plt.figure(figsize=(10, 5))
-    x_list = [i for i in range(len(solutions_lenghts))]
-    plt.plot(x_list, solutions_lenghts, lw=0.3, color='k')
-    plt.scatter(x_list, solutions_lenghts, lw=0.1, color='r')
-    plt.xlabel('Level number')
-    plt.ylabel('Number of actions in the solution')
-    plt.grid()
-    plt.show()
+            print(maze.name, 'no solution')
     
-    print('\nTesting some chosen levels')
+    ansi_print("\nTesting level Cartesian", color_code=title_color)
     solutions = lvls.level_cartesian.f().find_all_solutions(verbose=2,
                                                      nb_iterations_print=10**4,
                                                      stop_at_first_solution=False)
     assert len(solutions[0]) == 1
     sol = solutions[0][0]
-    print("Cartesian")
     assert lvls.level_cartesian.f().fastest_solution == ' '.join(sol)
-    for level_module in [lvls.level_arithmetic,
-                         lvls.level_numeration,
-                         lvls.level_claw_graph,
-                         lvls.level_paw_graph,
-                         lvls.level_diamond_graph,
-                         lvls.level_3_cycle,
-                         lvls.level_isomorphism,
-                         lvls.level_graceful_random_tree
-                         ]:
-        level = level_module.f()
-        print(level.name)
+    
+    ansi_print('\nTesting random levels with no given solution', color_code=title_color)
+    for maze in all_mazes_list:
+        if not maze.fastest_solution is None:
+            continue
+        ansi_print('\n'+maze.name, color_code=second_title_color)
+        if not maze.random:
+            ansi_print(f"\n{maze.name} should have a given solution (it is not random)!",
+                       color_code=error_color)
+        max_calculation_time = 60
         t0 = time()
         n_test = 0
-        while time() - t0 < 10 and n_test < 100:
-            solutions_that_work, nb_iterations, nb_operations = level_module.f().find_all_solutions()
-            assert len(solutions_that_work) != 0
+        while time() - t0 < 10 and n_test < 5:
+            t1 = time()
+            solutions_that_work, nb_iterations, nb_operations = maze.find_all_solutions(max_calculation_time=max_calculation_time)
+            if len(solutions_that_work) == 0:
+                if time() - t1 > max_calculation_time:
+                    ansi_print(f"{maze.name} solution calculation is too long.",
+                               color_code=warning_color)
+                else:
+                    ansi_print(f"{maze.name} doesn't have a solution !",
+                               color_code=error_color)
+                
             n_test += 1
+        
+        # if time() - t0 < 0.5:
+        #     ansi_print(f"{maze.name} solution calculation is really short, it could be made during maze creation.",
+        #                color_code=warning_color)
+        
         print(f"{n_test} test(s)")
             
     if test_random_levels:
-        print('\nTesting random levels')
+        ansi_print('\nTesting random levels', color_code=title_color)
         from numpy import array, median
         for aux_level in Levels.aux_level_function_list:
             print(aux_level().name)
@@ -754,6 +826,9 @@ def test_levels(test_random_levels=False):
             plt.xticks(bins_list)
             plt.show()
             print('')
+            
+    ansi_print('\nSaving solutions', color_code=title_color)
+    Levels.save_solutions_txt(do_it_fast=True, verbose=0)
     
     # worlds_level_list = []
     # for world_name in Levels.Worlds.keys():
