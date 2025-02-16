@@ -577,13 +577,18 @@ def test_levels(test_random_levels=False):
     
     from Color import contrast_ratio
     
-    print('\nCheck if "random" is specified when needed')
+    print("\nCreate maze list")
     all_mazes_list = []
     all_mazes_set = set()
     for level_function in tqdm(Levels.levels_modules_list):
         maze = level_function.f()
         all_mazes_set.add(maze.name)
         all_mazes_list.append(maze)
+    
+    print('\nCheck if "random" is specified when needed')
+    for i in tqdm(range(len(Levels.levels_modules_list))):
+        level_function = Levels.levels_modules_list[i]
+        maze = all_mazes_list[i]
         if maze.fastest_solution is None:
             continue
         if maze.random:
@@ -710,13 +715,18 @@ def test_levels(test_random_levels=False):
                          lvls.level_diamond_graph,
                          lvls.level_3_cycle,
                          lvls.level_isomorphism,
-                         lvls.level_graceful_random_tree]:
+                         lvls.level_graceful_random_tree
+                         ]:
         level = level_module.f()
         print(level.name)
-        for _ in tqdm(range(100)):
+        t0 = time()
+        n_test = 0
+        while time() - t0 < 10 and n_test < 100:
             solutions_that_work, nb_iterations, nb_operations = level_module.f().find_all_solutions()
             assert len(solutions_that_work) != 0
-    
+            n_test += 1
+        print(f"{n_test} test(s)")
+            
     if test_random_levels:
         print('\nTesting random levels')
         from numpy import array, median

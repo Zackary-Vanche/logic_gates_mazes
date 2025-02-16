@@ -61,26 +61,29 @@ def f():
     V7 = Tree(tree_list=tree_list_V,
               name='V7',
               switches=V_couples[3]+[4]+V_couples[3])
+    V8 = Tree(tree_list=tree_list_V,
+              name='V8',
+              switches=V_couples[4]+[4]+V_couples[4])
     
     a_list = [0, 1, 2, 3]
     rd_shuffle(a_list)
     
     value_list = [max(a_list[i], a_list[j])+4*min(a_list[i], a_list[j]) for [i, j] in index_list]
     
-    V8 = Tree(tree_list=Tree.tree_list_IN(6),
-                name='V8',
-                switches=[V4]+value_list)
     V9 = Tree(tree_list=Tree.tree_list_IN(6),
                 name='V9',
-                switches=[V5]+value_list)
+                switches=[V4]+value_list)
     V10 = Tree(tree_list=Tree.tree_list_IN(6),
                 name='V10',
-                switches=[V6]+value_list)
+                switches=[V5]+value_list)
     V11 = Tree(tree_list=Tree.tree_list_IN(6),
                 name='V11',
-                switches=[V7]+value_list)
+                switches=[V6]+value_list)
     V12 = Tree(tree_list=Tree.tree_list_IN(6),
                 name='V12',
+                switches=[V7]+value_list)
+    V13 = Tree(tree_list=Tree.tree_list_IN(6),
+                name='V13',
                 switches=[V8]+value_list)
 
     T0 = Tree(tree_list=Tree.tree_list_DIFF(4),
@@ -88,22 +91,22 @@ def f():
                 switches=[V0, V1, V2, V3])
     T1 = Tree(tree_list=[None],
                 name='T1',
-                switches=[V8])
+                switches=[V9])
     T2 = Tree(tree_list=[None],
                 name='T2',
-                switches=[V9])
+                switches=[V10])
     T3 = Tree(tree_list=[None],
                 name='T3',
-                switches=[V10])
+                switches=[V11])
     T4 = Tree(tree_list=[None],
                 name='T4',
-                switches=[V11])
+                switches=[V12])
     T5 = Tree(tree_list=[None],
                 name='T5',
-                switches=[V12])
+                switches=[V13])
     T6 = Tree(tree_list=Tree.tree_list_AND(5),
                 name='T6',
-                switches=[V8, V9, V10, V11, V12])
+                switches=[V9, V10, V11, V12, V13])
 
     dx = 1
     dy = 1
@@ -165,6 +168,19 @@ def f():
                 name='D6',
                 room_departure=R1,
                 room_arrival=RE)
+    
+    # sol_list = []
+    # for i, a in enumerate(a_list):
+    #     x = a%2
+    #     y = a//2
+    #     if x:
+    #         sol_list.append(f"S{2*i}")
+    #     if y:
+    #         sol_list.append(f"S{2*i+1}")
+    # sol_list.extend(['D0', 'D6'])
+    # sol = " ".join(sol_list)
+    # print(a_list)
+    # print(sol)
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
