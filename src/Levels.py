@@ -110,7 +110,9 @@ class Levels:
                           mkc(lvls.level_desire_path,
                               lvls.level_connect_the_dots,
                               lvls.level_equality,),
-                          mkc(lvls.level_hamiltonian,
+                          mkc(lvls.level_hamiltonian_path,
+                              lvls.level_traceable_path,
+                              lvls.level_hamiltonian,
                               lvls.level_eulerian,),
                           mkc(lvls.level_random_travelling_salesman,
                               lvls.level_random_bottleneck_travelling_salesman,
@@ -883,7 +885,7 @@ if __name__ == "__main__":
 
     test_levels()
     
-    # level = lvls.level_rising_sun.f()
+    # level = lvls.level_traceable_path.f()
     # solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True,
     #                                       DFS=False,
     #                                       initial_try=())
