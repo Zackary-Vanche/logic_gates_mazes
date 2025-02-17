@@ -275,7 +275,8 @@ class Game:
         if not os_path_exists(current_folder+'/saved_games'):
             os_mkdir(current_folder+'/saved_games')
         self.levels_success_list = [0]*len(Levels.levels_modules_list)
-
+        self.pressed = pygame_key_get_pressed()
+        
     def get_level(self, fast_solution_finding=False):
 
         if self.level_changed or self.get_new_level:
@@ -1509,6 +1510,9 @@ class Game:
                 # has_moved = True
                 self.map_pos_y += -v*nt
             self.last_key_pressed_time = time()
+        if self.pressed[K_ESCAPE]:
+            self.quit_game()
+            self.do_you_quit_game = True
             
     def draw_menu_button(self):
         xmin = 10
@@ -1720,6 +1724,9 @@ class Game:
                 if self.pressed[K_RETURN]:
                     self.create_new_game()
                 self.last_key_pressed_time = time()
+            if self.pressed[K_ESCAPE]:
+                self.quit_game()
+                self.do_you_quit_game = True
                 
     def draw_player_selection_rectangles(self):
         self.WINDOW_WIDTH, self.WINDOW_HEIGHT
