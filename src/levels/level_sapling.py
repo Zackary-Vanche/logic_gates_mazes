@@ -4,6 +4,7 @@ from Door import Door
 from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
+from random import choice as rd_choice
 
 def f(): 
 
@@ -19,17 +20,24 @@ def f():
 
     Slist = [S0, S1, S2, S3, S4, S5, S6, S7, S8]
 
-    T0 = Tree(tree_list=['AND',
-                         ['EQU', Tree.tree_list_SUM(5), [None]],
-                          ['EQU', Tree.tree_list_SUM(3), [None]],
-                          ['EQU', Tree.tree_list_SUM(3), [None]],
-                         ['INFOREQU', Tree.tree_list_SUM(2), Tree.tree_list_SUM(2)],],
+    couples_list = [
+        [S0, S1],
+        [S0, S2],
+        # 0 3
+        [S0, S4],
+        [S1, S2],
+        [S1, S3],
+        [S1, S4],
+        [S2, S3],
+        # 2 4
+        [S3, S4],
+        ]
+    
+    Sa, Sb = rd_choice(couples_list)
+    
+    T0 = Tree(tree_list=Tree.tree_list_NOR(2),
                 name='T0',
-                switches=[S0, S1, S2, S3, S4, 3,
-                          S0, S1, S3, 2,
-                          S1, S2, S4, 1,
-                          S0, S2, S3, S4,
-                          ],
+                switches=[Sa, Sb],
                 cut_expression_depth_1=True)
     T1 = Tree(tree_list=[None],
                 name='T1',
@@ -50,9 +58,9 @@ def f():
                 name='T6',
                 switches=[S5, S6, S7, S8])
 
-    dx = 1.5
+    dx = 1
     dy = 1
-    ex = 0.9
+    ex = 1.2
     ey = 1
 
     R0 = Room(name='R0',
@@ -62,13 +70,13 @@ def f():
                 position=[2*dx, 4*dy, ex, ey],
                 switches_list=[S5])
     R2 = Room(name='R2',
-                position=[0*dx, 2*dy-ey/4, ex, ey],
+                position=[0*dx, 3*dy, ex, ey],
                 switches_list=[S6])
     R3 = Room(name='R3',
                 position=[2*dx, 2*dy, ex, ey],
                 switches_list=[S7])
     R4 = Room(name='R4',
-                position=[4*dx, 2*dy-ey/4, ex, ey],
+                position=[4*dx, 3*dy, ex, ey],
                 switches_list=[S8])
     RE = Room(name='RE',
               position=[2*dx, 0*dy, ex, ey],
@@ -114,14 +122,20 @@ def f():
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6],
-                 fastest_solution="S0 S3 S4 D0 S5 D1 S6 D4 S7 D5 S8 D5 D6",
+                 fastest_solution=None,
                  level_color=get_color(),
-                 name='Bonsai',
+                 name='Sapling',
                  keep_proportions=True,
-                 door_window_size=300)
+                 door_window_size=300,
+                 random=True)
+    
+    initial_try = tuple([f"S{i}" for i in range(4) if not f"S{i}" in [Sa.name, Sb.name]]+["D0"])
+    # print(initial_try)
+    sol = level.find_all_solutions(initial_try=initial_try, stop_at_first_solution=True)
+    level.fastest_solution = ' '.join(sol[0][0])
     
     return level
 
 def get_color():
-    lcolor=Levels_colors_list.FROM_HUE(hu=0.4, sa=0.2, li=0.5)
+    lcolor=Levels_colors_list.FROM_HUE(hu=0.4, sa=0.3, li=0.25)
     return lcolor
