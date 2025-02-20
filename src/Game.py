@@ -1658,7 +1658,7 @@ class Game:
                                 width=2)
 
     def display_map(self):
-        self.WINDOW.fill(Color.color_hls(hu=0.15, li=0.3, sa=0.05))
+        self.WINDOW.fill(Color.color_hls(hu=0.125, li=0.3, sa=0.1))
         self.TOTAL_WIDTH, self.TOTAL_HEIGHT = pygame.display.get_surface().get_size()
         self.WINDOW_WIDTH, self.WINDOW_HEIGHT = self.WINDOW.get_size()
         self.WINDOW_WIDTH = max(self.SMALLEST_WINDOW_SIZE[0], self.WINDOW_WIDTH)
@@ -1811,7 +1811,7 @@ class Game:
                                                    new_game_word_height+7))
         
     def display_player_selection(self):
-        self.WINDOW.fill(Color.color_hls(hu=0.15, li=0.3, sa=0.05))
+        self.WINDOW.fill(Color.color_hls(hu=0.12, li=0.3, sa=0.25))
         self.TOTAL_WIDTH, self.TOTAL_HEIGHT = pygame.display.get_surface().get_size()
         self.WINDOW_WIDTH, self.WINDOW_HEIGHT = self.WINDOW.get_size()
         self.WINDOW_WIDTH = max(self.SMALLEST_WINDOW_SIZE[0], self.WINDOW_WIDTH)

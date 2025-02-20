@@ -1029,7 +1029,7 @@ class Maze:
             ac = door.real_arrival_coordinates
             door.real_middle_coordinates = rp * ac + (1 - rp) * dc
             vect_unit = door.real_arrival_coordinates - door.real_departure_coordinates
-            assert np_linalg_norm(vect_unit) != 0, f"{self.name} {door.name}"
+            assert np_linalg_norm(vect_unit) != 0, f"{self.name} {door.name} {Rd.name} {Ra.name}"
             vect_unit = vect_unit / np_linalg_norm(vect_unit)
             [x, y] = vect_unit
 
