@@ -730,14 +730,14 @@ def test_levels(test_random_levels=False):
     # for cr in line_contrast_ratio_list:
     #     if cr[0] < 2:
     #         print([round(cr[0], 3), cr[1]])
-    # print("\nLevels with worst letter/background contrast ratio:")
-    # for cr in background_contrast_ratio_list:
-    #     if cr[0] < 4.5:
-    #         print([round(cr[0], 3), cr[1]])
-    # print("\nLevels with worst letter/room contrast ratio:")
-    # for cr in room_contrast_ratio_list:
-    #     if cr[0] < 4.5:
-    #         print([round(cr[0], 3), cr[1]])
+    print("\nLevels with worst letter/background contrast ratio:")
+    for cr in background_contrast_ratio_list:
+        if cr[0] < 5:
+            print([round(cr[0], 3), cr[1]])
+    print("\nLevels with worst letter/room contrast ratio:")
+    for cr in room_contrast_ratio_list:
+        if cr[0] < 5:
+            print([round(cr[0], 3), cr[1]])
     # print("\nLevels with worst surrounding_color contrast ratio:")
     # for i in range(10):
     #     print(surrounding_contrast_ratio_list[i])

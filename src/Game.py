@@ -1371,9 +1371,14 @@ class Game:
         self.map_pos_x = max(min(self.map_pos_x, self.map_pos_x_max()), self.map_pos_x_min())
         self.map_pos_y = max(min(self.map_pos_y, self.map_pos_y_max()), self.map_pos_y_min())
 
-    def draw_map_edges(self):
+    def draw_map_edges(self): # TODO
         # Affichage des lignes des portes
-        color_list = [Color.GREY_100, Color.GREY_120, Color.GREY_140, Color.GREY_160, Color.GREY_180]
+        # Color.color_hls(hu=0.125, li=0.3, sa=0.1)
+        color_list = [Color.color_hls(hu=0.125, li=0.4, sa=0.1),
+                      Color.color_hls(hu=0.125, li=0.5, sa=0.1),
+                      Color.color_hls(hu=0.125, li=0.6, sa=0.1),
+                      Color.color_hls(hu=0.125, li=0.7, sa=0.1),
+                      Color.color_hls(hu=0.125, li=0.8, sa=0.1)]
         line_size_list = [10, 8, 6, 4, 2]
         for i in range(len(line_size_list)):
             color = color_list[i]
