@@ -755,6 +755,10 @@ class Game:
                             pygame_draw_rect(self.WINDOW,
                                              self.background_color,
                                              rect)
+                            pygame_draw_rect(self.WINDOW,
+                                             self.surrounding_color,
+                                             rect,
+                                             width=1)
                         else:
                             rectangle_switch = pygame_Rect(position[0] - self.click_rect_size_x / 2,
                                                            position[1] - \
@@ -1295,6 +1299,8 @@ class Game:
                             self.last_key_pressed_time = time()
                             self.change_in_display = True
                         for iR, room in enumerate(self.maze.rooms_list):
+                            if not room.name in self.element_dict.keys():
+                                continue
                             rect = self.element_dict[room.name]
                             if room.name == 'RE':
                                 if point_in_ellipse(event.pos, rect):
@@ -1317,6 +1323,8 @@ class Game:
                                     self.change_in_display = True
                         if not self.level_changed:
                             for door in self.maze.doors_set:
+                                if not door.name in self.element_dict.keys():
+                                    continue
                                 polygon = self.element_dict[door.name]
                                 if point_in_polygon(event.pos, polygon):
                                     self.maze.make_actions(door.name)
@@ -1326,6 +1334,8 @@ class Game:
                                     else:
                                         self.play_footstep()
                             for switch in self.maze.switches_set:
+                                if not switch.name in self.element_dict.keys():
+                                    continue
                                 rect = self.element_dict[switch.name]
                                 if rect.collidepoint(mouse_x, mouse_y):
                                     self.play_click()
@@ -1371,7 +1381,7 @@ class Game:
         self.map_pos_x = max(min(self.map_pos_x, self.map_pos_x_max()), self.map_pos_x_min())
         self.map_pos_y = max(min(self.map_pos_y, self.map_pos_y_max()), self.map_pos_y_min())
 
-    def draw_map_edges(self): # TODO
+    def draw_map_edges(self):
         # Affichage des lignes des portes
         # Color.color_hls(hu=0.125, li=0.3, sa=0.1)
         color_list = [Color.color_hls(hu=0.125, li=0.4, sa=0.1),
@@ -1781,9 +1791,24 @@ class Game:
             pygame_draw_rect(self.WINDOW, [200]*3, saved_game_rect)
             pygame_draw_rect(self.WINDOW, c, saved_game_rect, width=2)
             self.WINDOW.blit(saved_game_surface, (self.WINDOW_WIDTH/4+4, y0+i*(new_game_word_height+15)+4))
+        # ENTER YOUR NAME
+        enter_your_name_surface = self.font.render('ENTER YOUR NAME',
+                                                   True,
+                                                   [0]*3)
+        enter_your_name_word_width, enter_your_name_word_height = enter_your_name_surface.get_size()
+        enter_your_name_rect = pygame_Rect(self.WINDOW_WIDTH/4+max_txt_width+20,
+                                           y0-new_game_word_height-20,
+                                           enter_your_name_word_width+10,
+                                           new_game_word_height+7)
+        pygame_draw_rect(self.WINDOW, [255]*3, enter_your_name_rect)
+        pygame_draw_rect(self.WINDOW, c, enter_your_name_rect, width=2)
+        self.WINDOW.blit(enter_your_name_surface, (self.WINDOW_WIDTH/4+max_txt_width+23,
+                                                   y0-new_game_word_height-15,
+                                                   enter_your_name_word_width+10,
+                                                   new_game_word_height+7))
         # SELECTION
         dt_blink = 1
-        selection_surface = self.font.render(self.player_name_selection+'_',
+        selection_surface = self.font.render(self.player_name_selection+'|',
                                              True,
                                              [0]*3)
         selection_word_width, selection_word_height = selection_surface.get_size()
@@ -1794,26 +1819,11 @@ class Game:
         
         self.selection_rect = pygame_Rect(self.WINDOW_WIDTH/4+max_txt_width+20,
                                           y0,
-                                          selection_word_width+10,
+                                          max(enter_your_name_word_width, selection_word_width)+10,
                                           new_game_word_height+7)
         pygame_draw_rect(self.WINDOW, [255]*3, self.selection_rect)
         pygame_draw_rect(self.WINDOW, c, self.selection_rect, width=2)
         self.WINDOW.blit(selection_surface, (self.WINDOW_WIDTH/4+max_txt_width+20+4, y0+4))
-        # ENTER YOUR NAME
-        enter_your_name_surface = self.font.render('ENTER YOUR NAME',
-                                                   True,
-                                                   [0]*3)
-        word_width, word_height = enter_your_name_surface.get_size()
-        enter_your_name_rect = pygame_Rect(self.WINDOW_WIDTH/4+max_txt_width+20,
-                                           y0-new_game_word_height-20,
-                                           word_width+10,
-                                           new_game_word_height+7)
-        pygame_draw_rect(self.WINDOW, [255]*3, enter_your_name_rect)
-        pygame_draw_rect(self.WINDOW, c, enter_your_name_rect, width=2)
-        self.WINDOW.blit(enter_your_name_surface, (self.WINDOW_WIDTH/4+max_txt_width+23,
-                                                   y0-new_game_word_height-15,
-                                                   selection_word_width+10,
-                                                   new_game_word_height+7))
         
     def display_player_selection(self):
         self.WINDOW.fill(Color.color_hls(hu=0.12, li=0.3, sa=0.25))

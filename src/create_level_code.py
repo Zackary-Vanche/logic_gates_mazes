@@ -1,6 +1,6 @@
-ns = 12+6*2
-nd = 0#12*4+3
-nr = 6*2+1
+ns = 36
+nd = 1
+nr = 1
 nv = 0
 ####
 ####
@@ -159,22 +159,22 @@ room_names_list = [f'R{i}' for i in range(nr)] + ['RE']
 #                 relative_departure_coordinates={rdc},
 #                 relative_arrival_coordinates={rac})''')
 
-# for i in range(nd):
-#     print(f'''    D{i} = Door(two_way=False,
-#                 tree=T{i},
-#                 name='D{i}',
-#                 room_departure=R{i},
-#                 room_arrival=R{i+1})''')
-
 for i in range(nd):
-    print(f'''    Rl{i} = [R, R]
-    if door_directions_list[?]:
-        Rl{i} = Rl{i}[::-1]     
-    D{i} = Door(two_way=False,
+    print(f'''    D{i} = Door(two_way=False,
                 tree=T{i},
                 name='D{i}',
-                room_departure=Rl{i}[0],
-                room_arrival=Rl{i}[1])''')
+                room_departure=R{i},
+                room_arrival=R{i+1})''')
+
+# for i in range(nd):
+#     print(f'''    Rl{i} = [R, R]
+#     if door_directions_list[?]:
+#         Rl{i} = Rl{i}[::-1]     
+#     D{i} = Door(two_way=False,
+#                 tree=T{i},
+#                 name='D{i}',
+#                 room_departure=Rl{i}[0],
+#                 room_arrival=Rl{i}[1])''')
     
 # for i in range(nd):
 #     print(f'''    D{i} = Door(two_way=False,

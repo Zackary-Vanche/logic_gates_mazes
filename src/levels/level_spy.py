@@ -148,7 +148,7 @@ def f():
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10],
                  fastest_solution="S4 D0 S6 D3 S10 D5 S7 D5 D6 S8 D6 D8 S9 D8 D9 S11 D10",
                  level_color=get_color(),
-                 name='Spy',
+                 name='Spy (Fan graph F14 dominating set)',
                  keep_proportions=True,
                  door_window_size=300)
     
