@@ -89,7 +89,7 @@ def f():
             
     old_min_length = min_length
     min_length = ceil(min_length*100)/100
-    assert old_min_length < min_length
+    assert old_min_length <= min_length
             
     # solution_p_list = [p_list[k] for k in solution_permutation]
     # import matplotlib.pyplot as plt
