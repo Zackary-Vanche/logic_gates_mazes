@@ -73,7 +73,6 @@ def f():
     Dl = []
     Ra = Rl.pop()
     Rb = Rl.pop()
-    print(Ra.name, Rb.name)
     R_couples_list = []
     if rd_random() < p:
         R_couples_list.append([Ra, Rb])
