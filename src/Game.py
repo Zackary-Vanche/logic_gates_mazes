@@ -422,7 +422,9 @@ class Game:
                 #    line_size = 1     
 
     def draw_exterior_lines(self):
-        if self.show_map:
+        if self.show_map and self.dev_mode:
+            self.contour_color = [255, 0, 0]
+        if self.show_map and not self.dev_mode:
             self.contour_color = [200]*3
         # Bords exterieurs
         l = 5  # Largeur des bords exterieurs
