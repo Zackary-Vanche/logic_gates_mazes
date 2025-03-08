@@ -535,9 +535,8 @@ class Game:
             word_width, word_height = word_surface.get_size()
             self.WINDOW.blit(
                 word_surface, (self.x_separation - word_width - 105, 10))
-            if not self.dev_mode:
-                self.levels_success_list[self.level_number_dict[self.node]] = 1
-                self.export_level_success_list()
+            self.levels_success_list[self.level_number_dict[self.node]] = 1
+            self.export_level_success_list()
 
     def blit_text(self,
                   text,
@@ -650,49 +649,6 @@ class Game:
                     if self.print_room_name:
                         self.WINDOW.blit(room_name_render,
                                          room.get_name_position())
-
-    def draw_cross(self):
-        [pente_x, coeff_x, pente_y, coeff_y] = self.maze.coordinates_conversion
-        if self.maze.rooms_list == []:
-            return
-        xmin = float('inf')
-        ymin = float('inf')
-        xmax = -float('inf')
-        ymax = -float('inf')
-        for room in self.maze.rooms_list:
-            if self.maze.current_page in room.pages_list:
-                [x_gap, y_gap, x, y] = array(room.user_position[self.maze.current_page])
-                xmin = min(xmin, x_gap)
-                ymin = min(ymin, y_gap)
-                xmax = max(xmax, x_gap+x)
-                ymax = max(ymax, y_gap+y)
-        xmin = int(xmin)
-        xmax = int(xmax)
-        ymin = int(ymin)
-        ymax = int(ymax)
-        cross_size = 5
-        for x in range(xmin, xmax+1):
-            for y in range(ymin, ymax+1):
-                x_screen = pente_x*x + coeff_x
-                y_screen = pente_y*y + coeff_y
-                horizontal_start = (x_screen - cross_size, y_screen)
-                horizontal_end = (x_screen + cross_size, y_screen)
-                vertical_start = (x_screen, y_screen - cross_size)
-                vertical_end = (x_screen, y_screen + cross_size)
-                pygame_draw_line(self.WINDOW,
-                                  self.contour_color,
-                                  horizontal_start,
-                                  horizontal_end,
-                                  3)
-                pygame_draw_line(self.WINDOW,
-                                  self.contour_color,
-                                  vertical_start,
-                                  vertical_end,
-                                  3)
-                self.blit_text(text=f'{x} {y}',
-                               pos=(x_screen+4, y_screen+4),
-                               max_width=50,
-                               color=self.contour_color)
 
     def draw_doors_polygons(self):
         # Affichage des polygones des portes
@@ -910,8 +866,6 @@ class Game:
             self.draw_exterior_lines()
             self.print_buttons()
             self.draw_arrows_buttons()
-            # if self.dev_mode:
-            #     self.draw_cross()
             pygame_display_update()
         except ZeroDivisionError:
             print('The level cannot be loaded.')
@@ -1412,7 +1366,7 @@ class Game:
             previous_node = '_'.join(node.split('_')[:-1])
             success_previous_node = self.levels_success_list[self.level_number_dict[previous_node]]
             success_node = self.levels_success_list[self.level_number_dict[node]]
-            if success_node or self.dev_mode:
+            if success_node:
                 lcolor = self.level_color_dict[node]
             elif node == '' or success_previous_node:
                 lcolor = self.level_color_dict[node]
@@ -1422,7 +1376,7 @@ class Game:
             rect_in = [x+self.dot_radius_x/4, y+0.45*self.dot_radius_y, self.dot_radius_x/2, self.dot_radius_y/2]
             pygame_draw_ellipse(self.WINDOW, lcolor.background_color, rect)
             pygame_draw_ellipse(self.WINDOW, lcolor.room_color, rect_in)
-            if (success_previous_node or node=='') and not success_node and not self.dev_mode:
+            if (success_previous_node or node=='') and not success_node:
                 w = 8
                 a = (sin(time()*4)+1)/2 # between 0 and 1
                 a_min = 0.4

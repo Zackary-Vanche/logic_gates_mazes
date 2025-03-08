@@ -10,6 +10,8 @@ from os.path import exists as os_path_exists
 current_folder = '/'.join(__file__.split('\\')[:-1])
 
 def f(): 
+    
+    filename = current_folder+'/Line_and_columns_random_exits.txt'
 
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
@@ -28,6 +30,15 @@ def f():
     S14 = Switch(name='S14')
     S15 = Switch(name='S15')
     S16 = Switch(name='S16')
+    
+    # Sl = [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16]
+    
+    # if os_path_exists(filename):
+    #     with open(filename, 'r') as fr:
+    #         lines = fr.readlines()
+    #         l = rd_choice(lines)
+    #     for i, x in enumerate(l):
+    #         Sl[i].value = x in ['T', '1']
     
     T0 = Tree(tree_list=[None],
                         name='T0',
@@ -158,7 +169,7 @@ def f():
     T42 = Tree(tree_list=Tree.tree_list_from_str('TF'),
                         name='T42',
                         switches=[S16, S0])
-    filename = current_folder+'/Line_and_columns_random_exits.txt'
+    
     if os_path_exists(filename):
         with open(filename, 'r') as fr:
             lines = fr.readlines()
@@ -169,12 +180,21 @@ def f():
                               Tree.tree_list_from_str(l[8:12]),
                               Tree.tree_list_from_str(l[12:16]),],
                     name='T43',
-                    switches=[S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16],
+                    switches=[S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16],
                     cut_expression_depth_1=True)
     else:
         T43 = Tree(tree_list=[None],
                     name='T43',
                     switches=[S0])
+    
+    # if os_path_exists(filename):
+    #     T43 = Tree(tree_list=Tree.tree_list_NOR(16),
+    #          name='T43',
+    #          switches=Sl)
+    # else:
+    #     T43 = Tree(tree_list=[None],
+    #          name='T43',
+    #          switches=[1])
 
     dx = 1.25
     dy = 1
@@ -527,4 +547,4 @@ def f():
     return level
 
 def get_color():
-    return Levels_colors_list.FROM_HUE(hu=0.85, sa=0.5, li=0.3)
+    return Levels_colors_list.FROM_HUE(hu=0.05, sa=0.5, li=0.3)

@@ -47,10 +47,7 @@ def f():
     
     V5 = Tree(tree_list=Tree.tree_list_EQUSET(4*2),
               name='V5',
-              switches=[V0, V1, V2, V3, 0, 1, 2, 3])
-
-
-    Vlist = [V0, V1, V2, V3, V4]
+              switches=[V1, V2, V3, V4, 0, 1, 2, 3])
     
     tl1 = ["AND", Tree.tree_list_EQU(2), Tree.tree_list_EQU(2)]
     tl2 = ["AND", Tree.tree_list_EQU(2), [None]]
@@ -194,4 +191,7 @@ def f():
     return level
 
 def get_color():
-    return Levels_colors_list.FROM_HUE(hu=0.175, sa=0.9, li=0.15)
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.175, sa=0.5, li=0.15)
+    lcolor.surrounding_color = Color.color_hls(hu=0.175+0.1, sa=1, li=0.7)
+    lcolor.contour_color = Color.color_hls(hu=0.175-0.1, sa=1, li=0.7)
+    return lcolor
