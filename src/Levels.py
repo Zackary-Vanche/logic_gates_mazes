@@ -366,7 +366,8 @@ class Levels:
                          mkc(lvls.level_wasted,
                             lvls.level_rotation,
                             lvls.level_rotation_bis,
-                            lvls.level_the_4th_dimension,),]],
+                            lvls.level_the_4th_dimension,),
+                        lvls.level_order_of_a_permutation,]],
                          mkc(lvls.level_lights_out,
                              lvls.level_line_and_columns,
                              lvls.level_grid),
@@ -661,7 +662,7 @@ def ansi_print(txt, color_code=None, bg_color_code=None, style_code=None):
     # Affichage du texte avec les codes ANSI appliqués
     print(final_code + txt + reset)
 
-def test_levels(test_random_levels=False):
+def test_levels(test_random_levels=False, check_color_contrasts=True):
     from tqdm import tqdm
     import matplotlib.pyplot as plt
     plt.rcParams.update({'font.size': 15})
@@ -683,81 +684,14 @@ def test_levels(test_random_levels=False):
             ansi_print(f"\n{maze.name} takes {round(time() - t0, 2)} seconds to load", color_code=warning_color)
         all_mazes_set.add(maze.name)
         all_mazes_list.append(maze)
-    
-    ansi_print('\nCheck if "random" is specified when needed', color_code=title_color)
-    for i in tqdm(range(len(Levels.levels_modules_list))):
-        level_function = Levels.levels_modules_list[i]
-        maze = all_mazes_list[i]
-        if maze.fastest_solution is None:
-            continue
-        if maze.random:
-            continue
-        if maze.fastest_solution != level_function.f().fastest_solution:
-            print(maze.name)
+        
+    ansi_print("\nCheck level name duplications", color_code=title_color)
+    name_list = [maze.name for maze in all_mazes_list]
+    name_list.sort()
+    for i in range(len(name_list)-1):
+        if name_list[i] == name_list[i+1]:
+            ansi_print(f'''name "{name_list[i]}" duplicated''', color=error_color)
             
-    ansi_print('\nCheck color contrasts', color_code=title_color)
-    background_contrast_ratio_list = []
-    room_contrast_ratio_list = []
-    surrounding_contrast_ratio_list = []
-    contour_contrast_ratio_list = []
-    line_contrast_ratio_list = []
-    for maze in all_mazes_list:
-        lcolor = maze.level_color
-        
-        background_contrast_ratio = contrast_ratio(lcolor.background_color,
-                                                   lcolor.letters_color)
-        
-        line_contrast_ratio = min(contrast_ratio(lcolor.background_color,
-                                                 lcolor.surrounding_color),
-                                  contrast_ratio(lcolor.background_color,
-                                                 lcolor.contour_color))
-        
-        room_contrast_ratio = contrast_ratio(lcolor.room_color,
-                                             lcolor.inside_room_color)
-        
-        surrounding_contrast_ratio = min(contrast_ratio(lcolor.room_color,
-                                                        lcolor.surrounding_color),
-                                         contrast_ratio(lcolor.background_color,
-                                                        lcolor.surrounding_color))
-        
-        contour_contrast_ratio = min(contrast_ratio(lcolor.room_color,
-                                                    lcolor.contour_color),
-                                     contrast_ratio(lcolor.background_color,
-                                                    lcolor.contour_color))
-        
-        background_contrast_ratio_list.append([background_contrast_ratio, maze.name])
-        line_contrast_ratio_list.append([line_contrast_ratio, maze.name])
-        room_contrast_ratio_list.append([room_contrast_ratio, maze.name])
-        surrounding_contrast_ratio_list.append([surrounding_contrast_ratio, maze.name])
-        contour_contrast_ratio_list.append([contour_contrast_ratio, maze.name])
-        # if background_contrast_ratio < threshold_contrast_ratio:
-        #     print(maze.name, f"bad contrast ratio ({background_contrast_ratio}) for letters/background")
-        # if room_contrast_ratio < threshold_contrast_ratio:
-        #     print(maze.name, f"bad contrast ratio ({room_contrast_ratio}) for letters/room")
-    background_contrast_ratio_list.sort(key=lambda x : x[0])
-    line_contrast_ratio_list.sort(key=lambda x : x[0])
-    room_contrast_ratio_list.sort(key=lambda x : x[0])
-    surrounding_contrast_ratio_list.sort(key=lambda x : x[0])
-    contour_contrast_ratio_list.sort(key=lambda x : x[0])
-    # print("\nLevels with worst line/background contrast ratio:")
-    # for cr in line_contrast_ratio_list:
-    #     if cr[0] < 2:
-    #         print([round(cr[0], 3), cr[1]])
-    print("\nLevels with worst letter/background contrast ratio:")
-    for cr in background_contrast_ratio_list:
-        if cr[0] < 5:
-            print([round(cr[0], 3), cr[1]])
-    print("\nLevels with worst letter/room contrast ratio:")
-    for cr in room_contrast_ratio_list:
-        if cr[0] < 5:
-            print([round(cr[0], 3), cr[1]])
-    # print("\nLevels with worst surrounding_color contrast ratio:")
-    # for i in range(10):
-    #     print(surrounding_contrast_ratio_list[i])
-    # print("\nLevels with worst contour_color contrast ratio:")
-    # for i in range(10):
-    #     print(contour_contrast_ratio_list[i])
-    
     ansi_print('\nCheck levels duplications', color_code=title_color)
     if len(all_mazes_set) != len(Levels.levels_modules_list):
         ansi_print("\nSome levels are duplicated in the list Levels.levels_modules_list",
@@ -768,6 +702,81 @@ def test_levels(test_random_levels=False):
     print(set(levels_folder_names_list) - set(levels_used_names_list), 'not used')
     maze_names = [maze.name for maze in all_mazes_list]
     assert len(set(maze_names)) == len(maze_names)
+    
+    ansi_print('\nCheck if "random" is specified when needed', color_code=title_color)
+    for i in tqdm(range(len(Levels.levels_modules_list))):
+        level_function = Levels.levels_modules_list[i]
+        maze = all_mazes_list[i]
+        if maze.fastest_solution is None:
+            continue
+        if maze.random:
+            continue
+        if maze.fastest_solution != level_function.f().fastest_solution:
+            ansi_print(maze.name, color=error_color)
+            
+    if check_color_contrasts:
+        ansi_print('\nCheck color contrasts', color_code=title_color)
+        background_contrast_ratio_list = []
+        room_contrast_ratio_list = []
+        surrounding_contrast_ratio_list = []
+        contour_contrast_ratio_list = []
+        line_contrast_ratio_list = []
+        for maze in all_mazes_list:
+            lcolor = maze.level_color
+            
+            background_contrast_ratio = contrast_ratio(lcolor.background_color,
+                                                       lcolor.letters_color)
+            
+            line_contrast_ratio = min(contrast_ratio(lcolor.background_color,
+                                                     lcolor.surrounding_color),
+                                      contrast_ratio(lcolor.background_color,
+                                                     lcolor.contour_color))
+            
+            room_contrast_ratio = contrast_ratio(lcolor.room_color,
+                                                 lcolor.inside_room_color)
+            
+            surrounding_contrast_ratio = min(contrast_ratio(lcolor.room_color,
+                                                            lcolor.surrounding_color),
+                                             contrast_ratio(lcolor.background_color,
+                                                            lcolor.surrounding_color))
+            
+            contour_contrast_ratio = min(contrast_ratio(lcolor.room_color,
+                                                        lcolor.contour_color),
+                                         contrast_ratio(lcolor.background_color,
+                                                        lcolor.contour_color))
+            
+            background_contrast_ratio_list.append([background_contrast_ratio, maze.name])
+            line_contrast_ratio_list.append([line_contrast_ratio, maze.name])
+            room_contrast_ratio_list.append([room_contrast_ratio, maze.name])
+            surrounding_contrast_ratio_list.append([surrounding_contrast_ratio, maze.name])
+            contour_contrast_ratio_list.append([contour_contrast_ratio, maze.name])
+            # if background_contrast_ratio < threshold_contrast_ratio:
+            #     print(maze.name, f"bad contrast ratio ({background_contrast_ratio}) for letters/background")
+            # if room_contrast_ratio < threshold_contrast_ratio:
+            #     print(maze.name, f"bad contrast ratio ({room_contrast_ratio}) for letters/room")
+        background_contrast_ratio_list.sort(key=lambda x : x[0])
+        line_contrast_ratio_list.sort(key=lambda x : x[0])
+        room_contrast_ratio_list.sort(key=lambda x : x[0])
+        surrounding_contrast_ratio_list.sort(key=lambda x : x[0])
+        contour_contrast_ratio_list.sort(key=lambda x : x[0])
+        # print("\nLevels with worst line/background contrast ratio:")
+        # for cr in line_contrast_ratio_list:
+        #     if cr[0] < 2:
+        #         print([round(cr[0], 3), cr[1]])
+        print("\nLevels with worst letter/background contrast ratio:")
+        for cr in background_contrast_ratio_list:
+            if cr[0] < 5:
+                print([round(cr[0], 3), cr[1]])
+        print("\nLevels with worst letter/room contrast ratio:")
+        for cr in room_contrast_ratio_list:
+            if cr[0] < 5:
+                print([round(cr[0], 3), cr[1]])
+        # print("\nLevels with worst surrounding_color contrast ratio:")
+        # for i in range(10):
+        #     print(surrounding_contrast_ratio_list[i])
+        # print("\nLevels with worst contour_color contrast ratio:")
+        # for i in range(10):
+        #     print(contour_contrast_ratio_list[i])
 
     ansi_print('\nTrying all solutions', color_code=title_color)
     for maze in tqdm(all_mazes_list):
@@ -899,7 +908,7 @@ def calculates_random_level_solution_length(aux_level_function):
 if __name__ == "__main__":
     pass
 
-    test_levels()
+    test_levels(check_color_contrasts=False)
     
     # level = lvls.level_traceable_path.f()
     # solutions = level.find_all_solutions(verbose=3, save_solutions_txt=True,

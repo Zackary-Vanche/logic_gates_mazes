@@ -1,7 +1,7 @@
-ns = 3*6
-nd = 6
-nr = 6
-nv = 18
+ns = 3+3*5*2+3*2
+nd = 10+3+1+1
+nr = 10+3+1
+nv = ns//3
 ####
 ####
 ####
@@ -106,12 +106,12 @@ for i in range(nr):
     # print(f'''    R{i} = Room(name='R{i}',
     #             position=[{x}*dx, {y}*dy, ex, ey],
     #             switches_list=[])''')
+    # print(f'''    R{i} = Room(name='R{i}',
+    #             position=[{x}*dx, {y}*dy, ex, ey],
+    #             switches_list=[])''')
     print(f'''    R{i} = Room(name='R{i}',
                 position=[{x}*dx, {y}*dy, ex, ey],
-                switches_list=[])''')
-    # print(f'''    R{i} = Room(name='R{i}',
-    #             position=position({i}),
-    #             switches_list=[S{i}])''')
+                switches_list=Slist_{i})''')
     
 print('''    RE = Room(name='RE',
               position=[1*dx, 1*dy, ex, ey],
