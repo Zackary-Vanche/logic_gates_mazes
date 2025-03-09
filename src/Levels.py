@@ -276,7 +276,8 @@ class Levels:
                            mkc(lvls.level_the_4_queens,
                                lvls.level_k,
                                lvls.level_the_8_queens,
-                               lvls.level_no_three_in_line,),
+                               lvls.level_no_three_in_line,
+                               lvls.level_combinatorics,),
                            lvls.level_graph_realization_problem,],
                           ]],
                          mkc(lvls.level_claw_graph,
@@ -419,7 +420,6 @@ class Levels:
                          lvls.level_diagonal,
                          lvls.level_sudoku,
                          lvls.level_mols,
-                         lvls.level_combinatorics,
                          lvls.level_zebra,
                          lvls.level_five,
                          lvls.level_shuffled,)
