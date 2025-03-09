@@ -188,10 +188,11 @@ class Game:
         x_positions = [p[0] for p in self.positions_list]
         y_positions = [p[1] for p in self.positions_list]
         self.edges_list = make_edges_list(level_positions)
-        self.dx = 50
         self.dy = 60
+        self.dx = 45
         self.marge = max(self.dx, self.dy)+5
-        self.map_pos_x = self.map_pos_x_max()
+        #root_position = self.level_positions_dict['']
+        self.map_pos_x = self.map_pos_x_max()# - root_position[0] + self.TOTAL_WIDTH/2/self.dx
         self.map_pos_y = self.map_pos_y_max()
         # self.delta_x = 50
         # self.delta_y = 50
