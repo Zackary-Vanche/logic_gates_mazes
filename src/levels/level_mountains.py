@@ -186,4 +186,5 @@ def get_color():
     lcolor.room_color = Color.color_hls(hu=0.6, sa=0.1, li=0.6)
     lcolor.inside_room_color = Color.color_hls(hu=0.4, sa=0.1, li=0.1)
     lcolor.surrounding_color = Color.color_hls(hu=0.1, sa=0.6, li=0.4)
+    lcolor.contour_color = [255, 255, 255]
     return lcolor

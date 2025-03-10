@@ -197,6 +197,6 @@ def f():
 def get_color():
     lcolor = Levels_colors_list.FROM_HUE(hu=0, sa=0.4, li=0.5)
     lcolor.background_color = Color.BLACK
-    lcolor.contour_color = Color.BLACK
+    lcolor.contour_color = Color.WHITE
     lcolor.inside_room_surrounding_color = Color.BLACK
     return lcolor

@@ -340,6 +340,6 @@ def f():
 
 def get_color():
     lcolor = Levels_colors_list.FROM_HUE(hu=0.8, sa=0.1, li=0.3)
-    lcolor.contour_color = Color.GREY_100
+    lcolor.contour_color = Color.PALE_RED
     lcolor.surrounding_color = Color.PALE_RED
     return lcolor

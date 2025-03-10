@@ -750,4 +750,5 @@ def f():
 def get_color():
     lcolor = Levels_colors_list.FROM_HUE(hu=0.1, sa=0.15, li=0.6)
     lcolor.surrounding_color = [255, 255, 255]
+    lcolor.contour_color = [255, 255, 255]
     return lcolor

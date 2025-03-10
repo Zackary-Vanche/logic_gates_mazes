@@ -225,7 +225,7 @@ def get_color():
     lcolor = Level_color(background_color=Color.color_hls(hu, li=0.25, sa=0.05),
                          room_color=Color.color_hls(hu, li=0.5, sa=0.05),
                          letters_color=Color.WHITE,
-                         contour_color=Color.color_hls(hu, li=0.25, sa=1),
+                         contour_color=Color.color_hls(hu, li=0.75, sa=1),
                          inside_room_color=Color.BLACK,
                          surrounding_color=Color.color_hls(hu, li=0.25, sa=1))
     return lcolor

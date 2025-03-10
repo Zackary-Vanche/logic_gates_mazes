@@ -3,7 +3,8 @@ from Tree import Tree
 from Door import Door
 from Room import Room
 from Maze import Maze
-from Levels_colors_list import Levels_colors_list
+from Level_color import Level_color
+from Color import Color
 
 def f():
     
@@ -326,11 +327,17 @@ def f():
     return level
 
 def get_color():
-    return Levels_colors_list.BLACK_AND_WHITE
+    return Level_color(background_color=Color.BLACK,
+                    room_color=Color.GREY_170,
+                    contour_color=Color.WHITE,
+                    letters_color=Color.WHITE,
+                    inside_room_color=Color.BLACK,
+                    surrounding_color=Color.WHITE,
+                    inside_room_surrounding_color=Color.BLACK)
 
 if __name__ == "__main__":
     
-    level = level_tesseract
+    level = f
 
     solutions = level().find_all_solutions(verbose=3,
                                            stop_at_first_solution=False)

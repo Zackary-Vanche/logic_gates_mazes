@@ -3,7 +3,8 @@ from Tree import Tree
 from Door import Door
 from Room import Room
 from Maze import Maze
-from Levels_colors_list import Levels_colors_list
+from Color import Color
+from Level_color import Level_color
 
 def f():
     
@@ -362,11 +363,17 @@ def f():
     return level
 
 def get_color():
-    return Levels_colors_list.BEIGE_AND_BROWN
+    return Level_color(background_color=Color.DARK_BROWN,
+                                  room_color=Color.BRIGHT_KHAKI,
+                                  contour_color=Color.IVORY,
+                                  letters_color=Color.WHITE,
+                                  inside_room_color=Color.BLACK,
+                                  surrounding_color=Color.WHITE,
+                                  inside_room_surrounding_color=Color.BLACK)
 
 if __name__ == "__main__":
     
-    level = level_temple
+    level = f
     
     level().try_solution('''
 D0 S0 D12 D6 D9 S27 D21 D22 D23
