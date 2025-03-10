@@ -125,9 +125,9 @@ def f():
     
     tl = Tree.tree_list_EQU(2)
 
-    T0 = Tree(tree_list=[None],
+    T0 = Tree(tree_list=Tree.tree_list_INF(2),
                 name='T0',
-                switches=[1])
+                switches=[V0, 7])
     
     T1 = Tree(tree_list=tl,
                 name='T1',
@@ -167,9 +167,9 @@ def f():
     T12 = Tree(tree_list=tl,
                 name='T12',
                 switches=[V11, V12])
-    T13 = Tree(tree_list=[None],
+    T13 = Tree(tree_list=Tree.tree_list_INF(2),
                 name='T13',
-                switches=[1])
+                switches=[V12, V0])
     T14 = Tree(tree_list=["AND", Tree.tree_list_EQU(2), Tree.tree_list_INF(5)],
                 name='T14',
                 switches=[V0, V12, V1, V2, V3, V4, V5])
@@ -180,52 +180,75 @@ def f():
     ey = 3*ex
     
     ay = dy/4
+    
+    dhu = 0.125
+    PURPLE = tuple(Color.color_hls(hu=-dhu, li=0.2, sa=1))
+    RED = tuple(Color.color_hls(hu=0, li=0.2, sa=1))
+    ORANGE = tuple(Color.color_hls(hu=+dhu, li=0.2, sa=1))
 
     R0 = Room(name='R0',
                 position=[2*dx, -1*dy, dx+ex, ex],
-                switches_list=Slist_0)
+                switches_list=Slist_0,
+                inside_color=RED)
+    
     R1 = Room(name='R1',
                 position=[1*dx, 0*dy, ex, ey],
-                switches_list=Slist_1)
+                switches_list=Slist_1,
+                inside_color=ORANGE)
     R2 = Room(name='R2',
                 position=[2*dx, -ay, ex, ey],
-                switches_list=Slist_2)
+                switches_list=Slist_2,
+                inside_color=ORANGE)
     R3 = Room(name='R3',
                 position=[3*dx, -2*ay, ex, ey],
-                switches_list=Slist_3)
+                switches_list=Slist_3,
+                inside_color=ORANGE)
     R4 = Room(name='R4',
                 position=[4*dx, -3*ay, ex, ey],
-                switches_list=Slist_4)
+                switches_list=Slist_4,
+                inside_color=ORANGE)
     R5 = Room(name='R5',
                 position=[5*dx, -4*ay, ex, ey],
-                switches_list=Slist_5)
+                switches_list=Slist_5,
+                inside_color=ORANGE)
+    
     R6 = Room(name='R6',
                 position=[5*dx, 1*dy, ex, ey],
-                switches_list=Slist_6)
+                switches_list=Slist_6,
+                inside_color=PURPLE)
     R7 = Room(name='R7',
-                position=[4*dx, 1*dy, ex, ey],
-                switches_list=Slist_7)
+                position=[4*dx, 1*dy-ay, ex, ey],
+                switches_list=Slist_7,
+                inside_color=PURPLE)
     R8 = Room(name='R8',
-                position=[3*dx, 1*dy, ex, ey],
-                switches_list=Slist_8)
+                position=[3*dx, 1*dy-2*ay, ex, ey],
+                switches_list=Slist_8,
+                inside_color=PURPLE)
     R9 = Room(name='R9',
-                position=[2*dx, 1*dy, ex, ey],
-                switches_list=Slist_9)
+                position=[2*dx, 1*dy-ay, ex, ey],
+                switches_list=Slist_9,
+                inside_color=PURPLE)
     R10 = Room(name='R10',
                 position=[1*dx, 1*dy, ex, ey],
-                switches_list=Slist_10)
+                switches_list=Slist_10,
+                inside_color=PURPLE)
+    
     R11 = Room(name='R11',
                 position=[0*dx, 1*dy, ex, ey],
-                switches_list=Slist_11)
+                switches_list=Slist_11,
+                inside_color=RED)
     R12 = Room(name='R12',
                 position=[0*dx, 0*dy-ey/4, ex, ey],
-                switches_list=Slist_12)
+                switches_list=Slist_12,
+                inside_color=RED)
     R13 = Room(name='R13',
                 position=[0*dx, -1*dy, ex, ey/2],
-                switches_list=[])
+                switches_list=[],
+                inside_color=RED)
     RE = Room(name='RE',
               position=[1*dx, -1*dy, ex, ey/2],
-              is_exit=True)
+              is_exit=True,
+              inside_color=RED)
 
     D0 = Door(two_way=False,
                 tree=T0,
@@ -307,16 +330,33 @@ def f():
                 room_departure=R13,
                 room_arrival=RE)
 
+    Dl = [D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14]
+    for D in Dl:
+        Rd = D.room_departure
+        Ra = D.room_arrival
+        hu_l = []
+        cdict = {PURPLE:-dhu,
+                 RED:0,
+                 ORANGE:+dhu}
+        for c in cdict.keys():
+            hu = cdict[c]
+            if Rd.inside_color == c:
+                hu_l.append(hu)
+            if Ra.inside_color == c:
+                hu_l.append(hu)
+        D.inside_color = Color.color_hls(hu=sum(hu_l)/2, li=0.2, sa=1)
+
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, RE],
-                 doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14],
+                 doors_list=Dl,
                  fastest_solution=None,
                  level_color=get_color(),
                  name='Order of a permutation',
                  keep_proportions=True,
                  door_window_size=300,
-                 random=True)
+                 random=True,
+                 uniform_inside_room_color=False)
     
     return level
 

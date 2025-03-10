@@ -363,5 +363,6 @@ def get_color():
     lcolor = Levels_colors_list.FROM_HUE(hu=0.16, sa=0.3, li=0.6)
     lcolor.room_color = Color.CREAM
     lcolor.surrounding_color = Color.ORANGE
+    lcolor.contour_color = Color.ORANGE
     lcolor.letters_color = Color.WHITE
     return lcolor

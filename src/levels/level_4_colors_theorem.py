@@ -3,7 +3,8 @@ from Tree import Tree
 from Door import Door
 from Room import Room
 from Maze import Maze
-from Levels_colors_list import Levels_colors_list
+from Color import Color
+from Level_color import Level_color
 
 # Théorème des 4 couleurs
 def f(fast_solution_finding=False):
@@ -315,4 +316,8 @@ def f(fast_solution_finding=False):
         return level
     
 def get_color():
-    return Levels_colors_list.FOUR_COLORS
+    return Level_color(background_color=Color.BLUE,
+                              room_color=Color.GREEN,
+                              contour_color=Color.color_hls(hu=0, li=0.8, sa=1),
+                              letters_color=Color.BLACK,
+                              inside_room_color=Color.BLACK)

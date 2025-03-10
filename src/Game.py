@@ -1341,11 +1341,10 @@ class Game:
     def draw_map_edges(self):
         # Affichage des lignes des portes
         # Color.color_hls(hu=0.125, li=0.3, sa=0.1)
-        color_list = [Color.color_hls(hu=0.125, li=0.4, sa=0.1),
-                      Color.color_hls(hu=0.125, li=0.5, sa=0.1),
-                      Color.color_hls(hu=0.125, li=0.6, sa=0.1),
-                      Color.color_hls(hu=0.125, li=0.7, sa=0.1),
-                      Color.color_hls(hu=0.125, li=0.8, sa=0.1)]
+        li_min = 0.3
+        li_max = 0.5
+        li_list = [li_min + i*(li_max-li_min)/4 for i in range(5)]
+        color_list = [Color.color_hls(hu=0.125, li=li, sa=0.1) for li in li_list]
         line_size_list = [10, 8, 6, 4, 2]
         for i in range(len(line_size_list)):
             color = color_list[i]
@@ -1630,7 +1629,7 @@ class Game:
                                 width=2)
 
     def display_map(self):
-        self.WINDOW.fill(Color.color_hls(hu=0.125, li=0.3, sa=0.1))
+        self.WINDOW.fill(Color.color_hls(hu=0.125, li=0.25, sa=0.1))
         self.TOTAL_WIDTH, self.TOTAL_HEIGHT = pygame.display.get_surface().get_size()
         self.WINDOW_WIDTH, self.WINDOW_HEIGHT = self.WINDOW.get_size()
         self.WINDOW_WIDTH = max(self.SMALLEST_WINDOW_SIZE[0], self.WINDOW_WIDTH)

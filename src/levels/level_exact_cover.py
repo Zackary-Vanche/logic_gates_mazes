@@ -96,7 +96,7 @@ def f():
 def get_color():
     return Level_color(background_color=Color.color_hls(hu=0.1, sa=0.5, li=0.2),
                        room_color=Color.PURE_ORANGE,
-                       contour_color=Color.BLACK,
+                       contour_color=Color.PURE_ORANGE,
                        letters_color=Color.WHITE,
                        inside_room_color=Color.BLACK,
                        letter_contour_color=Color.BLACK)

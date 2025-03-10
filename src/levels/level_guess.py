@@ -1,4 +1,3 @@
-
 from Switch import Switch
 from Tree import Tree
 from Door import Door
@@ -51,5 +50,7 @@ def f():
     return level
 
 def get_color():
-    return Levels_colors_list.FROM_HUE(hu=rd_random(), sa=0.35, li=0.6)
+    lcolor = Levels_colors_list.FROM_HUE(hu=rd_random(), sa=0.35, li=0.6)
+    lcolor.contour_color = Color.WHITE
+    return lcolor
 

@@ -222,15 +222,15 @@ def f():
                  name='Lights_out',
                  keep_proportions=True,
                  door_window_size=450,
-                 random=True)
+                 random=True,
+                 uniform_inside_room_color=False)
     
     return level
 
 def get_color():
-    lcolor = Levels_colors_list.FROM_HUE(hu=0.2, sa=0.5, li=0.9)
-    lcolor.contour_color = Color.GREY_60
-    lcolor.room_color = Color.BLACK
-    lcolor.inside_room_color = Color.WHITE
-    lcolor.surrounding_color = Color.WHITE
-    # lcolor.letters_color = Color.BLACK
+    lcolor = Levels_colors_list.FROM_HUE(hu=0, sa=0, li=0)
+    lcolor.contour_color = Color.IVORY
+    lcolor.inside_room_color = Color.IVORY
+    lcolor.surrounding_color = Color.IVORY
+    lcolor.room_color = Color.GREY_70
     return lcolor

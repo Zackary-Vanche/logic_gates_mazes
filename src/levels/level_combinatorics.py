@@ -456,4 +456,5 @@ def f(fast_solution_finding=False):
 def get_color():
     lcolor=Levels_colors_list.FROM_HUE(hu=0.75, sa=0.5, li=0.6)
     lcolor.surrounding_color=Color.WHITE
+    lcolor.contour_color=Color.WHITE
     return lcolor

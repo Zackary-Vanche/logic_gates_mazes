@@ -4,6 +4,7 @@ from Door import Door
 from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
+from Color import Color
 
 def f(a=1, b=1, c=1, d=1):
 
@@ -64,4 +65,6 @@ def f(a=1, b=1, c=1, d=1):
     return level
 
 def get_color():
-    return Levels_colors_list.FROM_HUE(hu=0.3, sa=0.4, li=0.7)
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.3, sa=0.4, li=0.7)
+    lcolor.contour_color = Color.color_hls(hu=0.3, sa=0.7, li=0.7)
+    return lcolor

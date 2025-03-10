@@ -430,4 +430,5 @@ def f():
 def get_color():
     lcolor = Levels_colors_list.FROM_HUE(hu=0.7, sa=0.6, li=0.65)
     lcolor.surrounding_color=Color.BRIGHT_YELLOW
+    lcolor.contour_color = Color.BRIGHT_YELLOW
     return lcolor

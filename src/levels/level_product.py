@@ -3,6 +3,7 @@ from Tree import Tree
 from Door import Door
 from Room import Room
 from Maze import Maze
+from Color import Color
 from Levels_colors_list import Levels_colors_list
 from numpy import sqrt
 from random import randint as rd_randint
@@ -61,4 +62,6 @@ def f():
     return level
 
 def get_color():
-    return Levels_colors_list.FROM_HUE(hu=0.5, sa=0.6, li=0.7)
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.5, sa=0.6, li=0.7)
+    lcolor.contour_color = Color.WHITE
+    return lcolor

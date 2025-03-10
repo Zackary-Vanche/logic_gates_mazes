@@ -379,4 +379,5 @@ def get_color():
     lcolor = Levels_colors_list.FROM_HUE(hu=0.65, sa=0.5, li=0.6)
     lcolor.background_color = Color.BLACK_BLUE
     lcolor.surrounding_color = Color.IVORY
+    lcolor.contour_color = Color.IVORY
     return lcolor

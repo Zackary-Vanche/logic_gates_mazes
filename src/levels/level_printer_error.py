@@ -128,6 +128,6 @@ def f():
 def get_color():
     hu = 0.3
     lcolor = Levels_colors_list.FROM_HUE(hu=hu, sa=0.4, li=0.6)
-    lcolor.contour_color = Color.color_hls(hu=1-hu-0.05, sa=1, li=0.5)
+    lcolor.contour_color = Color.color_hls(hu=1-hu-0.05, sa=1, li=0.8)
     lcolor.surrounding_color = Color.color_hls(hu=1-hu+0.05, sa=1, li=0.5)
     return lcolor

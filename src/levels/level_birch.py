@@ -160,4 +160,5 @@ def get_color():
     lcolor = Levels_colors_list.FROM_HUE(hu=0.45, sa=0.4, li=0.65)
     lcolor.surrounding_color = Color.IVORY
     lcolor.room_color = Color.color_hls(hu=0.16, sa=0.005, li=0.65)
+    lcolor.contour_color = Color.IVORY
     return lcolor
