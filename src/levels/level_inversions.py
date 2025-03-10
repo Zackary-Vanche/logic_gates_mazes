@@ -3,8 +3,8 @@ from Tree import Tree
 from Door import Door
 from Room import Room
 from Maze import Maze
+from Color import Color
 from Levels_colors_list import Levels_colors_list
-
 
 def f():
     v = 1
@@ -279,4 +279,6 @@ def f():
     return level
 
 def get_color():
-    return Levels_colors_list.FROM_HUE(hu=0.175, sa=0.9, li=0.7)
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.175, sa=0.9, li=0.7)
+    lcolor.contour_color = Color.color_hls(hu=0.175, sa=1, li=0.85)
+    return lcolor
