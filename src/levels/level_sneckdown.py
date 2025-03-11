@@ -326,7 +326,7 @@ def f():
 def get_color():
     hu = 0
     sa = 0
-    li = 0.8
+    li = 0.6
     lcolor = Level_color(background_color=Color.color_hls(hu, li, sa),
                          room_color=Color.color_hls(hu, li / 4, 0.8 * sa),
                          letters_color=Color.BLACK,

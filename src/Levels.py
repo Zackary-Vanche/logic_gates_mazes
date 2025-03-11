@@ -343,6 +343,7 @@ class Levels:
                              lvls.level_elementary,
                              lvls.level_permutations,
                               mkc(lvls.level_spare,
+                                  lvls.level_exchange,
                                    mkc(lvls.level_classified,
                                       lvls.level_baguenaudier,
                                       lvls.level_towers,
