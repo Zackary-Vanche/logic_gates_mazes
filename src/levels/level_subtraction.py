@@ -14,13 +14,15 @@ def f():
     S1 = Switch(name='S1')
     S2 = Switch(name='S2')
     S3 = Switch(name='S3')
-    
+
     a = rd_randint(0, 15)
     b = rd_randint(0, 15)
 
-    T0 = Tree(tree_list=['EQU', ['PROD', [None], Tree.tree_list_BIN(4)], [None]],
+    T0 = Tree(tree_list=['EQU',
+                         ['SUM', [None], ["MINUS", Tree.tree_list_BIN(4)]],
+                         [None]],
               name='T0',
-              switches=[a, S0, S1, S2, S3, a*b])
+              switches=[a, S0, S1, S2, S3, a-b])
 
     R0 = Room(name='R0',
               position=[0, 0, 1, 1],
@@ -32,8 +34,8 @@ def f():
               tree=T0,
               room_departure=R0,
               room_arrival=RE,
-              relative_departure_coordinates=[0, 1],
-              relative_arrival_coordinates=[0, 1/2])
+              relative_departure_coordinates=[1, 0],
+              relative_arrival_coordinates=[1/2, 0])
     
     sol_list = []
     for i in range(4):
@@ -48,20 +50,16 @@ def f():
                  doors_list=[D0],
                  fastest_solution=' '.join(sol_list),
                  level_color=get_color(),
-                 name='Product',
+                 name='Subtraction',
                  door_window_size=400,
                  keep_proportions=True,
                  y_separation=40,
                  border=40,
                  random=True)
-    
-    # sol_list = level.find_all_solutions()[0]
-    # assert len(sol_list) == 1, f"{a} {b}"
-    # level.fastest_solution = ' '.join(sol_list[0])
 
     return level
 
 def get_color():
-    lcolor = Levels_colors_list.FROM_HUE(hu=0.6, sa=0.6, li=0.7)
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.5, sa=0.6, li=0.7)
     lcolor.contour_color = Color.WHITE
     return lcolor

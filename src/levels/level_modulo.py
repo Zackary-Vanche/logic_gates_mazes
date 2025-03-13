@@ -16,11 +16,11 @@ def f():
     S3 = Switch(name='S3')
     
     a = rd_randint(0, 15)
-    b = rd_randint(0, 15)
+    b = rd_randint(1, 8)
 
-    T0 = Tree(tree_list=['EQU', ['PROD', [None], Tree.tree_list_BIN(4)], [None]],
+    T0 = Tree(tree_list=['EQU', ['MOD', Tree.tree_list_BIN(4), [None]], [None]],
               name='T0',
-              switches=[a, S0, S1, S2, S3, a*b])
+              switches=[S0, S1, S2, S3, b, a%b])
 
     R0 = Room(name='R0',
               position=[0, 0, 1, 1],
@@ -32,14 +32,14 @@ def f():
               tree=T0,
               room_departure=R0,
               room_arrival=RE,
-              relative_departure_coordinates=[0, 1],
-              relative_arrival_coordinates=[0, 1/2])
+              relative_departure_coordinates=[1, 0],
+              relative_arrival_coordinates=[1/2, 0])
     
     sol_list = []
     for i in range(4):
-        if b%2 == 1:
+        if a%2 == 1:
             sol_list.append(f"S{i}")
-        b = b//2
+        a = a//2
     sol_list.append('D0')
 
     level = Maze(start_room_index=0,
@@ -48,7 +48,7 @@ def f():
                  doors_list=[D0],
                  fastest_solution=' '.join(sol_list),
                  level_color=get_color(),
-                 name='Product',
+                 name='Modulo',
                  door_window_size=400,
                  keep_proportions=True,
                  y_separation=40,
@@ -62,6 +62,6 @@ def f():
     return level
 
 def get_color():
-    lcolor = Levels_colors_list.FROM_HUE(hu=0.6, sa=0.6, li=0.7)
+    lcolor = Levels_colors_list.FROM_HUE(hu=0.9, sa=0.6, li=0.7)
     lcolor.contour_color = Color.WHITE
     return lcolor

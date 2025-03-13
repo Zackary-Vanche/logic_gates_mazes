@@ -342,7 +342,6 @@ class Levels:
                               lvls.level_quick_sort,
                               lvls.level_heapsort,
                                lvls.level_pancake_sorting,)],
-                         lvls.level_inversions,
                          mkc(lvls.level_3_cycle,
                              lvls.level_flip,
                              lvls.level_elementary,
@@ -357,6 +356,7 @@ class Levels:
                                            lvls.level_water_pouring,),
                                        mkc(lvls.level_panex,
                                            [lvls.level_vortex,
+                                            lvls.level_inversions,
                                                mkc(lvls.level_oval_track_puzzle,
                                                    lvls.level_hungarian_rings,
                                                    lvls.level_spaceship,),
@@ -384,9 +384,13 @@ class Levels:
                         lvls.level_cattle,
                         lvls.level_herd,),
                     ]),
-                 [lvls.level_sum,
-                 [lvls.level_product,
-                  [lvls.level_arithmetic,
+                 mkc(lvls.level_sum,
+                  lvls.level_subtraction,
+                  lvls.level_product,
+                 [lvls.level_division,
+                  mkc(lvls.level_exponentiation,
+                      lvls.level_modulo,
+                      lvls.level_absolute_value,
                     mkc(lvls.level_one_third,
                         lvls.level_quaternary_cryptarithmetic,
                         lvls.level_two_plus_two_equals_four,
@@ -429,7 +433,7 @@ class Levels:
                          lvls.level_zebra,
                          lvls.level_five,
                          lvls.level_shuffled,)
-                    ],
+                    ),
                   mkc(lvls.level_water_tower,
                       lvls.level_betweenness,
                       lvls.level_nonogram,
@@ -438,7 +442,8 @@ class Levels:
                       lvls.level_hypothesis,
                       lvls.level_dichotomy,
                       lvls.level_mastermind,),
-                  ]],
+                  lvls.level_arithmetic,
+                  ],)
                  ]
     )
     
