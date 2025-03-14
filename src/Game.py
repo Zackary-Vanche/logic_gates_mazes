@@ -1039,10 +1039,7 @@ class Game:
             return
         if len(self.current_action) == 0:
             return
-        if self.current_action.split(' ')[0] in ['SOL',
-                                                 'SOLUTION',
-                                                 'SOL0',
-                                                 'SOL 0',
+        if self.current_action.split(' ')[0] in ['SOLUTION',
                                                  'SOLUTION0',
                                                  'SOLUTION 0']:
             if "0" in self.current_action.split(' ')[0]:
@@ -1063,6 +1060,31 @@ class Game:
             sol_list = self.maze.find_all_solutions(stop_at_first_solution=True,
                                                verbose=1,)[0]
             self.maze.fastest_solution= ' '.join(sol_list[0])
+            if len(self.current_action.split(' ')) == 1:
+                if "0" in self.current_action.split(' ')[0]:
+                    self.show_solution(dt=0)
+                else:
+                    self.show_solution()
+            else:
+                try:
+                    if "0" in self.current_action.split(' ')[0]:
+                        self.show_solution(dt=0)
+                    else:
+                        self.show_solution()
+                except ValueError:
+                    self.show_solution()
+            self.update_possible_actions()
+            print(self.maze.fastest_solution)
+        elif self.current_action.split(' ')[0] in ['SOL',
+                                                   'SOL0',
+                                                   'SOL 0'
+                                                   'SOLVE',
+                                                   'SOLVE0',
+                                                   'SOLVE 0',]:
+            if self.maze.fastest_solution is None:
+                sol_list = self.maze.find_all_solutions(stop_at_first_solution=True,
+                                                   verbose=1,)[0]
+                self.maze.fastest_solution= ' '.join(sol_list[0])
             if len(self.current_action.split(' ')) == 1:
                 if "0" in self.current_action.split(' ')[0]:
                     self.show_solution(dt=0)
