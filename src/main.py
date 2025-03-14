@@ -15,6 +15,7 @@ if __name__ == "__main__":
          is_fullscreen=0,
          # WINDOW_SIZE=None,
          # SMALLEST_WINDOW_SIZE=None,
+         dev_mode=0,
          ).play()
 
     # import cProfile
