@@ -47,7 +47,7 @@ def f():
             SlV = []
             for k in range(n):
                 SlV.extend([Sll[k][i], Sll[k][j]])
-            Vl.append(Tree(tree_list=["SUM"]+[Tree.tree_list_AND(2)]*n,
+            Vl.append(Tree(tree_list=["XOR"]+[Tree.tree_list_AND(2)]*n,
                            name=f'V{len(Vl)}',
                            switches=SlV,
                            cut_expression_depth_1=True))
@@ -67,9 +67,9 @@ def f():
     T4 = Tree(tree_list=[None],
                 name='T4',
                 switches=[1])
-    T5 = Tree(tree_list=Tree.tree_list_EQU(len(Vl)+1),
+    T5 = Tree(tree_list=Tree.tree_list_AND(len(Vl)),
                 name='T5',
-                switches=Vl+[1])
+                switches=Vl)
 
     dx = 1
     dy = 1

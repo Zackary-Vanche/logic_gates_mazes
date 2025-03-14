@@ -28,10 +28,7 @@ def f():
         for i in range(j):
             for k in range(n):
                 SlE.extend([Sll[k][i], Sll[k][j]])
-            SlE.append(1)
-            tlE.append(["EQU",
-                        ["SUM"]+[Tree.tree_list_AND(2)]*n,
-                        [None]])
+            tlE.append(["XOR"]+[Tree.tree_list_AND(2)]*n)
             
     T1 = Tree(tree_list=tlE,
                 name='T1',
