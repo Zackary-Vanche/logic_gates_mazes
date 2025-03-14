@@ -319,7 +319,9 @@ class Levels:
                                lvls.level_harmonious_star)],],
                          ],
                      ],
-                mkc(lvls.level_inside_out,
+                mkc(lvls.level_extrema,
+                    lvls.level_different,
+                    lvls.level_inside_out,
                     [lvls.level_sorted,
                     mkc(lvls.level_invert,
                         [lvls.level_permutate,
@@ -701,7 +703,7 @@ def test_levels(test_random_levels=False, check_color_contrasts=True):
     name_list.sort()
     for i in range(len(name_list)-1):
         if name_list[i] == name_list[i+1]:
-            ansi_print(f'''name "{name_list[i]}" duplicated''', color=error_color)
+            ansi_print(f'''name "{name_list[i]}" duplicated''', color_code=error_color)
             
     ansi_print('\nCheck levels duplications', color_code=title_color)
     if len(all_mazes_set) != len(Levels.levels_modules_list):
@@ -723,7 +725,7 @@ def test_levels(test_random_levels=False, check_color_contrasts=True):
         if maze.random:
             continue
         if maze.fastest_solution != level_function.f().fastest_solution:
-            ansi_print(maze.name, color=error_color)
+            ansi_print(maze.name, color_code=error_color)
             
     if check_color_contrasts:
         ansi_print('\nCheck color contrasts', color_code=title_color)
