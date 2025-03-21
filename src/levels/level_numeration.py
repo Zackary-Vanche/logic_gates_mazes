@@ -16,7 +16,7 @@ def f():
 
     Slist = [S0, S1, S2, S3, S4]
 
-    a = rd_randint(0, 31)
+    a = rd_randint(1, 31)
 
     T0 = Tree(tree_list=['EQU', Tree.tree_list_BIN(len(Slist)), [None]],
               name='T0',

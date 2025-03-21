@@ -15,7 +15,7 @@ def f():
     S2 = Switch(name='S2')
     S3 = Switch(name='S3')
     
-    a = rd_randint(0, 15)
+    a = rd_randint(1, 15)
     b = rd_randint(1, 8)
 
     T0 = Tree(tree_list=['EQU', ['MOD', Tree.tree_list_BIN(4), [None]], [None]],
@@ -64,4 +64,5 @@ def f():
 def get_color():
     lcolor = Levels_colors_list.FROM_HUE(hu=0.9, sa=0.6, li=0.7)
     lcolor.contour_color = Color.WHITE
+    lcolor.surrounding_color = Color.WHITE
     return lcolor

@@ -247,5 +247,5 @@ def f():
 
 def get_color():
     lcolor = Levels_colors_list.FROM_HUE(hu=0.9, sa=1, li=0.2)
-    lcolor.background_color = Color.DARK_RED
+    lcolor.background_color = Color.color_hls(hu=0, sa=0.5, li=0.1)
     return lcolor

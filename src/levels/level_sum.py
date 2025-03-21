@@ -16,7 +16,7 @@ def f():
     S3 = Switch(name='S3')
 
     a = rd_randint(0, 15)
-    b = rd_randint(0, 15)
+    b = rd_randint(1, 15)
 
     T0 = Tree(tree_list=['EQU', ['SUM', [None], Tree.tree_list_BIN(4)], [None]],
               name='T0',
@@ -60,4 +60,5 @@ def f():
 def get_color():
     lcolor = Levels_colors_list.FROM_HUE(hu=0.4, sa=0.6, li=0.7)
     lcolor.contour_color = Color.WHITE
+    lcolor.surrounding_color = Color.WHITE
     return lcolor
