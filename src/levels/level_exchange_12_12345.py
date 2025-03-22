@@ -170,7 +170,7 @@ def f():
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8],
                  fastest_solution=None,
                  level_color=get_color(),
-                 name='Exchange',
+                 name='Exchange ({(12),(12345)})',
                  keep_proportions=True,
                  door_window_size=350,
                  random=True)
@@ -178,6 +178,8 @@ def f():
     return level
 
 def get_color():
-    lcolor = Levels_colors_list.FROM_HUE(hu=0, sa=0.5, li=0.2)
-    lcolor.background_color = Color.BLACK
+    hu = 0.175 + 6/7
+    lcolor = Levels_colors_list.FROM_HUE(hu=hu, sa=0.5, li=0.15)
+    lcolor.surrounding_color = Color.color_hls(hu=hu-0.1, sa=1, li=0.7)
+    lcolor.contour_color = Color.color_hls(hu=hu+0.1, sa=1, li=0.7)
     return lcolor

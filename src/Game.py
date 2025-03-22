@@ -1059,22 +1059,25 @@ class Game:
                                                    'FIND SOLUTION 0']:
             sol_list = self.maze.find_all_solutions(stop_at_first_solution=True,
                                                verbose=1,)[0]
-            self.maze.fastest_solution= ' '.join(sol_list[0])
-            if len(self.current_action.split(' ')) == 1:
-                if "0" in self.current_action.split(' ')[0]:
-                    self.show_solution(dt=0)
-                else:
-                    self.show_solution()
-            else:
-                try:
+            try:
+                self.maze.fastest_solution= ' '.join(sol_list[0])
+                if len(self.current_action.split(' ')) == 1:
                     if "0" in self.current_action.split(' ')[0]:
                         self.show_solution(dt=0)
                     else:
                         self.show_solution()
-                except ValueError:
-                    self.show_solution()
-            self.update_possible_actions()
-            print(self.maze.fastest_solution)
+                else:
+                    try:
+                        if "0" in self.current_action.split(' ')[0]:
+                            self.show_solution(dt=0)
+                        else:
+                            self.show_solution()
+                    except ValueError:
+                        self.show_solution()
+                self.update_possible_actions()
+                print(self.maze.fastest_solution)
+            except IndexError:
+                print("PAS DE SOLUTION")
         elif self.current_action.split(' ')[0] in ['SOL',
                                                    'SOL0',
                                                    'SOL 0'
