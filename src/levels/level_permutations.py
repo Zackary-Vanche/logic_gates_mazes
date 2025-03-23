@@ -325,7 +325,8 @@ def f():
                  level_color=get_color(),
                  name='Permutations',
                  door_window_size=400,
-                 keep_proportions=True)
+                 keep_proportions=True,
+                 random=True)
 
     return level
 
