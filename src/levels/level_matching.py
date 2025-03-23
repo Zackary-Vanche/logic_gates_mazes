@@ -5,6 +5,8 @@ from Room import Room
 from Maze import Maze
 from Color import Color
 from Levels_colors_list import Levels_colors_list
+from Level_color import Level_color
+from Color import Color
 from random import choice as rd_choice
 
 def f(): 
@@ -59,4 +61,11 @@ def f():
     return level
 
 def get_color():
-    return Levels_colors_list.FROM_HUE(hu=0.8, sa=0.3, li=0.2)
+    hu = 0.08
+    lcolor = Level_color(background_color=Color.color_hls(hu, 0, 0.4),
+                         room_color=Color.color_hls(hu, 0.7, 0.2),
+                         letters_color=Color.WHITE,
+                         contour_color=Color.TOTAL_RED,
+                         inside_room_color=Color.BLACK,
+                         surrounding_color=Color.TOTAL_RED)
+    return lcolor

@@ -24,11 +24,11 @@ def f():
     S8 = Switch(name='S8', value=1)
     S9 = Switch(name='S9', value=1)
     
-    Slist_0 = [S0, S1]
-    Slist_1 = [S2, S3]
-    Slist_2 = [S4, S5]
-    Slist_3 = [S6, S7]
-    Slist_4 = [S8, S9]
+    Slist_0 = [S0, S1,]
+    Slist_1 = [S2, S3,]
+    Slist_2 = [S4, S5,]
+    Slist_3 = [S6, S7,]
+    Slist_4 = [S8, S9,]
     V0 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_0)),
           name='V0',
           switches=Slist_0)
@@ -44,44 +44,39 @@ def f():
     V4 = Tree(tree_list=Tree.tree_list_BIN(len(Slist_4)),
           name='V4',
           switches=Slist_4)
-    
     V5 = Tree(tree_list=Tree.tree_list_EQUSET(4*2),
               name='V5',
               switches=[V1, V2, V3, V4, 0, 1, 2, 3])
-    
-    tl1 = ["AND", Tree.tree_list_EQU(2), Tree.tree_list_EQU(2)]
-    tl2 = ["AND", Tree.tree_list_EQU(2), [None]]
 
-    T0 = Tree(tree_list=Tree.tree_list_EQU(2),
+    tl = Tree.tree_list_EQU(2)
+
+    T0 = Tree(tree_list=[None],
                 name='T0',
-                switches=[V0, 0])
-    T1 = Tree(tree_list=tl1,
+                switches=[V5])
+    T1 = Tree(tree_list=[None],
                 name='T1',
-                switches=[V0, 0, V1, V2])
-    T2 = Tree(tree_list=tl2,
+                switches=[V5])
+    T2 = Tree(tree_list=[None],
                 name='T2',
-                switches=[V0, 0, V5])
-    
-    T3 = Tree(tree_list=Tree.tree_list_EQU(2),
+                switches=[V5])
+    T3 = Tree(tree_list=tl,
                 name='T3',
                 switches=[V0, 1])
-    T4 = Tree(tree_list=tl1,
+    T4 = Tree(tree_list=tl,
                 name='T4',
-                switches=[V0, 1, V2, V3])
-    T5 = Tree(tree_list=tl2,
+                switches=[V0, 1])
+    T5 = Tree(tree_list=tl,
                 name='T5',
-                switches=[V0, 1, V5])
-    
-    T6 = Tree(tree_list=Tree.tree_list_EQU(2),
+                switches=[V0, 2])
+    T6 = Tree(tree_list=tl,
                 name='T6',
                 switches=[V0, 2])
-    T7 = Tree(tree_list=tl1,
+    T7 = Tree(tree_list=tl,
                 name='T7',
-                switches=[V0, 2, V3, V4])
-    T8 = Tree(tree_list=tl2,
+                switches=[V0, 3])
+    T8 = Tree(tree_list=tl,
                 name='T8',
-                switches=[V0, 2, V5])
-    
+                switches=[V0, 3])
     l = [0, 1, 2, 3]
     rd_shuffle(l)
     
@@ -93,97 +88,101 @@ def f():
                           V3, l[2],
                           V4, l[3]])
 
-    dx = 1
-    dy = 1
-    ex = 0.4
-    ey = 0.4
+    dx = 0.5
+    dy = 0.5
+    ex = 0.75
+    ey = 0.5
 
     R0 = Room(name='R0',
-                position=[1*dx, 1*dy, ex, ey],
+                position=[5*dx, 6*dy, ex, ey],
                 switches_list=Slist_0)
     R1 = Room(name='R1',
-                position=[2*dx, 1*dy, ex, ey],
-                switches_list=Slist_1)
+                position=[1*dx, 3*dy, ex, ey],
+                switches_list=[])
     R2 = Room(name='R2',
-                position=[1*dx, 0*dy, ex, ey],
-                switches_list=Slist_2)
+                position=[3*dx, 3*dy, ex, ey],
+                switches_list=[])
     R3 = Room(name='R3',
-                position=[0*dx, 1*dy, ex, ey],
-                switches_list=Slist_3)
+                position=[5*dx, 3*dy, ex, ey],
+                switches_list=[])
     R4 = Room(name='R4',
-                position=[1*dx, 2*dy, ex, ey],
+                position=[1*dx, 6*dy, ex, ey],
+                switches_list=Slist_1)
+    R5 = Room(name='R5',
+                position=[1*dx, 1*dy, ex, ey],
+                switches_list=Slist_2)
+    R6 = Room(name='R6',
+                position=[3*dx, 1*dy, ex, ey],
+                switches_list=Slist_3)
+    R7 = Room(name='R7',
+                position=[5*dx, 1*dy, ex, ey],
                 switches_list=Slist_4)
     RE = Room(name='RE',
-              position=[2*dx, 2*dy, ex, ey],
+              position=[3*dx, 6*dy, ex, ey],
               is_exit=True)
     
-    rp = 0.375
+    rp = 0.35
 
-    D0 = Door(two_way=False,
+    D0 = Door(two_way=True,
                 tree=T0,
                 name='D0',
                 room_departure=R0,
-                room_arrival=R1)
-    D1 = Door(two_way=False,
+                room_arrival=R1,
+                relative_position=rp)
+    D1 = Door(two_way=True,
                 tree=T1,
                 name='D1',
-                room_departure=R1,
+                room_departure=R0,
                 room_arrival=R2)
-    D2 = Door(two_way=False,
+    D2 = Door(two_way=True,
                 tree=T2,
                 name='D2',
-                room_departure=R2,
-                room_arrival=R0,
-                relative_position=rp)
-    
-    D3 = Door(two_way=False,
+                room_departure=R0,
+                room_arrival=R3)
+    D3 = Door(two_way=True,
                 tree=T3,
                 name='D3',
-                room_departure=R0,
-                room_arrival=R2,
-                relative_position=rp)
-    D4 = Door(two_way=False,
+                room_departure=R1,
+                room_arrival=R4)
+    D4 = Door(two_way=True,
                 tree=T4,
                 name='D4',
-                room_departure=R2,
-                room_arrival=R3)
-    D5 = Door(two_way=False,
+                room_departure=R1,
+                room_arrival=R5)
+    D5 = Door(two_way=True,
                 tree=T5,
                 name='D5',
-                room_departure=R3,
-                room_arrival=R0,
-                relative_position=rp)
-    
-    D6 = Door(two_way=False,
+                room_departure=R2,
+                room_arrival=R4)
+    D6 = Door(two_way=True,
                 tree=T6,
                 name='D6',
-                room_departure=R0,
-                room_arrival=R3,
-                relative_position=rp)
-    D7 = Door(two_way=False,
+                room_departure=R2,
+                room_arrival=R6)
+    D7 = Door(two_way=True,
                 tree=T7,
                 name='D7',
                 room_departure=R3,
-                room_arrival=R4)
-    D8 = Door(two_way=False,
+                room_arrival=R4,
+                relative_position=1-rp)
+    D8 = Door(two_way=True,
                 tree=T8,
                 name='D8',
-                room_departure=R4,
-                room_arrival=R0)
-    
-    D9 = Door(two_way=False,
+                room_departure=R3,
+                room_arrival=R7)
+    D9 = Door(two_way=True,
                 tree=T9,
                 name='D9',
-                room_departure=R0,
+                room_departure=R2,
                 room_arrival=RE)
 
     level = Maze(start_room_index=0,
                  exit_room_index=-1,
-                 rooms_list=[R0, R1, R2, R3, R4, RE],
+                 rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9],
                  fastest_solution=None,
                  level_color=get_color(),
-                 name='Decomposition ({(12),(23),(34)})',
+                 name='Arrangement ({(12),(13),(14)})',
                  keep_proportions=True,
                  door_window_size=350,
                  random=True)
@@ -191,8 +190,8 @@ def f():
     return level
 
 def get_color():
-    hu = 0.175 + 0.5/7
+    hu = 0.175
     lcolor = Levels_colors_list.FROM_HUE(hu=hu, sa=0.5, li=0.15)
-    lcolor.surrounding_color = Color.color_hls(hu=hu-0.1, sa=1, li=0.7)
-    lcolor.contour_color = Color.color_hls(hu=hu+0.1, sa=1, li=0.7)
+    lcolor.surrounding_color = Color.color_hls(hu=hu+0.1, sa=1, li=0.7)
+    lcolor.contour_color = Color.color_hls(hu=hu-0.1, sa=1, li=0.7)
     return lcolor
