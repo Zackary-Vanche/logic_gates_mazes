@@ -71,13 +71,15 @@ def f():
                         V2, l[2],
                         V3, l[3]])
 
-    ex = 0.6
-    ey = 0.5
-    dx = 2*ex
-    dy = 2*ey
+    ex = 0.7
+    ey = 0.55
+    dx = 1.2
+    dy = 0.8
+    ex0 = 0.4
+    ey0 = 0.4
 
     R0 = Room(name='R0',
-                position=[dx, 0, dx-ex, ey],
+                position=[dx+(ex-ex0)/2, (ey-ey0)/2, ex0, ey0],
                 switches_list=[])
     R1 = Room(name='R1',
                 position=[0, dy, ex, ey],
@@ -92,7 +94,7 @@ def f():
                 position=[2*dx, dy, ex, ey],
                 switches_list=Slist_3)
     RE = Room(name='RE',
-              position=[2*dx, 0, dx-ex, ey],
+              position=[0, -dy, ex, ey],
               is_exit=True)
 
     D0 = Door(two_way=False,
