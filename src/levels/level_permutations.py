@@ -4,7 +4,7 @@ from Door import Door
 from Room import Room
 from Maze import Maze
 from Levels_colors_list import Levels_colors_list
-
+from random import shuffle as rd_shuffle
 
 def f():
     S0 = Switch(name='S0')
@@ -118,55 +118,54 @@ def f():
                         V0, 6,
                         V0, 8,
                         V0, 9])
-
-    T10 = Tree(tree_list=tree_list_OR_BIN4,
+    l = [0, 1, 2, 3, 4]
+    rd_shuffle(l)
+    T10 = Tree(tree_list=["AND", tree_list_OR_BIN4, Tree.tree_list_EQU(2)],
                name='T10',
                switches=[V0, 0,
                          V0, 1,
                          V0, 2,
-                         V0, 3])
-    T11 = Tree(tree_list=tree_list_OR_BIN4,
+                         V0, 3,
+                         V1, l[0]])
+    T11 = Tree(tree_list=["AND", tree_list_OR_BIN4, Tree.tree_list_EQU(2)],
                name='T11',
                switches=[V0, 0,
                          V0, 4,
                          V0, 5,
-                         V0, 6])
-    T12 = Tree(tree_list=tree_list_OR_BIN4,
+                         V0, 6,
+                         V2, l[1]])
+    T12 = Tree(tree_list=["AND", tree_list_OR_BIN4, Tree.tree_list_EQU(2)],
                name='T12',
                switches=[V0, 1,
                          V0, 4,
                          V0, 7,
-                         V0, 8])
-    T13 = Tree(tree_list=tree_list_OR_BIN4,
+                         V0, 8,
+                         V3, l[2]])
+    T13 = Tree(tree_list=["AND", tree_list_OR_BIN4, Tree.tree_list_EQU(2)],
                name='T13',
                switches=[V0, 2,
                          V0, 5,
                          V0, 7,
-                         V0, 9])
-    T14 = Tree(tree_list=tree_list_OR_BIN4,
+                         V0, 9,
+                         V4, l[3]])
+    T14 = Tree(tree_list=["AND", tree_list_OR_BIN4, Tree.tree_list_EQU(2)],
                name='T14',
                switches=[V0, 3,
                          V0, 6,
                          V0, 8,
-                         V0, 9])
+                         V0, 9,
+                         V5, l[4]])
     T15 = Tree(tree_list=['EQUSET'] + [[None]] * 10,
                name='T15',
                switches=[V1, V2, V3, V4, V5, 0, 1, 2, 3, 4])
-    # ['AND',
-    #                       Tree.tree_list_from_str('FFFF'),
-    #                       Tree.tree_list_from_str('FTF'),
-    #                       Tree.tree_list_from_str('FFF'),
-    #                       Tree.tree_list_from_str('FFT'),
-    #                       Tree.tree_list_from_str('TFF'),
-    #                       Tree.tree_list_from_str('TTF'),],
     T16 = Tree(tree_list=['AND'] + [['EQU', [None], [None]]] * 6,
                name='T16',
                switches=[0, V0,
-                         2, V1,
-                         4, V2,
-                         0, V3,
-                         1, V4,
-                         3, V5],
+                         l[0], V1,
+                         l[1], V2,
+                         l[2], V3,
+                         l[3], V4,
+                         l[4], V5],
                cut_expression=True)
 
     ex = 0.925
@@ -322,7 +321,7 @@ def f():
                  exit_room_index=-1,
                  rooms_list=[R0, R1, R2, R3, R4, R5, R6, R7, RE],
                  doors_list=[D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16],
-                 fastest_solution='S0 D0 S5 D5 D7 S11 D12 D15 S2 D1 S8 D6 D8 S14 D13 D15 S0 S1 D1 S7 S8 S9 D6 D9 S16 S17 S18 D14 D15 S1 S2 D16',
+                 fastest_solution=None,
                  level_color=get_color(),
                  name='Permutations',
                  door_window_size=400,

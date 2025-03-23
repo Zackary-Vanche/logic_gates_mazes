@@ -151,12 +151,6 @@ class Levels_colors_list:
                              letters_color=Color.BLACK,
                              letter_contour_color=Color.BLACK)
 
-    PINK = Level_color(background_color=Color.PINK,
-                       room_color=Color.BRIGHT_PINK,
-                       contour_color=Color.BLACK,
-                       letters_color=Color.BLACK,
-                       letter_contour_color=Color.WHITE)
-
     PURPLE_AND_GREY = Level_color(background_color=Color.DARK_BLUE,
                                   room_color=Color.BLUE_GREEN,
                                   contour_color=Color.WHITE,
@@ -172,12 +166,6 @@ class Levels_colors_list:
                                     letters_color=Color.BLACK,
                                     letter_contour_color=Color.BLACK,
                                     inside_room_color=Color.WHITE)
-
-    SALMON_AND_GREY = Level_color(background_color=Color.GREY,
-                                  room_color=Color.SALMON,
-                                  contour_color=Color.BLACK,
-                                  letters_color=Color.BLACK,
-                                  letter_contour_color=Color.WHITE)
 
     WHITE = Level_color(background_color=Color.DIRT_WHITE,
                         room_color=Color.IVORY,

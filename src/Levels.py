@@ -351,6 +351,7 @@ class Levels:
                          mkc(lvls.level_3_cycle,
                              lvls.level_flip,
                              lvls.level_elementary,
+                             lvls.level_transpositions,
                              lvls.level_permutations,
                               mkc(lvls.level_spare,
                                    mkc(lvls.level_classified,
