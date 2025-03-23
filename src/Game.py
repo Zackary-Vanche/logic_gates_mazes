@@ -102,7 +102,7 @@ class Game:
                  update_display_at_every_loop=False,
                  sleep_time=1e-2,
                  game_color=None,
-                 no_music=False,
+                 music_on=True,
                  dev_mode=False):  # if game_color is not None, it overwrites the levels colors
         if WINDOW_SIZE is None or SMALLEST_WINDOW_SIZE is None:
             from pyautogui import size as pyautogui_size
@@ -144,7 +144,7 @@ class Game:
         self.do_you_quit_game = False
         self.player_name = None
         self.player_name_selection = ''
-        self.no_music = no_music
+        self.music_on = music_on
         self.dev_mode = dev_mode
 
     def map_color_setup(self):
@@ -208,12 +208,12 @@ class Game:
 
     def sound_setup(self):
         self.d_volume = 1/8
-        if self.no_music:
-            self.volume = 0
-            self.music_volume = 0
-        else:
+        if self.music_on:
             self.volume = self.d_volume
-            self.music_volume = self.d_volume        
+            self.music_volume = self.d_volume
+        else:
+            self.volume = 0
+            self.music_volume = 0            
         pygame_mixer_init()
         click_sounds_folder = r'sounds/click'
         self.click_sounds_list = [pygame.mixer.Sound(
