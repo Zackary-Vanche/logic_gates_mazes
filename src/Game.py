@@ -1264,17 +1264,20 @@ class Game:
                     if not self.show_help:
                         mouse_x, mouse_y = event.pos
                         if self.map_rect.collidepoint(mouse_x, mouse_y):
+                            self.play_click()
                             self.show_help = True
                             self.show_map = True
                             self.change_in_display = True
                         if self.maze.random:
                             if self.button_new_rect.collidepoint(mouse_x, mouse_y):
+                                self.play_click()
                                 self.get_new_level = True
                                 self.maze = self.level_module.f()
                                 assert isinstance(self.maze, Maze)
                                 self.change_in_display = True
                                 self.update_possible_actions()
                         if self.button_restart_rect.collidepoint(mouse_x, mouse_y):
+                            self.play_click()
                             self.change_in_display = True
                             self.maze.reboot_solution()
                             self.last_key_pressed_time = time()
