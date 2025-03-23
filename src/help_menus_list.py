@@ -4,9 +4,6 @@ help_menus_list['Polish notation'] = """
 In this game, the Polish notation, aka the prefix notation, is in use.
 It means that operators precede their operands."""
 
-help_menus_list['numerical value'] = """
-Sometimes, a switch can be replaced by a numerical value."""
-
 help_menus_list['parenthesis'] = """
 To simplify notations, parentheses are used.
 
@@ -140,8 +137,6 @@ help_menus_list['levels']["Cardinal directions"] = '\n'.join([help_menus_list['p
                                                               help_menus_list['brackets'],])
 
 help_menus_list['levels']["Linear"] = help_menus_list['directions keys']
-
-help_menus_list['levels']["Numeration"] = '\n'.join([help_menus_list['numerical value']])
 
 help_menus_list['levels']["3 SAT"] = """The 3 SAT problem is NP complete."""
 

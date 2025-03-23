@@ -1,7 +1,7 @@
-ns = 6+3*5
-nd = 7
-nr = 7
-nv = 7
+ns = 11
+nd = 5
+nr = 5
+nv = 5
 
 ####
 ####
@@ -33,11 +33,11 @@ print(f'''    Slist = [{', '.join([f'S{i}' for i in range(ns)])}]''')
 # for i in range(nv):
 #     print(f'    Slist_{i} = []')
 
-# for i in range(nv):
-#     print(f'    Slist_{i} = [S{2*i}, S{2*i+1}]')
-
 for i in range(nv):
-    print(f'    Slist_{i} = [S{3*i}, S{3*i+1}, S{3*i+2}]')
+    print(f'    Slist_{i} = [S{2*i}, S{2*i+1}]')
+
+# for i in range(nv):
+#     print(f'    Slist_{i} = [S{3*i}, S{3*i+1}, S{3*i+2}]')
     
 # for i in range(nv):
 #     print(f"    Slist_{i} = Sl_list[{i}]")
@@ -64,17 +64,9 @@ for i in range(nv):
           switches=Slist_{i})''')
     
 # for i in range(nv):
-#     print(f'''    V{i} = Tree(tree_list=Tree.tree_list_BIN(9),
+#     print(f'''    V{i} = Tree(tree_list=["SUM", Tree.tree_list_PROD(2), [None]],
 #           name='V{i}',
-#           switches=Sl[9*{i}:9*{i}+9])''')
-
-for i in range(nv):
-    print(f'''    V{i} = Tree(tree_list=tree_list_V,
-          name='V{i}',
-          switches=[V0, V{i-6}, 0,
-                    V1, V{i-6}, 1,
-                    V2, V{i-6}, 2,
-                    V3, V{i-6}, 3,])''')
+#           switches=[2, S{i}, -1])''')
 
 if nv != 0:
     print('')

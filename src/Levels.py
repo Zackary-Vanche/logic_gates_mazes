@@ -79,7 +79,7 @@ class Levels:
                              lvls.level_dead_ends,
                              lvls.level_keys,]),
                         )),
-                [lvls.level_numeration,
+                [lvls.level_binary_numeral_system,
                  mkc(lvls.level_random_simple,
                   lvls.level_random_bull,
                   lvls.level_random_butterfly,
@@ -453,7 +453,11 @@ class Levels:
                       lvls.level_hypothesis,
                       lvls.level_dichotomy,
                       lvls.level_mastermind,),
-                  lvls.level_arithmetic,
+                  mkc(lvls.level_fibonacci_numeration,
+                      lvls.level_factoradic,
+                      lvls.level_alternating,
+                      lvls.level_balanced_ternary,
+                      lvls.level_arithmetic),
                   ],)
                  ]
     )

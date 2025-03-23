@@ -46,7 +46,7 @@ def f():
                  doors_list=[D0],
                  fastest_solution=None,
                  level_color=get_color(),
-                 name='Numeration',
+                 name='Binary numeral system',
                  door_window_size=450,
                  keep_proportions=True,
                  y_separation=40,
