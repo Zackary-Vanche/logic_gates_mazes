@@ -1,6 +1,6 @@
-ns = 11
-nd = 5
-nr = 5
+ns = 5*3
+nd = 4*2+1+1
+nr = 5+1
 nv = 5
 
 ####
@@ -33,11 +33,11 @@ print(f'''    Slist = [{', '.join([f'S{i}' for i in range(ns)])}]''')
 # for i in range(nv):
 #     print(f'    Slist_{i} = []')
 
-for i in range(nv):
-    print(f'    Slist_{i} = [S{2*i}, S{2*i+1}]')
-
 # for i in range(nv):
-#     print(f'    Slist_{i} = [S{3*i}, S{3*i+1}, S{3*i+2}]')
+#     print(f'    Slist_{i} = [S{2*i}, S{2*i+1}]')
+
+for i in range(nv):
+    print(f'    Slist_{i} = [S{3*i}, S{3*i+1}, S{3*i+2}]')
     
 # for i in range(nv):
 #     print(f"    Slist_{i} = Sl_list[{i}]")

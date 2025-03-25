@@ -13,18 +13,17 @@ def f():
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
     S2 = Switch(name='S2')
-    S3 = Switch(name='S3')
     
-    a = rd_randint(1, 15)
+    a = rd_randint(1, 8)
     b = rd_randint(1, 8)
 
-    T0 = Tree(tree_list=['EQU', ['MOD', Tree.tree_list_BIN(4), [None]], [None]],
+    T0 = Tree(tree_list=['EQU', ['MOD', [None], [None]], Tree.tree_list_BIN(3)],
               name='T0',
-              switches=[S0, S1, S2, S3, b, a%b])
+              switches=[a, b, S0, S1, S2,])
 
     R0 = Room(name='R0',
               position=[0, 0, 1, 1],
-              switches_list=[S0, S1, S2, S3])
+              switches_list=[S0, S1, S2,])
     RE = Room(name='RE',
               position=[1+(sqrt(2)/2-1)/2, 1+(sqrt(2)/2-1)/2, 1, 1],
               is_exit=True)   # E pour exit ou end
@@ -34,6 +33,8 @@ def f():
               room_arrival=RE,
               relative_departure_coordinates=[1, 0],
               relative_arrival_coordinates=[1/2, 0])
+    
+    a = a%b
     
     sol_list = []
     for i in range(4):

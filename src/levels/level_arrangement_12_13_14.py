@@ -189,9 +189,4 @@ def f():
     
     return level
 
-def get_color():
-    hu = 0.175
-    lcolor = Levels_colors_list.FROM_HUE(hu=hu, sa=0.5, li=0.15)
-    lcolor.surrounding_color = Color.color_hls(hu=hu+0.1, sa=1, li=0.7)
-    lcolor.contour_color = Color.color_hls(hu=hu-0.1, sa=1, li=0.7)
-    return lcolor
+get_color = lambda : Levels_colors_list.different_hues(hu_index=4)

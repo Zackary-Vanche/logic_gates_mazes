@@ -56,6 +56,30 @@ class Levels_colors_list:
         from random import random
         return Levels_colors_list.FROM_HUE(random())
     
+    def RANDOM_different_hues():
+        from random import random
+        hu = random()
+        lcolor = Levels_colors_list.FROM_HUE(hu=hu, sa=0.5, li=0.2)
+        if random() > 1/2:
+            lcolor.surrounding_color = Color.color_hls(hu=hu-0.1, sa=1, li=0.7)
+            lcolor.contour_color = Color.color_hls(hu=hu+0.1, sa=1, li=0.7)
+        else:
+            lcolor.surrounding_color = Color.color_hls(hu=hu+0.1, sa=1, li=0.7)
+            lcolor.contour_color = Color.color_hls(hu=hu-0.1, sa=1, li=0.7)
+        return lcolor
+    
+    def different_hues(hu_index, inverse_hues=False):
+        hu = -hu_index/14+0.3
+        lcolor = Levels_colors_list.FROM_HUE(hu=hu, sa=0.5, li=0.2)
+        lcolor.background_color = Color.BLACK
+        if inverse_hues:
+            lcolor.surrounding_color = Color.color_hls(hu=hu-0.15, sa=1, li=0.7)
+            lcolor.contour_color = Color.color_hls(hu=hu+0.15, sa=1, li=0.7)
+        else:
+            lcolor.surrounding_color = Color.color_hls(hu=hu+0.15, sa=1, li=0.7)
+            lcolor.contour_color = Color.color_hls(hu=hu-0.15, sa=1, li=0.7)
+        return lcolor
+    
     
     GREY = FROM_HUE_light_background(hu=0, sa=0, li=0.1)
     

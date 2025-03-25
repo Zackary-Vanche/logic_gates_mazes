@@ -188,5 +188,4 @@ def f():
     
     return level
 
-def get_color():
-    return Levels_colors_list.FROM_HUE(hu=0.92, sa=0.4, li=0.5)
+get_color = lambda : Levels_colors_list.different_hues(hu_index=11, inverse_hues=True)

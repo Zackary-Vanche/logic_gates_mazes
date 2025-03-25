@@ -326,16 +326,12 @@ class Levels:
                     lvls.level_inside_out,
                     lvls.level_sorted,
                     [lvls.level_inverse_permutation,
-                    [lvls.level_invert,
-                        [lvls.level_permutate,
                          mkc(lvls.level_necklace,
                              lvls.level_necklaces_enumeration,
                              lvls.level_necklace_splitting,),
                          lvls.level_superpermutation,
-                        mkc(lvls.level_structure_12_23_24,
-                         lvls.level_decomposition_12_23_34,
-                         lvls.level_arrangement_12_13_14,
-                         [lvls.level_claw_graph_permutations_12_13_14,
+                        mkc(lvls.level_transformation_12_13,
+                         [lvls.level_mutation_12_13,
                          [lvls.level_bubble_sort,
                           mkc(lvls.level_odd_even_sort,
                               lvls.level_cocktail_sort,),
@@ -350,7 +346,6 @@ class Levels:
                                lvls.level_pancake_sorting,)],
                          mkc(lvls.level_3_cycle,
                              lvls.level_flip,
-                             lvls.level_elementary,
                              lvls.level_transpositions,
                              lvls.level_permutations,
                               mkc(lvls.level_spare,
@@ -368,13 +363,21 @@ class Levels:
                                                  lvls.level_parking,)])]),
                                   mkc(lvls.level_first_guarini_s_problem,
                                       lvls.level_second_guarini_s_problem,),
-                                  mkc(lvls.level_temple,
+                                  mkc(lvls.level_elementary,
+                                      lvls.level_temple,
                                       lvls.level_box,
                                       lvls.level_error,),)),
-                         mkc(lvls.level_12_1234,
+                         mkc(lvls.level_structure_12_23_24, # 2
+                             lvls.level_decomposition_12_23_34,
+                             lvls.level_arrangement_12_13_14,
+                             lvls.level_claw_graph_permutations_12_13_14,
+                             lvls.level_12_1234, # 6
                              lvls.level_12_134,
                              lvls.level_123_124,
                              lvls.level_123_1234,
+                             lvls.level_invert, # 10
+                             lvls.level_permutate,
+                             lvls.level_star_permutation,
                              lvls.level_exchange_12_12345,
                              lvls.level_spaceship,
                              lvls.level_oval_track_puzzle,
@@ -389,7 +392,7 @@ class Levels:
                          mkc(lvls.level_lights_out,
                              lvls.level_line_and_columns,
                              lvls.level_grid),
-                         ],]],
+                         ],
                     mkc(lvls.level_alice_and_bob,
                         lvls.level_river,
                         lvls.level_cattle,
@@ -808,10 +811,11 @@ def test_levels(test_random_levels=False, check_color_contrasts=True):
     for maze in tqdm(all_mazes_list):
         assert not maze.name in ['', 'TODO', 'todo', 'temp']
         if maze.fastest_solution is not None:
-            r = maze.try_solution(maze.fastest_solution)
-            if r != 2:
-                ansi_print(f"\n{maze.name} wrong solution",
-                           color_code=error_color)
+            for i in range(1+19*maze.random):
+                r = maze.try_solution(maze.fastest_solution)
+                if r != 2:
+                    ansi_print(f"\n{maze.name} wrong solution",
+                               color_code=error_color)
         elif not maze.random:
             print(maze.name, 'no solution')
     

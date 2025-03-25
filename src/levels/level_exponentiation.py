@@ -13,18 +13,17 @@ def f():
     S0 = Switch(name='S0')
     S1 = Switch(name='S1')
     S2 = Switch(name='S2')
-    S3 = Switch(name='S3')
     
-    a = rd_randint(2, 6)
-    b = rd_randint(1, 15)
+    a = rd_randint(2, 3)
+    b = rd_randint(1, 7)
 
-    T0 = Tree(tree_list=['EQU', ['POW', [None], Tree.tree_list_BIN(4)], [None]],
+    T0 = Tree(tree_list=['EQU', ['POW', [None], Tree.tree_list_BIN(3)], [None]],
               name='T0',
-              switches=[a, S0, S1, S2, S3, a**b])
+              switches=[a, S0, S1, S2, a**b])
 
     R0 = Room(name='R0',
               position=[0, 0, 1, 1],
-              switches_list=[S0, S1, S2, S3])
+              switches_list=[S0, S1, S2,])
     RE = Room(name='RE',
               position=[1+(sqrt(2)/2-1)/2, 1+(sqrt(2)/2-1)/2, 1, 1],
               is_exit=True)   # E pour exit ou end
