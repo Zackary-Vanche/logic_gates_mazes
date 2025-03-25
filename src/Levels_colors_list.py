@@ -71,7 +71,7 @@ class Levels_colors_list:
     def different_hues(hu_index, inverse_hues=False):
         hu = -hu_index/14+0.3
         lcolor = Levels_colors_list.FROM_HUE(hu=hu, sa=0.5, li=0.2)
-        lcolor.background_color = Color.BLACK
+        lcolor.background_color = Color.color_hls(hu=hu+0.5, sa=1, li=0.025)
         if inverse_hues:
             lcolor.surrounding_color = Color.color_hls(hu=hu-0.15, sa=1, li=0.7)
             lcolor.contour_color = Color.color_hls(hu=hu+0.15, sa=1, li=0.7)
