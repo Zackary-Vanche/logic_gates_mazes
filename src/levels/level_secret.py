@@ -3,7 +3,7 @@ from Tree import Tree
 from Door import Door
 from Room import Room
 from Maze import Maze
-from Level_color import Level_color
+from Levels_colors_list import Levels_colors_list
 from Color import Color
 
 def f():
@@ -267,14 +267,4 @@ def f():
     
     return level
 
-def get_color():
-    hu = 0.1
-    sa = 0.1
-    li = 0.5
-    lcolor = Level_color(background_color=Color.color_hls(hu, li, sa),
-                         room_color=Color.color_hls(hu, li / 4, 0.8 * sa),
-                         letters_color=Color.BLACK,
-                         contour_color=Color.color_hls(hu, li=0.5, sa=1),
-                         inside_room_color=Color.WHITE,
-                         surrounding_color=Color.color_hls(hu, li=0.5, sa=1))
-    return lcolor
+get_color = lambda : Levels_colors_list.opposite_hues(4)

@@ -80,6 +80,14 @@ class Levels_colors_list:
             lcolor.contour_color = Color.color_hls(hu=hu-0.15, sa=1, li=0.7)
         return lcolor
     
+    def opposite_hues(hu_index):
+        hu = hu_index*0.3
+        lcolor = Levels_colors_list.FROM_HUE(hu=hu+0.5, sa=0.35, li=0.2)
+        lcolor = Levels_colors_list.FROM_HUE_light_background(hu=hu+0.5, sa=0.35, li=0.05)
+        lcolor.surrounding_color = Color.color_hls(hu=hu, sa=1, li=0.7)
+        lcolor.contour_color = Color.color_hls(hu=hu, sa=1, li=0.7)
+        return lcolor
+    
     
     GREY = FROM_HUE_light_background(hu=0, sa=0, li=0.1)
     

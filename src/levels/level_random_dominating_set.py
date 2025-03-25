@@ -140,9 +140,8 @@ def f():
     return level
 
 def get_color():
-    lcolor = Levels_colors_list.FROM_HUE(hu=0, sa=0.25, li=0.5)
-    hu = rd_random()*0.25-0.25/2
-    c = Color.color_hls(hu=hu, sa=1, li=0.8)
-    lcolor.surrounding_color = c
-    lcolor.contour_color = c
+    hu = rd_random()
+    lcolor = Levels_colors_list.FROM_HUE(hu=hu+0.5, sa=0.35, li=0.15)
+    lcolor.surrounding_color = Color.IVORY
+    lcolor.contour_color = Color.IVORY
     return lcolor

@@ -198,6 +198,4 @@ def f(fast_solution_finding=False):
 
     return level
 
-
-def get_color():
-    return Levels_colors_list.FROM_HUE(0.6)
+get_color = lambda : Levels_colors_list.opposite_hues(2)
