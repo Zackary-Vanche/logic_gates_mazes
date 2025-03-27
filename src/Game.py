@@ -1081,7 +1081,8 @@ class Game:
                     except ValueError:
                         self.show_solution()
                 self.update_possible_actions()
-                print(self.maze.fastest_solution)
+                for sol in sol_list:
+                    print(' '.join(sol))
             except IndexError:
                 print("PAS DE SOLUTION")
         elif self.current_action.split(' ')[0] in ['SOL',
